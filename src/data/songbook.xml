@@ -1,0 +1,29 @@
+<SongbookRootTBD>
+    <Header 
+        organization="The Chattahooligans"
+        description=""
+        update_date=""
+        publish_date=""
+        expiration_date=""
+    />
+    <!-- optional/future use? -->
+    <FrontCover />
+    <Songbook>
+        <Chapter title="Hooligan Hymnal">
+            <!-- we'll probably generate Title from the song json object, but maybe have it here for reference? -->
+            <Song id="1" title="Chattanooga Choo Choo">
+            <Song id="2" title="True Colors">
+            <Song id="3" title="Drink/Sing">
+            <Song id="4" title="Just Can't Get Enough">
+        </Chapter>
+        <Chapter title="Daily Diss Tracks">
+            <Song id="5" title="All My Ex's Live in Texas">
+        </Chapter>
+        <Chapter title="Songs of My People">
+            <Song id="6" title="John Carrier">
+            <Song id="7" title="Zeca Ferraz">
+        </Chapter>
+    </Songbook>
+    <!-- optional/future use? -->
+    <BackCover />
+</SongbookRootTBD>
