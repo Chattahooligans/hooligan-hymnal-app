@@ -1,4 +1,4 @@
-<SongbookRootTBD>
+<Songbook>
     <Header 
         organization="The Chattahooligans"
         description=""
@@ -8,7 +8,7 @@
     />
     <!-- optional/future use? -->
     <FrontCover />
-    <Songbook>
+    <Chapters>
         <Chapter title="Hooligan Hymnal">
             <!-- we'll probably generate Title from the song json object, but maybe have it here for reference? -->
             <Song id="1" title="Chattanooga Choo Choo">
@@ -23,7 +23,7 @@
             <Song id="6" title="John Carrier">
             <Song id="7" title="Zeca Ferraz">
         </Chapter>
-    </Songbook>
+    </Chapters>
     <!-- optional/future use? -->
     <BackCover />
-</SongbookRootTBD>
+</Songbook>
