@@ -2,12 +2,6 @@
   "name": "hymnal-app",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "flow-bin": "^0.56.0",
-    "jest-expo": "25.0.0",
-    "react-native-scripts": "1.10.0",
-    "react-test-renderer": "16.2.0"
-  },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
     "start": "react-native-scripts start",
@@ -22,7 +16,27 @@
   },
   "dependencies": {
     "expo": "^25.0.0",
+    "fbemitter": "^2.1.1",
+    "hoist-non-react-statics": "^2.3.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.20.1",
+    "moment-timezone": "^0.5.14",
     "react": "16.2.0",
-    "react-native": "0.52.0"
+    "react-native": "0.52.0",
+    "react-native-animatable": "^1.2.4",
+    "react-native-fade-in-image": "^1.3.0",
+    "react-native-read-more-text": "^1.0.0",
+    "react-native-resource-saving-container": "^1.0.2",
+    "react-navigation": "^1.0.0-beta.27"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.16.0",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-react-native": "^3.2.1",
+    "flow-bin": "^0.56.0",
+    "jest-expo": "^25.0.0",
+    "react-native-scripts": "1.10.0",
+    "react-test-renderer": "^16.2.0"
   }
 }
