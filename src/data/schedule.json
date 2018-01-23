@@ -1,0 +1,496 @@
+[
+  {
+   "title": "Sunday",
+    "date": "November 26, 2017",
+    "slots": [
+      {
+        "talk" : false,
+        "party": true,
+        "keynote": false,
+        "time" : "6:00 pm",
+        "title" : "Nashville Software School Kickoff Party",
+        "photo" : "http://nodevember.org/img/sponsors/nss.png",
+        "room": "Nashville Software School",
+        "summary" : "Come celebrate the start of Nodevember 2017! Join us for snacks, drinks, and shenanigans as we prepare for 2 days of Javascript fun.\n\nMeeple Mountain, host of Nashville's Board Game Meet-up, will host our evening of board games, antics and prizes at Nashville Software School (NSS).\n\nAlso plenty of time to catch up with familiar faces and mingle with new friends over craft beer, wine, and heavy hors d'oeuvres.\n\nYour Nodevember conference ticket is required for admission to the Kickoff.\n\nCome join us!"
+      }
+    ]
+  },
+  {
+   "title": "Monday",
+    "date": "November 27, 2017",
+    "slots": [
+      {
+        "talk" : false,
+        "keynote": false,
+        "room": "Rec Center",
+        "summary": "",
+        "time" : "8:00 - 9:00 am",
+        "title" : "Breakfast and Registration"
+      },
+      {
+        "talk" : false,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "9:00 - 9:15 am",
+        "title" : "Opening Remarks"
+      },
+      {
+        "talk" : true,
+        "keynote": true,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "9:15 - 10:15 am",
+        "title" : "Keynote - What is Community Engineering?",
+        "speaker": "Kim Crayton"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
+        "summary": "",
+        "time" : "10:35 - 11:05 am",
+        "title" : "Fantastic Components and How to Find Them",
+        "speaker": "Jayraj Jog"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "140 Board of Trust Room, Student Life Center",
+        "summary": "",
+        "time" : "10:35 - 11:05 am",
+        "title" : "Oh Node You Didn't!",
+        "speaker": "Stephanie Provence"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "10:35 - 11:05 am",
+        "title" : "Impress your friends - Build a Smart Photobooth!",
+        "speaker": "Hao Luo"
+      },
+      {
+        "talk" : false,
+        "keynote": false,
+        "room": "Sarratt 216/220",
+        "summary": "",
+        "time" : "10:35 - 11:05 am",
+        "title" : "Lightning Talks"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
+        "summary": "",
+        "time" : "11:25 - 11:55 am",
+        "title" : "Unlocking the Mysteries of an Unfamiliar Codebase",
+        "speaker": "Randy Cox"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "140 Board of Trust Room, Student Life Center",
+        "summary": "",
+        "time" : "11:25 - 11:55 am",
+        "title" : "Instant Mobile Web: An Accelerated Mobile Pages primer",
+        "speaker": "Lisa Huang"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "11:25 - 11:55 am",
+        "title" : "Demystifying D3 With the Help of Shakespeare",
+        "speaker": "Delaine Wendling"
+      },
+      {
+        "talk" : false,
+        "keynote": false,
+        "time" : "11:55 am - 1:30pm",
+        "room": "Rec Center",
+        "title" : "Lunch",
+        "summary": ""
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
+        "summary": "",
+        "time" : "1:30 - 2:00 pm",
+        "title" : "Driven! Events, State Machines and Node",
+        "speaker": "Beat Zenerino"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "140 Board of Trust Room, Student Life Center",
+        "summary": "",
+        "time" : "1:30 - 2:00 pm",
+        "title" : "React: A Romance of Many Dimensions",
+        "speaker": "Matt Hamil"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "1:30 - 2:00 pm",
+        "title": "Using npm scripts as your build tool",
+        "speaker": "Elijah Manor"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "Sarratt 216/220",
+        "summary": "",
+        "time" : "1:30 - 4:30 pm",
+        "title" : "Learn About Nodebots: Node.js + Robotics + IoT Workshop",
+        "speaker": "Gabrielle Crevecoeur"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
+        "summary": "",
+        "time" : "2:20 - 2:50 pm",
+        "title" : "The State of Node Core",
+        "speaker": "Colin Ihrig"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "140 Board of Trust Room, Student Life Center",
+        "summary": "",
+        "time" : "2:20 - 2:50 pm",
+        "title" : "GraphQL For The Rest Of Us: New things for people who work on old things",
+        "speaker": "Eric Baer"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "2:20 - 2:50 pm",
+        "title" : "The Node.js Event Loop: Not So Single Threaded",
+        "speaker": "Bryan Hughes"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
+        "summary": "",
+        "time" : "3:10 - 3:40 pm",
+        "title" : "How to embed security into your process",
+        "speaker": "Timothy De Block"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "140 Board of Trust Room, Student Life Center",
+        "summary": "",
+        "time" : "3:10 - 3:40 pm",
+        "title" : "Express yourself with Typescript and React",
+        "speaker": "Jonathan Creamer"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "3:10 - 3:40 pm",
+        "title" : "Intro to Docker: Fixing the 'it works on my machine' Problem",
+        "speaker": "Jared M. Smith"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
+        "summary": "",
+        "time" : "4:00 - 4:30 pm",
+        "title" : "Accessibility - Myths and Methods",
+        "speaker": "Lyle Reed"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "140 Board of Trust Room, Student Life Center",
+        "summary": "",
+        "time" : "4:00 - 4:30 pm",
+        "title" : "Kubernetes at npm",
+        "speaker": "Alex Robson"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "4:00 - 4:30 pm",
+        "title": "Upgrading an AngularJS Directive to Angular Component",
+        "speaker": "Sergio Cruz"
+      },
+      {
+        "talk" : false,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "4:50 - 5:00 pm",
+        "title" : "Closing Remarks"
+      },
+      {
+        "talk" : true,
+        "keynote": true,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "5:00 - 6:00 pm",
+        "title" : "Keynote - Welcome to the new npm",
+        "speaker": "Laurie Voss"
+      }
+    ]
+  },
+  {
+   "title": "Tuesday",
+    "date": "November 28, 2017",
+    "slots": [
+      {
+        "talk" : false,
+        "keynote": false,
+        "room": "Rec Center",
+        "summary": "",
+        "time" : "8:00 - 9:00 am",
+        "title" : "Breakfast"
+      },
+      {
+        "talk" : false,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "9:00 - 9:15 am",
+        "title" : "Opening Remarks"
+      },
+      {
+        "talk" : true,
+        "keynote": true,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "9:15 - 10:15 am",
+        "title" : "Keynote - It's Not Dark Magic - Pulling Back the Curtains From Your Stylesheets",
+        "speaker": "Aimee Knight"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
+        "summary": "",
+        "time" : "10:35 - 11:05 am",
+        "title" : "Empathy As A Service: Supporting Mental Health in the Tech Workplace",
+        "speaker": "Nara Kasbergen"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "140 Board of Trust Room, Student Life Center",
+        "summary": "",
+        "time" : "10:35 - 11:05 am",
+        "title" : "Hit it With a Hammer or Light it on Fire: Lessons on being a newbie developer from an old car",
+        "speaker": "Tracey Berg-Fulton"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "10:35 - 11:05 am",
+        "title" : "10KB or Bust: The Delicate Power of Webpack and Babel",
+        "speaker": "Brian Holt"
+      },
+      {
+        "talk" : false,
+        "keynote": false,
+        "room": "Sarratt 216/220",
+        "summary": "",
+        "time" : "10:35 - 11:05 am",
+        "title" : "Open Spaces"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
+        "summary": "",
+        "time" : "11:25 - 11:55 am",
+        "title" : "Get More Done with Vue.js",
+        "speaker": "Jonathan Kemp"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "140 Board of Trust Room, Student Life Center",
+        "summary": "",
+        "time" : "11:25 - 11:55 am",
+        "title" : "React + Charts, With And Without Libraries",
+        "speaker": "Christina Holland"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "11:25 - 11:55 am",
+        "title" : "What's New in TypeScript?",
+        "speaker": "Doris Chen"
+      },
+      {
+        "talk" : false,
+        "keynote": false,
+        "time" : "11:55 am - 1:30 pm",
+        "room": "Rec Center",
+        "title" : "Lunch",
+        "summary": ""
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "Sarratt 216/220",
+        "summary": "",
+        "time" : "1:30 - 4:30 pm",
+        "title" : "APIs, But Better: An Intro to GraphQL and Apollo",
+        "speaker": "Eve Porcello"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
+        "summary": "",
+        "time" : "1:30 - 2:00 pm",
+        "title" : "Asynchrony: Under the Hood",
+        "speaker": "Shelley Vohr"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "140 Board of Trust Room, Student Life Center",
+        "summary": "",
+        "time" : "1:30 - 2:00 pm",
+        "title" : "Let’s JavaScript Like It’s 1927",
+        "speaker": "Mike Lazer-Walker"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "1:30 - 2:00 pm",
+        "title" : "Creating a Reusable React Component Library",
+        "speaker": "Cory House"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
+        "summary": "",
+        "time" : "2:20 - 2:50 pm",
+        "title" : "Wonder Woman Wannabe",
+        "speaker": "Loretta Stokes"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "140 Board of Trust Room",
+        "summary": "",
+        "time" : "2:20 - 2:50 pm",
+        "title" : "Functional Programming In React",
+        "speaker": "Tyson Cadenhead"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "2:20 - 2:50 pm",
+        "title" : "Brain-Computer Interfaces in Node",
+        "speaker": "Alex Castillo"
+      },
+      {
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
+        "time" : "3:10 - 3:40 pm",
+        "talk" : true,
+        "keynote": false,
+        "title" : "Visual Studio Code Can Do THAT?!?",
+        "speaker": "Burke H✪lland"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "140 Board of Trust Room, Student Life Center",
+        "summary": "",
+        "time" : "3:10 - 3:40 pm",
+        "title" : "Choose Your Own Deployment: Interactive Feature Flag Adventure",
+        "speaker": "Heidi Waterhouse"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "3:10 - 3:40 pm",
+        "title" : "Continuous Testing With React, Storybook, and WebdriverIO",
+        "speaker": "Josh Cypher"
+      },
+      {
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
+        "time" : "4:00 - 4:30 pm",
+        "talk" : true,
+        "keynote": false,
+        "speaker": "David Neal",
+        "title": "FSGD and the Art of Delivering Value"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "140 Board of Trust Room, Student Life Center",
+        "summary": "",
+        "time" : "4:00 - 4:30 pm",
+        "title" : "A Shiny New Way of Rendering",
+        "speaker": "Ryan Tablada"
+      },
+      {
+        "talk" : true,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "4:00 - 4:30 pm",
+        "title" : "How Live Coding Changed My Life",
+        "speaker": "Jesse R Weigel"
+      },
+      {
+        "talk" : false,
+        "keynote": false,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "4:50 - 5:00 am",
+        "title" : "Closing Remarks"
+      },
+      {
+        "talk" : true,
+        "keynote": true,
+        "room": "132 Commodore Ballroom, Student Life Center",
+        "summary": "",
+        "time" : "5:00 - 6:00 pm",
+        "title" : "Keynote - Why choose React?",
+        "speaker": "Ben Ilegbodu"
+      },
+      {
+        "talk" : false,
+        "party": true,
+        "keynote": false,
+        "time" : "7:00 pm",
+        "title" : "After Party",
+        "photo" : "http://nodevember.org/img/sponsors/heroku.png",
+        "room": "Ruby Nashville",
+        "summary": "Nodevember 2017 will wrap up at the beautiful Ruby Nashville, walking distance from the conference. [Heroku](https://www.heroku.com) helps us get our party on and send out the conference with a bang. Join us for drinks, music, and discussions on our favorite Nodevember moments - and maybe even a little origami.\n\nYour Nodevember 2017 conference ticket is required for admission to the Nodevember After Party at Ruby."
+      }
+    ]
+  }
+]
