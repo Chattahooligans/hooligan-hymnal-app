@@ -3,9 +3,10 @@ import moment from 'moment';
 
 export const Speakers = [
   ...require('../data/speakers.json'),
-  ...require('../data/keynotes.json'),
+  ...require('../data/keynotes.json')
 ];
 export const Schedule = require('../data/schedule.json');
+export const Songs = require('../data/songs.json');
 export const Talks = _.chain(Schedule)
   .map(day =>
     day.slots.map(slot => {
@@ -66,6 +67,10 @@ export function findNextTalksAfterDate(date = new Date(), allTalks = Talks) {
   }
 }
 
+export function getFeaturedSongs(allSongs = Songs) {
+  return [_.sample(allSongs)];
+}
+
 export function findRandomTalk(allTalks = Talks) {
   return [_.sample(allTalks)];
 }
@@ -77,13 +82,13 @@ const NextYearTalk = {
   summary: '',
   time: '-',
   title: 'Chattahooligans',
-  speaker: 'Maybe you?',
+  speaker: 'Maybe you?'
 };
 
 export function findTalkData(speakerName) {
   return _.find(Talks, talk => talk.speaker === speakerName);
 }
 
-export function findSpeakerData(speakerName) {
+export function findSongData(speakerName) {
   return _.find(Speakers, speaker => speaker.name === speakerName);
 }

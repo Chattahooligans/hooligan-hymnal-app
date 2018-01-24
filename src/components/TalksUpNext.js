@@ -3,45 +3,47 @@ import { Image, Platform, StyleSheet, View } from 'react-native';
 import moment from 'moment-timezone';
 
 import { BoldText, RegularText, SemiBoldText } from './StyledText';
-import TalkCard from './TalkCard';
+import SongCard from './SongCard';
 import { Colors, FontSizes } from '../constants';
-import { findRandomTalk, findNextTalksAfterDate } from '../data';
+import {
+  findRandomTalk,
+  findNextTalksAfterDate,
+  getFeaturedSongs
+} from '../data';
 import { conferenceHasEnded } from '../utils';
 
 export default class TalksUpNext extends React.Component {
   constructor(props) {
     super(props);
 
-    let nextTalks = conferenceHasEnded()
-      ? findRandomTalk()
-      : findNextTalksAfterDate();
+    let featuredSongs = getFeaturedSongs();
     let dateTime;
     let time;
-    if (nextTalks) {
-      dateTime = nextTalks[0].dateTime;
-      time = nextTalks[0].time;
+    if (featuredSongs) {
+      dateTime = featuredSongs[0].dateTime;
+      time = featuredSongs[0].time;
     }
 
     this.state = {
-      nextTalks,
+      featuredSongs,
       dateTime,
-      time,
+      time
     };
   }
 
   render() {
-    const { nextTalks } = this.state;
+    const { featuredSongs } = this.state;
 
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
         <SemiBoldText style={{ fontSize: FontSizes.title }}>
-          {conferenceHasEnded() ? 'A great talk from 2017' : 'Coming up next'}
+          {'Featured Song'}
         </SemiBoldText>
         {this._renderDateTime()}
-        {nextTalks.map(talk => (
-          <TalkCard
-            key={talk.title}
-            talk={talk}
+        {featuredSongs.map(song => (
+          <SongCard
+            key={song.id}
+            song={song}
             style={{ marginTop: 10, marginBottom: 10 }}
           />
         ))}
@@ -73,6 +75,6 @@ export default class TalksUpNext extends React.Component {
 const styles = StyleSheet.create({
   time: {
     color: Colors.faint,
-    fontSize: FontSizes.subtitle,
-  },
+    fontSize: FontSizes.subtitle
+  }
 });

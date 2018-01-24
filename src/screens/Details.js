@@ -22,7 +22,7 @@ import NavigationBar from '../components/NavigationBar';
 import { Colors, FontSizes, Icons, Layout } from '../constants';
 import { RegularText, BoldText, SemiBoldText } from '../components/StyledText';
 import { getSpeakerAvatarURL } from '../utils';
-import { findTalkData, findSpeakerData } from '../data';
+import { findTalkData, findSongData } from '../data';
 import SaveButton from '../components/SaveButton';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -55,7 +55,7 @@ export default class Details extends React.Component {
     let talk;
     if (params.scheduleSlot || params.talk) {
       talk = params.scheduleSlot || params.talk;
-      speaker = findSpeakerData(talk.speaker);
+      speaker = findSongData(talk.speaker);
     } else if (params.speaker) {
       speaker = params.speaker;
       talk = findTalkData(speaker.name);
