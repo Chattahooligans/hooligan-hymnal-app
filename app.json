@@ -11,9 +11,9 @@
     "orientation": "portrait",
     "sdkVersion": "23.0.0",
     "splash": {
-      "backgroundColor": "#187f65",
-      "resizeMode": "cover",
-      "image": "./src/assets/splash-cover.png"
+      "backgroundColor": "#A5D8F6",
+      "resizeMode": "contain",
+      "image": "./src/assets/chattahooligans.png"
     },
     "android": {
       "package": "org.nodevember.app",
@@ -26,9 +26,9 @@
       "supportsTablet": true,
       "loadJSInBackgroundExperimental": true,
       "splash": {
-        "image": "./src/assets/splash-icon.png",
+        "image": "./src/assets/chattahooligans.png",
         "resizeMode": "contain",
-        "backgroundColor": "#187f65"
+        "backgroundColor": "#A5D8F6"
       }
     }
   }

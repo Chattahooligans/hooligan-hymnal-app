@@ -14,28 +14,27 @@ const isSmallDevice = D_WIDTH < 326;
 export const Layout = {
   window: {
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+    height: Dimensions.get('window').height
   },
   notchHeight,
   isSmallDevice,
-  headerHeight:
-  Platform.OS === 'android' ? 56 : 64 + notchHeight,
+  headerHeight: Platform.OS === 'android' ? 56 : 64 + notchHeight
 };
 
 export const Colors = {
-  green: '#187f65',
-  faint: '#7a7a7a',
+  green: '#A5D8F6',
+  faint: '#7a7a7a'
 };
 
 export const Icons = {
   favorite: `ios-bookmark-outline`,
-  favoriteActive: `ios-bookmark`,
-}
+  favoriteActive: `ios-bookmark`
+};
 
 export const FontSizes = {
   title: isSmallDevice ? 16 : 18,
   subtitle: isSmallDevice ? 14 : 16,
   bodyLarge: 14,
   bodyTitle: isSmallDevice ? 14 : 15,
-  normalButton: isSmallDevice ? 15 : 16,
+  normalButton: isSmallDevice ? 15 : 16
 };
