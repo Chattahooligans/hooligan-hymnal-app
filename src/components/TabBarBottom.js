@@ -190,8 +190,6 @@ class TabBarBottom extends React.PureComponent<Props> {
           {routes.map((route: NavigationRoute, index: number) => {
             const focused = index === navigation.state.index;
             const scene = { route, index, focused };
-            console.log('getOnPress ' + JSON.stringify(getOnPress))
-            console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
             /*const onPress = getOnPress(scene);*/
             const outputRange = inputRange.map(
               (inputIndex: number) =>

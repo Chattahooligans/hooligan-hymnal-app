@@ -19,7 +19,7 @@ export const Layout = {
   notchHeight,
   isSmallDevice,
   headerHeight:
-    Platform.OS === 'android' ? Header.HEIGHT : Header.HEIGHT + notchHeight,
+  Platform.OS === 'android' ? 56 : 64 + notchHeight,
 };
 
 export const Colors = {
