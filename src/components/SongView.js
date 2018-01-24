@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { View, Text, WebView, StyleSheet } from 'react-native'
 
-class SongView extends Component{
+export default class SongView extends React.Component{
     render(){
         let songHtml = {
             // initial
@@ -51,5 +51,3 @@ const styles = StyleSheet.create({
         marginTop: 5
     }
 });
-
-export default SongView

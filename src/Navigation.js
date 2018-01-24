@@ -117,12 +117,32 @@ const SponsorNavigation = StackNavigator(
   DefaultStackConfig
 );
 
+const CapoCalloutsNavigation = StackNavigator(
+  {
+    CapoCalloutsList: {
+      screen: Screens.CapoCallouts,
+    },
+  },
+  DefaultStackConfig
+);
+
+const SongbookNavigation = StackNavigator(
+  {
+    SongbookList: {
+      screen: Screens.Songbook,
+    },
+  },
+  DefaultStackConfig
+);
+
 const DrawerRouteConfig = {
   Home: { screen: Screens.Home },
   Schedule: { screen: ScheduleNavigation },
   Speakers: { screen: SpeakersNavigation },
   Crew: { screen: CrewNavigation },
   Sponsors: { screen: SponsorNavigation },
+  CapoCallouts: { screen: CapoCalloutsNavigation },
+  Songbook: { screen: SongbookNavigation },
 };
 
 const DrawerRouter = TabRouter(DrawerRouteConfig);
@@ -338,6 +358,8 @@ class DrawerView extends React.Component {
             { route: 'Speakers', title: 'Speakers' },
             { route: 'Crew', title: 'Crew' },
             { route: 'Sponsors', title: 'Sponsors' },
+            { route: 'CapoCallouts', title: 'Capo Callouts' },
+            { route: 'Songbook', title: 'Chattahooligan Hymnal' },
           ])}
         </View>
       </View>
