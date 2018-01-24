@@ -90,39 +90,9 @@ class Home extends React.Component {
               tintColor="#fff"
             />
             <View style={styles.headerContent}>
-              <ShowWhenConferenceHasEnded>
-                <SemiBoldText style={styles.headerText}>
-                  Thank you for joining us!
-                </SemiBoldText>
-                <SemiBoldText style={styles.headerText}>
-                  See you in November, 2018!
-                </SemiBoldText>
-              </ShowWhenConferenceHasEnded>
-
-              <HideWhenConferenceHasEnded>
-                <SemiBoldText style={styles.headerText}>
-                  November 27th to 28th
-                </SemiBoldText>
-                <SemiBoldText style={styles.headerText}>
-                  Nashville, Tennesse
-                </SemiBoldText>
-              </HideWhenConferenceHasEnded>
-
-              <HideWhenConferenceHasStarted>
-                <View style={{ paddingTop: 8, alignItems: 'center' }}>
-                  <ClipBorderRadius>
-                    <RectButton
-                      style={styles.buyButton}
-                      underlayColor={Colors.green}
-                      onPress={this._openTickets}
-                    >
-                      <SemiBoldText style={styles.buyButtonText}>
-                        Buy a ticket
-                      </SemiBoldText>
-                    </RectButton>
-                  </ClipBorderRadius>
-                </View>
-              </HideWhenConferenceHasStarted>
+              <SemiBoldText style={styles.headerText}>
+                Chattahooligans 2018
+              </SemiBoldText>
             </View>
           </View>
 
@@ -266,7 +236,7 @@ const OverscrollView = () => (
       height: 400,
       left: 0,
       right: 0,
-      backgroundColor: '#187f65'
+      backgroundColor: '#032E55'
     }}
   />
 );
