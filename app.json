@@ -1,5 +1,35 @@
 {
   "expo": {
-    "sdkVersion": "25.0.0"
+    "name": "Nodevember",
+    "description":
+      "Official app for the Nodevember 2017 conference, November 27-28 in Nashville, Tennessee. Read the source or get the app store and play store links on Github: https://github.com/nodevember/nodevember-2017-mobile",
+    "slug": "app",
+    "privacy": "public",
+    "version": "1.0.4",
+    "primaryColor": "#187f65",
+    "icon": "./src/assets/icon-ios.png",
+    "orientation": "portrait",
+    "sdkVersion": "23.0.0",
+    "splash": {
+      "backgroundColor": "#187f65",
+      "resizeMode": "cover",
+      "image": "./src/assets/splash-cover.png"
+    },
+    "android": {
+      "package": "org.nodevember.app",
+      "icon": "./src/assets/icon-android.png",
+      "versionCode": 3,
+      "permissions": []
+    },
+    "ios": {
+      "bundleIdentifier": "org.nodevember.app",
+      "supportsTablet": true,
+      "loadJSInBackgroundExperimental": true,
+      "splash": {
+        "image": "./src/assets/splash-icon.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#187f65"
+      }
+    }
   }
 }
