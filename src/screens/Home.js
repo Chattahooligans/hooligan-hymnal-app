@@ -163,19 +163,6 @@ class DeferredHomeContent extends React.Component {
         <ClipBorderRadius>
           <RectButton
             style={styles.bigButton}
-            onPress={this._handlePressMapButton}
-            underlayColor="#fff"
-          >
-            <SemiBoldText style={styles.bigButtonText}>
-              {Platform.OS === 'android' ? 'Download' : 'Open'} the conference
-              map
-            </SemiBoldText>
-          </RectButton>
-        </ClipBorderRadius>
-
-        <ClipBorderRadius>
-          <RectButton
-            style={styles.bigButton}
             onPress={this._handlePressTwitterButton}
             underlayColor="#fff"
           >
@@ -190,7 +177,7 @@ class DeferredHomeContent extends React.Component {
               }}
             />
             <SemiBoldText style={styles.bigButtonText}>
-              @chattahooligans
+              @chattahooligan
             </SemiBoldText>
           </RectButton>
         </ClipBorderRadius>
@@ -212,9 +199,9 @@ class DeferredHomeContent extends React.Component {
 
   _handlePressTwitterButton = async () => {
     try {
-      await Linking.openURL(`twitter://user?screen_name=nodevember`);
+      await Linking.openURL(`twitter://user?screen_name=chattahooligan`);
     } catch (e) {
-      WebBrowser.openBrowserAsync('https://twitter.com/nodevember');
+      WebBrowser.openBrowserAsync('https://twitter.com/chattahooligan');
     }
   };
 

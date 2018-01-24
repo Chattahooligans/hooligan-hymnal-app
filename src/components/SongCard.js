@@ -33,7 +33,9 @@ export default class SongCard extends React.Component {
   }
 
   _handlePress = () => {
-    this.props.navigation.navigate('Details', { song: this.props.song });
+    this.props.navigation.navigate('SingleSongScreen', {
+      song: this.props.song
+    });
   };
 }
 
