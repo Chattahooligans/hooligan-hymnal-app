@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Nodevember",
+    "name": "Chattahooligans",
     "description":
-      "Official app for the Nodevember 2017 conference, November 27-28 in Nashville, Tennessee. Read the source or get the app store and play store links on Github: https://github.com/nodevember/nodevember-2017-mobile",
+      "Official app for the Chattahooligans",
     "slug": "app",
     "privacy": "public",
     "version": "1.0.4",
@@ -16,13 +16,13 @@
       "image": "./src/assets/chattahooligans.png"
     },
     "android": {
-      "package": "org.nodevember.app",
+      "package": "org.chattahooligans.app",
       "icon": "./src/assets/icon-android.png",
       "versionCode": 3,
       "permissions": []
     },
     "ios": {
-      "bundleIdentifier": "org.nodevember.app",
+      "bundleIdentifier": "org.chattahooligans.app",
       "supportsTablet": true,
       "loadJSInBackgroundExperimental": true,
       "splash": {

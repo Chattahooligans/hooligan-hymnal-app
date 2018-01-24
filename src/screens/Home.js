@@ -220,7 +220,7 @@ class DeferredHomeContent extends React.Component {
               }}
             />
             <SemiBoldText style={styles.bigButtonText}>
-              @nodevember
+              @chattahooligans
             </SemiBoldText>
           </RectButton>
         </ClipBorderRadius>

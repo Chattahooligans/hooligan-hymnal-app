@@ -76,7 +76,7 @@ const NextYearTalk = {
   room: 'Unknown',
   summary: '',
   time: '-',
-  title: 'Nodevember 2018',
+  title: 'Chattahooligans',
   speaker: 'Maybe you?',
 };
 

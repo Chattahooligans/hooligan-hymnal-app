@@ -1,8 +1,8 @@
-# Nodevember app
+# Chattahooligans app
 
-- Download [Nodevember on the Apple App Store](https://itunes.apple.com/us/app/nodevember/id1316372562?mt=8)
-- Download [Nodevember on Google Play](https://play.google.com/store/apps/details?id=org.nodevember.app&hl=en)
-- Open November [with the Expo client](https://expo.io/@nodevember/app)
+- Download [Chattahooligans on the Apple App Store](https://itunes.apple.com/us/app/chattahooligans/id1316372562?mt=8)
+- Download [Chattahooligans on Google Play](https://play.google.com/store/apps/details?id=org.chattahooligans.app&hl=en)
+- Open Chattahooligans App [with the Expo client](https://expo.io/@chattahooligans/app)
 
 ## Get it running on your machine (anybody)
 
