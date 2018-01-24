@@ -5,7 +5,7 @@ import {
   TabNavigator,
   StackNavigator,
   createNavigator,
-  createNavigationContainer,
+  createNavigationContainer
 } from 'react-navigation';
 import NavigatorTypes from 'react-navigation/src/navigators/NavigatorTypes';
 import withCachedChildNavigation from 'react-navigation/src/withCachedChildNavigation';
@@ -17,14 +17,14 @@ import {
   Text,
   StyleSheet,
   StatusBar,
-  View,
+  View
 } from 'react-native';
 import { Constants } from 'expo';
 import { TabViewAnimated } from 'react-native-tab-view';
 import {
   DrawerLayoutAndroid,
   BorderlessButton,
-  RectButton,
+  RectButton
 } from 'react-native-gesture-handler';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import ResourceSavingContainer from 'react-native-resource-saving-container';
@@ -41,14 +41,14 @@ const DrawerComponent =
 const ScheduleNavigation = TabNavigator(
   {
     Sunday: {
-      screen: Screens.ScheduleDay({ day: 'Sunday', date: '26' }),
+      screen: Screens.ScheduleDay({ day: 'Sunday', date: '26' })
     },
     Monday: {
-      screen: Screens.ScheduleDay({ day: 'Monday', date: '27' }),
+      screen: Screens.ScheduleDay({ day: 'Monday', date: '27' })
     },
     Tuesday: {
-      screen: Screens.ScheduleDay({ day: 'Tuesday', date: '28' }),
-    },
+      screen: Screens.ScheduleDay({ day: 'Tuesday', date: '28' })
+    }
   },
   {
     lazy: true,
@@ -58,8 +58,8 @@ const ScheduleNavigation = TabNavigator(
     tabBarPosition: 'bottom',
     tabBarOptions: {
       style: { backgroundColor: '#333' },
-      activeTintColor: '#fff',
-    },
+      activeTintColor: '#fff'
+    }
   }
 );
 
@@ -78,7 +78,7 @@ export function connectDrawerButton(WrappedComponent) {
   ConnectedDrawerButton.contextTypes = {
     openDrawer: PropTypes.func,
     closeDrawer: PropTypes.func,
-    toggleDrawer: PropTypes.func,
+    toggleDrawer: PropTypes.func
   };
 
   return hoistStatics(ConnectedDrawerButton, WrappedComponent);
@@ -86,15 +86,15 @@ export function connectDrawerButton(WrappedComponent) {
 
 const DefaultStackConfig = {
   cardStyle: {
-    backgroundColor: '#fafafa',
-  },
+    backgroundColor: '#fafafa'
+  }
 };
 
 const SpeakersNavigation = StackNavigator(
   {
     SpeakerList: {
-      screen: Screens.Speakers,
-    },
+      screen: Screens.Speakers
+    }
   },
   DefaultStackConfig
 );
@@ -102,8 +102,8 @@ const SpeakersNavigation = StackNavigator(
 const CrewNavigation = StackNavigator(
   {
     CrewList: {
-      screen: Screens.Crew,
-    },
+      screen: Screens.Crew
+    }
   },
   DefaultStackConfig
 );
@@ -111,8 +111,8 @@ const CrewNavigation = StackNavigator(
 const SponsorNavigation = StackNavigator(
   {
     SponsorList: {
-      screen: Screens.Sponsors,
-    },
+      screen: Screens.Sponsors
+    }
   },
   DefaultStackConfig
 );
@@ -120,8 +120,8 @@ const SponsorNavigation = StackNavigator(
 const CapoCalloutsNavigation = StackNavigator(
   {
     CapoCalloutsList: {
-      screen: Screens.CapoCallouts,
-    },
+      screen: Screens.CapoCallouts
+    }
   },
   DefaultStackConfig
 );
@@ -129,8 +129,8 @@ const CapoCalloutsNavigation = StackNavigator(
 const SongbookNavigation = StackNavigator(
   {
     SongbookList: {
-      screen: Screens.Songbook,
-    },
+      screen: Screens.Songbook
+    }
   },
   DefaultStackConfig
 );
@@ -142,14 +142,14 @@ const DrawerRouteConfig = {
   Crew: { screen: CrewNavigation },
   Sponsors: { screen: SponsorNavigation },
   CapoCallouts: { screen: CapoCalloutsNavigation },
-  Songbook: { screen: SongbookNavigation },
+  Songbook: { screen: SongbookNavigation }
 };
 
 const DrawerRouter = TabRouter(DrawerRouteConfig);
 
 class DrawerScene extends React.PureComponent {
   state = {
-    visible: true,
+    visible: true
   };
 
   setVisible = visible => {
@@ -187,7 +187,7 @@ class DrawerView extends React.Component {
   static childContextTypes = {
     openDrawer: PropTypes.func,
     closeDrawer: PropTypes.func,
-    toggleDrawer: PropTypes.func,
+    toggleDrawer: PropTypes.func
   };
 
   getChildContext() {
@@ -199,7 +199,7 @@ class DrawerView extends React.Component {
     return {
       openDrawer,
       closeDrawer,
-      toggleDrawer,
+      toggleDrawer
     };
   }
 
@@ -211,7 +211,7 @@ class DrawerView extends React.Component {
     // Dumb hack to have our listener take priority over built in listener
     setTimeout(() => {
       BackHandler.addEventListener('hardwareBackPress', this._onBackPress);
-    }, 800)
+    }, 800);
   }
 
   componentWillUnmount() {
@@ -280,7 +280,7 @@ class DrawerView extends React.Component {
               style={{
                 flex: 1,
                 paddingTop:
-                  Platform.OS === 'android' ? Constants.statusBarHeight : 0,
+                  Platform.OS === 'android' ? Constants.statusBarHeight : 0
               }}
             >
               <TabViewAnimated
@@ -301,7 +301,7 @@ class DrawerView extends React.Component {
                 right: 0,
                 height:
                   Platform.OS === 'android' ? Constants.statusBarHeight : 0,
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.green
               }}
             />
           </View>
@@ -321,13 +321,13 @@ class DrawerView extends React.Component {
             style={{
               height: 140 + Layout.notchHeight,
               width: DRAWER_WIDTH,
-              resizeMode: 'cover',
+              resizeMode: 'cover'
             }}
           />
           <View
             style={[
               StyleSheet.absoluteFill,
-              { backgroundColor: 'rgba(23, 127, 100, 0.57)' },
+              { backgroundColor: 'rgba(3, 46, 85, 0.57)' }
             ]}
           />
           <View
@@ -336,16 +336,16 @@ class DrawerView extends React.Component {
               {
                 alignItems: 'center',
                 justifyContent: 'center',
-                paddingTop: Layout.notchHeight + 20,
-              },
+                paddingTop: Layout.notchHeight + 20
+              }
             ]}
           >
             <Image
-              source={require('./assets/logo.png')}
+              source={require('./assets/chattahooligans-logo.png')}
               style={{
                 width: 200,
                 height: 50,
-                resizeMode: 'contain',
+                resizeMode: 'contain'
               }}
             />
           </View>
@@ -359,7 +359,7 @@ class DrawerView extends React.Component {
             { route: 'Crew', title: 'Crew' },
             { route: 'Sponsors', title: 'Sponsors' },
             { route: 'CapoCallouts', title: 'Capo Callouts' },
-            { route: 'Songbook', title: 'Chattahooligan Hymnal' },
+            { route: 'Songbook', title: 'Chattahooligan Hymnal' }
           ])}
         </View>
       </View>
@@ -413,7 +413,7 @@ class DrawerButton extends React.Component {
         style={{
           backgroundColor: this.props.selected
             ? 'rgba(255,255,255,0.1)'
-            : '#333333',
+            : '#333333'
         }}
       >
         <View
@@ -421,7 +421,7 @@ class DrawerButton extends React.Component {
             height: 50,
             width: DRAWER_WIDTH,
             justifyContent: 'center',
-            paddingHorizontal: 5,
+            paddingHorizontal: 5
           }}
         >
           <SemiBoldText style={styles.drawerButtonText}>
@@ -435,26 +435,26 @@ class DrawerButton extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   drawerButtonText: {
     color: '#fff',
     fontSize: FontSizes.normalButton,
-    padding: 10,
+    padding: 10
   },
   drawerButtons: {
-    paddingTop: 0,
+    paddingTop: 0
   },
-  drawerNavigationContainer: {},
+  drawerNavigationContainer: {}
 });
 
 export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
-    Details: { screen: Screens.Details },
+    Details: { screen: Screens.Details }
   },
   {
     ...DefaultStackConfig,
-    headerMode: 'none',
+    headerMode: 'none'
   }
 );

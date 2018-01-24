@@ -22,8 +22,8 @@ export const Layout = {
 };
 
 export const Colors = {
-  green: '#A5D8F6',
-  faint: '#7a7a7a'
+  green: '#032E55',
+  faint: '#A5D8F6'
 };
 
 export const Icons = {
