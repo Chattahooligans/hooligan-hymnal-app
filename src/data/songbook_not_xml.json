@@ -1,5 +1,5 @@
 {
-    "title": "Chattahooligan Hymnal",
+    "songbook_title": "Chattahooligan Hymnal",
     "organization": "The Chattahooligans",
     "description": "",
     "front_cover": "",
@@ -8,7 +8,7 @@
     "chapters":
     [
         {
-            "title": "Hooligan Hymnal",
+            "chapter_title": "Hooligan Hymnal",
             "songs": 
             [
                 { "guid": 1 },
@@ -28,14 +28,14 @@
             ]
         },
         {
-            "title": "Daily Diss Tracks",
+            "chapter_title": "Daily Diss Tracks",
             "songs": 
             [
                 { "guid": 17 }
             ]
         },
         {
-            "title": "Songs of My People",
+            "chapter_title": "Songs of My People",
             "songs": 
             [
                 { "guid": 15 },
