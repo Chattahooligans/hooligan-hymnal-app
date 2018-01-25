@@ -1,6 +1,7 @@
 [
   {
     "guid": 1,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "Chattanooga Choo Choo",
@@ -20,6 +21,7 @@
   },
   {
     "guid": 2,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "True Colors",
@@ -39,6 +41,7 @@
   },
   {
     "guid": 3,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "We Came to Drink/Sing",
@@ -58,6 +61,7 @@
   },
   {
     "guid": 4,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "Just Can't Get Enough",
@@ -77,6 +81,7 @@
   },
   {
     "guid": 5,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "I Will Sing For the Blues",
@@ -96,6 +101,7 @@
   },
   {
     "guid": 6,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "SATURDAY Night",
@@ -115,6 +121,7 @@
   },
   {
     "guid": 7,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "Nooga's on Fire",
@@ -133,6 +140,7 @@
   },
   {
     "guid": 8,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "Keep It Up",
@@ -152,6 +160,7 @@
   },
   {
     "guid": 9,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "Piano Man",
@@ -171,6 +180,7 @@
   },
   {
     "guid": 10,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "Vamos Chattanooga",
@@ -189,6 +199,7 @@
   },
   {
     "guid": 11,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "Tour of Chattanooga",
@@ -208,6 +219,7 @@
   },
   {
     "guid": 12,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "Breathalyze the Ref",
@@ -227,6 +239,7 @@
   },
   {
     "guid": 13,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "Takin' a Dive",
@@ -246,6 +259,7 @@
   },
   {
     "guid": 14,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "Score a Goal",
@@ -265,6 +279,7 @@
   },
   {
     "guid": 15,
+    "category": "player",
     "create_time": "",
     "update_time": "",
     "title": "John Carrier",
@@ -283,6 +298,7 @@
   },
   {
     "guid": 16,
+    "category": "player",
     "create_time": "",
     "update_time": "",
     "title": "Zeca Ferraz",
@@ -301,6 +317,7 @@
   },
   {
     "guid": 17,
+    "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "All My Ex's Live in Texas",

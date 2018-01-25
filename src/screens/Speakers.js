@@ -9,11 +9,16 @@ import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { getSpeakerAvatarURL } from '../utils';
 
-import KeynotersData from '../data/keynotes.json';
-import SpeakersData from '../data/speakers.json';
+import Songs from '../data/songs.json';
+
+const gameSongs = Songs.filter(song => song.category === 'game');
+const playerSongs = Songs.filter(song => song.category === 'player');
+const teamSongs = Songs.filter(song => song.category === 'team');
+
 const SpeakerData = [
-  { data: KeynotersData, title: 'Keynotes' },
-  { data: SpeakersData, title: 'Speakers' },
+  { data: gameSongs, title: 'Game Songs' },
+  { data: playerSongs, title: 'Player Songs' },
+  { data: teamSongs, title: 'Team Songs' }
 ];
 
 class SpeakerRow extends React.Component {
@@ -54,13 +59,13 @@ class SpeakerRow extends React.Component {
 
 export default class Speakers extends React.Component {
   static navigationOptions = {
-    title: 'Speakers',
+    title: 'Songs',
     headerStyle: { backgroundColor: Colors.green },
     headerTintColor: 'white',
     headerLeft: <MenuButton />,
     headerTitleStyle: {
-      fontFamily: 'open-sans-bold',
-    },
+      fontFamily: 'open-sans-bold'
+    }
   };
 
   render() {
@@ -101,15 +106,15 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: '#eee',
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   rowAvatarContainer: {
     paddingVertical: 5,
     paddingRight: 10,
-    paddingLeft: 0,
+    paddingLeft: 0
   },
   rowData: {
-    flex: 1,
+    flex: 1
   },
   sectionHeader: {
     paddingHorizontal: 10,
@@ -117,6 +122,6 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     backgroundColor: '#eee',
     borderWidth: 1,
-    borderColor: '#eee',
-  },
+    borderColor: '#eee'
+  }
 });
