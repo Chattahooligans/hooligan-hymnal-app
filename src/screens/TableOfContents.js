@@ -9,6 +9,37 @@ import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
 import Songs from '../data/songs.json';
+import Songbook from '../data/songbook.json';
+
+// parse songbook json
+// this needs to all be dynamic, using chapter_title property as the section heading name
+//      and a flexible number of chapters
+
+// pseudocode
+// const ToC is some array of { title, songs/data }
+// for each chapter {
+//      const title = get chapter chapter_title
+//      const songs is some array of { guid, title }
+//      
+//      parse child elements of "song" property in this chapter
+//      for each song {
+//          guid is directly from songbook.json
+//          title is retrieved from songs.json database (sorry about relational data!)
+//          
+//          add to songs array
+//      }
+//      
+//      add new item to ToC array
+//}
+
+// on click on a song row
+// search each page in parent.parent component and look for a guid property (yet to be created), snap to that page
+
+//
+//  Note: ToC may not live within the pager forever, 
+//  it is just hanging out there now.
+//  ToC may be a button on this screen or somewhere else
+//
 
 const gameSongs = Songs.filter(song => song.category === 'game');
 const playerSongs = Songs.filter(song => song.category === 'player');
