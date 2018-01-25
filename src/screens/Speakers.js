@@ -7,7 +7,6 @@ import { Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import { getSpeakerAvatarURL } from '../utils';
 
 import Songs from '../data/songs.json';
 
@@ -15,7 +14,7 @@ const gameSongs = Songs.filter(song => song.category === 'game');
 const playerSongs = Songs.filter(song => song.category === 'player');
 const teamSongs = Songs.filter(song => song.category === 'team');
 
-const SpeakerData = [
+const SongData = [
   { data: gameSongs, title: 'Game Songs' },
   { data: playerSongs, title: 'Player Songs' },
   { data: teamSongs, title: 'Team Songs' }
@@ -32,14 +31,6 @@ class SpeakerRow extends React.Component {
         style={{ flex: 1, backgroundColor: '#fff' }}
       >
         <View style={styles.row}>
-          <View style={styles.rowAvatarContainer}>
-            <FadeIn>
-              <Image
-                source={{ uri: getSpeakerAvatarURL(speaker) }}
-                style={{ width: 50, height: 50, borderRadius: 25 }}
-              />
-            </FadeIn>
-          </View>
           <View style={styles.rowData}>
             <BoldText>{speaker.name}</BoldText>
             {speaker.organization ? (
@@ -53,6 +44,7 @@ class SpeakerRow extends React.Component {
   }
 
   _handlePress = () => {
+    console.log(this.props.item);
     this.props.onPress(this.props.item);
   };
 }
@@ -76,7 +68,7 @@ export default class Speakers extends React.Component {
           stickySectionHeadersEnabled={true}
           renderItem={this._renderItem}
           renderSectionHeader={this._renderSectionHeader}
-          sections={SpeakerData}
+          sections={SongData}
           keyExtractor={(item, index) => index}
         />
       </LoadingPlaceholder>
@@ -96,7 +88,7 @@ export default class Speakers extends React.Component {
   };
 
   _handlePressRow = speaker => {
-    this.props.navigation.navigate('Details', { speaker });
+    this.props.navigation.navigate('SingleSongScreen', { speaker });
   };
 }
 
