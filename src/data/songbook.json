@@ -1,0 +1,46 @@
+{
+    "songbook_title": "Chattahooligan Hymnal",
+    "organization": "The Chattahooligans",
+    "description": "",
+    "front_cover": "",
+    "back_cover": "",
+    "some_publish_or_expiration_dates": "",
+    "chapters":
+    [
+        {
+            "chapter_title": "Hooligan Hymnal",
+            "songs": 
+            [
+                { "guid": 1 },
+                { "guid": 2 },
+                { "guid": 3 },
+                { "guid": 4 },
+                { "guid": 5 },
+                { "guid": 6 },
+                { "guid": 7 },
+                { "guid": 8 },
+                { "guid": 9 },
+                { "guid": 10 },
+                { "guid": 11 },
+                { "guid": 12 },
+                { "guid": 13 },
+                { "guid": 14 }
+            ]
+        },
+        {
+            "chapter_title": "Daily Diss Tracks",
+            "songs": 
+            [
+                { "guid": 17 }
+            ]
+        },
+        {
+            "chapter_title": "Songs of My People",
+            "songs": 
+            [
+                { "guid": 15 },
+                { "guid": 16 }
+            ]
+        }
+    ]
+}
