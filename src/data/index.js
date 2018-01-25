@@ -7,6 +7,7 @@ export const Speakers = [
 ];
 export const Schedule = require('../data/schedule.json');
 export const Songs = require('../data/songs.json');
+export const Songbook = require('../data/songbook.json');
 export const Talks = _.chain(Schedule)
   .map(day =>
     day.slots.map(slot => {
