@@ -25,8 +25,15 @@ export default class SongCard extends React.Component {
         style={[styles.button, this.props.style]}
         activeOpacity={0.05}
       >
-        <View style={styles.talkInfoRow}>
-          <RegularText style={styles.talkTitle}>{song.title}</RegularText>
+        <View style={styles.songInfoRow}>
+          <BoldText style={styles.songTitle}>{song.title}</BoldText>
+          <RegularText
+            style={styles.songLyrics}
+            ellipsizeMode="tail"
+            numberOfLines={5}
+          >
+            {song.lyrics}
+          </RegularText>
         </View>
       </RectButton>
     );
@@ -59,13 +66,16 @@ const styles = StyleSheet.create({
     color: Colors.faint,
     fontSize: FontSizes.bodyLarge
   },
-  talkInfoRow: {
+  songInfoRow: {
     paddingTop: 10
   },
-  talkTitle: {
+  songLyrics: {
+    paddingTop: 10
+  },
+  songTitle: {
     fontSize: FontSizes.bodyLarge
   },
-  talkLocation: {
+  songLocation: {
     fontSize: FontSizes.bodyLarge,
     color: Colors.faint,
     marginTop: 10
