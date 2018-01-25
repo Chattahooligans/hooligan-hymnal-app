@@ -143,7 +143,7 @@ class DeferredHomeContent extends React.Component {
         <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
           <TouchableOpacity onPress={this._handlePressAllTalks}>
             <SemiBoldText style={styles.seeAllTalks}>
-              See all talks →
+              See all songs →
             </SemiBoldText>
           </TouchableOpacity>
         </View>

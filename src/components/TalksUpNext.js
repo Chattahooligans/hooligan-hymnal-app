@@ -42,7 +42,7 @@ export default class TalksUpNext extends React.Component {
         {this._renderDateTime()}
         {featuredSongs.map(song => (
           <SongCard
-            key={song.id}
+            key={song.guid}
             song={song}
             style={{ marginTop: 10, marginBottom: 10 }}
           />
