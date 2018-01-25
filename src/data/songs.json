@@ -1,8 +1,21 @@
 [
   {
-    "id": 1,
+    "guid": 1,
+    "create_time": "",
+    "update_time": "",
     "title": "Chattanooga Choo Choo",
-    "lyrics": "Pardon me boy<br/>Is that the Chattanooga Choo Choo"
+    "lyrics": "Pardon me boy<br/>Is that the Chattanooga Choo Choo",
+    "various_boolean_flags": "",
+    "source_title": "",
+    "source_link": "",
+    "instructions": "",
+    "is_npsl_player": "",
+    "is_wpsl_player": "",
+    "is_nisa_player": "",
+    "player_name": "",
+    "player_number": "",
+    "override_html": "",
+    "delete_local": ""
   },
   {
     "id": 2,
