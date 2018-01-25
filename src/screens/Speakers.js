@@ -44,7 +44,6 @@ class SpeakerRow extends React.Component {
   }
 
   _handlePress = () => {
-    console.log(this.props.item);
     this.props.onPress(this.props.item);
   };
 }
@@ -87,8 +86,8 @@ export default class Speakers extends React.Component {
     return <SpeakerRow item={item} onPress={this._handlePressRow} />;
   };
 
-  _handlePressRow = speaker => {
-    this.props.navigation.navigate('SingleSongScreen', { speaker });
+  _handlePressRow = song => {
+    this.props.navigation.navigate('SingleSongScreen', { song });
   };
 }
 

@@ -20,12 +20,14 @@ const styles = StyleSheet.create({
 // add a unique header that includes a megaphone icon somewhere?
 export default class SingleSongScreen extends React.Component {
   render() {
+    let song = this.props.navigation.state.params.song;
+
     return (
       <View style={styles.container}>
         <SongView
           song={{
-            title: 'Chattanooga Choo Choo',
-            lyrics: 'Pardon me boy<br/>Is that the Chattanooga Choo Choo'
+            title: song.title,
+            lyrics: song.lyrics
           }}
         />
       </View>
