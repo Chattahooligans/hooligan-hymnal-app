@@ -6,6 +6,7 @@ import { Layout, Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import Speakers from './Speakers';
 
 // Android uses ViewPagerAndroid
 // iOS uses ScrollView with pagingEnabled and horizontal properties
@@ -37,6 +38,9 @@ export default class Songbook extends React.Component{
                             <Text style={styles.welcome}>
                             The Chattahooligan Hymnal test
                             </Text>
+                        </View>
+                        <View>
+                            <Speakers />
                         </View>
                         <View>
                             <SongView song={{title:"Chattanooga Choo Choo", lyrics:"Pardon me boy<br/>Is that the Chattanooga Choo Choo"}} />
