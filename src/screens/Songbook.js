@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         width: 100+'%',
         alignItems: 'center', 
         justifyContent: 'center',
-        backgroundColor: 'pink'
+        backgroundColor: '#A5D8F6'
     },
     sampleText: {
         color: 'red',
