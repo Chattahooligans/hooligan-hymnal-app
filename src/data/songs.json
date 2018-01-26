@@ -5,6 +5,7 @@
     "create_time": "",
     "update_time": "",
     "title": "Chattanooga Choo Choo",
+    "tags": "music,drums,bells,voice",
     "lyrics":
       "Pardon me, boy\nIs that the Chattanooga Choo Choo?\nTrack twenty-nine\nCan you give me a shine?\nCan you afford to board the\nChattanooga Choo Choo?\nI've got my fare\nAnd just a trifle to spare.\n\nWhen you hear the whistle\nBlowin' eight to the bar!\nThen you know that\nTennessee is not very far!\nShovel all the coal in\nGotta keep it rollin'\nWoo, woo, Chattanooga\nThere you are! (x4)",
     "tbd_various_boolean_flags": "",
@@ -25,6 +26,7 @@
     "create_time": "",
     "update_time": "",
     "title": "True Colors",
+    "tags": "voice",
     "lyrics":
       "I see your true colors\nShining through.\nI see your true colors,\nAnd that's why I love you.\nSo don't be afraid to let them show.\nYour true colors,\nYour true colors are beautiful.\nAmarillo",
     "tbd_various_boolean_flags": "",
@@ -45,6 +47,7 @@
     "create_time": "",
     "update_time": "",
     "title": "We Came to Drink/Sing",
+    "tags": "voice,drums",
     "lyrics":
       "Chattanooga, we are here. (x3)\nGetting rowdy, drinking beer!\nWe came to drink,\nWe came to sing. (x3)\nWe came to root for CFC!\nHooligans are getting loud. (x3)\nCome on 'Nooga, make us proud!\nWe came to drink,\nWe came to sing. (x3)\nWe came to root for CFC!",
     "tbd_various_boolean_flags": "",
@@ -65,6 +68,7 @@
     "create_time": "",
     "update_time": "",
     "title": "Just Can't Get Enough",
+    "tags": "voice,drums",
     "lyrics":
       "When I see you 'Nooga,\nI go out of my head\nI just can't get enough (x2)\nAll the things you do to me\nAnd all the things you said\nI just can't get enough (x2)\nI slip and slide as I fall in love and\nI just can't seem to get enough of",
     "tbd_various_boolean_flags": "",
@@ -85,6 +89,7 @@
     "create_time": "",
     "update_time": "",
     "title": "I Will Sing For the Blues",
+    "tags": "voice,drums",
     "lyrics":
       "I will sing for the Blues\n'Til they finish the fight\nGonna throw a party in 'Nooga\nNo one's sleeping tonight\n(repeat 2x, then sing melody)",
     "tbd_various_boolean_flags": "",
@@ -105,6 +110,7 @@
     "create_time": "",
     "update_time": "",
     "title": "SATURDAY Night",
+    "tags": "voice,drums",
     "lyrics":
       "S-A-T-U-R-D-A-Y Night! (x4)\nWhen we're cheering for the blues\nOh, we never lose\nOn Saturday night, Saturday night\nAnd we're watching Chattanooga\nPut the hammerin' to ya\nOn Saturday night, Saturday night",
     "tbd_various_boolean_flags": "",
@@ -125,6 +131,7 @@
     "create_time": "",
     "update_time": "",
     "title": "Nooga's on Fire",
+    "tags": "voice,drums",
     "lyrics": "'Nooga's on fire\nYour defense is terrified.",
     "tbd_various_boolean_flags": "",
     "source_title": "",
@@ -144,6 +151,7 @@
     "create_time": "",
     "update_time": "",
     "title": "Keep It Up",
+    "tags": "voice,drums",
     "lyrics":
       "Keep it up, Scenic City\nNever stop. No pity.\nKeep it up, Scenic City",
     "tbd_various_boolean_flags": "",
@@ -164,6 +172,7 @@
     "create_time": "",
     "update_time": "",
     "title": "Piano Man",
+    "tags": "voice,drums",
     "lyrics":
       "Score us a goal, you're the CFC\nScore us a goal tonight\nWe're all in the mood for a victory\nAnd you've got us feeling alright",
     "tbd_various_boolean_flags": "",
@@ -184,6 +193,7 @@
     "create_time": "",
     "update_time": "",
     "title": "Vamos Chattanooga",
+    "tags": "voice,drums",
     "lyrics": "Vamos Chattanooga\nEsta noche tenemos qué ganar",
     "tbd_various_boolean_flags": "",
     "source_title": "",
@@ -203,6 +213,7 @@
     "create_time": "",
     "update_time": "",
     "title": "Tour of Chattanooga",
+    "tags": "voice,drums",
     "lyrics":
       "Oh, you drove X hours just to lose.\n\nDrive a Volkswagen\nSee Rock City\nEat a Little Debbie\nSurf the Internet\nEat a MoonPie",
     "tbd_various_boolean_flags": "",
@@ -223,6 +234,7 @@
     "create_time": "",
     "update_time": "",
     "title": "Breathalyze the Ref",
+    "tags": "voice,drums",
     "lyrics":
       "Somebody breathalyze the ref (x2)\nWe know he's not cheating\nHe must have been drinking\nSomebody breathalyze the ref.",
     "tbd_various_boolean_flags": "",
@@ -243,6 +255,7 @@
     "create_time": "",
     "update_time": "",
     "title": "Takin' a Dive",
+    "tags": "voice,drums",
     "lyrics":
       "Well you can tell by the way\nI roll and scream\nI'm a floppin fool with no injuries\nAh ah ah ah\nTakin a dive, takin a dive...\nAh ah ah ah\nTakin a dive, takin a dive...",
     "tbd_various_boolean_flags": "",
@@ -263,6 +276,7 @@
     "create_time": "",
     "update_time": "",
     "title": "Score a Goal",
+    "tags": "voice,drums",
     "lyrics":
       "Come on 'Nooga score a goal\nIt's really, really simple.\nPut the ball into the net\nAnd watch us all go mental.",
     "tbd_various_boolean_flags": "",
@@ -283,6 +297,7 @@
     "create_time": "",
     "update_time": "",
     "title": "John Carrier",
+    "tags": "voice,drums",
     "lyrics": "He's here. He's there.\nHe's every, everywhere",
     "tbd_various_boolean_flags": "",
     "source_title": "",
@@ -302,6 +317,7 @@
     "create_time": "",
     "update_time": "",
     "title": "Zeca Ferraz",
+    "tags": "voice,drums",
     "lyrics": "Oh, Zeca, you're so fine\nYou're so fine you blow my mind",
     "tbd_various_boolean_flags": "",
     "source_title": "",
@@ -321,6 +337,7 @@
     "create_time": "",
     "update_time": "",
     "title": "All My Ex's Live in Texas",
+    "tags": "voice,drums",
     "lyrics":
       "All My Ex's Live in Texas\nAnd Texas is the place I'd dearly love to be",
     "tbd_various_boolean_flags": "",

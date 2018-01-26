@@ -38,14 +38,12 @@ export default class SingleSongScreen extends React.Component {
 
   render() {
     let song = this.props.navigation.state.params.song;
-
     return (
       <LoadingPlaceholder>
         <View style={styles.container}>
           <SongView
             song={{
-              title: song.title,
-              lyrics: song.lyrics
+              ...song
             }}
           />
 
