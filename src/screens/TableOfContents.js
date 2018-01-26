@@ -110,6 +110,7 @@ export default class TableOfContents extends React.Component {
     // Android already has this stored in key property, so search those? <View key={item.guid} ...
     
     // Also since you're reading this already, consider testing iOS ScrollView with pagingEnabled and horizontal properties set to true
+    // you may already be doing this, I can't tell (or test for that matter)
     // https://facebook.github.io/react-native/docs/scrollview.html
   };
 }
