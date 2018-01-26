@@ -3,6 +3,7 @@ import { Image, SectionList, StyleSheet, View, Text } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
+import { Colors, FontSizes, Layout } from '../constants';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
@@ -65,6 +66,11 @@ class SongRow extends React.Component {
     );
   }
 
+  _handlePressTOCButton = () => {
+    // TODO: just close this window and go back
+    console.log("close this/go back");
+  };
+
   _handlePress = () => {
     this.props.onPress(this.props.item);
   };
@@ -79,6 +85,14 @@ export default class TableOfContents extends React.Component {
   render() {
     return (
       <LoadingPlaceholder>
+        <RectButton
+            style={styles.tocButton}
+            onPress={this._handlePressTOCButton}
+            underlayColor="#fff">
+            <RegularText style={styles.tocButtonText}>
+              Table of Contents
+            </RegularText>
+          </RectButton>
         <SectionList
           renderScrollComponent={props => <ScrollView {...props} />}
           stickySectionHeadersEnabled={true}
@@ -118,6 +132,21 @@ export default class TableOfContents extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  tocButton: {
+    backgroundColor: Colors.green,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    width: 100+"%",
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    flexDirection: 'row'
+  },
+  tocButtonText: {
+    fontSize: FontSizes.normalButton,
+    color: '#fff',
+    textAlign: 'center'
+  },
   row: {
     flex: 1,
     paddingTop: 10,
