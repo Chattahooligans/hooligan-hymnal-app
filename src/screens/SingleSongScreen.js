@@ -26,16 +26,6 @@ const styles = StyleSheet.create({
 // We'll use this when entering App from the notifcation or from the "Capo Callout" screen
 // add a unique header that includes a megaphone icon somewhere?
 export default class SingleSongScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Crew',
-    headerStyle: { backgroundColor: Colors.green },
-    headerTintColor: 'white',
-    headerLeft: <MenuButton />,
-    headerTitleStyle: {
-      fontFamily: 'open-sans-bold'
-    }
-  };
-
   render() {
     let song = this.props.navigation.state.params.song;
     return (

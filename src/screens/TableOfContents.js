@@ -3,14 +3,14 @@ import { Image, SectionList, StyleSheet, View, Text } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
-import { Colors } from '../constants';
-import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
 import Songs from '../data/songs.json';
 import Songbook from '../data/songbook.json';
 import { conferenceHasEnded } from '../utils/index';
+
+import NavigationOptions from '../config/NavigationOptions';
 
 // on click on a song row
 // search each page in parent.parent component and look for a guid property (yet to be created), snap to that page
@@ -69,12 +69,7 @@ class SongRow extends React.Component {
 export default class TableOfContents extends React.Component {
   static navigationOptions = {
     title: 'Songs',
-    headerStyle: { backgroundColor: Colors.green },
-    headerTintColor: 'white',
-    headerLeft: <MenuButton />,
-    headerTitleStyle: {
-      fontFamily: 'open-sans-bold'
-    }
+    ...NavigationOptions
   };
 
   render() {

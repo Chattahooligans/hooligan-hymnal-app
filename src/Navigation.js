@@ -38,31 +38,6 @@ import { SemiBoldText, BoldText } from './components/StyledText';
 const DrawerComponent =
   Platform.OS === 'android' ? DrawerLayoutAndroid : DrawerLayout;
 
-const ScheduleNavigation = TabNavigator(
-  {
-    Sunday: {
-      screen: Screens.ScheduleDay({ day: 'Sunday', date: '26' })
-    },
-    Monday: {
-      screen: Screens.ScheduleDay({ day: 'Monday', date: '27' })
-    },
-    Tuesday: {
-      screen: Screens.ScheduleDay({ day: 'Tuesday', date: '28' })
-    }
-  },
-  {
-    lazy: true,
-    swipeEnabled: false,
-    animationEnabled: false,
-    tabBarComponent: TabBarBottom,
-    tabBarPosition: 'bottom',
-    tabBarOptions: {
-      style: { backgroundColor: '#333' },
-      activeTintColor: '#fff'
-    }
-  }
-);
-
 export function connectDrawerButton(WrappedComponent) {
   const ConnectedDrawerButton = (props, context) => {
     return (
@@ -427,7 +402,6 @@ const styles = StyleSheet.create({
 export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
-    Details: { screen: Screens.Details },
     SingleSongScreen: { screen: Screens.SingleSongScreen }
   },
   {
