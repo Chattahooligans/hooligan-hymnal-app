@@ -1,6 +1,13 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { HeaderBackButton } from 'react-navigation';
+import { Colors, Layout } from '../constants';
+import MenuButton from '../components/MenuButton';
+import { View, StyleSheet, Platform } from 'react-native';
 import SongView from '../components/SongView';
+import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import NavigationBar from '../components/NavigationBar';
+import { Constants } from 'expo';
+import { SavedButtonNavigationItem } from './Details';
 
 const styles = StyleSheet.create({
   header: {
@@ -19,18 +26,54 @@ const styles = StyleSheet.create({
 // We'll use this when entering App from the notifcation or from the "Capo Callout" screen
 // add a unique header that includes a megaphone icon somewhere?
 export default class SingleSongScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Crew',
+    headerStyle: { backgroundColor: Colors.green },
+    headerTintColor: 'white',
+    headerLeft: <MenuButton />,
+    headerTitleStyle: {
+      fontFamily: 'open-sans-bold'
+    }
+  };
+
   render() {
     let song = this.props.navigation.state.params.song;
 
     return (
-      <View style={styles.container}>
-        <SongView
-          song={{
-            title: song.title,
-            lyrics: song.lyrics
-          }}
-        />
-      </View>
+      <LoadingPlaceholder>
+        <View style={styles.container}>
+          <SongView
+            song={{
+              title: song.title,
+              lyrics: song.lyrics
+            }}
+          />
+
+          <NavigationBar
+            style={[
+              Platform.OS === 'android'
+                ? { height: Layout.headerHeight + Constants.statusBarHeight }
+                : null
+            ]}
+            renderLeftButton={() => (
+              <View
+                style={{
+                  // gross dumb things
+                  paddingTop: Platform.OS === 'android' ? 17 : 0,
+                  marginTop: Layout.notchHeight > 0 ? -5 : 0
+                }}
+              >
+                <HeaderBackButton
+                  onPress={() => this.props.navigation.goBack()}
+                  tintColor="#fff"
+                  title={null}
+                />
+              </View>
+            )}
+            renderRightButton={() => <SavedButtonNavigationItem talk={song} />}
+          />
+        </View>
+      </LoadingPlaceholder>
     );
   }
 }

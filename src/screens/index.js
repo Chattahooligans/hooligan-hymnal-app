@@ -5,7 +5,7 @@ import Home from './Home';
 import SingleSongScreen from './SingleSongScreen';
 import ScheduleDay from './ScheduleDay';
 import Songbook from './Songbook';
-import Speakers from './Speakers';
+import Songs from './Songs';
 import Sponsors from './Sponsors';
 
 export default {
@@ -16,6 +16,6 @@ export default {
   SingleSongScreen,
   ScheduleDay,
   Songbook,
-  Speakers,
+  Songs,
   Sponsors
 };

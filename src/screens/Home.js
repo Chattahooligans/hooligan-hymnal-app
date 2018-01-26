@@ -141,7 +141,7 @@ class DeferredHomeContent extends React.Component {
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
         />
         <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
-          <TouchableOpacity onPress={this._handlePressAllTalks}>
+          <TouchableOpacity onPress={this._handlePressAllSongs}>
             <SemiBoldText style={styles.seeAllTalks}>
               See all songs →
             </SemiBoldText>
@@ -185,10 +185,10 @@ class DeferredHomeContent extends React.Component {
     );
   }
 
-  _handlePressAllTalks = () => {
+  _handlePressAllSongs = () => {
     this.props.navigation.dispatch(
       NavigationActions.navigate({
-        routeName: 'Schedule'
+        routeName: 'Songs'
       })
     );
   };

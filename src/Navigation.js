@@ -90,10 +90,10 @@ const DefaultStackConfig = {
   }
 };
 
-const SpeakersNavigation = StackNavigator(
+const SongsNavigation = StackNavigator(
   {
     SpeakerList: {
-      screen: Screens.Speakers
+      screen: Screens.Songs
     }
   },
   DefaultStackConfig
@@ -137,10 +137,10 @@ const SongbookNavigation = StackNavigator(
 
 const DrawerRouteConfig = {
   Home: { screen: Screens.Home },
-  Schedule: { screen: ScheduleNavigation },
-  Speakers: { screen: SpeakersNavigation },
-  Crew: { screen: CrewNavigation },
-  Sponsors: { screen: SponsorNavigation },
+  // Schedule: { screen: ScheduleNavigation },
+  Songs: { screen: SongsNavigation },
+  // Crew: { screen: CrewNavigation },
+  // Sponsors: { screen: SponsorNavigation },
   CapoCallouts: { screen: CapoCalloutsNavigation },
   Songbook: { screen: SongbookNavigation }
 };
@@ -354,10 +354,10 @@ class DrawerView extends React.Component {
           {/* make sure the buttons here are in the same order as in route config */}
           {this._renderButtons([
             { route: 'Home', title: 'Home' },
-            { route: 'Schedule', title: 'Schedule' },
-            { route: 'Speakers', title: 'Songs' },
-            { route: 'Crew', title: 'Crew' },
-            { route: 'Sponsors', title: 'Sponsors' },
+            // { route: 'Schedule', title: 'Schedule' },
+            { route: 'Songs', title: 'Songs' },
+            // { route: 'Crew', title: 'Crew' },
+            // { route: 'Sponsors', title: 'Sponsors' },
             { route: 'CapoCallouts', title: 'Capo Callouts' },
             { route: 'Songbook', title: 'Chattahooligan Hymnal' }
           ])}

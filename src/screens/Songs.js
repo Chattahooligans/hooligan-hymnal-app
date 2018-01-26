@@ -8,11 +8,11 @@ import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
-import Songs from '../data/songs.json';
+import songs from '../data/songs.json';
 
-const gameSongs = Songs.filter(song => song.category === 'game');
-const playerSongs = Songs.filter(song => song.category === 'player');
-const teamSongs = Songs.filter(song => song.category === 'team');
+const gameSongs = songs.filter(song => song.category === 'game');
+const playerSongs = songs.filter(song => song.category === 'player');
+const teamSongs = songs.filter(song => song.category === 'team');
 
 const SongData = [
   { data: gameSongs, title: 'Game Songs' },
@@ -48,7 +48,7 @@ class SpeakerRow extends React.Component {
   };
 }
 
-export default class Speakers extends React.Component {
+export default class Songs extends React.Component {
   static navigationOptions = {
     title: 'Songs',
     headerStyle: { backgroundColor: Colors.green },

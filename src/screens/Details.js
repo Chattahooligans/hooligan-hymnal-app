@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Text,
   ScrollView,
-  View,
+  View
 } from 'react-native';
 import { Constants, Video } from 'expo';
 import FadeIn from 'react-native-fade-in-image';
@@ -26,7 +26,7 @@ import { findTalkData, findSongData } from '../data';
 import SaveButton from '../components/SaveButton';
 import { Ionicons } from '@expo/vector-icons';
 
-class SavedButtonNavigationItem extends React.Component {
+export class SavedButtonNavigationItem extends React.Component {
   render() {
     const { talk } = this.props;
 
@@ -35,7 +35,7 @@ class SavedButtonNavigationItem extends React.Component {
         style={{
           // gross dumb things
           paddingTop: Platform.OS === 'android' ? 17 : 0,
-          marginTop: Layout.notchHeight > 0 ? -5 : 0,
+          marginTop: Layout.notchHeight > 0 ? -5 : 0
         }}
       >
         <SaveButton talk={talk} />
@@ -46,7 +46,7 @@ class SavedButtonNavigationItem extends React.Component {
 
 export default class Details extends React.Component {
   state = {
-    scrollY: new Animated.Value(0),
+    scrollY: new Animated.Value(0)
   };
 
   render() {
@@ -65,18 +65,18 @@ export default class Details extends React.Component {
     const scale = scrollY.interpolate({
       inputRange: [-300, 0, 1],
       outputRange: [2, 1, 1],
-      extrapolate: 'clamp',
+      extrapolate: 'clamp'
     });
     const translateX = 0;
     const translateY = scrollY.interpolate({
       inputRange: [-300, 0, 1],
       outputRange: [-50, 1, 1],
-      extrapolate: 'clamp',
+      extrapolate: 'clamp'
     });
 
     const headerOpacity = scrollY.interpolate({
       inputRange: [0, 30, 200],
-      outputRange: [0, 0, 1],
+      outputRange: [0, 0, 1]
     });
 
     return (
@@ -93,11 +93,11 @@ export default class Details extends React.Component {
                 {
                   translateY: scrollY.interpolate({
                     inputRange: [-1, 0, 1],
-                    outputRange: [1, 0, 0],
-                  }),
-                },
+                    outputRange: [1, 0, 0]
+                  })
+                }
               ],
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.green
             }}
           />
         ) : null}
@@ -107,8 +107,8 @@ export default class Details extends React.Component {
           onScroll={Animated.event(
             [
               {
-                nativeEvent: { contentOffset: { y: this.state.scrollY } },
-              },
+                nativeEvent: { contentOffset: { y: this.state.scrollY } }
+              }
             ],
             { useNativeDriver: true }
           )}
@@ -116,7 +116,7 @@ export default class Details extends React.Component {
           <View style={styles.headerContainer}>
             <Animated.View
               style={{
-                transform: [{ scale }, { translateX }, { translateY }],
+                transform: [{ scale }, { translateX }, { translateY }]
               }}
             >
               <FadeIn placeholderStyle={{ backgroundColor: '#318A73' }}>
@@ -182,14 +182,14 @@ export default class Details extends React.Component {
           style={[
             Platform.OS === 'android'
               ? { height: Layout.headerHeight + Constants.statusBarHeight }
-              : null,
+              : null
           ]}
           renderLeftButton={() => (
             <View
               style={{
                 // gross dumb things
                 paddingTop: Platform.OS === 'android' ? 17 : 0,
-                marginTop: Layout.notchHeight > 0 ? -5 : 0,
+                marginTop: Layout.notchHeight > 0 ? -5 : 0
               }}
             >
               <HeaderBackButton
@@ -238,12 +238,12 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
-    marginBottom: 10,
+    marginBottom: 10
   },
   content: {
     backgroundColor: '#fff',
     paddingBottom: 20,
-    paddingHorizontal: 20,
+    paddingHorizontal: 20
   },
   headerContainer: {
     backgroundColor: Colors.green,
@@ -251,21 +251,21 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     paddingHorizontal: 20,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   headerText: {
     color: '#fff',
-    fontSize: FontSizes.subtitle,
+    fontSize: FontSizes.subtitle
   },
   talkTitleText: {
     color: '#fff',
     fontSize: FontSizes.title,
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: 10
   },
   sectionHeader: {
     fontSize: FontSizes.bodyTitle,
     marginTop: 15,
-    marginBottom: 3,
-  },
+    marginBottom: 3
+  }
 });
