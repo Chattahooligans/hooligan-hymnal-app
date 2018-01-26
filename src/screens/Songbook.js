@@ -5,9 +5,11 @@ import {
   View,
   Text,
   StyleSheet,
-  ScrollView
+  Platform,
+  FlatList
 } from 'react-native';
 import SongView from '../components/SongView';
+import { ScrollView } from 'react-native-gesture-handler';
 
 import NavigationOptions from '../config/NavigationOptions';
 
@@ -63,31 +65,46 @@ export default class Songbook extends React.Component {
               </SemiBoldText>
             </RectButton>
           </ClipBorderRadius>
-          <ViewPagerAndroid
-            style={styles.container}
-            horizontal={true}
-            pagingEnabled={true}
-          >
-            <View>
-              <TableOfContents />
-            </View>
-            <View style={styles.container}>
-              <Image
-                style={{ width: 400, height: 400 }}
-                source={{
-                  uri:
-                    'https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/13139207_848269078636976_5837517176582356954_n.png?oh=e27168f667887ef71b165c32fff65fb4&oe=5AF26ED8'
-                }}
+          {Platform.OS === 'ios' ? (
+            <LoadingPlaceholder>
+              <FlatList
+                renderScrollComponent={props => <ScrollView {...props} />}
+                renderItem={this._renderSong}
+                data={SongbookManifest.chapters}
+                keyExtractor={(item, index) => index}
               />
-              <Text style={styles.welcome}>The Chattahooligan Hymnal</Text>
-              <Text style={styles.welcome}>Swipe to View Songs</Text>
-            </View>
-            {songViews}
-          </ViewPagerAndroid>
+            </LoadingPlaceholder>
+          ) : (
+            <ViewPagerAndroid
+              style={styles.container}
+              horizontal={true}
+              pagingEnabled={true}
+            >
+              <View>
+                <TableOfContents />
+              </View>
+              <View style={styles.container}>
+                <Image
+                  style={{ width: 400, height: 400 }}
+                  source={{
+                    uri:
+                      'https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/13139207_848269078636976_5837517176582356954_n.png?oh=e27168f667887ef71b165c32fff65fb4&oe=5AF26ED8'
+                  }}
+                />
+                <Text style={styles.welcome}>The Chattahooligan Hymnal</Text>
+                <Text style={styles.welcome}>Swipe to View Songs</Text>
+              </View>
+              {songViews}
+            </ViewPagerAndroid>
+          )}
         </View>
       </LoadingPlaceholder>
     );
   }
+
+  _renderSong = ({ item }) => {
+    return <SongView song={item} />;
+  };
 
   _handlePressTOCButton = () => {
     console.log('clicked TOC');

@@ -5,7 +5,7 @@ import { find, propEq, prop, compose, split, map, join } from 'ramda';
 
 export default class Tags extends React.Component {
   render() {
-    return <Text style={styles.icons}>{getIcons(this.props.tags)}</Text>;
+    return <Text style={styles.icons}>{getIcons(this.props.tags || '')}</Text>;
   }
 }
 
