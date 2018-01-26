@@ -10,13 +10,15 @@ import Songs from '../data/songs.json';
 import Songbook from '../data/songbook.json';
 import { conferenceHasEnded } from '../utils/index';
 
+import { find, propEq } from 'ramda';
+
 import NavigationOptions from '../config/NavigationOptions';
 
 // on click on a song row
 // search each page in parent.parent component and look for a guid property (yet to be created), snap to that page
 
 //
-//  Note: ToC may not live within the pager forever, 
+//  Note: ToC may not live within the pager forever,
 //  it is just hanging out there now.
 //  ToC may be a button on this screen or somewhere else
 //
@@ -24,22 +26,24 @@ import NavigationOptions from '../config/NavigationOptions';
 //console.log("Songbook ToC json: " + Songbook.songbook_title);
 let ToCData = [];
 Songbook.chapters.forEach(chapterChild => {
-    let songList = []
-    
-    //console.log(chapterChild.chapter_title);
-    chapterChild.songs.forEach(songChild => {
-        try {
-            let song = { guid: songChild.guid, song_title: Songs.filter(song => song.guid === songChild.guid)[0].title };
-            //console.log(songChild.guid + " " + song.song_title);
-            songList.push(song);
-        }
-        catch (err) {
-            console.log(songChild.guid + " not found in songs database");
-        }
-    });
+  let songList = [];
 
-    if (0 < songList.length)
-        ToCData.push({ title: chapterChild.chapter_title, data: songList });
+  //console.log(chapterChild.chapter_title);
+  chapterChild.songs.forEach(songChild => {
+    try {
+      let song = {
+        guid: songChild.guid,
+        song_title: Songs.filter(song => song.guid === songChild.guid)[0].title
+      };
+      //console.log(songChild.guid + " " + song.song_title);
+      songList.push(song);
+    } catch (err) {
+      console.log(songChild.guid + ' not found in songs database');
+    }
+  });
+
+  if (0 < songList.length)
+    ToCData.push({ title: chapterChild.chapter_title, data: songList });
 });
 
 class SongRow extends React.Component {
@@ -100,14 +104,8 @@ export default class TableOfContents extends React.Component {
   };
 
   _handlePressRow = item => {
-      console.log("row click" + JSON.stringify(item));
-      const song = Songs.filter(song => song.guid === item.guid)[0];
-
-      // just exploring
-      console.log("song: "  + JSON.stringify(song));
-      console.log("--------------------");
-      console.log("props.navigation: " + this.props.navigation);
-      //this.props.navigation.navigate('SingleSongScreen', { song });
+    const song = find(propEq('guid', item.guid), Songs);
+    this.props.navigation.navigate('SingleSongScreen', { song });
   };
 }
 
