@@ -57,17 +57,6 @@ export default class Songbook extends React.Component {
     return (
       <LoadingPlaceholder>
         <View style={styles.container}>
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.tocButton}
-              onPress={this._handlePressTOCButton}
-              underlayColor="#fff"
-            >
-              <SemiBoldText style={styles.tocButtonText}>
-                Table of Contents
-              </SemiBoldText>
-            </RectButton>
-          </ClipBorderRadius>
           {Platform.OS === 'ios' ? (
             <LoadingPlaceholder>
               <FlatList
@@ -79,9 +68,11 @@ export default class Songbook extends React.Component {
             </LoadingPlaceholder>
           ) : (
             <ViewPagerAndroid
+              ref="AndroidPager"
               style={styles.container}
               horizontal={true}
               pagingEnabled={true}
+              onPageSelected={this._handleAndroidPageSelected}
             >
               <View style={styles.container}>
                 <Image
@@ -97,6 +88,14 @@ export default class Songbook extends React.Component {
               {songViews}
             </ViewPagerAndroid>
           )}
+          <RectButton
+            style={styles.tocButton}
+            onPress={this._handlePressTOCButton}
+            underlayColor="#fff">
+            <RegularText style={styles.tocButtonText}>
+              Table of Contents
+            </RegularText>
+          </RectButton>
         </View>
       </LoadingPlaceholder>
     );
@@ -109,26 +108,13 @@ export default class Songbook extends React.Component {
   _handlePressTOCButton = () => {
     this.props.navigation.navigate('TableOfContents');
   };
-}
 
-const ClipBorderRadius = ({ children, style }) => {
-  return (
-    <View
-      style={[
-        {
-          borderRadius: BORDER_RADIUS,
-          overflow: 'hidden',
-          marginTop: 3,
-          marginBottom: 3
-        },
-        style
-      ]}
-    >
-      {children}
-    </View>
-  );
-};
-const BORDER_RADIUS = 3;
+  _handleAndroidPageSelected = ({event}) => {
+    console.log("page selected");
+    // TODO: Check chapter_title on the current child <View>
+    // IF it exists, set the Title bar at the top
+  };
+}
 
 const styles = StyleSheet.create({
   tocButton: {
@@ -136,9 +122,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginHorizontal: 15,
+    width: 100+"%",
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: BORDER_RADIUS,
     overflow: 'hidden',
     flexDirection: 'row'
   },
