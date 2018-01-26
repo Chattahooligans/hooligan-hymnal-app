@@ -74,15 +74,6 @@ const SongsNavigation = StackNavigator(
   DefaultStackConfig
 );
 
-const CapoCalloutsNavigation = StackNavigator(
-  {
-    CapoCalloutsList: {
-      screen: Screens.CapoCallouts
-    }
-  },
-  DefaultStackConfig
-);
-
 const SongbookNavigation = StackNavigator(
   {
     SongbookList: {
@@ -95,7 +86,6 @@ const SongbookNavigation = StackNavigator(
 const DrawerRouteConfig = {
   Home: { screen: Screens.Home, title: 'Home' },
   Songs: { screen: SongsNavigation, title: 'Songs' },
-  CapoCallouts: { screen: CapoCalloutsNavigation, title: 'Capo Callouts' },
   Songbook: { screen: SongbookNavigation, title: 'Chattahooligan Hymnal' }
 };
 
