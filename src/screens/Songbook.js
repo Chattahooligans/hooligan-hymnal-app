@@ -21,7 +21,7 @@ SongbookManifest.chapters.forEach(chapterChild => {
             let item = Songs.filter(song => song.guid === songChild.guid)[0];
             item.chapter_title = chapterChild.chapter_title;
             songViews.push(
-                <View>
+                <View key={item.guid}>
                     <SongView song={item} />
                 </View>
             );
