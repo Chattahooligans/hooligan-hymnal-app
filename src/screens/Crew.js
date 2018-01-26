@@ -3,8 +3,8 @@ import { Image, FlatList, StyleSheet, View, Text } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView } from 'react-native-gesture-handler';
 
-import { Colors } from '../constants';
-import MenuButton from '../components/MenuButton';
+import NavigationOptions from '../config/NavigationOptions';
+
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
@@ -46,12 +46,7 @@ class CrewRow extends React.Component {
 export default class Crews extends React.Component {
   static navigationOptions = {
     title: 'Crew',
-    headerStyle: { backgroundColor: Colors.green },
-    headerTintColor: 'white',
-    headerLeft: <MenuButton />,
-    headerTitleStyle: {
-      fontFamily: 'open-sans-bold',
-    },
+    ...NavigationOptions
   };
 
   render() {
@@ -79,14 +74,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: '#eee',
     backgroundColor: '#fff',
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   rowAvatarContainer: {
     paddingVertical: 5,
     paddingRight: 10,
-    paddingLeft: 0,
+    paddingLeft: 0
   },
   rowData: {
-    flex: 1,
-  },
+    flex: 1
+  }
 });

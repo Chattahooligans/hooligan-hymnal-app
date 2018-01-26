@@ -3,10 +3,9 @@ import { Image, SectionList, StyleSheet, View, Text } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
-import { Colors } from '../constants';
-import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import NavigationOptions from '../config/NavigationOptions';
 
 import songs from '../data/songs.json';
 
@@ -51,12 +50,7 @@ class SpeakerRow extends React.Component {
 export default class Songs extends React.Component {
   static navigationOptions = {
     title: 'Songs',
-    headerStyle: { backgroundColor: Colors.green },
-    headerTintColor: 'white',
-    headerLeft: <MenuButton />,
-    headerTitleStyle: {
-      fontFamily: 'open-sans-bold'
-    }
+    ...NavigationOptions
   };
 
   render() {

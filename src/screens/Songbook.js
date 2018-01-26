@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import SongView from '../components/SongView';
 
+import NavigationOptions from '../config/NavigationOptions';
+
 import { NavigationActions } from 'react-navigation';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Colors, FontSizes, Layout } from '../constants';
@@ -43,12 +45,7 @@ SongbookManifest.chapters.forEach(chapterChild => {
 export default class Songbook extends React.Component {
   static navigationOptions = {
     title: 'Hooligan Hymnal',
-    headerStyle: { backgroundColor: Colors.green },
-    headerTintColor: 'white',
-    headerLeft: <MenuButton />,
-    headerTitleStyle: {
-      fontFamily: 'open-sans-bold'
-    }
+    ...NavigationOptions
   };
 
   render() {
