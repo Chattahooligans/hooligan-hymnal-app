@@ -10,6 +10,28 @@ import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import TableOfContents from './TableOfContents';
 
+import Songs from '../data/songs.json';
+import SongbookManifest from '../data/songbook.json';
+
+let songViews = [];
+SongbookManifest.chapters.forEach(chapterChild => {
+    //console.log(chapterChild.chapter_title);
+    chapterChild.songs.forEach(songChild => {
+        try {
+            let item = Songs.filter(song => song.guid === songChild.guid)[0];
+            item.chapter_title = chapterChild.chapter_title;
+            songViews.push(
+                <View>
+                    <SongView song={item} />
+                </View>
+            );
+        }
+        catch (err) {
+            console.log(songChild.guid + " not found in songs database");
+        }
+    });
+});
+
 // Android uses ViewPagerAndroid
 // iOS uses ScrollView with pagingEnabled and horizontal properties
 export default class Songbook extends React.Component{
@@ -51,18 +73,7 @@ export default class Songbook extends React.Component{
                             <Text style={styles.welcome}>The Chattahooligan Hymnal</Text>
                             <Text style={styles.welcome}>Swipe to View Songs</Text>
                         </View>
-                        <View>
-                            <SongView song={{title:"Chattanooga Choo Choo", lyrics:"Pardon me boy<br/>Is that the Chattanooga Choo Choo"}} />
-                        </View>
-                        <View>
-                            <SongView song={{title:"True Colors", lyrics:"I see your true colors<br/>Shining through"}} />
-                        </View>
-                        <View>
-                            <SongView song={{title:"Drink/Sing", lyrics:"Chattanooga, we are here (x3)<br />Getting rowdy, drinking beer!"}} />
-                        </View>
-                        <View>
-                            <SongView song={{title:"Just Can't Get Enough", lyrics:"When I see you, Nooga<br/>I go out of my head"}} />
-                        </View>
+                        { songViews }
                     </ViewPagerAndroid>
                 </View>
             </LoadingPlaceholder>
