@@ -99,24 +99,6 @@ const SongsNavigation = StackNavigator(
   DefaultStackConfig
 );
 
-const CrewNavigation = StackNavigator(
-  {
-    CrewList: {
-      screen: Screens.Crew
-    }
-  },
-  DefaultStackConfig
-);
-
-const SponsorNavigation = StackNavigator(
-  {
-    SponsorList: {
-      screen: Screens.Sponsors
-    }
-  },
-  DefaultStackConfig
-);
-
 const CapoCalloutsNavigation = StackNavigator(
   {
     CapoCalloutsList: {
@@ -136,13 +118,10 @@ const SongbookNavigation = StackNavigator(
 );
 
 const DrawerRouteConfig = {
-  Home: { screen: Screens.Home },
-  // Schedule: { screen: ScheduleNavigation },
-  Songs: { screen: SongsNavigation },
-  // Crew: { screen: CrewNavigation },
-  // Sponsors: { screen: SponsorNavigation },
-  CapoCallouts: { screen: CapoCalloutsNavigation },
-  Songbook: { screen: SongbookNavigation }
+  Home: { screen: Screens.Home, title: 'Home' },
+  Songs: { screen: SongsNavigation, title: 'Songs' },
+  CapoCallouts: { screen: CapoCalloutsNavigation, title: 'Capo Callouts' },
+  Songbook: { screen: SongbookNavigation, title: 'Chattahooligan Hymnal' }
 };
 
 const DrawerRouter = TabRouter(DrawerRouteConfig);
@@ -354,10 +333,7 @@ class DrawerView extends React.Component {
           {/* make sure the buttons here are in the same order as in route config */}
           {this._renderButtons([
             { route: 'Home', title: 'Home' },
-            // { route: 'Schedule', title: 'Schedule' },
             { route: 'Songs', title: 'Songs' },
-            // { route: 'Crew', title: 'Crew' },
-            // { route: 'Sponsors', title: 'Sponsors' },
             { route: 'CapoCallouts', title: 'Capo Callouts' },
             { route: 'Songbook', title: 'Chattahooligan Hymnal' }
           ])}
