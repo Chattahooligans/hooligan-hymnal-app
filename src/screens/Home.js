@@ -105,12 +105,6 @@ class Home extends React.Component {
       </View>
     );
   }
-
-  _openTickets = () => {
-    Linking.openURL(
-      'https://www.eventbrite.com/e/nodevember-2017-tickets-34928136998'
-    );
-  };
 }
 
 @withNavigation
@@ -186,7 +180,7 @@ class DeferredHomeContent extends React.Component {
   _handlePressAllSongs = () => {
     this.props.navigation.dispatch(
       NavigationActions.navigate({
-        routeName: 'Songs'
+        routeName: 'Songbook'
       })
     );
   };
