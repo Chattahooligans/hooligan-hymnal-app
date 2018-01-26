@@ -34,7 +34,7 @@ SongbookManifest.chapters.forEach(chapterChild => {
       item.chapter_title = chapterChild.chapter_title;
       pageCount++;
       songViews.push(
-        <View key={item.guid}>
+        <View key={item.guid} chapter_title={chapterChild.chapter_title}>
           <SongView song={item} />
           <Text style={{textAlign: 'right', padding: 8}}>{pageCount}</Text>
         </View>
@@ -107,7 +107,6 @@ export default class Songbook extends React.Component {
   };
 
   _handlePressTOCButton = () => {
-    console.log('clicked TOC');
     this.props.navigation.navigate('TableOfContents');
   };
 }

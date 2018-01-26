@@ -105,7 +105,12 @@ export default class TableOfContents extends React.Component {
 
   _handlePressRow = item => {
     const song = find(propEq('guid', item.guid), Songs);
-    this.props.navigation.navigate('SingleSongScreen', { song });
+    //this.props.navigation.navigate('SingleSongScreen', { song });
+    // TODO: This should go back to the previous screen and set the current <View> to the one with the selected guid
+    // Android already has this stored in key property, so search those? <View key={item.guid} ...
+    
+    // Also since you're reading this already, consider testing iOS ScrollView with pagingEnabled and horizontal properties set to true
+    // https://facebook.github.io/react-native/docs/scrollview.html
   };
 }
 
