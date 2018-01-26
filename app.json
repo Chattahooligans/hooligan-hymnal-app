@@ -1,32 +1,32 @@
 {
   "expo": {
-    "name": "Chattahooligans",
+    "name": "Chattahooligan Hymnal",
     "description":
-      "Official app for the Chattahooligans",
+      "The Chattahooligans' stadium chants and songs",
     "slug": "app",
     "privacy": "public",
     "version": "1.0.4",
-    "primaryColor": "#187f65",
-    "icon": "./src/assets/icon-ios.png",
+    "primaryColor": "#A5D8F6",
+    "icon": "./src/assets/icon.png",
     "orientation": "portrait",
     "sdkVersion": "23.0.0",
     "splash": {
       "backgroundColor": "#A5D8F6",
       "resizeMode": "contain",
-      "image": "./src/assets/chattahooligans.png"
+      "image": "./src/assets/chattahooligans-splash.png"
     },
     "android": {
-      "package": "org.chattahooligans.app",
-      "icon": "./src/assets/icon-android.png",
+      "package": "com.chattahooligans.app",
+      "icon": "./src/assets/icon.png",
       "versionCode": 3,
       "permissions": []
     },
     "ios": {
-      "bundleIdentifier": "org.chattahooligans.app",
+      "bundleIdentifier": "com.chattahooligans.app",
       "supportsTablet": true,
       "loadJSInBackgroundExperimental": true,
       "splash": {
-        "image": "./src/assets/chattahooligans.png",
+        "image": "./src/assets/chattahooligans-splash.png",
         "resizeMode": "contain",
         "backgroundColor": "#A5D8F6"
       }
