@@ -299,7 +299,6 @@ class DrawerView extends React.Component {
           {this._renderButtons([
             { route: 'Home', title: 'Home' },
             { route: 'Songs', title: 'Songs' },
-            { route: 'CapoCallouts', title: 'Capo Callouts' },
             { route: 'Songbook', title: 'Chattahooligan Hymnal' }
           ])}
         </View>

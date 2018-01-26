@@ -37,7 +37,7 @@ export default class TalksUpNext extends React.Component {
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
         <SemiBoldText style={{ fontSize: FontSizes.title }}>
-          {'Featured Song'}
+          {'Up Next'}
         </SemiBoldText>
         {this._renderDateTime()}
         {featuredSongs.map(song => (

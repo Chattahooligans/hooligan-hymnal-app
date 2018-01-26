@@ -90,9 +90,7 @@ class Home extends React.Component {
               tintColor="#fff"
             />
             <View style={styles.headerContent}>
-              <SemiBoldText style={styles.headerText}>
-                Chattahooligans 2018
-              </SemiBoldText>
+              <SemiBoldText style={styles.headerText}>Chattahooligan Hymnal</SemiBoldText>
             </View>
           </View>
 
