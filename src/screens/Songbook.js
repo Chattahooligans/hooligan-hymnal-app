@@ -25,15 +25,18 @@ import Songs from '../data/songs.json';
 import SongbookManifest from '../data/songbook.json';
 
 let songViews = [];
+let pageCount = 0;
 SongbookManifest.chapters.forEach(chapterChild => {
   //console.log(chapterChild.chapter_title);
   chapterChild.songs.forEach(songChild => {
     try {
       let item = Songs.filter(song => song.guid === songChild.guid)[0];
       item.chapter_title = chapterChild.chapter_title;
+      pageCount++;
       songViews.push(
         <View key={item.guid}>
           <SongView song={item} />
+          <Text style={{textAlign: 'right', padding: 8}}>{pageCount}</Text>
         </View>
       );
     } catch (err) {
@@ -80,9 +83,6 @@ export default class Songbook extends React.Component {
               horizontal={true}
               pagingEnabled={true}
             >
-              <View>
-                <TableOfContents />
-              </View>
               <View style={styles.container}>
                 <Image
                   style={{ width: 400, height: 400 }}
