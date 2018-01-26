@@ -2,7 +2,9 @@ import React from 'react';
 import { ViewPagerAndroid, Image, View, Text, StyleSheet, ScrollView } from 'react-native';
 import SongView from '../components/SongView';
 
-import { Layout, Colors } from '../constants';
+import { NavigationActions } from 'react-navigation';
+import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
+import { Colors, FontSizes, Layout } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
@@ -26,21 +28,28 @@ export default class Songbook extends React.Component{
         return(
             <LoadingPlaceholder>
                 <View style={styles.container}>
-                    <Text style={styles.header}>table of contents?</Text>
+                    <ClipBorderRadius>
+                        <RectButton
+                            style={styles.tocButton}
+                            onPress={this._handlePressTOCButton}
+                            underlayColor="#fff"
+                        >
+                            <SemiBoldText style={styles.tocButtonText}>
+                            Table of Contents
+                            </SemiBoldText>
+                        </RectButton>
+                    </ClipBorderRadius>
                     <ViewPagerAndroid 
                         style={styles.container}
                         horizontal={true} pagingEnabled={true}>
+                        <View><TableOfContents /></View>
                         <View style={styles.container}>
                             <Image 
                                 style={{width: 400, height: 400}} 
                                 source={{uri: 'https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/13139207_848269078636976_5837517176582356954_n.png?oh=e27168f667887ef71b165c32fff65fb4&oe=5AF26ED8'}}
                             />
-                            <Text style={styles.welcome}>
-                            The Chattahooligan Hymnal test
-                            </Text>
-                        </View>
-                        <View>
-                            <TableOfContents />
+                            <Text style={styles.welcome}>The Chattahooligan Hymnal</Text>
+                            <Text style={styles.welcome}>Swipe to View Songs</Text>
                         </View>
                         <View>
                             <SongView song={{title:"Chattanooga Choo Choo", lyrics:"Pardon me boy<br/>Is that the Chattanooga Choo Choo"}} />
@@ -59,12 +68,43 @@ export default class Songbook extends React.Component{
             </LoadingPlaceholder>
         )
     }
+
+    _handlePressTOCButton = () => {
+        console.log("clicked TOC");
+        this.props.navigation.navigate('TableOfContents');
+    };
 }
 
+const ClipBorderRadius = ({ children, style }) => {
+    return (
+        <View
+            style={[
+            { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 3, marginBottom: 3 },
+            style
+            ]}
+        >
+            {children}
+        </View>
+    );
+};
+const BORDER_RADIUS = 3;
+
 const styles = StyleSheet.create({
-    header: {
-        fontSize: 12,
-        textAlign: 'center',
+    tocButton: {
+        backgroundColor: Colors.green,
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        marginHorizontal: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: BORDER_RADIUS,
+        overflow: 'hidden',
+        flexDirection: 'row'
+    },
+    tocButtonText: {
+        fontSize: FontSizes.normalButton,
+        color: '#fff',
+        textAlign: 'center'
     },
     container: {
         flex: 1,
@@ -72,10 +112,5 @@ const styles = StyleSheet.create({
         alignItems: 'center', 
         justifyContent: 'center',
         backgroundColor: '#A5D8F6'
-    },
-    sampleText: {
-        color: 'red',
-        fontSize: 36,
-        textAlign: 'center'
     },
 });

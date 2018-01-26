@@ -10,27 +10,7 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
 import Songs from '../data/songs.json';
 import Songbook from '../data/songbook.json';
-
-// parse songbook json
-// this needs to all be dynamic, using chapter_title property as the section heading name
-//      and a flexible number of chapters
-
-// pseudocode
-// const ToC is some array of { title, songs/data }
-// for each chapter {
-//      const title = get chapter chapter_title
-//      const songs is some array of { guid, title }
-//      
-//      parse child elements of "song" property in this chapter
-//      for each song {
-//          guid is directly from songbook.json
-//          title is retrieved from songs.json database (sorry about relational data!)
-//          
-//          add to songs array
-//      }
-//      
-//      add new item to ToC array
-//}
+import { conferenceHasEnded } from '../utils/index';
 
 // on click on a song row
 // search each page in parent.parent component and look for a guid property (yet to be created), snap to that page
@@ -41,19 +21,30 @@ import Songbook from '../data/songbook.json';
 //  ToC may be a button on this screen or somewhere else
 //
 
-const gameSongs = Songs.filter(song => song.category === 'game');
-const playerSongs = Songs.filter(song => song.category === 'player');
-const teamSongs = Songs.filter(song => song.category === 'team');
+//console.log("Songbook ToC json: " + Songbook.songbook_title);
+let ToCData = [];
+Songbook.chapters.forEach(chapterChild => {
+    let songList = []
+    
+    //console.log(chapterChild.chapter_title);
+    chapterChild.songs.forEach(songChild => {
+        try {
+            let song = { guid: songChild.guid, song_title: Songs.filter(song => song.guid === songChild.guid)[0].title };
+            //console.log(songChild.guid + " " + song.song_title);
+            songList.push(song);
+        }
+        catch (err) {
+            console.log(songChild.guid + " not found in songs database");
+        }
+    });
 
-const SongData = [
-  { data: gameSongs, title: 'Game Songs' },
-  { data: playerSongs, title: 'Player Songs' },
-  { data: teamSongs, title: 'Team Songs' }
-];
+    if (0 < songList.length)
+        ToCData.push({ title: chapterChild.chapter_title, data: songList });
+});
 
 class SongRow extends React.Component {
   render() {
-    const { item: speaker } = this.props;
+    const { item: song } = this.props;
 
     return (
       <RectButton
@@ -63,11 +54,7 @@ class SongRow extends React.Component {
       >
         <View style={styles.row}>
           <View style={styles.rowData}>
-            <BoldText>{speaker.name}</BoldText>
-            {speaker.organization ? (
-              <SemiBoldText>{speaker.organization}</SemiBoldText>
-            ) : null}
-            <RegularText>{speaker.title}</RegularText>
+            <RegularText>{song.song_title}</RegularText>
           </View>
         </View>
       </RectButton>
@@ -98,7 +85,7 @@ export default class TableOfContents extends React.Component {
           stickySectionHeadersEnabled={true}
           renderItem={this._renderItem}
           renderSectionHeader={this._renderSectionHeader}
-          sections={SongData}
+          sections={ToCData}
           keyExtractor={(item, index) => index}
         />
       </LoadingPlaceholder>
@@ -117,16 +104,24 @@ export default class TableOfContents extends React.Component {
     return <SongRow item={item} onPress={this._handlePressRow} />;
   };
 
-  _handlePressRow = song => {
-    this.props.navigation.navigate('SingleSongScreen', { song });
+  _handlePressRow = item => {
+      console.log("row click" + JSON.stringify(item));
+      const song = Songs.filter(song => song.guid === item.guid)[0];
+
+      // just exploring
+      console.log("song: "  + JSON.stringify(song));
+      console.log("--------------------");
+      console.log("props.navigation: " + this.props.navigation);
+      //this.props.navigation.navigate('SingleSongScreen', { song });
   };
 }
 
 const styles = StyleSheet.create({
   row: {
     flex: 1,
+    paddingTop: 10,
     padding: 10,
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: 1,
     borderColor: '#eee',
     flexDirection: 'row'
   },
