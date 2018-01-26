@@ -1,5 +1,12 @@
 import React from 'react';
-import { ViewPagerAndroid, Image, View, Text, StyleSheet, ScrollView } from 'react-native';
+import {
+  ViewPagerAndroid,
+  Image,
+  View,
+  Text,
+  StyleSheet,
+  ScrollView
+} from 'react-native';
 import SongView from '../components/SongView';
 
 import { NavigationActions } from 'react-navigation';
@@ -15,113 +22,123 @@ import SongbookManifest from '../data/songbook.json';
 
 let songViews = [];
 SongbookManifest.chapters.forEach(chapterChild => {
-    //console.log(chapterChild.chapter_title);
-    chapterChild.songs.forEach(songChild => {
-        try {
-            let item = Songs.filter(song => song.guid === songChild.guid)[0];
-            item.chapter_title = chapterChild.chapter_title;
-            songViews.push(
-                <View key={item.guid}>
-                    <SongView song={item} />
-                </View>
-            );
-        }
-        catch (err) {
-            console.log(songChild.guid + " not found in songs database");
-        }
-    });
+  //console.log(chapterChild.chapter_title);
+  chapterChild.songs.forEach(songChild => {
+    try {
+      let item = Songs.filter(song => song.guid === songChild.guid)[0];
+      item.chapter_title = chapterChild.chapter_title;
+      songViews.push(
+        <View key={item.guid}>
+          <SongView song={item} />
+        </View>
+      );
+    } catch (err) {
+      console.log(songChild.guid + ' not found in songs database');
+    }
+  });
 });
 
 // Android uses ViewPagerAndroid
 // iOS uses ScrollView with pagingEnabled and horizontal properties
-export default class Songbook extends React.Component{
-    static navigationOptions = {
-        title: 'Hooligan Hymnal',
-        headerStyle: { backgroundColor: Colors.green },
-        headerTintColor: 'white',
-        headerLeft: <MenuButton />,
-        headerTitleStyle: {
-            fontFamily: 'open-sans-bold',
-        },
-    };
-    
-    render(){
-        
-        return(
-            <LoadingPlaceholder>
-                <View style={styles.container}>
-                    <ClipBorderRadius>
-                        <RectButton
-                            style={styles.tocButton}
-                            onPress={this._handlePressTOCButton}
-                            underlayColor="#fff"
-                        >
-                            <SemiBoldText style={styles.tocButtonText}>
-                            Table of Contents
-                            </SemiBoldText>
-                        </RectButton>
-                    </ClipBorderRadius>
-                    <ViewPagerAndroid 
-                        style={styles.container}
-                        horizontal={true} pagingEnabled={true}>
-                        <View><TableOfContents /></View>
-                        <View style={styles.container}>
-                            <Image 
-                                style={{width: 400, height: 400}} 
-                                source={{uri: 'https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/13139207_848269078636976_5837517176582356954_n.png?oh=e27168f667887ef71b165c32fff65fb4&oe=5AF26ED8'}}
-                            />
-                            <Text style={styles.welcome}>The Chattahooligan Hymnal</Text>
-                            <Text style={styles.welcome}>Swipe to View Songs</Text>
-                        </View>
-                        { songViews }
-                    </ViewPagerAndroid>
-                </View>
-            </LoadingPlaceholder>
-        )
+export default class Songbook extends React.Component {
+  static navigationOptions = {
+    title: 'Hooligan Hymnal',
+    headerStyle: { backgroundColor: Colors.green },
+    headerTintColor: 'white',
+    headerLeft: <MenuButton />,
+    headerTitleStyle: {
+      fontFamily: 'open-sans-bold'
     }
+  };
 
-    _handlePressTOCButton = () => {
-        console.log("clicked TOC");
-        this.props.navigation.navigate('TableOfContents');
-    };
+  render() {
+    return (
+      <LoadingPlaceholder>
+        <View style={styles.container}>
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.tocButton}
+              onPress={this._handlePressTOCButton}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.tocButtonText}>
+                Table of Contents
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+          <ViewPagerAndroid
+            style={styles.container}
+            horizontal={true}
+            pagingEnabled={true}
+          >
+            <View>
+              <TableOfContents />
+            </View>
+            <View style={styles.container}>
+              <Image
+                style={{ width: 400, height: 400 }}
+                source={{
+                  uri:
+                    'https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/13139207_848269078636976_5837517176582356954_n.png?oh=e27168f667887ef71b165c32fff65fb4&oe=5AF26ED8'
+                }}
+              />
+              <Text style={styles.welcome}>The Chattahooligan Hymnal</Text>
+              <Text style={styles.welcome}>Swipe to View Songs</Text>
+            </View>
+            {songViews}
+          </ViewPagerAndroid>
+        </View>
+      </LoadingPlaceholder>
+    );
+  }
+
+  _handlePressTOCButton = () => {
+    console.log('clicked TOC');
+    this.props.navigation.navigate('TableOfContents');
+  };
 }
 
 const ClipBorderRadius = ({ children, style }) => {
-    return (
-        <View
-            style={[
-            { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 3, marginBottom: 3 },
-            style
-            ]}
-        >
-            {children}
-        </View>
-    );
+  return (
+    <View
+      style={[
+        {
+          borderRadius: BORDER_RADIUS,
+          overflow: 'hidden',
+          marginTop: 3,
+          marginBottom: 3
+        },
+        style
+      ]}
+    >
+      {children}
+    </View>
+  );
 };
 const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
-    tocButton: {
-        backgroundColor: Colors.green,
-        paddingHorizontal: 15,
-        paddingVertical: 10,
-        marginHorizontal: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: BORDER_RADIUS,
-        overflow: 'hidden',
-        flexDirection: 'row'
-    },
-    tocButtonText: {
-        fontSize: FontSizes.normalButton,
-        color: '#fff',
-        textAlign: 'center'
-    },
-    container: {
-        flex: 1,
-        width: 100+'%',
-        alignItems: 'center', 
-        justifyContent: 'center',
-        backgroundColor: '#A5D8F6'
-    },
+  tocButton: {
+    backgroundColor: Colors.green,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginHorizontal: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: BORDER_RADIUS,
+    overflow: 'hidden',
+    flexDirection: 'row'
+  },
+  tocButtonText: {
+    fontSize: FontSizes.normalButton,
+    color: '#fff',
+    textAlign: 'center'
+  },
+  container: {
+    flex: 1,
+    width: 100 + '%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#A5D8F6'
+  }
 });
