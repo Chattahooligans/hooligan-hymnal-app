@@ -56,6 +56,9 @@ export default class Songbook extends React.Component {
   render() {
     return (
       <LoadingPlaceholder>
+        <View style={styles.sectionHeader}>
+          <RegularText>CHAPTER TITLE HERE, gets update on page turn</RegularText>
+        </View>
         <View style={styles.container}>
           {Platform.OS === 'ios' ? (
             <LoadingPlaceholder>
@@ -68,7 +71,6 @@ export default class Songbook extends React.Component {
             </LoadingPlaceholder>
           ) : (
             <ViewPagerAndroid
-              ref="AndroidPager"
               style={styles.container}
               horizontal={true}
               pagingEnabled={true}
@@ -139,5 +141,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#A5D8F6'
+  },
+  chapterTitle: {
+    paddingHorizontal: 10,
+    paddingTop: 7,
+    paddingBottom: 5,
+    backgroundColor: '#eee',
+    borderWidth: 1,
+    borderColor: '#eee'
   }
 });
