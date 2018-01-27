@@ -36,7 +36,7 @@ SongbookManifest.chapters.forEach(chapterChild => {
       songViews.push(
         <View key={item.guid} chapter_title={chapterChild.chapter_title}>
           <SongView song={item} />
-          <Text style={{textAlign: 'right', padding: 8}}>{pageCount}</Text>
+          <Text style={{textAlign: 'right', backgroundColor: '#FFFFFF', marginTop: 0, marginLeft: 8, marginRight: 8, marginBottom: 8, padding: 8}}>{pageCount}</Text>
         </View>
       );
     } catch (err) {

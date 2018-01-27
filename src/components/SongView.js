@@ -8,12 +8,12 @@ export default class SongView extends React.Component {
     let song = this.props.song;
     return (
       <View style={styles.container}>
-        <View>
+        <View style={{paddingBottom: 8}}>
           <Text style={styles.title}>{song.title}</Text>
           <Text style={styles.reference}>{song.reference_title}</Text>
-          <Tags style={styles.icons} tags={song.tags} />
         </View>
         <View style={{flex: 1}}>
+          <Tags style={styles.icons} tags={song.tags} />
           <Text style={styles.instructions}>{song.instructions}</Text>
           <Text style={styles.lyrics}>{song.lyrics}</Text>
         </View>
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 100 + '%',
     padding: 8,
+    paddingBottom: 0
   },
   instructions: {
     fontStyle: 'italic',
