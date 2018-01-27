@@ -7,7 +7,6 @@ import TableOfContents from './TableOfContents';
 
 export default {
   Home,
-  CapoCallouts,
   SingleSongScreen,
   Songbook,
   Songs,
