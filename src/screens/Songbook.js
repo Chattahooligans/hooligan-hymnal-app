@@ -49,7 +49,7 @@ SongbookManifest.chapters.forEach(chapterChild => {
 // iOS uses ScrollView with pagingEnabled and horizontal properties
 export default class Songbook extends React.Component {
   static navigationOptions = {
-    title: 'Hooligan Hymnal',
+    title: 'Songbook',
     ...NavigationOptions
   };
 
