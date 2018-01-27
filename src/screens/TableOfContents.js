@@ -3,6 +3,9 @@ import { Image, SectionList, StyleSheet, View, Text } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
+import NavigationOptions from '../config/NavigationOptions';
+import { NavigationActions } from 'react-navigation';
+
 import { Colors, FontSizes, Layout } from '../constants';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
@@ -12,8 +15,6 @@ import Songbook from '../data/songbook.json';
 import { conferenceHasEnded } from '../utils/index';
 
 import { find, propEq } from 'ramda';
-
-import NavigationOptions from '../config/NavigationOptions';
 
 // on click on a song row
 // search each page in parent.parent component and look for a guid property (yet to be created), snap to that page
@@ -48,6 +49,11 @@ Songbook.chapters.forEach(chapterChild => {
 });
 
 class SongRow extends React.Component {
+  static navigationOptions = {
+    title: 'Table of Contents',
+    ...NavigationOptions
+  };
+
   render() {
     const { item: song } = this.props;
 
