@@ -79,13 +79,9 @@ export default class Songbook extends React.Component {
               <View style={styles.container}>
                 <Image
                   style={{ width: 400, height: 400 }}
-                  source={{
-                    uri:
-                      'https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/13139207_848269078636976_5837517176582356954_n.png?oh=e27168f667887ef71b165c32fff65fb4&oe=5AF26ED8'
-                  }}
+                  source={require('../assets/chattahooligans-songbook-front-cover.png')}
                 />
-                <Text style={styles.welcome}>The Chattahooligan Hymnal</Text>
-                <Text style={styles.welcome}>Swipe to View Songs</Text>
+                <Text style={styles.welcome}>Swipe Left/Right to View Songs</Text>
               </View>
               {songViews}
             </ViewPagerAndroid>
