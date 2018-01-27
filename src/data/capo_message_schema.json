@@ -1,8 +1,10 @@
 {
     "sender": "",
     "send_time": "",
+    "expire_time": "",
     "sender_latitude": "",
     "sender_longitude": "",
+    "message": "",
     "song": {
         "guid": -1,
         "category": "",
