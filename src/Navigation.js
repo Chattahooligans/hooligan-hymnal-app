@@ -103,7 +103,6 @@ const AboutNavigation = StackNavigator(
 
 const DrawerRouteConfig = {
   Home: { screen: Screens.Home, title: 'Home' },
-  Songs: { screen: SongsNavigation, title: 'Songs' },
   Songbook: { screen: SongbookNavigation, title: 'Songbook' },
   CapoHome: { screen: CapoHomeNavigation, title: 'Capo Dashboard' },
   About: { screen: AboutNavigation, title: 'About' }
@@ -318,7 +317,6 @@ class DrawerView extends React.Component {
           {/* make sure the buttons here are in the same order as in route config */}
           {this._renderButtons([
             { route: 'Home', title: 'Home' },
-            { route: 'Songs', title: 'Songs' },
             { route: 'Songbook', title: 'Songbook' },
             { route: 'CapoHome', title: 'Capo Dashboard' },
             { route: 'About', title: 'About' }
@@ -413,8 +411,7 @@ const styles = StyleSheet.create({
 export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
-    SingleSongScreen: { screen: Screens.SingleSongScreen },
-    TableOfContents: { screen: Screens.TableOfContents }
+    SingleSongScreen: { screen: Screens.SingleSongScreen }
   },
   {
     ...DefaultStackConfig,
