@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { RegularText } from './StyledText';
 import Tags from './Tags';
+import { Colors, FontSizes, Layout } from '../constants';
 
 export default class SongView extends React.Component {
   render() {
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
   lyrics: {
     fontSize: 18,
     flex: 1,
+    color: Colors.green,
     backgroundColor: '#FFFFFF',
     paddingLeft: 8
   }
