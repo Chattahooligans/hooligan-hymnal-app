@@ -14,6 +14,8 @@ import { Colors, FontSizes } from '../constants';
 // TODO: Hard code password for now
 // Add top nav bar with Back button
 //      on back button press, redirect to Home screen
+// alternately, is there a home button for the top nav bar?
+//
 // If password is correct, enable capo mode (using AsyncStorage?) and go back to CapoHome.js
 // If password is incorrect, show invalid password message
 
