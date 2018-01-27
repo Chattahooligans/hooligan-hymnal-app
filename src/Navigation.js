@@ -83,10 +83,20 @@ const SongbookNavigation = StackNavigator(
   DefaultStackConfig
 );
 
+const AboutNavigation = StackNavigator(
+  {
+    AboutList: {
+      screen: Screens.About
+    }
+  },
+  DefaultStackConfig
+);
+
 const DrawerRouteConfig = {
   Home: { screen: Screens.Home, title: 'Home' },
   Songs: { screen: SongsNavigation, title: 'Songs' },
-  Songbook: { screen: SongbookNavigation, title: 'Songbook' }
+  Songbook: { screen: SongbookNavigation, title: 'Songbook' },
+  About: { screen: AboutNavigation, title: 'About' }
 };
 
 const DrawerRouter = TabRouter(DrawerRouteConfig);
@@ -299,7 +309,8 @@ class DrawerView extends React.Component {
           {this._renderButtons([
             { route: 'Home', title: 'Home' },
             { route: 'Songs', title: 'Songs' },
-            { route: 'Songbook', title: 'Songbook' }
+            { route: 'Songbook', title: 'Songbook' },
+            { route: 'About', title: 'About' }
           ])}
         </View>
       </View>
