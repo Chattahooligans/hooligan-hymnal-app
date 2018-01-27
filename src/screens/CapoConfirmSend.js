@@ -18,6 +18,8 @@ import SongView from '../components/SongView';
 // set a Song object, either selected from our list or created on the Compose screen
 // Back Button on the nav bar for this screen, goes back to wherever we came from and/or capo dashboard if that is easier
 
+// Send message to server based on /src/data/capo_message_schema.json
+
 @withNavigation
 export default class CapoConfirmSend extends React.Component {
     static navigationOptions = {
