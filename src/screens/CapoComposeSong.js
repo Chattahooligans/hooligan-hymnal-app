@@ -26,10 +26,8 @@ export default class CapoComposeSong extends React.Component {
     render() {
     return (
         <LoadingPlaceholder>
-            <Text>Title</Text>
-            <TextInput style={styles.titleField} />
-            <Text>Lyrics</Text>
-            <TextInput style={styles.lyricsField} multiline={true} />
+            <TextInput style={styles.titleField} placeholder="Title" />
+            <TextInput style={styles.lyricsField} multiline={true} placeholder="Lyrics" />
             <ClipBorderRadius>
                 <RectButton
                     style={styles.bigButton}
