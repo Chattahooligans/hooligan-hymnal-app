@@ -14,6 +14,7 @@ import { Colors, FontSizes } from '../constants';
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 // TODO: Create Song object, set title and lyrics based on data on this screen and pass to next screen (CapoConfirmSend)
 //      maybe by reading in /src/data/song_schema.json as an object and setting those properties?
+// Back Button on the nav bar for this screen, goes back to capo dashboard
 
 @withNavigation
 export default class CapoComposeSong extends React.Component {
