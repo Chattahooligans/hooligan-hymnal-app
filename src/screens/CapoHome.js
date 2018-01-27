@@ -11,6 +11,8 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 
+// TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
+
 @withNavigation
 export default class CapoHome extends React.Component {
     static navigationOptions = {

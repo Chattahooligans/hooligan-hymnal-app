@@ -11,6 +11,12 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 
+// TODO: Hard code password for now
+// Add top nav bar with Back button
+//      on back button press, redirect to Home screen
+// If password is correct, enable capo mode (using AsyncStorage?) and go back to CapoHome.js
+// If password is incorrect, show invalid password message
+
 @withNavigation
 export default class CapoLogin extends React.Component {
     static navigationOptions = {
@@ -21,7 +27,7 @@ export default class CapoLogin extends React.Component {
     render() {
     return (
         <LoadingPlaceholder>
-            <Text>Enter password to unlock</Text>
+            <Text style={style.instructions}>Enter password to unlock</Text>
             <TextInput />
             <ClipBorderRadius>
                 <RectButton
@@ -40,12 +46,14 @@ export default class CapoLogin extends React.Component {
                     <SemiBoldText style={styles.bigButtonText}>Submit</SemiBoldText>
                 </RectButton>
             </ClipBorderRadius>
+            <Text style={style.error}>Invalid password</Text>
         </LoadingPlaceholder>
     );
   }
 
   _handlePressSubmitButton = () => {
     console.log("submit PW");
+    // just hard code a password for now?
   };
 }
 
@@ -65,43 +73,11 @@ const ClipBorderRadius = ({ children, style }) => {
   const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
-  headerRow: {
-    flexDirection: 'row'
+  instructions: {
+      
   },
-  headerRowAvatarContainer: {
-    paddingRight: 10
-  },
-  headerRowInfoContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    paddingBottom: 5
-  },
-  speakerName: {
-    fontSize: FontSizes.bodyTitle
-  },
-  organizationName: {
-    color: Colors.faint,
-    fontSize: FontSizes.bodyLarge
-  },
-  songInfoRow: {
-    paddingTop: 10
-  },
-  songLyrics: {
-    paddingTop: 10
-  },
-  songTitle: {
-    fontSize: FontSizes.bodyLarge
-  },
-  songLocation: {
-    fontSize: FontSizes.bodyLarge,
-    color: Colors.faint,
-    marginTop: 10
-  },
-  nextYear: {
-    textAlign: 'center',
-    fontSize: FontSizes.title,
-    marginVertical: 10
+  error: {
+    color: '#FF0000'  
   },
   button: {
     backgroundColor: '#fff',
