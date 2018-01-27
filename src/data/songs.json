@@ -9,7 +9,7 @@
     "lyrics":
       "Pardon me, boy\nIs that the Chattanooga Choo Choo?\nTrack twenty-nine\nCan you give me a shine?\nCan you afford to board the\nChattanooga Choo Choo?\nI've got my fare\nAnd just a trifle to spare.\n\nWhen you hear the whistle\nBlowin' eight to the bar!\nThen you know that\nTennessee is not very far!\nShovel all the coal in\nGotta keep it rollin'\nWoo, woo, Chattanooga\nThere you are! (x4)",
     "tbd_various_boolean_flags": "",
-    "reference_title": "",
+    "reference_title": "by the Glenn Miller Orchestra",
     "reference_link": "",
     "instructions": "",
     "is_npsl_player": false,
@@ -30,7 +30,7 @@
     "lyrics":
       "I see your true colors\nShining through.\nI see your true colors,\nAnd that's why I love you.\nSo don't be afraid to let them show.\nYour true colors,\nYour true colors are beautiful.\nAmarillo",
     "tbd_various_boolean_flags": "",
-    "reference_title": "",
+    "reference_title": "from True Colors, by Cyndi Lauper",
     "reference_link": "",
     "instructions": "",
     "is_npsl_player": false,
@@ -72,7 +72,7 @@
     "lyrics":
       "When I see you 'Nooga,\nI go out of my head\nI just can't get enough (x2)\nAll the things you do to me\nAnd all the things you said\nI just can't get enough (x2)\nI slip and slide as I fall in love and\nI just can't seem to get enough of",
     "tbd_various_boolean_flags": "",
-    "reference_title": "",
+    "reference_title": "from Just Can't Get Enough, by Depeche Mode",
     "reference_link": "",
     "instructions": "",
     "is_npsl_player": false,
@@ -114,7 +114,7 @@
     "lyrics":
       "S-A-T-U-R-D-A-Y Night! (x4)\nWhen we're cheering for the blues\nOh, we never lose\nOn Saturday night, Saturday night\nAnd we're watching Chattanooga\nPut the hammerin' to ya\nOn Saturday night, Saturday night",
     "tbd_various_boolean_flags": "",
-    "reference_title": "",
+    "reference_title": "from Saturday Night, by Bay City Rollers",
     "reference_link": "",
     "instructions": "",
     "is_npsl_player": false,
@@ -176,7 +176,7 @@
     "lyrics":
       "Score us a goal, you're the CFC\nScore us a goal tonight\nWe're all in the mood for a victory\nAnd you've got us feeling alright",
     "tbd_various_boolean_flags": "",
-    "reference_title": "",
+    "reference_title": "from Piano Man, by Billy Joel",
     "reference_link": "",
     "instructions": "",
     "is_npsl_player": false,
@@ -217,9 +217,9 @@
     "lyrics":
       "Oh, you drove X hours just to lose.\n\nDrive a Volkswagen\nSee Rock City\nEat a Little Debbie\nSurf the Internet\nEat a MoonPie",
     "tbd_various_boolean_flags": "",
-    "reference_title": "",
+    "reference_title": "from She'll Be Coming 'Round the Mountain, traditional folk",
     "reference_link": "",
-    "instructions": "",
+    "instructions": "(two cycles of driving, then two cycles per attraction)",
     "is_npsl_player": false,
     "is_wpsl_player": false,
     "is_nisa_player": false,
@@ -238,7 +238,7 @@
     "lyrics":
       "Somebody breathalyze the ref (x2)\nWe know he's not cheating\nHe must have been drinking\nSomebody breathalyze the ref.",
     "tbd_various_boolean_flags": "",
-    "reference_title": "",
+    "reference_title": "from She'll Be Coming 'Round the Mountain, traditional folk",
     "reference_link": "",
     "instructions": "",
     "is_npsl_player": false,
@@ -259,7 +259,7 @@
     "lyrics":
       "Well you can tell by the way\nI roll and scream\nI'm a floppin fool with no injuries\nAh ah ah ah\nTakin a dive, takin a dive...\nAh ah ah ah\nTakin a dive, takin a dive...",
     "tbd_various_boolean_flags": "",
-    "reference_title": "",
+    "reference_title": "from Stayin' Alive, by Bee Gees",
     "reference_link": "",
     "instructions": "",
     "is_npsl_player": false,
@@ -280,7 +280,7 @@
     "lyrics":
       "Come on 'Nooga score a goal\nIt's really, really simple.\nPut the ball into the net\nAnd watch us all go mental.",
     "tbd_various_boolean_flags": "",
-    "reference_title": "",
+    "reference_title": "from Yankee Doodle, a British-American folk song",
     "reference_link": "",
     "instructions": "",
     "is_npsl_player": false,
@@ -320,7 +320,7 @@
     "tags": "voice,drums",
     "lyrics": "Oh, Zeca, you're so fine\nYou're so fine you blow my mind",
     "tbd_various_boolean_flags": "",
-    "reference_title": "",
+    "reference_title": "from Hey Mickey, by Toni Basil",
     "reference_link": "",
     "instructions": "",
     "is_npsl_player": true,
@@ -341,7 +341,7 @@
     "lyrics":
       "All My Ex's Live in Texas\nAnd Texas is the place I'd dearly love to be",
     "tbd_various_boolean_flags": "",
-    "reference_title": "",
+    "reference_title": "from All My Ex's Live in Texas, by George Strait",
     "reference_link": "",
     "instructions": "",
     "is_npsl_player": true,
