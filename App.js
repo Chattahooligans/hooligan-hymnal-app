@@ -7,6 +7,8 @@ import { loadSavedTalksAsync } from './src/utils/storage';
 import Navigation from './src/Navigation';
 import Home from './src/screens/Home';
 
+import { Location, Permissions } from 'expo';
+
 const theme = {
   font: {
     primary: 'open-sans-bold'
@@ -18,7 +20,8 @@ const theme = {
 
 export default class App extends React.Component {
   state = {
-    fontLoaded: false
+    fontLoaded: false,
+    location: null
   };
 
   _loadResourcesAsync = () => {
@@ -44,6 +47,28 @@ export default class App extends React.Component {
         require('react-navigation/src/views/assets/back-icon.png')
       ).downloadAsync()
     ]);
+  };
+
+  componentWillMount() {
+    if (Platform.OS === 'android' && !Constants.isDevice) {
+      console.log("Oops, this will not work on Sketch in an Android emulator. Try it on your device!");
+    } else {
+      this._getLocationAsync();
+    }
+  };
+
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== 'granted') {
+      this.setState({
+        errorMessage: 'Permission to access location was denied',
+      });
+    }
+
+    // 10 minutes
+    let location = await Location.getCurrentPositionAsync({});
+    console.log("location:", location.coords.latitude, location.coords.longitude, location.coords.accuracy);
+    this.setState({ location });
   };
 
   render() {
