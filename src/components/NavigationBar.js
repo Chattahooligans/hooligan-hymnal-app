@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   navigationBarTitleContainer: {
     flex: 1,
     flexDirection: 'row',
-    paddingHorizontal: 20,
+    paddingHorizontal: 0,
     alignItems: 'center',
     justifyContent: Platform.OS === 'ios' ? 'center' : 'flex-start',
   },
