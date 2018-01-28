@@ -67,7 +67,8 @@ class Home extends React.Component {
               padding: 10,
               paddingTop: Layout.headerHeight - 10,
               justifyContent: 'center',
-              alignItems: 'center'
+              alignItems: 'center',
+              height: 231, width: 412
             }}
           >
             <View style={styles.headerVideoLayer}>
