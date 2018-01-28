@@ -355,6 +355,7 @@ class DrawerView extends React.Component {
   _navigateToScreen = index => {
     this._drawerRef.closeDrawer();
     const nextRoute = this.props.navigation.state.routes[index];
+    console.log(nextRoute.routeName);
     this.props.navigation.navigate(nextRoute.routeName);
   };
 }

@@ -7,6 +7,8 @@ import { NavigationActions } from 'react-navigation';
 import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
 
+import state from '../state';
+
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
@@ -21,65 +23,70 @@ import { Colors, FontSizes } from '../constants';
 
 @withNavigation
 export default class CapoLogin extends React.Component {
-    static navigationOptions = {
-        title: 'Capo Login',
-        ...NavigationOptions
-      };
-  
-    render() {
+  static navigationOptions = {
+    title: 'Capo Login',
+    ...NavigationOptions
+  };
+
+  render() {
     return (
-        <LoadingPlaceholder>
-            <Text style={style.instructions}>Enter password to unlock</Text>
-            <TextInput />
-            <ClipBorderRadius>
-                <RectButton
-                    style={styles.bigButton}
-                    onPress={this._handlePressSubmitButton}
-                    underlayColor="#fff">
-                    <Ionicons
-                        size={23}
-                        style={{
-                            color: '#fff',
-                            marginTop: 3,
-                            backgroundColor: 'transparent',
-                            marginRight: 5
-                        }}
-                    />
-                    <SemiBoldText style={styles.bigButtonText}>Submit</SemiBoldText>
-                </RectButton>
-            </ClipBorderRadius>
-            <Text style={style.error}>Invalid password</Text>
-        </LoadingPlaceholder>
+      <LoadingPlaceholder>
+        <Text style={style.instructions}>Enter password to unlock</Text>
+        <TextInput onChangeText={this._setPassword} />
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressSubmitButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              size={23}
+              style={{
+                color: '#fff',
+                marginTop: 3,
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <SemiBoldText style={styles.bigButtonText}>Submit</SemiBoldText>
+          </RectButton>
+        </ClipBorderRadius>
+        <Text style={style.error}>Invalid password</Text>
+      </LoadingPlaceholder>
     );
   }
 
+  _setPassword = password => {
+    state.password = password;
+  };
+
   _handlePressSubmitButton = () => {
-    console.log("submit PW");
-    // just hard code a password for now?
+    if (state.password === 'beccaisprettytoday') {
+      state.unlocked = true;
+      this.props.navigation.navigate('CapoHome');
+    }
   };
 }
 
 const ClipBorderRadius = ({ children, style }) => {
-    return (
-      <View
-        style={[
-          { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
-          style
-        ]}
-      >
-        {children}
-      </View>
-    );
-  };
-  
-  const BORDER_RADIUS = 3;
+  return (
+    <View
+      style={[
+        { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
+        style
+      ]}
+    >
+      {children}
+    </View>
+  );
+};
+
+const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
-  instructions: {
-      
-  },
+  instructions: {},
   error: {
-    color: '#FF0000'  
+    color: '#FF0000'
   },
   button: {
     backgroundColor: '#fff',
@@ -113,5 +120,5 @@ const styles = StyleSheet.create({
     fontSize: FontSizes.normalButton,
     color: '#fff',
     textAlign: 'center'
-  },
+  }
 });
