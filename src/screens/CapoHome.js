@@ -97,61 +97,6 @@ const ClipBorderRadius = ({ children, style }) => {
 const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
-  headerRow: {
-    flexDirection: 'row'
-  },
-  headerRowAvatarContainer: {
-    paddingRight: 10
-  },
-  headerRowInfoContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    paddingBottom: 5
-  },
-  speakerName: {
-    fontSize: FontSizes.bodyTitle
-  },
-  organizationName: {
-    color: Colors.faint,
-    fontSize: FontSizes.bodyLarge
-  },
-  songInfoRow: {
-    paddingTop: 10
-  },
-  songLyrics: {
-    paddingTop: 10
-  },
-  songTitle: {
-    fontSize: FontSizes.bodyLarge
-  },
-  songLocation: {
-    fontSize: FontSizes.bodyLarge,
-    color: Colors.faint,
-    marginTop: 10
-  },
-  nextYear: {
-    textAlign: 'center',
-    fontSize: FontSizes.title,
-    marginVertical: 10
-  },
-  button: {
-    backgroundColor: '#fff',
-    padding: 15,
-    ...Platform.select({
-      ios: {
-        borderRadius: 5,
-        backgroundColor: '#fff',
-        shadowColor: '#000',
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        shadowOffset: { width: 2, height: 2 }
-      },
-      android: {
-        elevation: 3
-      }
-    })
-  },
   bigButton: {
     backgroundColor: Colors.green,
     paddingHorizontal: 15,

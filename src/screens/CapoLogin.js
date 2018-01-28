@@ -41,39 +41,25 @@ export default class CapoLogin extends React.Component {
 
   render() {
     return (
-      <LoadingPlaceholder>
+      <View style={styles.container}>
         <Text style={styles.instructions}>Enter password to unlock</Text>
-        <TextInput onChangeText={this._setPassword} />
+        <TextInput style={styles.textInput} autoFocus={true} onChangeText={this._setPassword} />
         <ClipBorderRadius>
           <RectButton
             style={styles.bigButton}
             onPress={this._handlePressSubmitButton}
             underlayColor="#fff"
           >
-            <Ionicons
-              size={23}
-              style={{
-                color: '#fff',
-                marginTop: 3,
-                backgroundColor: 'transparent',
-                marginRight: 5
-              }}
-            />
-            <SemiBoldText style={styles.bigButtonText}>Submit</SemiBoldText>
+            <SemiBoldText style={styles.bigButtonText}>Unlock Capo Dashboard</SemiBoldText>
           </RectButton>
         </ClipBorderRadius>
         <NavigationBar
+          animatedBackgroundOpacity={1}
           style={[
             Platform.OS === 'android'
-              ? {
-                  height: Layout.headerHeight + Constants.statusBarHeight,
-                  backgroundColor: 'black'
-                }
-              : null
+              ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
+              : null,
           ]}
-          renderTitle={() => {
-            <View>Hello World</View>;
-          }}
           renderLeftButton={() => (
             <View
               style={{
@@ -83,20 +69,28 @@ export default class CapoLogin extends React.Component {
               }}
             >
               <HeaderBackButton
-                style={{
-                  height: 100,
-                  backgroundColor: '#000',
-                  paddingTop: Platform.OS === 'android' ? 17 : 0,
-                  marginTop: Layout.notchHeight > 0 ? -5 : 0
-                }}
                 onPress={() => this.props.navigation.goBack()}
-                tintColor="#000"
-                title={null}
+                tintColor="#fff"
               />
             </View>
           )}
+          renderTitle={() => (
+            <Text
+              style={{
+                // gross dumb things
+                paddingTop: Platform.OS === 'android' ? 17 : 0,
+                marginTop: Layout.notchHeight > 0 ? -5 : 0,
+                fontFamily: 'open-sans-bold',
+                color: "#FFFFFF",
+                fontSize: 20,
+                paddingHorizontal: 0
+              }}
+            >
+              Capo Dashboard Disabled
+            </Text>
+          )}
         />
-      </LoadingPlaceholder>
+      </View>
     );
   }
 
@@ -128,7 +122,18 @@ const ClipBorderRadius = ({ children, style }) => {
 const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
-  instructions: {},
+  container: {
+    flex: 1,
+    width: 100 + '%',
+    paddingBottom: 8, paddingTop: Layout.headerHeight + Constants.statusBarHeight
+  },
+  instructions: {
+    fontSize: 18
+  },
+  textInput: {
+    fontSize: 18,
+    padding: 8
+  },
   error: {
     color: '#FF0000'
   },
