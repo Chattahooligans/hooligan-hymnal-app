@@ -11,7 +11,7 @@
             "chapter_title": "Hooligan Hymnal",
             "songs": 
             [
-                { "guid": 1 },
+                { "guid": 1, "featured":  true },
                 { "guid": 2 },
                 { "guid": 3 },
                 { "guid": 4 },
@@ -31,7 +31,7 @@
             "chapter_title": "Daily Diss Tracks",
             "songs": 
             [
-                { "guid": 17 }
+                { "guid": 17, "featured":  true }
             ]
         },
         {

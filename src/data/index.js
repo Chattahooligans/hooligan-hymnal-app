@@ -71,18 +71,17 @@ export function findNextTalksAfterDate(date = new Date(), allTalks = Talks) {
 export function getFeaturedSongs(allSongs = Songs) {
   try {
     let songList = [];
-    Songbook.chapters.forEach(chapterChild => {
-      if (chapterChild.chapter_title === "Daily Diss Tracks") {
-        
-        chapterChild.songs.forEach(songChild => {
+    Songbook.chapters.forEach(chapterChild => {        
+      chapterChild.songs.forEach(songChild => {
+        if (true === songChild.featured) {
           try {
             // does this song exist in the database?
             songList.push(Songs.filter(song => song.guid === songChild.guid)[0]);
           } catch (err) {
             console.log(songChild.guid + ' not found in songs database');
           }
-        });
-      }
+        }
+      });
     });
     return [_.sample(songList)];
   } catch (err) {
