@@ -18,6 +18,10 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 
+import state from '../state';
+
+import Schema from '../data/song_schema';
+
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 // TODO: Create Song object, set title and lyrics based on data on this screen and pass to next screen (CapoConfirmSend)
 //      maybe by reading in /src/data/song_schema.json as an object and setting those properties?
@@ -33,8 +37,13 @@ export default class CapoComposeSong extends React.Component {
   render() {
     return (
       <LoadingPlaceholder>
-        <TextInput style={styles.titleField} placeholder="Title" />
         <TextInput
+          style={styles.titleField}
+          placeholder="Title"
+          onChangeText={this._setTitle}
+        />
+        <TextInput
+          onChangeText={this._setLyrics}
           style={styles.lyricsField}
           multiline={true}
           placeholder="Lyrics"
@@ -61,7 +70,17 @@ export default class CapoComposeSong extends React.Component {
     );
   }
 
+  _setTitle = title => {
+    Schema.title = title;
+  };
+
+  _setLyrics = lyrics => {
+    Schema.lyrics = lyrics;
+  };
+
   _handlePressContinueButton = () => {
+    console.log('song', Schema);
+    state.currentSong = Schema;
     this.props.navigation.navigate('CapoConfirmSend');
   };
 }
