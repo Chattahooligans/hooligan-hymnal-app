@@ -7,26 +7,26 @@
     "privacy": "public",
     "version": "1.0.4",
     "primaryColor": "#A5D8F6",
-    "icon": "./src/assets/icon.png",
+    "icon": "./src/assets/icon-ios.png",
     "orientation": "portrait",
     "sdkVersion": "23.0.0",
     "splash": {
       "backgroundColor": "#A5D8F6",
       "resizeMode": "contain",
-      "image": "./src/assets/chattahooligans-splash.png"
+      "image": "./src/assets/splash.png"
     },
     "android": {
-      "package": "com.chattahooligans.app",
-      "icon": "./src/assets/icon.png",
+      "package": "com.thechattahooligans.app",
+      "icon": "./src/assets/icon-android.png",
       "versionCode": 3,
       "permissions": []
     },
     "ios": {
-      "bundleIdentifier": "com.chattahooligans.app",
+      "bundleIdentifier": "com.thechattahooligans.app",
       "supportsTablet": true,
       "loadJSInBackgroundExperimental": true,
       "splash": {
-        "image": "./src/assets/chattahooligans-splash.png",
+        "image": "./src/assets/splash.png",
         "resizeMode": "contain",
         "backgroundColor": "#A5D8F6"
       }

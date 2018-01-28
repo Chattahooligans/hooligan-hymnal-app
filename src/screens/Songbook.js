@@ -77,10 +77,7 @@ export default class Songbook extends React.Component {
               onPageSelected={this._handleAndroidPageSelected}
             >
               <View style={styles.container}>
-                <Image
-                  style={{ width: 400, height: 400 }}
-                  source={require('../assets/chattahooligans-songbook-front-cover.png')}
-                />
+                <Image source={require('../assets/songbook-front-cover.png')}/>
                 <Text style={styles.welcome}>Swipe Left/Right to View Songs</Text>
               </View>
               {songViews}
