@@ -140,28 +140,91 @@ class DeferredHomeContent extends React.Component {
             </SemiBoldText>
           </TouchableOpacity>
         </View>
-
-        <ClipBorderRadius>
-          <RectButton
-            style={styles.bigButton}
-            onPress={this._handlePressTwitterButton}
-            underlayColor="#fff"
-          >
-            <Ionicons
-              name="logo-twitter"
-              size={23}
-              style={{
-                color: '#fff',
-                marginTop: 3,
-                backgroundColor: 'transparent',
-                marginRight: 5
-              }}
-            />
-            <SemiBoldText style={styles.bigButtonText}>
-              @chattahooligan
-            </SemiBoldText>
-          </RectButton>
-        </ClipBorderRadius>
+        <View style={{ marginHorizontal: 15, flex: 1 }}>
+          <SemiBoldText>Follow us</SemiBoldText>
+        </View>        
+        <View flexDirection="row" style={{ alignItems: 'center', justifyContent: 'center'}}>
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressTwitterButton}
+              underlayColor="#fff"
+            >
+              <Ionicons
+                name="logo-twitter"
+                size={23}
+                style={{
+                  color: '#fff',
+                  marginTop: 3,
+                  marginBottom: 3,
+                  marginLeft: 5,
+                  marginRight: 5,
+                  backgroundColor: 'transparent'
+                }}
+              />
+            </RectButton>
+          </ClipBorderRadius>
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressFacebookButton}
+              underlayColor="#fff"
+            >
+              <Ionicons
+                name="logo-facebook"
+                size={23}
+                style={{
+                  color: '#fff',
+                  marginTop: 3,
+                  marginBottom: 3,
+                  marginLeft: 5,
+                  marginRight: 5,
+                  backgroundColor: 'transparent'
+                }}
+              />
+            </RectButton>
+          </ClipBorderRadius>
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressInstagramButton}
+              underlayColor="#fff"
+            >
+              <Ionicons
+                name="logo-instagram"
+                size={23}
+                style={{
+                  color: '#fff',
+                  marginTop: 3,
+                  marginBottom: 3,
+                  marginLeft: 5,
+                  marginRight: 5,
+                  backgroundColor: 'transparent'
+                }}
+              />
+            </RectButton>
+          </ClipBorderRadius>
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressWebButton}
+              underlayColor="#fff"
+            >
+              <Ionicons
+                name="md-browsers"
+                size={23}
+                style={{
+                  color: '#fff',
+                  marginTop: 3,
+                  marginBottom: 3,
+                  marginLeft: 5,
+                  marginRight: 5,
+                  backgroundColor: 'transparent'
+                }}
+              />
+            </RectButton>
+          </ClipBorderRadius>
+        </View>
       </AnimatableView>
     );
   }
@@ -180,6 +243,15 @@ class DeferredHomeContent extends React.Component {
     } catch (e) {
       WebBrowser.openBrowserAsync('https://twitter.com/chattahooligan');
     }
+  };
+  _handlePressFacebookButton = async () => {
+    WebBrowser.openBrowserAsync('https://www.facebook.com/TheChattahooligans/');
+  };
+  _handlePressInstagramButton = async () => {
+    WebBrowser.openBrowserAsync('https://instagram.com/thechattahooligans');
+  };
+  _handlePressWebButton = async () => {
+    WebBrowser.openBrowserAsync('http://thechattahooligans.com');
   };
 }
 
