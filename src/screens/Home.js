@@ -144,18 +144,6 @@ class DeferredHomeContent extends React.Component {
         <ClipBorderRadius>
           <RectButton
             style={styles.bigButton}
-            onPress={this._handlePressCOCButton}
-            underlayColor="#fff"
-          >
-            <SemiBoldText style={styles.bigButtonText}>
-              Read the code of conduct
-            </SemiBoldText>
-          </RectButton>
-        </ClipBorderRadius>
-
-        <ClipBorderRadius>
-          <RectButton
-            style={styles.bigButton}
             onPress={this._handlePressTwitterButton}
             underlayColor="#fff"
           >
@@ -186,24 +174,11 @@ class DeferredHomeContent extends React.Component {
     );
   };
 
-  _handlePressCOCButton = () => {
-    WebBrowser.openBrowserAsync('http://nodevember.org/conduct');
-  };
-
   _handlePressTwitterButton = async () => {
     try {
       await Linking.openURL(`twitter://user?screen_name=chattahooligan`);
     } catch (e) {
       WebBrowser.openBrowserAsync('https://twitter.com/chattahooligan');
-    }
-  };
-
-  _handlePressMapButton = () => {
-    let url = Asset.fromModule(require('../assets/nodevember-map.pdf')).uri;
-    if (Platform.OS === 'android') {
-      Linking.openURL(url);
-    } else {
-      WebBrowser.openBrowserAsync(url);
     }
   };
 }
