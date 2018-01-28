@@ -70,13 +70,16 @@ export default class Songbook extends React.Component {
   };
 
   render() {
-    let initialPage = this._currentSong() || 0;
+    let initialPage = this._currentPage() || 0;
+    console.log('currentSong', this._currentSong());
+    let chapter = this._currentSong()
+      ? this._currentSong().song.chapter_title
+      : 'Hooligan Hymnal';
+    // let chapter = this._currentSong().chapter;
     return (
       <LoadingPlaceholder>
         <View style={styles.sectionHeader}>
-          <RegularText>
-            CHAPTER TITLE HERE, gets update on page turn
-          </RegularText>
+          <RegularText>{chapter}</RegularText>
         </View>
         <View style={styles.container}>
           {Platform.OS === 'ios' ? (
@@ -126,6 +129,12 @@ export default class Songbook extends React.Component {
   }
 
   _currentSong = () => {
+    return state.currentSong
+      ? songs.filter(song => song.song.guid === state.currentSong.guid)[0]
+      : undefined;
+  };
+
+  _currentPage = () => {
     return state.currentSong
       ? songs.filter(song => song.song.guid === state.currentSong.guid)[0].index
       : 0;
