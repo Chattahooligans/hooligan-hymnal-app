@@ -70,6 +70,7 @@ export default class Songbook extends React.Component {
   };
 
   render() {
+    const forcePagingEnabled = true;
     let initialPage = this._currentPage() || 0;
     console.log('currentSong', this._currentSong());
     let chapter = this._currentSong()
@@ -96,7 +97,7 @@ export default class Songbook extends React.Component {
               initialPage={initialPage}
               style={styles.container}
               horizontal={true}
-              pagingEnabled={true}
+              pagingEnabled={forcePagingEnabled}
               onPageSelected={this._handleAndroidPageSelected}
             >
               <View style={styles.container}>
@@ -149,9 +150,16 @@ export default class Songbook extends React.Component {
   };
 
   _handleAndroidPageSelected = ({ nativeEvent }) => {
-    console.log('page selected', nativeEvent);
-    // TODO: Check chapter_title on the current child <View>
-    // IF it exists, set the Title bar at the top
+    console.log('page selected', nativeEvent.position);
+    if (0 < nativeEvent.position)
+    {
+      console.log("current chapter: " + songs[nativeEvent.position-1].song.chapter_title);
+      // TODO: Set something?
+    }
+    else
+    {
+      // TODO: Set default "Hooligan Hymnal"
+    }
   };
 }
 
