@@ -35,67 +35,69 @@ export default class CapoConfirmSend extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <SongView song={state.currentSong} />
-        <ClipBorderRadius>
-          <RectButton
-            style={styles.bigButton}
-            onPress={this._handlePressComposeSongButton}
-            underlayColor="#fff"
-          >
-            <Ionicons
-              name="md-send"
-              size={23}
-              style={{
-                color: '#fff',
-                marginTop: 3,
-                backgroundColor: 'transparent',
-                marginRight: 5
-              }}
-            />
-            <SemiBoldText style={styles.bigButtonText}>
-              Send Notification
-            </SemiBoldText>
-          </RectButton>
-        </ClipBorderRadius>
-        <NavigationBar
-          animatedBackgroundOpacity={1}
-          style={[
-            Platform.OS === 'android'
-              ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
-              : null,
-          ]}
-          renderLeftButton={() => (
-            <View
-              style={{
-                // gross dumb things
-                paddingTop: Platform.OS === 'android' ? 17 : 0,
-                marginTop: Layout.notchHeight > 0 ? -5 : 0
-              }}
+      <LoadingPlaceholder>
+        <View style={styles.container}>
+          <SongView song={state.currentSong} />
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressComposeSongButton}
+              underlayColor="#fff"
             >
-              <HeaderBackButton
-                onPress={() => this.props.navigation.goBack()}
-                tintColor="#fff"
+              <Ionicons
+                name="md-send"
+                size={23}
+                style={{
+                  color: '#fff',
+                  marginTop: 3,
+                  backgroundColor: 'transparent',
+                  marginRight: 5
+                }}
               />
-            </View>
-          )}
-          renderTitle={() => (
-            <Text
-              style={{
-                // gross dumb things
-                paddingTop: Platform.OS === 'android' ? 17 : 0,
-                marginTop: Layout.notchHeight > 0 ? -5 : 0,
-                fontFamily: 'open-sans-bold',
-                color: "#FFFFFF",
-                fontSize: 20,
-                paddingHorizontal: 0
-              }}
-            >
-              Confirm?
-            </Text>
-          )}
-        />
-      </View>
+              <SemiBoldText style={styles.bigButtonText}>
+                Send Notification
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+          <NavigationBar
+            animatedBackgroundOpacity={1}
+            style={[
+              Platform.OS === 'android'
+                ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
+                : null,
+            ]}
+            renderLeftButton={() => (
+              <View
+                style={{
+                  // gross dumb things
+                  paddingTop: Platform.OS === 'android' ? 17 : 0,
+                  marginTop: Layout.notchHeight > 0 ? -5 : 0
+                }}
+              >
+                <HeaderBackButton
+                  onPress={() => this.props.navigation.goBack()}
+                  tintColor="#fff"
+                />
+              </View>
+            )}
+            renderTitle={() => (
+              <Text
+                style={{
+                  // gross dumb things
+                  paddingTop: Platform.OS === 'android' ? 17 : 0,
+                  marginTop: Layout.notchHeight > 0 ? -5 : 0,
+                  fontFamily: 'open-sans-bold',
+                  color: "#FFFFFF",
+                  fontSize: 20,
+                  paddingHorizontal: 0
+                }}
+              >
+                Confirm?
+              </Text>
+            )}
+          />
+        </View>
+      </LoadingPlaceholder>
     );
   }
 

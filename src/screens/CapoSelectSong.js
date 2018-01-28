@@ -92,53 +92,55 @@ export default class CapoSelectSong extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <SectionList
-          renderScrollComponent={props => <ScrollView {...props} />}
-          stickySectionHeadersEnabled={true}
-          renderItem={this._renderItem}
-          renderSectionHeader={this._renderSectionHeader}
-          sections={ToCData}
-          keyExtractor={(item, index) => index}
-        />
-        <NavigationBar
-          animatedBackgroundOpacity={1}
-          style={[
-            Platform.OS === 'android'
-              ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
-              : null,
-          ]}
-          renderLeftButton={() => (
-            <View
-              style={{
-                // gross dumb things
-                paddingTop: Platform.OS === 'android' ? 17 : 0,
-                marginTop: Layout.notchHeight > 0 ? -5 : 0
-              }}
-            >
-              <HeaderBackButton
-                onPress={() => this.props.navigation.goBack()}
-                tintColor="#fff"
-              />
-            </View>
-          )}
-          renderTitle={() => (
-            <Text
-              style={{
-                // gross dumb things
-                paddingTop: Platform.OS === 'android' ? 17 : 0,
-                marginTop: Layout.notchHeight > 0 ? -5 : 0,
-                fontFamily: 'open-sans-bold',
-                color: "#FFFFFF",
-                fontSize: 20,
-                paddingHorizontal: 0
-              }}
-            >
-              Select Song
-            </Text>
-          )}
-        />
-      </View>
+      <LoadingPlaceholder>
+        <View style={styles.container}>
+          <SectionList
+            renderScrollComponent={props => <ScrollView {...props} />}
+            stickySectionHeadersEnabled={true}
+            renderItem={this._renderItem}
+            renderSectionHeader={this._renderSectionHeader}
+            sections={ToCData}
+            keyExtractor={(item, index) => index}
+          />
+          <NavigationBar
+            animatedBackgroundOpacity={1}
+            style={[
+              Platform.OS === 'android'
+                ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
+                : null,
+            ]}
+            renderLeftButton={() => (
+              <View
+                style={{
+                  // gross dumb things
+                  paddingTop: Platform.OS === 'android' ? 17 : 0,
+                  marginTop: Layout.notchHeight > 0 ? -5 : 0
+                }}
+              >
+                <HeaderBackButton
+                  onPress={() => this.props.navigation.goBack()}
+                  tintColor="#fff"
+                />
+              </View>
+            )}
+            renderTitle={() => (
+              <Text
+                style={{
+                  // gross dumb things
+                  paddingTop: Platform.OS === 'android' ? 17 : 0,
+                  marginTop: Layout.notchHeight > 0 ? -5 : 0,
+                  fontFamily: 'open-sans-bold',
+                  color: "#FFFFFF",
+                  fontSize: 20,
+                  paddingHorizontal: 0
+                }}
+              >
+                Select Song
+              </Text>
+            )}
+          />
+        </View>
+      </LoadingPlaceholder>
     );
   }
 
