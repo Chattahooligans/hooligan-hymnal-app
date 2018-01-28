@@ -11,7 +11,7 @@ export default class VideoBackground extends React.Component {
   async componentDidMount() {
     if (!this.state.videoLoaded) {
       try {
-        await Asset.fromModule(require('../assets/video.mp4')).downloadAsync();
+        await Asset.fromModule(require('../assets/5MB_video.mp4')).downloadAsync();
         this.setState({ videoLoaded: true });
       } catch (e) {
         // Not working, oh well, no video for you
