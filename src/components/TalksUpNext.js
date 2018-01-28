@@ -16,6 +16,8 @@ export default class TalksUpNext extends React.Component {
   constructor(props) {
     super(props);
 
+    let label = "Featured Song";
+
     let featuredSongs = getFeaturedSongs();
     let dateTime;
     let time;
@@ -24,10 +26,14 @@ export default class TalksUpNext extends React.Component {
       time = featuredSongs[0].time;
     }
 
+    // if there's a notification that is relevant
+    // set label to "Up Next"
+
     this.state = {
       featuredSongs,
       dateTime,
-      time
+      time,
+      label
     };
   }
 
@@ -37,7 +43,7 @@ export default class TalksUpNext extends React.Component {
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
         <SemiBoldText style={{ fontSize: FontSizes.title }}>
-          {'Up Next'}
+          {this.state.label}
         </SemiBoldText>
         {this._renderDateTime()}
         {featuredSongs.map(song => (
