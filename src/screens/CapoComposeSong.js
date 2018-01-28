@@ -1,5 +1,12 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, View, Text, TextInput } from 'react-native';
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  View,
+  Text,
+  TextInput
+} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
@@ -18,63 +25,69 @@ import { Colors, FontSizes } from '../constants';
 
 @withNavigation
 export default class CapoComposeSong extends React.Component {
-    static navigationOptions = {
-        title: 'Capo Compose Song',
-        ...NavigationOptions
-      };
-  
-    render() {
+  static navigationOptions = {
+    title: 'Capo Compose Song',
+    ...NavigationOptions
+  };
+
+  render() {
     return (
-        <LoadingPlaceholder>
-            <TextInput style={styles.titleField} placeholder="Title" />
-            <TextInput style={styles.lyricsField} multiline={true} placeholder="Lyrics" />
-            <ClipBorderRadius>
-                <RectButton
-                    style={styles.bigButton}
-                    onPress={this._handlePressContinueButton}
-                    underlayColor="#fff">
-                    <Ionicons
-                        size={23}
-                        style={{
-                            color: '#fff',
-                            marginTop: 3,
-                            backgroundColor: 'transparent',
-                            marginRight: 5
-                        }}
-                    />
-                    <SemiBoldText style={styles.bigButtonText}>Continue</SemiBoldText>
-                </RectButton>
-            </ClipBorderRadius>
-        </LoadingPlaceholder>
+      <LoadingPlaceholder>
+        <TextInput style={styles.titleField} placeholder="Title" />
+        <TextInput
+          style={styles.lyricsField}
+          multiline={true}
+          placeholder="Lyrics"
+        />
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressContinueButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              size={23}
+              style={{
+                color: '#fff',
+                marginTop: 3,
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <SemiBoldText style={styles.bigButtonText}>Continue</SemiBoldText>
+          </RectButton>
+        </ClipBorderRadius>
+      </LoadingPlaceholder>
     );
   }
 
-  _handlePressContinueutton = () => {
-    this.props.navigation.dispatch(
-      NavigationActions.navigate({
-        routeName: 'CapoConfirmSend'
-      })
-    );
+  _handlePressContinueButton = () => {
+    this.props.navigation.navigate('CapoConfirmSend');
   };
 }
 
 const ClipBorderRadius = ({ children, style }) => {
-    return (
-      <View
-        style={[
-          { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10, marginBottom: 10 },
-          style
-        ]}
-      >
-        {children}
-      </View>
-    );
-  };
-  
-  const BORDER_RADIUS = 3;
+  return (
+    <View
+      style={[
+        {
+          borderRadius: BORDER_RADIUS,
+          overflow: 'hidden',
+          marginTop: 10,
+          marginBottom: 10
+        },
+        style
+      ]}
+    >
+      {children}
+    </View>
+  );
+};
+
+const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
-  titleField:{
+  titleField: {
     fontSize: 24,
     fontWeight: 'bold',
     height: 50
@@ -116,5 +129,5 @@ const styles = StyleSheet.create({
     fontSize: FontSizes.normalButton,
     color: '#fff',
     textAlign: 'center'
-  },
+  }
 });

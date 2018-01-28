@@ -11,6 +11,8 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 
+import state from '../state';
+
 import SongView from '../components/SongView';
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
@@ -22,59 +24,60 @@ import SongView from '../components/SongView';
 
 @withNavigation
 export default class CapoConfirmSend extends React.Component {
-    static navigationOptions = {
-        title: 'Capo Confirmation',
-        ...NavigationOptions
-      };
-  
-    render() {
+  static navigationOptions = {
+    title: 'Capo Confirmation',
+    ...NavigationOptions
+  };
+
+  render() {
     return (
-        <LoadingPlaceholder>
-            <SongView />
-            <ClipBorderRadius>
-                <RectButton
-                    style={styles.bigButton}
-                    onPress={this._handlePressComposeSongButton}
-                    underlayColor="#fff">
-                    <Ionicons
-                        name="md-send"
-                        size={23}
-                        style={{
-                            color: '#fff',
-                            marginTop: 3,
-                            backgroundColor: 'transparent',
-                            marginRight: 5
-                        }}
-                    />
-                    <SemiBoldText style={styles.bigButtonText}>Send Notification</SemiBoldText>
-                </RectButton>
-            </ClipBorderRadius>
-        </LoadingPlaceholder>
+      <LoadingPlaceholder>
+        <SongView song={state.currentSong} />
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressComposeSongButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-send"
+              size={23}
+              style={{
+                color: '#fff',
+                marginTop: 3,
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <SemiBoldText style={styles.bigButtonText}>
+              Send Notification
+            </SemiBoldText>
+          </RectButton>
+        </ClipBorderRadius>
+      </LoadingPlaceholder>
     );
   }
 
-
   _handlePressComposeSongButton = () => {
-    
     // send notification
     // do some stuff, go back to CapoHome on confirmation?
   };
 }
 
 const ClipBorderRadius = ({ children, style }) => {
-    return (
-      <View
-        style={[
-          { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
-          style
-        ]}
-      >
-        {children}
-      </View>
-    );
-  };
-  
-  const BORDER_RADIUS = 3;
+  return (
+    <View
+      style={[
+        { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
+        style
+      ]}
+    >
+      {children}
+    </View>
+  );
+};
+
+const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
   headerRow: {
@@ -147,5 +150,5 @@ const styles = StyleSheet.create({
     fontSize: FontSizes.normalButton,
     color: '#fff',
     textAlign: 'center'
-  },
+  }
 });
