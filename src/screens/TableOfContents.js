@@ -104,41 +104,75 @@ export default class TableOfContents extends React.Component {
   render() {
     return (
       <LoadingPlaceholder>
-        <RectButton style={styles.tocButton} underlayColor="#fff">
-          <RegularText style={styles.tocButtonText}>
-            Table of Contents
-          </RegularText>
-        </RectButton>
-        <SectionList
-          renderScrollComponent={props => <ScrollView {...props} />}
-          stickySectionHeadersEnabled={true}
-          renderItem={this._renderItem}
-          renderSectionHeader={this._renderSectionHeader}
-          sections={ToCData}
-          keyExtractor={(item, index) => index}
-        />
-        <NavigationBar
-          style={[
-            Platform.OS === 'android'
-              ? { height: Layout.headerHeight + Constants.statusBarHeight }
-              : null
-          ]}
-          renderLeftButton={() => (
-            <View
-              style={{
-                // gross dumb things
-                paddingTop: Platform.OS === 'android' ? 17 : 0,
-                marginTop: Layout.notchHeight > 0 ? -5 : 0
-              }}
-            >
-              <HeaderBackButton
-                onPress={() => this.props.navigation.goBack()}
-                tintColor="#fff"
-                title={null}
-              />
-            </View>
-          )}
-        />
+        <View style={styles.container}>
+          <SectionList
+            renderScrollComponent={props => <ScrollView {...props} />}
+            stickySectionHeadersEnabled={true}
+            renderItem={this._renderItem}
+            renderSectionHeader={this._renderSectionHeader}
+            sections={ToCData}
+            keyExtractor={(item, index) => index}
+          />
+          <NavigationBar
+            style={[
+              Platform.OS === 'android'
+                ? { height: Layout.headerHeight + Constants.statusBarHeight }
+                : null
+            ]}
+            renderLeftButton={() => (
+              <View
+                style={{
+                  // gross dumb things
+                  paddingTop: Platform.OS === 'android' ? 17 : 0,
+                  marginTop: Layout.notchHeight > 0 ? -5 : 0
+                }}
+              >
+                <HeaderBackButton
+                  onPress={() => this.props.navigation.goBack()}
+                  tintColor="#fff"
+                  title={null}
+                />
+              </View>
+            )}
+          />
+          <NavigationBar
+            animatedBackgroundOpacity={1}
+            style={[
+              Platform.OS === 'android'
+                ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
+                : null,
+            ]}
+            renderLeftButton={() => (
+              <View
+                style={{
+                  // gross dumb things
+                  paddingTop: Platform.OS === 'android' ? 17 : 0,
+                  marginTop: Layout.notchHeight > 0 ? -5 : 0
+                }}
+              >
+                <HeaderBackButton
+                  onPress={() => this.props.navigation.goBack()}
+                  tintColor="#fff"
+                />
+              </View>
+            )}
+            renderTitle={() => (
+              <Text
+                style={{
+                  // gross dumb things
+                  paddingTop: Platform.OS === 'android' ? 17 : 0,
+                  marginTop: Layout.notchHeight > 0 ? -5 : 0,
+                  fontFamily: 'open-sans-bold',
+                  color: "#FFFFFF",
+                  fontSize: 20,
+                  paddingHorizontal: 0
+                }}
+              >
+                Table of Contents
+              </Text>
+            )}
+          />
+        </View>
       </LoadingPlaceholder>
     );
   }
@@ -173,6 +207,11 @@ export default class TableOfContents extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: 100 + '%',
+    paddingBottom: 8, paddingTop: Layout.headerHeight + Constants.statusBarHeight
+  },
   tocButton: {
     backgroundColor: Colors.green,
     paddingHorizontal: 15,
