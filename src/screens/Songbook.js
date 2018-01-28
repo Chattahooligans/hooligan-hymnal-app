@@ -93,10 +93,13 @@ export default class Songbook extends React.Component {
               onPageSelected={this._handleAndroidPageSelected}
             >
               <View style={styles.container}>
-                <Image source={require('../assets/songbook-front-cover.png')} />
+                <View style={{flex: 1}} />
+                <Image style={{ width: 400, height: 400 }} source={require('../assets/songbook-front-cover.png')} />
+                <View style={{flex: 1}} />
                 <Text style={styles.welcome}>
                   Swipe Left/Right to View Songs
                 </Text>
+                <View style={{flex: 1}} />
               </View>
               {songViews}
             </ViewPagerAndroid>
