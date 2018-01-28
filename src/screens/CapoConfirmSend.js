@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, View } from 'react-native';
+import { Text, Image, Platform, StyleSheet, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
@@ -35,7 +35,7 @@ export default class CapoConfirmSend extends React.Component {
 
   render() {
     return (
-      <LoadingPlaceholder>
+      <View style={styles.container}>
         <SongView song={state.currentSong} />
         <ClipBorderRadius>
           <RectButton
@@ -59,10 +59,11 @@ export default class CapoConfirmSend extends React.Component {
           </RectButton>
         </ClipBorderRadius>
         <NavigationBar
+          animatedBackgroundOpacity={1}
           style={[
             Platform.OS === 'android'
-              ? { height: Layout.headerHeight + Constants.statusBarHeight }
-              : null
+              ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
+              : null,
           ]}
           renderLeftButton={() => (
             <View
@@ -75,12 +76,26 @@ export default class CapoConfirmSend extends React.Component {
               <HeaderBackButton
                 onPress={() => this.props.navigation.goBack()}
                 tintColor="#fff"
-                title={null}
               />
             </View>
           )}
+          renderTitle={() => (
+            <Text
+              style={{
+                // gross dumb things
+                paddingTop: Platform.OS === 'android' ? 17 : 0,
+                marginTop: Layout.notchHeight > 0 ? -5 : 0,
+                fontFamily: 'open-sans-bold',
+                color: "#FFFFFF",
+                fontSize: 20,
+                paddingHorizontal: 0
+              }}
+            >
+              Confirm?
+            </Text>
+          )}
         />
-      </LoadingPlaceholder>
+      </View>
     );
   }
 
@@ -106,60 +121,10 @@ const ClipBorderRadius = ({ children, style }) => {
 const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
-  headerRow: {
-    flexDirection: 'row'
-  },
-  headerRowAvatarContainer: {
-    paddingRight: 10
-  },
-  headerRowInfoContainer: {
+  container: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    paddingBottom: 5
-  },
-  speakerName: {
-    fontSize: FontSizes.bodyTitle
-  },
-  organizationName: {
-    color: Colors.faint,
-    fontSize: FontSizes.bodyLarge
-  },
-  songInfoRow: {
-    paddingTop: 10
-  },
-  songLyrics: {
-    paddingTop: 10
-  },
-  songTitle: {
-    fontSize: FontSizes.bodyLarge
-  },
-  songLocation: {
-    fontSize: FontSizes.bodyLarge,
-    color: Colors.faint,
-    marginTop: 10
-  },
-  nextYear: {
-    textAlign: 'center',
-    fontSize: FontSizes.title,
-    marginVertical: 10
-  },
-  button: {
-    backgroundColor: '#fff',
-    padding: 15,
-    ...Platform.select({
-      ios: {
-        borderRadius: 5,
-        backgroundColor: '#fff',
-        shadowColor: '#000',
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        shadowOffset: { width: 2, height: 2 }
-      },
-      android: {
-        elevation: 3
-      }
-    })
+    width: 100 + '%',
+    paddingBottom: 8, paddingTop: Layout.headerHeight + Constants.statusBarHeight
   },
   bigButton: {
     backgroundColor: Colors.green,

@@ -50,7 +50,7 @@ export default class CapoLogin extends React.Component {
             onPress={this._handlePressSubmitButton}
             underlayColor="#fff"
           >
-            <SemiBoldText style={styles.bigButtonText}>Unlock Capo Dashboard</SemiBoldText>
+            <SemiBoldText style={styles.bigButtonText}>Unlock</SemiBoldText>
           </RectButton>
         </ClipBorderRadius>
         <NavigationBar
@@ -86,7 +86,7 @@ export default class CapoLogin extends React.Component {
                 paddingHorizontal: 0
               }}
             >
-              Capo Dashboard Disabled
+              Capo Dashboard Locked
             </Text>
           )}
         />

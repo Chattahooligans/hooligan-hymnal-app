@@ -40,7 +40,7 @@ export default class CapoComposeSong extends React.Component {
 
   render() {
     return (
-      <LoadingPlaceholder>
+      <View style={styles.container}>
         <TextInput
           style={styles.titleField}
           placeholder="Title"
@@ -71,10 +71,11 @@ export default class CapoComposeSong extends React.Component {
           </RectButton>
         </ClipBorderRadius>
         <NavigationBar
+          animatedBackgroundOpacity={1}
           style={[
             Platform.OS === 'android'
-              ? { height: Layout.headerHeight + Constants.statusBarHeight }
-              : null
+              ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
+              : null,
           ]}
           renderLeftButton={() => (
             <View
@@ -87,12 +88,26 @@ export default class CapoComposeSong extends React.Component {
               <HeaderBackButton
                 onPress={() => this.props.navigation.goBack()}
                 tintColor="#fff"
-                title={null}
               />
             </View>
           )}
+          renderTitle={() => (
+            <Text
+              style={{
+                // gross dumb things
+                paddingTop: Platform.OS === 'android' ? 17 : 0,
+                marginTop: Layout.notchHeight > 0 ? -5 : 0,
+                fontFamily: 'open-sans-bold',
+                color: "#FFFFFF",
+                fontSize: 20,
+                paddingHorizontal: 0
+              }}
+            >
+              Compose Song
+            </Text>
+          )}
         />
-      </LoadingPlaceholder>
+      </View>
     );
   }
 
@@ -132,6 +147,11 @@ const ClipBorderRadius = ({ children, style }) => {
 const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: 100 + '%',
+    paddingBottom: 8, paddingTop: Layout.headerHeight + Constants.statusBarHeight
+  },
   titleField: {
     fontSize: 24,
     fontWeight: 'bold',
@@ -141,23 +161,6 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 18,
     textAlignVertical: 'top'
-  },
-  button: {
-    backgroundColor: '#fff',
-    padding: 15,
-    ...Platform.select({
-      ios: {
-        borderRadius: 5,
-        backgroundColor: '#fff',
-        shadowColor: '#000',
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        shadowOffset: { width: 2, height: 2 }
-      },
-      android: {
-        elevation: 3
-      }
-    })
   },
   bigButton: {
     backgroundColor: Colors.green,

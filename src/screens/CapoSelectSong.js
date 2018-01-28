@@ -92,7 +92,7 @@ export default class CapoSelectSong extends React.Component {
 
   render() {
     return (
-      <LoadingPlaceholder>
+      <View style={styles.container}>
         <SectionList
           renderScrollComponent={props => <ScrollView {...props} />}
           stickySectionHeadersEnabled={true}
@@ -102,10 +102,11 @@ export default class CapoSelectSong extends React.Component {
           keyExtractor={(item, index) => index}
         />
         <NavigationBar
+          animatedBackgroundOpacity={1}
           style={[
             Platform.OS === 'android'
-              ? { height: Layout.headerHeight + Constants.statusBarHeight }
-              : null
+              ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
+              : null,
           ]}
           renderLeftButton={() => (
             <View
@@ -118,12 +119,26 @@ export default class CapoSelectSong extends React.Component {
               <HeaderBackButton
                 onPress={() => this.props.navigation.goBack()}
                 tintColor="#fff"
-                title={null}
               />
             </View>
           )}
+          renderTitle={() => (
+            <Text
+              style={{
+                // gross dumb things
+                paddingTop: Platform.OS === 'android' ? 17 : 0,
+                marginTop: Layout.notchHeight > 0 ? -5 : 0,
+                fontFamily: 'open-sans-bold',
+                color: "#FFFFFF",
+                fontSize: 20,
+                paddingHorizontal: 0
+              }}
+            >
+              Select Song
+            </Text>
+          )}
         />
-      </LoadingPlaceholder>
+      </View>
     );
   }
 
@@ -151,20 +166,10 @@ export default class CapoSelectSong extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  tocButton: {
-    backgroundColor: Colors.green,
-    paddingHorizontal: 15,
-    paddingVertical: 10,
+  container: {
+    flex: 1,
     width: 100 + '%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    flexDirection: 'row'
-  },
-  tocButtonText: {
-    fontSize: FontSizes.normalButton,
-    color: '#fff',
-    textAlign: 'center'
+    paddingBottom: 8, paddingTop: Layout.headerHeight + Constants.statusBarHeight
   },
   row: {
     flex: 1,
@@ -173,11 +178,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: '#eee',
     flexDirection: 'row'
-  },
-  rowAvatarContainer: {
-    paddingVertical: 5,
-    paddingRight: 10,
-    paddingLeft: 0
   },
   rowData: {
     flex: 1
