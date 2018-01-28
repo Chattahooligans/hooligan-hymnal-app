@@ -85,12 +85,12 @@ class Home extends React.Component {
               />
             </View>
             <Image
-              source={require('../assets/chattahooligans-logo.png')}
+              source={require('../assets/home-logo.png')}
               style={{ width: 220, height: 60, resizeMode: 'contain' }}
               tintColor="#fff"
             />
             <View style={styles.headerContent}>
-              <SemiBoldText style={styles.headerText}>Chattahooligan Hymnal</SemiBoldText>
+              <SemiBoldText style={styles.headerText}>Chattahooligan Hymnal BETA</SemiBoldText>
             </View>
           </View>
 

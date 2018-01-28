@@ -280,7 +280,7 @@ class DrawerView extends React.Component {
       <View style={styles.drawerContainer}>
         <View style={styles.drawerHeader}>
           <Image
-            source={require('./assets/hero.png')}
+            source={require('./assets/drawer-hero-background.png')}
             style={{
               height: 140 + Layout.notchHeight,
               width: DRAWER_WIDTH,
@@ -304,7 +304,7 @@ class DrawerView extends React.Component {
             ]}
           >
             <Image
-              source={require('./assets/chattahooligans-logo.png')}
+              source={require('./assets/drawer-hero-logo.png')}
               style={{
                 width: 200,
                 height: 50,
