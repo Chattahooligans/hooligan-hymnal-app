@@ -39,10 +39,13 @@ Songbook.chapters.forEach(chapterChild => {
     }
   });
 
-  if (0 < songList.length)
-  {
+  if (0 < songList.length) {
     // sort alphabetical within chapter
-    songList.sort(function(a,b) {return (a.song_title > b.song_title) ? 1 : ((b.song_title > a.song_title) ? -1 : 0);} );
+    songList.sort(function(a, b) {
+      return a.song_title > b.song_title
+        ? 1
+        : b.song_title > a.song_title ? -1 : 0;
+    });
     ToCData.push({ title: chapterChild.chapter_title, data: songList });
   }
 });
@@ -72,7 +75,8 @@ class SongRow extends React.Component {
   }
 
   _handlePress = () => {
-    this.props.onPress(this.props.item);
+    // this.props.onPress(this.props.item);
+    console.log('Hello World');
   };
 }
 
@@ -110,13 +114,14 @@ export default class CapoSelectSong extends React.Component {
   };
 
   _handlePressRow = item => {
+    console.log('Row Pressed');
     const song = find(propEq('guid', item.guid), Songs);
     //this.props.navigation.navigate('SingleSongScreen', { song });
     // TODO: This should go back to the previous screen and set the current <View> to the one with the selected guid
     // Android already has this stored in key property, so search those? <View key={item.guid} ...
     // UPDATE: it is setPage() and an index
     // https://facebook.github.io/react-native/docs/viewpagerandroid.html
-    
+
     // Also since you're reading this already, consider testing iOS ScrollView with pagingEnabled and horizontal properties set to true
     // you may already be doing this, I can't tell (or test for that matter)
     // https://facebook.github.io/react-native/docs/scrollview.html
@@ -128,7 +133,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.green,
     paddingHorizontal: 15,
     paddingVertical: 10,
-    width: 100+"%",
+    width: 100 + '%',
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',

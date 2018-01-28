@@ -15,80 +15,86 @@ import { Colors, FontSizes } from '../constants';
 
 @withNavigation
 export default class CapoHome extends React.Component {
-    static navigationOptions = {
-        title: 'Capo Dashboard',
-        ...NavigationOptions
-      };
-  
-    render() {
+  static navigationOptions = {
+    title: 'Capo Dashboard',
+    ...NavigationOptions
+  };
+
+  render() {
     return (
-        <LoadingPlaceholder>
-            <ClipBorderRadius>
-                <RectButton
-                    style={styles.bigButton}
-                    onPress={_handlePressSelectSongButton}
-                    underlayColor="#fff">
-                    <Ionicons
-                        name="md-musical-notes"
-                        size={23}
-                        style={{
-                            color: '#fff',
-                            marginTop: 3,
-                            backgroundColor: 'transparent',
-                            marginRight: 5
-                        }}
-                    />
-                    <SemiBoldText style={styles.bigButtonText}>Select Song</SemiBoldText>
-                </RectButton>
-            </ClipBorderRadius>
-            <ClipBorderRadius>
-                <RectButton
-                    style={styles.bigButton}
-                    onPress={this._handlePressComposeSongButton}
-                    underlayColor="#fff">
-                    <Ionicons
-                        name="md-add"
-                        size={23}
-                        style={{
-                            color: '#fff',
-                            marginTop: 3,
-                            backgroundColor: 'transparent',
-                            marginRight: 5
-                        }}
-                    />
-                    <SemiBoldText style={styles.bigButtonText}>Compose Song</SemiBoldText>
-                </RectButton>
-            </ClipBorderRadius>
-        </LoadingPlaceholder>
+      <LoadingPlaceholder>
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressSelectSongButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-musical-notes"
+              size={23}
+              style={{
+                color: '#fff',
+                marginTop: 3,
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <SemiBoldText style={styles.bigButtonText}>
+              Select Song
+            </SemiBoldText>
+          </RectButton>
+        </ClipBorderRadius>
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressComposeSongButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-add"
+              size={23}
+              style={{
+                color: '#fff',
+                marginTop: 3,
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <SemiBoldText style={styles.bigButtonText}>
+              Compose Song
+            </SemiBoldText>
+          </RectButton>
+        </ClipBorderRadius>
+      </LoadingPlaceholder>
     );
   }
 
   _handlePressSelectSongButton = () => {
     // WHY DON'T YOU WORK YOU BASTARD
-    console.log("select song");
+    console.log('select song');
     this.props.navigation.navigate('CapoSelectSong');
   };
 
   _handlePressComposeSongButton = () => {
-    console.log("compose song");
+    console.log('compose song');
     this.props.navigation.navigate('CapoComposeSong');
   };
 }
 
 const ClipBorderRadius = ({ children, style }) => {
-    return (
-      <View
-        style={[
-          { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
-          style
-        ]}
-      >
-        {children}
-      </View>
-    );
-  };
-  
-  const BORDER_RADIUS = 3;
+  return (
+    <View
+      style={[
+        { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
+        style
+      ]}
+    >
+      {children}
+    </View>
+  );
+};
+
+const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
   headerRow: {
@@ -161,5 +167,5 @@ const styles = StyleSheet.create({
     fontSize: FontSizes.normalButton,
     color: '#fff',
     textAlign: 'center'
-  },
+  }
 });

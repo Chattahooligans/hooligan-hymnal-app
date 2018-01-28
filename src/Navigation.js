@@ -412,7 +412,11 @@ export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
     SingleSong: { screen: Screens.SingleSong },
-    TableOfContents: { screen: Screens.TableOfContents }
+    TableOfContents: { screen: Screens.TableOfContents },
+    CapoSelectSong: { screen: Screens.CapoSelectSong },
+    CapoLogin: { screen: Screens.CapoLogin },
+    CapoConfirmSend: { screen: Screens.CapoConfirmSend },
+    CapoComposeSong: { screen: Screens.CapoComposeSong }
   },
   {
     ...DefaultStackConfig,
