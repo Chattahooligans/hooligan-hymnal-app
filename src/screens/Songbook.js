@@ -36,7 +36,19 @@ SongbookManifest.chapters.forEach(chapterChild => {
       songViews.push(
         <View key={item.guid} chapter_title={chapterChild.chapter_title}>
           <SongView song={item} />
-          <Text style={{textAlign: 'right', backgroundColor: '#FFFFFF', marginTop: 0, marginLeft: 8, marginRight: 8, marginBottom: 8, padding: 8}}>{pageCount}</Text>
+          <Text
+            style={{
+              textAlign: 'right',
+              backgroundColor: '#FFFFFF',
+              marginTop: 0,
+              marginLeft: 8,
+              marginRight: 8,
+              marginBottom: 8,
+              padding: 8
+            }}
+          >
+            {pageCount}
+          </Text>
         </View>
       );
     } catch (err) {
@@ -54,10 +66,13 @@ export default class Songbook extends React.Component {
   };
 
   render() {
+    console.log('this.props', this.props);
     return (
       <LoadingPlaceholder>
         <View style={styles.sectionHeader}>
-          <RegularText>CHAPTER TITLE HERE, gets update on page turn</RegularText>
+          <RegularText>
+            CHAPTER TITLE HERE, gets update on page turn
+          </RegularText>
         </View>
         <View style={styles.container}>
           {Platform.OS === 'ios' ? (
@@ -71,14 +86,17 @@ export default class Songbook extends React.Component {
             </LoadingPlaceholder>
           ) : (
             <ViewPagerAndroid
+              initialPage={0}
               style={styles.container}
               horizontal={true}
               pagingEnabled={true}
               onPageSelected={this._handleAndroidPageSelected}
             >
               <View style={styles.container}>
-                <Image source={require('../assets/songbook-front-cover.png')}/>
-                <Text style={styles.welcome}>Swipe Left/Right to View Songs</Text>
+                <Image source={require('../assets/songbook-front-cover.png')} />
+                <Text style={styles.welcome}>
+                  Swipe Left/Right to View Songs
+                </Text>
               </View>
               {songViews}
             </ViewPagerAndroid>
@@ -86,7 +104,8 @@ export default class Songbook extends React.Component {
           <RectButton
             style={styles.tocButton}
             onPress={this._handlePressTOCButton}
-            underlayColor="#fff">
+            underlayColor="#fff"
+          >
             <RegularText style={styles.tocButtonText}>
               Table of Contents
             </RegularText>
@@ -104,8 +123,8 @@ export default class Songbook extends React.Component {
     this.props.navigation.navigate('TableOfContents');
   };
 
-  _handleAndroidPageSelected = ({event}) => {
-    console.log("page selected");
+  _handleAndroidPageSelected = ({ event, nativeElement }) => {
+    console.log('page selected');
     // TODO: Check chapter_title on the current child <View>
     // IF it exists, set the Title bar at the top
   };
@@ -117,7 +136,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginHorizontal: 15,
-    width: 100+"%",
+    width: 100 + '%',
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
