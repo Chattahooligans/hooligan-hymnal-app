@@ -87,11 +87,11 @@ class Home extends React.Component {
             </View>
             <Image
               source={require('../assets/home-logo.png')}
-              style={{ width: 220, height: 60, resizeMode: 'contain' }}
+              style={{ height: 60, resizeMode: 'contain' }}
               tintColor="#fff"
             />
             <View style={styles.headerContent}>
-              <SemiBoldText style={styles.headerText}>Chattahooligan Hymnal BETA</SemiBoldText>
+              <SemiBoldText style={styles.headerText}>BETA</SemiBoldText>
             </View>
           </View>
 
