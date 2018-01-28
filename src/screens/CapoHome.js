@@ -29,6 +29,7 @@ export default class CapoHome extends React.Component {
                     onPress={this._handlePressSelectSongButton}
                     underlayColor="#fff">
                     <Ionicons
+                        name="md-musical-notes"
                         size={23}
                         style={{
                             color: '#fff',
@@ -46,6 +47,7 @@ export default class CapoHome extends React.Component {
                     onPress={this._handlePressComposeSongButton}
                     underlayColor="#fff">
                     <Ionicons
+                        name="md-add"
                         size={23}
                         style={{
                             color: '#fff',
@@ -62,11 +64,8 @@ export default class CapoHome extends React.Component {
   }
 
   _handlePressSelectSongButton = () => {
-    this.props.navigation.dispatch(
-      NavigationActions.navigate({
-        routeName: 'CapoSelectSong'
-      })
-    );
+    // WHY DON'T YOU WORK YOU BASTARD
+    this.props.navigation.navigate('CapoSelectSong');
   };
 
   _handlePressComposeSongButton = () => {
