@@ -369,8 +369,50 @@
     "is_wpsl_player": false,
     "is_nisa_player": false,
     "player_name": "Juan Hernandez",
-    "player_number": 9,
+    "player_number": 19,
     "override_html": "",
     "delete_local": ""
   },
+  {
+    "guid": 19,
+    "category": "player",
+    "create_time": "",
+    "update_time": "",
+    "title": "Will Roberts",
+    "tags": "voice,drums",
+    "lyrics": 
+      "He's Will Roberts and he's\nScoring goals on you \nSinging Doo Wah Diddy Diddy Dum Diddy Doo",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from Doo Wah Diddy, by Manfred Mann",
+    "reference_link": "",
+    "instructions": "",
+    "is_npsl_player": true,
+    "is_wpsl_player": false,
+    "is_nisa_player": false,
+    "player_name": "Will Roberts",
+    "player_number": 16,
+    "override_html": "",
+    "delete_local": ""
+  },
+  {
+    "guid": 20,
+    "category": "player",
+    "create_time": "",
+    "update_time": "",
+    "title": "Soren Yuhaschek",
+    "tags": "voice,drums",
+    "lyrics": 
+      "Take that ball away\nSoren, yeah",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from Rosanna, by Toto",
+    "reference_link": "",
+    "instructions": "",
+    "is_npsl_player": true,
+    "is_wpsl_player": false,
+    "is_nisa_player": false,
+    "player_name": "Soren Yuhaschek",
+    "player_number": 24,
+    "override_html": "",
+    "delete_local": ""
+  }
 ]
