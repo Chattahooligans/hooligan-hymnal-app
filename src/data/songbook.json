@@ -11,7 +11,7 @@
             "chapter_title": "Hooligan Hymnal",
             "songs": 
             [
-                { "guid": 1, "featured":  true },
+                { "guid": 1},
                 { "guid": 2 },
                 { "guid": 3 },
                 { "guid": 4 },
@@ -39,7 +39,8 @@
             "songs": 
             [
                 { "guid": 15 },
-                { "guid": 16 }
+                { "guid": 16 },
+                { "guid": 18 }
             ]
         }
     ]
