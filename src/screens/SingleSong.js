@@ -18,14 +18,16 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 100 + '%',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor: '#032E55',
+    paddingBottom: 8
   }
 });
 
 // Used for single song viewing without the rest of the songbook
 // We'll use this when entering App from the notifcation or from the "Capo Callout" screen
 // add a unique header that includes a megaphone icon somewhere?
-export default class SingleSongScreen extends React.Component {
+export default class SingleSong extends React.Component {
   render() {
     let song = this.props.navigation.state.params.song;
     return (

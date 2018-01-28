@@ -5,7 +5,7 @@ import CapoHome from './CapoHome';
 import CapoLogin from './CapoLogin';
 import CapoSelectSong from './CapoSelectSong';
 import Home from './Home';
-import SingleSongScreen from './SingleSongScreen';
+import SingleSong from './SingleSong';
 import Songbook from './Songbook';
 import Songs from './Songs';
 import TableOfContents from './TableOfContents';
@@ -18,7 +18,7 @@ export default {
   CapoLogin,
   CapoSelectSong,
   Home,
-  SingleSongScreen,
+  SingleSong,
   Songbook,
   Songs,
   TableOfContents

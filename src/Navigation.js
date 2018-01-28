@@ -411,7 +411,7 @@ const styles = StyleSheet.create({
 export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
-    SingleSongScreen: { screen: Screens.SingleSongScreen },
+    SingleSong: { screen: Screens.SingleSong },
     TableOfContents: { screen: Screens.TableOfContents }
   },
   {

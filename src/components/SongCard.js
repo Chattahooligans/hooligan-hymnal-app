@@ -34,13 +34,16 @@ export default class SongCard extends React.Component {
           >
             {song.lyrics}
           </RegularText>
+          <SemiBoldText>
+            See More...
+          </SemiBoldText>
         </View>
       </RectButton>
     );
   }
 
   _handlePress = () => {
-    this.props.navigation.navigate('SingleSongScreen', {
+    this.props.navigation.navigate('SingleSong', {
       song: this.props.song
     });
   };
