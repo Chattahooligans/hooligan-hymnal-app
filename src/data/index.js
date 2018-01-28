@@ -70,7 +70,6 @@ export function findNextTalksAfterDate(date = new Date(), allTalks = Talks) {
 
 export function getFeaturedSongs(allSongs = Songs) {
   try {
-    console.log("try to find a real featured song");
     let songList = [];
     Songbook.chapters.forEach(chapterChild => {
       if (chapterChild.chapter_title === "Daily Diss Tracks") {
