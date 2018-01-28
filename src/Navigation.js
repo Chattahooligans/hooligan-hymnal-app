@@ -76,7 +76,7 @@ const SongsNavigation = StackNavigator(
 
 const SongbookNavigation = StackNavigator(
   {
-    SongbookList: {
+    Songbook: {
       screen: Screens.Songbook
     }
   },

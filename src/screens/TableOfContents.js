@@ -10,6 +10,8 @@ import { Colors, FontSizes, Layout } from '../constants';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
+import state from '../state';
+
 import Songs from '../data/songs.json';
 import Songbook from '../data/songbook.json';
 import { conferenceHasEnded } from '../utils/index';
@@ -74,7 +76,7 @@ class SongRow extends React.Component {
 
   _handlePressTOCButton = () => {
     // TODO: just close this window and go back
-    console.log("close this/go back");
+    console.log('close this/go back');
   };
 
   _handlePress = () => {
@@ -92,13 +94,14 @@ export default class TableOfContents extends React.Component {
     return (
       <LoadingPlaceholder>
         <RectButton
-            style={styles.tocButton}
-            onPress={this._handlePressTOCButton}
-            underlayColor="#fff">
-            <RegularText style={styles.tocButtonText}>
-              Table of Contents
-            </RegularText>
-          </RectButton>
+          style={styles.tocButton}
+          onPress={this._handlePressTOCButton}
+          underlayColor="#fff"
+        >
+          <RegularText style={styles.tocButtonText}>
+            Table of Contents
+          </RegularText>
+        </RectButton>
         <SectionList
           renderScrollComponent={props => <ScrollView {...props} />}
           stickySectionHeadersEnabled={true}
@@ -125,12 +128,15 @@ export default class TableOfContents extends React.Component {
 
   _handlePressRow = item => {
     const song = find(propEq('guid', item.guid), Songs);
-    //this.props.navigation.navigate('SingleSongScreen', { song });
+    // console.log('song', song);
+    state.currentSong = song;
+    this.props.navigation.navigate('Songbook');
+    // this.props.navigation.setParams({ hello: 'world' });
     // TODO: This should go back to the previous screen and set the current <View> to the one with the selected guid
     // Android already has this stored in key property, so search those? <View key={item.guid} ...
     // UPDATE: it is setPage() and an index
     // https://facebook.github.io/react-native/docs/viewpagerandroid.html
-    
+
     // Also since you're reading this already, consider testing iOS ScrollView with pagingEnabled and horizontal properties set to true
     // you may already be doing this, I can't tell (or test for that matter)
     // https://facebook.github.io/react-native/docs/scrollview.html
@@ -142,7 +148,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.green,
     paddingHorizontal: 15,
     paddingVertical: 10,
-    width: 100+"%",
+    width: 100 + '%',
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',

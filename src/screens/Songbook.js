@@ -24,7 +24,10 @@ import TableOfContents from './TableOfContents';
 import Songs from '../data/songs.json';
 import SongbookManifest from '../data/songbook.json';
 
+import state from '../state';
+
 let songViews = [];
+let songs = [];
 let pageCount = 0;
 SongbookManifest.chapters.forEach(chapterChild => {
   //console.log(chapterChild.chapter_title);
@@ -33,6 +36,7 @@ SongbookManifest.chapters.forEach(chapterChild => {
       let item = Songs.filter(song => song.guid === songChild.guid)[0];
       item.chapter_title = chapterChild.chapter_title;
       pageCount++;
+      songs.push({ index: pageCount, song: item });
       songViews.push(
         <View key={item.guid} chapter_title={chapterChild.chapter_title}>
           <SongView song={item} />
@@ -66,7 +70,7 @@ export default class Songbook extends React.Component {
   };
 
   render() {
-    console.log('this.props', this.props);
+    let initialPage = this._currentSong() || 0;
     return (
       <LoadingPlaceholder>
         <View style={styles.sectionHeader}>
@@ -86,20 +90,23 @@ export default class Songbook extends React.Component {
             </LoadingPlaceholder>
           ) : (
             <ViewPagerAndroid
-              initialPage={0}
+              initialPage={initialPage}
               style={styles.container}
               horizontal={true}
               pagingEnabled={true}
               onPageSelected={this._handleAndroidPageSelected}
             >
               <View style={styles.container}>
-                <View style={{flex: 1}} />
-                <Image style={{ width: 400, height: 400 }} source={require('../assets/songbook-front-cover.png')} />
-                <View style={{flex: 1}} />
+                <View style={{ flex: 1 }} />
+                <Image
+                  style={{ width: 400, height: 400 }}
+                  source={require('../assets/songbook-front-cover.png')}
+                />
+                <View style={{ flex: 1 }} />
                 <Text style={styles.welcome}>
                   Swipe Left/Right to View Songs
                 </Text>
-                <View style={{flex: 1}} />
+                <View style={{ flex: 1 }} />
               </View>
               {songViews}
             </ViewPagerAndroid>
@@ -118,6 +125,12 @@ export default class Songbook extends React.Component {
     );
   }
 
+  _currentSong = () => {
+    return state.currentSong
+      ? songs.filter(song => song.song.guid === state.currentSong.guid)[0].index
+      : 0;
+  };
+
   _renderSong = ({ item }) => {
     return <SongView song={item} />;
   };
@@ -126,8 +139,8 @@ export default class Songbook extends React.Component {
     this.props.navigation.navigate('TableOfContents');
   };
 
-  _handleAndroidPageSelected = ({ event, nativeElement }) => {
-    console.log('page selected');
+  _handleAndroidPageSelected = ({ nativeEvent }) => {
+    console.log('page selected', nativeEvent);
     // TODO: Check chapter_title on the current child <View>
     // IF it exists, set the Title bar at the top
   };
