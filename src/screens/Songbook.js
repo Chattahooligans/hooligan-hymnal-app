@@ -12,7 +12,7 @@ import SongView from '../components/SongView';
 import { ScrollView } from 'react-native-gesture-handler';
 
 import NavigationOptions from '../config/NavigationOptions';
-
+import { Ionicons } from '@expo/vector-icons';
 import { NavigationActions } from 'react-navigation';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Colors, FontSizes, Layout } from '../constants';
@@ -80,7 +80,7 @@ export default class Songbook extends React.Component {
     return (
       <LoadingPlaceholder>
         <View style={styles.sectionHeader}>
-          <RegularText>{chapter}</RegularText>
+          <Text style={styles.chapterText}>{chapter}</Text>
         </View>
         <View style={styles.container}>
           {Platform.OS === 'ios' ? (
@@ -120,6 +120,18 @@ export default class Songbook extends React.Component {
             onPress={this._handlePressTOCButton}
             underlayColor="#fff"
           >
+            <Ionicons
+                name="md-list"
+                size={23}
+                style={{
+                  color: '#fff',
+                  marginTop: 3,
+                  marginBottom: 3,
+                  marginLeft: 5,
+                  marginRight: 5,
+                  backgroundColor: 'transparent'
+                }}
+              />
             <RegularText style={styles.tocButtonText}>
               Table of Contents
             </RegularText>
@@ -164,6 +176,18 @@ export default class Songbook extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  sectionHeader: {
+    paddingHorizontal: 10,
+    paddingTop: 7,
+    paddingBottom: 5,
+    backgroundColor: '#eee',
+    borderWidth: 1,
+    borderColor: '#eee'
+  },
+  chapterText: {
+    textAlign: 'center',
+    fontFamily: 'open-sans'
+  },
   tocButton: {
     backgroundColor: Colors.green,
     paddingHorizontal: 15,
