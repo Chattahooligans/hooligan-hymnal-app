@@ -26,7 +26,7 @@ export default class CapoHome extends React.Component {
             <ClipBorderRadius>
                 <RectButton
                     style={styles.bigButton}
-                    onPress={this._handlePressSelectSongButton}
+                    onPress={_handlePressSelectSongButton}
                     underlayColor="#fff">
                     <Ionicons
                         name="md-musical-notes"
@@ -65,15 +65,13 @@ export default class CapoHome extends React.Component {
 
   _handlePressSelectSongButton = () => {
     // WHY DON'T YOU WORK YOU BASTARD
+    console.log("select song");
     this.props.navigation.navigate('CapoSelectSong');
   };
 
   _handlePressComposeSongButton = () => {
-    this.props.navigation.dispatch(
-      NavigationActions.navigate({
-        routeName: 'CapoComposeSong'
-      })
-    );
+    console.log("compose song");
+    this.props.navigation.navigate('CapoComposeSong');
   };
 }
 
