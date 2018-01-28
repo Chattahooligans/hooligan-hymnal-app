@@ -13,6 +13,7 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import Songs from '../data/songs.json';
 import Songbook from '../data/songbook.json';
 import { conferenceHasEnded } from '../utils/index';
+import state from '../state';
 
 import { find, propEq } from 'ramda';
 
@@ -75,8 +76,7 @@ class SongRow extends React.Component {
   }
 
   _handlePress = () => {
-    // this.props.onPress(this.props.item);
-    console.log('Hello World');
+    this.props.onPress(this.props.item);
   };
 }
 
@@ -116,15 +116,11 @@ export default class CapoSelectSong extends React.Component {
   _handlePressRow = item => {
     console.log('Row Pressed');
     const song = find(propEq('guid', item.guid), Songs);
-    //this.props.navigation.navigate('SingleSongScreen', { song });
-    // TODO: This should go back to the previous screen and set the current <View> to the one with the selected guid
-    // Android already has this stored in key property, so search those? <View key={item.guid} ...
-    // UPDATE: it is setPage() and an index
-    // https://facebook.github.io/react-native/docs/viewpagerandroid.html
+    state.currentSong = song;
 
-    // Also since you're reading this already, consider testing iOS ScrollView with pagingEnabled and horizontal properties set to true
-    // you may already be doing this, I can't tell (or test for that matter)
-    // https://facebook.github.io/react-native/docs/scrollview.html
+    console.log("song", song);
+
+    this.props.navigation.navigate('CapoConfirmSend');
   };
 }
 
