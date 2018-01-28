@@ -18,7 +18,11 @@ import state from '../state';
 
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
-import { Colors, FontSizes } from '../constants';
+
+import NavigationBar from '../components/NavigationBar';
+import { Colors, FontSizes, Layout } from '../constants';
+import { Constants } from 'expo';
+import { HeaderBackButton } from 'react-navigation';
 
 // TODO: Hard code password for now
 // Add top nav bar with Back button
@@ -58,7 +62,40 @@ export default class CapoLogin extends React.Component {
             <SemiBoldText style={styles.bigButtonText}>Submit</SemiBoldText>
           </RectButton>
         </ClipBorderRadius>
-        <Text style={styles.error}>Invalid password</Text>
+        <NavigationBar
+          style={[
+            Platform.OS === 'android'
+              ? {
+                  height: Layout.headerHeight + Constants.statusBarHeight,
+                  backgroundColor: 'black'
+                }
+              : null
+          ]}
+          renderTitle={() => {
+            <View>Hello World</View>;
+          }}
+          renderLeftButton={() => (
+            <View
+              style={{
+                // gross dumb things
+                paddingTop: Platform.OS === 'android' ? 17 : 0,
+                marginTop: Layout.notchHeight > 0 ? -5 : 0
+              }}
+            >
+              <HeaderBackButton
+                style={{
+                  height: 100,
+                  backgroundColor: '#000',
+                  paddingTop: Platform.OS === 'android' ? 17 : 0,
+                  marginTop: Layout.notchHeight > 0 ? -5 : 0
+                }}
+                onPress={() => this.props.navigation.goBack()}
+                tintColor="#000"
+                title={null}
+              />
+            </View>
+          )}
+        />
       </LoadingPlaceholder>
     );
   }

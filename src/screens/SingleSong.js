@@ -1,13 +1,14 @@
 import React from 'react';
-import { HeaderBackButton } from 'react-navigation';
-import { Colors, Layout } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { View, StyleSheet, Platform } from 'react-native';
 import SongView from '../components/SongView';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import NavigationBar from '../components/NavigationBar';
-import { Constants } from 'expo';
 import { SavedButtonNavigationItem } from './Details';
+
+import NavigationBar from '../components/NavigationBar';
+import { Colors, Layout } from '../constants';
+import { Constants } from 'expo';
+import { HeaderBackButton } from 'react-navigation';
 
 const styles = StyleSheet.create({
   header: {
@@ -60,7 +61,6 @@ export default class SingleSong extends React.Component {
                 />
               </View>
             )}
-            renderRightButton={() => <SavedButtonNavigationItem talk={song} />}
           />
         </View>
       </LoadingPlaceholder>

@@ -1,12 +1,11 @@
 import React from 'react';
-import { Image, SectionList, StyleSheet, View, Text } from 'react-native';
+import { Image, SectionList, Platform, StyleSheet, View, Text } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
 import NavigationOptions from '../config/NavigationOptions';
 import { NavigationActions } from 'react-navigation';
 
-import { Colors, FontSizes, Layout } from '../constants';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
@@ -16,6 +15,11 @@ import { conferenceHasEnded } from '../utils/index';
 import state from '../state';
 
 import { find, propEq } from 'ramda';
+
+import NavigationBar from '../components/NavigationBar';
+import { Colors, FontSizes, Layout } from '../constants';
+import { Constants } from 'expo';
+import { HeaderBackButton } from 'react-navigation';
 
 // TODO: On row press, get the related song object by guid using snippet below and pass it to the next screen
 //      Songs.filter(song => song.guid === songChild.guid)[0]
@@ -97,6 +101,28 @@ export default class CapoSelectSong extends React.Component {
           sections={ToCData}
           keyExtractor={(item, index) => index}
         />
+        <NavigationBar
+          style={[
+            Platform.OS === 'android'
+              ? { height: Layout.headerHeight + Constants.statusBarHeight }
+              : null
+          ]}
+          renderLeftButton={() => (
+            <View
+              style={{
+                // gross dumb things
+                paddingTop: Platform.OS === 'android' ? 17 : 0,
+                marginTop: Layout.notchHeight > 0 ? -5 : 0
+              }}
+            >
+              <HeaderBackButton
+                onPress={() => this.props.navigation.goBack()}
+                tintColor="#fff"
+                title={null}
+              />
+            </View>
+          )}
+        />
       </LoadingPlaceholder>
     );
   }
@@ -118,7 +144,7 @@ export default class CapoSelectSong extends React.Component {
     const song = find(propEq('guid', item.guid), Songs);
     state.currentSong = song;
 
-    console.log("song", song);
+    console.log('song', song);
 
     this.props.navigation.navigate('CapoConfirmSend');
   };

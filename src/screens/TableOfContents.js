@@ -1,12 +1,18 @@
 import React from 'react';
-import { Image, SectionList, StyleSheet, View, Text } from 'react-native';
+import {
+  Platform,
+  Image,
+  SectionList,
+  StyleSheet,
+  View,
+  Text
+} from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
 import NavigationOptions from '../config/NavigationOptions';
 import { NavigationActions } from 'react-navigation';
 
-import { Colors, FontSizes, Layout } from '../constants';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
@@ -15,6 +21,11 @@ import state from '../state';
 import Songs from '../data/songs.json';
 import Songbook from '../data/songbook.json';
 import { conferenceHasEnded } from '../utils/index';
+
+import NavigationBar from '../components/NavigationBar';
+import { Colors, FontSizes, Layout } from '../constants';
+import { Constants } from 'expo';
+import { HeaderBackButton } from 'react-navigation';
 
 import { find, propEq } from 'ramda';
 
@@ -93,11 +104,7 @@ export default class TableOfContents extends React.Component {
   render() {
     return (
       <LoadingPlaceholder>
-        <RectButton
-          style={styles.tocButton}
-          onPress={this._handlePressTOCButton}
-          underlayColor="#fff"
-        >
+        <RectButton style={styles.tocButton} underlayColor="#fff">
           <RegularText style={styles.tocButtonText}>
             Table of Contents
           </RegularText>
@@ -109,6 +116,28 @@ export default class TableOfContents extends React.Component {
           renderSectionHeader={this._renderSectionHeader}
           sections={ToCData}
           keyExtractor={(item, index) => index}
+        />
+        <NavigationBar
+          style={[
+            Platform.OS === 'android'
+              ? { height: Layout.headerHeight + Constants.statusBarHeight }
+              : null
+          ]}
+          renderLeftButton={() => (
+            <View
+              style={{
+                // gross dumb things
+                paddingTop: Platform.OS === 'android' ? 17 : 0,
+                marginTop: Layout.notchHeight > 0 ? -5 : 0
+              }}
+            >
+              <HeaderBackButton
+                onPress={() => this.props.navigation.goBack()}
+                tintColor="#fff"
+                title={null}
+              />
+            </View>
+          )}
         />
       </LoadingPlaceholder>
     );

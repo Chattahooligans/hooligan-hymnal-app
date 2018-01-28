@@ -16,11 +16,15 @@ import { Ionicons } from '@expo/vector-icons';
 
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
-import { Colors, FontSizes } from '../constants';
 
 import state from '../state';
 
 import Schema from '../data/song_schema';
+
+import NavigationBar from '../components/NavigationBar';
+import { Colors, FontSizes, Layout } from '../constants';
+import { Constants } from 'expo';
+import { HeaderBackButton } from 'react-navigation';
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 // TODO: Create Song object, set title and lyrics based on data on this screen and pass to next screen (CapoConfirmSend)
@@ -66,6 +70,28 @@ export default class CapoComposeSong extends React.Component {
             <SemiBoldText style={styles.bigButtonText}>Continue</SemiBoldText>
           </RectButton>
         </ClipBorderRadius>
+        <NavigationBar
+          style={[
+            Platform.OS === 'android'
+              ? { height: Layout.headerHeight + Constants.statusBarHeight }
+              : null
+          ]}
+          renderLeftButton={() => (
+            <View
+              style={{
+                // gross dumb things
+                paddingTop: Platform.OS === 'android' ? 17 : 0,
+                marginTop: Layout.notchHeight > 0 ? -5 : 0
+              }}
+            >
+              <HeaderBackButton
+                onPress={() => this.props.navigation.goBack()}
+                tintColor="#fff"
+                title={null}
+              />
+            </View>
+          )}
+        />
       </LoadingPlaceholder>
     );
   }
