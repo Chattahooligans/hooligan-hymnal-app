@@ -37,6 +37,7 @@ export default class CapoConfirmSend extends React.Component {
                     onPress={this._handlePressComposeSongButton}
                     underlayColor="#fff">
                     <Ionicons
+                        name="md-send"
                         size={23}
                         style={{
                             color: '#fff',
