@@ -1,5 +1,12 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, View, TextInput } from 'react-native';
+import {
+  Text,
+  Image,
+  Platform,
+  StyleSheet,
+  View,
+  TextInput
+} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
@@ -31,7 +38,7 @@ export default class CapoLogin extends React.Component {
   render() {
     return (
       <LoadingPlaceholder>
-        <Text style={style.instructions}>Enter password to unlock</Text>
+        <Text style={styles.instructions}>Enter password to unlock</Text>
         <TextInput onChangeText={this._setPassword} />
         <ClipBorderRadius>
           <RectButton
@@ -51,7 +58,7 @@ export default class CapoLogin extends React.Component {
             <SemiBoldText style={styles.bigButtonText}>Submit</SemiBoldText>
           </RectButton>
         </ClipBorderRadius>
-        <Text style={style.error}>Invalid password</Text>
+        <Text style={styles.error}>Invalid password</Text>
       </LoadingPlaceholder>
     );
   }

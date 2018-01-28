@@ -35,6 +35,8 @@ import Screens from './screens';
 import TabBarBottom from './components/TabBarBottom';
 import { SemiBoldText, BoldText } from './components/StyledText';
 
+import state from './state';
+
 const DrawerComponent =
   Platform.OS === 'android' ? DrawerLayoutAndroid : DrawerLayout;
 
@@ -356,7 +358,15 @@ class DrawerView extends React.Component {
     this._drawerRef.closeDrawer();
     const nextRoute = this.props.navigation.state.routes[index];
     console.log(nextRoute.routeName);
-    this.props.navigation.navigate(nextRoute.routeName);
+    if (nextRoute.routeName === 'CapoHome') {
+      if (state.unlocked === true) {
+        this.props.navigation.navigate('CapoHome');
+      } else {
+        this.props.navigation.navigate('CapoLogin');
+      }
+    } else {
+      this.props.navigation.navigate(nextRoute.routeName);
+    }
   };
 }
 
