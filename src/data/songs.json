@@ -298,7 +298,7 @@
     "update_time": "",
     "title": "John Carrier",
     "tags": "voice,drums",
-    "lyrics": "He's here. He's there.\nHe's every, everywhere",
+    "lyrics": "He's here. He's there.\nHe's every, everywhere\nCarrier, Carrier",
     "tbd_various_boolean_flags": "",
     "reference_title": "",
     "reference_link": "",
@@ -318,7 +318,7 @@
     "update_time": "",
     "title": "Zeca Ferraz",
     "tags": "voice,drums",
-    "lyrics": "Oh, Zeca, you're so fine\nYou're so fine you blow my mind",
+    "lyrics": "Oh, Zeca, you're so fine\nYou're so fine you blow my mind\nHey Zeca!",
     "tbd_various_boolean_flags": "",
     "reference_title": "from Hey Mickey, by Toni Basil",
     "reference_link": "",
@@ -351,5 +351,26 @@
     "player_number": "",
     "override_html": "",
     "delete_local": ""
-  }
+  },
+  {
+    "guid": 18,
+    "category": "player",
+    "create_time": "",
+    "update_time": "",
+    "title": "Juan Hernandez",
+    "tags": "voice,drums",
+    "lyrics": 
+      "You're still the Juan\nThat makes us strong\nStill the Juan\nWho makes us sing this song\nWe're still having fun\nAnd you're still the Juan",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from Still the One, by Orleans",
+    "reference_link": "",
+    "instructions": "",
+    "is_npsl_player": true,
+    "is_wpsl_player": false,
+    "is_nisa_player": false,
+    "player_name": "Juan Hernandez",
+    "player_number": 9,
+    "override_html": "",
+    "delete_local": ""
+  },
 ]
