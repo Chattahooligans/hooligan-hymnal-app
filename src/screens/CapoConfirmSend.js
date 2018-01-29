@@ -97,9 +97,12 @@ export default class CapoConfirmSend extends React.Component {
   }
 
   _handlePressSendButton = () => {
-    console.log('location', location);
-    CapoMessageSchema.song = state.currentSong
-    console.log('---- object to wrap in a message to server ----', CapoMessageSchema);
+    CapoMessageSchema.sender = "capo example";
+    //CapoMessageSchema.send_time = 
+    CapoMessageSchema.sender_latitude = state.location.coords.latitude;
+    CapoMessageSchema.sender_longitude = state.location.coords.longitude;
+    CapoMessageSchema.song = state.currentSong;
+    console.log('---- object to wrap in a message to server ----\n', CapoMessageSchema);
   };
 }
 
