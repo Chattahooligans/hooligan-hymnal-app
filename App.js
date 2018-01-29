@@ -10,7 +10,6 @@ import Home from './src/screens/Home';
 import state from './src/state'
 
 import { Location, Notifications, Permissions } from 'expo';
-import registerForPushNotificationsAsync from 'registerForPushNotificationsAsync';
 
 const PUSH_ENDPOINT = 'https://your-server.com/users/push-token';
 
