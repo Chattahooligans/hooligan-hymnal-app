@@ -76,9 +76,9 @@ export function getFeaturedSongs(allSongs = Songs) {
         if (true === songChild.featured) {
           try {
             // does this song exist in the database?
-            songList.push(Songs.filter(song => song.guid === songChild.guid)[0]);
+            songList.push(Songs.filter(song => song._id === songChild._id)[0]);
           } catch (err) {
-            console.log(songChild.guid + ' not found in songs database');
+            console.log(songChild._id + ' not found in songs database');
           }
         }
       });
