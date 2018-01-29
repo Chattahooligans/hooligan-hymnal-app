@@ -101,7 +101,7 @@ export default class CapoLogin extends React.Component {
   };
 
   _handlePressSubmitButton = () => {
-    if (state.password === 'A') {
+    if (state.password === 'beccaispretty') {
       state.unlocked = true;
       this.props.navigation.navigate('CapoHome');
     }
