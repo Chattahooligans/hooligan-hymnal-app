@@ -11,38 +11,38 @@
             "chapter_title": "Hooligan Hymnal",
             "songs": 
             [
-                { "guid": 1},
-                { "guid": 2 },
-                { "guid": 3 },
-                { "guid": 4 },
-                { "guid": 5 },
-                { "guid": 6 },
-                { "guid": 7 },
-                { "guid": 8 },
-                { "guid": 9 },
-                { "guid": 10 },
-                { "guid": 11 },
-                { "guid": 12 },
-                { "guid": 13 },
-                { "guid": 14 }
+                { "_id": 1},
+                { "_id": 2 },
+                { "_id": 3 },
+                { "_id": 4 },
+                { "_id": 5 },
+                { "_id": 6 },
+                { "_id": 7 },
+                { "_id": 8 },
+                { "_id": 9 },
+                { "_id": 10 },
+                { "_id": 11 },
+                { "_id": 12 },
+                { "_id": 13 },
+                { "_id": 14 }
             ]
         },
         {
             "chapter_title": "Daily Diss Tracks",
             "songs": 
             [
-                { "guid": 17, "featured":  true }
+                { "_id": 17, "featured":  true }
             ]
         },
         {
             "chapter_title": "Songs of My People",
             "songs": 
             [
-                { "guid": 15 },
-                { "guid": 16 },
-                { "guid": 18 },
-                { "guid": 19 },
-                { "guid": 20 }
+                { "_id": 15 },
+                { "_id": 16 },
+                { "_id": 18 },
+                { "_id": 19 },
+                { "_id": 20 }
             ]
         }
     ]

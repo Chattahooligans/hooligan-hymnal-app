@@ -33,12 +33,12 @@ SongbookManifest.chapters.forEach(chapterChild => {
   //console.log(chapterChild.chapter_title);
   chapterChild.songs.forEach(songChild => {
     try {
-      let item = Songs.filter(song => song.guid === songChild.guid)[0];
+      let item = Songs.filter(song => song._id === songChild._id)[0];
       item.chapter_title = chapterChild.chapter_title;
       pageCount++;
       songs.push({ index: pageCount, song: item });
       songViews.push(
-        <View key={item.guid} chapter_title={chapterChild.chapter_title}>
+        <View key={item._id} chapter_title={chapterChild.chapter_title}>
           <SongView song={item} />
           <Text
             style={{
@@ -56,7 +56,7 @@ SongbookManifest.chapters.forEach(chapterChild => {
         </View>
       );
     } catch (err) {
-      console.log(songChild.guid + ' not found in songs database');
+      console.log(songChild._id + ' not found in songs database');
     }
   });
 });
@@ -143,13 +143,13 @@ export default class Songbook extends React.Component {
 
   _currentSong = () => {
     return state.currentSong
-      ? songs.filter(song => song.song.guid === state.currentSong.guid)[0]
+      ? songs.filter(song => song.song._id === state.currentSong._id)[0]
       : undefined;
   };
 
   _currentPage = () => {
     return state.currentSong
-      ? songs.filter(song => song.song.guid === state.currentSong.guid)[0].index
+      ? songs.filter(song => song.song._id === state.currentSong._id)[0].index
       : 0;
   };
 

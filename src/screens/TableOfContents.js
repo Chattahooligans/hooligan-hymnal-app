@@ -30,7 +30,7 @@ import { HeaderBackButton } from 'react-navigation';
 import { find, propEq } from 'ramda';
 
 // on click on a song row
-// search each page in parent.parent component and look for a guid property (yet to be created), snap to that page
+// search each page in parent.parent component and look for a _id property (yet to be created), snap to that page
 
 //
 //  Note: ToC may not live within the pager forever,
@@ -47,13 +47,13 @@ Songbook.chapters.forEach(chapterChild => {
   chapterChild.songs.forEach(songChild => {
     try {
       let song = {
-        guid: songChild.guid,
-        song_title: Songs.filter(song => song.guid === songChild.guid)[0].title
+        _id: songChild._id,
+        song_title: Songs.filter(song => song._id === songChild._id)[0].title
       };
-      //console.log(songChild.guid + " " + song.song_title);
+      //console.log(songChild._id + " " + song.song_title);
       songList.push(song);
     } catch (err) {
-      console.log(songChild.guid + ' not found in songs database');
+      console.log(songChild._id + ' not found in songs database');
     }
   });
 
@@ -190,7 +190,7 @@ export default class TableOfContents extends React.Component {
   };
 
   _handlePressRow = item => {
-    const song = find(propEq('guid', item.guid), Songs);
+    const song = find(propEq('_id', item._id), Songs);
     // console.log('song', song);
     state.currentSong = song;
     this.props.navigation.navigate('Songbook');

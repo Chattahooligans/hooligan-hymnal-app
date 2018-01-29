@@ -21,8 +21,8 @@ import { Colors, FontSizes, Layout } from '../constants';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
 
-// TODO: On row press, get the related song object by guid using snippet below and pass it to the next screen
-//      Songs.filter(song => song.guid === songChild.guid)[0]
+// TODO: On row press, get the related song object by _id using snippet below and pass it to the next screen
+//      Songs.filter(song => song._id === songChild._id)[0]
 // Back Button on the nav bar for this screen, goes back to capo dashboard
 
 //console.log("Songbook ToC json: " + Songbook.songbook_title);
@@ -34,13 +34,13 @@ Songbook.chapters.forEach(chapterChild => {
   chapterChild.songs.forEach(songChild => {
     try {
       let song = {
-        guid: songChild.guid,
-        song_title: Songs.filter(song => song.guid === songChild.guid)[0].title
+        _id: songChild._id,
+        song_title: Songs.filter(song => song._id === songChild._id)[0].title
       };
-      //console.log(songChild.guid + " " + song.song_title);
+      //console.log(songChild._id + " " + song.song_title);
       songList.push(song);
     } catch (err) {
-      console.log(songChild.guid + ' not found in songs database');
+      console.log(songChild._id + ' not found in songs database');
     }
   });
 
@@ -157,7 +157,7 @@ export default class CapoSelectSong extends React.Component {
   };
 
   _handlePressRow = item => {
-    const song = find(propEq('guid', item.guid), Songs);
+    const song = find(propEq('_id', item._id), Songs);
     state.currentSong = song;
 
     this.props.navigation.navigate('CapoConfirmSend');
