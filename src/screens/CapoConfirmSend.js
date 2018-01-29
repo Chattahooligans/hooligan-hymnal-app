@@ -28,6 +28,24 @@ export default class CapoConfirmSend extends React.Component {
     ...NavigationOptions
   };
 
+  componentWillMount() {
+    if (Platform.OS === 'android' && !Constants.isDevice) {
+      console.log("Oops, this will not work on Sketch in an Android emulator. Try it on your device!");
+    } else {
+      this._getLocationAsync();
+    }
+  };
+
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== 'granted') {
+      state.location = null;
+    } else {
+      let location = await Location.getCurrentPositionAsync({});
+      state.location = location;
+    }
+  };
+
   render() {
     return (
       <LoadingPlaceholder>
@@ -97,10 +115,15 @@ export default class CapoConfirmSend extends React.Component {
   }
 
   _handlePressSendButton = () => {
-    CapoMessageSchema.sender = "capo example";
-    //CapoMessageSchema.send_time = 
-    CapoMessageSchema.sender_latitude = state.location.coords.latitude;
-    CapoMessageSchema.sender_longitude = state.location.coords.longitude;
+    CapoMessageSchema.sender = 'capo example';
+    CapoMessageSchema.send_time = new Date();
+    if (null == state.location) {
+      CapoMessageSchema.sender_latitude = '';
+      CapoMessageSchema.sender_longitude = '';
+    } else {
+      CapoMessageSchema.sender_latitude = state.location.coords.latitude;
+      CapoMessageSchema.sender_longitude = state.location.coords.longitude;
+    }
     CapoMessageSchema.song = state.currentSong;
     console.log('---- object to wrap in a message to server ----\n', CapoMessageSchema);
   };

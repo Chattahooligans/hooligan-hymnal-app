@@ -67,7 +67,6 @@ export default class App extends React.Component {
       });
     }
 
-    // 10 minutes
     let location = await Location.getCurrentPositionAsync({});
     state.location = location;
     console.log("location:", location.coords.latitude, location.coords.longitude, location.coords.accuracy);
