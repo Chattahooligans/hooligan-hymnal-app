@@ -70,13 +70,10 @@ export default class CapoHome extends React.Component {
   }
 
   _handlePressSelectSongButton = () => {
-    // WHY DON'T YOU WORK YOU BASTARD
-    console.log('select song');
     this.props.navigation.navigate('CapoSelectSong');
   };
 
   _handlePressComposeSongButton = () => {
-    console.log('compose song');
     this.props.navigation.navigate('CapoComposeSong');
   };
 }
