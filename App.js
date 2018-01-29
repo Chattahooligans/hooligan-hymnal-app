@@ -7,6 +7,8 @@ import { loadSavedTalksAsync } from './src/utils/storage';
 import Navigation from './src/Navigation';
 import Home from './src/screens/Home';
 
+import state from './src/state'
+
 import { Location, Permissions } from 'expo';
 
 const theme = {
@@ -67,6 +69,7 @@ export default class App extends React.Component {
 
     // 10 minutes
     let location = await Location.getCurrentPositionAsync({});
+    state.location = location;
     console.log("location:", location.coords.latitude, location.coords.longitude, location.coords.accuracy);
     this.setState({ location });
   };

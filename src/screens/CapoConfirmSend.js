@@ -19,12 +19,7 @@ import { Colors, FontSizes, Layout } from '../constants';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
 
-// TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
-
-// set a Song object, either selected from our list or created on the Compose screen
-// Back Button on the nav bar for this screen, goes back to wherever we came from and/or capo dashboard if that is easier
-
-// Send message to server based on /src/data/capo_message_schema.json
+import CapoMessageSchema from '../data/capo_message_schema';
 
 @withNavigation
 export default class CapoConfirmSend extends React.Component {
@@ -41,7 +36,7 @@ export default class CapoConfirmSend extends React.Component {
           <ClipBorderRadius>
             <RectButton
               style={styles.bigButton}
-              onPress={this._handlePressComposeSongButton}
+              onPress={this._handlePressSendButton}
               underlayColor="#fff"
             >
               <Ionicons
@@ -101,9 +96,10 @@ export default class CapoConfirmSend extends React.Component {
     );
   }
 
-  _handlePressComposeSongButton = () => {
-    // send notification
-    // do some stuff, go back to CapoHome on confirmation?
+  _handlePressSendButton = () => {
+    console.log('location', location);
+    CapoMessageSchema.song = state.currentSong
+    console.log('---- object to wrap in a message to server ----', CapoMessageSchema);
   };
 }
 

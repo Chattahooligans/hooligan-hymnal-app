@@ -122,7 +122,6 @@ export default class CapoComposeSong extends React.Component {
   };
 
   _handlePressContinueButton = () => {
-    console.log('song', Schema);
     state.currentSong = Schema;
     this.props.navigation.navigate('CapoConfirmSend');
   };

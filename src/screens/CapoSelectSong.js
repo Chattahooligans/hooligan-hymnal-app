@@ -157,11 +157,8 @@ export default class CapoSelectSong extends React.Component {
   };
 
   _handlePressRow = item => {
-    console.log('Row Pressed');
     const song = find(propEq('guid', item.guid), Songs);
     state.currentSong = song;
-
-    console.log('song', song);
 
     this.props.navigation.navigate('CapoConfirmSend');
   };
