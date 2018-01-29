@@ -12,6 +12,9 @@ import {
 } from '../data';
 import { conferenceHasEnded } from '../utils';
 
+import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
+import { Ionicons } from '@expo/vector-icons';
+
 export default class TalksUpNext extends React.Component {
   constructor(props) {
     super(props);
@@ -42,9 +45,25 @@ export default class TalksUpNext extends React.Component {
 
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
-        <SemiBoldText style={{ fontSize: FontSizes.title }}>
-          {this.state.label}
-        </SemiBoldText>
+        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+          <SemiBoldText style={{ fontSize: FontSizes.title }}>
+            {this.state.label}
+          </SemiBoldText>
+          <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressRefreshButton}
+              underlayColor="#fff"
+            >
+              <Ionicons
+                name="md-refresh"
+                size={23}
+                style={{
+                  color: Colors.green,
+                  backgroundColor: 'transparent'
+                }}
+              />
+            </RectButton>
+        </View>
         {this._renderDateTime()}
         {featuredSongs.map(song => (
           <SongCard
@@ -76,11 +95,25 @@ export default class TalksUpNext extends React.Component {
       // handle after conf thing
     }
   }
+
+  _handlePressRefreshButton = async () => {
+    console.log("refresh pressed");
+  };
 }
 
 const styles = StyleSheet.create({
   time: {
     color: Colors.faint,
     fontSize: FontSizes.subtitle
+  },
+  bigButton: {
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 3,
+    paddingRight: 3,
+    marginRight: 3,
+    overflow: 'hidden',
+    flexDirection: 'row'
   }
 });
