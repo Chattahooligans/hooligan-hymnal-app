@@ -111,7 +111,7 @@ export default class App extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        token: {
+        pushToken: {
           value: token,
         }
       }),
