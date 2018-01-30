@@ -33,6 +33,8 @@ import {
   ShowWhenConferenceHasEnded
 } from '../utils';
 
+import appParams from '../../app.json';
+
 class Home extends React.Component {
   state = {
     scrollY: new Animated.Value(0)
@@ -91,7 +93,7 @@ class Home extends React.Component {
               tintColor="#fff"
             />
             <View style={styles.headerContent}>
-              <SemiBoldText style={styles.headerText}>BETA</SemiBoldText>
+              <SemiBoldText style={styles.headerText}>{'BETA ' + appParams.expo.version}</SemiBoldText>
             </View>
           </View>
 
