@@ -107,20 +107,18 @@ export default class App extends React.Component {
     return fetch(PUSH_ENDPOINT, {
       method: 'POST',
       headers: {
-        Accept: 'x-www-form-urlencoded',
-        'Content-Type': 'x-www-form-urlencoded',
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        pushToken: {
-          value: token,
-        }
+        pushToken: token
       }),
     });
   };
 
   _handleNotification = (notification) => {
     this.setState({notification: notification});
-    // TODO: go to Home, then SingleSong screen and send it with the Song object buried inside the notification
+    // TODO: go to Home, then open SingleSong screen and send it with the Song object buried inside the notification
   };
 
   render() {
