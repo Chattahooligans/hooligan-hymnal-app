@@ -85,13 +85,13 @@ export default class TalksUpNext extends React.Component {
           state.song = responseJson.song;
         } else {
           state.label = "Featured Song";
-          state.song = getFeaturedSongs();
+          state.song = getFeaturedSongs()[0];
         }
       }
       catch (err) {
         // no data returns a json parsing error
         state.label = "Featured Song";
-        state.song = getFeaturedSongs();
+        state.song = getFeaturedSongs()[0];
       }
 
       console.log(JSON.stringify(responseJson.song.title));
