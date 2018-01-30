@@ -21,6 +21,8 @@ import { HeaderBackButton } from 'react-navigation';
 
 import CapoMessageSchema from '../data/capo_message_schema';
 
+const CAPO_MESSAGE_ENDPOINT = 'https://chattahooligan-hymnal.herokuapp.com/api/notification';
+
 @withNavigation
 export default class CapoConfirmSend extends React.Component {
   static navigationOptions = {
@@ -126,6 +128,24 @@ export default class CapoConfirmSend extends React.Component {
     }
     CapoMessageSchema.song = state.currentSong;
     console.log('---- object to wrap in a message to server ----\n', CapoMessageSchema);
+
+    fetch(CAPO_MESSAGE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(CapoMessageSchema),
+    }).then((response) => response.json())
+    .then((responseJson) => {
+      // this is the output from the server for sending our capo_message
+      console.log(JSON.stringify(responseJson));
+      alert("success or fail message");
+      // if fail, stay here
+      // if success
+      //this.props.navigation.navigate('CapoHome');
+    })
+
   };
 }
 
