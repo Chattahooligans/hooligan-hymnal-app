@@ -83,6 +83,11 @@ export default class TalksUpNext extends React.Component {
         if (true) {
           state.label = "Up Next";
           state.song = responseJson.song;
+
+          this.setState(previousState => {
+            return { label: "Up Next", song: responseJson.song };
+          });
+
         } else {
           state.label = "Featured Song";
           state.song = getFeaturedSongs()[0];
