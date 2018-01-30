@@ -11,7 +11,7 @@ import state from './src/state'
 
 import { Location, Notifications, Permissions } from 'expo';
 
-const PUSH_ENDPOINT = 'https://your-server.com/users/push-token';
+const PUSH_ENDPOINT = 'https://chattahooligan-hymnal.herokuapp.com/api/pushToken ';
 
 const theme = {
   font: {
@@ -26,7 +26,8 @@ export default class App extends React.Component {
   state = {
     fontLoaded: false,
     notification: {},
-    location: null
+    location: null,
+    token: null
   };
 
   _loadResourcesAsync = () => {
@@ -99,6 +100,8 @@ export default class App extends React.Component {
   
     // Get the token that uniquely identifies this device
     let token = await Notifications.getExpoPushTokenAsync();
+    state.token = token
+    console.log("token", token);
 
     // POST the token to your backend server from where you can retrieve it to send push notifications.
     return fetch(PUSH_ENDPOINT, {
@@ -110,10 +113,7 @@ export default class App extends React.Component {
       body: JSON.stringify({
         token: {
           value: token,
-        },
-        user: {
-          username: 'Chattahooligan Hymnal User',
-        },
+        }
       }),
     });
   };
