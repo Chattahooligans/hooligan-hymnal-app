@@ -11,7 +11,7 @@ import state from './src/state'
 
 import { Location, Notifications, Permissions } from 'expo';
 
-const PUSH_ENDPOINT = 'https://chattahooligan-hymnal.herokuapp.com/api/pushToken ';
+const PUSH_ENDPOINT = 'https://chattahooligan-hymnal.herokuapp.com/api/pushToken';
 
 const theme = {
   font: {
