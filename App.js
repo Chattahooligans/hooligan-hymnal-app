@@ -118,7 +118,8 @@ export default class App extends React.Component {
 
   _handleNotification = (notification) => {
     this.setState({notification: notification});
-    // TODO: go to Home, then open SingleSong screen and send it with the Song object buried inside the notification
+    // TODO: navigate to Home, then open SingleSong screen and send it with the Song object buried inside the notification
+    // also initiate a GET so our home screen card updates? maybe?
   };
 
   render() {
