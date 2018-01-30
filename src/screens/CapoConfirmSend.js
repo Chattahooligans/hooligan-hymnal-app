@@ -18,6 +18,7 @@ import NavigationBar from '../components/NavigationBar';
 import { Colors, FontSizes, Layout } from '../constants';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
+import { Location, Permissions } from 'expo';
 
 import CapoMessageSchema from '../data/capo_message_schema';
 
@@ -135,12 +136,14 @@ export default class CapoConfirmSend extends React.Component {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(CapoMessageSchema),
+      body: JSON.stringify({
+        "message": CapoMessageSchema
+      }),
     }).then((response) => response.json())
     .then((responseJson) => {
       // this is the output from the server for sending our capo_message
       console.log(JSON.stringify(responseJson));
-      alert("success or fail message");
+      alert("success or fail message? do we even know?");
       // if fail, stay here
       // if success
       //this.props.navigation.navigate('CapoHome');
