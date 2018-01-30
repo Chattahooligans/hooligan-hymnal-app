@@ -107,8 +107,8 @@ export default class App extends React.Component {
     return fetch(PUSH_ENDPOINT, {
       method: 'POST',
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Accept: 'x-www-form-urlencoded',
+        'Content-Type': 'x-www-form-urlencoded',
       },
       body: JSON.stringify({
         pushToken: {
