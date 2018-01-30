@@ -30,7 +30,7 @@ export default class SongCard extends React.Component {
           <RegularText
             style={styles.songLyrics}
             ellipsizeMode="tail"
-            numberOfLines={5}
+            numberOfLines={1}
           >
             {song.lyrics}
           </RegularText>
