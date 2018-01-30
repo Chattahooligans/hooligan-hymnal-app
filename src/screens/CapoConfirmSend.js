@@ -137,7 +137,12 @@ export default class CapoConfirmSend extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        "message": CapoMessageSchema
+        "sender": CapoMessageSchema.sender,
+        "send_time": CapoMessageSchema.send_time,
+        "sender_latitude": CapoMessageSchema.sender_latitude,
+        "sender_longitude": CapoMessageSchema.sender_longitude,
+        "song": CapoMessageSchema.song,
+        "message": "this better work"
       }),
     }).then((response) => response.json())
     .then((responseJson) => {
