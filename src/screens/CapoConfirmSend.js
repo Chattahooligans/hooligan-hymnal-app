@@ -167,10 +167,11 @@ export default class CapoConfirmSend extends React.Component {
     .then((responseJson) => {
       // this is the output from the server for sending our capo_message
       console.log(JSON.stringify(responseJson));
-      alert("success or fail message? do we even know?");
+      // we REALLY need to confirm this got sent
+      //alert("success or fail message? do we even know?");
       // if fail, stay here
       // if success
-      //this.props.navigation.navigate('CapoHome');
+      this.props.navigation.navigate('Home');
     })
 
   };
