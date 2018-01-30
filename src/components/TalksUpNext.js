@@ -10,39 +10,30 @@ import {
   findNextTalksAfterDate,
   getFeaturedSongs
 } from '../data';
-import { conferenceHasEnded } from '../utils';
+
+import state from '../state';
 
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
+
+const CAPO_MESSAGE_ENDPOINT = 'https://chattahooligan-hymnal.herokuapp.com/api/notifications/last';
 
 export default class TalksUpNext extends React.Component {
   constructor(props) {
     super(props);
 
-    let label = "Featured Song";
-
-    let featuredSongs = getFeaturedSongs();
-    let dateTime;
-    let time;
-    if (featuredSongs) {
-      dateTime = featuredSongs[0].dateTime;
-      time = featuredSongs[0].time;
-    }
+    let song = getFeaturedSongs();
 
     // if there's a notification that is relevant
     // set label to "Up Next"
 
     this.state = {
-      featuredSongs,
-      dateTime,
-      time,
-      label
+      label: "Featured Song",
+      song: getFeaturedSongs()[0]
     };
   }
 
   render() {
-    const { featuredSongs } = this.state;
-
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -64,40 +55,53 @@ export default class TalksUpNext extends React.Component {
               />
             </RectButton>
         </View>
-        {this._renderDateTime()}
-        {featuredSongs.map(song => (
-          <SongCard
-            key={song._id}
-            song={song}
-            style={{ marginTop: 10, marginBottom: 10 }}
-          />
-        ))}
+        <SongCard
+          key={this.state.song._id}
+          song={this.state.song}
+          style={{ marginTop: 10, marginBottom: 10 }}
+        />
       </View>
     );
   }
 
-  _renderDateTime() {
-    if (conferenceHasEnded()) {
-      return null;
-    }
-
-    const { dateTime, time } = this.state;
-
-    if (dateTime) {
-      return (
-        <RegularText style={styles.time}>
-          {moment(dateTime)
-            .tz('America/Chicago')
-            .format('dddd, MMM Do')}, {time}
-        </RegularText>
-      );
-    } else {
-      // handle after conf thing
-    }
+  componentWillMount() {
+    this._refreshNotification();
   }
 
-  _handlePressRefreshButton = async () => {
-    console.log("refresh pressed");
+  _handlePressRefreshButton = () => {
+    this._refreshNotification();
+  };
+
+  _refreshNotification = async () => {
+    // run this on load
+    // on a schedule or maybe not
+    // and trigger it when we receive a notification to refresh this screen
+    fetch(CAPO_MESSAGE_ENDPOINT).then((response) => response.json())
+    .then((responseJson) => {
+      try{
+        // if this is valid
+        if (true) {
+          state.label = "Up Next";
+          state.song = responseJson.song;
+        } else {
+          state.label = "Featured Song";
+          state.song = getFeaturedSongs();
+        }
+      }
+      catch (err) {
+        // no data returns a json parsing error
+        state.label = "Featured Song";
+        state.song = getFeaturedSongs();
+      }
+
+      console.log(JSON.stringify(responseJson.song.title));
+    })
+    
+    /*
+    fetch(CAPO_MESSAGE_ENDPOINT).then((response) => {
+      console.log("response", response);
+    })
+    */
   };
 }
 

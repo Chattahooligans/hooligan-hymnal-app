@@ -128,7 +128,7 @@ export default class CapoConfirmSend extends React.Component {
       CapoMessageSchema.sender_longitude = state.location.coords.longitude;
     }
     CapoMessageSchema.song = state.currentSong;
-    console.log('---- object to wrap in a message to server ----\n', CapoMessageSchema);
+    //console.log('---- object to wrap in a message to server ----\n', CapoMessageSchema);
 
     fetch(CAPO_MESSAGE_ENDPOINT, {
       method: 'POST',
@@ -141,7 +141,26 @@ export default class CapoConfirmSend extends React.Component {
         "send_time": CapoMessageSchema.send_time,
         "sender_latitude": CapoMessageSchema.sender_latitude,
         "sender_longitude": CapoMessageSchema.sender_longitude,
-        "song": CapoMessageSchema.song,
+        "song": 
+        {
+          "category": CapoMessageSchema.song.category,
+          "create_time": CapoMessageSchema.song.create_time,
+          "update_time": CapoMessageSchema.song.update_time,
+          "title": CapoMessageSchema.song.title,
+          "tags": CapoMessageSchema.song.tags,
+          "lyrics": CapoMessageSchema.song.lyrics,
+          "tbd_various_boolean_flags": CapoMessageSchema.song.tbd_various_boolean_flags,
+          "reference_title": CapoMessageSchema.song.reference_title,
+          "reference_link": CapoMessageSchema.song.reference_link,
+          "instructions": CapoMessageSchema.song.instructions,
+          "is_npsl_player": CapoMessageSchema.song.is_npsl_player,
+          "is_wpsl_player": CapoMessageSchema.song.is_wpsl_player,
+          "is_nisa_player": CapoMessageSchema.song.is_nisa_player,
+          "player_name": CapoMessageSchema.song.player_name,
+          "player_number": CapoMessageSchema.song.player_number,
+          "override_html": CapoMessageSchema.song.override_html,
+          "delete_local": CapoMessageSchema.song.delete_local
+        },
         "message": "this better work"
       }),
     }).then((response) => response.json())
