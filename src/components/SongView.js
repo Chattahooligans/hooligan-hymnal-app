@@ -23,17 +23,17 @@ export default class SongView extends React.Component {
   }
 
   _onLongPressTitle = () => {
-    ToastAndroid.show('Copied Title', ToastAndroid.SHORT);
+    ToastAndroid.show('Copied title to clipboard', ToastAndroid.SHORT);
     Clipboard.setString(this.props.song.title);
   };
 
   _onLongPressReference = () => {
-    ToastAndroid.show('Copied Reference', ToastAndroid.SHORT);
+    ToastAndroid.show('Copied reference to clipboard', ToastAndroid.SHORT);
     Clipboard.setString(this.props.song.reference_title);
   };
   
   _onLongPressLyrics = () => {
-    ToastAndroid.show('Copied Lyrics', ToastAndroid.SHORT);
+    ToastAndroid.show('Copied lyrics to clipboard', ToastAndroid.SHORT);
     Clipboard.setString(this.props.song.lyrics);
   };
 }
