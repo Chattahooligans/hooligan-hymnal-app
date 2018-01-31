@@ -4,6 +4,9 @@ import { RegularText } from './StyledText';
 import Tags from './Tags';
 import { Colors, FontSizes, Layout } from '../constants';
 
+// TODO: platform select
+// on android, longpress event with clipboard setting
+// on iOS, selectable=true and make them copy it manually
 export default class SongView extends React.Component {
   render() {
     let song = this.props.song;
