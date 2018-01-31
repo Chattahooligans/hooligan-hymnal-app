@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, NativeModules, ToastAndroid, Clipboard } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, NativeModules, ToastAndroid, Clipboard } from 'react-native';
 import { RegularText } from './StyledText';
 import Tags from './Tags';
 import { Colors, FontSizes, Layout } from '../constants';
@@ -16,11 +16,13 @@ export default class SongView extends React.Component {
           <Text style={styles.title} onLongPress={this._onLongPressTitle}>{song.title}</Text>
           <Text style={styles.reference} onLongPress={this._onLongPressReference}>{song.reference_title}</Text>
         </View>
-        <View style={{flex: 1}}>
-          <Tags style={styles.icons} tags={song.tags} />
-          <Text style={styles.instructions}>{song.instructions}</Text>
-          <Text style={styles.lyrics} onLongPress={this._onLongPressLyrics}>{song.lyrics}</Text>
-        </View>
+        <ScrollView contentContainerStyle={{flexGrow: 1}}>
+          <View style={{flex: 1}}>
+            <Tags style={styles.icons} tags={song.tags} />
+            <Text style={styles.instructions}>{song.instructions}</Text>
+            <Text style={styles.lyrics} onLongPress={this._onLongPressLyrics}>{song.lyrics}</Text>
+          </View>
+        </ScrollView>
       </View>
     );
   }
