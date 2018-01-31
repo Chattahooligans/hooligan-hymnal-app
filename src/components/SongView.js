@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, NativeModules, ToastAndroid, Clipboard } from 'react-native';
 import { RegularText } from './StyledText';
 import Tags from './Tags';
 import { Colors, FontSizes, Layout } from '../constants';
@@ -10,17 +10,32 @@ export default class SongView extends React.Component {
     return (
       <View style={styles.container}>
         <View style={{paddingBottom: 8}}>
-          <Text style={styles.title}>{song.title}</Text>
-          <Text style={styles.reference}>{song.reference_title}</Text>
+          <Text style={styles.title} onLongPress={this._onLongPressTitle}>{song.title}</Text>
+          <Text style={styles.reference} onLongPress={this._onLongPressReference}>{song.reference_title}</Text>
         </View>
         <View style={{flex: 1}}>
           <Tags style={styles.icons} tags={song.tags} />
           <Text style={styles.instructions}>{song.instructions}</Text>
-          <Text style={styles.lyrics}>{song.lyrics}</Text>
+          <Text style={styles.lyrics} onLongPress={this._onLongPressLyrics}>{song.lyrics}</Text>
         </View>
       </View>
     );
   }
+
+  _onLongPressTitle = () => {
+    ToastAndroid.show('Copied Title', ToastAndroid.SHORT);
+    Clipboard.setString(this.props.song.title);
+  };
+
+  _onLongPressReference = () => {
+    ToastAndroid.show('Copied Reference', ToastAndroid.SHORT);
+    Clipboard.setString(this.props.song.reference_title);
+  };
+  
+  _onLongPressLyrics = () => {
+    ToastAndroid.show('Copied Lyrics', ToastAndroid.SHORT);
+    Clipboard.setString(this.props.song.lyrics);
+  };
 }
 
 const styles = StyleSheet.create({
