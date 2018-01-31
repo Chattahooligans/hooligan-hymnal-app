@@ -5,6 +5,7 @@
     "sender_latitude": "",
     "sender_longitude": "",
     "message": "",
+    "push": false,
     "song": {
         "_id": -1,
         "category": "",

@@ -141,6 +141,8 @@ export default class CapoConfirmSend extends React.Component {
         "send_time": CapoMessageSchema.send_time,
         "sender_latitude": CapoMessageSchema.sender_latitude,
         "sender_longitude": CapoMessageSchema.sender_longitude,
+        "message": "",
+        "push": false,
         "song": 
         {
           "category": CapoMessageSchema.song.category,
