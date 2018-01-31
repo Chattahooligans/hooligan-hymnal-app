@@ -5,7 +5,8 @@ import {
   StyleSheet,
   View,
   Text,
-  TextInput
+  TextInput,
+  KeyboardAvoidingView
 } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
@@ -41,7 +42,7 @@ export default class CapoComposeSong extends React.Component {
   render() {
     return (
       <LoadingPlaceholder>
-        <View style={styles.container}>
+        <KeyboardAvoidingView behavior='height' style={styles.container}>
           <TextInput
             style={styles.titleField}
             placeholder="Title"
@@ -108,7 +109,7 @@ export default class CapoComposeSong extends React.Component {
               </Text>
             )}
           />
-        </View>
+        </KeyboardAvoidingView>
       </LoadingPlaceholder>
     );
   }
