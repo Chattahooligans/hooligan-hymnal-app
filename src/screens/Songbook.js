@@ -21,6 +21,7 @@ import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import TableOfContents from './TableOfContents';
+import TableOfContentsInline from './TableOfContentsInline';
 
 import Songs from '../data/songs.json';
 import SongbookManifest from '../data/songbook.json';
@@ -76,7 +77,7 @@ export default class Songbook extends React.Component {
     chapter_title: "Hooligan Hymnal"
   };
 
-  render() {
+  render() {  
     return (
       <LoadingPlaceholder>
         <View style={styles.sectionHeader}>
@@ -84,6 +85,7 @@ export default class Songbook extends React.Component {
         </View>
         <View style={styles.container}>
         <ScrollView
+          ref={view => this._scrollView = view}
           contentContainerStyle={{flexGrow: 1,  alignItems: 'center', justifyContent: 'center'}}
           horizontal={true}
           pagingEnabled={true}
@@ -101,7 +103,9 @@ export default class Songbook extends React.Component {
             </Text>
             <View style={{ flex: 1 }} />
           </View>
-
+          <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: screenWidth}}>
+            <TableOfContentsInline style={{width: screenWidth}} />
+          </View>
           {songViews}
         </ScrollView>          
         </View>
@@ -164,11 +168,15 @@ export default class Songbook extends React.Component {
   };
 
   _onSongbookMomentumScrollEnd = ({nativeEvent}) => {
-    const firstValidPageIndex = 1;
+    const firstValidPageIndex = 2;
     const pageIndex = Math.round(nativeEvent.contentOffset.x/screenWidth);
     if (firstValidPageIndex <= pageIndex) {
       this.setState(previousState => {
         return { chapter_title: songs[pageIndex-1].song.chapter_title };
+      });
+    } else if (1 === pageIndex) {
+      this.setState(previousState => {
+        return { chapter_title: "Table of Contents (clicks broken)" };
       });
     } else {
       this.setState(previousState => {

@@ -9,6 +9,7 @@ import SingleSong from './SingleSong';
 import Songbook from './Songbook';
 import Songs from './Songs';
 import TableOfContents from './TableOfContents';
+import TableOfContentsInline from './TableOfContentsInline';
 
 export default {
   About,
@@ -21,5 +22,6 @@ export default {
   SingleSong,
   Songbook,
   Songs,
-  TableOfContents
+  TableOfContents,
+  TableOfContentsInline
 };
