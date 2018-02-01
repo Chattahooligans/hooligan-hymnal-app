@@ -172,7 +172,7 @@ export default class Songbook extends React.Component {
     const pageIndex = Math.round(nativeEvent.contentOffset.x/screenWidth);
     if (firstValidPageIndex <= pageIndex) {
       this.setState(previousState => {
-        return { chapter_title: songs[pageIndex-1].song.chapter_title };
+        return { chapter_title: songs[pageIndex-firstValidPageIndex].song.chapter_title };
       });
     } else if (1 === pageIndex) {
       this.setState(previousState => {
