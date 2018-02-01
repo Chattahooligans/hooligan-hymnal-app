@@ -29,20 +29,24 @@ import { HeaderBackButton } from 'react-navigation';
 
 import { find, propEq } from 'ramda';
 
-//console.log("Songbook ToC json: " + Songbook.songbook_title);
+console.log("Songbook ToC json: " + Songbook.songbook_title);
 let ToCData = [];
+let tocPageLabel = 1;
 Songbook.chapters.forEach(chapterChild => {
   let songList = [];
 
-  //console.log(chapterChild.chapter_title);
+  console.log(chapterChild.chapter_title);
   chapterChild.songs.forEach(songChild => {
     try {
       let song = {
         _id: songChild._id,
         song_title: Songs.filter(song => song._id === songChild._id)[0].title
       };
-      //console.log(songChild._id + " " + song.song_title);
+      console.log(songChild._id + " " + song.song_title);
+      // set page label
+      song.toc_page_label = tocPageLabel;
       songList.push(song);
+      tocPageLabel++;
     } catch (err) {
       console.log(songChild._id + ' not found in songs database');
     }
@@ -70,6 +74,7 @@ class SongRow extends React.Component {
         <View style={styles.row}>
           <View style={styles.rowData}>
             <RegularText>{song.song_title}</RegularText>
+            <RegularText style={styles.pageLabel}>{song.toc_page_label}</RegularText>
           </View>
         </View>
       </RectButton>
@@ -160,7 +165,12 @@ const styles = StyleSheet.create({
     paddingLeft: 0
   },
   rowData: {
-    flex: 1
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  pageLabel: {
+    color: '#999999'
   },
   sectionHeader: {
     paddingHorizontal: 10,
