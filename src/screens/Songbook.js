@@ -6,10 +6,11 @@ import {
   Text,
   StyleSheet,
   Platform,
-  FlatList
+  FlatList,
+  ScrollView, Dimensions
 } from 'react-native';
 import SongView from '../components/SongView';
-import { ScrollView } from 'react-native-gesture-handler';
+//import { ScrollView } from 'react-native-gesture-handler';
 
 import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
@@ -26,6 +27,8 @@ import SongbookManifest from '../data/songbook.json';
 
 import state from '../state';
 
+const screenWidth = Dimensions.get('window').width;
+
 let songViews = [];
 let songs = [];
 let pageCount = 0;
@@ -38,7 +41,7 @@ SongbookManifest.chapters.forEach(chapterChild => {
       pageCount++;
       songs.push({ index: pageCount, song: item });
       songViews.push(
-        <View key={item._id} chapter_title={chapterChild.chapter_title}>
+        <View key={item._id} chapter_title={chapterChild.chapter_title} style={{flex: 1, width: screenWidth}}>
           <SongView song={item} />
           <Text
             style={{
@@ -69,73 +72,38 @@ export default class Songbook extends React.Component {
     ...NavigationOptions
   };
 
+  state = {
+    chapter_title: "Hooligan Hymnal"
+  };
+
   render() {
-    const forcePagingEnabled = true;
-    let initialPage = this._currentPage() || 0;
-    console.log('currentSong', this._currentSong());
-    let chapter = this._currentSong()
-      ? this._currentSong().song.chapter_title
-      : 'Hooligan Hymnal';
-    // let chapter = this._currentSong().chapter;
     return (
       <LoadingPlaceholder>
         <View style={styles.sectionHeader}>
-          <Text style={styles.chapterText}>{chapter}</Text>
+          <Text style={styles.chapterText}>{this.state.chapter_title}</Text>
         </View>
         <View style={styles.container}>
-          {Platform.OS === 'ios' ? (
-            <LoadingPlaceholder>
-              <FlatList
-                renderScrollComponent={props => <ScrollView {...props} />}
-                renderItem={this._renderSong}
-                data={SongbookManifest.chapters}
-                keyExtractor={(item, index) => index}
-              />
-            </LoadingPlaceholder>
-          ) : (
-            <ViewPagerAndroid
-              initialPage={initialPage}
-              style={styles.container}
-              horizontal={true}
-              pagingEnabled={forcePagingEnabled}
-              onPageSelected={this._handleAndroidPageSelected}
-            >
-              <View style={styles.container}>
-                <View style={{ flex: 1 }} />
-                <Image
-                  style={{ width: 400, height: 400 }}
-                  source={require('../assets/songbook-front-cover.png')}
-                />
-                <View style={{ flex: 1 }} />
-                <Text style={styles.welcome}>
-                  Swipe Left/Right to View Songs
-                </Text>
-                <View style={{ flex: 1 }} />
-              </View>
-              {songViews}
-            </ViewPagerAndroid>
-          )}
-          <RectButton
-            style={styles.tocButton}
-            onPress={this._handlePressTOCButton}
-            underlayColor="#fff"
-          >
-            <Ionicons
-                name="md-list"
-                size={23}
-                style={{
-                  color: '#fff',
-                  marginTop: 3,
-                  marginBottom: 3,
-                  marginLeft: 5,
-                  marginRight: 5,
-                  backgroundColor: 'transparent'
-                }}
-              />
-            <RegularText style={styles.tocButtonText}>
-              Table of Contents
-            </RegularText>
-          </RectButton>
+        <ScrollView
+          contentContainerStyle={{flexGrow: 1,  alignItems: 'center', justifyContent: 'center'}}
+          horizontal={true}
+          pagingEnabled={true}
+          onMomentumScrollEnd={this._onSongbookMomentumScrollEnd}
+        >
+          <View style={{alignItems: 'center', justifyContent: 'center'}}>
+            <View style={{ flex: 1 }} />
+            <Image
+              style={{ width: screenWidth, height: screenWidth }}
+              source={require('../assets/songbook-front-cover.png')}
+            />
+            <View style={{ flex: 1 }} />
+            <Text style={styles.welcome}>
+              Swipe Left/Right to View Songs
+            </Text>
+            <View style={{ flex: 1 }} />
+          </View>
+
+          {songViews}
+        </ScrollView>          
         </View>
       </LoadingPlaceholder>
     );
@@ -158,21 +126,56 @@ export default class Songbook extends React.Component {
   };
 
   _handlePressTOCButton = () => {
-    this.props.navigation.navigate('TableOfContents');
+    //this.props.navigation.navigate('TableOfContents');
+    /*
+    // old ToC button code here-
+
+          <RectButton
+            style={styles.tocButton}
+            onPress={this._handlePressTOCButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+                name="md-list"
+                size={23}
+                style={{
+                  color: '#fff',
+                  marginTop: 3,
+                  marginBottom: 3,
+                  marginLeft: 5,
+                  marginRight: 5,
+                  backgroundColor: 'transparent'
+                }}
+              />
+            <RegularText style={styles.tocButtonText}>
+              Table of Contents
+            </RegularText>
+          </RectButton>
+    */
+
+    /*
+    // attempt at in-page ToC
+
+              <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: screenWidth}}>
+            <TableOfContents style={{width: screenWidth}} />
+          </View>
+
+    */
   };
 
-  _handleAndroidPageSelected = ({ nativeEvent }) => {
-    console.log('page selected', nativeEvent.position);
-    if (0 < nativeEvent.position)
-    {
-      console.log("current chapter: " + songs[nativeEvent.position-1].song.chapter_title);
-      // TODO: Set something?
+  _onSongbookMomentumScrollEnd = ({nativeEvent}) => {
+    const firstValidPageIndex = 1;
+    const pageIndex = Math.round(nativeEvent.contentOffset.x/screenWidth);
+    if (firstValidPageIndex <= pageIndex) {
+      this.setState(previousState => {
+        return { chapter_title: songs[pageIndex-1].song.chapter_title };
+      });
+    } else {
+      this.setState(previousState => {
+        return { chapter_title: "Hooligan Hymnal" };
+      });
     }
-    else
-    {
-      // TODO: Set default "Hooligan Hymnal"
-    }
-  };
+  }
 }
 
 const styles = StyleSheet.create({
