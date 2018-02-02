@@ -92,8 +92,8 @@ class Home extends React.Component {
               tintColor="#fff"
             />
             <View style={styles.headerContent}>
- -              <SemiBoldText style={styles.headerText}>{appParams.expo.version}</SemiBoldText>
- -            </View>
+              <SemiBoldText style={styles.headerText}>{appParams.expo.version}</SemiBoldText>
+            </View>
           </View>
 
           <DeferredHomeContent />
