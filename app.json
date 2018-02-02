@@ -1,8 +1,7 @@
 {
   "expo": {
     "name": "Chattahooligan Hymnal",
-    "description":
-      "The Chattahooligans' stadium chants and songs",
+    "description": "The Chattahooligans' stadium chants and songs",
     "slug": "app",
     "privacy": "public",
     "version": "0.0.11",
@@ -29,6 +28,10 @@
         "image": "./src/assets/splash.png",
         "resizeMode": "contain",
         "backgroundColor": "#A5D8F6"
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription":
+          "Chattahooligan Hymnal uses location to ignore notifications when you are not at the stadium."
       }
     }
   }

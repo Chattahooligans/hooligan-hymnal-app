@@ -13,7 +13,7 @@ export default class About extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Text>Chattahooligan Hymnal BETA</Text>
+        <Text>Chattahooligan Hymnal</Text>
         <View style={{ height: 10 }} />
         <Text>
           Thanks for testing! Stay tuned for updates before the season begins
