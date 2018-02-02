@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image, Platform, StyleSheet, View } from 'react-native';
+import { Text, Image, Platform, StyleSheet, View, Keyboard } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
@@ -32,6 +32,8 @@ export default class CapoConfirmSend extends React.Component {
   };
 
   componentWillMount() {
+    Keyboard.dismiss();
+
     if (Platform.OS === 'android' && !Constants.isDevice) {
       console.log("Oops, this will not work on Sketch in an Android emulator. Try it on your device!");
     } else {
