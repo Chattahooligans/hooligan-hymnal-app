@@ -32,24 +32,31 @@
             "chapter_title": "Daily Diss Tracks",
             "songs": 
             [
-                { "_id": 17, "featured":  true }
+                { "_id": 17, "featured":  true },
+                { "_id": 30, "featured":  true },
+                { "_id": 31, "featured":  true },
             ]
         },
         {
             "chapter_title": "The Songs of My People",
             "songs": 
             [
+                { "_id": 34 },
+                { "_id": 33 },
                 { "_id": 21 },
                 { "_id": 23 },
                 { "_id": 26 },
                 { "_id": 28 },
                 { "_id": 24 },
+                { "_id": 32 },
                 { "_id": 15 },
                 { "_id": 18 },
                 { "_id": 22 },
                 { "_id": 25 },
                 { "_id": 29 },
                 { "_id": 20 },
+                { "_id": 36 },
+                { "_id": 35 },
                 { "_id": 19 },
                 { "_id": 16 }
             ]
