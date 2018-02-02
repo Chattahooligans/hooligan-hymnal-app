@@ -91,6 +91,9 @@ class Home extends React.Component {
               style={{ height: 60, resizeMode: 'contain' }}
               tintColor="#fff"
             />
+            <View style={styles.headerContent}>
+ -              <SemiBoldText style={styles.headerText}>{appParams.expo.version}</SemiBoldText>
+ -            </View>
           </View>
 
           <DeferredHomeContent />
