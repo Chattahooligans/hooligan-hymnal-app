@@ -369,7 +369,7 @@
     "is_wpsl_player": false,
     "is_nisa_player": false,
     "player_name": "Juan Hernandez",
-    "player_number": 19,
+    "player_number": 10,
     "override_html": "",
     "delete_local": ""
   },
@@ -432,7 +432,7 @@
     "is_wpsl_player": false,
     "is_nisa_player": false,
     "player_name": "Damián Gaona",
-    "player_number": 24,
+    "player_number": 21,
     "override_html": "",
     "delete_local": ""
   },
@@ -453,7 +453,7 @@
     "is_wpsl_player": false,
     "is_nisa_player": false,
     "player_name": "Kieran Bywater",
-    "player_number": 18,
+    "player_number": 14,
     "override_html": "",
     "delete_local": ""
   },
@@ -570,9 +570,9 @@
     "title": "Humberto Pelaez",
     "tags": "voice,drums",
     "lyrics": 
-      "Humberto\nIs our hero\nYou'll get no goals\nPast him tonight",
+      "TBD",
     "tbd_various_boolean_flags": "",
-    "reference_title": "from Vamos",
+    "reference_title": "from ",
     "reference_link": "",
     "instructions": "",
     "is_npsl_player": true,
