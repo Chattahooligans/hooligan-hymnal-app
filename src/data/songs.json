@@ -423,7 +423,7 @@
     "title": "Damián Gaona",
     "tags": "voice,drums",
     "lyrics": 
-      "Gaona, Ooh nah nah\nHe’s stealing balls from you\nGaona, Ooh nah nah\nYou'll never make it through, nah nah",
+      "Gaona, Ooh nah nah\nHe’s stealing balls from you\nGaona, Ooh nah nah\nConnecting passes too\nGaona, Ooh nah nah",
     "tbd_various_boolean_flags": "",
     "reference_title": "from Havana, by Camila Cabello",
     "reference_link": "",
@@ -570,7 +570,7 @@
     "title": "Humberto Pelaez",
     "tags": "voice,drums",
     "lyrics": 
-      "Humberto Pelaez\nWhat a wonderful save\nHumberto PelaezAin't no losing games\n\nHis sheets are clean\nFor the rest of his days\n\nHe will save that ball\nHe'll save them all\n\nHumberto Pelaez",
+      "Humberto Pelaez\nWhat a wonderful save\nHumberto Pelaez\nAin't no losing games\n\nHis sheets are clean\nFor the rest of his days\n\nHe will save that ball\nHe'll save them all\n\nHumberto Pelaez",
     "tbd_various_boolean_flags": "",
     "reference_title": "from Hakuna Matata, Disney's Lion King",
     "reference_link": "",
@@ -612,7 +612,7 @@
     "title": "Do You Want to Build a Roster?",
     "tags": "",
     "lyrics":
-      "Do you want to build a roster?\nCome on, we’re going gray.\nBeen waiting here for far too long. So come along,\nIt’s like you’ve gone away.\nWe just miss our best buddies. So where are they?\nI wish you would tell me why!\nDo you want to build a roster?\n(It doesn’t have to be a roster.)",
+      "Do you want to build a roster?\nCome on, we’re going gray.\nBeen waiting here for far too long.\nSo come along,\nIt’s like you’ve gone away.\nWe just miss our best buddies.\nSo where are they?\nI wish you would tell me why!\nDo you want to build a roster?\n(It doesn’t have to be a roster.)",
     "tbd_various_boolean_flags": "",
     "reference_title": "from Disney's Frozen, Do You Want to Build a Snowman?",
     "reference_link": "",
@@ -696,7 +696,7 @@
     "title": "Caleb Cole",
     "tags": "voice",
     "lyrics": 
-      "Caleb Cole is a jolly old soul\nAnd he plays for CFC\nHe steals lots of balls then he scores lots of goals\nHe's really something to see\nCheer! Cheer! Cheer! for ole Caleb\nWhat a mighty man is he!\nThere's none so fair as can compare to the man from CFC",
+      "Caleb Cole is a jolly old soul\nAnd he plays for CFC\nHe steals lots of balls then he scores lots of goals\nHe's really something to see\nCheer! Cheer! Cheer! for ole Caleb\nWhat a mighty man is he!\nThere's none so fair as can compare\nto the man from CFC",
     "tbd_various_boolean_flags": "",
     "reference_title": "from military song",
     "reference_link": "",
@@ -738,7 +738,7 @@
     "title": "Shawn Sanon",
     "tags": "voice",
     "lyrics": 
-      "Mr. Sanon\nBring us a ring\nWe know you are\nThe midefielder king\nPlease turn on your magic speed\nMr. Sanon bring us a ring",
+      "Mr. Sanon\nBring us a ring\nWe know you are\nThe midfielder king\nPlease turn on your magic feet\nMr. Sanon bring us a ring",
     "tbd_various_boolean_flags": "",
     "reference_title": "from Mr Sandman, by the Chordettes",
     "reference_link": "",
@@ -748,6 +748,27 @@
     "is_nisa_player": false,
     "player_name": "Shawn Sanon",
     "player_number": 22,
+    "override_html": "",
+    "delete_local": ""
+  },
+  {
+    "_id": 37,
+    "category": "game",
+    "create_time": "",
+    "update_time": "",
+    "title": "Dallas",
+    "tags": "voice",
+    "lyrics": 
+      "Oh how I wish Dallas\nWould leave Tennessee\nAnd you can take Nashville please\nLeave Kellyn with CFC\nThen nothing else would come between\nThe two of us\nIf Dallas would\nLeave Tennessee",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from Dallas, by the Alan Jackson",
+    "reference_link": "",
+    "instructions": "",
+    "is_npsl_player": false,
+    "is_wpsl_player": false,
+    "is_nisa_player": false,
+    "player_name": "",
+    "player_number": "",
     "override_html": "",
     "delete_local": ""
   }

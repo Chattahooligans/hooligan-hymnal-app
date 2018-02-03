@@ -33,8 +33,9 @@
             "songs": 
             [
                 { "_id": 17, "featured":  true },
+                { "_id": 37, "featured":  true },
                 { "_id": 30, "featured":  true },
-                { "_id": 31, "featured":  true },
+                { "_id": 31, "featured":  true }
             ]
         },
         {
