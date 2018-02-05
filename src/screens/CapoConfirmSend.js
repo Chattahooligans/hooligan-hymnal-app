@@ -1,5 +1,12 @@
 import React from 'react';
-import { Text, Image, Platform, StyleSheet, View, Keyboard } from 'react-native';
+import {
+  Text,
+  Image,
+  Platform,
+  StyleSheet,
+  View,
+  Keyboard
+} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
@@ -21,8 +28,9 @@ import { HeaderBackButton } from 'react-navigation';
 import { Location, Permissions } from 'expo';
 
 import CapoMessageSchema from '../data/capo_message_schema';
+import { HYMNAL_ADDRESS } from '../config/server';
 
-const CAPO_MESSAGE_ENDPOINT = 'https://chattahooligan-hymnal.herokuapp.com/api/notification';
+const CAPO_MESSAGE_ENDPOINT = HYMNAL_ADDRESS + '/api/notification';
 
 @withNavigation
 export default class CapoConfirmSend extends React.Component {
@@ -35,11 +43,13 @@ export default class CapoConfirmSend extends React.Component {
     Keyboard.dismiss();
 
     if (Platform.OS === 'android' && !Constants.isDevice) {
-      console.log("Oops, this will not work on Sketch in an Android emulator. Try it on your device!");
+      console.log(
+        'Oops, this will not work on Sketch in an Android emulator. Try it on your device!'
+      );
     } else {
       this._getLocationAsync();
     }
-  };
+  }
 
   _getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
@@ -81,8 +91,11 @@ export default class CapoConfirmSend extends React.Component {
             animatedBackgroundOpacity={1}
             style={[
               Platform.OS === 'android'
-                ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
-                : null,
+                ? {
+                    height: Layout.headerHeight + Constants.statusBarHeight,
+                    flexDirection: 'row'
+                  }
+                : null
             ]}
             renderLeftButton={() => (
               <View
@@ -105,7 +118,7 @@ export default class CapoConfirmSend extends React.Component {
                   paddingTop: Platform.OS === 'android' ? 17 : 0,
                   marginTop: Layout.notchHeight > 0 ? -5 : 0,
                   fontFamily: 'open-sans-bold',
-                  color: "#FFFFFF",
+                  color: '#FFFFFF',
                   fontSize: 20,
                   paddingHorizontal: 0
                 }}
@@ -136,48 +149,48 @@ export default class CapoConfirmSend extends React.Component {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "sender": CapoMessageSchema.sender,
-        "send_time": CapoMessageSchema.send_time,
-        "sender_latitude": CapoMessageSchema.sender_latitude,
-        "sender_longitude": CapoMessageSchema.sender_longitude,
-        "message": "",
-        "push": false,
-        "song": 
-        {
-          "category": CapoMessageSchema.song.category,
-          "create_time": CapoMessageSchema.song.create_time,
-          "update_time": CapoMessageSchema.song.update_time,
-          "title": CapoMessageSchema.song.title,
-          "tags": CapoMessageSchema.song.tags,
-          "lyrics": CapoMessageSchema.song.lyrics,
-          "tbd_various_boolean_flags": CapoMessageSchema.song.tbd_various_boolean_flags,
-          "reference_title": CapoMessageSchema.song.reference_title,
-          "reference_link": CapoMessageSchema.song.reference_link,
-          "instructions": CapoMessageSchema.song.instructions,
-          "is_npsl_player": CapoMessageSchema.song.is_npsl_player,
-          "is_wpsl_player": CapoMessageSchema.song.is_wpsl_player,
-          "is_nisa_player": CapoMessageSchema.song.is_nisa_player,
-          "player_name": CapoMessageSchema.song.player_name,
-          "player_number": CapoMessageSchema.song.player_number,
-          "override_html": CapoMessageSchema.song.override_html,
-          "delete_local": CapoMessageSchema.song.delete_local
+        sender: CapoMessageSchema.sender,
+        send_time: CapoMessageSchema.send_time,
+        sender_latitude: CapoMessageSchema.sender_latitude,
+        sender_longitude: CapoMessageSchema.sender_longitude,
+        message: '',
+        push: false,
+        song: {
+          category: CapoMessageSchema.song.category,
+          create_time: CapoMessageSchema.song.create_time,
+          update_time: CapoMessageSchema.song.update_time,
+          title: CapoMessageSchema.song.title,
+          tags: CapoMessageSchema.song.tags,
+          lyrics: CapoMessageSchema.song.lyrics,
+          tbd_various_boolean_flags:
+            CapoMessageSchema.song.tbd_various_boolean_flags,
+          reference_title: CapoMessageSchema.song.reference_title,
+          reference_link: CapoMessageSchema.song.reference_link,
+          instructions: CapoMessageSchema.song.instructions,
+          is_npsl_player: CapoMessageSchema.song.is_npsl_player,
+          is_wpsl_player: CapoMessageSchema.song.is_wpsl_player,
+          is_nisa_player: CapoMessageSchema.song.is_nisa_player,
+          player_name: CapoMessageSchema.song.player_name,
+          player_number: CapoMessageSchema.song.player_number,
+          override_html: CapoMessageSchema.song.override_html,
+          delete_local: CapoMessageSchema.song.delete_local
         },
-        "message": "this better work"
-      }),
-    }).then((response) => response.json())
-    .then((responseJson) => {
-      // this is the output from the server for sending our capo_message
-      console.log(JSON.stringify(responseJson));
-      // we REALLY need to confirm this got sent
-      //alert("success or fail message? do we even know?");
-      // if fail, stay here
-      // if success
-      this.props.navigation.navigate('Home');
+        message: 'this better work'
+      })
     })
-
+      .then(response => response.json())
+      .then(responseJson => {
+        // this is the output from the server for sending our capo_message
+        console.log(JSON.stringify(responseJson));
+        // we REALLY need to confirm this got sent
+        //alert("success or fail message? do we even know?");
+        // if fail, stay here
+        // if success
+        this.props.navigation.navigate('Home');
+      });
   };
 }
 
@@ -200,7 +213,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: 100 + '%',
-    paddingBottom: 8, paddingTop: Layout.headerHeight + Constants.statusBarHeight
+    paddingBottom: 8,
+    paddingTop: Layout.headerHeight + Constants.statusBarHeight
   },
   bigButton: {
     backgroundColor: Colors.green,

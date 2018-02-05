@@ -7,12 +7,13 @@ import { loadSavedTalksAsync } from './src/utils/storage';
 import Navigation from './src/Navigation';
 import Home from './src/screens/Home';
 
-import state from './src/state'
+import state from './src/state';
 
 import { Location, Notifications, Permissions } from 'expo';
+import { HYMNAL_ADDRESS } from './src/config/server';
 
-const PUSH_ENDPOINT = 'https://chattahooligan-hymnal.herokuapp.com/api/pushToken';
-
+const PUSH_ENDPOINT = HYMNAL_ADDRESS + '/api/pushToken';
+console.log('PUSH_ENDPOINT', PUSH_ENDPOINT);
 const theme = {
   font: {
     primary: 'open-sans-bold'
@@ -57,19 +58,23 @@ export default class App extends React.Component {
 
   componentWillMount() {
     if (Platform.OS === 'android' && !Constants.isDevice) {
-      console.log("Oops, this will not work on Sketch in an Android emulator. Try it on your device!");
+      console.log(
+        'Oops, this will not work on Sketch in an Android emulator. Try it on your device!'
+      );
     } else {
       this._getLocationAsync();
     }
-      this._registerForPushNotificationsAsync();
-      this._notificationSubscription = Notifications.addListener(this._handleNotification);
-  };
+    this._registerForPushNotificationsAsync();
+    this._notificationSubscription = Notifications.addListener(
+      this._handleNotification
+    );
+  }
 
   _getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
       this.setState({
-        errorMessage: 'Permission to access location was denied',
+        errorMessage: 'Permission to access location was denied'
       });
     }
 
@@ -83,7 +88,7 @@ export default class App extends React.Component {
       Permissions.NOTIFICATIONS
     );
     let finalStatus = existingStatus;
-  
+
     // only ask if permissions have not already been determined, because
     // iOS won't necessarily prompt the user a second time.
     if (existingStatus !== 'granted') {
@@ -97,27 +102,27 @@ export default class App extends React.Component {
     if (finalStatus !== 'granted') {
       return;
     }
-  
+
     // Get the token that uniquely identifies this device
     let token = await Notifications.getExpoPushTokenAsync();
-    state.token = token
-    console.log("token", token);
+    state.token = token;
+    console.log('token', token);
 
     // POST the token to your backend server from where you can retrieve it to send push notifications.
     return fetch(PUSH_ENDPOINT, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "pushToken": token
-      }),
+        pushToken: token
+      })
     });
   };
 
-  _handleNotification = (notification) => {
-    this.setState({notification: notification});
+  _handleNotification = notification => {
+    this.setState({ notification: notification });
     // TODO: navigate to Home, then open SingleSong screen and send it with the Song object buried inside the notification
   };
 

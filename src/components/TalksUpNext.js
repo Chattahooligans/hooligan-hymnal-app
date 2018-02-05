@@ -16,7 +16,9 @@ import state from '../state';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 
-const CAPO_MESSAGE_ENDPOINT = 'https://chattahooligan-hymnal.herokuapp.com/api/notifications/last';
+import { HYMNAL_ADDRESS } from '../config/server';
+
+const CAPO_MESSAGE_ENDPOINT = HYMNAL_ADDRESS + '/api/notifications/last';
 
 export default class TalksUpNext extends React.Component {
   constructor(props) {
@@ -28,7 +30,7 @@ export default class TalksUpNext extends React.Component {
     // set label to "Up Next"
 
     this.state = {
-      label: "Featured Song",
+      label: 'Featured Song',
       song: getFeaturedSongs()[0]
     };
   }
@@ -36,24 +38,30 @@ export default class TalksUpNext extends React.Component {
   render() {
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
-        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'row',
+            justifyContent: 'space-between'
+          }}
+        >
           <SemiBoldText style={{ fontSize: FontSizes.title }}>
             {this.state.label}
           </SemiBoldText>
           <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressRefreshButton}
-              underlayColor="#fff"
-            >
-              <Ionicons
-                name="md-refresh"
-                size={23}
-                style={{
-                  color: Colors.green,
-                  backgroundColor: 'transparent'
-                }}
-              />
-            </RectButton>
+            style={styles.bigButton}
+            onPress={this._handlePressRefreshButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-refresh"
+              size={23}
+              style={{
+                color: Colors.green,
+                backgroundColor: 'transparent'
+              }}
+            />
+          </RectButton>
         </View>
         <SongCard
           key={this.state.song._id}
@@ -76,32 +84,31 @@ export default class TalksUpNext extends React.Component {
     // run this on load
     // on a schedule or maybe not
     // and trigger it when we receive a notification to refresh this screen
-    fetch(CAPO_MESSAGE_ENDPOINT).then((response) => response.json())
-    .then((responseJson) => {
-      try{
-        // if this is valid
-        if (true) {
-          state.label = "Up Next";
-          state.song = responseJson.song;
+    fetch(CAPO_MESSAGE_ENDPOINT)
+      .then(response => response.json())
+      .then(responseJson => {
+        try {
+          // if this is valid
+          if (true) {
+            state.label = 'Up Next';
+            state.song = responseJson.song;
 
-          this.setState(previousState => {
-            return { label: "Up Next", song: responseJson.song };
-          });
-
-        } else {
-          state.label = "Featured Song";
+            this.setState(previousState => {
+              return { label: 'Up Next', song: responseJson.song };
+            });
+          } else {
+            state.label = 'Featured Song';
+            state.song = getFeaturedSongs()[0];
+          }
+        } catch (err) {
+          // no data returns a json parsing error
+          state.label = 'Featured Song';
           state.song = getFeaturedSongs()[0];
         }
-      }
-      catch (err) {
-        // no data returns a json parsing error
-        state.label = "Featured Song";
-        state.song = getFeaturedSongs()[0];
-      }
 
-      console.log(JSON.stringify(responseJson.song.title));
-    })
-    
+        console.log(JSON.stringify(responseJson.song.title));
+      });
+
     /*
     fetch(CAPO_MESSAGE_ENDPOINT).then((response) => {
       console.log("response", response);
