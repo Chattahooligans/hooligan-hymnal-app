@@ -5,7 +5,8 @@ import {
   SectionList,
   StyleSheet,
   View,
-  Text
+  Text,
+  Dimensions
 } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
@@ -29,7 +30,10 @@ import { HeaderBackButton } from 'react-navigation';
 
 import { find, propEq } from 'ramda';
 
+const screenWidth = Dimensions.get('window').width;
+
 console.log("Songbook ToC json: " + Songbook.songbook_title);
+
 let ToCData = [];
 let tocPageLabel = 1;
 Songbook.chapters.forEach(chapterChild => {
@@ -122,8 +126,12 @@ export default class TableOfContentsInline extends React.Component {
 
   _handlePressRow = item => {
     const song = find(propEq('_id', item._id), Songs);
-    console.log('ToC inline song.title', song.title);
+    console.log('ToC inline song.title', song.title, item._id);
     state.currentSong = song;
+
+    // scroll to song
+    this.props.scrollToSong();
+
     this.setState(previousState => {
       return { currentSong: song };
     });

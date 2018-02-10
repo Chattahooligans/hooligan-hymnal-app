@@ -10,6 +10,8 @@ import { Colors, FontSizes, Layout } from '../constants';
 export default class SongView extends React.Component {
   render() {
     let song = this.props.song;
+    let pageCount = this.props.pageCount;
+
     return (
       <View style={styles.container}>
         <View style={{paddingBottom: 8}}>
@@ -18,11 +20,33 @@ export default class SongView extends React.Component {
         </View>
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
           <View style={{flex: 1}}>
-            <Tags style={styles.icons} tags={song.tags} />
             <Text style={styles.instructions}>{song.instructions}</Text>
             <Text style={styles.lyrics} onLongPress={this._onLongPressLyrics}>{song.lyrics}</Text>
           </View>
         </ScrollView>
+        <View
+          style={{
+            backgroundColor: '#FFFFFF',
+            marginTop: 6,
+            marginLeft: 0,
+            marginRight: 0,
+            marginBottom: 6,
+            padding: 8,
+            flex: 0,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <View style={{flex:1}}>
+            <Tags style={styles.icons} tags={song.tags} />
+          </View>
+          <View style={{flex:1}}>
+            <RegularText style={{textAlign:'right'}}>
+              {pageCount}
+            </RegularText>
+          </View>
+        </View>
       </View>
     );
   }
@@ -59,7 +83,6 @@ const styles = StyleSheet.create({
   },
   icons: {
     backgroundColor: '#FFFFFF',
-    paddingLeft: 6,
   },
   container: {
     flex: 1,
