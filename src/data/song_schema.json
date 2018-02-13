@@ -1,21 +1,21 @@
 {
-    "_id": -1,
-    "category": "",
-    "create_time": "",
-    "update_time": "",
-    "title": "",
-    "tags": "",
-    "lyrics":
-      "",
-    "tbd_various_boolean_flags": "",
-    "reference_title": "",
-    "reference_link": "",
-    "instructions": "",
-    "is_npsl_player": false,
-    "is_wpsl_player": false,
-    "is_nisa_player": false,
-    "player_name": "",
-    "player_number": "",
-    "override_html": "",
-    "delete_local": ""
-  }
+  "_id": -1,
+  "category": "",
+  "create_time": "",
+  "update_time": "",
+  "title": "",
+  "tags": "",
+  "lyrics":
+    "",
+  "tbd_various_boolean_flags": "",
+  "reference_title": "",
+  "reference_link": "",
+  "instructions": "",
+  "is_npsl_player": false,
+  "is_wpsl_player": false,
+  "is_nisa_player": false,
+  "player_name": "",
+  "player_number": "",
+  "override_html": "",
+  "delete_local": ""
+}
