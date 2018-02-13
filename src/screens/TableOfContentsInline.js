@@ -44,7 +44,8 @@ Songbook.chapters.forEach(chapterChild => {
     try {
       let song = {
         _id: songChild._id,
-        song_title: Songs.filter(song => song._id === songChild._id)[0].title
+        song_title: Songs.filter(song => song._id === songChild._id)[0].title,
+        page: tocPageLabel
       };
       console.log(songChild._id + " " + song.song_title);
       // set page label
@@ -127,6 +128,10 @@ export default class TableOfContentsInline extends React.Component {
   _handlePressRow = item => {
     const song = find(propEq('_id', item._id), Songs);
     console.log('ToC inline song.title', song.title, item._id);
+
+    // pass item page label to song to include in state
+    song.page = item.toc_page_label;
+
     state.currentSong = song;
 
     // scroll to song
