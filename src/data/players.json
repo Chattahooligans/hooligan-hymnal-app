@@ -1,0 +1,146 @@
+[
+    {
+        "_id": 1,
+        "name": "Humberto Pelaez",
+        "squad_number": "0",
+        "position": "Goalkeeper",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 2,
+        "name": "Jerry Saint-Vil",
+        "squad_number": "2",
+        "position": "Defender",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 3,
+        "name": "Damian Gaona",
+        "squad_number": "3",
+        "position": "Defender",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },   
+    {
+        "_id": 4,
+        "name": "Soren Yuhaschek",
+        "squad_number": "4",
+        "position": "Defender",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 5,
+        "name": "Sean Rutter",
+        "squad_number": "5",
+        "position": "Defender",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 6,
+        "name": "Pierre Bocquet",
+        "squad_number": "6",
+        "position": "Midfielder",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 7,
+        "name": "John Carrier",
+        "squad_number": "7",
+        "position": "Midfielder",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 8,
+        "name": "Joao Costa",
+        "squad_number": "8",
+        "position": "Forward",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 9,
+        "name": "Jose \"Zeca\" Ferraz",
+        "squad_number": "9",
+        "position": "Forward",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 10,
+        "name": "Juan Hernandez",
+        "squad_number": "10",
+        "position": "Midfielder",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 11,
+        "name": "Felipe Olivera",
+        "squad_number": "11",
+        "position": "Forward",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 12,
+        "name": "Joaquin Cabello",
+        "squad_number": "12",
+        "position": "Midfielder",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 13,
+        "name": "David Perez",
+        "squad_number": "13",
+        "position": "Midfielder",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 14,
+        "name": "Charlie Clarke",
+        "squad_number": "14",
+        "position": "Forward",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },
+    {
+        "_id": 15,
+        "name": "Santiago Moore",
+        "squad_number": "15",
+        "position": "Midfielder",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    },   
+    {
+        "_id": 16,
+        "name": "Shawn Sanon",
+        "squad_number": "22",
+        "position": "Midfielder",
+        "team": "NPSL",
+        "image": "",
+        "delete_local": false
+    }
+]
