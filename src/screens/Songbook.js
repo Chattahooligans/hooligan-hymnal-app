@@ -245,7 +245,7 @@ export default class Songbook extends React.Component {
 
   scrollToSong = () => {
     this.showToCButton();
-    this._scrollView.scrollTo({x: (state.currentSong._id - 1 + firstValidPageIndex) * screenWidth, y:0, animated:true});
+    this._scrollView.scrollTo({x: (state.currentSong.page - 1 + firstValidPageIndex) * screenWidth, y:0, animated:true});
   };
 
 }
