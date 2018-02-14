@@ -11,11 +11,7 @@
   "reference_title": "",
   "reference_link": "",
   "instructions": "",
-  "is_npsl_player": false,
-  "is_wpsl_player": false,
-  "is_nisa_player": false,
-  "player_name": "",
-  "player_number": "",
+  "player_id": "",
   "override_html": "",
   "delete_local": ""
 }

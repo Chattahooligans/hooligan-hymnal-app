@@ -170,11 +170,7 @@ export default class CapoConfirmSend extends React.Component {
           reference_title: CapoMessageSchema.song.reference_title,
           reference_link: CapoMessageSchema.song.reference_link,
           instructions: CapoMessageSchema.song.instructions,
-          is_npsl_player: CapoMessageSchema.song.is_npsl_player,
-          is_wpsl_player: CapoMessageSchema.song.is_wpsl_player,
-          is_nisa_player: CapoMessageSchema.song.is_nisa_player,
-          player_name: CapoMessageSchema.song.player_name,
-          player_number: CapoMessageSchema.song.player_number,
+          player_id: CapoMessageSchema.song.player_id,
           override_html: CapoMessageSchema.song.override_html,
           delete_local: CapoMessageSchema.song.delete_local
         },
