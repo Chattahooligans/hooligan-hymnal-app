@@ -223,7 +223,7 @@ export default class Songbook extends React.Component {
         return { chapter_title: "Table of Contents" };
       });
     } else {
-      this.hideToCButton();
+      this.showToCButton();
       this.setState(previousState => {
         return { chapter_title: "Hooligan Hymnal" };
       });
@@ -240,12 +240,12 @@ export default class Songbook extends React.Component {
 
   scrollToToC = () => {
     this.hideToCButton();
-    this._scrollView.scrollTo({x: screenWidth, y:0, animated:true});
+    this._scrollView.scrollTo({x: screenWidth, y:0, animated:false});
   };
 
   scrollToSong = () => {
     this.showToCButton();
-    this._scrollView.scrollTo({x: (state.currentSong.page - 1 + firstValidPageIndex) * screenWidth, y:0, animated:true});
+    this._scrollView.scrollTo({x: (state.currentSong.page - 1 + firstValidPageIndex) * screenWidth, y:0, animated:false});
   };
 
 }
