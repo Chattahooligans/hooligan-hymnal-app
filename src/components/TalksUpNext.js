@@ -24,11 +24,6 @@ export default class TalksUpNext extends React.Component {
   constructor(props) {
     super(props);
 
-    let song = getFeaturedSongs();
-
-    // if there's a notification that is relevant
-    // set label to "Up Next"
-
     this.state = {
       label: 'Featured Song',
       song: getFeaturedSongs()[0]
@@ -88,8 +83,10 @@ export default class TalksUpNext extends React.Component {
       .then(response => response.json())
       .then(responseJson => {
         try {
-          // if this is valid
-          if (true) {
+          // if this is valid ??
+          if (responseJson.song) {
+            console.log("server response song", JSON.stringify(responseJson.song.title));
+            
             state.label = 'Up Next';
             state.song = responseJson.song;
 
@@ -105,8 +102,6 @@ export default class TalksUpNext extends React.Component {
           state.label = 'Featured Song';
           state.song = getFeaturedSongs()[0];
         }
-
-        console.log(JSON.stringify(responseJson.song.title));
       });
 
     /*
