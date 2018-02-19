@@ -27,7 +27,7 @@ export default class SongView extends React.Component {
         <View
           style={{
             backgroundColor: '#FFFFFF',
-            marginTop: 6,
+            marginTop: 0,
             marginLeft: 0,
             marginRight: 0,
             marginBottom: 6,
