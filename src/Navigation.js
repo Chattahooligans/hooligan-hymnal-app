@@ -85,9 +85,18 @@ const SongbookNavigation = StackNavigator(
   DefaultStackConfig
 );
 
+const RosterNavigation = StackNavigator(
+  {
+    Roster: {
+      screen: Screens.Roster
+    }
+  },
+  DefaultStackConfig
+);
+
 const CapoHomeNavigation = StackNavigator(
   {
-    CapoHomeList: {
+    CapoHome: {
       screen: Screens.CapoHome
     }
   },
@@ -106,6 +115,7 @@ const AboutNavigation = StackNavigator(
 const DrawerRouteConfig = {
   Home: { screen: Screens.Home, title: 'Home' },
   Songbook: { screen: SongbookNavigation, title: 'Songbook' },
+  Roster: { screen: RosterNavigation, title: 'Roster' },
   CapoHome: { screen: CapoHomeNavigation, title: 'Capo Dashboard' },
   About: { screen: AboutNavigation, title: 'About' }
 };
@@ -320,6 +330,7 @@ class DrawerView extends React.Component {
           {this._renderButtons([
             { route: 'Home', title: 'Home' },
             { route: 'Songbook', title: 'Songbook' },
+            { route: 'Roster', title: 'Roster' },
             { route: 'CapoHome', title: 'Capo Dashboard' },
             { route: 'About', title: 'About' }
           ])}
