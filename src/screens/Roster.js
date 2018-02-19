@@ -43,12 +43,8 @@ Squads.squads.forEach(squadChild => {
   //console.log(squadChild.squad_title);
   squadChild.players.forEach(playerChild => {
     try {
-      let playerObj = Players.filter(player => player._id === playerChild._id)[0]
-      let player = {
-        _id: playerChild._id,
-        display_name: playerObj.squad_number + ' ' + playerObj.name
-      };
-      //console.log(playerChild._id + " " + player.name);
+      let player = Players.filter(player => player._id === playerChild._id)[0]
+      //console.log(player._id + " " + player.name);
       playerList.push(player);
     } catch (err) {
       console.log(playerChild._id + ' not found in players database');
@@ -64,14 +60,26 @@ class PlayerRow extends React.Component {
     const { item: player } = this.props;
 
     return (
-      <RectButton
+        <RectButton
         onPress={this._handlePress}
         activeOpacity={0.05}
         style={{ flex: 1, backgroundColor: '#fff' }}
       >
         <View style={styles.row}>
+          <View style={styles.rowAvatarContainer}>
+            <FadeIn>
+              <Image
+                source={require('../assets/chattfc_logo.png')}
+                style={{ width: 50, height: 50, borderRadius: 25 }}
+              />
+            </FadeIn>
+          </View>
           <View style={styles.rowData}>
-            <RegularText>{player.display_name}</RegularText>
+            <BoldText>{player.name}</BoldText>
+            {player.squad_number ? (
+              <SemiBoldText>{player.squad_number}</SemiBoldText>
+            ) : null}
+            <RegularText>{player.position}</RegularText>
           </View>
         </View>
       </RectButton>
