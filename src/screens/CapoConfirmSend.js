@@ -66,27 +66,50 @@ export default class CapoConfirmSend extends React.Component {
       <LoadingPlaceholder>
         <View style={styles.container}>
           <SongView song={state.currentSong} />
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressSendButton}
-              underlayColor="#fff"
-            >
-              <Ionicons
-                name="md-send"
-                size={23}
-                style={{
-                  color: '#fff',
-                  marginTop: 3,
-                  backgroundColor: 'transparent',
-                  marginRight: 5
-                }}
-              />
-              <SemiBoldText style={styles.bigButtonText}>
-                Send Notification
-              </SemiBoldText>
-            </RectButton>
-          </ClipBorderRadius>
+          <View style={styles.buttonContainer}>
+            <ClipBorderRadius>
+              <RectButton
+                style={styles.bigButton}
+                onPress={this._handlePressSendOnlyButton}
+                underlayColor="#fff"
+              >
+                <SemiBoldText style={styles.bigButtonText}>
+                  Send Only
+                </SemiBoldText>
+                <Ionicons
+                  name="md-send"
+                  size={23}
+                  style={{
+                    color: '#fff',
+                    marginTop: 3,
+                    backgroundColor: 'transparent',
+                    marginRight: 5
+                  }}
+                />
+              </RectButton>
+            </ClipBorderRadius>
+            <ClipBorderRadius>
+              <RectButton
+                style={styles.bigButton}
+                onPress={this._handlePressSendAndNotifyButton}
+                underlayColor="#fff"
+              >
+                <SemiBoldText style={styles.bigButtonText}>
+                  Send &amp; Notify
+                </SemiBoldText>
+                <Ionicons
+                  name="md-notifications"
+                  size={23}
+                  style={{
+                    color: '#fff',
+                    marginTop: 3,
+                    backgroundColor: 'transparent',
+                    marginRight: 5
+                  }}
+                />
+              </RectButton>
+            </ClipBorderRadius>
+          </View>
           <NavigationBar
             animatedBackgroundOpacity={1}
             style={[
@@ -132,7 +155,14 @@ export default class CapoConfirmSend extends React.Component {
     );
   }
 
-  _handlePressSendButton = () => {
+  _handlePressSendOnlyButton = () => {
+    _sendMessage(false);
+  }
+  _handlePressSendAndNotifyButton = () => {
+    _sendMessage(true);
+  }
+
+  _sendMessage = (pushFlag) => {
     CapoMessageSchema.sender = 'capo example';
     CapoMessageSchema.send_time = new Date();
     if (null == state.location) {
@@ -157,7 +187,8 @@ export default class CapoConfirmSend extends React.Component {
         sender_latitude: CapoMessageSchema.sender_latitude,
         sender_longitude: CapoMessageSchema.sender_longitude,
         message: '',
-        push: false,
+        push: pushFlag,
+        announcement: undefined,
         song: {
           category: CapoMessageSchema.song.category,
           create_time: CapoMessageSchema.song.create_time,
@@ -173,8 +204,7 @@ export default class CapoConfirmSend extends React.Component {
           player_id: CapoMessageSchema.song.player_id,
           override_html: CapoMessageSchema.song.override_html,
           delete_local: CapoMessageSchema.song.delete_local
-        },
-        message: 'this better work'
+        }
       })
     })
       .then(response => response.json())
@@ -212,6 +242,12 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
     paddingTop: Layout.headerHeight + Constants.statusBarHeight
   },
+  buttonContainer: {
+    flexDirection: "row",
+    width: 100 + '%',
+    justifyContent: "space-between",
+    alignItems: "stretch"
+  },
   bigButton: {
     backgroundColor: Colors.green,
     paddingHorizontal: 15,
@@ -221,7 +257,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: BORDER_RADIUS,
     overflow: 'hidden',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: "space-between"
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,
