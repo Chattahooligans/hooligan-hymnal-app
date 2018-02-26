@@ -99,6 +99,8 @@ SongbookManifest.chapters.forEach(chapterChild => {
   });
 });
 
+let defaultChapterTitle = "Cover";
+
 // Android uses ViewPagerAndroid
 // iOS uses ScrollView with pagingEnabled and horizontal properties
 export default class Songbook extends React.Component {
@@ -108,7 +110,7 @@ export default class Songbook extends React.Component {
   };
 
   state = {
-    chapter_title: "Hooligan Hymnal",
+    chapter_title: defaultChapterTitle,
     tocButtonDisplay: true
   };
 
@@ -208,7 +210,7 @@ export default class Songbook extends React.Component {
     } else if (firstValidPageIndex <= pageIndex) {
       this.setState({ tocButtonDisplay: true, chapter_title: songs[pageIndex-firstValidPageIndex].song.chapter_title });
     } else {
-      this.setState({ tocButtonDisplay: true, chapter_title: "Cover" });
+      this.setState({ tocButtonDisplay: true, chapter_title: defaultChapterTitle });
     }
   };
 
