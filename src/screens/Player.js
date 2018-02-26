@@ -9,6 +9,7 @@ import {
   ScrollView,
   View
 } from 'react-native';
+import SongView from '../components/SongView';
 import { Constants, Video } from 'expo';
 import FadeIn from 'react-native-fade-in-image';
 import ReadMore from 'react-native-read-more-text';
@@ -25,6 +26,8 @@ import { RegularText, BoldText, SemiBoldText } from '../components/StyledText';
 import { findTalkData, findSongData } from '../data';
 import { Ionicons } from '@expo/vector-icons';
 
+import Songs from '../data/songs.json';
+
 export default class Player extends React.Component {
   state = {
     scrollY: new Animated.Value(0)
@@ -33,6 +36,9 @@ export default class Player extends React.Component {
   render() {
     let player = this.props.navigation.state.params.player;
     console.log('player details window for ', player);
+
+    let song = Songs[0];
+    console.log('player song', song);
 
     const { scrollY } = this.state;
     const scale = scrollY.interpolate({
@@ -92,6 +98,7 @@ export default class Player extends React.Component {
                 transform: [{ scale }, { translateX }, { translateY }]
               }}
             >
+              <BoldText style={styles.headerText}>{player.name}</BoldText>
               <FadeIn placeholderStyle={{ backgroundColor: '#318A73' }}>
                 <Image
                   source={require('../assets/chattfc_logo.png')}
@@ -99,14 +106,8 @@ export default class Player extends React.Component {
                 />
               </FadeIn>
             </Animated.View>
-            <SemiBoldText style={styles.headerText}>
-              {player.position}
-            </SemiBoldText>
-            {player.squad_number ? (
-              <RegularText style={styles.headerText}>
-                {player.squad_number}
-              </RegularText>
-            ) : null}
+            <SemiBoldText style={styles.headerText}>{player.squad_number}</SemiBoldText>
+            <RegularText style={styles.headerText}>{player.position}</RegularText>
           </View>
           <AnimatableView
             animation="fadeIn"
@@ -126,7 +127,7 @@ export default class Player extends React.Component {
             </ReadMore>
 
             <SemiBoldText style={styles.sectionHeader}>
-              Talk description
+              2nd Header
             </SemiBoldText>
             <ReadMore
               numberOfLines={5}
@@ -134,18 +135,14 @@ export default class Player extends React.Component {
               renderRevealedFooter={this._renderRevealedFooter}
               onReady={this._handleTextReady}
             >
-              <RegularText style={styles.bodyText}>
-                {player.name}
-              </RegularText>
+              <RegularText style={styles.bodyText}>text</RegularText>
             </ReadMore>
 
-            <SemiBoldText style={styles.sectionHeader}>
-              Time and place
-            </SemiBoldText>
-            <RegularText>
-              day time
-            </RegularText>
+            <SemiBoldText style={styles.sectionHeader}>3rd Header</SemiBoldText>
+            <RegularText>text</RegularText>
             <RegularText>room</RegularText>
+
+            <SongView song={song}/>
           </AnimatableView>
         </AnimatedScrollView>
 
