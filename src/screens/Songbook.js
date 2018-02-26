@@ -208,7 +208,7 @@ export default class Songbook extends React.Component {
     } else if (firstValidPageIndex <= pageIndex) {
       this.setState({ tocButtonDisplay: true, chapter_title: songs[pageIndex-firstValidPageIndex].song.chapter_title });
     } else {
-      this.setState({ tocButtonDisplay: true, chapter_title: "Hooligan Hymnal" });
+      this.setState({ tocButtonDisplay: true, chapter_title: "Cover" });
     }
   };
 
