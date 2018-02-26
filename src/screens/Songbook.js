@@ -29,7 +29,7 @@ import SongbookManifest from '../data/songbook.json';
 import state from '../state';
 
 const screenWidth = Dimensions.get('window').width;
-const firstValidPageIndex = 2;
+const firstValidPageIndex = 1;
 
 const styles = StyleSheet.create({
   sectionHeader: {
@@ -109,7 +109,7 @@ export default class Songbook extends React.Component {
 
   state = {
     chapter_title: "Hooligan Hymnal",
-    tocButtonDisplay: false
+    tocButtonDisplay: true
   };
 
   update() {
@@ -169,10 +169,10 @@ export default class Songbook extends React.Component {
             </Text>
             <View style={{ flex: 1 }} />
           </View>
+          {songViews}
           <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: screenWidth}}>
             <TableOfContentsInline style={{width: screenWidth}} scrollToSong={this.scrollToSong} />
           </View>
-          {songViews}
         </ScrollView>
         {tocButton}
         </View>
@@ -198,53 +198,27 @@ export default class Songbook extends React.Component {
 
   _handlePressTOCButton = () => {
     this.scrollToToC();
-    //this.props.navigation.navigate('TableOfContents');
-    /*
-    // attempt at in-page ToC
-
-              <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: screenWidth}}>
-            <TableOfContents style={{width: screenWidth}} />
-          </View>
-
-    */
   };
 
   _onSongbookMomentumScrollEnd = ({nativeEvent}) => {
     const pageIndex = Math.round(nativeEvent.contentOffset.x/screenWidth);
 
-    if (firstValidPageIndex <= pageIndex) {
-      this.showToCButton();
-      this.setState(previousState => {
-        return { chapter_title: songs[pageIndex-firstValidPageIndex].song.chapter_title };
-      });
-    } else if (1 === pageIndex) {
-      this.hideToCButton();
-      this.setState(previousState => {
-        return { chapter_title: "Table of Contents" };
-      });
+    if (pageCount + 1 === pageIndex) {
+      this.setState({ tocButtonDisplay: false , chapter_title: "Table of Contents" });
+    } else if (firstValidPageIndex <= pageIndex) {
+      this.setState({ tocButtonDisplay: true, chapter_title: songs[pageIndex-firstValidPageIndex].song.chapter_title });
     } else {
-      this.showToCButton();
-      this.setState(previousState => {
-        return { chapter_title: "Hooligan Hymnal" };
-      });
+      this.setState({ tocButtonDisplay: true, chapter_title: "Hooligan Hymnal" });
     }
   };
 
-  showToCButton = () => {
-    this.setState({ tocButtonDisplay: true });
-  };
-
-  hideToCButton = () => {
-    this.setState({ tocButtonDisplay: false });
-  };
-
   scrollToToC = () => {
-    this.hideToCButton();
-    this._scrollView.scrollTo({x: screenWidth, y:0, animated:false});
+    this.setState({ tocButtonDisplay: false , chapter_title: "Table of Contents" });
+    this._scrollView.scrollTo({x: screenWidth * (pageCount + 1), y:0, animated:false});
   };
 
   scrollToSong = () => {
-    this.showToCButton();
+    this.setState({ tocButtonDisplay: true, chapter_title: state.currentSong.chapter_title });
     this._scrollView.scrollTo({x: (state.currentSong.page - 1 + firstValidPageIndex) * screenWidth, y:0, animated:false});
   };
 
