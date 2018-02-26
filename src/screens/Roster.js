@@ -27,15 +27,6 @@ import { Constants } from 'expo';
 
 import { find, propEq } from 'ramda';
 
-// on click on a song row
-// search each page in parent.parent component and look for a _id property (yet to be created), snap to that page
-
-//
-//  Note: ToC may not live within the pager forever,
-//  it is just hanging out there now.
-//  ToC may be a button on this screen or somewhere else
-//
-
 let rosterData = [];
 Squads.squads.forEach(squadChild => {
   let playerList = [];
@@ -126,11 +117,9 @@ export default class Roster extends React.Component {
     return <PlayerRow item={item} onPress={this._handlePressRow} />;
   };
 
-  _handlePressRow = item => {
-    const player = find(propEq('_id', item._id), Players);
-    // console.log('player', player);
-    state.currentPlayer = player;
-    this.props.navigation.navigate('Player');
+  _handlePressRow = player => {
+    console.log('player click', player.name);
+    this.props.navigation.navigate('Player', { player });
   };
 }
 

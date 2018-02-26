@@ -438,7 +438,8 @@ export default StackNavigator(
     CapoSelectSong: { screen: Screens.CapoSelectSong },
     CapoLogin: { screen: Screens.CapoLogin },
     CapoConfirmSend: { screen: Screens.CapoConfirmSend },
-    CapoComposeSong: { screen: Screens.CapoComposeSong }
+    CapoComposeSong: { screen: Screens.CapoComposeSong },
+    Player: { screen: Screens.Player }
   },
   {
     ...DefaultStackConfig,
