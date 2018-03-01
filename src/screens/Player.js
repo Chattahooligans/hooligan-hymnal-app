@@ -75,7 +75,7 @@ export default class Player extends React.Component {
     });
 
     return (
-      <View style={{ flex: 1, backgroundColor: '#fff' }}>
+      <View style={{ flex: 1, backgroundColor: '#A5D8F6' }}>
         {Platform.OS === 'ios' ? (
           <Animated.View
             style={{
@@ -228,7 +228,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    backgroundColor: '#A5D8F6',
     paddingBottom: 20,
     paddingHorizontal: 20
   },
