@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Animated,
+  FlatList,
   Image,
   Platform,
   StyleSheet,
@@ -25,6 +26,7 @@ import { RegularText, BoldText, SemiBoldText } from '../components/StyledText';
 //import { getSpeakerAvatarURL } from '../utils';
 import { findTalkData, findSongData } from '../data';
 import { Ionicons } from '@expo/vector-icons';
+import SongCard from '../components/SongCard';
 
 import Songs from '../data/songs.json';
 
@@ -37,8 +39,22 @@ export default class Player extends React.Component {
     let player = this.props.navigation.state.params.player;
     console.log('player details window for ', player);
 
-    let song = Songs[0];
-    console.log('player song', song);
+    let playerSongs = [];
+    playerSongs.push(Songs[0]);
+    playerSongs.push(Songs[1]);
+    
+    let playerSongDisplay;
+
+    if (playerSongs.length === 0) {
+      playerSongDisplay = <RegularText style={styles.bodyText}>This player doesn't have a song yet, but we would love if you sent in an idea</RegularText>
+    } else {
+      playerSongDisplay = 
+        <FlatList
+          data={playerSongs}
+          renderItem={this._renderSongCard}
+          keyExtractor={(item, index) => index}
+        />
+    }
 
     const { scrollY } = this.state;
     const scale = scrollY.interpolate({
@@ -138,11 +154,8 @@ export default class Player extends React.Component {
               <RegularText style={styles.bodyText}>text</RegularText>
             </ReadMore>
 
-            <SemiBoldText style={styles.sectionHeader}>3rd Header</SemiBoldText>
-            <RegularText>text</RegularText>
-            <RegularText>room</RegularText>
-
-            <SongView song={song}/>
+            <BoldText style={styles.sectionHeader}>Player Songs</BoldText>
+            {playerSongDisplay}
           </AnimatableView>
         </AnimatedScrollView>
 
@@ -172,6 +185,11 @@ export default class Player extends React.Component {
       </View>
     );
   }
+
+  _renderSongCard = ({ item }) => {
+    return <SongCard song={item} />;
+  };
+
 
   _renderTruncatedFooter = handlePress => {
     return (
@@ -209,7 +227,8 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   content: {
-    backgroundColor: '#fff',
+    flex: 1,
+    backgroundColor: '#A5D8F6',
     paddingBottom: 20,
     paddingHorizontal: 20
   },
