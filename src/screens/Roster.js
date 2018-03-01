@@ -66,11 +66,8 @@ class PlayerRow extends React.Component {
             </FadeIn>
           </View>
           <View style={styles.rowData}>
-            <BoldText>{player.name}</BoldText>
-            {player.squad_number ? (
-              <SemiBoldText>{player.squad_number}</SemiBoldText>
-            ) : null}
-            <RegularText>{player.position}</RegularText>
+            <BoldText>{player.squad_number} {player.name}</BoldText>
+            <RegularText style={{left: 12}}>{player.position}</RegularText>
           </View>
         </View>
       </RectButton>
