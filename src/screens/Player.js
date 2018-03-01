@@ -50,6 +50,7 @@ export default class Player extends React.Component {
     } else {
       playerSongDisplay = 
         <FlatList
+          style={{backgroundColor: '#A5D8F6'}}
           data={playerSongs}
           renderItem={this._renderSongCard}
           keyExtractor={(item, index) => index}
@@ -187,7 +188,7 @@ export default class Player extends React.Component {
   }
 
   _renderSongCard = ({ item }) => {
-    return <SongCard song={item} />;
+    return <SongCard song={item} style={{borderBottomWidth: 1, borderColor: '#eee'}} />;
   };
 
 
