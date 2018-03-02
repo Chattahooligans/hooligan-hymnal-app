@@ -66,8 +66,13 @@ class PlayerRow extends React.Component {
             </FadeIn>
           </View>
           <View style={styles.rowData}>
-            <BoldText>{player.squad_number} {player.name}</BoldText>
-            <RegularText style={{left: 12}}>{player.position}</RegularText>
+            <View style={{width: 25, alignItems: 'flex-end', paddingRight: 5}}>
+              <BoldText>{player.squad_number}</BoldText>
+            </View>
+            <View style={{flexDirection: 'column'}}>
+              <SemiBoldText>{player.name}</SemiBoldText>
+              <RegularText>{player.position}</RegularText>
+            </View>
           </View>
         </View>
       </RectButton>
@@ -139,7 +144,8 @@ const styles = StyleSheet.create({
     paddingLeft: 0
   },
   rowData: {
-    flex: 1
+    flex: 1,
+    flexDirection: 'row'
   },
   sectionHeader: {
     paddingHorizontal: 10,
