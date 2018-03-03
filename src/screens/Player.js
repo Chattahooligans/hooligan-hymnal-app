@@ -39,10 +39,7 @@ export default class Player extends React.Component {
     let player = this.props.navigation.state.params.player;
     console.log('player details window for ', player);
 
-    let playerSongs = [];
-    playerSongs.push(Songs[0]);
-    playerSongs.push(Songs[1]);
-    
+    let playerSongs = Songs.filter(song => song.player_id === player._id);
     let playerSongDisplay;
 
     if (playerSongs.length === 0) {
@@ -140,19 +137,7 @@ export default class Player extends React.Component {
               renderRevealedFooter={this._renderRevealedFooter}
               onReady={this._handleTextReady}
             >
-              <RegularText style={styles.bodyText}>bio text</RegularText>
-            </ReadMore>
-
-            <SemiBoldText style={styles.sectionHeader}>
-              2nd Header
-            </SemiBoldText>
-            <ReadMore
-              numberOfLines={5}
-              renderTruncatedFooter={this._renderTruncatedFooter}
-              renderRevealedFooter={this._renderRevealedFooter}
-              onReady={this._handleTextReady}
-            >
-              <RegularText style={styles.bodyText}>text</RegularText>
+              <RegularText style={styles.bodyText}>{player.bio}</RegularText>
             </ReadMore>
 
             <BoldText style={styles.sectionHeader}>Player Songs</BoldText>

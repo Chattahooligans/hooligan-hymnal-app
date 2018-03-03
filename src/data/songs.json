@@ -247,7 +247,7 @@
     "reference_title": "",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 7,
     "override_html": "",
     "delete_local": ""
   },
@@ -263,7 +263,7 @@
     "reference_title": "from Hey Mickey, by Toni Basil",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 9,
     "override_html": "",
     "delete_local": ""
   },
@@ -297,7 +297,7 @@
     "reference_title": "from Still the One, by Orleans",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 10,
     "override_html": "",
     "delete_local": ""
   },
@@ -331,7 +331,7 @@
     "reference_title": "from Rosanna, by Toto",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 4,
     "override_html": "",
     "delete_local": ""
   },
@@ -348,7 +348,7 @@
     "reference_title": "from Havana, by Camila Cabello",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 3,
     "override_html": "",
     "delete_local": ""
   },
@@ -382,7 +382,7 @@
     "reference_title": "from Whatever Will Be, Will Be, by Doris Day",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 13,
     "override_html": "",
     "delete_local": ""
   },
@@ -433,7 +433,7 @@
     "reference_title": "from Magic, by Pilot",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 11,
     "override_html": "",
     "delete_local": ""
   },
@@ -471,7 +471,7 @@
     "reference_title": "from Hakuna Matata, Disney's Lion King",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 1,
     "override_html": "",
     "delete_local": ""
   },
@@ -488,7 +488,7 @@
     "reference_title": "from Must be Santa, traditional holiday",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 15,
     "override_html": "",
     "delete_local": ""
   },
@@ -539,7 +539,7 @@
     "reference_title": "from Caballo Diablo, by Charlie Daniels Band",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 12,
     "override_html": "",
     "delete_local": ""
   },
@@ -556,7 +556,7 @@
     "reference_title": "from 1950s Good n Plenty commercial, \"Choo Choo Charlie\"",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 14,
     "override_html": "",
     "delete_local": ""
   },
@@ -607,7 +607,7 @@
     "reference_title": "from Mr Sandman, by the Chordettes",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 16,
     "override_html": "",
     "delete_local": ""
   },
@@ -641,7 +641,7 @@
     "reference_title": "from Shape of You, by Ed Sheeran",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 6,
     "override_html": "",
     "delete_local": ""
   },
@@ -658,7 +658,7 @@
     "reference_title": "from Sherry Baby, by Frankie Valli & The Four Seasons",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 2,
     "override_html": "",
     "delete_local": ""
   }
