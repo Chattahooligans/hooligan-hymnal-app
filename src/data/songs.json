@@ -12,7 +12,7 @@
     "reference_title": "by the Glenn Miller Orchestra",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -29,7 +29,7 @@
     "reference_title": "from True Colors, by Cyndi Lauper",
     "reference_link": "",
     "instructions": "after yellow card shown to opponent",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -46,7 +46,7 @@
     "reference_title": "",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -63,7 +63,7 @@
     "reference_title": "from Just Can't Get Enough, by Depeche Mode",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -80,7 +80,7 @@
     "reference_title": "",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -97,7 +97,7 @@
     "reference_title": "from Saturday Night, by Bay City Rollers",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -113,7 +113,7 @@
     "reference_title": "",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -130,7 +130,7 @@
     "reference_title": "",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -147,7 +147,7 @@
     "reference_title": "from Piano Man, by Billy Joel",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -163,7 +163,7 @@
     "reference_title": "",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -180,7 +180,7 @@
     "reference_title": "from She'll Be Coming 'Round the Mountain, traditional folk",
     "reference_link": "",
     "instructions": "(two cycles of driving, then two cycles per attraction)",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -197,7 +197,7 @@
     "reference_title": "from She'll Be Coming 'Round the Mountain, traditional folk",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -214,7 +214,7 @@
     "reference_title": "from Stayin' Alive, by Bee Gees",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -231,7 +231,7 @@
     "reference_title": "from Yankee Doodle, a British-American folk song",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -247,7 +247,7 @@
     "reference_title": "",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -263,7 +263,7 @@
     "reference_title": "from Hey Mickey, by Toni Basil",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -280,7 +280,7 @@
     "reference_title": "from All My Ex's Live in Texas, by George Strait",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -297,7 +297,7 @@
     "reference_title": "from Still the One, by Orleans",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -314,7 +314,7 @@
     "reference_title": "from Doo Wah Diddy, by Manfred Mann",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -331,7 +331,7 @@
     "reference_title": "from Rosanna, by Toto",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -348,7 +348,7 @@
     "reference_title": "from Havana, by Camila Cabello",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -365,7 +365,7 @@
     "reference_title": "from Black Water, by Doobie Brothers",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -382,7 +382,7 @@
     "reference_title": "from Whatever Will Be, Will Be, by Doris Day",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -399,7 +399,7 @@
     "reference_title": "from Everybody Have Fun Tonight, by Wang Chung",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -416,7 +416,7 @@
     "reference_title": "from Pony, by Ginuwine",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -433,7 +433,7 @@
     "reference_title": "from Magic, by Pilot",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -471,7 +471,7 @@
     "reference_title": "from Hakuna Matata, Disney's Lion King",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -488,7 +488,7 @@
     "reference_title": "from Must be Santa, traditional holiday",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -505,7 +505,7 @@
     "reference_title": "from Disney's Frozen, Do You Want to Build a Snowman?",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -522,7 +522,7 @@
     "reference_title": "from Minnie the Moocher, by Cab Calloway",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -539,7 +539,7 @@
     "reference_title": "from Caballo Diablo, by Charlie Daniels Band",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -556,7 +556,7 @@
     "reference_title": "from 1950s Good n Plenty commercial, \"Choo Choo Charlie\"",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -573,7 +573,7 @@
     "reference_title": "from military song",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -590,7 +590,7 @@
     "reference_title": "from Rock & Roll All Nite, by KISS",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -607,7 +607,7 @@
     "reference_title": "from Mr Sandman, by the Chordettes",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -624,7 +624,7 @@
     "reference_title": "from Dallas, by the Alan Jackson",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -641,7 +641,7 @@
     "reference_title": "from Shape of You, by Ed Sheeran",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -658,7 +658,7 @@
     "reference_title": "from Sherry Baby, by Frankie Valli & The Four Seasons",
     "reference_link": "",
     "instructions": "",
-    "player_id": "",
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   }
