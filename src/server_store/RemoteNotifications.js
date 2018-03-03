@@ -54,6 +54,7 @@ export default class RemoteNotifications extends ApiClient {
         },
         body: JSON.stringify(notification)
       });
+      return await response.json();
     }
     catch (error) {
       throw new ApiError(`Error updating notification with id ${id} on server`, error);

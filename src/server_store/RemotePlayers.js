@@ -26,6 +26,7 @@ export default class RemotePlayers extends ApiClient {
         },
         body: JSON.stringify(player)
       });
+      return await response.json();
     }
     catch (error) {
       throw new ApiError('Error creating new player on server', error);
@@ -41,6 +42,7 @@ export default class RemotePlayers extends ApiClient {
         },
         body: JSON.stringify(player)
       });
+      return await response.json();
     }
     catch (error) {
       throw new ApiError(`Error updating player with id ${id} on server`, error);

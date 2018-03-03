@@ -28,6 +28,7 @@ export default class RemoteSongs extends ApiClient {
         },
         body: JSON.stringify(song)
       });
+      return await response.json();
     }
     catch (error) {
       throw new ApiError('Error creating new song on server', error);
@@ -43,6 +44,7 @@ export default class RemoteSongs extends ApiClient {
         },
         body: JSON.stringify(song)
       });
+      return await response.json();
     }
     catch (error) {
       throw new ApiError(`Error updating song with id ${id} on server`, error);
