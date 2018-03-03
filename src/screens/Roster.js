@@ -120,7 +120,7 @@ export default class Roster extends React.Component {
   };
 
   _handlePressRow = player => {
-    console.log('player click', player.name);
+    // console.log('player click', player.name);
     this.props.navigation.navigate('Player', { player });
   };
 }

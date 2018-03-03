@@ -37,7 +37,7 @@ export default class Player extends React.Component {
 
   render() {
     let player = this.props.navigation.state.params.player;
-    console.log('player details window for ', player);
+    // console.log('player details window for ', player);
 
     let playerSongs = Songs.filter(song => song.player_id === player._id);
     let playerSongDisplay;
@@ -111,8 +111,7 @@ export default class Player extends React.Component {
               style={{
                 transform: [{ scale }, { translateX }, { translateY }]
               }}
-            >
-              <BoldText style={styles.headerText}>{player.name}</BoldText>
+            >  
               <FadeIn placeholderStyle={{ backgroundColor: '#318A73' }}>
                 <Image
                   source={require('../assets/chattfc_logo.png')}
@@ -120,7 +119,10 @@ export default class Player extends React.Component {
                 />
               </FadeIn>
             </Animated.View>
-            <SemiBoldText style={styles.headerText}>{player.squad_number}</SemiBoldText>
+            <View style={{flexDirection: 'row'}}>
+              <BoldText style={styles.headerText}>{player.squad_number} </BoldText>
+              <SemiBoldText style={styles.headerText}>{player.name}</SemiBoldText>
+            </View>
             <RegularText style={styles.headerText}>{player.position}</RegularText>
           </View>
           <AnimatableView
