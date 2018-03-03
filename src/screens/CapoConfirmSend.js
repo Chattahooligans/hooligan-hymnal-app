@@ -167,7 +167,7 @@ export default class CapoConfirmSend extends React.Component {
   _sendMessage = (pushFlag) => {
     console.log('inside send', pushFlag);
 
-    CapoMessageSchema.sender = 'capo example';
+    CapoMessageSchema.sender = state.token;
     CapoMessageSchema.send_time = new Date();
     if (null == state.location) {
       CapoMessageSchema.sender_latitude = '';
