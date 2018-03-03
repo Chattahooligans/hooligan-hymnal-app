@@ -156,13 +156,17 @@ export default class CapoConfirmSend extends React.Component {
   }
 
   _handlePressSendOnlyButton = () => {
-    _sendMessage(false);
+    console.log('send only');
+    this._sendMessage(false);
   }
   _handlePressSendAndNotifyButton = () => {
-    _sendMessage(true);
+    console.log('send and notify');
+    this._sendMessage(true);
   }
 
   _sendMessage = (pushFlag) => {
+    console.log('inside send', pushFlag);
+
     CapoMessageSchema.sender = 'capo example';
     CapoMessageSchema.send_time = new Date();
     if (null == state.location) {
