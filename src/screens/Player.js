@@ -43,7 +43,7 @@ export default class Player extends React.Component {
     let playerSongDisplay;
 
     if (playerSongs.length === 0) {
-      playerSongDisplay = <RegularText style={styles.bodyText}>This player doesn't have a song yet, but we would love if you sent in an idea</RegularText>
+      playerSongDisplay = <RegularText style={styles.bodyText}>We are still working on a song for this player. Want to help? Submit an idea!</RegularText>
     } else {
       playerSongDisplay = 
         <FlatList
