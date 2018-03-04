@@ -661,5 +661,22 @@
     "player_id": 2,
     "override_html": "",
     "delete_local": ""
+  },
+  {
+    "_id": 40,
+    "category": "player",
+    "create_time": "",
+    "update_time": "",
+    "title": "Sean Rutter",
+    "tags": "voice",
+    "lyrics": 
+      "Rutter just blocked your shot\nRutter just blocked your shot\bAnd another one gone and another one gone\nRutter just blocked your shot",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from Another One Bites the Dust, by Queen",
+    "reference_link": "",
+    "instructions": "",
+    "player_id": 5,
+    "override_html": "",
+    "delete_local": ""
   }
 ]
