@@ -678,5 +678,56 @@
     "player_id": 5,
     "override_html": "",
     "delete_local": ""
+  },
+  {
+    "_id": 41,
+    "category": "game",
+    "create_time": "",
+    "update_time": "",
+    "title": "Friends in Low Places",
+    "tags": "voice",
+    "lyrics": 
+      "Blame it all on my roots,\nI showed up in boots\nAnd ruined your black tie affair\nThe last one to know, the last one to show\nI was the last one you thought you'd see there\nAnd I saw the surprise, and the fear in his eyes\nWhen I took his glass of champagne\nAnd I toasted you, said, \"Honey, we may be through\nBut you'll never hear me complain\"\n\n'Cause I've got friends in low places\nWhere the whiskey drowns and the beer chases\nMy blues away\nAnd I'll be okay\nI'm not big on social graces\nThink I'll slip on down to the Oasis\nOh, I've got friends\nIn low places\n\nWell, I guess I was wrong, I just don't belong\nBut then, I've been there before\nEverything's alright, I'll just say goodnight\nAnd I'll show myself to the door\nHey, I didn't mean, to cause a big scene\nJust give me an hour and then\nWell I'll be as high as that ivory tower\nThat you're livin' in\n\nChorus x3",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "by Garth Brooks",
+    "reference_link": "",
+    "instructions": "",
+    "player_id": -1,
+    "override_html": "",
+    "delete_local": ""
+  },
+  {
+    "_id": 42,
+    "category": "game",
+    "create_time": "",
+    "update_time": "",
+    "title": "Achy Fakey Frauds",
+    "tags": "voice",
+    "lyrics": 
+      "You can tell the rest\n'Bout the stars above your crest\nBut you can't claim a title you ain't got\nThe state of Tennessee\nYou use exclusively\nBut there are other cities you forgot\n\nYou can tell the Sounds\nYou'll win the next around\nYou can tell them at the Parthenon\nYou can tell the Preds\nBut you should use your heads\nRemember when we beat you Six to One?\n\nYou're a bunch of frauds\nYou achy fakey frauds\nI just don't think you understand\nYou don't own a thing\nThe dues you pay the team\nAre just the marketing plan",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from Achy Breaky Heart, by Billy Ray Cyrus",
+    "reference_link": "",
+    "instructions": "",
+    "player_id": -1,
+    "override_html": "",
+    "delete_local": ""
+  },
+  {
+    "_id": 43,
+    "category": "game",
+    "create_time": "",
+    "update_time": "",
+    "title": "Jordan Dunstan",
+    "tags": "voice",
+    "lyrics": 
+      "We will score on Jordan Dunstan\nHe's small and weak, like a Star Wars geek",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "",
+    "reference_link": "",
+    "instructions": "A call and response chant",
+    "player_id": -1,
+    "override_html": "",
+    "delete_local": ""
   }
 ]
