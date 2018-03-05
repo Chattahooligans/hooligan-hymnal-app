@@ -32,6 +32,7 @@
             "chapter_title": "Daily Diss Tracks",
             "songs": 
             [
+                { "_id": 44, "featured":  true },
                 { "_id": 41, "featured":  true },
                 { "_id": 42, "featured":  true },
                 { "_id": 43, "featured":  true },

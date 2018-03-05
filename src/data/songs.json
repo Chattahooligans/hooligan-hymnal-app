@@ -670,7 +670,7 @@
     "title": "Sean Rutter",
     "tags": "voice",
     "lyrics": 
-      "Rutter just blocked your shot\nRutter just blocked your shot\bAnd another one gone and another one gone\nRutter just blocked your shot",
+      "Rutter just blocked your shot\nRutter just blocked your shot\nAnd another one gone and another one gone\nRutter just blocked your shot",
     "tbd_various_boolean_flags": "",
     "reference_title": "from Another One Bites the Dust, by Queen",
     "reference_link": "",
@@ -726,6 +726,23 @@
     "reference_title": "",
     "reference_link": "",
     "instructions": "A call and response chant",
+    "player_id": -1,
+    "override_html": "",
+    "delete_local": ""
+  },
+  {
+    "_id": 44,
+    "category": "game",
+    "create_time": "",
+    "update_time": "",
+    "title": "One Football Team",
+    "tags": "voice",
+    "lyrics": 
+      "There's only one football team in Tennessee\nOnly one football team in Tennessee\nOnly one football team, one football team\nOne football team in Tennessee",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "",
+    "reference_link": "",
+    "instructions": "",
     "player_id": -1,
     "override_html": "",
     "delete_local": ""
