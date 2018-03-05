@@ -129,11 +129,11 @@ export default class App extends React.Component {
       // TODO: open SingleSong screen and send it the Song object buried inside the notification
 
       // kinda like this but it doesn't work from this far out (because navigation doesn't exist yet)
-      // this.props.navigation.navigate('SingleSong', {song: this.props.song});
+      // this.props.navigation.navigate('SingleSong', {song: notification.data.song});
 
       // Maybe set app state and do something with it that way?
       // this.setState({ notification: notification });
-      
+
     } else if (notification.origin === 'received') {
       // notification was received, either app was already open or it just opened up but not from the notification
       // no way to tell which?
