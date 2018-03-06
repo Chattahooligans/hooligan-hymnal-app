@@ -33,6 +33,10 @@
         "NSLocationWhenInUseUsageDescription":
           "Chattahooligan Hymnal uses location to ignore notifications when you are not at the stadium."
       }
+    },
+    "notification": {
+      "icon": "./src/assets/speakerphone.png",
+      "color": "#A5D8F6"
     }
   }
 }
