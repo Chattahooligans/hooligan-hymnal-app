@@ -10,7 +10,7 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import { Asset, LinearGradient, WebBrowser, Video } from 'expo';
+import { Asset, LinearGradient, Notifications, WebBrowser, Video } from 'expo';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { NavigationActions } from 'react-navigation';
 import FadeIn from 'react-native-fade-in-image';
@@ -38,6 +38,32 @@ import appParams from '../../app.json';
 class Home extends React.Component {
   state = {
     scrollY: new Animated.Value(0)
+  };
+
+  componentDidMount() {
+    Notifications.addListener(this._handleNotification);
+  }
+
+  _handleNotification = notification => {
+    if (notification.origin === 'selected') {
+      // notification was tapped, either from the app already open or from entering the app
+      // console.log('SELECTED notification', notification.data.song.title);
+
+      // TODO: open SingleSong screen and send it the Song object buried inside the notification
+
+      // kinda like this but it doesn't work from this far out (because navigation doesn't exist yet)
+       this.props.navigation.navigate('SingleSong', {song: notification.data.song});
+
+      // Maybe set app state and do something with it that way?
+      // this.setState({ notification: notification });
+      
+    } else if (notification.origin === 'received') {
+      // notification was received, either app was already open or it just opened up but not from the notification
+      // no way to tell which?
+      // console.log('RECEIVED notification', notification.data.song.title);
+
+      // We don't necessarily want to do anything in this case
+    }
   };
 
   render() {

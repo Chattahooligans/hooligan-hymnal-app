@@ -65,9 +65,7 @@ export default class App extends React.Component {
       this._getLocationAsync();
     }
     this._registerForPushNotificationsAsync();
-    this._notificationSubscription = Notifications.addListener(
-      this._handleNotification
-    );
+    //this._notificationSubscription = Notifications.addListener(this._handleNotification);
   }
 
   _getLocationAsync = async () => {
