@@ -23,17 +23,14 @@ export default class About extends React.Component {
           thechattahooligans@gmail.com
         </Text>
         <View style={{ height: 50 }} />
-        <Text>Visit us at:</Text>
-        <Text>fb.com/TheChattahooligans</Text>
-        <Text>twitter.com/chattahooligan</Text>
-        <Text>instagram.com/thechattahooligans</Text>
-        <Text>thechattahooligans.com</Text>
-        <View style={{ height: 50 }} />
         <Text>Home screen video created by Jay Kaley</Text>
         <Text>Menu photo from Phil Thach photography</Text>
         <Text>
           Some code based on open source @nodevember conference schedule app
         </Text>
+        <View style={{ height: 50 }} />
+        <Text>Debug</Text>
+        <Text>{state.token}</Text>
       </View>
     );
   }
