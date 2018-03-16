@@ -32,6 +32,7 @@ import hoistStatics from 'hoist-non-react-statics';
 
 import { Colors, FontSizes, Layout } from './constants';
 import Screens from './screens';
+import Fools from './fools';
 import TabBarBottom from './components/TabBarBottom';
 import { SemiBoldText, BoldText } from './components/StyledText';
 
@@ -112,12 +113,22 @@ const AboutNavigation = StackNavigator(
   DefaultStackConfig
 );
 
+const DatingNavigation = StackNavigator(
+  {
+    Dating: {
+      screen: Fools.Dating
+    }
+  },
+  DefaultStackConfig
+);
+
 const DrawerRouteConfig = {
   Home: { screen: Screens.Home, title: 'Home' },
   Songbook: { screen: SongbookNavigation, title: 'Songbook' },
   Roster: { screen: RosterNavigation, title: 'Roster' },
   CapoHome: { screen: CapoHomeNavigation, title: 'Capo Dashboard' },
-  About: { screen: AboutNavigation, title: 'About' }
+  About: { screen: AboutNavigation, title: 'About' },
+  Dating: { screen: DatingNavigation, title: 'Supportr Dating' }
 };
 
 const DrawerRouter = TabRouter(DrawerRouteConfig);
@@ -332,7 +343,8 @@ class DrawerView extends React.Component {
             { route: 'Songbook', title: 'Songbook' },
             { route: 'Roster', title: 'Roster' },
             { route: 'CapoHome', title: 'Capo Dashboard' },
-            { route: 'About', title: 'About' }
+            { route: 'About', title: 'About' },
+            { route: 'Dating', title: 'Fools' },
           ])}
         </View>
       </View>
