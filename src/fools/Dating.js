@@ -41,7 +41,7 @@ export default class Dating extends React.Component {
   onSwipedAllCards = () => {
     this.setState({
       swipedAllCards: true
-    })
+    });
   };
 
   swipeBack = () => {
@@ -67,6 +67,10 @@ export default class Dating extends React.Component {
     this.swiper.swipeLeft()
   };
 
+  swipeRight = () => {
+    this.swiper.swipeRight()
+  };
+
   render () {
     return (
       <View style={styles.container}>
@@ -74,30 +78,15 @@ export default class Dating extends React.Component {
           ref={swiper => {
             this.swiper = swiper
           }}
+          verticalSwipe={false}
           onSwiped={this.onSwiped}
           onTapCard={this.swipeLeft}
           cards={this.state.cards}
           cardIndex={this.state.cardIndex}
-          cardVerticalMargin={80}
+          cardVerticalMargin={10}
           renderCard={this.renderCard}
           onSwipedAll={this.onSwipedAllCards}
           overlayLabels={{
-            bottom: {
-              title: 'BLEAH',
-              style: {
-                label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1
-                },
-                wrapper: {
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }
-              }
-            },
             left: {
               title: 'NOPE',
               style: {
@@ -133,28 +122,11 @@ export default class Dating extends React.Component {
                   marginLeft: 30
                 }
               }
-            },
-            top: {
-              title: 'SUPER LIKE',
-              style: {
-                label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
-                  color: 'white',
-                  borderWidth: 1
-                },
-                wrapper: {
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }
-              }
             }
           }}
           animateOverlayLabelsOpacity
           animateCardOpacity
         >
-          <Button onPress={this.swipeLeft} title='Swipe Left' />
         </Swiper>
       </View>
     );
@@ -164,7 +136,7 @@ export default class Dating extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F5FCFF'
+        backgroundColor: '#A5D8F6'
       },
       card: {
         flex: 1,
