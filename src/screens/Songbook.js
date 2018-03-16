@@ -20,7 +20,6 @@ import { Colors, FontSizes, Layout } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import TableOfContents from './TableOfContents';
 import TableOfContentsInline from './TableOfContentsInline';
 
 import Songs from '../data/songs.json';
