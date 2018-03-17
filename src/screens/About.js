@@ -5,6 +5,7 @@ import NavigationOptions from '../config/NavigationOptions';
 // About info, link to website/fb/twitter
 // maybe a url for the /songs page on website (where App Store/Google Play icons will be found)
 // Email to send feedback?
+
 export default class About extends React.Component {
   static navigationOptions = {
     title: 'About',
@@ -30,7 +31,7 @@ export default class About extends React.Component {
         </Text>
         <View style={{ height: 50 }} />
         <Text>Debug</Text>
-        <Text>{state.token}</Text>
+        <Text></Text>
       </View>
     );
   }
