@@ -10,7 +10,9 @@ import { Ionicons } from '@expo/vector-icons';
 import Swiper from 'react-native-deck-swiper'
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
-import { Colors, FontSizes } from '../constants';
+import { Colors, FontSizes, Layout } from '../constants';
+
+import images from './images'
 
 @withNavigation
 export default class Dating extends React.Component {
@@ -22,26 +24,25 @@ export default class Dating extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      cards: ['1', '2', '3'],
+      cards: images,
       swipedAllCards: false,
       swipeDirection: '',
-      isSwipingBack: false,
+      isSwipingBack: true,
       cardIndex: 0
     }
   }
 
   renderCard = card => {
+    console.log('card', card);
     return (
       <View style={styles.card}>
-        <Text style={styles.text}>{card}</Text>
+        <Image style={styles.image} source={card} />
       </View>
     )
   };
 
   onSwipedAllCards = () => {
-    this.setState({
-      swipedAllCards: true
-    });
+    this.props.navigation.navigate('Home');
   };
 
   swipeBack = () => {
@@ -78,9 +79,10 @@ export default class Dating extends React.Component {
           ref={swiper => {
             this.swiper = swiper
           }}
+          backgroundColor={'#A5D8F6'}
           verticalSwipe={false}
+          infinite={true}
           onSwiped={this.onSwiped}
-          onTapCard={this.swipeLeft}
           cards={this.state.cards}
           cardIndex={this.state.cardIndex}
           cardVerticalMargin={10}
@@ -135,8 +137,7 @@ export default class Dating extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#A5D8F6'
+        flex: 1
       },
       card: {
         flex: 1,
@@ -146,10 +147,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'white'
       },
-      text: {
-        textAlign: 'center',
-        fontSize: 50,
-        backgroundColor: 'transparent'
+      image: {
+        height: '100%',
+        width: '100%',
+        resizeMode: 'cover',
       },
       done: {
         textAlign: 'center',
