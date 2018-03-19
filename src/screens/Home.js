@@ -37,14 +37,10 @@ import appParams from '../../app.json';
 
 import { websites } from '../config/Settings'
 
-export function openLink(item) {
-  console.log('social media button press', item.url);
-}
-
 let socialButtons = [];
 websites.forEach(item => {
   socialButtons.push(
-    <RectButton key={item.url} onPress={openLink(item)}>
+    <TouchableOpacity key={item.url} onPress={() => { WebBrowser.openBrowserAsync(item.url) }}>
       <Ionicons
         name={item.icon}
         size={30}
@@ -53,9 +49,9 @@ websites.forEach(item => {
           marginTop: 3, marginBottom: 3,
           marginLeft: 10, marginRight: 10,
           backgroundColor: 'transparent'
-        }}
+        }}        
       />
-    </RectButton>
+    </TouchableOpacity>
   );
 });
 
