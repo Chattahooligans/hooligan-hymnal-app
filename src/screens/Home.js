@@ -38,7 +38,7 @@ import appParams from '../../app.json';
 import { websites } from '../config/Settings'
 
 export function openLink(item) {
-  WebBrowser.openBrowserAsync(item.url);
+  console.log('social media button press', item.url);
 }
 
 let socialButtons = [];
@@ -50,10 +50,8 @@ websites.forEach(item => {
         size={30}
         style={{
           color: Colors.green,
-          marginTop: 3,
-          marginBottom: 3,
-          marginLeft: 10,
-          marginRight: 10,
+          marginTop: 3, marginBottom: 3,
+          marginLeft: 10, marginRight: 10,
           backgroundColor: 'transparent'
         }}
       />
