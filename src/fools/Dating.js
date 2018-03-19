@@ -90,11 +90,11 @@ export default class Dating extends React.Component {
           onSwipedAll={this.onSwipedAllCards}
           overlayLabels={{
             left: {
-              title: 'NOPE',
+              title: '❌',
               style: {
                 label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
+                  backgroundColor: 'white',
+                  borderColor: 'white',
                   color: 'white',
                   borderWidth: 1
                 },
@@ -108,11 +108,11 @@ export default class Dating extends React.Component {
               }
             },
             right: {
-              title: 'LIKE',
+              title: '💙',
               style: {
                 label: {
-                  backgroundColor: 'black',
-                  borderColor: 'black',
+                  backgroundColor: 'white',
+                  borderColor: 'white',
                   color: 'white',
                   borderWidth: 1
                 },
