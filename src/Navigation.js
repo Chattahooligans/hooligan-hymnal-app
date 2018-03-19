@@ -344,7 +344,7 @@ class DrawerView extends React.Component {
             { route: 'Roster', title: 'Roster' },
             { route: 'CapoHome', title: 'Capo Dashboard' },
             { route: 'About', title: 'About' },
-            { route: 'Dating', title: 'Fools' },
+            { route: 'Dating', title: 'Supportr Dating' },
           ])}
         </View>
       </View>
