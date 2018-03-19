@@ -35,6 +35,32 @@ import {
 
 import appParams from '../../app.json';
 
+import { websites } from '../config/Settings'
+
+export function openLink(item) {
+  WebBrowser.openBrowserAsync(item.url);
+}
+
+let socialButtons = [];
+websites.forEach(item => {
+  socialButtons.push(
+    <RectButton key={item.url} onPress={openLink(item)}>
+      <Ionicons
+        name={item.icon}
+        size={30}
+        style={{
+          color: Colors.green,
+          marginTop: 3,
+          marginBottom: 3,
+          marginLeft: 10,
+          marginRight: 10,
+          backgroundColor: 'transparent'
+        }}
+      />
+    </RectButton>
+  );
+});
+
 class Home extends React.Component {
   state = {
     scrollY: new Animated.Value(0)
@@ -170,87 +196,8 @@ class DeferredHomeContent extends React.Component {
         <View style={{ marginHorizontal: 15, flex: 1 }}>
           <SemiBoldText>Follow us</SemiBoldText>
         </View>        
-        <View flexDirection="row" style={{ alignItems: 'center', justifyContent: 'center'}}>
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressTwitterButton}
-              underlayColor="#fff"
-            >
-              <Ionicons
-                name="logo-twitter"
-                size={23}
-                style={{
-                  color: '#fff',
-                  marginTop: 3,
-                  marginBottom: 3,
-                  marginLeft: 5,
-                  marginRight: 5,
-                  backgroundColor: 'transparent'
-                }}
-              />
-            </RectButton>
-          </ClipBorderRadius>
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressFacebookButton}
-              underlayColor="#fff"
-            >
-              <Ionicons
-                name="logo-facebook"
-                size={23}
-                style={{
-                  color: '#fff',
-                  marginTop: 3,
-                  marginBottom: 3,
-                  marginLeft: 5,
-                  marginRight: 5,
-                  backgroundColor: 'transparent'
-                }}
-              />
-            </RectButton>
-          </ClipBorderRadius>
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressInstagramButton}
-              underlayColor="#fff"
-            >
-              <Ionicons
-                name="logo-instagram"
-                size={23}
-                style={{
-                  color: '#fff',
-                  marginTop: 3,
-                  marginBottom: 3,
-                  marginLeft: 5,
-                  marginRight: 5,
-                  backgroundColor: 'transparent'
-                }}
-              />
-            </RectButton>
-          </ClipBorderRadius>
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressWebButton}
-              underlayColor="#fff"
-            >
-              <Ionicons
-                name="md-browsers"
-                size={23}
-                style={{
-                  color: '#fff',
-                  marginTop: 3,
-                  marginBottom: 3,
-                  marginLeft: 5,
-                  marginRight: 5,
-                  backgroundColor: 'transparent'
-                }}
-              />
-            </RectButton>
-          </ClipBorderRadius>
+        <View flexDirection="row" style={{ paddingHorizontal: 20 }}>
+          {socialButtons}
         </View>
       </AnimatableView>
     );
@@ -262,23 +209,6 @@ class DeferredHomeContent extends React.Component {
         routeName: 'Songbook'
       })
     );
-  };
-
-  _handlePressTwitterButton = async () => {
-    try {
-      await Linking.openURL(`twitter://user?screen_name=chattahooligan`);
-    } catch (e) {
-      WebBrowser.openBrowserAsync('https://twitter.com/chattahooligan');
-    }
-  };
-  _handlePressFacebookButton = async () => {
-    WebBrowser.openBrowserAsync('https://www.facebook.com/TheChattahooligans/');
-  };
-  _handlePressInstagramButton = async () => {
-    WebBrowser.openBrowserAsync('https://instagram.com/thechattahooligans');
-  };
-  _handlePressWebButton = async () => {
-    WebBrowser.openBrowserAsync('http://thechattahooligans.com');
   };
 }
 
