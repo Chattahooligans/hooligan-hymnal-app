@@ -35,7 +35,7 @@ import {
 
 import appParams from '../../app.json';
 
-import { websites } from '../config/Settings'
+import { Skin, websites } from '../config/Settings'
 
 let socialButtons = [];
 websites.forEach(item => {
@@ -45,7 +45,7 @@ websites.forEach(item => {
         name={item.icon}
         size={30}
         style={{
-          color: Colors.green,
+          color: Skin.SocialButtons,
           marginTop: 3, marginBottom: 3,
           marginLeft: 10, marginRight: 10,
           backgroundColor: 'transparent'

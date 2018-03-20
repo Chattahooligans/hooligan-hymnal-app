@@ -43,7 +43,8 @@ export const Colors = {
     Black: '#000000'
 };
 
-export const GlobalNavigationBar = Colors.Navy;
-
-export const SongbookNavigationBar = GlobalNavigationBar;
-export const RosterNavigationBar = GlobalNavigationBar;
+export const Skin = 
+{
+    NavigationBarBackground: Colors.Navy,
+    SocialButtons: Colors.Navy
+}

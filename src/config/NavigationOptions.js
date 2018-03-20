@@ -1,9 +1,10 @@
 import React from 'react';
 import MenuButton from '../components/MenuButton';
 import { Colors } from '../constants';
+import { Skin } from '../config/Settings';
 
 export default {
-  headerStyle: { backgroundColor: Colors.green },
+  headerStyle: { backgroundColor: Skin.NavigationBar },
   headerTintColor: 'white',
   headerLeft: <MenuButton />,
   headerTitleStyle: {
