@@ -4,7 +4,7 @@ import { Colors } from '../constants';
 import { Skin } from '../config/Settings';
 
 export default {
-  headerStyle: { backgroundColor: Skin.NavigationBar },
+  headerStyle: { backgroundColor: Colors.green },
   headerTintColor: 'white',
   headerLeft: <MenuButton />,
   headerTitleStyle: {
