@@ -4,7 +4,7 @@
     "squads":
     [
         {
-            "squad_title": "NPSL",
+            "squad_title": "Chattanooga FC Men",
             "players":
             [
                 { "_id": 1 },
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "squad_title": "WPSL",
+            "squad_title": "Chattanooga FC Women",
             "players":
             [
             ]
