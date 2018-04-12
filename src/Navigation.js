@@ -126,7 +126,6 @@ const DrawerRouteConfig = {
   Home: { screen: Screens.Home, title: 'Home' },
   Songbook: { screen: SongbookNavigation, title: 'Songbook' },
   Roster: { screen: RosterNavigation, title: 'Roster' },
-  Dating: { screen: DatingNavigation, title: 'Supportr Dating' },
   CapoHome: { screen: CapoHomeNavigation, title: 'Capo Dashboard' },
   About: { screen: AboutNavigation, title: 'About' },
 };
@@ -342,7 +341,6 @@ class DrawerView extends React.Component {
             { route: 'Home', title: 'Home' },
             { route: 'Songbook', title: 'Songbook' },
             { route: 'Roster', title: 'Roster' },
-            { route: 'Dating', title: 'Supportr Dating' },
             { route: 'CapoHome', title: 'Capo Dashboard' },
             { route: 'About', title: 'About' },
           ])}
