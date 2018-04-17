@@ -780,5 +780,22 @@
     "player_id": -1,
     "override_html": "",
     "delete_local": ""
+  },
+  {
+    "_id": 48,
+    "category": "game",
+    "create_time": "",
+    "update_time": "",
+    "title": "Don't Give a Damn",
+    "tags": "voice",
+    "lyrics": 
+      "Oh, we don't give a damn about\nDee-troit Soccer\nDee-troit Soccer\nDee-troit Soccer\n\nWe don't give a damn about\nDee-troit Soccer\nWe're for CFC",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from Ohio State fight song",
+    "reference_link": "",
+    "instructions": "",
+    "player_id": -1,
+    "override_html": "",
+    "delete_local": ""
   }
 ]
