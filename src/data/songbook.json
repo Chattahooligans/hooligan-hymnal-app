@@ -34,7 +34,8 @@
             [
                 { "_id": 48, "featured":  true },
                 { "_id": 46, "featured":  true },
-                { "_id": 45, "featured":  true }
+                { "_id": 45, "featured":  true },
+                { "_id": 31 }
             ]
         },
         {
