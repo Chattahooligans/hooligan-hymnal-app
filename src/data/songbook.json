@@ -32,7 +32,7 @@
             "chapter_title": "Daily Diss Tracks",
             "songs": 
             [
-                { "_id": 48, "featured":  true },
+                { "_id": 47, "featured":  true },
                 { "_id": 46, "featured":  true },
                 { "_id": 45, "featured":  true },
                 { "_id": 31 }
@@ -48,7 +48,7 @@
                 { "_id": 23 },
                 { "_id": 26 },
                 { "_id": 28 },
-                { "_id": 45 },
+                { "_id": 48 },
                 { "_id": 32 },
                 { "_id": 15 },
                 { "_id": 18 },

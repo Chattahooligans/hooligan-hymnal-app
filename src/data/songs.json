@@ -748,7 +748,7 @@
     "delete_local": ""
   },
   {
-    "_id": 46,
+    "_id": 45,
     "category": "game",
     "create_time": "",
     "update_time": "",
@@ -765,14 +765,14 @@
     "delete_local": ""
   },
   {
-    "_id": 47,
+    "_id": 46,
     "category": "game",
     "create_time": "",
     "update_time": "",
     "title": "O Hamtramck",
     "tags": "voice",
     "lyrics": 
-      "O Hamtramck\nYou're not their native land\nTrue smoke bomb love\nThe Nothern Guard commands\n\nOn New Deal turf, the waters rise,\nthe way y'all sing off key\nShots far and wide, O Hamtramck\nYour eyes can barely see\n\nPray MLS\nFar, far away\n\nO Hamtramck,\nYou'll never win the league\nO Hamtramck\nYou'll never win the league",
+      "O Hamtramck\nYou're not their native land\nTrue smoke bomb love\nThe Nothern Guard commands\n\nOn New Deal turf, the waters rise,\nThe way y'all sing off key\nYou tweet about a Three-Oh lead\nBut you'll never win the league\n\nPray MLS\nFar, far away\n\nO Hamtramck,\nYou'll never win the league\nO Hamtramck\nYou'll never win the league",
     "tbd_various_boolean_flags": "",
     "reference_title": "from O Canada",
     "reference_link": "",
@@ -782,7 +782,7 @@
     "delete_local": ""
   },
   {
-    "_id": 48,
+    "_id": 47,
     "category": "game",
     "create_time": "",
     "update_time": "",
@@ -795,6 +795,23 @@
     "reference_link": "",
     "instructions": "",
     "player_id": -1,
+    "override_html": "",
+    "delete_local": ""
+  },
+  {
+    "_id": 48,
+    "category": "player",
+    "create_time": "",
+    "update_time": "",
+    "title": "Joao Costa",
+    "tags": "voice",
+    "lyrics": 
+      "Joao Costa! Of love!\nJoao Costa!\nOoh, ooh, ooh, ooh",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from Love Rollercoaster, by the Ohio Players",
+    "reference_link": "",
+    "instructions": "",
+    "player_id": 8,
     "override_html": "",
     "delete_local": ""
   }
