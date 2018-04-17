@@ -12,6 +12,7 @@
             "songs": 
             [
                 { "_id": 1},
+                { "_id": 10 },
                 { "_id": 2 },
                 { "_id": 3 },
                 { "_id": 4 },
@@ -20,7 +21,6 @@
                 { "_id": 7 },
                 { "_id": 8 },
                 { "_id": 9 },
-                { "_id": 10 },
                 { "_id": 11 },
                 { "_id": 12 },
                 { "_id": 13 },
@@ -32,12 +32,8 @@
             "chapter_title": "Daily Diss Tracks",
             "songs": 
             [
-                { "_id": 44, "featured":  true },
-                { "_id": 41, "featured":  true },
-                { "_id": 42, "featured":  true },
-                { "_id": 43, "featured":  true },
-                { "_id": 30, "featured":  true },
-                { "_id": 31, "featured":  true }
+                { "_id": 46, "featured":  true },
+                { "_id": 45, "featured":  true }
             ]
         },
         {
@@ -50,6 +46,7 @@
                 { "_id": 23 },
                 { "_id": 26 },
                 { "_id": 28 },
+                { "_id": 45 },
                 { "_id": 32 },
                 { "_id": 15 },
                 { "_id": 18 },

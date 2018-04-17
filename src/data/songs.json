@@ -746,5 +746,39 @@
     "player_id": -1,
     "override_html": "",
     "delete_local": ""
+  },
+  {
+    "_id": 46,
+    "category": "game",
+    "create_time": "",
+    "update_time": "",
+    "title": "Dirty Old Town",
+    "tags": "voice",
+    "lyrics": 
+      "I met my love\nBy the gasworks wall\nDreamed a dream\nBy the old canal\n\nI kissed my girl\nBy the fact'ry wall\n\nDirty Old Town, Dirty Old Town\n\nI'm gonna make\nMe a big sharp axe\nShining steel\nTempered in the fire\n\nI'll chop you down\nlike an old dead tree\n\nDirty Old Town, Dirty Old Town\n\nDirty Old Town, Dirty Old Town",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "by The Pogues",
+    "reference_link": "",
+    "instructions": "",
+    "player_id": -1,
+    "override_html": "",
+    "delete_local": ""
+  },
+  {
+    "_id": 47,
+    "category": "game",
+    "create_time": "",
+    "update_time": "",
+    "title": "O Hamtramck",
+    "tags": "voice",
+    "lyrics": 
+      "O Hamtramck\nYou're not their native land\nWeird smoke bomb love\nThe Nothern Guard commands\n\nWith astroturf, the bobbles rise,\nYour eyes can barely see\nToo far and wide, your shots surmised\nWe'll let you try for free\n\nPray MLS\nFar, far away\n\nO Hamtramck,\nYou'll never win the league\nO Hamtramck\nYou'll never win the league",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from O Canada",
+    "reference_link": "",
+    "instructions": "",
+    "player_id": -1,
+    "override_html": "",
+    "delete_local": ""
   }
 ]
