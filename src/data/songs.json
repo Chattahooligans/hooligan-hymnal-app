@@ -573,7 +573,7 @@
     "reference_title": "from military song",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 2,
     "override_html": "",
     "delete_local": ""
   },
@@ -590,7 +590,7 @@
     "reference_title": "from Rock & Roll All Nite, by KISS",
     "reference_link": "",
     "instructions": "",
-    "player_id": -1,
+    "player_id": 5,
     "override_html": "",
     "delete_local": ""
   },
@@ -607,7 +607,7 @@
     "reference_title": "from Mr Sandman, by the Chordettes",
     "reference_link": "",
     "instructions": "",
-    "player_id": 16,
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -658,7 +658,7 @@
     "reference_title": "from Sherry Baby, by Frankie Valli & The Four Seasons",
     "reference_link": "",
     "instructions": "",
-    "player_id": 2,
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
@@ -675,7 +675,7 @@
     "reference_title": "from Another One Bites the Dust, by Queen",
     "reference_link": "",
     "instructions": "",
-    "player_id": 5,
+    "player_id": -1,
     "override_html": "",
     "delete_local": ""
   },
