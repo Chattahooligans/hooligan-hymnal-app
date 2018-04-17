@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Chattahooligan Hymnal TEST",
+    "name": "Chattahooligan Hymnal",
     "description": "The Chattahooligans' stadium chants and songs",
-    "slug": "test",
+    "slug": "app",
     "privacy": "public",
     "version": "0.0.16",
     "primaryColor": "#A5D8F6",
@@ -15,13 +15,13 @@
       "image": "./src/assets/splash.png"
     },
     "android": {
-      "package": "com.thechattahooligans.test",
+      "package": "com.thechattahooligans.app",
       "icon": "./src/assets/icon-android.png",
       "versionCode": 9,
       "permissions": []
     },
     "ios": {
-      "bundleIdentifier": "com.thechattahooligans.test",
+      "bundleIdentifier": "com.thechattahooligans.app",
       "supportsTablet": true,
       "loadJSInBackgroundExperimental": true,
       "splash": {
