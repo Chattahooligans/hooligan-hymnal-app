@@ -28,9 +28,7 @@ import { HeaderBackButton } from 'react-navigation';
 import { Location, Permissions } from 'expo';
 
 import CapoMessageSchema from '../data/capo_message_schema';
-import { HYMNAL_ADDRESS } from '../config/server';
-
-const CAPO_MESSAGE_ENDPOINT = HYMNAL_ADDRESS + '/api/notification';
+import RemoteNotifications from '../server_store/RemoteNotifications';
 
 @withNavigation
 export default class CapoConfirmSend extends React.Component {
@@ -179,39 +177,31 @@ export default class CapoConfirmSend extends React.Component {
     CapoMessageSchema.song = state.currentSong;
     //console.log('---- object to wrap in a message to server ----\n', CapoMessageSchema);
 
-    fetch(CAPO_MESSAGE_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        sender: CapoMessageSchema.sender,
-        send_time: CapoMessageSchema.send_time,
-        sender_latitude: CapoMessageSchema.sender_latitude,
-        sender_longitude: CapoMessageSchema.sender_longitude,
-        message: '',
-        push: pushFlag,
-        announcement: undefined,
-        song: {
-          category: CapoMessageSchema.song.category,
-          create_time: CapoMessageSchema.song.create_time,
-          update_time: CapoMessageSchema.song.update_time,
-          title: CapoMessageSchema.song.title,
-          tags: CapoMessageSchema.song.tags,
-          lyrics: CapoMessageSchema.song.lyrics,
-          tbd_various_boolean_flags:
-            CapoMessageSchema.song.tbd_various_boolean_flags,
-          reference_title: CapoMessageSchema.song.reference_title,
-          reference_link: CapoMessageSchema.song.reference_link,
-          instructions: CapoMessageSchema.song.instructions,
-          player_id: CapoMessageSchema.song.player_id,
-          override_html: CapoMessageSchema.song.override_html,
-          delete_local: CapoMessageSchema.song.delete_local
-        }
-      })
+    RemoteNotifications.create({
+      sender: CapoMessageSchema.sender,
+      send_time: CapoMessageSchema.send_time,
+      sender_latitude: CapoMessageSchema.sender_latitude,
+      sender_longitude: CapoMessageSchema.sender_longitude,
+      message: '',
+      push: pushFlag,
+      announcement: undefined,
+      song: {
+        category: CapoMessageSchema.song.category,
+        create_time: CapoMessageSchema.song.create_time,
+        update_time: CapoMessageSchema.song.update_time,
+        title: CapoMessageSchema.song.title,
+        tags: CapoMessageSchema.song.tags,
+        lyrics: CapoMessageSchema.song.lyrics,
+        tbd_various_boolean_flags:
+          CapoMessageSchema.song.tbd_various_boolean_flags,
+        reference_title: CapoMessageSchema.song.reference_title,
+        reference_link: CapoMessageSchema.song.reference_link,
+        instructions: CapoMessageSchema.song.instructions,
+        player_id: CapoMessageSchema.song.player_id,
+        override_html: CapoMessageSchema.song.override_html,
+        delete_local: CapoMessageSchema.song.delete_local
+      }
     })
-      .then(response => response.json())
       .then(responseJson => {
         // this is the output from the server for sending our capo_message
         console.log(JSON.stringify(responseJson));
