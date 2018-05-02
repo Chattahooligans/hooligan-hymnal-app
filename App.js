@@ -131,12 +131,10 @@ export default class App extends React.Component {
 
       // Maybe set app state and do something with it that way?
       // this.setState({ notification: notification });
-
     } else if (notification.origin === 'received') {
       // notification was received, either app was already open or it just opened up but not from the notification
       // no way to tell which?
       // console.log('RECEIVED notification', notification.data.song.title);
-
       // We don't necessarily want to do anything in this case
     }
   };
@@ -157,6 +155,7 @@ export default class App extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <Navigation />
+        <StatusBar barStyle="light-content" />
       </View>
     );
   }

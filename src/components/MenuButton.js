@@ -1,16 +1,18 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { connectDrawerButton } from '../Navigation';
+import { withNavigation } from 'react-navigation';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { Layout } from '../constants';
 
-@connectDrawerButton
+@withNavigation
 export default class MenuButton extends React.Component {
+  onPress = () => this.props.navigation.navigate('DrawerToggle');
+
   render() {
     return (
       <BorderlessButton
-        onPress={this.props.openDrawer}
+        onPress={this.onPress}
         style={{
           marginBottom: 2,
           marginRight: 5,
@@ -18,7 +20,7 @@ export default class MenuButton extends React.Component {
           marginLeft: 5,
           paddingHorizontal: 10,
           paddingVertical: 5,
-          alignSelf: 'flex-start',
+          alignSelf: 'flex-start'
         }}
         hitSlop={{ left: 30, top: 30, right: 30, bottom: 30 }}
       >
