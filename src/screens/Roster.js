@@ -86,7 +86,7 @@ class PlayerRow extends React.Component {
 
 export default class Roster extends React.Component {
   static navigationOptions = {
-    title: Squads.roster_title,
+    headerTitle: Squads.roster_title,
     ...NavigationOptions
   };
 

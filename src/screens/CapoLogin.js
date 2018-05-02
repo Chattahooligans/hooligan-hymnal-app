@@ -8,21 +8,11 @@ import {
   TextInput
 } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
-import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
-import { NavigationActions } from 'react-navigation';
 import NavigationOptions from '../config/NavigationOptions';
-import { Ionicons } from '@expo/vector-icons';
-
 import state from '../state';
-
-import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
-
-import NavigationBar from '../components/NavigationBar';
-import { Colors, FontSizes, Layout } from '../constants';
-import { Constants } from 'expo';
-import { HeaderBackButton } from 'react-navigation';
+import { BoldText, SemiBoldText } from '../components/StyledText';
+import { Colors, FontSizes } from '../constants';
 
 // TODO: Hard code password for now
 // Add top nav bar with Back button
@@ -35,64 +25,29 @@ import { HeaderBackButton } from 'react-navigation';
 @withNavigation
 export default class CapoLogin extends React.Component {
   static navigationOptions = {
-    title: 'Capo Login',
+    headerTitle: 'Capo Dashboard',
     ...NavigationOptions
   };
 
   render() {
     return (
-      <LoadingPlaceholder>
-        <View style={styles.container}>
-          <Text style={styles.instructions}>Enter password to unlock</Text>
-          <TextInput style={styles.textInput} autoFocus={true} onChangeText={this._setPassword} />
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressSubmitButton}
-              underlayColor="#fff"
-            >
-              <SemiBoldText style={styles.bigButtonText}>Unlock</SemiBoldText>
-            </RectButton>
-          </ClipBorderRadius>
-          <NavigationBar
-            animatedBackgroundOpacity={1}
-            style={[
-              Platform.OS === 'android'
-                ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
-                : null,
-            ]}
-            renderLeftButton={() => (
-              <View
-                style={{
-                  // gross dumb things
-                  paddingTop: Platform.OS === 'android' ? 17 : 0,
-                  marginTop: Layout.notchHeight > 0 ? -5 : 0
-                }}
-              >
-                <HeaderBackButton
-                  onPress={() => this.props.navigation.goBack()}
-                  tintColor="#fff"
-                />
-              </View>
-            )}
-            renderTitle={() => (
-              <Text
-                style={{
-                  // gross dumb things
-                  paddingTop: Platform.OS === 'android' ? 17 : 0,
-                  marginTop: Layout.notchHeight > 0 ? -5 : 0,
-                  fontFamily: 'open-sans-bold',
-                  color: "#FFFFFF",
-                  fontSize: 20,
-                  paddingHorizontal: 0
-                }}
-              >
-                Capo Dashboard Locked
-              </Text>
-            )}
-          />
-        </View>
-      </LoadingPlaceholder>
+      <View style={styles.container}>
+        <Text style={styles.instructions}>Enter password to unlock</Text>
+        <TextInput
+          style={styles.textInput}
+          autoFocus={true}
+          onChangeText={this._setPassword}
+        />
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressSubmitButton}
+            underlayColor="#fff"
+          >
+            <SemiBoldText style={styles.bigButtonText}>Unlock</SemiBoldText>
+          </RectButton>
+        </ClipBorderRadius>
+      </View>
     );
   }
 
@@ -127,7 +82,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: 100 + '%',
-    paddingBottom: 8, paddingTop: Layout.headerHeight + Constants.statusBarHeight
+    paddingBottom: 8,
+    paddingTop: 15
   },
   instructions: {
     fontSize: 18
@@ -135,26 +91,6 @@ const styles = StyleSheet.create({
   textInput: {
     fontSize: 18,
     padding: 8
-  },
-  error: {
-    color: '#FF0000'
-  },
-  button: {
-    backgroundColor: '#fff',
-    padding: 15,
-    ...Platform.select({
-      ios: {
-        borderRadius: 5,
-        backgroundColor: '#fff',
-        shadowColor: '#000',
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-        shadowOffset: { width: 2, height: 2 }
-      },
-      android: {
-        elevation: 3
-      }
-    })
   },
   bigButton: {
     backgroundColor: Colors.green,

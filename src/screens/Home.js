@@ -49,7 +49,7 @@ websites.forEach(item => {
           marginTop: 3, marginBottom: 3,
           marginLeft: 10, marginRight: 10,
           backgroundColor: 'transparent'
-        }}        
+        }}
       />
     </TouchableOpacity>
   );
@@ -58,6 +58,10 @@ websites.forEach(item => {
 class Home extends React.Component {
   state = {
     scrollY: new Animated.Value(0)
+  };
+
+  static navigationOptions = {
+    drawerLabel: 'HOME'
   };
 
   componentDidMount() {
@@ -76,7 +80,7 @@ class Home extends React.Component {
 
       // Maybe set app state and do something with it that way?
       // this.setState({ notification: notification });
-      
+
     } else if (notification.origin === 'received') {
       // notification was received, either app was already open or it just opened up but not from the notification
       // no way to tell which?
@@ -189,7 +193,7 @@ class DeferredHomeContent extends React.Component {
         </View>
         <View style={{ marginHorizontal: 15, flex: 1 }}>
           <SemiBoldText>Follow us</SemiBoldText>
-        </View>        
+        </View>
         <View flexDirection="row" style={{ paddingHorizontal: 20 }}>
           {socialButtons}
         </View>
