@@ -59,8 +59,10 @@ export default class NavigationBar extends React.Component {
 }
 
 // Didn't want to investigate why I needed to offset this a bit, surely there is a good reason
-const MADE_UP_NUMBER = 7;
-const PADDING_TOP = Platform.OS === 'ios' ? Constants.statusBarHeight : MADE_UP_NUMBER;
+const PADDING_TOP =
+  Platform.OS === 'ios'
+    ? Constants.statusBarHeight
+    : Constants.statusBarHeight + 10;
 
 const styles = StyleSheet.create({
   navigationBarContainer: {
