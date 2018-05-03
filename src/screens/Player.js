@@ -45,7 +45,7 @@ export default class Player extends React.Component {
     if (playerSongs.length === 0) {
       playerSongDisplay = <RegularText style={styles.bodyText}>We are still working on a song for this player. Want to help? Submit an idea!</RegularText>
     } else {
-      playerSongDisplay = 
+      playerSongDisplay =
         <FlatList
           style={{backgroundColor: '#A5D8F6'}}
           data={playerSongs}
@@ -111,7 +111,7 @@ export default class Player extends React.Component {
               style={{
                 transform: [{ scale }, { translateX }, { translateY }]
               }}
-            >  
+            >
               <FadeIn placeholderStyle={{ backgroundColor: '#318A73' }}>
                 <Image
                   source={require('../assets/chattfc_logo.png')}
@@ -158,7 +158,7 @@ export default class Player extends React.Component {
             <View
               style={{
                 // gross dumb things
-                paddingTop: Platform.OS === 'android' ? 17 : 0,
+                paddingTop: Platform.OS === 'android' ? 10 : 0,
                 marginTop: Layout.notchHeight > 0 ? -5 : 0
               }}
             >
