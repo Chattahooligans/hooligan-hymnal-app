@@ -177,10 +177,9 @@ export default class CapoConfirmSend extends React.Component {
     CapoMessageSchema.song = state.currentSong;
     //console.log('---- object to wrap in a message to server ----\n', CapoMessageSchema);
 
-    console.log("RemoteNotifications", RemoteNotifications);
-    console.log("RemoteNotifications.create", RemoteNotifications.create);
+    let notifications = new RemoteNotifications();
 
-    RemoteNotifications.create({
+    notifications.create({
       sender: CapoMessageSchema.sender,
       send_time: CapoMessageSchema.send_time,
       sender_latitude: CapoMessageSchema.sender_latitude,
@@ -189,7 +188,6 @@ export default class CapoConfirmSend extends React.Component {
       push: pushFlag,
       announcement: undefined,
       song: {
-        _id: -1,
         category: CapoMessageSchema.song.category,
         create_time: CapoMessageSchema.song.create_time,
         update_time: CapoMessageSchema.song.update_time,
