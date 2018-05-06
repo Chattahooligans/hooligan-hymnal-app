@@ -62,7 +62,7 @@ export default class App extends React.Component {
         'Oops, this will not work on Sketch in an Android emulator. Try it on your device!'
       );
     } else {
-      this._getLocationAsync();
+      //this._getLocationAsync();
     }
     this._registerForPushNotificationsAsync();
     //this._notificationSubscription = Notifications.addListener(this._handleNotification);
