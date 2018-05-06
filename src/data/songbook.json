@@ -39,7 +39,7 @@
             ]
         },
         {
-            "chapter_title": "The Songs of My People",
+            "chapter_title": "The Songs of My People (Men)",
             "songs": 
             [
                 { "_id": 34 },
@@ -57,6 +57,12 @@
                 { "_id": 20 },
                 { "_id": 35 },
                 { "_id": 16 }
+            ]
+        },
+        {
+            "chapter_title": "The Songs of My People (Women)",
+            "songs":
+            [
             ]
         }
     ]
