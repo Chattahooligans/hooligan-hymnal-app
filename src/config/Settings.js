@@ -23,6 +23,11 @@ export const INSTAGRAM_URL = 'https://instagram.com/thechattahooligans';
 export const WEBSITE_URL = 'http://thechattahooligans.com';
 export const YOUTUBE_URL = '';
 export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
+export const PRIDERAISER_URL = 'https://www.prideraiser.org/campaigns/the-chattahooligans-chattanooga-prideraiser-94ba65a64bbf4bc896793733e7218cbc/';
+export const GOFUNDME_URL = 'https://www.gofundme.com/chattahooligans-get-active';
+
+export const PRIDERAISER_ICON = require('../assets/prideraiser.png');
+export const GOFUNDME_ICON = require('../assets/gofundme.png');
 
 // icon: Iconicons name
 export const websites = [
@@ -30,7 +35,9 @@ export const websites = [
     { type: SocialPlatform.Facebook, icon: 'logo-facebook', url: FACEBOOK_URL },
     { type: SocialPlatform.Instagram, icon: 'logo-instagram', url: INSTAGRAM_URL },
     { type: SocialPlatform.Web, icon: 'md-browsers', url: WEBSITE_URL },
-    { type: SocialPlatform.Web, icon: 'md-cart', url: SHOP_URL }
+    { type: SocialPlatform.Web, icon: 'md-cart', url: SHOP_URL },
+    { type: SocialPlatform.Web, image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
+    { type: SocialPlatform.Web, image: GOFUNDME_ICON, url: GOFUNDME_URL },
 ]
 
 /*

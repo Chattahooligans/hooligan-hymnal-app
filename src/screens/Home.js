@@ -39,20 +39,38 @@ import { Skin, websites } from '../config/Settings'
 
 let socialButtons = [];
 websites.forEach(item => {
-  socialButtons.push(
-    <TouchableOpacity key={item.url} onPress={() => { WebBrowser.openBrowserAsync(item.url) }}>
-      <Ionicons
-        name={item.icon}
-        size={30}
-        style={{
-          color: Skin.SocialButtons,
-          marginTop: 3, marginBottom: 3,
-          marginLeft: 10, marginRight: 10,
-          backgroundColor: 'transparent'
-        }}
-      />
-    </TouchableOpacity>
-  );
+  if (item.icon) {
+    socialButtons.push(
+      <TouchableOpacity key={item.url} onPress={() => { WebBrowser.openBrowserAsync(item.url) }}>
+        <Ionicons
+          name={item.icon}
+          size={30}
+          style={{
+            color: Skin.SocialButtons,
+            marginTop: 3, marginBottom: 3,
+            marginLeft: 10, marginRight: 10,
+            backgroundColor: 'transparent'
+          }}
+        />
+      </TouchableOpacity>
+    );
+  }
+  else if (item.image)
+  {
+    socialButtons.push(
+      <TouchableOpacity key={item.url} onPress={() => { WebBrowser.openBrowserAsync(item.url) }}>
+        <Image
+          source={item.image}
+          style={{
+            width: 30, height: 30,
+            marginTop: 3, marginBottom: 3,
+            marginLeft: 10, marginRight: 10,
+            backgroundColor: 'transparent'
+          }}
+        />
+      </TouchableOpacity>
+    );
+  }
 });
 
 class Home extends React.Component {
