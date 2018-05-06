@@ -22,13 +22,15 @@ export const FACEBOOK_URL = 'https://www.facebook.com/TheChattahooligans';
 export const INSTAGRAM_URL = 'https://instagram.com/thechattahooligans';
 export const WEBSITE_URL = 'http://thechattahooligans.com';
 export const YOUTUBE_URL = '';
+export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
 
 // icon: Iconicons name
 export const websites = [
     { type: SocialPlatform.Twitter, icon: 'logo-twitter', url: TWITTER_URL },
     { type: SocialPlatform.Facebook, icon: 'logo-facebook', url: FACEBOOK_URL },
     { type: SocialPlatform.Instagram, icon: 'logo-instagram', url: INSTAGRAM_URL },
-    { type: SocialPlatform.Web, icon: 'md-browsers', url: WEBSITE_URL }
+    { type: SocialPlatform.Web, icon: 'md-browsers', url: WEBSITE_URL },
+    { type: SocialPlatform.Web, icon: 'md-cart', url: SHOP_URL }
 ]
 
 /*
