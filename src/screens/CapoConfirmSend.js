@@ -45,7 +45,7 @@ export default class CapoConfirmSend extends React.Component {
         'Oops, this will not work on Sketch in an Android emulator. Try it on your device!'
       );
     } else {
-      this._getLocationAsync();
+      //this._getLocationAsync();
     }
   }
 
@@ -177,6 +177,9 @@ export default class CapoConfirmSend extends React.Component {
     CapoMessageSchema.song = state.currentSong;
     //console.log('---- object to wrap in a message to server ----\n', CapoMessageSchema);
 
+    console.log("RemoteNotifications", RemoteNotifications);
+    console.log("RemoteNotifications.create", RemoteNotifications.create);
+
     RemoteNotifications.create({
       sender: CapoMessageSchema.sender,
       send_time: CapoMessageSchema.send_time,
@@ -186,6 +189,7 @@ export default class CapoConfirmSend extends React.Component {
       push: pushFlag,
       announcement: undefined,
       song: {
+        _id: -1,
         category: CapoMessageSchema.song.category,
         create_time: CapoMessageSchema.song.create_time,
         update_time: CapoMessageSchema.song.update_time,
