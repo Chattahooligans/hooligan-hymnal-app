@@ -21,6 +21,19 @@ const SongsNavigation = StackNavigator(
   DefaultStackConfig
 );
 
+const HomeNavigation = StackNavigator(
+  {
+    Home: { screen: Screens.Home },
+    SingleSong: { screen: Screens.SingleSong }
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: 'HOME'
+    }
+  }
+);
+
 const SongbookNavigation = StackNavigator(
   {
     Songbook: {
@@ -83,7 +96,7 @@ const AboutNavigation = StackNavigator(
 
 const Drawer = DrawerNavigator(
   {
-    Home: { screen: Screens.Home },
+    Home: { screen: HomeNavigation },
     Songbook: { screen: SongbookNavigation },
     Roster: { screen: RosterNavigation },
     CapoHome: { screen: CapoHomeNavigation },
@@ -98,7 +111,6 @@ const Drawer = DrawerNavigator(
 export default StackNavigator(
   {
     Drawer: { screen: Drawer },
-    SingleSong: { screen: Screens.SingleSong },
     Player: { screen: Screens.Player }
   },
   {

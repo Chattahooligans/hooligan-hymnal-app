@@ -35,36 +35,49 @@ import {
 
 import appParams from '../../app.json';
 
-import { Skin, websites } from '../config/Settings'
+import { Skin, websites } from '../config/Settings';
 
 let socialButtons = [];
 websites.forEach(item => {
   if (item.icon) {
     socialButtons.push(
-      <TouchableOpacity key={item.url} onPress={() => { WebBrowser.openBrowserAsync(item.url) }}>
+      <TouchableOpacity
+        key={item.url}
+        onPress={() => {
+          WebBrowser.openBrowserAsync(item.url);
+        }}
+      >
         <Ionicons
           name={item.icon}
           size={30}
           style={{
             color: Skin.SocialButtons,
-            marginTop: 3, marginBottom: 3,
-            marginLeft: 10, marginRight: 10,
+            marginTop: 3,
+            marginBottom: 3,
+            marginLeft: 10,
+            marginRight: 10,
             backgroundColor: 'transparent'
           }}
         />
       </TouchableOpacity>
     );
-  }
-  else if (item.image)
-  {
+  } else if (item.image) {
     socialButtons.push(
-      <TouchableOpacity key={item.url} onPress={() => { WebBrowser.openBrowserAsync(item.url) }}>
+      <TouchableOpacity
+        key={item.url}
+        onPress={() => {
+          WebBrowser.openBrowserAsync(item.url);
+        }}
+      >
         <Image
           source={item.image}
           style={{
-            width: 30, height: 30,
-            marginTop: 3, marginBottom: 3,
-            marginLeft: 10, marginRight: 10,
+            width: 30,
+            height: 30,
+            marginTop: 3,
+            marginBottom: 3,
+            marginLeft: 10,
+            marginRight: 10,
             backgroundColor: 'transparent'
           }}
         />
@@ -79,7 +92,8 @@ class Home extends React.Component {
   };
 
   static navigationOptions = {
-    drawerLabel: 'HOME'
+    drawerLabel: 'HOME',
+    header: null
   };
 
   componentDidMount() {
@@ -94,16 +108,16 @@ class Home extends React.Component {
       // TODO: open SingleSong screen and send it the Song object buried inside the notification
 
       // kinda like this but it doesn't work from this far out (because navigation doesn't exist yet)
-      this.props.navigation.navigate('SingleSong', {song: notification.data.song});
+      this.props.navigation.navigate('SingleSong', {
+        song: notification.data.song
+      });
 
       // Maybe set app state and do something with it that way?
       // this.setState({ notification: notification });
-
     } else if (notification.origin === 'received') {
       // notification was received, either app was already open or it just opened up but not from the notification
       // no way to tell which?
       // console.log('RECEIVED notification', notification.data.song.title);
-
       // We don't necessarily want to do anything in this case
     }
   };
@@ -160,7 +174,9 @@ class Home extends React.Component {
               tintColor="#fff"
             />
             <View style={styles.headerContent}>
-              <SemiBoldText style={styles.headerText}>{appParams.expo.version}</SemiBoldText>
+              <SemiBoldText style={styles.headerText}>
+                {appParams.expo.version}
+              </SemiBoldText>
             </View>
           </View>
 

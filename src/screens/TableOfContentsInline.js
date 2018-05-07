@@ -23,7 +23,6 @@ import Songs from '../data/songs.json';
 import Songbook from '../data/songbook.json';
 import { conferenceHasEnded } from '../utils/index';
 
-import NavigationBar from '../components/NavigationBar';
 import { Colors, FontSizes, Layout } from '../constants';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
@@ -93,7 +92,7 @@ class SongRow extends React.Component {
 
 export default class TableOfContentsInline extends React.Component {
   state = {
-    
+
   };
 
   render() {

@@ -21,7 +21,6 @@ import state from '../state';
 import Players from '../data/players.json';
 import Squads from '../data/roster.json';
 
-import NavigationBar from '../components/NavigationBar';
 import { Colors, FontSizes, Layout } from '../constants';
 import { Constants } from 'expo';
 
@@ -34,7 +33,7 @@ Squads.squads.forEach(squadChild => {
   //console.log(squadChild.squad_title);
   squadChild.players.forEach(playerChild => {
     try {
-      let player = Players.filter(player => player._id === playerChild._id)[0]
+      let player = Players.filter(player => player._id === playerChild._id)[0];
       //console.log(player._id + " " + player.name);
       playerList.push(player);
     } catch (err) {
@@ -51,7 +50,7 @@ class PlayerRow extends React.Component {
     const { item: player } = this.props;
 
     return (
-        <RectButton
+      <RectButton
         onPress={this._handlePress}
         activeOpacity={0.05}
         style={{ flex: 1, backgroundColor: '#fff' }}
@@ -66,10 +65,12 @@ class PlayerRow extends React.Component {
             </FadeIn>
           </View>
           <View style={styles.rowData}>
-            <View style={{width: 25, alignItems: 'flex-end', paddingRight: 5}}>
+            <View
+              style={{ width: 25, alignItems: 'flex-end', paddingRight: 5 }}
+            >
               <BoldText>{player.squad_number}</BoldText>
             </View>
-            <View style={{flexDirection: 'column'}}>
+            <View style={{ flexDirection: 'column' }}>
               <SemiBoldText>{player.name}</SemiBoldText>
               <RegularText>{player.position}</RegularText>
             </View>
