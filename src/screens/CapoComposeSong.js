@@ -22,7 +22,6 @@ import state from '../state';
 
 import Schema from '../data/song_schema';
 
-import NavigationBar from '../components/NavigationBar';
 import { Colors, FontSizes, Layout } from '../constants';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
@@ -34,15 +33,18 @@ import { HeaderBackButton } from 'react-navigation';
 
 @withNavigation
 export default class CapoComposeSong extends React.Component {
-  static navigationOptions = {
-    title: 'Capo Compose Song',
-    ...NavigationOptions
-  };
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Compose Song',
+    ...NavigationOptions,
+    headerLeft: (
+      <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+    )
+  });
 
   render() {
     return (
       <LoadingPlaceholder>
-        <KeyboardAvoidingView behavior='height' style={styles.container}>
+        <KeyboardAvoidingView behavior="height" style={styles.container}>
           <TextInput
             style={styles.titleField}
             placeholder="Title"
@@ -72,43 +74,6 @@ export default class CapoComposeSong extends React.Component {
               <SemiBoldText style={styles.bigButtonText}>Continue</SemiBoldText>
             </RectButton>
           </ClipBorderRadius>
-          <NavigationBar
-            animatedBackgroundOpacity={1}
-            style={[
-              Platform.OS === 'android'
-                ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
-                : null,
-            ]}
-            renderLeftButton={() => (
-              <View
-                style={{
-                  // gross dumb things
-                  paddingTop: Platform.OS === 'android' ? 17 : 0,
-                  marginTop: Layout.notchHeight > 0 ? -5 : 0
-                }}
-              >
-                <HeaderBackButton
-                  onPress={() => this.props.navigation.goBack()}
-                  tintColor="#fff"
-                />
-              </View>
-            )}
-            renderTitle={() => (
-              <Text
-                style={{
-                  // gross dumb things
-                  paddingTop: Platform.OS === 'android' ? 17 : 0,
-                  marginTop: Layout.notchHeight > 0 ? -5 : 0,
-                  fontFamily: 'open-sans-bold',
-                  color: "#FFFFFF",
-                  fontSize: 20,
-                  paddingHorizontal: 0
-                }}
-              >
-                Compose Song
-              </Text>
-            )}
-          />
         </KeyboardAvoidingView>
       </LoadingPlaceholder>
     );
@@ -152,7 +117,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: 100 + '%',
-    paddingBottom: 8, paddingTop: Layout.headerHeight + Constants.statusBarHeight
+    paddingBottom: 8
   },
   titleField: {
     fontSize: 24,

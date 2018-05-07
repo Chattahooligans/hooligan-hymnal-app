@@ -21,7 +21,6 @@ import state from '../state';
 
 import SongView from '../components/SongView';
 
-import NavigationBar from '../components/NavigationBar';
 import { Colors, FontSizes, Layout } from '../constants';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
@@ -32,10 +31,13 @@ import RemoteNotifications from '../server_store/RemoteNotifications';
 
 @withNavigation
 export default class CapoConfirmSend extends React.Component {
-  static navigationOptions = {
-    title: 'Capo Confirmation',
-    ...NavigationOptions
-  };
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Confirm?',
+    ...NavigationOptions,
+    headerLeft: (
+      <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+    )
+  });
 
   componentWillMount() {
     Keyboard.dismiss();
@@ -108,46 +110,6 @@ export default class CapoConfirmSend extends React.Component {
               </RectButton>
             </ClipBorderRadius>
           </View>
-          <NavigationBar
-            animatedBackgroundOpacity={1}
-            style={[
-              Platform.OS === 'android'
-                ? {
-                    height: Layout.headerHeight + Constants.statusBarHeight,
-                    flexDirection: 'row'
-                  }
-                : null
-            ]}
-            renderLeftButton={() => (
-              <View
-                style={{
-                  // gross dumb things
-                  paddingTop: Platform.OS === 'android' ? 17 : 0,
-                  marginTop: Layout.notchHeight > 0 ? -5 : 0
-                }}
-              >
-                <HeaderBackButton
-                  onPress={() => this.props.navigation.goBack()}
-                  tintColor="#fff"
-                />
-              </View>
-            )}
-            renderTitle={() => (
-              <Text
-                style={{
-                  // gross dumb things
-                  paddingTop: Platform.OS === 'android' ? 17 : 0,
-                  marginTop: Layout.notchHeight > 0 ? -5 : 0,
-                  fontFamily: 'open-sans-bold',
-                  color: '#FFFFFF',
-                  fontSize: 20,
-                  paddingHorizontal: 0
-                }}
-              >
-                Confirm?
-              </Text>
-            )}
-          />
         </View>
       </LoadingPlaceholder>
     );
@@ -156,13 +118,13 @@ export default class CapoConfirmSend extends React.Component {
   _handlePressSendOnlyButton = () => {
     console.log('send only');
     this._sendMessage(false);
-  }
+  };
   _handlePressSendAndNotifyButton = () => {
     console.log('send and notify');
     this._sendMessage(true);
-  }
+  };
 
-  _sendMessage = (pushFlag) => {
+  _sendMessage = pushFlag => {
     console.log('inside send', pushFlag);
 
     CapoMessageSchema.sender = state.token;
@@ -179,31 +141,32 @@ export default class CapoConfirmSend extends React.Component {
 
     let notifications = new RemoteNotifications();
 
-    notifications.create({
-      sender: CapoMessageSchema.sender,
-      send_time: CapoMessageSchema.send_time,
-      sender_latitude: CapoMessageSchema.sender_latitude,
-      sender_longitude: CapoMessageSchema.sender_longitude,
-      message: '',
-      push: pushFlag,
-      announcement: undefined,
-      song: {
-        category: CapoMessageSchema.song.category,
-        create_time: CapoMessageSchema.song.create_time,
-        update_time: CapoMessageSchema.song.update_time,
-        title: CapoMessageSchema.song.title,
-        tags: CapoMessageSchema.song.tags,
-        lyrics: CapoMessageSchema.song.lyrics,
-        tbd_various_boolean_flags:
-          CapoMessageSchema.song.tbd_various_boolean_flags,
-        reference_title: CapoMessageSchema.song.reference_title,
-        reference_link: CapoMessageSchema.song.reference_link,
-        instructions: CapoMessageSchema.song.instructions,
-        player_id: CapoMessageSchema.song.player_id,
-        override_html: CapoMessageSchema.song.override_html,
-        delete_local: CapoMessageSchema.song.delete_local
-      }
-    })
+    notifications
+      .create({
+        sender: CapoMessageSchema.sender,
+        send_time: CapoMessageSchema.send_time,
+        sender_latitude: CapoMessageSchema.sender_latitude,
+        sender_longitude: CapoMessageSchema.sender_longitude,
+        message: '',
+        push: pushFlag,
+        announcement: undefined,
+        song: {
+          category: CapoMessageSchema.song.category,
+          create_time: CapoMessageSchema.song.create_time,
+          update_time: CapoMessageSchema.song.update_time,
+          title: CapoMessageSchema.song.title,
+          tags: CapoMessageSchema.song.tags,
+          lyrics: CapoMessageSchema.song.lyrics,
+          tbd_various_boolean_flags:
+            CapoMessageSchema.song.tbd_various_boolean_flags,
+          reference_title: CapoMessageSchema.song.reference_title,
+          reference_link: CapoMessageSchema.song.reference_link,
+          instructions: CapoMessageSchema.song.instructions,
+          player_id: CapoMessageSchema.song.player_id,
+          override_html: CapoMessageSchema.song.override_html,
+          delete_local: CapoMessageSchema.song.delete_local
+        }
+      })
       .then(responseJson => {
         // this is the output from the server for sending our capo_message
         console.log(JSON.stringify(responseJson));
@@ -235,14 +198,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: 100 + '%',
-    paddingBottom: 8,
-    paddingTop: Layout.headerHeight + Constants.statusBarHeight
+    paddingBottom: 8
   },
   buttonContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     width: 100 + '%',
-    justifyContent: "space-between",
-    alignItems: "stretch"
+    justifyContent: 'space-between',
+    alignItems: 'stretch'
   },
   bigButton: {
     backgroundColor: Colors.green,
@@ -254,7 +216,7 @@ const styles = StyleSheet.create({
     borderRadius: BORDER_RADIUS,
     overflow: 'hidden',
     flexDirection: 'row',
-    justifyContent: "space-between"
+    justifyContent: 'space-between'
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,

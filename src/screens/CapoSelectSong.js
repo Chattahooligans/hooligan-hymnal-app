@@ -1,5 +1,12 @@
 import React from 'react';
-import { Image, SectionList, Platform, StyleSheet, View, Text } from 'react-native';
+import {
+  Image,
+  SectionList,
+  Platform,
+  StyleSheet,
+  View,
+  Text
+} from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
@@ -16,7 +23,6 @@ import state from '../state';
 
 import { find, propEq } from 'ramda';
 
-import NavigationBar from '../components/NavigationBar';
 import { Colors, FontSizes, Layout } from '../constants';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
@@ -49,18 +55,15 @@ Songbook.chapters.forEach(chapterChild => {
     songList.sort(function(a, b) {
       return a.song_title > b.song_title
         ? 1
-        : b.song_title > a.song_title ? -1 : 0;
+        : b.song_title > a.song_title
+          ? -1
+          : 0;
     });
     ToCData.push({ title: chapterChild.chapter_title, data: songList });
   }
 });
 
 class SongRow extends React.Component {
-  static navigationOptions = {
-    title: 'Capo Select Song',
-    ...NavigationOptions
-  };
-
   render() {
     const { item: song } = this.props;
 
@@ -85,62 +88,26 @@ class SongRow extends React.Component {
 }
 
 export default class CapoSelectSong extends React.Component {
-  static navigationOptions = {
-    title: 'Capo Select Song',
-    ...NavigationOptions
-  };
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Select Song',
+    ...NavigationOptions,
+    headerLeft: (
+      <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+    )
+  });
 
   render() {
     return (
-      <LoadingPlaceholder>
-        <View style={styles.container}>
-          <SectionList
-            renderScrollComponent={props => <ScrollView {...props} />}
-            stickySectionHeadersEnabled={true}
-            renderItem={this._renderItem}
-            renderSectionHeader={this._renderSectionHeader}
-            sections={ToCData}
-            keyExtractor={(item, index) => index}
-          />
-          <NavigationBar
-            animatedBackgroundOpacity={1}
-            style={[
-              Platform.OS === 'android'
-                ? { height: Layout.headerHeight + Constants.statusBarHeight, flexDirection: 'row' }
-                : null,
-            ]}
-            renderLeftButton={() => (
-              <View
-                style={{
-                  // gross dumb things
-                  paddingTop: Platform.OS === 'android' ? 17 : 0,
-                  marginTop: Layout.notchHeight > 0 ? -5 : 0
-                }}
-              >
-                <HeaderBackButton
-                  onPress={() => this.props.navigation.goBack()}
-                  tintColor="#fff"
-                />
-              </View>
-            )}
-            renderTitle={() => (
-              <Text
-                style={{
-                  // gross dumb things
-                  paddingTop: Platform.OS === 'android' ? 17 : 0,
-                  marginTop: Layout.notchHeight > 0 ? -5 : 0,
-                  fontFamily: 'open-sans-bold',
-                  color: "#FFFFFF",
-                  fontSize: 20,
-                  paddingHorizontal: 0
-                }}
-              >
-                Select Song
-              </Text>
-            )}
-          />
-        </View>
-      </LoadingPlaceholder>
+      <View style={styles.container}>
+        <SectionList
+          renderScrollComponent={props => <ScrollView {...props} />}
+          stickySectionHeadersEnabled={true}
+          renderItem={this._renderItem}
+          renderSectionHeader={this._renderSectionHeader}
+          sections={ToCData}
+          keyExtractor={(item, index) => index}
+        />
+      </View>
     );
   }
 
@@ -168,7 +135,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: 100 + '%',
-    paddingBottom: 8, paddingTop: Layout.headerHeight + Constants.statusBarHeight
+    paddingBottom: 8
   },
   row: {
     flex: 1,
