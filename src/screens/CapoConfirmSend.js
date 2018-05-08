@@ -173,7 +173,7 @@ export default class CapoConfirmSend extends React.Component {
         //alert("success or fail message? do we even know?");
         // if fail, stay here
         // if success
-        this.props.navigation.navigate('Home');
+        this.props.navigation.popToTop();
       });
   };
 }
