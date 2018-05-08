@@ -10,7 +10,6 @@ import {
 import { RectButton } from 'react-native-gesture-handler';
 import { withNavigation } from 'react-navigation';
 import NavigationOptions from '../config/NavigationOptions';
-import state from '../state';
 import { BoldText, SemiBoldText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 
@@ -29,6 +28,10 @@ export default class CapoLogin extends React.Component {
     ...NavigationOptions
   };
 
+  state = {
+    password: ''
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -37,6 +40,7 @@ export default class CapoLogin extends React.Component {
           style={styles.textInput}
           autoFocus={true}
           onChangeText={this._setPassword}
+          value={this.state.value}
         />
         <ClipBorderRadius>
           <RectButton
@@ -51,13 +55,11 @@ export default class CapoLogin extends React.Component {
     );
   }
 
-  _setPassword = password => {
-    state.password = password;
-  };
+  _setPassword = password => this.setState({ password });
 
   _handlePressSubmitButton = () => {
-    if (state.password === '$4 beer') {
-      state.unlocked = true;
+    if (this.state.password === '$4 beer') {
+      this.props.screenProps.toggleUserAuth();
       this.props.navigation.navigate('CapoHome');
     }
   };

@@ -17,8 +17,6 @@ import { Ionicons } from '@expo/vector-icons';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
 
-import state from '../state';
-
 import SongView from '../components/SongView';
 
 import { Colors, FontSizes, Layout } from '../constants';
@@ -54,18 +52,19 @@ export default class CapoConfirmSend extends React.Component {
   _getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
-      state.location = null;
+      this.props.screenProps.setLocation(null);
     } else {
       let location = await Location.getCurrentPositionAsync({});
-      state.location = location;
+      this.props.screenProps.setLocation(location);
     }
   };
 
   render() {
+    const { currentSong } = this.props.screenProps;
     return (
       <LoadingPlaceholder>
         <View style={styles.container}>
-          <SongView song={state.currentSong} />
+          <SongView song={currentSong} />
           <View style={styles.buttonContainer}>
             <ClipBorderRadius>
               <RectButton
@@ -125,18 +124,18 @@ export default class CapoConfirmSend extends React.Component {
   };
 
   _sendMessage = pushFlag => {
-    console.log('inside send', pushFlag);
+    const { currentSong, location, token } = this.props.screenProps;
 
-    CapoMessageSchema.sender = state.token;
+    CapoMessageSchema.sender = token;
     CapoMessageSchema.send_time = new Date();
-    if (null == state.location) {
+    if (null == location) {
       CapoMessageSchema.sender_latitude = '';
       CapoMessageSchema.sender_longitude = '';
     } else {
-      CapoMessageSchema.sender_latitude = state.location.coords.latitude;
-      CapoMessageSchema.sender_longitude = state.location.coords.longitude;
+      CapoMessageSchema.sender_latitude = location.coords.latitude;
+      CapoMessageSchema.sender_longitude = location.coords.longitude;
     }
-    CapoMessageSchema.song = state.currentSong;
+    CapoMessageSchema.song = currentSong;
     //console.log('---- object to wrap in a message to server ----\n', CapoMessageSchema);
 
     let notifications = new RemoteNotifications();

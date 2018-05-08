@@ -18,8 +18,6 @@ import { Ionicons } from '@expo/vector-icons';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
 
-import state from '../state';
-
 import Schema from '../data/song_schema';
 
 import { Colors, FontSizes, Layout } from '../constants';
@@ -88,7 +86,7 @@ export default class CapoComposeSong extends React.Component {
   };
 
   _handlePressContinueButton = () => {
-    state.currentSong = Schema;
+    this.props.screenProps.setCurrentSong(Schema);
     this.props.navigation.navigate('CapoConfirmSend');
   };
 }

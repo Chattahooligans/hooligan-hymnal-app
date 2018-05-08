@@ -11,8 +11,6 @@ import {
   getFeaturedSongs
 } from '../data';
 
-import state from '../state';
-
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -85,22 +83,19 @@ export default class TalksUpNext extends React.Component {
         try {
           // if this is valid ??
           if (responseJson.song) {
-            console.log("server response song", JSON.stringify(responseJson.song.title));
-            
-            state.label = 'Up Next';
-            state.song = responseJson.song;
-
-            this.setState(previousState => {
-              return { label: 'Up Next', song: responseJson.song };
-            });
+            this.setState({ label: 'Up Next', song: responseJson.song });
           } else {
-            state.label = 'Featured Song';
-            state.song = getFeaturedSongs()[0];
+            this.setState({
+              label: 'Featured Song',
+              song: getFeaturedSongs()[0]
+            });
           }
         } catch (err) {
           // no data returns a json parsing error
-          state.label = 'Featured Song';
-          state.song = getFeaturedSongs()[0];
+          this.setState({
+            label: 'Featured Song',
+            song: getFeaturedSongs()[0]
+          });
         }
       });
 
