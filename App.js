@@ -7,8 +7,6 @@ import { loadSavedTalksAsync } from './src/utils/storage';
 import Navigation from './src/Navigation';
 import Home from './src/screens/Home';
 
-import state from './src/state';
-
 import { Location, Notifications, Permissions } from 'expo';
 import { HYMNAL_ADDRESS } from './src/config/server';
 
@@ -25,11 +23,23 @@ const theme = {
 
 export default class App extends React.Component {
   state = {
+    currentSong: {},
+    errorMessage: null,
     fontLoaded: false,
-    notification: {},
     location: null,
-    token: null
+    notification: {},
+    token: null,
+    unlocked: false
   };
+
+  _setCurrentSong = (song, callback) => this.setState({ currentSong: song }, () => {
+    if (callback) callback();
+  });
+
+  _setLocation = location => this.setState({ location });
+
+  _toggleUserAuth = value =>
+    this.setState(prevState => ({ unlocked: !prevState.unlocked }));
 
   _loadResourcesAsync = () => {
     return Promise.all([this._loadAssetsAsync(), this._loadDataAsync()]);
@@ -77,8 +87,7 @@ export default class App extends React.Component {
     }
 
     let location = await Location.getCurrentPositionAsync({});
-    state.location = location;
-    this.setState({ location });
+    this._setLocation(location);
   };
 
   _registerForPushNotificationsAsync = async () => {
@@ -103,7 +112,7 @@ export default class App extends React.Component {
 
     // Get the token that uniquely identifies this device
     let token = await Notifications.getExpoPushTokenAsync();
-    state.token = token;
+    this.setState({ token });
     console.log('token', token);
 
     // POST the token to your backend server from where you can retrieve it to send push notifications.
@@ -140,7 +149,8 @@ export default class App extends React.Component {
   };
 
   render() {
-    if (!this.state.fontLoaded) {
+    const { currentSong, fontLoaded, location, token, unlocked } = this.state;
+    if (!fontLoaded) {
       return (
         <AppLoading
           startAsync={this._loadResourcesAsync}
@@ -154,7 +164,17 @@ export default class App extends React.Component {
 
     return (
       <View style={{ flex: 1 }}>
-        <Navigation />
+        <Navigation
+          screenProps={{
+            currentSong,
+            location,
+            setCurrentSong: this._setCurrentSong,
+            setLocation: this._setLocation,
+            token,
+            toggleUserAuth: this._toggleUserAuth,
+            unlocked
+          }}
+        />
         <StatusBar barStyle="light-content" />
       </View>
     );

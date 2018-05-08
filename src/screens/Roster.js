@@ -16,8 +16,6 @@ import { NavigationActions } from 'react-navigation';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
-import state from '../state';
-
 import Players from '../data/players.json';
 import Squads from '../data/roster.json';
 

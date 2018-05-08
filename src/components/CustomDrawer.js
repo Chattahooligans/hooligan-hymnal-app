@@ -2,7 +2,6 @@ import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { DrawerItems, NavigationActions, SafeAreaView } from 'react-navigation';
 import { Layout } from '../constants';
-import state from '../state';
 
 const CustomDrawer = props => (
   <View style={styles.container}>
@@ -25,7 +24,7 @@ const CustomDrawer = props => (
       labelStyle={{ color: 'white' }}
       onItemPress={({ route, focused }) => {
         if (route.routeName === 'CapoHome') {
-          if (state.unlocked === true) {
+          if (props.screenProps.unlocked === true) {
             props.navigation.navigate('CapoHome');
           } else {
             props.navigation.navigate('CapoLogin');

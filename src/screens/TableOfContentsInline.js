@@ -17,8 +17,6 @@ import { NavigationActions } from 'react-navigation';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
-import state from '../state';
-
 import Songs from '../data/songs.json';
 import Songbook from '../data/songbook.json';
 import { conferenceHasEnded } from '../utils/index';
@@ -31,14 +29,12 @@ import { find, propEq } from 'ramda';
 
 const screenWidth = Dimensions.get('window').width;
 
-console.log("Songbook ToC json: " + Songbook.songbook_title);
 
 let ToCData = [];
 let tocPageLabel = 1;
 Songbook.chapters.forEach(chapterChild => {
   let songList = [];
 
-  console.log(chapterChild.chapter_title);
   chapterChild.songs.forEach(songChild => {
     try {
       let song = {
@@ -46,7 +42,6 @@ Songbook.chapters.forEach(chapterChild => {
         song_title: Songs.filter(song => song._id === songChild._id)[0].title,
         page: tocPageLabel
       };
-      console.log(songChild._id + " " + song.song_title);
       // set page label
       song.toc_page_label = tocPageLabel;
       songList.push(song);
@@ -78,7 +73,9 @@ class SongRow extends React.Component {
         <View style={styles.row}>
           <View style={styles.rowData}>
             <RegularText>{song.song_title}</RegularText>
-            <RegularText style={styles.pageLabel}>{song.toc_page_label}</RegularText>
+            <RegularText style={styles.pageLabel}>
+              {song.toc_page_label}
+            </RegularText>
           </View>
         </View>
       </RectButton>
@@ -91,9 +88,7 @@ class SongRow extends React.Component {
 }
 
 export default class TableOfContentsInline extends React.Component {
-  state = {
-
-  };
+  state = {};
 
   render() {
     return (
@@ -126,18 +121,15 @@ export default class TableOfContentsInline extends React.Component {
 
   _handlePressRow = item => {
     const song = find(propEq('_id', item._id), Songs);
-    console.log('ToC inline song.title', song.title, item._id);
 
     // pass item page label to song to include in state
     song.page = item.toc_page_label;
 
-    state.currentSong = song;
-
-    // scroll to song
-    this.props.scrollToSong();
-
-    this.setState(previousState => {
-      return { currentSong: song };
+    this.props.setCurrentSong(song, () => {
+      this.props.scrollToSong();
+      this.setState(previousState => {
+        return { currentSong: song };
+      });
     });
   };
 }

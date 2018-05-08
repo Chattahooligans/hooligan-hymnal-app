@@ -19,7 +19,6 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import Songs from '../data/songs.json';
 import Songbook from '../data/songbook.json';
 import { conferenceHasEnded } from '../utils/index';
-import state from '../state';
 
 import { find, propEq } from 'ramda';
 
@@ -125,7 +124,7 @@ export default class CapoSelectSong extends React.Component {
 
   _handlePressRow = item => {
     const song = find(propEq('_id', item._id), Songs);
-    state.currentSong = song;
+    this.props.screenProps.setCurrentSong(song);
 
     this.props.navigation.navigate('CapoConfirmSend');
   };

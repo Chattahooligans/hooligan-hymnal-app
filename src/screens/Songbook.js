@@ -25,8 +25,6 @@ import TableOfContentsInline from './TableOfContentsInline';
 import Songs from '../data/songs.json';
 import SongbookManifest from '../data/songbook.json';
 
-import state from '../state';
-
 const screenWidth = Dimensions.get('window').width;
 const firstValidPageIndex = 1;
 
@@ -172,29 +170,17 @@ export default class Songbook extends React.Component {
           </View>
           {songViews}
           <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: screenWidth}}>
-            <TableOfContentsInline style={{width: screenWidth}} scrollToSong={this.scrollToSong} />
+            <TableOfContentsInline
+              style={{width: screenWidth}}
+              scrollToSong={this.scrollToSong}
+              setCurrentSong={this.props.screenProps.setCurrentSong}
+            />
           </View>
         </ScrollView>
         {tocButton}
         </View>
       </LoadingPlaceholder>
     );
-  };
-
-  _currentSong = () => {
-    return state.currentSong
-      ? songs.filter(song => song.song._id === state.currentSong._id)[0]
-      : undefined;
-  };
-
-  _currentPage = () => {
-    return state.currentSong
-      ? songs.filter(song => song.song._id === state.currentSong._id)[0].index
-      : 0;
-  };
-
-  _renderSong = ({ item }) => {
-    return <SongView song={item} />;
   };
 
   _handlePressTOCButton = () => {
@@ -219,8 +205,9 @@ export default class Songbook extends React.Component {
   };
 
   scrollToSong = () => {
-    this.setState({ tocButtonDisplay: true, chapter_title: state.currentSong.chapter_title });
-    this._scrollView.scrollTo({x: (state.currentSong.page - 1 + firstValidPageIndex) * screenWidth, y:0, animated:false});
+    const { currentSong } = this.props.screenProps;
+    this.setState({ tocButtonDisplay: true, chapter_title: currentSong.chapter_title });
+    this._scrollView.scrollTo({x: (currentSong.page - 1 + firstValidPageIndex) * screenWidth, y:0, animated:false});
   };
 
 }
