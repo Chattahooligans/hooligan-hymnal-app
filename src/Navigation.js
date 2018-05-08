@@ -52,7 +52,9 @@ const RosterNavigation = StackNavigator(
   {
     Roster: {
       screen: Screens.Roster
-    }
+    },
+    Player: { screen: Screens.Player },
+    RosterSingleSong: { screen: Screens.SingleSong }
   },
   {
     ...DefaultStackConfig,
@@ -110,8 +112,7 @@ const Drawer = DrawerNavigator(
 
 export default StackNavigator(
   {
-    Drawer: { screen: Drawer },
-    Player: { screen: Screens.Player }
+    Drawer: { screen: Drawer }
   },
   {
     ...DefaultStackConfig,

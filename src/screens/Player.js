@@ -31,6 +31,10 @@ import SongCard from '../components/SongCard';
 import Songs from '../data/songs.json';
 
 export default class Player extends React.Component {
+  static navigationOptions = {
+    header: null
+  };
+
   state = {
     scrollY: new Animated.Value(0)
   };
@@ -43,15 +47,21 @@ export default class Player extends React.Component {
     let playerSongDisplay;
 
     if (playerSongs.length === 0) {
-      playerSongDisplay = <RegularText style={styles.bodyText}>We are still working on a song for this player. Want to help? Submit an idea!</RegularText>
+      playerSongDisplay = (
+        <RegularText style={styles.bodyText}>
+          We are still working on a song for this player. Want to help? Submit
+          an idea!
+        </RegularText>
+      );
     } else {
-      playerSongDisplay =
+      playerSongDisplay = (
         <FlatList
-          style={{backgroundColor: '#A5D8F6'}}
+          style={{ backgroundColor: '#A5D8F6' }}
           data={playerSongs}
           renderItem={this._renderSongCard}
           keyExtractor={(item, index) => index}
         />
+      );
     }
 
     const { scrollY } = this.state;
@@ -119,11 +129,17 @@ export default class Player extends React.Component {
                 />
               </FadeIn>
             </Animated.View>
-            <View style={{flexDirection: 'row'}}>
-              <BoldText style={styles.headerText}>{player.squad_number} </BoldText>
-              <SemiBoldText style={styles.headerText}>{player.name}</SemiBoldText>
+            <View style={{ flexDirection: 'row' }}>
+              <BoldText style={styles.headerText}>
+                {player.squad_number}{' '}
+              </BoldText>
+              <SemiBoldText style={styles.headerText}>
+                {player.name}
+              </SemiBoldText>
             </View>
-            <RegularText style={styles.headerText}>{player.position}</RegularText>
+            <RegularText style={styles.headerText}>
+              {player.position}
+            </RegularText>
           </View>
           <AnimatableView
             animation="fadeIn"
@@ -175,9 +191,15 @@ export default class Player extends React.Component {
   }
 
   _renderSongCard = ({ item }) => {
-    return <SongCard song={item} style={{borderBottomWidth: 1, borderColor: '#eee'}} />;
+    return (
+      <SongCard
+        headerTitle="Player Song"
+        navigationToScreen="RosterSingleSong"
+        song={item}
+        style={{ borderBottomWidth: 1, borderColor: '#eee' }}
+      />
+    );
   };
-
 
   _renderTruncatedFooter = handlePress => {
     return (
