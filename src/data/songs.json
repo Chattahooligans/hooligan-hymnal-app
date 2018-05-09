@@ -814,5 +814,21 @@
     "player_id": 8,
     "override_html": "",
     "delete_local": ""
-  }
-]
+  },
+  {
+    "_id": 49,
+    "category": "game",
+    "create_time": "",
+    "update_time": "",
+    "title": "Smells like teen Sounders",
+    "tags": "voice",
+    "lyrics": 
+      "Every corner - has a Starbucks\nBest green team’s the - Oregon ducks\nEvery day it's - always raining\nSo Seattle's not - entertaining\nOnly famous be - cause of Twilight\nYou won't put up - much of a fight\nYeah!",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from Smells Like Teen Spirit, by Nirvana",
+    "reference_link": "",
+    "instructions": "",
+    "player_id": -1,
+    "override_html": "",
+    "delete_local": ""
+  }]
