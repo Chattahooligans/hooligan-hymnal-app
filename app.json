@@ -2,7 +2,7 @@
   "expo": {
     "name": "Chattahooligan Hymnal",
     "description": "The Chattahooligans' stadium chants and songs",
-    "slug": "test",
+    "slug": "app",
     "privacy": "public",
     "version": "0.0.17",
     "primaryColor": "#A5D8F6",
