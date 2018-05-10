@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Keyboard,
   Text,
   Image,
   Platform,
@@ -59,6 +60,7 @@ export default class CapoLogin extends React.Component {
 
   _handlePressSubmitButton = () => {
     if (this.state.password === '$4 beer') {
+      Keyboard.dismiss();
       this.props.screenProps.toggleUserAuth();
       this.props.navigation.navigate('CapoHome');
     }
