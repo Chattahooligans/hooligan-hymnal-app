@@ -487,7 +487,7 @@
     "tbd_various_boolean_flags": "",
     "reference_title": "from Must be Santa, traditional holiday",
     "reference_link": "",
-    "instructions": "",
+    "instructions": "A (C)all and (R)esponse chant",
     "player_id": 15,
     "override_html": "",
     "delete_local": ""
@@ -863,6 +863,40 @@
     "reference_link": "",
     "instructions": "",
     "player_id": 25,
+    "override_html": "",
+    "delete_local": ""
+  },
+  {
+    "_id": 52,
+    "category": "game",
+    "create_time": "",
+    "update_time": "",
+    "title": "Winning Team, Losing Team",
+    "tags": "voice",
+    "lyrics": 
+      "C: Is this not our stadium?\nR: Yes that is our stadium!\nC: Is this not our field?\nR: Yes that is our field!\n\nC: Is this not a scoreboard?\nC: Is this not a [CFC score]?\nC: Is this not a [Opponent score]?\nC: Is this not the winning team?\nC: Is this not the losing team?\n\nWinning Team! Losing Team! (repeat)",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "",
+    "reference_link": "",
+    "instructions": "A (C)all and (R)esponse chant",
+    "player_id": -1,
+    "override_html": "",
+    "delete_local": ""
+  },
+  {
+    "_id": 53,
+    "category": "player",
+    "create_time": "",
+    "update_time": "",
+    "title": "Juan Sanchez",
+    "tags": "voice",
+    "lyrics": 
+      "Viva Juan Sanchez\nViva Juan Sanchez\nViva Juan Sanchez\nVivaaaa! Vivaaaaa!\nJuan Sancheeeeeez!",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from Viva Las Vegas, by Elvis Presley",
+    "reference_link": "",
+    "instructions": "",
+    "player_id": 22,
     "override_html": "",
     "delete_local": ""
   }
