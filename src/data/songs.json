@@ -831,4 +831,39 @@
     "player_id": -1,
     "override_html": "",
     "delete_local": ""
-  }]
+  },
+  {
+    "_id": 50,
+    "category": "game",
+    "create_time": "",
+    "update_time": "",
+    "title": "Somewhere Over the Crossbar",
+    "tags": "voice",
+    "lyrics": 
+      "Somewhere over the crossbar\nWay up high\nThere’s a ball floating into space,\nfar beyond the sky",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from Somewhere Over the Rainbow, from The Wizard of Oz Soundtrack",
+    "reference_link": "",
+    "instructions": "",
+    "player_id": -1,
+    "override_html": "",
+    "delete_local": ""
+  },
+  {
+    "_id": 51,
+    "category": "player",
+    "create_time": "",
+    "update_time": "",
+    "title": "Everson Lima",
+    "tags": "voice",
+    "lyrics": 
+      "Oh Lima you,\nYou got what we need\nYou anchor our defense\nYou anchor our defense",
+    "tbd_various_boolean_flags": "",
+    "reference_title": "from Just a Friend, by Biz Markie",
+    "reference_link": "",
+    "instructions": "",
+    "player_id": 25,
+    "override_html": "",
+    "delete_local": ""
+  }
+]
