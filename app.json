@@ -17,7 +17,7 @@
     "android": {
       "package": "com.thechattahooligans.app",
       "icon": "./src/assets/icon-android.png",
-      "versionCode": 12,
+      "versionCode": 13,
       "permissions": []
     },
     "ios": {
