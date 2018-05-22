@@ -5,11 +5,7 @@ import moment from 'moment-timezone';
 import { BoldText, RegularText, SemiBoldText } from './StyledText';
 import SongCard from './SongCard';
 import { Colors, FontSizes } from '../constants';
-import {
-  findRandomTalk,
-  findNextTalksAfterDate,
-  getFeaturedSongs
-} from '../data';
+import { getFeaturedSongs } from '../data';
 
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';

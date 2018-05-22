@@ -26,7 +26,6 @@ import VideoBackground from '../components/VideoBackground';
 import { BoldText, SemiBoldText } from '../components/StyledText';
 import { connectDrawerButton } from '../Navigation';
 import { Colors, FontSizes, Layout } from '../constants';
-import { Speakers, Talks } from '../data';
 import {
   HideWhenConferenceHasStarted,
   HideWhenConferenceHasEnded,
