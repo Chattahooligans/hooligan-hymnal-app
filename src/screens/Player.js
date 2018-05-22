@@ -23,8 +23,6 @@ import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
 import { Colors, FontSizes, Icons, Layout } from '../constants';
 import { RegularText, BoldText, SemiBoldText } from '../components/StyledText';
-//import { getSpeakerAvatarURL } from '../utils';
-import { findTalkData, findSongData } from '../data';
 import { Ionicons } from '@expo/vector-icons';
 import SongCard from '../components/SongCard';
 

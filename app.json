@@ -8,7 +8,7 @@
     "primaryColor": "#A5D8F6",
     "icon": "./src/assets/icon-ios.png",
     "orientation": "portrait",
-    "sdkVersion": "23.0.0",
+    "sdkVersion": "27.0.0",
     "splash": {
       "backgroundColor": "#A5D8F6",
       "resizeMode": "contain",

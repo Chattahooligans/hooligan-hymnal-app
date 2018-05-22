@@ -8,7 +8,6 @@ import SaveIconWhenSaved from './SaveIconWhenSaved';
 import { BoldText, RegularText, SemiBoldText } from './StyledText';
 import { conferenceHasEnded, getSpeakerAvatarURL } from '../utils';
 import { Colors, FontSizes } from '../constants';
-import { findSongData } from '../data';
 
 @withNavigation
 export default class SongCard extends React.Component {
