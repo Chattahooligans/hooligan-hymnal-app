@@ -1,6 +1,8 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { DrawerItems, NavigationActions, SafeAreaView } from 'react-navigation';
+import withUnstated from '@airship/with-unstated';
+import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
 
 const CustomDrawer = props => (
@@ -24,7 +26,7 @@ const CustomDrawer = props => (
       labelStyle={{ color: 'white' }}
       onItemPress={({ route, focused }) => {
         if (route.routeName === 'CapoHome') {
-          if (props.screenProps.unlocked === true) {
+          if (props.globalData.state.unlocked === true) {
             props.navigation.navigate('CapoHome');
           } else {
             props.navigation.navigate('CapoLogin');
@@ -62,4 +64,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CustomDrawer;
+export default withUnstated(CustomDrawer, { globalData: GlobalDataContainer });

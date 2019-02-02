@@ -13,6 +13,9 @@ import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import NavigationOptions from '../config/NavigationOptions';
 import { NavigationActions } from 'react-navigation';
 
+import withUnstated from '@airship/with-unstated';
+import GlobalDataContainer from '../containers/GlobalDataContainer';
+
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
@@ -20,7 +23,7 @@ import Songs from '../data/songs.json';
 import Songbook from '../data/songbook.json';
 import { conferenceHasEnded } from '../utils/index';
 
-import { find, propEq } from 'ramda';
+import find from 'lodash/find';
 
 import { Colors, FontSizes, Layout } from '../constants';
 import { Constants } from 'expo';
@@ -31,36 +34,6 @@ import { HeaderBackButton } from 'react-navigation';
 // Back Button on the nav bar for this screen, goes back to capo dashboard
 
 //console.log("Songbook ToC json: " + Songbook.songbook_title);
-let ToCData = [];
-Songbook.chapters.forEach(chapterChild => {
-  let songList = [];
-
-  //console.log(chapterChild.chapter_title);
-  chapterChild.songs.forEach(songChild => {
-    try {
-      let song = {
-        _id: songChild._id,
-        song_title: Songs.filter(song => song._id === songChild._id)[0].title
-      };
-      //console.log(songChild._id + " " + song.song_title);
-      songList.push(song);
-    } catch (err) {
-      console.log(songChild._id + ' not found in songs database');
-    }
-  });
-
-  if (0 < songList.length) {
-    // sort alphabetical within chapter
-    songList.sort(function(a, b) {
-      return a.song_title > b.song_title
-        ? 1
-        : b.song_title > a.song_title
-          ? -1
-          : 0;
-    });
-    ToCData.push({ title: chapterChild.chapter_title, data: songList });
-  }
-});
 
 class SongRow extends React.Component {
   render() {
@@ -86,7 +59,7 @@ class SongRow extends React.Component {
   };
 }
 
-export default class CapoSelectSong extends React.Component {
+class CapoSelectSong extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Select Song',
     ...NavigationOptions,
@@ -94,6 +67,58 @@ export default class CapoSelectSong extends React.Component {
       <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
     )
   });
+
+  state = {
+    ToCData: []
+  };
+
+  componentDidMount() {
+    this.setData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (
+      !prevProps.globalData.state.songs &&
+      this.props.globalData.state.songs
+    ) {
+      this.setData();
+    }
+  }
+
+  setData = () => {
+    let ToCData = [];
+    this.props.globalData.state.songbook.chapters.forEach(chapterChild => {
+      let songList = [];
+
+      chapterChild.songs.forEach(songChild => {
+        try {
+          let song = {
+            _id: songChild._id,
+            song_title: this.props.globalData.state.songs.filter(
+              song => song._id === songChild._id
+            )[0].title
+          };
+          songList.push(song);
+        } catch (err) {
+          console.log(songChild._id + ' not found in songs database');
+        }
+      });
+
+      if (0 < songList.length) {
+        // sort alphabetical within chapter
+        songList.sort(function(a, b) {
+          return a.song_title > b.song_title
+            ? 1
+            : b.song_title > a.song_title
+            ? -1
+            : 0;
+        });
+        ToCData.push({ title: chapterChild.chapter_title, data: songList });
+      }
+    });
+
+    this.setState({ ToCData });
+  };
 
   render() {
     return (
@@ -103,7 +128,7 @@ export default class CapoSelectSong extends React.Component {
           stickySectionHeadersEnabled={true}
           renderItem={this._renderItem}
           renderSectionHeader={this._renderSectionHeader}
-          sections={ToCData}
+          sections={this.state.ToCData}
           keyExtractor={(item, index) => index}
         />
       </View>
@@ -123,8 +148,9 @@ export default class CapoSelectSong extends React.Component {
   };
 
   _handlePressRow = item => {
-    const song = find(propEq('_id', item._id), Songs);
-    this.props.screenProps.setCurrentSong(song);
+    const song = find(this.props.songs, { _id: item._id });
+
+    this.props.globalData.setCurrentSong(song);
 
     this.props.navigation.navigate('CapoConfirmSend');
   };
@@ -155,4 +181,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#eee'
   }
+});
+
+export default withUnstated(CapoSelectSong, {
+  globalData: GlobalDataContainer
 });

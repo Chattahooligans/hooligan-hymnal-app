@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { withNavigation } from 'react-navigation';
+import withUnstated from '@airship/with-unstated';
+import GlobalDataContainer from '../containers/GlobalDataContainer';
 import NavigationOptions from '../config/NavigationOptions';
 import { BoldText, SemiBoldText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
@@ -23,7 +25,7 @@ import { Colors, FontSizes } from '../constants';
 // If password is incorrect, show invalid password message
 
 @withNavigation
-export default class CapoLogin extends React.Component {
+class CapoLogin extends React.Component {
   static navigationOptions = {
     headerTitle: 'Capo Dashboard',
     ...NavigationOptions
@@ -61,7 +63,7 @@ export default class CapoLogin extends React.Component {
   _handlePressSubmitButton = () => {
     if (this.state.password === '$4 beer') {
       Keyboard.dismiss();
-      this.props.screenProps.toggleUserAuth();
+      this.props.globalData.toggleUserAuth();
       this.props.navigation.navigate('CapoHome');
     }
   };
@@ -113,3 +115,5 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   }
 });
+
+export default withUnstated(CapoLogin, { globalData: GlobalDataContainer });

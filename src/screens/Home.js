@@ -18,6 +18,9 @@ import { View as AnimatableView } from 'react-native-animatable';
 import { Ionicons } from '@expo/vector-icons';
 import { withNavigation } from 'react-navigation';
 
+import withUnstated from '@airship/with-unstated';
+import GlobalDataContainer from '../containers/GlobalDataContainer';
+
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
 import TalksUpNext from '../components/TalksUpNext';
@@ -97,6 +100,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     Notifications.addListener(this._handleNotification);
+    this.props.globalData.loadData();
   }
 
   _handleNotification = notification => {
@@ -179,7 +183,7 @@ class Home extends React.Component {
             </View>
           </View>
 
-          <DeferredHomeContent />
+          <DeferredHomeContent globalData={this.props.globalData} />
           <OverscrollView />
         </AnimatedScrollView>
 
@@ -199,6 +203,7 @@ class DeferredHomeContent extends React.Component {
   };
 
   componentDidMount() {
+    this.props.globalData.registerForPushNotificationsAsync();
     if (this.state.ready) {
       return;
     }
@@ -215,6 +220,8 @@ class DeferredHomeContent extends React.Component {
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
         <TalksUpNext
+          songs={this.props.globalData.state.songs}
+          songbook={this.props.globalData.state.songbook}
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
         />
         <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
@@ -324,4 +331,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Home;
+export default withUnstated(Home, { globalData: GlobalDataContainer });

@@ -11,21 +11,17 @@ import {
   Dimensions
 } from 'react-native';
 import SongView from '../components/SongView';
-//import { ScrollView } from 'react-native-gesture-handler';
-
 import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationActions } from 'react-navigation';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
+import withUnstated from '@airship/with-unstated';
+import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Colors, FontSizes, Layout } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import TableOfContentsInline from './TableOfContentsInline';
-
-import Songs from '../data/songs.json';
-import SongbookManifest from '../data/songbook.json';
-import { getSongbook } from '../services/songbookService';
 
 const screenWidth = Dimensions.get('window').width;
 const firstValidPageIndex = 1;
@@ -76,37 +72,11 @@ const styles = StyleSheet.create({
   }
 });
 
-let songViews = [];
-let songs = [];
-let pageCount = 0;
-SongbookManifest.chapters.forEach(chapterChild => {
-  //console.log(chapterChild.chapter_title);
-  chapterChild.songs.forEach(songChild => {
-    try {
-      let item = Songs.filter(song => song._id === songChild._id)[0];
-      item.chapter_title = chapterChild.chapter_title;
-      pageCount++;
-      songs.push({ index: pageCount, song: item });
-      songViews.push(
-        <View
-          key={item._id}
-          chapter_title={chapterChild.chapter_title}
-          style={{ flex: 1, width: screenWidth }}
-        >
-          <SongView song={item} pageCount={pageCount} />
-        </View>
-      );
-    } catch (err) {
-      console.log(songChild._id + ' not found in songs database');
-    }
-  });
-});
-
 let defaultChapterTitle = 'Cover';
 
 // Android uses ViewPagerAndroid
 // iOS uses ScrollView with pagingEnabled and horizontal properties
-export default class Songbook extends React.Component {
+class Songbook extends React.Component {
   static navigationOptions = {
     title: 'Songbook',
     ...NavigationOptions
@@ -114,16 +84,55 @@ export default class Songbook extends React.Component {
 
   state = {
     chapter_title: defaultChapterTitle,
-    tocButtonDisplay: true
+    tocButtonDisplay: true,
+    songViews: [],
+    songs: [],
+    pageCount: 0
   };
 
   componentDidMount() {
-    getSongbook()
-      .then(data => console.log(data))
-      .catch(error => {
-        console.log(error);
-      });
+    this.setData();
   }
+
+  componentDidUpdate(prevProps) {
+    if (
+      !prevProps.globalData.state.songs &&
+      this.props.globalData.state.songs
+    ) {
+      this.setData();
+    }
+  }
+
+  setData = () => {
+    let songViews = [];
+    let songs = [];
+    let pageCount = 0;
+    this.props.globalData.state.songbook.chapters.forEach(chapterChild => {
+      chapterChild.songs.forEach(songChild => {
+        try {
+          let item = this.props.globalData.state.songs.filter(
+            song => song._id === songChild._id
+          )[0];
+          item.chapter_title = chapterChild.chapter_title;
+          pageCount++;
+          songs.push({ index: pageCount, song: item });
+          songViews.push(
+            <View
+              key={item._id}
+              chapter_title={chapterChild.chapter_title}
+              style={{ flex: 1, width: screenWidth }}
+            >
+              <SongView song={item} pageCount={pageCount} />
+            </View>
+          );
+        } catch (err) {
+          console.log(songChild._id + ' not found in songs database');
+        }
+      });
+    });
+
+    this.setState({ songViews, songs, pageCount });
+  };
 
   update() {
     console.log('update');
@@ -185,7 +194,7 @@ export default class Songbook extends React.Component {
               <Text style={styles.welcome}>Swipe Left/Right to View Songs</Text>
               <View style={{ flex: 1 }} />
             </View>
-            {songViews}
+            {this.state.songViews}
             <View
               style={{
                 flex: 1,
@@ -197,7 +206,9 @@ export default class Songbook extends React.Component {
               <TableOfContentsInline
                 style={{ width: screenWidth }}
                 scrollToSong={this.scrollToSong}
-                setCurrentSong={this.props.screenProps.setCurrentSong}
+                setCurrentSong={this.props.globalData.setCurrentSong}
+                songbook={this.props.globalData.state.songbook}
+                songs={this.props.globalData.state.songs}
               />
             </View>
           </ScrollView>
@@ -214,7 +225,7 @@ export default class Songbook extends React.Component {
   _onSongbookMomentumScrollEnd = ({ nativeEvent }) => {
     const pageIndex = Math.round(nativeEvent.contentOffset.x / screenWidth);
 
-    if (pageCount + 1 === pageIndex) {
+    if (this.state.pageCount + 1 === pageIndex) {
       this.setState({
         tocButtonDisplay: false,
         chapter_title: 'Table of Contents'
@@ -222,7 +233,8 @@ export default class Songbook extends React.Component {
     } else if (firstValidPageIndex <= pageIndex) {
       this.setState({
         tocButtonDisplay: true,
-        chapter_title: songs[pageIndex - firstValidPageIndex].song.chapter_title
+        chapter_title: this.state.songs[pageIndex - firstValidPageIndex].song
+          .chapter_title
       });
     } else {
       this.setState({
@@ -238,14 +250,14 @@ export default class Songbook extends React.Component {
       chapter_title: 'Table of Contents'
     });
     this._scrollView.scrollTo({
-      x: screenWidth * (pageCount + 1),
+      x: screenWidth * (this.state.pageCount + 1),
       y: 0,
       animated: false
     });
   };
 
   scrollToSong = () => {
-    const { currentSong } = this.props.screenProps;
+    const { currentSong } = this.props.globalData.state;
     this.setState({
       tocButtonDisplay: true,
       chapter_title: currentSong.chapter_title
@@ -257,3 +269,5 @@ export default class Songbook extends React.Component {
     });
   };
 }
+
+export default withUnstated(Songbook, { globalData: GlobalDataContainer });
