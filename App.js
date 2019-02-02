@@ -1,6 +1,6 @@
 import React from 'react';
 import { Asset, AppLoading, Font, Constants } from 'expo';
-import { Platform, View, StatusBar } from 'react-native';
+import { Platform, View, StatusBar, YellowBox } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { loadSavedTalksAsync } from './src/utils/storage';
 
@@ -9,6 +9,9 @@ import Home from './src/screens/Home';
 
 import { Location, Notifications, Permissions } from 'expo';
 import { HYMNAL_ADDRESS } from './src/config/server';
+import imagesArray from './assets';
+
+YellowBox.ignoreWarnings(['Warning: bind()']);
 
 const PUSH_ENDPOINT = HYMNAL_ADDRESS + '/api/pushToken';
 console.log('PUSH_ENDPOINT', PUSH_ENDPOINT);
@@ -32,9 +35,10 @@ export default class App extends React.Component {
     unlocked: false
   };
 
-  _setCurrentSong = (song, callback) => this.setState({ currentSong: song }, () => {
-    if (callback) callback();
-  });
+  _setCurrentSong = (song, callback) =>
+    this.setState({ currentSong: song }, () => {
+      if (callback) callback();
+    });
 
   _setLocation = location => this.setState({ location });
 
@@ -52,14 +56,12 @@ export default class App extends React.Component {
   _loadAssetsAsync = async () => {
     return Promise.all([
       Font.loadAsync({
-        'open-sans-bold': require('./src/assets/OpenSans-Bold.ttf'),
-        'open-sans': require('./src/assets/OpenSans-Regular.ttf'),
-        'open-sans-semibold': require('./src/assets/OpenSans-SemiBold.ttf'),
+        'open-sans-bold': require('./assets/OpenSans-Bold.ttf'),
+        'open-sans': require('./assets/OpenSans-Regular.ttf'),
+        'open-sans-semibold': require('./assets/OpenSans-SemiBold.ttf'),
         ...Ionicons.font
       }),
-      Asset.fromModule(
-        require('./src/assets/chattahooligans.png')
-      ).downloadAsync(),
+      Asset.loadAsync(imagesArray),
       Asset.fromModule(
         require('react-navigation/src/views/assets/back-icon.png')
       ).downloadAsync()

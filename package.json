@@ -4,26 +4,25 @@
   "private": true,
   "main": "./node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "exp start",
-    "eject": "react-native-scripts eject",
-    "android": "react-native-scripts android",
-    "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js",
-    "flow": "flow"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
-    "expo": "^27.0.0",
+    "axios": "^0.18.0",
+    "expo": "^32.0.0",
     "fbemitter": "^2.1.1",
     "hoist-non-react-statics": "^2.3.1",
     "lodash": "^4.17.4",
     "moment": "2.20.1",
     "moment-timezone": "^0.5.14",
     "ramda": "^0.25.0",
-    "react": "16.3.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
+    "react": "16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-animatable": "^1.2.4",
     "react-native-deck-swiper": "^1.4.8",
     "react-native-fade-in-image": "1.3.0",
@@ -32,12 +31,9 @@
     "react-navigation": "1.5.11"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.5.0",
-    "eslint-plugin-react": "^7.3.0",
-    "eslint-plugin-react-native": "^3.0.1",
+    "babel-preset-react-native": "^4.0.1",
     "flow-bin": "^0.63.1",
-    "jest-expo": "^27.0.0",
+    "jest-expo": "^32.0.0",
     "react-test-renderer": "16.0.0"
   }
 }

@@ -122,7 +122,7 @@ export default class Player extends React.Component {
             >
               <FadeIn placeholderStyle={{ backgroundColor: '#318A73' }}>
                 <Image
-                  source={require('../assets/chattfc_logo.png')}
+                  source={require('../../assets/chattfc_logo.png')}
                   style={styles.avatar}
                 />
               </FadeIn>

@@ -57,7 +57,7 @@ class PlayerRow extends React.Component {
           <View style={styles.rowAvatarContainer}>
             <FadeIn>
               <Image
-                source={require('../assets/chattfc_logo.png')}
+                source={require('../../assets/chattfc_logo.png')}
                 style={{ width: 50, height: 50, borderRadius: 25 }}
               />
             </FadeIn>

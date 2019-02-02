@@ -23,7 +23,7 @@ export default class MenuButton extends React.Component {
         hitSlop={{ left: 30, top: 30, right: 30, bottom: 30 }}
       >
         <Ionicons
-          name={Platform.OS === 'ios' ? 'ios-menu-outline' : 'md-menu'}
+          name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'}
           size={28}
           color="#fff"
         />

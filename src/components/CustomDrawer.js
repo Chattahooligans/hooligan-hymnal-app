@@ -7,13 +7,13 @@ const CustomDrawer = props => (
   <View style={styles.container}>
     <View style={styles.drawerHeader}>
       <Image
-        source={require('../assets/drawer-hero-background.png')}
+        source={require('../../assets/drawer-hero-background.png')}
         style={styles.backgroundImage}
       />
       <View style={[StyleSheet.absoluteFill, styles.imageOverlay]} />
       <View style={[StyleSheet.absoluteFill, styles.logoContainer]}>
         <Image
-          source={require('../assets/drawer-hero-logo.png')}
+          source={require('../../assets/drawer-hero-logo.png')}
           style={styles.logoImage}
         />
       </View>

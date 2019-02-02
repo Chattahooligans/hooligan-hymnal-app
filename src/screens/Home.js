@@ -168,7 +168,7 @@ class Home extends React.Component {
               />
             </View>
             <Image
-              source={require('../assets/home-logo.png')}
+              source={require('../../assets/home-logo.png')}
               style={{ height: 60, resizeMode: 'contain' }}
               tintColor="#fff"
             />
