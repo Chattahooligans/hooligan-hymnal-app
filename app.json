@@ -4,7 +4,7 @@
     "description": "The Chattahooligans' stadium chants and songs",
     "slug": "app",
     "privacy": "public",
-    "version": "0.0.19",
+    "version": "0.0.20",
     "primaryColor": "#A5D8F6",
     "icon": "./assets/icon-ios.png",
     "orientation": "portrait",
@@ -17,7 +17,7 @@
     "android": {
       "package": "com.thechattahooligans.app",
       "icon": "./assets/icon-android.png",
-      "versionCode": 13,
+      "versionCode": 14,
       "permissions": []
     },
     "ios": {
