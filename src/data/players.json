@@ -116,7 +116,7 @@
 	        "position": "Midfielder",
 	        "team": "NPSL",
 	        "bio": "",
-	        "image": "",
+	        "image": "https://i.imgur.com/osGJRMM.png",
 	        "delete_local": false
 	    },
 	    {
@@ -128,7 +128,7 @@
 	        "position": "Forward",
 	        "team": "NPSL",
 	        "bio": "",
-	        "image": "",
+	        "image": "https://i.imgur.com/OS3t391.png",
 	        "delete_local": false
 	    },
 	    {
@@ -764,7 +764,7 @@
 	        "position": "Goalkeeper",
 	        "team": "NPSL",
 	        "bio": "",
-	        "image": "",
+	        "image": "https://i.imgur.com/vhLgBqK.png",
 	        "delete_local": false
 	    }
 	]

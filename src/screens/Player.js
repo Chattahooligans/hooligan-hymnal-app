@@ -10,6 +10,7 @@ import {
   ScrollView,
   View
 } from 'react-native';
+
 import SongView from '../components/SongView';
 import { Constants, Video } from 'expo';
 import FadeIn from 'react-native-fade-in-image';
@@ -43,6 +44,10 @@ export default class Player extends React.Component {
 
     let playerSongs = Songs.filter(song => song.player_id === player._id);
     let playerSongDisplay;
+
+    let playerImage = require('../../assets/chattfc_logo.png');
+    if (player.image)
+      playerImage = {uri: player.image};
 
     if (playerSongs.length === 0) {
       playerSongDisplay = (
@@ -120,10 +125,11 @@ export default class Player extends React.Component {
                 transform: [{ scale }, { translateX }, { translateY }]
               }}
             >
-              <FadeIn placeholderStyle={{ backgroundColor: '#318A73' }}>
+              <FadeIn placeholderStyle={{ backgroundColor: Colors.green }}>
                 <Image
-                  source={require('../../assets/chattfc_logo.png')}
+                  source={playerImage}
                   style={styles.avatar}
+                  resizeMode='contain'
                 />
               </FadeIn>
             </Animated.View>
@@ -229,8 +235,8 @@ export default class Player extends React.Component {
 const styles = StyleSheet.create({
   container: {},
   avatar: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
     borderRadius: 50,
     marginBottom: 10
   },
