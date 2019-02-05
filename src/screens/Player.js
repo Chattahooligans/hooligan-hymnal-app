@@ -135,7 +135,7 @@ export default class Player extends React.Component {
             </Animated.View>
             <View style={{ flexDirection: 'row' }}>
               <BoldText style={styles.headerText}>
-                {player.squad_number}{' '}
+                {player.squadNumber}{' '}
               </BoldText>
               <SemiBoldText style={styles.headerText}>
                 {player.name}

@@ -7,6 +7,10 @@ import {
   View,
   Text
 } from 'react-native';
+
+import withUnstated from '@airship/with-unstated';
+import GlobalDataContainer from '../containers/GlobalDataContainer';
+
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
@@ -66,7 +70,7 @@ class PlayerRow extends React.Component {
             <View
               style={{ width: 25, alignItems: 'flex-end', paddingRight: 5 }}
             >
-              <BoldText>{player.squad_number}</BoldText>
+              <BoldText>{player.squadNumber}</BoldText>
             </View>
             <View style={{ flexDirection: 'column' }}>
               <SemiBoldText>{player.name}</SemiBoldText>
@@ -83,11 +87,61 @@ class PlayerRow extends React.Component {
   };
 }
 
-export default class Roster extends React.Component {
+class Roster extends React.Component {
   static navigationOptions = {
-    headerTitle: Squads.roster_title,
+    headerTitle: "Roster",
     ...NavigationOptions
   };
+  
+  state = {
+    rosterTitle: "Roster",
+    squads: []
+  }
+
+  componentDidMount() {
+    this.setData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (
+      !prevProps.globalData.state.players &&
+      this.props.globalData.state.players
+    ) {
+      this.setData();
+    }
+  }
+
+  setData = () => {
+    console.log('setData');
+
+    let rosterTitle = this.props.globalData.state.roster.rosterTitle;
+    let squads = [];
+    let players = this.props.globalData.state.players;
+    
+    this.props.globalData.state.roster.squads.forEach(squadChild => {
+      let playerList = [];
+
+      //console.log(squadChild.squad_title);
+      squadChild.players.forEach(playerChild => {
+        try {
+          let player = players.filter(player => player._id === playerChild._id)[0];
+          //console.log(player._id + " " + player.name);
+          playerList.push(player);
+        } catch (err) {
+          console.log(playerChild._id + ' not found in players database');
+        }
+      });
+
+      if (0 < playerList.length)
+        squads.push({ title: squadChild.squadTitle, data: playerList });
+    });
+
+    this.setState({ rosterTitle, squads });
+
+    // TODO:
+    // line 92
+    // fix static navigationOptions.headerTitle = state.rosterTitle (there is a scoping issue here) 
+  }
 
   render() {
     return (
@@ -98,7 +152,7 @@ export default class Roster extends React.Component {
             stickySectionHeadersEnabled={true}
             renderItem={this._renderItem}
             renderSectionHeader={this._renderSectionHeader}
-            sections={rosterData}
+            sections={this.state.squads}
             keyExtractor={(item, index) => index}
           />
         </View>
@@ -155,3 +209,5 @@ const styles = StyleSheet.create({
     borderColor: '#eee'
   }
 });
+
+export default withUnstated(Roster, { globalData: GlobalDataContainer });
