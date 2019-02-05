@@ -1,7 +1,9 @@
 import { Location, Notifications, Permissions } from 'expo';
 import { Container } from 'unstated';
+import { getSongs } from '../services/songsService';
 import { getSongbook } from '../services/songbookService';
-import { getSongs } from '../services/songService';
+import { getPlayers } from '../services/playersService';
+import { getRoster } from '../services/rosterService';
 import { HYMNAL_ADDRESS } from '../config/server';
 
 const PUSH_ENDPOINT = HYMNAL_ADDRESS + '/api/pushToken';
@@ -21,15 +23,25 @@ export default class GlobalDataContainer extends Container {
       chapters: []
     },
     songs: null,
+    roster: {
+      roster_title: '',
+      season: '',
+      squads: []
+    },
+    players: null,
     token: null,
     unlocked: false
   };
 
   loadData = async () => {
     try {
-      const songbook = await getSongbook();
       const songs = await getSongs();
-      this.setState({ songbook: songbook[0], songs });
+      const songbook = await getSongbook();
+
+      const players = await getPlayers();
+      const roster = await getRoster();
+      
+      this.setState({ songbook: songbook[0], songs, roster: roster[0], players });
     } catch (e) {
       //
     }
