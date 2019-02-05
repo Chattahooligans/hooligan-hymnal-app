@@ -31,7 +31,7 @@ export default class SongCard extends React.Component {
             ellipsizeMode="tail"
             numberOfLines={1}
           >
-            {song.lyrics}
+            {song.lyrics.replace('\n', '/')}
           </RegularText>
           <SemiBoldText>See More...</SemiBoldText>
         </View>

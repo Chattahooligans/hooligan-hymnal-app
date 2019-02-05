@@ -26,7 +26,9 @@ export default class SongView extends React.Component {
             <ParsedText 
               parse={
                 [
-                  {type: 'url', style: styles.url, onPress: this._urlPress}
+                  {type: 'url', style: styles.url, onPress: this._urlPress},
+                  {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
+                  {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
                 ]
               }
               style={styles.lyrics} 
@@ -81,6 +83,10 @@ export default class SongView extends React.Component {
   _urlPress = (url) => {
     WebBrowser.openBrowserAsync(url);
   }
+
+  _renderFormatted = (matchingString) => {
+    return matchingString.slice(1, matchingString.length-1)
+  }
 }
 
 const styles = StyleSheet.create({
@@ -118,6 +124,12 @@ const styles = StyleSheet.create({
     color: Colors.green,
     backgroundColor: '#FFFFFF',
     paddingLeft: 8
+  },
+  bold: {
+    fontWeight: 'bold'
+  },
+  italic: {
+    fontStyle: 'italic'
   },
   url: {
     color: 'blue',
