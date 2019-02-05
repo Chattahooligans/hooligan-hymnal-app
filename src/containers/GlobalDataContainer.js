@@ -24,7 +24,7 @@ export default class GlobalDataContainer extends Container {
     },
     songs: null,
     roster: {
-      roster_title: '',
+      rosterTitle: '',
       season: '',
       squads: []
     },
