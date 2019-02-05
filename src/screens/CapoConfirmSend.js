@@ -14,6 +14,9 @@ import { NavigationActions } from 'react-navigation';
 import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
 
+import withUnstated from '@airship/with-unstated';
+import GlobalDataContainer from '../containers/GlobalDataContainer';
+
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
 
@@ -28,7 +31,7 @@ import CapoMessageSchema from '../data/capo_message_schema';
 import RemoteNotifications from '../server_store/RemoteNotifications';
 
 @withNavigation
-export default class CapoConfirmSend extends React.Component {
+class CapoConfirmSend extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Confirm?',
     ...NavigationOptions,
@@ -52,15 +55,15 @@ export default class CapoConfirmSend extends React.Component {
   _getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
-      this.props.screenProps.setLocation(null);
+      this.props.globalData.setLocation(null);
     } else {
       let location = await Location.getCurrentPositionAsync({});
-      this.props.screenProps.setLocation(location);
+      this.props.globalData.setLocation(location);
     }
   };
 
   render() {
-    const { currentSong } = this.props.screenProps;
+    const { currentSong } = this.props.globalData.state;
     return (
       <LoadingPlaceholder>
         <View style={styles.container}>
@@ -124,7 +127,7 @@ export default class CapoConfirmSend extends React.Component {
   };
 
   _sendMessage = pushFlag => {
-    const { currentSong, location, token } = this.props.screenProps;
+    const { currentSong, location, token } = this.props.globalData.state;
 
     CapoMessageSchema.sender = token;
     CapoMessageSchema.send_time = new Date();
@@ -222,4 +225,8 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center'
   }
+});
+
+export default withUnstated(CapoConfirmSend, {
+  globalData: GlobalDataContainer
 });

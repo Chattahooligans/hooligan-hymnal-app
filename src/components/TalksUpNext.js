@@ -1,30 +1,26 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import moment from 'moment-timezone';
-
-import { BoldText, RegularText, SemiBoldText } from './StyledText';
+import { BoldText, SemiBoldText } from './StyledText';
 import SongCard from './SongCard';
 import { Colors, FontSizes } from '../constants';
-import { getFeaturedSongs } from '../data';
-
-import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
+import { getFeaturedSong } from '../data';
+import { RectButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
-
 import { HYMNAL_ADDRESS } from '../config/server';
 
 const CAPO_MESSAGE_ENDPOINT = HYMNAL_ADDRESS + '/api/notifications/last';
 
-export default class TalksUpNext extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      label: 'Featured Song',
-      song: getFeaturedSongs()[0]
-    };
-  }
+class TalksUpNext extends React.Component {
+  state = {
+    capoMessage: null,
+    label: 'Featured Song',
+    song: getFeaturedSong(this.props.songbook, this.props.songs)
+  };
 
   render() {
+    const featuredSection = this.state.capoMessage || this.state;
+
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
         <View
@@ -53,8 +49,8 @@ export default class TalksUpNext extends React.Component {
           </RectButton>
         </View>
         <SongCard
-          key={this.state.song._id}
-          song={this.state.song}
+          key={featuredSection.song._id}
+          song={featuredSection.song}
           style={{ marginTop: 10, marginBottom: 10 }}
         />
       </View>
@@ -65,8 +61,21 @@ export default class TalksUpNext extends React.Component {
     this._refreshNotification();
   }
 
+  componentDidUpdate(prevProps) {
+    if (!prevProps.songs && this.props.songs) {
+      this._setFeaturedSong();
+    }
+  }
+
   _handlePressRefreshButton = () => {
     this._refreshNotification();
+  };
+
+  _setFeaturedSong = () => {
+    this.setState({
+      label: 'Featured Song',
+      song: getFeaturedSong(this.props.songbook, this.props.songs)
+    });
   };
 
   _refreshNotification = async () => {
@@ -79,27 +88,24 @@ export default class TalksUpNext extends React.Component {
         try {
           // if this is valid ??
           if (responseJson.song) {
-            this.setState({ label: 'Up Next', song: responseJson.song });
+            this.setState({
+              capoMessage: {
+                label: 'Up Next',
+                song: responseJson.song
+              }
+            });
           } else {
             this.setState({
-              label: 'Featured Song',
-              song: getFeaturedSongs()[0]
+              capoMessage: null
             });
           }
         } catch (err) {
           // no data returns a json parsing error
           this.setState({
-            label: 'Featured Song',
-            song: getFeaturedSongs()[0]
+            capoMessage: null
           });
         }
       });
-
-    /*
-    fetch(CAPO_MESSAGE_ENDPOINT).then((response) => {
-      console.log("response", response);
-    })
-    */
   };
 }
 
@@ -119,3 +125,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   }
 });
+
+export default TalksUpNext;

@@ -8,14 +8,13 @@
 // TODO: Build home screen dynamically based on this websites object
 
 // enum
-export const SocialPlatform = 
-{
-    Twitter: 'Twitter',
-    Facebook: 'Facebook',
-    Instagram: 'Instagram',
-    Web: 'web',
-    YouTube: 'YouTube'
-}
+export const SocialPlatform = {
+  Twitter: 'Twitter',
+  Facebook: 'Facebook',
+  Instagram: 'Instagram',
+  Web: 'web',
+  YouTube: 'YouTube'
+};
 
 export const TWITTER_URL = 'https://twitter.com/chattahooligan';
 export const FACEBOOK_URL = 'https://www.facebook.com/TheChattahooligans';
@@ -23,22 +22,28 @@ export const INSTAGRAM_URL = 'https://instagram.com/thechattahooligans';
 export const WEBSITE_URL = 'http://thechattahooligans.com';
 export const YOUTUBE_URL = '';
 export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
-export const PRIDERAISER_URL = 'https://www.prideraiser.org/campaigns/the-chattahooligans-chattanooga-prideraiser-94ba65a64bbf4bc896793733e7218cbc/';
-export const GOFUNDME_URL = 'https://www.gofundme.com/chattahooligans-get-active';
+export const PRIDERAISER_URL =
+  'https://www.prideraiser.org/campaigns/the-chattahooligans-chattanooga-prideraiser-94ba65a64bbf4bc896793733e7218cbc/';
+export const GOFUNDME_URL =
+  'https://www.gofundme.com/chattahooligans-get-active';
 
-export const PRIDERAISER_ICON = require('../assets/prideraiser.png');
-export const GOFUNDME_ICON = require('../assets/gofundme.png');
+export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
+export const GOFUNDME_ICON = require('../../assets/gofundme.png');
 
 // icon: Iconicons name
 export const websites = [
-    { type: SocialPlatform.Twitter, icon: 'logo-twitter', url: TWITTER_URL },
-    { type: SocialPlatform.Facebook, icon: 'logo-facebook', url: FACEBOOK_URL },
-    { type: SocialPlatform.Instagram, icon: 'logo-instagram', url: INSTAGRAM_URL },
-    { type: SocialPlatform.Web, icon: 'md-browsers', url: WEBSITE_URL },
-    { type: SocialPlatform.Web, icon: 'md-cart', url: SHOP_URL },
-    { type: SocialPlatform.Web, image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
-    { type: SocialPlatform.Web, image: GOFUNDME_ICON, url: GOFUNDME_URL },
-]
+  { type: SocialPlatform.Twitter, icon: 'logo-twitter', url: TWITTER_URL },
+  { type: SocialPlatform.Facebook, icon: 'logo-facebook', url: FACEBOOK_URL },
+  {
+    type: SocialPlatform.Instagram,
+    icon: 'logo-instagram',
+    url: INSTAGRAM_URL
+  },
+  { type: SocialPlatform.Web, icon: 'md-browsers', url: WEBSITE_URL },
+  { type: SocialPlatform.Web, icon: 'md-cart', url: SHOP_URL },
+  { type: SocialPlatform.Web, image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
+  { type: SocialPlatform.Web, image: GOFUNDME_ICON, url: GOFUNDME_URL }
+];
 
 /*
     App Skin
@@ -46,14 +51,13 @@ export const websites = [
 
 // Chattahooligans palette
 export const Colors = {
-    Navy: '#032E55',
-    Sky: '#A5D8F6',
-    White: '#FFFFFF',
-    Black: '#000000'
+  Navy: '#032E55',
+  Sky: '#A5D8F6',
+  White: '#FFFFFF',
+  Black: '#000000'
 };
 
-export const Skin = 
-{
-    NavigationBarBackground: Colors.Navy,
-    SocialButtons: Colors.Navy
-}
+export const Skin = {
+  NavigationBarBackground: Colors.Navy,
+  SocialButtons: Colors.Navy
+};

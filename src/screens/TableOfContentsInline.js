@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Platform,
   Image,
   SectionList,
   StyleSheet,
@@ -8,52 +7,14 @@ import {
   Text,
   Dimensions
 } from 'react-native';
-import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
-
+import { find } from 'lodash';
 import NavigationOptions from '../config/NavigationOptions';
-import { NavigationActions } from 'react-navigation';
-
-import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
+import { BoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-
-import Songs from '../data/songs.json';
-import Songbook from '../data/songbook.json';
-import { conferenceHasEnded } from '../utils/index';
-
-import { Colors, FontSizes, Layout } from '../constants';
-import { Constants } from 'expo';
-import { HeaderBackButton } from 'react-navigation';
-
-import { find, propEq } from 'ramda';
+import { Colors, FontSizes } from '../constants';
 
 const screenWidth = Dimensions.get('window').width;
-
-
-let ToCData = [];
-let tocPageLabel = 1;
-Songbook.chapters.forEach(chapterChild => {
-  let songList = [];
-
-  chapterChild.songs.forEach(songChild => {
-    try {
-      let song = {
-        _id: songChild._id,
-        song_title: Songs.filter(song => song._id === songChild._id)[0].title,
-        page: tocPageLabel
-      };
-      // set page label
-      song.toc_page_label = tocPageLabel;
-      songList.push(song);
-      tocPageLabel++;
-    } catch (err) {
-      console.log(songChild._id + ' not found in songs database');
-    }
-  });
-
-  if (0 < songList.length)
-    ToCData.push({ title: chapterChild.chapter_title, data: songList });
-});
 
 class SongRow extends React.Component {
   static navigationOptions = {
@@ -88,7 +49,50 @@ class SongRow extends React.Component {
 }
 
 export default class TableOfContentsInline extends React.Component {
-  state = {};
+  state = {
+    ToCData: []
+  };
+
+  componentDidMount() {
+    this.setData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!prevProps.songs && this.props.songs) {
+      this.setData();
+    }
+  }
+
+  setData = () => {
+    let ToCData = [];
+    let tocPageLabel = 1;
+    this.props.songbook.chapters.forEach(chapterChild => {
+      let songList = [];
+
+      chapterChild.songs.forEach(songChild => {
+        try {
+          let song = {
+            _id: songChild._id,
+            song_title: this.props.songs.filter(
+              song => song._id === songChild._id
+            )[0].title,
+            page: tocPageLabel
+          };
+          // set page label
+          song.toc_page_label = tocPageLabel;
+          songList.push(song);
+          tocPageLabel++;
+        } catch (err) {
+          console.log(songChild._id + ' not found in songs database');
+        }
+      });
+
+      if (0 < songList.length)
+        ToCData.push({ title: chapterChild.chapter_title, data: songList });
+    });
+
+    this.setState({ ToCData });
+  };
 
   render() {
     return (
@@ -99,7 +103,7 @@ export default class TableOfContentsInline extends React.Component {
             stickySectionHeadersEnabled={false}
             renderItem={this._renderItem}
             renderSectionHeader={this._renderSectionHeader}
-            sections={ToCData}
+            sections={this.state.ToCData}
             keyExtractor={(item, index) => index}
           />
         </View>
@@ -116,11 +120,18 @@ export default class TableOfContentsInline extends React.Component {
   };
 
   _renderItem = ({ item }) => {
-    return <SongRow item={item} onPress={this._handlePressRow} />;
+    return (
+      <SongRow
+        item={item}
+        onPress={this._handlePressRow}
+        songbook={this.props.songbook}
+        songs={this.props.songs}
+      />
+    );
   };
 
   _handlePressRow = item => {
-    const song = find(propEq('_id', item._id), Songs);
+    const song = find(this.props.songs, { _id: item._id });
 
     // pass item page label to song to include in state
     song.page = item.toc_page_label;

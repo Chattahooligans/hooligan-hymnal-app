@@ -1,19 +1,21 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { DrawerItems, NavigationActions, SafeAreaView } from 'react-navigation';
+import withUnstated from '@airship/with-unstated';
+import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
 
 const CustomDrawer = props => (
   <View style={styles.container}>
     <View style={styles.drawerHeader}>
       <Image
-        source={require('../assets/drawer-hero-background.png')}
+        source={require('../../assets/drawer-hero-background.png')}
         style={styles.backgroundImage}
       />
       <View style={[StyleSheet.absoluteFill, styles.imageOverlay]} />
       <View style={[StyleSheet.absoluteFill, styles.logoContainer]}>
         <Image
-          source={require('../assets/drawer-hero-logo.png')}
+          source={require('../../assets/drawer-hero-logo.png')}
           style={styles.logoImage}
         />
       </View>
@@ -24,7 +26,7 @@ const CustomDrawer = props => (
       labelStyle={{ color: 'white' }}
       onItemPress={({ route, focused }) => {
         if (route.routeName === 'CapoHome') {
-          if (props.screenProps.unlocked === true) {
+          if (props.globalData.state.unlocked === true) {
             props.navigation.navigate('CapoHome');
           } else {
             props.navigation.navigate('CapoLogin');
@@ -62,4 +64,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CustomDrawer;
+export default withUnstated(CustomDrawer, { globalData: GlobalDataContainer });

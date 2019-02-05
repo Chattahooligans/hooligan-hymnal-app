@@ -12,6 +12,8 @@ import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
 import { NavigationActions } from 'react-navigation';
+import withUnstated from '@airship/with-unstated';
+import GlobalDataContainer from '../containers/GlobalDataContainer';
 import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -30,7 +32,7 @@ import { HeaderBackButton } from 'react-navigation';
 // Back Button on the nav bar for this screen, goes back to capo dashboard
 
 @withNavigation
-export default class CapoComposeSong extends React.Component {
+class CapoComposeSong extends React.Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Compose Song',
     ...NavigationOptions,
@@ -86,7 +88,7 @@ export default class CapoComposeSong extends React.Component {
   };
 
   _handlePressContinueButton = () => {
-    this.props.screenProps.setCurrentSong(Schema);
+    this.props.globalData.setCurrentSong(Schema);
     this.props.navigation.navigate('CapoConfirmSend');
   };
 }
@@ -143,4 +145,8 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center'
   }
+});
+
+export default withUnstated(CapoComposeSong, {
+  globalData: GlobalDataContainer
 });

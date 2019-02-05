@@ -1,6 +1,8 @@
 import React from 'react';
 import { ScrollView, View, Text, StyleSheet, NativeModules, ToastAndroid, Clipboard } from 'react-native';
 import { RegularText } from './StyledText';
+import { WebBrowser } from 'expo';
+import ParsedText from 'react-native-parsed-text';
 import Tags from './Tags';
 import { Colors, FontSizes, Layout } from '../constants';
 
@@ -21,7 +23,17 @@ export default class SongView extends React.Component {
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
           <View style={{flex: 1}}>
             <Text style={styles.instructions}>{song.instructions}</Text>
-            <Text style={styles.lyrics} onLongPress={this._onLongPressLyrics}>{song.lyrics}</Text>
+            <ParsedText 
+              parse={
+                [
+                  {type: 'url', style: styles.url, onPress: this._urlPress}
+                ]
+              }
+              style={styles.lyrics} 
+              onLongPress={this._onLongPressLyrics}
+              >
+              {song.lyrics}
+            </ParsedText>
           </View>
         </ScrollView>
         <View
@@ -65,6 +77,10 @@ export default class SongView extends React.Component {
     ToastAndroid.show('Copied lyrics to clipboard', ToastAndroid.SHORT);
     Clipboard.setString(this.props.song.lyrics);
   };
+
+  _urlPress = (url) => {
+    WebBrowser.openBrowserAsync(url);
+  }
 }
 
 const styles = StyleSheet.create({
@@ -102,5 +118,9 @@ const styles = StyleSheet.create({
     color: Colors.green,
     backgroundColor: '#FFFFFF',
     paddingLeft: 8
+  },
+  url: {
+    color: 'blue',
+    textDecorationLine: 'underline'
   }
 });

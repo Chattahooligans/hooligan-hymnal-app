@@ -1,25 +1,37 @@
 import _ from 'lodash';
 
-export const Songs = require('../data/songs.json');
-export const Songbook = require('../data/songbook.json');
+export const getFeaturedSong = (songbook, allSongs) => {
+  if (songbook && allSongs && allSongs.length) {
+    let featuredSongs = [];
 
-export function getFeaturedSongs(allSongs = Songs) {
-  try {
-    let songList = [];
-    Songbook.chapters.forEach(chapterChild => {
-      chapterChild.songs.forEach(songChild => {
-        if (true === songChild.featured) {
-          try {
-            // does this song exist in the database?
-            songList.push(Songs.filter(song => song._id === songChild._id)[0]);
-          } catch (err) {
-            console.log(songChild._id + ' not found in songs database');
-          }
+    songbook.chapters.forEach(chapter => {
+      chapter.songs.forEach(songChild => {
+        if (songChild.featured) {
+          // does this song id exist in the songs list
+          featuredSongs.push(
+            allSongs.filter(song => song._id === songChild._id)[0]
+          );
         }
       });
     });
-    return [_.sample(songList)];
-  } catch (err) {
-    return [_.sample(allSongs)];
+    return _.sample(featuredSongs);
+  } else {
+    return {
+      _id: 1,
+      category: 'game',
+      create_time: '',
+      update_time: '',
+      title: 'Chattanooga Choo Choo',
+      tags: 'music,drums,bells,voice',
+      lyrics:
+        "Pardon me, boy\nIs that the Chattanooga Choo Choo?\nTrack twenty-nine\nCan you give me a shine?\nI can afford to board the\nChattanooga Choo Choo?\nI've got my fare\nAnd just a trifle to spare.\n\nWhen you hear the whistle\nBlowin' eight to the bar!\nThen you know that\nTennessee is not very far!\nShovel all the coal in\nGotta keep it rollin'\nWoo, woo, Chattanooga\nThere you are! (x4)",
+      tbd_various_boolean_flags: '',
+      reference_title: 'by the Glenn Miller Orchestra',
+      reference_link: '',
+      instructions: '',
+      player_id: -1,
+      override_html: '',
+      delete_local: ''
+    };
   }
-}
+};

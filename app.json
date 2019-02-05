@@ -6,17 +6,17 @@
     "privacy": "public",
     "version": "0.0.19",
     "primaryColor": "#A5D8F6",
-    "icon": "./src/assets/icon-ios.png",
+    "icon": "./assets/icon-ios.png",
     "orientation": "portrait",
-    "sdkVersion": "27.0.0",
+    "sdkVersion": "32.0.0",
     "splash": {
       "backgroundColor": "#A5D8F6",
       "resizeMode": "contain",
-      "image": "./src/assets/splash.png"
+      "image": "./assets/splash.png"
     },
     "android": {
       "package": "com.thechattahooligans.app",
-      "icon": "./src/assets/icon-android.png",
+      "icon": "./assets/icon-android.png",
       "versionCode": 13,
       "permissions": []
     },
@@ -25,17 +25,16 @@
       "supportsTablet": true,
       "loadJSInBackgroundExperimental": true,
       "splash": {
-        "image": "./src/assets/splash.png",
+        "image": "./assets/splash.png",
         "resizeMode": "contain",
         "backgroundColor": "#A5D8F6"
       },
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription":
-          "Chattahooligan Hymnal will use location to ignore notifications when you are not at the stadium."
+        "NSLocationWhenInUseUsageDescription": "Chattahooligan Hymnal will use location to ignore notifications when you are not at the stadium."
       }
     },
     "notification": {
-      "icon": "./src/assets/speakerphone.png",
+      "icon": "./assets/speakerphone.png",
       "color": "#A5D8F6"
     }
   }
