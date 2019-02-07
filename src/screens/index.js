@@ -4,6 +4,7 @@ import CapoConfirmSend from './CapoConfirmSend';
 import CapoHome from './CapoHome';
 import CapoLogin from './CapoLogin';
 import CapoSelectSong from './CapoSelectSong';
+import Events from './Events';
 import Home from './Home';
 import Player from './Player';
 import Roster from './Roster';
@@ -19,6 +20,7 @@ export default {
   CapoHome,
   CapoLogin,
   CapoSelectSong,
+  Events,
   Home,
   Player,
   Roster,

@@ -64,6 +64,20 @@ const RosterNavigation = StackNavigator(
   }
 );
 
+const EventsNavigation = StackNavigator(
+  {
+    Events: {
+      screen: Screens.Events
+    }
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: 'EVENTS ↗️'
+    }
+  }
+);
+
 const CapoHomeNavigation = StackNavigator(
   {
     CapoLogin: { screen: Screens.CapoLogin },
@@ -84,7 +98,7 @@ const CapoHomeNavigation = StackNavigator(
 
 const AboutNavigation = StackNavigator(
   {
-    AboutList: {
+    About: {
       screen: Screens.About
     }
   },
@@ -101,6 +115,7 @@ const Drawer = DrawerNavigator(
     Home: { screen: HomeNavigation },
     Songbook: { screen: SongbookNavigation },
     Roster: { screen: RosterNavigation },
+    Events: { screen: EventsNavigation },
     CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation }
   },
