@@ -190,6 +190,7 @@ class Home extends React.Component {
         <NavigationBar
           renderLeftButton={() => <MenuButton />}
           animatedBackgroundOpacity={headerOpacity}
+          style={{ marginLeft: -14, marginTop: 5}}
         />
       </View>
     );
