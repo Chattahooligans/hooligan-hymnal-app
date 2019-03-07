@@ -87,7 +87,7 @@ const StandingsNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: 'NPSL Standings ↗️'
+      drawerLabel: 'NPSL STANDINGS ↗️'
     }
   }
 );
