@@ -78,6 +78,20 @@ const EventsNavigation = StackNavigator(
   }
 );
 
+const StandingsNavigation = StackNavigator(
+  {
+    Events: {
+      screen: Screens.Standings
+    }
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: 'NPSL Standings ↗️'
+    }
+  }
+);
+
 const CapoHomeNavigation = StackNavigator(
   {
     CapoLogin: { screen: Screens.CapoLogin },
@@ -116,6 +130,7 @@ const Drawer = DrawerNavigator(
     Songbook: { screen: SongbookNavigation },
     Roster: { screen: RosterNavigation },
     Events: { screen: EventsNavigation },
+    Standings: { screen: StandingsNavigation },
     CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation }
   },

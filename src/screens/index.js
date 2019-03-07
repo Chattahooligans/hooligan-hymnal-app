@@ -11,6 +11,7 @@ import Roster from './Roster';
 import SingleSong from './SingleSong';
 import Songbook from './Songbook';
 import Songs from './Songs';
+import Standings from './Standings';
 import TableOfContentsInline from './TableOfContentsInline';
 
 export default {
@@ -27,5 +28,6 @@ export default {
   SingleSong,
   Songbook,
   Songs,
+  Standings,
   TableOfContentsInline
 };
