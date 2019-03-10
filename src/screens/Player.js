@@ -19,6 +19,8 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 import { HeaderBackButton } from 'react-navigation';
 import { View as AnimatableView } from 'react-native-animatable';
 import _ from 'lodash';
+import withUnstated from '@airship/with-unstated';
+import GlobalDataContainer from '../containers/GlobalDataContainer';
 
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
@@ -29,27 +31,50 @@ import SongCard from '../components/SongCard';
 
 import Songs from '../data/songs.json';
 
-export default class Player extends React.Component {
+class Player extends React.Component {
   static navigationOptions = {
     header: null
   };
 
   state = {
-    scrollY: new Animated.Value(0)
+    scrollY: new Animated.Value(0),
+    playerSongs: []
   };
+
+  componentDidMount() {
+    this.setData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (
+      !prevProps.globalData.state.songs &&
+      this.props.globalData.state.songs ||
+      !prevProps.globalData.state.players &&
+      this.props.globalData.state.players
+    ) {
+      this.setData();
+    }
+  }
+
+  setData = () => {
+    let player = this.props.navigation.state.params.player;
+    let playerSongs = [];
+    playerSongs = this.props.globalData.state.songs.filter(song => song.player_id === player._id)
+
+    this.setState({ playerSongs });
+  }
 
   render() {
     let player = this.props.navigation.state.params.player;
     // console.log('player details window for ', player);
 
-    let playerSongs = Songs.filter(song => song.player_id === player._id);
     let playerSongDisplay;
 
     let playerImage = require('../../assets/chattfc_logo.png');
     if (player.image)
       playerImage = {uri: player.image};
 
-    if (playerSongs.length === 0) {
+    if (this.state.playerSongs.length === 0) {
       playerSongDisplay = (
         <RegularText style={styles.bodyText}>
           We are still working on a song for this player. Want to help? Submit
@@ -60,7 +85,7 @@ export default class Player extends React.Component {
       playerSongDisplay = (
         <FlatList
           style={{ backgroundColor: '#A5D8F6' }}
-          data={playerSongs}
+          data={this.state.playerSongs}
           renderItem={this._renderSongCard}
           keyExtractor={(item, index) => index}
         />
@@ -199,6 +224,7 @@ export default class Player extends React.Component {
       <SongCard
         headerTitle="Player Song"
         navigationToScreen="RosterSingleSong"
+        key={item._id}
         song={item}
         style={{ borderBottomWidth: 1, borderColor: '#eee' }}
       />
@@ -269,3 +295,5 @@ const styles = StyleSheet.create({
     marginBottom: 3
   }
 });
+
+export default withUnstated(Player, { globalData: GlobalDataContainer });
