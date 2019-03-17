@@ -14,7 +14,7 @@ const CAPO_MESSAGE_ENDPOINT = HYMNAL_ADDRESS + '/api/notifications/last';
 class TalksUpNext extends React.Component {
   state = {
     capoMessage: null,
-    label: 'Featured Song',
+    label: 'Up Next',
     song: getFeaturedSong(this.props.songbook, this.props.songs)
   };
 
@@ -73,7 +73,7 @@ class TalksUpNext extends React.Component {
 
   _setFeaturedSong = () => {
     this.setState({
-      label: 'Featured Song',
+      label: 'Up Next',
       song: getFeaturedSong(this.props.songbook, this.props.songs)
     });
   };
