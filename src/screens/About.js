@@ -26,6 +26,7 @@ export default class About extends React.Component {
         <View style={{ height: 50 }} />
         <Text>Home screen video created by Jay Kaley</Text>
         <Text>Menu photo from Phil Thach photography</Text>
+        <Text>Some player photos from Madonna Kemp and Ray Soldano, used with permission</Text>
         <Text>
           Some code based on open source @nodevember conference schedule app
         </Text>
