@@ -26,7 +26,7 @@ import NavigationBar from '../components/NavigationBar';
 import TalksUpNext from '../components/TalksUpNext';
 import MenuButton from '../components/MenuButton';
 import VideoBackground from '../components/VideoBackground';
-import { BoldText, SemiBoldText } from '../components/StyledText';
+import { BoldText, SemiBoldText, RegularText, UnderlineText } from '../components/StyledText';
 import { connectDrawerButton } from '../Navigation';
 import { Colors, FontSizes, Layout } from '../constants';
 import {
@@ -37,7 +37,7 @@ import {
 
 import appParams from '../../app.json';
 
-import { Skin, websites } from '../config/Settings';
+import { Skin, websites, WEBSITE_URL } from '../config/Settings';
 
 let socialButtons = [];
 websites.forEach(item => {
@@ -46,7 +46,8 @@ websites.forEach(item => {
       <TouchableOpacity
         key={item.url}
         onPress={() => {
-          WebBrowser.openBrowserAsync(item.url);
+          //WebBrowser.openBrowserAsync(item.url);
+          Linking.openURL(item.url);
         }}
       >
         <Ionicons
@@ -68,7 +69,8 @@ websites.forEach(item => {
       <TouchableOpacity
         key={item.url}
         onPress={() => {
-          WebBrowser.openBrowserAsync(item.url);
+          //WebBrowser.openBrowserAsync(item.url);
+          Linking.openURL(item.url);
         }}
       >
         <Image
@@ -232,6 +234,15 @@ class DeferredHomeContent extends React.Component {
             <SemiBoldText style={styles.seeAllTalks}>
               See all songs →
             </SemiBoldText>
+          </TouchableOpacity>
+        </View>
+        <View flexDirection="row" style={{ marginHorizontal: 15, marginBottom: 10 }}>
+          <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => {
+            //WebBrowser.openBrowserAsync(item.url);
+            Linking.openURL(WEBSITE_URL);
+          }}>
+            <SemiBoldText>Visit our website: </SemiBoldText>
+            <UnderlineText>chatahooligan.com</UnderlineText>
           </TouchableOpacity>
         </View>
         <View style={{ marginHorizontal: 15, flex: 1 }}>

@@ -34,16 +34,12 @@ export const GOFUNDME_ICON = require('../../assets/gofundme.png');
 export const websites = [
   { type: SocialPlatform.Twitter, icon: 'logo-twitter', url: TWITTER_URL },
   { type: SocialPlatform.Facebook, icon: 'logo-facebook', url: FACEBOOK_URL },
-  {
-    type: SocialPlatform.Instagram,
-    icon: 'logo-instagram',
-    url: INSTAGRAM_URL
-  },
-  { type: SocialPlatform.Web, icon: 'md-browsers', url: WEBSITE_URL },
+  { type: SocialPlatform.Instagram, icon: 'logo-instagram', url: INSTAGRAM_URL },  
   { type: SocialPlatform.Web, icon: 'md-cart', url: SHOP_URL },
   { type: SocialPlatform.Web, image: GOFUNDME_ICON, url: GOFUNDME_URL }
 ];
 
+// { type: SocialPlatform.Web, icon: 'md-browsers', url: WEBSITE_URL },
 // { type: SocialPlatform.Web, image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
 
 /*
