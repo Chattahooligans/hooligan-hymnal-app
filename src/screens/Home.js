@@ -241,7 +241,7 @@ class DeferredHomeContent extends React.Component {
             //WebBrowser.openBrowserAsync(item.url);
             Linking.openURL(WEBSITE_URL);
           }}>
-            <SemiBoldText>Visit our website: </SemiBoldText>
+            <SemiBoldText>Visit: </SemiBoldText>
             <UnderlineText>chatahooligan.com</UnderlineText>
           </TouchableOpacity>
         </View>
