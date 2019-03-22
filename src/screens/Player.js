@@ -3,6 +3,7 @@ import {
   Animated,
   FlatList,
   Image,
+  Linking,
   Platform,
   StyleSheet,
   TouchableOpacity,
@@ -12,7 +13,7 @@ import {
 } from 'react-native';
 
 import SongView from '../components/SongView';
-import { Constants, Video } from 'expo';
+import { Constants, WebBrowser } from 'expo';
 import FadeIn from 'react-native-fade-in-image';
 import ReadMore from 'react-native-read-more-text';
 import { BorderlessButton } from 'react-native-gesture-handler';
@@ -68,6 +69,62 @@ class Player extends React.Component {
     let player = this.props.navigation.state.params.player;
     // console.log('player details window for ', player);
 
+    let playerSocialDisplay;
+    let playerSocialIcons = [];
+
+    if (player.twitter) {
+      playerSocialIcons.push(
+        <TouchableOpacity
+          key={player.twitter}
+          onPress={() => {
+            //WebBrowser.openBrowserAsync('http://twitter.com/' + player.twitter);
+            Linking.openURL('http://twitter.com/' + player.twitter);
+          }}
+        >
+          <Ionicons
+            name={'logo-twitter'}
+            size={30}
+            style={{
+              color: 'white',
+              marginTop: 3,
+              marginBottom: 3,
+              marginLeft: 10,
+              marginRight: 10,
+              backgroundColor: 'transparent'
+            }}
+          />
+        </TouchableOpacity>
+      );
+    }
+    if (player.instagram) {
+      playerSocialIcons.push(
+        <TouchableOpacity
+          key={player.instagram}
+          onPress={() => {
+            //WebBrowser.openBrowserAsync('http://instagram.com/' + player.instagram);
+            Linking.openURL('http://instagram.com/' + player.instagram);
+          }}
+        >
+          <Ionicons
+            name={'logo-instagram'}
+            size={30}
+            style={{
+              color: 'white',
+              marginTop: 3,
+              marginBottom: 3,
+              marginLeft: 10,
+              marginRight: 10,
+              backgroundColor: 'transparent'
+            }}
+          />
+        </TouchableOpacity>
+      );
+    }
+
+    if (playerSocialIcons.length > 0) {
+      playerSocialDisplay = <View style={{ flexDirection: 'row' }}>{playerSocialIcons}</View>
+    }
+
     let playerSongDisplay;
 
     let playerImage = require('../../assets/chattfc_logo.png');
@@ -87,7 +144,7 @@ class Player extends React.Component {
           style={{ backgroundColor: '#A5D8F6' }}
           data={this.state.playerSongs}
           renderItem={this._renderSongCard}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString()}
         />
       );
     }
@@ -169,6 +226,7 @@ class Player extends React.Component {
             <RegularText style={styles.headerText}>
               {player.position}
             </RegularText>
+            {playerSocialDisplay}
           </View>
           <AnimatableView
             animation="fadeIn"
