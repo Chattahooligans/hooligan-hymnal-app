@@ -14,11 +14,15 @@ export default class SongView extends React.Component {
     let song = this.props.song;
     let pageCount = this.props.pageCount;
 
+    let referenceDisplay;
+    if (song.reference_title)
+      referenceDisplay = <Text style={styles.reference} onLongPress={this._onLongPressReference}>{song.reference_title}</Text>
+
     return (
       <View style={styles.container}>
-        <View style={{paddingBottom: 8}}>
+        <View style={{paddingBottom: 1}}>
           <Text style={styles.title} onLongPress={this._onLongPressTitle}>{song.title}</Text>
-          <Text style={styles.reference} onLongPress={this._onLongPressReference}>{song.reference_title}</Text>
+          {referenceDisplay}
         </View>
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
           <View style={{flex: 1}}>
@@ -99,9 +103,10 @@ const styles = StyleSheet.create({
   },
   reference: {
     fontStyle: 'italic',
-    color: '#AAAAAA',
+    color: Colors.green,
     backgroundColor: '#FFFFFF',
-    paddingLeft: 12
+    paddingLeft: 12,
+    paddingBottom: 3
   },
   icons: {
     backgroundColor: '#FFFFFF',
