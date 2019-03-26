@@ -148,7 +148,7 @@ class CapoSelectSong extends React.Component {
   };
 
   _handlePressRow = item => {
-    const song = find(this.props.songs, { _id: item._id });
+    const song = find(this.props.globalData.state.songs, { _id: item._id });
 
     this.props.globalData.setCurrentSong(song);
 
