@@ -26,6 +26,9 @@ export const PRIDERAISER_URL =
   'https://cha.prideraiser.org/';
 export const GOFUNDME_URL =
   'https://www.gofundme.com/chattahooligan-youth-soccer-investment';
+export const ESP_TWITTER_URL = 'https://twitter.com/LosCFCHooligans';
+export const ESP_INSTAGRAM_URL = 'https://instagram.com/loschattahooligans';
+export const ESP_WEBSITE_URL = 'http://chattahooligan.com/es';
 
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
@@ -39,8 +42,15 @@ export const websites = [
   { type: SocialPlatform.Web, image: GOFUNDME_ICON, url: GOFUNDME_URL }
 ];
 
+export const esp_websites = [
+  { type: SocialPlatform.Twitter, icon: 'logo-twitter', url: ESP_TWITTER_URL },
+  { type: SocialPlatform.Instagram, icon: 'logo-instagram', url: ESP_INSTAGRAM_URL },
+  { type: SocialPlatform.Web, icon: 'md-browsers', url: ESP_WEBSITE_URL }
+];
+
 // { type: SocialPlatform.Web, icon: 'md-browsers', url: WEBSITE_URL },
 // { type: SocialPlatform.Web, image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
+// { type: SocialPlatform.Web, image: GOFUNDME_ICON, url: GOFUNDME_URL }
 
 /*
     App Skin

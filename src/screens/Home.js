@@ -37,9 +37,11 @@ import {
 
 import appParams from '../../app.json';
 
-import { Skin, websites, WEBSITE_URL } from '../config/Settings';
+import { Skin, websites, esp_websites, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON } from '../config/Settings';
 
 let socialButtons = [];
+let socialButtonsEsp = [];
+
 websites.forEach(item => {
   if (item.icon) {
     socialButtons.push(
@@ -66,6 +68,56 @@ websites.forEach(item => {
     );
   } else if (item.image) {
     socialButtons.push(
+      <TouchableOpacity
+        key={item.url}
+        onPress={() => {
+          //WebBrowser.openBrowserAsync(item.url);
+          Linking.openURL(item.url);
+        }}
+      >
+        <Image
+          source={item.image}
+          style={{
+            width: 30,
+            height: 30,
+            marginTop: 3,
+            marginBottom: 3,
+            marginLeft: 10,
+            marginRight: 10,
+            backgroundColor: 'transparent'
+          }}
+        />
+      </TouchableOpacity>
+    );
+  }
+});
+
+esp_websites.forEach(item => {
+  if (item.icon) {
+    socialButtonsEsp.push(
+      <TouchableOpacity
+        key={item.url}
+        onPress={() => {
+          //WebBrowser.openBrowserAsync(item.url);
+          Linking.openURL(item.url);
+        }}
+      >
+        <Ionicons
+          name={item.icon}
+          size={30}
+          style={{
+            color: Skin.SocialButtons,
+            marginTop: 3,
+            marginBottom: 3,
+            marginLeft: 10,
+            marginRight: 10,
+            backgroundColor: 'transparent'
+          }}
+        />
+      </TouchableOpacity>
+    );
+  } else if (item.image) {
+    socialButtonsEsps.push(
       <TouchableOpacity
         key={item.url}
         onPress={() => {
@@ -224,6 +276,24 @@ class DeferredHomeContent extends React.Component {
     }
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
+        <View style={{ marginHorizontal: 15, marginBottom: 10, marginTop: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A5D8F6' }}>
+          <TouchableOpacity style={{flexDirection: 'row', alignItems:'center'}} onPress={this._handlePressGoFundMe}>
+            <Image
+              source={GOFUNDME_ICON}
+              style={{
+                width: 16,
+                height: 16,
+                marginTop: 1,
+                marginBottom: 1,
+                marginRight: 5,
+                backgroundColor: 'transparent'
+              }}
+            />
+            <SemiBoldText style={{ fontSize: 16 }}>
+              Youth Soccer Investment Crowdfunding
+            </SemiBoldText>
+          </TouchableOpacity>
+        </View>
         <TalksUpNext
           songs={this.props.globalData.state.songs}
           songbook={this.props.globalData.state.songbook}
@@ -251,6 +321,12 @@ class DeferredHomeContent extends React.Component {
         <View flexDirection="row" style={{ paddingHorizontal: 20 }}>
           {socialButtons}
         </View>
+        <View style={{ marginHorizontal: 15, flex: 1 }}>
+          <SemiBoldText>Síguenos</SemiBoldText>
+        </View>
+        <View flexDirection="row" style={{ paddingHorizontal: 20 }}>
+          {socialButtonsEsp}
+        </View>
       </AnimatableView>
     );
   }
@@ -261,6 +337,10 @@ class DeferredHomeContent extends React.Component {
         routeName: 'Songbook'
       })
     );
+  };
+
+  _handlePressGoFundMe = () => {
+    Linking.openURL(GOFUNDME_URL);
   };
 }
 
