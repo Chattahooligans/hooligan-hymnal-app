@@ -276,8 +276,8 @@ class DeferredHomeContent extends React.Component {
     }
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
-        <View style={{ marginHorizontal: 15, marginBottom: 10, marginTop: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: '#A5D8F6' }}>
-          <TouchableOpacity style={{flexDirection: 'row', alignItems:'center'}} onPress={this._handlePressGoFundMe}>
+        <View style={{ marginBottom: 10, marginTop: 10, alignItems: 'center', justifyContent: 'center' }}>
+          <TouchableOpacity style={{flexDirection: 'row', alignItems:'center', backgroundColor: '#A5D8F6', paddingHorizontal: 5, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
             <Image
               source={GOFUNDME_ICON}
               style={{
