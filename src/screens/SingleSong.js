@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import SongView from '../components/SongView';
 import NavigationOptions from '../config/NavigationOptions';
 import { HeaderBackButton } from 'react-navigation';
+import { Skin, DefaultColors } from '../config/Settings';
 
 const styles = StyleSheet.create({
   container: {
@@ -10,7 +11,7 @@ const styles = StyleSheet.create({
     width: 100 + '%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#032E55',
+    backgroundColor: Skin.SingleSong_Background,
     paddingBottom: 8
   }
 });
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
 // add a unique header that includes a megaphone icon somewhere?
 export default class SingleSong extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: navigation.state.params.headerTitle,
+    title: 'Up Next',
     ...NavigationOptions,
     headerLeft: (
       <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
@@ -29,8 +30,8 @@ export default class SingleSong extends React.Component {
 
   componentDidMount() {
     const { song } = this.props.navigation.state.params;
-    const headerTitle = song && song.title ? song.title : 'Up Next';
-    this.props.navigation.setParams({ headerTitle });
+    // const headerTitle = song && song.title ? song.title : 'Up Next';
+    // this.props.navigation.setParams({ headerTitle });
   }
 
   render() {

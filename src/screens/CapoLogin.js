@@ -13,7 +13,7 @@ import { withNavigation } from 'react-navigation';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import NavigationOptions from '../config/NavigationOptions';
-import { BoldText, SemiBoldText } from '../components/StyledText';
+import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 
 // TODO: Hard code password for now
@@ -38,7 +38,7 @@ class CapoLogin extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.instructions}>Enter password to unlock</Text>
+        <RegularText style={styles.instructions}>Enter password to unlock</RegularText>
         <TextInput
           style={styles.textInput}
           autoFocus={true}
@@ -51,7 +51,7 @@ class CapoLogin extends React.Component {
             onPress={this._handlePressSubmitButton}
             underlayColor="#fff"
           >
-            <SemiBoldText style={styles.bigButtonText}>Unlock</SemiBoldText>
+            <MediumText style={styles.bigButtonText}>Unlock</MediumText>
           </RectButton>
         </ClipBorderRadius>
       </View>

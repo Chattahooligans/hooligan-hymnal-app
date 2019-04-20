@@ -57,14 +57,28 @@ export const esp_websites = [
 */
 
 // Chattahooligans palette
-export const Colors = {
-  Navy: '#032E55',
-  Sky: '#A5D8F6',
+export const Palette = {
+  Navy: '#002D56',
+  Sky: '#A3D8F7',
   White: '#FFFFFF',
   Black: '#000000'
 };
 
+export const DefaultColors = {
+  NavigationBarBackground: Palette.Navy,
+  Background: Palette.White,
+  ButtonBackground: Palette.Navy,
+  ButtonText: Palette.White,
+  HeaderBackground: Palette.Navy,
+  HeaderText: Palette.White,
+  Text: Palette.Black
+}
+
 export const Skin = {
-  NavigationBarBackground: Colors.Navy,
-  SocialButtons: Colors.Navy
+  Home_SocialButtons: DefaultColors.ButtonBackground,
+  Songbook_Background: Palette.Sky,
+  Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
+  SingleSong_Background: Palette.Navy,
+  Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
+  Player_Background: Palette.Sky
 };

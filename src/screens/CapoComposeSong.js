@@ -18,7 +18,7 @@ import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
 
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
+import { BoldText, RegularText, MediumText } from '../components/StyledText';
 
 import Schema from '../data/song_schema';
 
@@ -71,7 +71,7 @@ class CapoComposeSong extends React.Component {
                   marginRight: 5
                 }}
               />
-              <SemiBoldText style={styles.bigButtonText}>Continue</SemiBoldText>
+              <MediumText style={styles.bigButtonText}>Continue</MediumText>
             </RectButton>
           </ClipBorderRadius>
         </KeyboardAvoidingView>

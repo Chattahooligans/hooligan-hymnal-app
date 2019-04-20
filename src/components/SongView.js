@@ -1,10 +1,11 @@
 import React from 'react';
 import { ScrollView, View, Text, StyleSheet, NativeModules, ToastAndroid, Clipboard } from 'react-native';
-import { RegularText } from './StyledText';
+import { BoldText, RegularText } from './StyledText';
 import { WebBrowser } from 'expo';
 import ParsedText from 'react-native-parsed-text';
 import Tags from './Tags';
-import { Colors, FontSizes, Layout } from '../constants';
+import { FontSizes, Layout } from '../constants';
+import { Skin, Palette } from '../config/Settings';
 
 // TODO: platform select
 // on android, longpress event with clipboard setting
@@ -16,17 +17,17 @@ export default class SongView extends React.Component {
 
     let referenceDisplay;
     if (song.reference_title)
-      referenceDisplay = <Text style={styles.reference} onLongPress={this._onLongPressReference}>{song.reference_title}</Text>
+      referenceDisplay = <RegularText style={styles.reference} onLongPress={this._onLongPressReference}>{song.reference_title}</RegularText>
 
     return (
       <View style={styles.container}>
         <View style={{paddingBottom: 1}}>
-          <Text style={styles.title} onLongPress={this._onLongPressTitle}>{song.title}</Text>
+          <BoldText style={styles.title} onLongPress={this._onLongPressTitle}>{song.title}</BoldText>
           {referenceDisplay}
         </View>
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
           <View style={{flex: 1}}>
-            <Text style={styles.instructions}>{song.instructions}</Text>
+            <RegularText style={styles.instructions}>{song.instructions}</RegularText>
             <ParsedText 
               parse={
                 [
@@ -96,20 +97,19 @@ export default class SongView extends React.Component {
 const styles = StyleSheet.create({
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#000000',
-    backgroundColor: '#FFFFFF',
+    color: Palette.Black,
+    backgroundColor: Palette.White,
     paddingLeft: 4,
   },
   reference: {
     fontStyle: 'italic',
-    color: Colors.green,
-    backgroundColor: '#FFFFFF',
+    color: Palette.Navy,
+    backgroundColor: Palette.White,
     paddingLeft: 12,
     paddingBottom: 3
   },
   icons: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Palette.White
   },
   container: {
     flex: 1,
@@ -120,14 +120,16 @@ const styles = StyleSheet.create({
   instructions: {
     fontStyle: 'italic',
     color: '#AAAAAA',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: Palette.White,
     paddingLeft: 12
   },
   lyrics: {
+    fontFamily: 'heebo',
     fontSize: 18,
+    lineHeight: 24,
     flex: 1,
-    color: Colors.green,
-    backgroundColor: '#FFFFFF',
+    color: Palette.Navy,
+    backgroundColor: Palette.White,
     paddingLeft: 8
   },
   bold: {

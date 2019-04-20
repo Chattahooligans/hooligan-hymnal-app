@@ -17,7 +17,7 @@ import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import NavigationOptions from '../config/NavigationOptions';
 import { NavigationActions } from 'react-navigation';
 
-import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
+import { BoldText, MediumText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
 import Players from '../data/players.json';
@@ -73,7 +73,7 @@ class PlayerRow extends React.Component {
               <BoldText>{player.squadNumber}</BoldText>
             </View>
             <View style={{ flexDirection: 'column' }}>
-              <SemiBoldText>{player.name}</SemiBoldText>
+              <MediumText>{player.name}</MediumText>
               <RegularText>{player.position}</RegularText>
             </View>
           </View>

@@ -26,9 +26,9 @@ import NavigationBar from '../components/NavigationBar';
 import TalksUpNext from '../components/TalksUpNext';
 import MenuButton from '../components/MenuButton';
 import VideoBackground from '../components/VideoBackground';
-import { BoldText, SemiBoldText, RegularText, UnderlineText } from '../components/StyledText';
+import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { connectDrawerButton } from '../Navigation';
-import { Colors, FontSizes, Layout } from '../constants';
+import { FontSizes, Layout, Colors } from '../constants';
 import {
   HideWhenConferenceHasStarted,
   HideWhenConferenceHasEnded,
@@ -37,7 +37,7 @@ import {
 
 import appParams from '../../app.json';
 
-import { Skin, websites, esp_websites, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON } from '../config/Settings';
+import { Palette, DefaultColors, Skin, websites, esp_websites, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON } from '../config/Settings';
 
 let socialButtons = [];
 let socialButtonsEsp = [];
@@ -56,7 +56,7 @@ websites.forEach(item => {
           name={item.icon}
           size={30}
           style={{
-            color: Skin.SocialButtons,
+            color: Skin.Home_SocialButtons,
             marginTop: 3,
             marginBottom: 3,
             marginLeft: 10,
@@ -106,7 +106,7 @@ esp_websites.forEach(item => {
           name={item.icon}
           size={30}
           style={{
-            color: Skin.SocialButtons,
+            color: Skin.Home_SocialButtons,
             marginTop: 3,
             marginBottom: 3,
             marginLeft: 10,
@@ -206,7 +206,7 @@ class Home extends React.Component {
         >
           <View
             style={{
-              backgroundColor: '#187f65',
+              backgroundColor: Palette.Navy,
               padding: 10,
               paddingTop: Layout.headerHeight - 10,
               justifyContent: 'center',
@@ -216,26 +216,16 @@ class Home extends React.Component {
             <View style={styles.headerVideoLayer}>
               <VideoBackground />
               <View style={styles.headerVideoOverlay} />
-              <LinearGradient
-                colors={[Colors.green, 'transparent']}
-                style={{
-                  position: 'absolute',
-                  left: 0,
-                  right: 0,
-                  top: 0,
-                  bottom: 0
-                }}
-              />
             </View>
             <Image
-              source={require('../../assets/home-logo.png')}
-              style={{ height: 60, resizeMode: 'contain' }}
-              tintColor="#fff"
+              source={require('../../assets/home-big-c-logo.png')}
+              style={{ height: 80, resizeMode: 'contain' }}
+              tintColor={DefaultColors.HeaderText}
             />
             <View style={styles.headerContent}>
-              <SemiBoldText style={styles.headerText}>
+              <MediumText style={styles.headerText}>
                 {appParams.expo.version}
-              </SemiBoldText>
+              </MediumText>
             </View>
           </View>
 
@@ -277,7 +267,7 @@ class DeferredHomeContent extends React.Component {
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
         <View style={{ marginBottom: 10, marginTop: 10, alignItems: 'center', justifyContent: 'center' }}>
-          <TouchableOpacity style={{flexDirection: 'row', alignItems:'center', backgroundColor: '#A5D8F6', paddingHorizontal: 5, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
+          <TouchableOpacity style={{flexDirection: 'row', alignItems:'center', backgroundColor: Palette.Sky, paddingHorizontal: 5, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
             <Image
               source={GOFUNDME_ICON}
               style={{
@@ -289,9 +279,9 @@ class DeferredHomeContent extends React.Component {
                 backgroundColor: 'transparent'
               }}
             />
-            <SemiBoldText style={{ fontSize: 16 }}>
+            <MediumText style={{ fontSize: 16 }}>
               Youth Soccer Investment Crowdfunding
-            </SemiBoldText>
+            </MediumText>
           </TouchableOpacity>
         </View>
         <TalksUpNext
@@ -301,9 +291,9 @@ class DeferredHomeContent extends React.Component {
         />
         <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
           <TouchableOpacity onPress={this._handlePressAllSongs}>
-            <SemiBoldText style={styles.seeAllTalks}>
+            <MediumText style={styles.seeAllSongs}>
               See all songs →
-            </SemiBoldText>
+            </MediumText>
           </TouchableOpacity>
         </View>
         <View flexDirection="row" style={{ marginHorizontal: 15, marginBottom: 10 }}>
@@ -311,18 +301,18 @@ class DeferredHomeContent extends React.Component {
             //WebBrowser.openBrowserAsync(item.url);
             Linking.openURL(WEBSITE_URL);
           }}>
-            <SemiBoldText>Visit: </SemiBoldText>
+            <MediumText>Visit: </MediumText>
             <UnderlineText>chatahooligan.com</UnderlineText>
           </TouchableOpacity>
         </View>
         <View style={{ marginHorizontal: 15, flex: 1 }}>
-          <SemiBoldText>Follow us</SemiBoldText>
+          <MediumText>Follow us</MediumText>
         </View>
         <View flexDirection="row" style={{ paddingHorizontal: 20 }}>
           {socialButtons}
         </View>
         <View style={{ marginHorizontal: 15, flex: 1 }}>
-          <SemiBoldText>Síguenos</SemiBoldText>
+          <MediumText>Síguenos</MediumText>
         </View>
         <View flexDirection="row" style={{ paddingHorizontal: 20 }}>
           {socialButtonsEsp}
@@ -352,7 +342,7 @@ const OverscrollView = () => (
       height: 400,
       left: 0,
       right: 0,
-      backgroundColor: '#032E55'
+      backgroundColor: Palette.Navy
     }}
   />
 );
@@ -383,28 +373,17 @@ const styles = StyleSheet.create({
   },
   headerVideoOverlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: Colors.green,
+    backgroundColor: Palette.Navy,
     opacity: 0.8
   },
   headerText: {
-    color: '#fff',
+    color: DefaultColors.HeaderText,
     textAlign: 'center',
     fontSize: 17,
     lineHeight: 17 * 1.5
   },
-  buyButton: {
-    backgroundColor: '#fff',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: BORDER_RADIUS
-  },
-  buyButtonText: {
-    backgroundColor: 'transparent',
-    color: 'rgba(0,0,0,0.9)',
-    fontSize: FontSizes.normalButton
-  },
   bigButton: {
-    backgroundColor: Colors.green,
+    backgroundColor: DefaultColors.ButtonBackground,
     paddingHorizontal: 15,
     height: 50,
     marginHorizontal: 15,
@@ -416,12 +395,12 @@ const styles = StyleSheet.create({
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,
-    color: '#fff',
+    color: DefaultColors.ButtonText,
     textAlign: 'center'
   },
-  seeAllTalks: {
+  seeAllSongs: {
     fontSize: FontSizes.normalButton,
-    color: Colors.green
+    color: Palette.Navy
   }
 });
 

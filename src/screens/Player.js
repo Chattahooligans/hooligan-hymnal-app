@@ -25,12 +25,11 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
-import { Colors, FontSizes, Icons, Layout } from '../constants';
-import { RegularText, BoldText, SemiBoldText } from '../components/StyledText';
+import { FontSizes, Icons, Layout } from '../constants';
+import { RegularText, BoldText, MediumText } from '../components/StyledText';
 import { Ionicons } from '@expo/vector-icons';
 import SongCard from '../components/SongCard';
-
-import Songs from '../data/songs.json';
+import { Skin, DefaultColors, Palette } from '../config/Settings';
 
 class Player extends React.Component {
   static navigationOptions = {
@@ -141,7 +140,6 @@ class Player extends React.Component {
     } else {
       playerSongDisplay = (
         <FlatList
-          style={{ backgroundColor: '#A5D8F6' }}
           data={this.state.playerSongs}
           renderItem={this._renderSongCard}
           keyExtractor={(item, index) => index.toString()}
@@ -168,7 +166,7 @@ class Player extends React.Component {
     });
 
     return (
-      <View style={{ flex: 1, backgroundColor: '#A5D8F6' }}>
+      <View style={{ flex: 1, backgroundColor: Skin.Player_Background }}>
         {Platform.OS === 'ios' ? (
           <Animated.View
             style={{
@@ -185,7 +183,7 @@ class Player extends React.Component {
                   })
                 }
               ],
-              backgroundColor: Colors.green
+              backgroundColor: Skin.Player_TopContainerBackground
             }}
           />
         ) : null}
@@ -207,7 +205,7 @@ class Player extends React.Component {
                 transform: [{ scale }, { translateX }, { translateY }]
               }}
             >
-              <FadeIn placeholderStyle={{ backgroundColor: Colors.green }}>
+              <FadeIn>
                 <Image
                   source={playerImage}
                   style={styles.avatar}
@@ -219,9 +217,9 @@ class Player extends React.Component {
               <BoldText style={styles.headerText}>
                 {player.squadNumber}{' '}
               </BoldText>
-              <SemiBoldText style={styles.headerText}>
+              <MediumText style={styles.headerText}>
                 {player.name}
-              </SemiBoldText>
+              </MediumText>
             </View>
             <RegularText style={styles.headerText}>
               {player.position}
@@ -235,7 +233,7 @@ class Player extends React.Component {
             duration={500}
             style={styles.content}
           >
-            <SemiBoldText style={styles.sectionHeader}>Bio</SemiBoldText>
+            <MediumText style={styles.sectionHeader}>Bio</MediumText>
             <ReadMore
               numberOfLines={3}
               renderTruncatedFooter={this._renderTruncatedFooter}
@@ -245,7 +243,7 @@ class Player extends React.Component {
               <RegularText style={styles.bodyText}>{player.bio}</RegularText>
             </ReadMore>
 
-            <BoldText style={styles.sectionHeader}>Player Songs</BoldText>
+            <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
             {playerSongDisplay}
           </AnimatableView>
         </AnimatedScrollView>
@@ -267,7 +265,7 @@ class Player extends React.Component {
             >
               <HeaderBackButton
                 onPress={() => this.props.navigation.goBack()}
-                tintColor="#fff"
+                tintColor={DefaultColors.HeaderText}
                 title={null}
               />
             </View>
@@ -295,9 +293,9 @@ class Player extends React.Component {
         hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
         onPress={handlePress}
       >
-        <SemiBoldText style={{ color: Colors.green, marginTop: 5 }}>
+        <MediumText style={{ color: Palette.Navy, marginTop: 5 }}>
           Read more
-        </SemiBoldText>
+        </MediumText>
       </TouchableOpacity>
     );
   };
@@ -308,9 +306,9 @@ class Player extends React.Component {
         hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
         onPress={handlePress}
       >
-        <SemiBoldText style={{ color: Colors.green, marginTop: 5 }}>
+        <MediumText style={{ color: Palette.Navy, marginTop: 5 }}>
           Show less
-        </SemiBoldText>
+        </MediumText>
       </TouchableOpacity>
     );
   };
@@ -330,7 +328,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20
   },
   headerContainer: {
-    backgroundColor: Colors.green,
+    backgroundColor: Skin.Player_TopContainerBackground,
     paddingTop: Constants.statusBarHeight + Layout.notchHeight + 20,
     paddingBottom: 20,
     paddingHorizontal: 20,
@@ -338,14 +336,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   headerText: {
-    color: '#fff',
+    color: DefaultColors.HeaderText,
     fontSize: FontSizes.subtitle
-  },
-  talkTitleText: {
-    color: '#fff',
-    fontSize: FontSizes.title,
-    textAlign: 'center',
-    marginTop: 10
   },
   sectionHeader: {
     fontSize: FontSizes.bodyTitle,

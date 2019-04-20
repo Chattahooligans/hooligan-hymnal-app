@@ -6,17 +6,17 @@
     "privacy": "public",
     "version": "0.0.29",
     "primaryColor": "#A3D8F7",
-    "icon": "./assets/icon-ios.png",
+    "icon": "./assets/big-c-icon-ios.png",
     "orientation": "portrait",
     "sdkVersion": "32.0.0",
     "splash": {
       "backgroundColor": "#A3D8F7",
       "resizeMode": "contain",
-      "image": "./assets/splash.png"
+      "image": "./assets/big-c-splash-heebo.png"
     },
     "android": {
       "package": "com.thechattahooligans.app",
-      "icon": "./assets/icon-android.png",
+      "icon": "./assets/big-c-icon-android.png",
       "versionCode": 15,
       "permissions": [],
       "googleServicesFile": "./google-services.json"

@@ -33,12 +33,19 @@ class App extends React.Component {
     return loadSavedTalksAsync();
   };
 
+  /*
+  'open-sans-bold': require('./assets/OpenSans-Bold.ttf'),
+        'open-sans': require('./assets/OpenSans-Regular.ttf'),
+        'open-sans-semibold': require('./assets/OpenSans-SemiBold.ttf'),
+  */
   _loadAssetsAsync = async () => {
     return Promise.all([
       Font.loadAsync({
-        'open-sans-bold': require('./assets/OpenSans-Bold.ttf'),
-        'open-sans': require('./assets/OpenSans-Regular.ttf'),
-        'open-sans-semibold': require('./assets/OpenSans-SemiBold.ttf'),
+        
+        'heebo-light': require('./assets/Heebo-Light.ttf'),
+        'heebo': require('./assets/Heebo-Regular.ttf'),
+        'heebo-medium': require('./assets/Heebo-Medium.ttf'),
+        'heebo-bold': require('./assets/Heebo-Bold.ttf'),
         ...Ionicons.font
       }),
       Asset.loadAsync(imagesArray),

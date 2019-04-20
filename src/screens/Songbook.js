@@ -17,11 +17,12 @@ import { NavigationActions } from 'react-navigation';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { Colors, FontSizes, Layout } from '../constants';
+import { FontSizes, Layout } from '../constants';
 import MenuButton from '../components/MenuButton';
-import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
+import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import TableOfContentsInline from './TableOfContentsInline';
+import { Skin, DefaultColors} from '../config/Settings';
 
 const screenWidth = Dimensions.get('window').width;
 const firstValidPageIndex = 1;
@@ -31,16 +32,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 7,
     paddingBottom: 5,
-    backgroundColor: '#eee',
+    backgroundColor: '#fff',
     borderWidth: 1,
-    borderColor: '#eee'
+    borderColor: '#fff'
   },
   chapterText: {
     textAlign: 'center',
-    fontFamily: 'open-sans'
   },
   tocButtonStyle: {
-    backgroundColor: Colors.green,
+    backgroundColor: Skin.Songbook_ToCButtonBackground,
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginHorizontal: 0,
@@ -60,15 +60,7 @@ const styles = StyleSheet.create({
     width: 100 + '%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#A5D8F6'
-  },
-  chapterTitle: {
-    paddingHorizontal: 10,
-    paddingTop: 7,
-    paddingBottom: 5,
-    backgroundColor: '#eee',
-    borderWidth: 1,
-    borderColor: '#eee'
+    backgroundColor: Skin.Songbook_Background
   }
 });
 
@@ -170,10 +162,10 @@ class Songbook extends React.Component {
     return (
       <LoadingPlaceholder>
         <View style={styles.sectionHeader}>
-          <Text style={styles.chapterText}>{this.state.chapter_title}</Text>
+          <RegularText style={styles.chapterText}>{this.state.chapter_title}</RegularText>
         </View>
         <View style={styles.container}>
-          <ScrollView
+          <ScrollView key={'songbookScrollView'}
             ref={view => (this._scrollView = view)}
             contentContainerStyle={{
               flexGrow: 1,
@@ -188,10 +180,10 @@ class Songbook extends React.Component {
               <View style={{ flex: 1 }} />
               <Image
                 style={{ width: screenWidth, height: screenWidth }}
-                source={require('../../assets/songbook-front-cover.png')}
+                source={require('../../assets/songbook-front-cover-heebo.png')}
               />
               <View style={{ flex: 1 }} />
-              <Text style={styles.welcome}>Swipe Left/Right to View Songs</Text>
+              <RegularText>Swipe Left/Right to View Songs</RegularText>
               <View style={{ flex: 1 }} />
             </View>
             {this.state.songViews}

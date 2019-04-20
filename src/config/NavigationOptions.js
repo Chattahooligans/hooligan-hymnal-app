@@ -1,13 +1,13 @@
 import React from 'react';
 import MenuButton from '../components/MenuButton';
 import { Colors } from '../constants';
-import { Skin } from '../config/Settings';
+import { Skin, DefaultColors } from '../config/Settings';
 
 export default {
-  headerStyle: { backgroundColor: Colors.green },
+  headerStyle: { backgroundColor: DefaultColors.NavigationBarBackground },
   headerTintColor: 'white',
   headerLeft: <MenuButton />,
   headerTitleStyle: {
-    fontFamily: 'open-sans-bold'
+    fontFamily: 'heebo-bold'
   }
 };

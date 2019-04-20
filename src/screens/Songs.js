@@ -3,7 +3,7 @@ import { Image, SectionList, StyleSheet, View, Text } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
-import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
+import { BoldText, MediumText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import NavigationOptions from '../config/NavigationOptions';
 
@@ -33,7 +33,7 @@ class SpeakerRow extends React.Component {
           <View style={styles.rowData}>
             <BoldText>{speaker.name}</BoldText>
             {speaker.organization ? (
-              <SemiBoldText>{speaker.organization}</SemiBoldText>
+              <MediumText>{speaker.organization}</MediumText>
             ) : null}
             <RegularText>{speaker.title}</RegularText>
           </View>

@@ -8,7 +8,7 @@ import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
 
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
+import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
@@ -39,9 +39,9 @@ export default class CapoHome extends React.Component {
                 marginRight: 5
               }}
             />
-            <SemiBoldText style={styles.bigButtonText}>
+            <MediumText style={styles.bigButtonText}>
               Select Song
-            </SemiBoldText>
+            </MediumText>
           </RectButton>
         </ClipBorderRadius>
         <ClipBorderRadius>
@@ -60,9 +60,9 @@ export default class CapoHome extends React.Component {
                 marginRight: 5
               }}
             />
-            <SemiBoldText style={styles.bigButtonText}>
+            <MediumText style={styles.bigButtonText}>
               Compose Song
-            </SemiBoldText>
+            </MediumText>
           </RectButton>
         </ClipBorderRadius>
       </LoadingPlaceholder>

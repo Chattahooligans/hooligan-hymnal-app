@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import moment from 'moment-timezone';
-import { BoldText, SemiBoldText } from './StyledText';
+import { BoldText, MediumText } from './StyledText';
 import SongCard from './SongCard';
 import { Colors, FontSizes } from '../constants';
 import { getFeaturedSong } from '../data';
@@ -30,9 +30,9 @@ class TalksUpNext extends React.Component {
             justifyContent: 'space-between'
           }}
         >
-          <SemiBoldText style={{ fontSize: FontSizes.title }}>
+          <MediumText style={{ fontSize: FontSizes.title }}>
             {this.state.label}
-          </SemiBoldText>
+          </MediumText>
           <RectButton
             style={styles.bigButton}
             onPress={this._handlePressRefreshButton}
@@ -110,10 +110,6 @@ class TalksUpNext extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  time: {
-    color: Colors.faint,
-    fontSize: FontSizes.subtitle
-  },
   bigButton: {
     backgroundColor: 'transparent',
     alignItems: 'center',

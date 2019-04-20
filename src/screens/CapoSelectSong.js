@@ -16,7 +16,7 @@ import { NavigationActions } from 'react-navigation';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 
-import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
+import { BoldText, MediumText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
 import Songs from '../data/songs.json';

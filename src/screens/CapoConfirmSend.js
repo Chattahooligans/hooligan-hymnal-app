@@ -18,7 +18,7 @@ import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import { BoldText, RegularText, SemiBoldText } from '../components/StyledText';
+import { BoldText, RegularText, MediumText } from '../components/StyledText';
 
 import SongView from '../components/SongView';
 
@@ -75,9 +75,9 @@ class CapoConfirmSend extends React.Component {
                 onPress={this._handlePressSendOnlyButton}
                 underlayColor="#fff"
               >
-                <SemiBoldText style={styles.bigButtonText}>
+                <MediumText style={styles.bigButtonText}>
                   Send Only
-                </SemiBoldText>
+                </MediumText>
                 <Ionicons
                   name="md-send"
                   size={23}
@@ -96,9 +96,9 @@ class CapoConfirmSend extends React.Component {
                 onPress={this._handlePressSendAndNotifyButton}
                 underlayColor="#fff"
               >
-                <SemiBoldText style={styles.bigButtonText}>
+                <MediumText style={styles.bigButtonText}>
                   Send &amp; Notify
-                </SemiBoldText>
+                </MediumText>
                 <Ionicons
                   name="md-notifications"
                   size={23}
@@ -154,19 +154,16 @@ class CapoConfirmSend extends React.Component {
         announcement: undefined,
         song: {
           category: CapoMessageSchema.song.category,
-          create_time: CapoMessageSchema.song.create_time,
-          update_time: CapoMessageSchema.song.update_time,
+          delete_local: CapoMessageSchema.song.delete_local,
           title: CapoMessageSchema.song.title,
-          tags: CapoMessageSchema.song.tags,
+          instructions: CapoMessageSchema.song.instructions,
           lyrics: CapoMessageSchema.song.lyrics,
-          tbd_various_boolean_flags:
-            CapoMessageSchema.song.tbd_various_boolean_flags,
           reference_title: CapoMessageSchema.song.reference_title,
           reference_link: CapoMessageSchema.song.reference_link,
-          instructions: CapoMessageSchema.song.instructions,
           player_id: CapoMessageSchema.song.player_id,
-          override_html: CapoMessageSchema.song.override_html,
-          delete_local: CapoMessageSchema.song.delete_local
+          legend: CapoMessageSchema.song.legend,
+          create_time: CapoMessageSchema.song.create_time,
+          update_time: CapoMessageSchema.song.update_time
         }
       })
       .then(responseJson => {
@@ -205,25 +202,26 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     width: 100 + '%',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     alignItems: 'stretch'
   },
   bigButton: {
     backgroundColor: Colors.green,
     paddingHorizontal: 15,
     height: 50,
-    marginHorizontal: 15,
+    marginHorizontal: 0,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: BORDER_RADIUS,
     overflow: 'hidden',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-evenly'
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,
     color: '#fff',
-    textAlign: 'center'
+    textAlign: 'center',
+    marginRight: 15
   }
 });
 

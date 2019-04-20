@@ -5,7 +5,7 @@ import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
 
 import SaveIconWhenSaved from './SaveIconWhenSaved';
-import { BoldText, RegularText, SemiBoldText } from './StyledText';
+import { BoldText, RegularText, MediumText } from './StyledText';
 import { conferenceHasEnded, getSpeakerAvatarURL } from '../utils';
 import { Colors, FontSizes } from '../constants';
 
@@ -33,7 +33,7 @@ export default class SongCard extends React.Component {
           >
             {song.lyrics.replace('\n', '/')}
           </RegularText>
-          <SemiBoldText>See More...</SemiBoldText>
+          <MediumText>See More...</MediumText>
         </View>
       </RectButton>
     );
@@ -63,10 +63,6 @@ const styles = StyleSheet.create({
   speakerName: {
     fontSize: FontSizes.bodyTitle
   },
-  organizationName: {
-    color: Colors.faint,
-    fontSize: FontSizes.bodyLarge
-  },
   songInfoRow: {
     paddingTop: 10
   },
@@ -74,12 +70,7 @@ const styles = StyleSheet.create({
     paddingTop: 10
   },
   songTitle: {
-    fontSize: FontSizes.bodyLarge
-  },
-  songLocation: {
-    fontSize: FontSizes.bodyLarge,
-    color: Colors.faint,
-    marginTop: 10
+    fontSize: FontSizes.subtitle
   },
   nextYear: {
     textAlign: 'center',
