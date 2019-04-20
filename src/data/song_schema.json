@@ -1,17 +1,14 @@
 {
   "_id": -1,
   "category": "",
-  "create_time": "",
-  "update_time": "",
+  "delete_local": "",
   "title": "",
-  "tags": "",
-  "lyrics":
-    "",
-  "tbd_various_boolean_flags": "",
+  "instructions": "",
+  "lyrics": "",
   "reference_title": "",
   "reference_link": "",
-  "instructions": "",
   "player_id": -1,
-  "override_html": "",
-  "delete_local": ""
+  "legend": "",
+  "create_time": "",
+  "update_time": ""
 }
