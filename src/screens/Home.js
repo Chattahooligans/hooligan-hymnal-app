@@ -207,7 +207,7 @@ class Home extends React.Component {
           <View
             style={{
               backgroundColor: Palette.Navy,
-              padding: 10,
+              padding: 8,
               paddingTop: Layout.headerHeight - 10,
               justifyContent: 'center',
               alignItems: 'center'
@@ -219,13 +219,13 @@ class Home extends React.Component {
             </View>
             <Image
               source={require('../../assets/home-big-c-logo.png')}
-              style={{ height: 80, resizeMode: 'contain' }}
+              style={{ height: 100, resizeMode: 'contain', marginTop: 20 }}
               tintColor={DefaultColors.HeaderText}
             />
             <View style={styles.headerContent}>
-              <MediumText style={styles.headerText}>
+              <RegularText style={styles.headerText}>
                 {appParams.expo.version}
-              </MediumText>
+              </RegularText>
             </View>
           </View>
 
@@ -364,9 +364,10 @@ const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
   headerContent: {
-    alignItems: 'center',
-    marginTop: 5,
-    paddingVertical: 10
+    flex: 1,
+    alignItems: 'flex-end',
+    width: 100 + '%',
+    marginTop: 5
   },
   headerVideoLayer: {
     ...StyleSheet.absoluteFillObject
@@ -378,9 +379,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: DefaultColors.HeaderText,
-    textAlign: 'center',
-    fontSize: 17,
-    lineHeight: 17 * 1.5
+    fontSize: 14
   },
   bigButton: {
     backgroundColor: DefaultColors.ButtonBackground,
