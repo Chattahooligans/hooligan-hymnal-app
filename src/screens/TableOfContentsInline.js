@@ -25,6 +25,10 @@ class SongRow extends React.Component {
   render() {
     const { item: song } = this.props;
 
+    let capoSignal;
+    if (song.capoSignal)
+      capoSignal = '📢: ' + song.capoSignal;
+
     return (
       <RectButton
         onPress={this._handlePress}
@@ -34,9 +38,14 @@ class SongRow extends React.Component {
         <View style={styles.row}>
           <View style={styles.rowData}>
             <RegularText>{song.song_title}</RegularText>
-            <RegularText style={styles.pageLabel}>
-              {song.toc_page_label}
-            </RegularText>
+            <View style={{flex:1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+              <RegularText style={{marginRight: 10}}>
+                {capoSignal}
+              </RegularText>
+              <RegularText style={styles.pageLabel}>
+                {song.toc_page_label}
+              </RegularText>
+            </View>
           </View>
         </View>
       </RectButton>
@@ -76,6 +85,9 @@ export default class TableOfContentsInline extends React.Component {
             song_title: this.props.songs.filter(
               song => song._id === songChild._id
             )[0].title,
+            capoSignal: this.props.songs.filter(
+              song => song._id === songChild._id
+            )[0].capoSignal,
             page: tocPageLabel
           };
           // set page label
@@ -185,6 +197,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   pageLabel: {
+    width: 16,
+    textAlign: 'right',
     color: '#999999'
   },
   sectionHeader: {

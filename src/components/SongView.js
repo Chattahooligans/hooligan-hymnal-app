@@ -13,11 +13,16 @@ import { Skin, Palette } from '../config/Settings';
 export default class SongView extends React.Component {
   render() {
     let song = this.props.song;
-    let pageCount = this.props.pageCount;
-
+    
     let referenceDisplay;
     if (song.reference_title)
       referenceDisplay = <RegularText style={styles.reference} onLongPress={this._onLongPressReference}>{song.reference_title}</RegularText>
+    
+    let capoSignal;
+    if (song.capoSignal)
+      capoSignal = '📢: ' + song.capoSignal;
+
+    let pageCount = this.props.pageCount;
 
     return (
       <View style={styles.container}>
@@ -60,8 +65,11 @@ export default class SongView extends React.Component {
           <View style={{flex:1}}>
             <Tags style={styles.icons} tags={song.tags} />
           </View>
-          <View style={{flex:1}}>
-            <RegularText style={{textAlign:'right'}}>
+          <View style={{flex:1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+            <RegularText style={{marginRight: 10}}>
+              {capoSignal}
+            </RegularText>
+            <RegularText style={{textAlign:'right', color: '#999999'}}>
               {pageCount}
             </RegularText>
           </View>
