@@ -65,7 +65,7 @@ export default class SongView extends React.Component {
           <View style={{flex:1}}>
             <RegularText>{song.legend}</RegularText>
           </View>
-          <View style={{flex:1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+          <View style={{flex:1, flexDirection: 'row', justifyContent: 'flex-end', opacity: 0.5}}>
             <RegularText style={{marginRight: 10}}>
               {capoSignal}
             </RegularText>

@@ -38,7 +38,7 @@ class SongRow extends React.Component {
         <View style={styles.row}>
           <View style={styles.rowData}>
             <RegularText>{song.song_title}</RegularText>
-            <View style={{flex:1, flexDirection: 'row', justifyContent: 'flex-end'}}>
+            <View style={{flex:1, flexDirection: 'row', justifyContent: 'flex-end', opacity: 0.5}}>
               <RegularText style={{marginRight: 10}}>
                 {capoSignal}
               </RegularText>
