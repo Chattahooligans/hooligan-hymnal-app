@@ -82,3 +82,7 @@ export const Skin = {
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
   Player_Background: Palette.Sky
 };
+
+export const Images = {
+  
+}
