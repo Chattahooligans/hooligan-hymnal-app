@@ -302,7 +302,7 @@ class DeferredHomeContent extends React.Component {
             Linking.openURL(WEBSITE_URL);
           }}>
             <MediumText>Visit: </MediumText>
-            <UnderlineText>chatahooligan.com</UnderlineText>
+            <UnderlineText>http://comeandjoin.us</UnderlineText>
           </TouchableOpacity>
         </View>
         <View style={{ marginHorizontal: 15, flex: 1 }}>
