@@ -37,6 +37,7 @@ Squads.squads.forEach(squadChild => {
     try {
       let player = Players.filter(player => player._id === playerChild._id)[0];
       //console.log(player._id + " " + player.name);
+      
       playerList.push(player);
     } catch (err) {
       console.log(playerChild._id + ' not found in players database');
@@ -51,6 +52,10 @@ class PlayerRow extends React.Component {
   render() {
     const { item: player } = this.props;
 
+    let thumbnail = require('../../assets/chattfc_logo.png');
+    if (player.thumbnail)
+      thumbnail = {uri: player.thumbnail};
+
     return (
       <RectButton
         onPress={this._handlePress}
@@ -61,7 +66,7 @@ class PlayerRow extends React.Component {
           <View style={styles.rowAvatarContainer}>
             <FadeIn>
               <Image
-                source={require('../../assets/chattfc_logo.png')}
+                source={thumbnail}
                 style={{ width: 50, height: 50, borderRadius: 25 }}
               />
             </FadeIn>
@@ -126,6 +131,7 @@ class Roster extends React.Component {
         try {
           let player = players.filter(player => player._id === playerChild._id)[0];
           //console.log(player._id + " " + player.name);
+
           playerList.push(player);
         } catch (err) {
           console.log(playerChild._id + ' not found in players database');
