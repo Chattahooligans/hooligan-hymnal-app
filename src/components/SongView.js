@@ -1,5 +1,6 @@
 import React from 'react';
-import { ScrollView, View, Text, StyleSheet, NativeModules, ToastAndroid, Clipboard } from 'react-native';
+import { ScrollView, View, Image, StyleSheet, NativeModules, ToastAndroid, Clipboard, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { BoldText, RegularText } from './StyledText';
 import { WebBrowser } from 'expo';
 import ParsedText from 'react-native-parsed-text';
@@ -15,9 +16,22 @@ export default class SongView extends React.Component {
     let song = this.props.song;
     
     let referenceDisplay;
+    let playButtonDisplay;
     if (song.reference_title)
       referenceDisplay = <RegularText style={styles.reference} onLongPress={this._onLongPressReference}>{song.reference_title}</RegularText>
-    
+    if (song.reference_link)
+      playButtonDisplay = <TouchableOpacity style={{top: 0, bottom: 0, paddingHorizontal: 6, 
+                            backgroundColor: Palette.White}} 
+                            onPress={() => {WebBrowser.openBrowserAsync(song.reference_link)}}>
+                            <Ionicons
+                              name={'md-play-circle'}
+                              size={50}
+                              style={{
+                                color: Skin.Home_SocialButtons,
+                                backgroundColor: 'transparent'
+                              }}
+                            />
+                          </TouchableOpacity>
     let capoSignal;
     if (song.capoSignal)
       capoSignal = '📢: ' + song.capoSignal;
@@ -26,9 +40,12 @@ export default class SongView extends React.Component {
 
     return (
       <View style={styles.container}>
-        <View style={{paddingBottom: 1}}>
-          <BoldText style={styles.title} onLongPress={this._onLongPressTitle}>{song.title}</BoldText>
-          {referenceDisplay}
+        <View style={{paddingBottom: 1, flexDirection: 'row'}}>
+          <View style={{flex: 1, backgroundColor: Palette.White}}>
+            <BoldText style={styles.title} onLongPress={this._onLongPressTitle}>{song.title}</BoldText>
+            {referenceDisplay}
+          </View>
+          {playButtonDisplay}
         </View>
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
           <View style={{flex: 1}}>
