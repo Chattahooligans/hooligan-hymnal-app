@@ -13,6 +13,8 @@ import NavigationOptions from '../config/NavigationOptions';
 import { BoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Colors, FontSizes } from '../constants';
+import { Skin, DefaultColors } from '../config/Settings';
+import { Ionicons } from '@expo/vector-icons';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -28,6 +30,17 @@ class SongRow extends React.Component {
     let capoSignal;
     if (song.capoSignal)
       capoSignal = '📢: ' + song.capoSignal;
+    
+    let playDisplay;
+    if (song.reference_link)
+      playDisplay = <View style={{ justifyContent: 'center', alignItems: 'center', marginLeft: 3 }}>
+                      <Ionicons
+                        name={'md-play-circle'}
+                        style={{
+                          color: Skin.Home_SocialButtons
+                        }}
+                      />
+                    </View>
 
     return (
       <RectButton
@@ -37,7 +50,8 @@ class SongRow extends React.Component {
       >
         <View style={styles.row}>
           <View style={styles.rowData}>
-            <RegularText>{song.song_title}</RegularText>
+            <RegularText style={{ color: DefaultColors.ColorText }}>{song.title}</RegularText>
+            {playDisplay}
             <View style={{flex:1, flexDirection: 'row', justifyContent: 'flex-end', opacity: 0.5}}>
               <RegularText style={{marginRight: 10}}>
                 {capoSignal}
@@ -80,16 +94,9 @@ export default class TableOfContentsInline extends React.Component {
 
       chapterChild.songs.forEach(songChild => {
         try {
-          let song = {
-            _id: songChild._id,
-            song_title: this.props.songs.filter(
-              song => song._id === songChild._id
-            )[0].title,
-            capoSignal: this.props.songs.filter(
-              song => song._id === songChild._id
-            )[0].capoSignal,
-            page: tocPageLabel
-          };
+          let song = this.props.songs.filter(
+            song => song._id === songChild._id
+          )[0];
           // set page label
           song.toc_page_label = tocPageLabel;
           songList.push(song);
@@ -164,7 +171,7 @@ const styles = StyleSheet.create({
     paddingBottom: 8
   },
   tocButton: {
-    backgroundColor: Colors.green,
+    backgroundColor: DefaultColors.ButtonBackground,
     paddingHorizontal: 15,
     paddingVertical: 10,
     width: 100 + '%',

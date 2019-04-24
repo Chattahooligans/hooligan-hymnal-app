@@ -71,7 +71,8 @@ export const DefaultColors = {
   ButtonText: Palette.White,
   HeaderBackground: Palette.Navy,
   HeaderText: Palette.White,
-  Text: Palette.Black
+  Text: Palette.Black,
+  ColorText: Palette.Navy
 }
 
 export const Skin = {
