@@ -220,6 +220,7 @@ class Player extends React.Component {
               <MediumText style={styles.headerText}>
                 {player.name}
               </MediumText>
+              <RegularText> {player.flag}</RegularText>
             </View>
             <RegularText style={styles.headerText}>
               {player.position}

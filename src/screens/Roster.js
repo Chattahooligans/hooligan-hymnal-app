@@ -80,6 +80,7 @@ class PlayerRow extends React.Component {
             <View style={{ flexDirection: 'column' }}>
               <MediumText>{player.name}</MediumText>
               <RegularText>{player.position}</RegularText>
+              <RegularText>{player.flag}</RegularText>
             </View>
           </View>
         </View>
