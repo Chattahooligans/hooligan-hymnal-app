@@ -66,7 +66,7 @@ class PlayerRow extends React.Component {
           key={player.twitter}
           onPress={() => {
             //WebBrowser.openBrowserAsync('http://twitter.com/' + player.twitter);
-            Linking.openURL('http://twitter.com/' + player.twitter);
+            Linking.openURL('https://twitter.com/intent/tweet?text=@' + player.twitter + '+');
           }}
         >
           <Ionicons
@@ -85,35 +85,37 @@ class PlayerRow extends React.Component {
     }
 
     return (
-      <RectButton
-        onPress={this._handlePress}
-        activeOpacity={0.05}
-        style={{ flex: 1, backgroundColor: Palette.White }}
-      >
-        <View style={styles.row}>
-          <View style={styles.rowAvatarContainer}>
-            <FadeIn>
-              <Image
-                source={thumbnail}
-                style={{ width: 50, height: 50, borderRadius: 25 }}
-              />
-            </FadeIn>
-          </View>
-          <View style={styles.rowData}>
-            <View
-              style={{ width: 25, alignItems: 'flex-end', paddingRight: 5 }}
-            >
-              <BoldText>{player.squadNumber}</BoldText>
+      <View style={styles.row}>
+        <RectButton
+          onPress={this._handlePress}
+          activeOpacity={0.05}
+          style={{ flex: 1 }}
+        >
+          <View style={{flexDirection: 'row'}}>
+            <View style={styles.rowAvatarContainer}>
+              <FadeIn>
+                <Image
+                  source={thumbnail}
+                  style={{ width: 50, height: 50, borderRadius: 25 }}
+                />
+              </FadeIn>
             </View>
-            <View style={{ flexDirection: 'column' }}>
-              <MediumText>{player.name}</MediumText>
-              <RegularText>{player.position}</RegularText>
-              <RegularText>{player.flag}</RegularText>
+            <View style={styles.rowData}>
+              <View
+                style={{ width: 25, alignItems: 'flex-end', paddingRight: 5 }}
+              >
+                <BoldText>{player.squadNumber}</BoldText>
+              </View>
+              <View style={{ flexDirection: 'column' }}>
+                <MediumText>{player.name}</MediumText>
+                <RegularText>{player.position}</RegularText>
+                <RegularText>{player.flag}</RegularText>
+              </View>
             </View>
           </View>
-          {twitterDisplay}
-        </View>
-      </RectButton>
+        </RectButton>
+        {twitterDisplay}
+      </View>
     );
   }
 
@@ -223,14 +225,14 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 10,
     padding: 10,
+    backgroundColor: Palette.White,
     borderBottomWidth: 1,
     borderColor: '#eee',
     flexDirection: 'row'
   },
   rowAvatarContainer: {
     paddingVertical: 5,
-    paddingRight: 10,
-    paddingLeft: 0
+    paddingHorizontal: 5
   },
   rowData: {
     flex: 1,
