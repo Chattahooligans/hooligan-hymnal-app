@@ -2,15 +2,17 @@ import React from 'react';
 import {
   Platform,
   Image,
+  Linking,
   SectionList,
   StyleSheet,
+  TouchableOpacity,
   View,
   Text
 } from 'react-native';
 
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-
+import { Ionicons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
@@ -27,6 +29,7 @@ import { Colors, FontSizes, Layout } from '../constants';
 import { Constants } from 'expo';
 
 import { find, propEq } from 'ramda';
+import { Palette, Skin } from '../config/Settings';
 
 let rosterData = [];
 Squads.squads.forEach(squadChild => {
@@ -56,11 +59,36 @@ class PlayerRow extends React.Component {
     if (player.thumbnail)
       thumbnail = {uri: player.thumbnail};
 
+    let twitterDisplay;
+    if (player.twitter) {
+      twitterDisplay = <TouchableOpacity
+          style={{justifyContent: 'flex-start', alignContent: 'center'}}
+          key={player.twitter}
+          onPress={() => {
+            //WebBrowser.openBrowserAsync('http://twitter.com/' + player.twitter);
+            Linking.openURL('http://twitter.com/' + player.twitter);
+          }}
+        >
+          <Ionicons
+            name={'logo-twitter'}
+            size={30}
+            style={{
+              color: Palette.Sky,
+              marginTop: 3,
+              marginBottom: 3,
+              marginLeft: 10,
+              marginRight: 10,
+              backgroundColor: 'transparent'
+            }}
+          />
+        </TouchableOpacity>    
+    }
+
     return (
       <RectButton
         onPress={this._handlePress}
         activeOpacity={0.05}
-        style={{ flex: 1, backgroundColor: '#fff' }}
+        style={{ flex: 1, backgroundColor: Palette.White }}
       >
         <View style={styles.row}>
           <View style={styles.rowAvatarContainer}>
@@ -83,6 +111,7 @@ class PlayerRow extends React.Component {
               <RegularText>{player.flag}</RegularText>
             </View>
           </View>
+          {twitterDisplay}
         </View>
       </RectButton>
     );
