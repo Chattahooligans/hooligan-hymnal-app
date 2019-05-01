@@ -25,6 +25,7 @@ import Schema from '../data/song_schema';
 import { Colors, FontSizes, Layout } from '../constants';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
+import { Skin, DefaultColors, Palette } from '../config/Settings';
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 // TODO: Create Song object, set title and lyrics based on data on this screen and pass to next screen (CapoConfirmSend)
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: 100 + '%',
-    paddingBottom: 8
+    padding: 10
   },
   titleField: {
     fontSize: 24,
