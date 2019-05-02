@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 import { WebBrowser } from 'expo';
 import NavigationOptions from '../config/NavigationOptions';
-import EVENTS_URL from '../config/Settings';
+import { EVENTS_URL } from '../config/Settings';
 
 export default class Events extends React.Component {
   static navigationOptions = {

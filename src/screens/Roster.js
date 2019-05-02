@@ -55,7 +55,7 @@ class PlayerRow extends React.Component {
   render() {
     const { item: player } = this.props;
 
-    let thumbnail = require('../../assets/chattfc_logo.png');
+    let thumbnail = Skin.Roster_DefaultThumbnail;
     if (player.thumbnail)
       thumbnail = {uri: player.thumbnail};
 

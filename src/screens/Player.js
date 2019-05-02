@@ -126,7 +126,7 @@ class Player extends React.Component {
 
     let playerSongDisplay;
 
-    let playerImage = require('../../assets/chattfc_logo.png');
+    let playerImage = Skin.Player_DefaultImage;
     if (player.image)
       playerImage = {uri: player.image};
 

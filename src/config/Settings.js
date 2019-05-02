@@ -34,6 +34,8 @@ export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
 
+export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
+
 // icon: Iconicons name
 export const websites = [
   { type: SocialPlatform.Twitter, icon: 'logo-twitter', url: TWITTER_URL },
@@ -82,9 +84,7 @@ export const Skin = {
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Navy,
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
-  Player_Background: Palette.Sky
+  Player_Background: Palette.Sky,
+  Roster_DefaultThumbnail: CLUB_LOGO,
+  Player_DefaultImage: CLUB_LOGO,
 };
-
-export const Images = {
-  
-}
