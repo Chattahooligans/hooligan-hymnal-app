@@ -2,8 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 import { WebBrowser } from 'expo';
 import NavigationOptions from '../config/NavigationOptions';
-
-const eventsUrl = 'https://m.facebook.com/TheChattahooligans/events/';
+import EVENTS_URL from '../config/Settings';
 
 export default class Events extends React.Component {
   static navigationOptions = {
@@ -16,7 +15,7 @@ export default class Events extends React.Component {
   }
 
   async openBrowser() {
-    let result = await WebBrowser.openBrowserAsync(eventsUrl);
+    let result = await WebBrowser.openBrowserAsync(EVENTS_URL);
     this.props.navigation.navigate('Home');
   }
 
