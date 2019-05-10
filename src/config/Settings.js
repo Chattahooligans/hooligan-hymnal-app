@@ -30,6 +30,7 @@ export const ESP_TWITTER_URL = 'https://twitter.com/LosCFCHooligans';
 export const ESP_INSTAGRAM_URL = 'https://instagram.com/loschattahooligans';
 export const ESP_WEBSITE_URL = 'http://chattahooligan.com/es';
 export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
+export const INSTRUMENTATION_URL ='https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');

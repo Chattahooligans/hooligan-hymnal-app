@@ -97,7 +97,7 @@ export default class SongView extends React.Component {
           </View>
           <View style={{flex:1, flexDirection: 'row', justifyContent: 'flex-end', opacity: 0.5}}>
             <RegularText style={{marginRight: 10}}>
-              {capoSignal}
+              {capoSignal ? '' : ''}
             </RegularText>
             <RegularText style={{textAlign:'right', color: '#999999'}}>
               {pageCount}

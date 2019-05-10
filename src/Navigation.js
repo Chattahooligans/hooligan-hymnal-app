@@ -106,6 +106,20 @@ const ShopNavigation = StackNavigator(
   }
 );
 
+const InstrumentationNavigation = StackNavigator(
+  {
+    Events: {
+      screen: Screens.Instrumentation
+    }
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: 'INSTRUMENTATION ↗️'
+    }
+  }
+);
+
 const CapoHomeNavigation = StackNavigator(
   {
     CapoLogin: { screen: Screens.CapoLogin },
@@ -146,6 +160,7 @@ const Drawer = DrawerNavigator(
     Events: { screen: EventsNavigation },
     Standings: { screen: StandingsNavigation },
     Shop: { screen: ShopNavigation },
+    Instrumentation: {screen: InstrumentationNavigation },
     CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation }
   },

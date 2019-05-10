@@ -6,6 +6,7 @@ import CapoLogin from './CapoLogin';
 import CapoSelectSong from './CapoSelectSong';
 import Events from './Events';
 import Home from './Home';
+import Instrumentation from './Instrumentation';
 import Player from './Player';
 import Roster from './Roster';
 import Shop from './Shop';
@@ -24,6 +25,7 @@ export default {
   CapoSelectSong,
   Events,
   Home,
+  Instrumentation,
   Player,
   Roster,
   Shop,
