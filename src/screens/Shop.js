@@ -6,7 +6,7 @@ import { SHOP_URL } from '../config/Settings';
 
 export default class Shop extends React.Component {
   static navigationOptions = {
-    title: 'Events',
+    title: 'Merch Shop',
     ...NavigationOptions
   };
 
