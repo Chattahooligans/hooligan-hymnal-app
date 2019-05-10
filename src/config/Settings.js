@@ -36,6 +36,8 @@ export const GOFUNDME_ICON = require('../../assets/gofundme.png');
 
 export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
 
+export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
+
 // icon: Iconicons name
 export const websites = [
   { type: SocialPlatform.Twitter, icon: 'logo-twitter', url: TWITTER_URL },

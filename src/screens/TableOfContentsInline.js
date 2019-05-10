@@ -13,7 +13,7 @@ import NavigationOptions from '../config/NavigationOptions';
 import { BoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Colors, FontSizes } from '../constants';
-import { Skin, DefaultColors } from '../config/Settings';
+import { Skin, DefaultColors, MUSICAL_SCORE_ICON } from '../config/Settings';
 import { Ionicons } from '@expo/vector-icons';
 
 const screenWidth = Dimensions.get('window').width;
@@ -32,6 +32,7 @@ class SongRow extends React.Component {
       capoSignal = '📢: ' + song.capoSignal;
     
     let playDisplay;
+    let sheetMusicDisplay;
     if (song.reference_link)
       playDisplay = <View style={{ justifyContent: 'center', alignItems: 'center', marginLeft: 3 }}>
                       <Ionicons
@@ -41,6 +42,15 @@ class SongRow extends React.Component {
                         }}
                       />
                     </View>
+    if (song.sheetMusicLink)
+      sheetMusicDisplay = <View style={{ justifyContent: 'center', alignItems: 'center', marginLeft: 3 }}>
+                            <Image
+                              resizeMode='contain'
+                              tintColor={Skin.Home_SocialButtons}
+                              source={MUSICAL_SCORE_ICON}                              
+                              style={{height: 12, width: 12}}
+                            />
+                          </View>
 
     return (
       <RectButton
@@ -51,6 +61,7 @@ class SongRow extends React.Component {
         <View style={styles.row}>
           <View style={styles.rowData}>
             <RegularText style={{ color: DefaultColors.ColorText }}>{song.title}</RegularText>
+            {sheetMusicDisplay}
             {playDisplay}
             <View style={{flex:1, flexDirection: 'row', justifyContent: 'flex-end', opacity: 0.5}}>
               <RegularText style={{marginRight: 10}}>

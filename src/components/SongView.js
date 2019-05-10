@@ -1,12 +1,12 @@
 import React from 'react';
-import { ScrollView, View, Image, StyleSheet, NativeModules, ToastAndroid, Clipboard, TouchableOpacity } from 'react-native';
+import { ScrollView, View, Image, StyleSheet, NativeModules, ToastAndroid, Clipboard, TouchableOpacity, Linking } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BoldText, RegularText } from './StyledText';
 import { WebBrowser } from 'expo';
 import ParsedText from 'react-native-parsed-text';
 import Tags from './Tags';
 import { FontSizes, Layout } from '../constants';
-import { Skin, Palette } from '../config/Settings';
+import { Skin, Palette, MUSICAL_SCORE_ICON } from '../config/Settings';
 
 // TODO: platform select
 // on android, longpress event with clipboard setting
@@ -17,6 +17,7 @@ export default class SongView extends React.Component {
     
     let referenceDisplay;
     let playButtonDisplay;
+    let sheetMusicDisplay;
     if (song.reference_title)
       referenceDisplay = <RegularText style={styles.reference} onLongPress={this._onLongPressReference}>{song.reference_title}</RegularText>
     if (song.reference_link)
@@ -32,6 +33,17 @@ export default class SongView extends React.Component {
                               }}
                             />
                           </TouchableOpacity>
+    if (song.sheetMusicLink)
+      sheetMusicDisplay = <TouchableOpacity style={{top: 0, bottom: 0, paddingLeft: 6, paddingTop: 6,
+                            backgroundColor: Palette.White}} 
+                            onPress={() => {Linking.openURL(song.sheetMusicLink)}}>
+                            <Image
+                              resizeMode='contain'
+                              tintColor={Skin.Home_SocialButtons}
+                              source={MUSICAL_SCORE_ICON}
+                              style={{height: 40, width: 40}}
+                            />
+                          </TouchableOpacity>
     let capoSignal;
     if (song.capoSignal)
       capoSignal = '📢: ' + song.capoSignal;
@@ -45,6 +57,7 @@ export default class SongView extends React.Component {
             <BoldText style={styles.title} onLongPress={this._onLongPressTitle}>{song.title}</BoldText>
             {referenceDisplay}
           </View>
+          {sheetMusicDisplay}
           {playButtonDisplay}
         </View>
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
