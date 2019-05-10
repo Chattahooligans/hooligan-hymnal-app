@@ -92,6 +92,20 @@ const StandingsNavigation = StackNavigator(
   }
 );
 
+const ShopNavigation = StackNavigator(
+  {
+    Events: {
+      screen: Screens.Shop
+    }
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: 'MERCH SHOP ↗️'
+    }
+  }
+);
+
 const CapoHomeNavigation = StackNavigator(
   {
     CapoLogin: { screen: Screens.CapoLogin },
@@ -131,6 +145,7 @@ const Drawer = DrawerNavigator(
     Roster: { screen: RosterNavigation },
     Events: { screen: EventsNavigation },
     Standings: { screen: StandingsNavigation },
+    Shop: { screen: ShopNavigation },
     CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation }
   },

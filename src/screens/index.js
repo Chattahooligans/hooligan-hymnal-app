@@ -8,6 +8,7 @@ import Events from './Events';
 import Home from './Home';
 import Player from './Player';
 import Roster from './Roster';
+import Shop from './Shop';
 import SingleSong from './SingleSong';
 import Songbook from './Songbook';
 import Songs from './Songs';
@@ -25,6 +26,7 @@ export default {
   Home,
   Player,
   Roster,
+  Shop,
   SingleSong,
   Songbook,
   Songs,
