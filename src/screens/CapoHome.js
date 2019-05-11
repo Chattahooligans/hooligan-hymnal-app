@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, View } from 'react-native';
+import { Keyboard, Image, Platform, StyleSheet, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
@@ -10,6 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
+import { Skin, DefaultColors } from '../config/Settings';
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 
@@ -70,6 +71,7 @@ export default class CapoHome extends React.Component {
   }
 
   _handlePressSelectSongButton = () => {
+    Keyboard.dismiss();
     this.props.navigation.navigate('CapoSelectSong');
   };
 
@@ -95,7 +97,7 @@ const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
   bigButton: {
-    backgroundColor: Colors.green,
+    backgroundColor: DefaultColors.ButtonBackground,
     paddingHorizontal: 15,
     height: 50,
     marginHorizontal: 15,
@@ -107,7 +109,7 @@ const styles = StyleSheet.create({
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,
-    color: '#fff',
+    color: DefaultColors.ButtonText,
     textAlign: 'center'
   }
 });

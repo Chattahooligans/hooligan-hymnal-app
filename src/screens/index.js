@@ -1,6 +1,6 @@
 import About from './About';
 import CapoComposeSong from './CapoComposeSong';
-import CapoConfirmSend from './CapoConfirmSend';
+import CapoConfirmSendSong from './CapoConfirmSendSong';
 import CapoHome from './CapoHome';
 import CapoLogin from './CapoLogin';
 import CapoSelectSong from './CapoSelectSong';
@@ -19,7 +19,7 @@ import TableOfContentsInline from './TableOfContentsInline';
 export default {
   About,
   CapoComposeSong,
-  CapoConfirmSend,
+  CapoConfirmSendSong,
   CapoHome,
   CapoLogin,
   CapoSelectSong,

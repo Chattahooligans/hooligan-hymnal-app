@@ -23,6 +23,7 @@ import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import SongView from '../components/SongView';
 
 import { Colors, FontSizes, Layout } from '../constants';
+import { Skin, DefaultColors } from '../config/Settings';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
 import { Location, Permissions } from 'expo';
@@ -31,9 +32,9 @@ import CapoMessageSchema from '../data/capo_message_schema';
 import RemoteNotifications from '../server_store/RemoteNotifications';
 
 @withNavigation
-class CapoConfirmSend extends React.Component {
+class CapoConfirmSendSong extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Confirm?',
+    title: 'Confirm Song?',
     ...NavigationOptions,
     headerLeft: (
       <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
@@ -173,6 +174,7 @@ class CapoConfirmSend extends React.Component {
         //alert("success or fail message? do we even know?");
         // if fail, stay here
         // if success
+        this.props.navigation.popToTop();
         this.props.navigation.navigate('Home');
       });
   };
@@ -206,7 +208,7 @@ const styles = StyleSheet.create({
     alignItems: 'stretch'
   },
   bigButton: {
-    backgroundColor: Colors.green,
+    backgroundColor: DefaultColors.ButtonBackground,
     paddingHorizontal: 15,
     height: 50,
     marginHorizontal: 0,
@@ -219,12 +221,12 @@ const styles = StyleSheet.create({
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,
-    color: '#fff',
+    color: DefaultColors.ButtonText,
     textAlign: 'center',
     marginRight: 15
   }
 });
 
-export default withUnstated(CapoConfirmSend, {
+export default withUnstated(CapoConfirmSendSong, {
   globalData: GlobalDataContainer
 });

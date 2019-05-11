@@ -90,7 +90,7 @@ class CapoComposeSong extends React.Component {
 
   _handlePressContinueButton = () => {
     this.props.globalData.setCurrentSong(Schema);
-    this.props.navigation.navigate('CapoConfirmSend');
+    this.props.navigation.navigate('CapoConfirmSendSong');
   };
 }
 
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top'
   },
   bigButton: {
-    backgroundColor: Colors.green,
+    backgroundColor: DefaultColors.ButtonBackground,
     paddingHorizontal: 15,
     height: 50,
     marginHorizontal: 15,
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,
-    color: '#fff',
+    color: DefaultColors.ButtonText,
     textAlign: 'center'
   }
 });

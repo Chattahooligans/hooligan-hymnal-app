@@ -128,6 +128,12 @@ export default class GlobalDataContainer extends Container {
       if (callback) callback();
     });
 
+  clearCurrentSong = (callback) =>
+    this.setState({ currentSong: song }, () => {
+      if (callback) callback();
+    });
+
+
   setLocation = location => this.setState({ location });
 
   toggleUserAuth = value => this.setState({ unlocked: !this.state.unlocked });

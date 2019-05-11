@@ -152,7 +152,7 @@ class CapoSelectSong extends React.Component {
 
     this.props.globalData.setCurrentSong(song);
 
-    this.props.navigation.navigate('CapoConfirmSend');
+    this.props.navigation.navigate('CapoConfirmSendSong');
   };
 }
 

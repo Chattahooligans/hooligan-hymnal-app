@@ -15,6 +15,7 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 import NavigationOptions from '../config/NavigationOptions';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
+import { Skin, DefaultColors } from '../config/Settings';
 
 // TODO: Hard code password for now
 // Add top nav bar with Back button
@@ -34,6 +35,17 @@ class CapoLogin extends React.Component {
   state = {
     password: ''
   };
+
+  componentDidMount() {
+    this.setData();
+  }
+
+  setData = () => {
+    if (this.props.globalData.state.unlocked) {
+      Keyboard.dismiss();
+      this.props.navigation.navigate('CapoHome');
+    }
+  }  
 
   render() {
     return (
@@ -99,7 +111,7 @@ const styles = StyleSheet.create({
     padding: 8
   },
   bigButton: {
-    backgroundColor: Colors.green,
+    backgroundColor: DefaultColors.ButtonBackground,
     paddingHorizontal: 15,
     height: 50,
     marginHorizontal: 15,
@@ -111,7 +123,7 @@ const styles = StyleSheet.create({
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,
-    color: '#fff',
+    color: DefaultColors.ButtonText,
     textAlign: 'center'
   }
 });

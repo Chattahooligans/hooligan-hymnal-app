@@ -127,8 +127,8 @@ const CapoHomeNavigation = StackNavigator(
       screen: Screens.CapoHome
     },
     CapoSelectSong: { screen: Screens.CapoSelectSong },
-    CapoConfirmSend: { screen: Screens.CapoConfirmSend },
-    CapoComposeSong: { screen: Screens.CapoComposeSong }
+    CapoComposeSong: { screen: Screens.CapoComposeSong },
+    CapoConfirmSendSong: { screen: Screens.CapoConfirmSendSong }
   },
   {
     ...DefaultStackConfig,
