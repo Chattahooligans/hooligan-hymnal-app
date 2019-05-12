@@ -35,7 +35,6 @@ export default class CapoHome extends React.Component {
               size={23}
               style={{
                 color: '#fff',
-                marginTop: 3,
                 backgroundColor: 'transparent',
                 marginRight: 5
               }}
@@ -56,13 +55,32 @@ export default class CapoHome extends React.Component {
               size={23}
               style={{
                 color: '#fff',
-                marginTop: 3,
                 backgroundColor: 'transparent',
                 marginRight: 5
               }}
             />
             <MediumText style={styles.bigButtonText}>
               Compose Song
+            </MediumText>
+          </RectButton>
+        </ClipBorderRadius>
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressGoalkeeperNicknameButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-hand"
+              size={23}
+              style={{
+                color: '#fff',
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <MediumText style={styles.bigButtonText}>
+              GK Nickname
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
@@ -77,6 +95,11 @@ export default class CapoHome extends React.Component {
 
   _handlePressComposeSongButton = () => {
     this.props.navigation.navigate('CapoComposeSong');
+  };
+
+  _handlePressGoalkeeperNicknameButton = () => {
+    Keyboard.dismiss();
+    this.props.navigation.navigate('CapoSetGoalkeeperNickname');
   };
 }
 

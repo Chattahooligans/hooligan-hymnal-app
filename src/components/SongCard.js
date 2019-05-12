@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     fontSize: FontSizes.bodyTitle
   },
   songInfoRow: {
-    paddingTop: 10
+    paddingTop: 5
   },
   songLyrics: {
     paddingTop: 10

@@ -16,18 +16,24 @@
     "song": {
         "_id": -1,
         "category": "",
-        "create_time": "",
-        "update_time": "",
+        "delete_local": "",
         "title": "",
-        "tags": "",
-        "lyrics":
-            "",
-        "tbd_various_boolean_flags": "",
+        "instructions": "",
+        "lyrics": "",
         "reference_title": "",
         "reference_link": "",
-        "instructions": "",
-        "player_id": "",
-        "override_html": "",
-        "delete_local": ""
+        "sheetMusicLink": "",
+        "player_id": -1,
+        "legend": "",
+        "capoSignal": "",
+        "create_time": "",
+        "update_time": ""
+    },
+    "goalkeeperNickname": {
+        "nickname": "",
+        "backgroundColor": "",
+        "textColor": "",
+        "createdAt": "",
+        "updatedAt": ""
     }
 }

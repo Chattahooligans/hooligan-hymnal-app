@@ -84,7 +84,6 @@ class CapoConfirmSendSong extends React.Component {
                   size={23}
                   style={{
                     color: '#fff',
-                    marginTop: 3,
                     backgroundColor: 'transparent',
                     marginRight: 5
                   }}
@@ -105,7 +104,6 @@ class CapoConfirmSendSong extends React.Component {
                   size={23}
                   style={{
                     color: '#fff',
-                    marginTop: 3,
                     backgroundColor: 'transparent',
                     marginRight: 5
                   }}
@@ -152,20 +150,9 @@ class CapoConfirmSendSong extends React.Component {
         sender_longitude: CapoMessageSchema.sender_longitude,
         message: '',
         push: pushFlag,
-        announcement: undefined,
-        song: {
-          category: CapoMessageSchema.song.category,
-          delete_local: CapoMessageSchema.song.delete_local,
-          title: CapoMessageSchema.song.title,
-          instructions: CapoMessageSchema.song.instructions,
-          lyrics: CapoMessageSchema.song.lyrics,
-          reference_title: CapoMessageSchema.song.reference_title,
-          reference_link: CapoMessageSchema.song.reference_link,
-          player_id: CapoMessageSchema.song.player_id,
-          legend: CapoMessageSchema.song.legend,
-          create_time: CapoMessageSchema.song.create_time,
-          update_time: CapoMessageSchema.song.update_time
-        }
+        announcement: null,
+        song: CapoMessageSchema.song,
+        goalkeeperNickname: null
       })
       .then(responseJson => {
         // this is the output from the server for sending our capo_message

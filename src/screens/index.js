@@ -1,8 +1,10 @@
 import About from './About';
 import CapoComposeSong from './CapoComposeSong';
+import CapoConfirmSendGoalkeeperNickname from './CapoConfirmSendGoalkeeperNickname';
 import CapoConfirmSendSong from './CapoConfirmSendSong';
 import CapoHome from './CapoHome';
 import CapoLogin from './CapoLogin';
+import CapoSetGoalkeeperNickname from './CapoSetGoalkeeperNickname';
 import CapoSelectSong from './CapoSelectSong';
 import Events from './Events';
 import Home from './Home';
@@ -19,9 +21,11 @@ import TableOfContentsInline from './TableOfContentsInline';
 export default {
   About,
   CapoComposeSong,
+  CapoConfirmSendGoalkeeperNickname,
   CapoConfirmSendSong,
   CapoHome,
   CapoLogin,
+  CapoSetGoalkeeperNickname,
   CapoSelectSong,
   Events,
   Home,

@@ -1,0 +1,76 @@
+{
+    "colorFamilies":
+    [
+        {
+            "familyName": "Common Colors",
+            "colors":
+            [
+                { "name": "Red" },
+                { "name": "Blue" },
+                { "name": "Orange" }
+            ]
+        },
+        {
+            "familyName": "Reds",
+            "colors":
+            [
+                { "name": "IndianRed" },
+                { "name": "LightCoral" },
+                { "name": "Salmon" },
+                { "name": "DarkSalmon" },
+                { "name": "LightSalmon" },
+                { "name": "Crimson" },
+                { "name": "Red" },
+                { "name": "FireBrick" },
+                { "name": "DarkRed" }
+            ]
+        },
+        {
+            "familyName": "Oranges",
+            "colors":
+            [
+                { "name": "LightSalmon" },
+                { "name": "Coral" },
+                { "name": "Tomato" },
+                { "name": "OrangeRed" },
+                { "name": "DarkOrange" },
+                { "name": "Orange" }
+            ]
+        },
+        {
+            "familyName": "Pinks",
+            "colors":
+            [
+                { "name": "Pink" },
+                { "name": "LightPink" },
+                { "name": "HotPink" },
+                { "name": "DeepPink" },
+                { "name": "MediumVioletRed" },
+                { "name": "PaleVioletRed" }
+            ]
+        },
+        {
+            "familyName": "Purples",
+            "colors":
+            [
+                { "name": "Lavender" },
+                { "name": "Thistle" },
+                { "name": "Plum" },
+                { "name": "Violet" },
+                { "name": "Orchid" },
+                { "name": "Fuchsia" },
+                { "name": "Magenta" },
+                { "name": "MediumOrchid" },
+                { "name": "MediumPurple" },
+                { "name": "BlueViolet" },
+                { "name": "DarkViolet" },
+                { "name": "DarkOrchid" },
+                { "name": "DarkMagenta" },
+                { "name": "Purple" },
+                { "name": "Indigo" },
+                { "name": "SlateBlue" },
+                { "name": "DarkSlateBlue" }
+            ]
+        }
+    ]
+}
