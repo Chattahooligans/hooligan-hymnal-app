@@ -26,7 +26,6 @@ class TalksUpNext extends React.Component {
 
     let goalkeeperNicknameDisplay;
     if (goalkeeperNickname) {
-      alert(goalkeeperNickname.createdAt.toString())
       goalkeeperNicknameDisplay = <GoalkeeperNicknameCard goalkeeperNickname={goalkeeperNickname}/>
     }
 
