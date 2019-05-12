@@ -29,6 +29,7 @@ import { HeaderBackButton } from 'react-navigation';
 import { Location, Permissions } from 'expo';
 
 import CapoMessageSchema from '../data/capo_message_schema';
+import SongSchema from '../data/song_schema';
 import RemoteNotifications from '../server_store/RemoteNotifications';
 
 @withNavigation
@@ -151,7 +152,21 @@ class CapoConfirmSendSong extends React.Component {
         message: '',
         push: pushFlag,
         announcement: null,
-        song: CapoMessageSchema.song,
+        song: {
+          category: CapoMessageSchema.song.category,
+          delete_local: CapoMessageSchema.song.delete_local,
+          title: CapoMessageSchema.song.title,
+          instructions: CapoMessageSchema.song.instructions,
+          lyrics: CapoMessageSchema.song.lyrics,
+          reference_title: CapoMessageSchema.song.reference_link,
+          reference_link: CapoMessageSchema.song.reference_link,
+          sheetMusicLink: CapoMessageSchema.song.sheetMusicLink,
+          player_id: CapoMessageSchema.song.player_id,
+          legend: CapoMessageSchema.song.legend,
+          capoSignal: CapoMessageSchema.song.capoSignal,
+          create_time: CapoMessageSchema.song.create_time,
+          update_time: CapoMessageSchema.song.update_time
+        },
         goalkeeperNickname: null
       })
       .then(responseJson => {
