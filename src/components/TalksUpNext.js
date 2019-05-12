@@ -13,6 +13,8 @@ import { HYMNAL_ADDRESS } from '../config/server';
 const CAPO_MESSAGE_ENDPOINT = HYMNAL_ADDRESS + '/api/notifications/last';
 const GOALKEEPER_NICKNAME_ENDPOINT = HYMNAL_ADDRESS + '/api/goalkeeperNicknames/last';
 
+const GK_EXPIRATION_HOURS = 2;
+
 class TalksUpNext extends React.Component {
   state = {
     capoMessage: null,
@@ -26,7 +28,11 @@ class TalksUpNext extends React.Component {
 
     let goalkeeperNicknameDisplay;
     if (goalkeeperNickname) {
-      goalkeeperNicknameDisplay = <GoalkeeperNicknameCard goalkeeperNickname={goalkeeperNickname}/>
+      let createdAt = new Date(goalkeeperNickname.createdAt)
+      createdAt.setHours(createdAt.getHours() + GK_EXPIRATION_HOURS)
+      let now = new Date();
+      if (now < createdAt)
+        goalkeeperNicknameDisplay = <GoalkeeperNicknameCard goalkeeperNickname={goalkeeperNickname}/>
     }
 
     return (
@@ -54,11 +60,11 @@ class TalksUpNext extends React.Component {
             />
           </RectButton>
         </View>
-        {goalkeeperNicknameDisplay}
         <SongCard
           key={featuredSection.song._id}
           song={featuredSection.song}
-        />
+          />
+          {goalkeeperNicknameDisplay}
       </View>
     );
   }
