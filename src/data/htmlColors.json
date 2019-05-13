@@ -5,9 +5,10 @@
             "familyName": "Common Colors",
             "colors":
             [
-                { "name": "Red" },
-                { "name": "Blue" },
-                { "name": "Orange" }
+                { "name": "Tomato" },
+                { "name": "Yellow" },
+                { "name": "Black" },
+                { "name": "Seagreen" }
             ]
         },
         {

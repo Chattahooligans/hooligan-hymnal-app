@@ -20,7 +20,7 @@ export default class GoalkeeperNicknameCard extends React.Component {
     return (
       <View style={{flexDirection: 'row', alignItems: 'center', 
         backgroundColor: goalkeeperNickname.backgroundColor,
-        paddingVertical: 5, paddingLeft: 10}}>
+        paddingVertical: 5, paddingHorizontal: 10}}>
         <Ionicons
               name="md-hand"
               size={23}
@@ -45,6 +45,6 @@ const styles = StyleSheet.create({
   },
   nickname: {
     fontSize: FontSizes.subtitle,
-    paddingHorizontal: 0,
+    marginRight: 5
   }
 });

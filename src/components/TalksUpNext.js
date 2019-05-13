@@ -44,7 +44,7 @@ class TalksUpNext extends React.Component {
             justifyContent: 'space-between'
           }}
         >
-          <MediumText style={{ fontSize: FontSizes.title }}>Up Next</MediumText>
+          <MediumText style={{ fontSize: FontSizes.title }}>{this.state.label}</MediumText>
           <RectButton
             style={styles.bigButton}
             onPress={this._handlePressRefreshButton}
@@ -70,6 +70,9 @@ class TalksUpNext extends React.Component {
   }
 
   componentWillMount() {
+    this.setState({
+      label: 'Up Next',
+    });
     this._refreshNotification();
     this._refreshGoalkeeperNickname();
   }
@@ -87,7 +90,6 @@ class TalksUpNext extends React.Component {
 
   _setFeaturedSong = () => {
     this.setState({
-      label: 'Up Next',
       song: getFeaturedSong(this.props.songbook, this.props.songs)
     });
   };
@@ -104,7 +106,6 @@ class TalksUpNext extends React.Component {
           if (responseJson.song) {
             this.setState({
               capoMessage: {
-                label: 'Up Next',
                 song: responseJson.song
               }
             });
@@ -133,6 +134,7 @@ class TalksUpNext extends React.Component {
           // if this is valid ??
           if (responseJson.nickname) {
             this.setState({
+              label: 'Feed',
               goalkeeperNickname: responseJson
             });
           } else {
