@@ -134,7 +134,6 @@ class TalksUpNext extends React.Component {
           // if this is valid ??
           if (responseJson.nickname) {
             this.setState({
-              label: 'Feed',
               goalkeeperNickname: responseJson
             });
           } else {

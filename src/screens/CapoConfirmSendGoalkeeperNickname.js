@@ -71,36 +71,71 @@ class CapoConfirmSendGoalkeeperNickname extends React.Component {
             <View style={styles.gkContainer}>
                 <GoalkeeperNicknameCard goalkeeperNickname={goalkeeperNickname} />
             </View>
+            <View style={styles.buttonContainer}>
             <ClipBorderRadius>
-                <RectButton
-                    style={styles.bigButton}
-                    onPress={this._postGoalkeeperNickname}
-                    underlayColor="#fff"
-                >
-                  <MediumText style={styles.bigButtonText}>Send GK Nickname</MediumText>
-                  <Ionicons
-                    name="md-send"
-                    size={23}
-                    style={{
-                      color: '#fff',
-                      backgroundColor: 'transparent',
-                      marginRight: 5
-                    }}
-                  />
-                </RectButton>
+              <RectButton
+                style={styles.bigButton}
+                onPress={this._handlePressSendOnlyButton}
+                underlayColor="#fff"
+              >
+                <MediumText style={styles.bigButtonText}>
+                  Send Only
+                </MediumText>
+                <Ionicons
+                  name="md-send"
+                  size={23}
+                  style={{
+                    color: '#fff',
+                    backgroundColor: 'transparent',
+                    marginRight: 5
+                  }}
+                />
+              </RectButton>
             </ClipBorderRadius>
+            <ClipBorderRadius>
+              <RectButton
+                style={styles.bigButton}
+                onPress={this._handlePressSendAndNotifyButton}
+                underlayColor="#fff"
+              >
+                <MediumText style={styles.bigButtonText}>
+                  Send &amp; Notify
+                </MediumText>
+                <Ionicons
+                  name="md-notifications"
+                  size={23}
+                  style={{
+                    color: '#fff',
+                    backgroundColor: 'transparent',
+                    marginRight: 5
+                  }}
+                />
+              </RectButton>
+            </ClipBorderRadius>
+          </View>
         </View>
       </LoadingPlaceholder>
     );
   }
 
-  _postGoalkeeperNickname = () => {
-    const { goalkeeperNickname } = this.props.globalData.state;
+  _handlePressSendOnlyButton = () => {
+    console.log('send only');
+    this._postGoalkeeperNickname(false);
+  };
+  _handlePressSendAndNotifyButton = () => {
+    console.log('send and notify');
+    this._postGoalkeeperNickname(true);
+  };
+
+  _postGoalkeeperNickname = pushFlag => {
+    const { goalkeeperNickname, token } = this.props.globalData.state;
 
     let nickname = new RemoteGoalkeeperNickname();
 
     nickname
       .create({
+        sender: token,
+        push: pushFlag,
         nickname: goalkeeperNickname.nickname,
         backgroundColor: goalkeeperNickname.backgroundColor,
         textColor: goalkeeperNickname.textColor
@@ -144,6 +179,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingBottom: 8
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      width: 100 + '%',
+      justifyContent: 'space-evenly',
+      alignItems: 'stretch'
     },
     bigButton: {
       backgroundColor: DefaultColors.ButtonBackground,
