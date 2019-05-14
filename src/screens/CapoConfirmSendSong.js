@@ -159,6 +159,8 @@ class CapoConfirmSendSong extends React.Component {
       .then(responseJson => {
         // this is the output from the server for sending our capo_message
         console.log(JSON.stringify(responseJson));
+
+        this.props.globalData.setResponse(responseJson);
         // we REALLY need to confirm this got sent
         //alert("success or fail message? do we even know?");
         // if fail, stay here

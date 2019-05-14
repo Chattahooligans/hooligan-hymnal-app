@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import NavigationOptions from '../config/NavigationOptions';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
 import withUnstated from '@airship/with-unstated';
@@ -16,7 +16,8 @@ class About extends React.Component {
   };
 
   state = {
-    token: ""
+    token: "",
+    response: null
   }
 
   componentDidMount() {
@@ -25,16 +26,18 @@ class About extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (
-      !prevProps.globalData.state.token &&
-      this.props.globalData.state.token
+      (!prevProps.globalData.state.token &&
+      this.props.globalData.state.token) ||
+      (!prevProps.globalData.state.response &&
+        this.props.globalData.state.response)
     ) {
       this.setData();
     }
   }
 
   setData = () => {
-    let { token } = this.props.globalData.state
-    this.setState({token})
+    let { token, response } = this.props.globalData.state
+    this.setState({token, response})
   }
 
   render() {
@@ -59,8 +62,12 @@ class About extends React.Component {
             Some code based on open source @nodevember conference schedule app
           </Text>
           <View style={{ height: 50 }} />
-          <Text>Debug</Text>
-          <Text>{this.state.token}</Text>
+          <ScrollView style={{flex: 1}}>
+            <Text>Debug</Text>
+            <Text selectable={true}>{this.state.token}</Text>
+            <Text></Text>
+            <Text selectable={true}>{JSON.stringify(this.state.response)}</Text>
+          </ScrollView>
           <Text></Text>
         </View>
       </View>

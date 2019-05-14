@@ -34,7 +34,8 @@ export default class GlobalDataContainer extends Container {
     goalkeeperNickname: null,
     htmlColors: null,
     token: null,
-    unlocked: false
+    unlocked: false,
+    response: null
   };
 
   loadData = async () => {
@@ -134,6 +135,11 @@ export default class GlobalDataContainer extends Container {
 
   setGoalkeeperNickname = (nick, callback) =>
   this.setState({ goalkeeperNickname: nick }, () => {
+    if (callback) callback();
+  });
+
+  setResponse = (response, callback) =>
+  this.setState({response: response}, () => {
     if (callback) callback();
   });
 
