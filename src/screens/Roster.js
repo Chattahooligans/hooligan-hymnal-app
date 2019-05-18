@@ -185,7 +185,7 @@ class Roster extends React.Component {
     return (
       <LoadingPlaceholder>
         <View style={styles.container}>
-          <SectionList
+          <SectionList style={styles.container}
             renderScrollComponent={props => <ScrollView {...props} />}
             stickySectionHeadersEnabled={true}
             renderItem={this._renderItem}
@@ -193,6 +193,27 @@ class Roster extends React.Component {
             sections={this.state.squads}
             keyExtractor={(item, index) => index}
           />
+          <RectButton
+            style={styles.twitterListButtonStyle}
+            onPress={this._handlePressTwitterListButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-list"
+              size={23}
+              style={{
+                color: '#fff',
+                marginTop: 3,
+                marginBottom: 3,
+                marginLeft: 5,
+                marginRight: 5,
+                backgroundColor: 'transparent'
+              }}
+            />
+            <RegularText style={styles.twitterListButtonText}>
+              Twitter List
+            </RegularText>
+          </RectButton>
         </View>
       </LoadingPlaceholder>
     );
@@ -214,6 +235,10 @@ class Roster extends React.Component {
     // console.log('player click', player.name);
     this.props.navigation.navigate('Player', { player });
   };
+
+  _handlePressTwitterListButton = () => {
+    this.props.navigation.navigate('TwitterList');
+  }
 }
 
 const styles = StyleSheet.create({
@@ -245,6 +270,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
     borderWidth: 1,
     borderColor: '#eee'
+  },
+  twitterListButtonStyle: {
+    backgroundColor: Skin.Songbook_ToCButtonBackground,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginHorizontal: 0,
+    width: 100 + '%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    flexDirection: 'row'
+  },
+  twitterListButtonText: {
+    fontSize: FontSizes.normalButton,
+    color: '#fff',
+    textAlign: 'center'
   }
 });
 

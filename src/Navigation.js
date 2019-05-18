@@ -54,7 +54,8 @@ const RosterNavigation = StackNavigator(
       screen: Screens.Roster
     },
     Player: { screen: Screens.Player },
-    RosterSingleSong: { screen: Screens.SingleSong }
+    RosterSingleSong: { screen: Screens.SingleSong },
+    TwitterList: { screen: Screens.TwitterList }
   },
   {
     ...DefaultStackConfig,
