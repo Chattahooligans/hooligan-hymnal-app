@@ -23,7 +23,7 @@ export const WEBSITE_URL = 'http://chattahooligan.com';
 export const YOUTUBE_URL = '';
 export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
 export const PRIDERAISER_URL =
-  'https://cha.prideraiser.org/';
+  'https://chatt.prideraiser.org/';
 export const GOFUNDME_URL =
   'https://www.gofundme.com/chattahooligan-youth-soccer-investment';
 export const ESP_TWITTER_URL = 'https://twitter.com/LosCFCHooligans';
@@ -34,6 +34,7 @@ export const INSTRUMENTATION_URL ='https://drive.google.com/open?id=1dW9z4lh5924
 
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
+export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
 
 export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
 
@@ -45,7 +46,7 @@ export const websites = [
   { type: SocialPlatform.Facebook, icon: 'logo-facebook', url: FACEBOOK_URL },
   { type: SocialPlatform.Instagram, icon: 'logo-instagram', url: INSTAGRAM_URL },  
   { type: SocialPlatform.Web, icon: 'md-cart', url: SHOP_URL },
-  { type: SocialPlatform.Web, image: GOFUNDME_ICON, url: GOFUNDME_URL }
+  { type: SocialPlatform.Web, image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tint: true }
 ];
 
 export const esp_websites = [
