@@ -37,7 +37,7 @@ import {
 
 import appParams from '../../app.json';
 
-import { Palette, DefaultColors, Skin, websites, esp_websites, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON, GOFUNDME_BW_ICON } from '../config/Settings';
+import { Palette, DefaultColors, Skin, websites, esp_websites, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON, GOFUNDME_BW_ICON, PRIDERAISER_ICON, PRIDERAISER_URL } from '../config/Settings';
 
 let socialButtons = [];
 let socialButtonsEsp = [];
@@ -270,8 +270,24 @@ class DeferredHomeContent extends React.Component {
     }
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
-        <View style={{ marginBottom: 10, marginTop: 10, alignItems: 'center', justifyContent: 'center' }}>
-          <TouchableOpacity style={{flexDirection: 'row', alignItems:'center', backgroundColor: Palette.Sky, paddingHorizontal: 5, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
+        <View style={{ marginBottom: 10 }}>
+          <TouchableOpacity style={{flexDirection: 'row', backgroundColor: Palette.Prideraiser, paddingHorizontal: 10, paddingVertical: 3}} onPress={this._handlePressPrideraiser}>
+            <Image
+              source={PRIDERAISER_ICON}
+              style={{
+                width: 20,
+                height: 20,
+                marginTop: 1,
+                marginBottom: 1,
+                marginRight: 5,
+                backgroundColor: 'transparent'
+              }}
+            />
+            <MediumText style={{ fontSize: 16, color: Palette.White }}>
+              Chattanooga Prideraiser
+            </MediumText>
+          </TouchableOpacity>
+          <TouchableOpacity style={{flexDirection: 'row', backgroundColor: Palette.Sky, paddingHorizontal: 10, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
             <Image
               source={GOFUNDME_BW_ICON}
               tintColor={Skin.Home_SocialButtons}
@@ -334,6 +350,9 @@ class DeferredHomeContent extends React.Component {
     );
   };
 
+  _handlePressPrideraiser = () => {
+    Linking.openURL(PRIDERAISER_URL);
+  };
   _handlePressGoFundMe = () => {
     Linking.openURL(GOFUNDME_URL);
   };
