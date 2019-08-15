@@ -154,7 +154,8 @@ class CapoConfirmSendSong extends React.Component {
         push: pushFlag,
         announcement: null,
         song: CapoMessageSchema.song,
-        goalkeeperNickname: null
+        goalkeeperNickname: null,
+        authKey: this.props.globalData.getAuthKey()
       })
       .then(responseJson => {
         // this is the output from the server for sending our capo_message

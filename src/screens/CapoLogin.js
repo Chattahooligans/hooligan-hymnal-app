@@ -16,6 +16,7 @@ import NavigationOptions from '../config/NavigationOptions';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors } from '../config/Settings';
+import AuthCheck from '../server_store/AuthCheck';
 
 // TODO: Hard code password for now
 // Add top nav bar with Back button
@@ -73,11 +74,21 @@ class CapoLogin extends React.Component {
   _setPassword = password => this.setState({ password });
 
   _handlePressSubmitButton = () => {
-    if (this.state.password === '$4 beer') {
-      Keyboard.dismiss();
-      this.props.globalData.toggleUserAuth();
-      this.props.navigation.navigate('CapoHome');
-    }
+    let authChecker = new AuthCheck();
+    authChecker
+      .check({
+        authKey: this.state.password
+      })
+      .then(responseJson => {
+        Keyboard.dismiss();
+        this.props.globalData.setAuthKey(this.state.password);
+        this.props.globalData.toggleUserAuth();
+        this.props.navigation.navigate('CapoHome');
+      })
+      .catch(
+        //if I was a good person I'd give you an error message but I'm tired
+        //it wasn't here when I started either, give me a break
+      );
   };
 }
 
