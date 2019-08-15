@@ -138,7 +138,8 @@ class CapoConfirmSendGoalkeeperNickname extends React.Component {
         push: pushFlag,
         nickname: goalkeeperNickname.nickname,
         backgroundColor: goalkeeperNickname.backgroundColor,
-        textColor: goalkeeperNickname.textColor
+        textColor: goalkeeperNickname.textColor,
+        authKey: this.props.globalData.getAuthKey()
       })
       .then(responseJson => {
         // this is the output from the server for sending our capo_message
