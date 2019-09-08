@@ -41,6 +41,7 @@ import { Palette, DefaultColors, Skin, websites, esp_websites, WEBSITE_URL, GOFU
 
 let socialButtons = [];
 let socialButtonsEsp = [];
+let banners = [];
 
 websites.forEach(item => {
   if (item.icon) {
@@ -142,6 +143,45 @@ esp_websites.forEach(item => {
     );
   }
 });
+
+/*
+banners.push(
+  <TouchableOpacity style={{flexDirection: 'row', backgroundColor: Palette.Prideraiser, paddingHorizontal: 10, paddingVertical: 3}} onPress={this._handlePressPrideraiser}>
+    <Image
+      source={PRIDERAISER_ICON}
+      style={{
+        width: 20,
+        height: 20,
+        marginTop: 1,
+        marginBottom: 1,
+        marginRight: 5,
+        backgroundColor: 'transparent'
+      }}
+    />
+    <MediumText style={{ fontSize: 16, color: Palette.White }}>
+      Chattanooga Prideraiser
+    </MediumText>
+  </TouchableOpacity>
+)
+banners.push(
+  <TouchableOpacity style={{flexDirection: 'row', backgroundColor: Palette.Sky, paddingHorizontal: 10, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
+    <Image
+      source={GOFUNDME_BW_ICON}
+      tintColor={Skin.Home_SocialButtons}
+      style={{
+        width: 20,
+        height: 20,
+        marginTop: 1,
+        marginBottom: 1,
+        marginRight: 5,
+        backgroundColor: 'transparent'
+      }}
+    />
+    <MediumText style={{ fontSize: 16 }}>
+      Youth Soccer Investment Crowdfunding
+    </MediumText>
+  </TouchableOpacity>
+)*/ 
 
 class Home extends React.Component {
   state = {
@@ -270,40 +310,8 @@ class DeferredHomeContent extends React.Component {
     }
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
-        <View style={{ marginBottom: 10 }}>
-          <TouchableOpacity style={{flexDirection: 'row', backgroundColor: Palette.Prideraiser, paddingHorizontal: 10, paddingVertical: 3}} onPress={this._handlePressPrideraiser}>
-            <Image
-              source={PRIDERAISER_ICON}
-              style={{
-                width: 20,
-                height: 20,
-                marginTop: 1,
-                marginBottom: 1,
-                marginRight: 5,
-                backgroundColor: 'transparent'
-              }}
-            />
-            <MediumText style={{ fontSize: 16, color: Palette.White }}>
-              Chattanooga Prideraiser
-            </MediumText>
-          </TouchableOpacity>
-          <TouchableOpacity style={{flexDirection: 'row', backgroundColor: Palette.Sky, paddingHorizontal: 10, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
-            <Image
-              source={GOFUNDME_BW_ICON}
-              tintColor={Skin.Home_SocialButtons}
-              style={{
-                width: 20,
-                height: 20,
-                marginTop: 1,
-                marginBottom: 1,
-                marginRight: 5,
-                backgroundColor: 'transparent'
-              }}
-            />
-            <MediumText style={{ fontSize: 16 }}>
-              Youth Soccer Investment Crowdfunding
-            </MediumText>
-          </TouchableOpacity>
+        <View style={{ marginBottom: banners.length > 0 ? 10 : 0 }}>
+          {banners}
         </View>
         <TalksUpNext
           songs={this.props.globalData.state.songs}
