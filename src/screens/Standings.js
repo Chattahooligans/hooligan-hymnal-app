@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 import { WebBrowser } from 'expo';
 import NavigationOptions from '../config/NavigationOptions';
 
-const eventsUrl = 'http://npsl.bonzidev.com/standings';
+const standingsUrl = 'https://www.npsl.com/table/2019-npsl-members-cup/';
 
 export default class Standings extends React.Component {
   static navigationOptions = {
@@ -16,7 +16,7 @@ export default class Standings extends React.Component {
   }
 
   async openBrowser() {
-    let result = await WebBrowser.openBrowserAsync(eventsUrl);
+    let result = await WebBrowser.openBrowserAsync(standingsUrl);
     this.props.navigation.navigate('Home');
   }
 
