@@ -1,7 +1,8 @@
 import React from 'react';
 import { Animated, Platform, View, StyleSheet } from 'react-native';
 import { Constants } from 'expo';
-import { Colors, Layout } from '../constants';
+import { Layout } from '../constants';
+import { Skin, DefaultColors } from '../config/Settings';
 
 export default class NavigationBar extends React.Component {
   render() {
@@ -19,7 +20,7 @@ export default class NavigationBar extends React.Component {
           style={[
             StyleSheet.absoluteFill,
             {
-              backgroundColor: Colors.green,
+              backgroundColor: DefaultColors.NavigationBarBackground,
               opacity: this.props.animatedBackgroundOpacity,
             },
           ]}

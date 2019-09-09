@@ -55,7 +55,7 @@ class TalksUpNext extends React.Component {
               name="md-refresh"
               size={23}
               style={{
-                color: Colors.green,
+                color: DefaultColors.ColorText,
                 backgroundColor: 'transparent'
               }}
             />
