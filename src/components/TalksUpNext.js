@@ -9,6 +9,7 @@ import { getFeaturedSong } from '../data';
 import { RectButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { HYMNAL_ADDRESS } from '../config/server';
+import { DefaultColors } from '../config/Settings';
 
 const CAPO_MESSAGE_ENDPOINT = HYMNAL_ADDRESS + '/api/notifications/last';
 const GOALKEEPER_NICKNAME_ENDPOINT = HYMNAL_ADDRESS + '/api/goalkeeperNicknames/last';
@@ -44,7 +45,7 @@ class TalksUpNext extends React.Component {
             justifyContent: 'space-between'
           }}
         >
-          <MediumText style={{ fontSize: FontSizes.title }}>{this.state.label}</MediumText>
+          <MediumText style={{ color: DefaultColors.ColorText, fontSize: FontSizes.title }}>{this.state.label}</MediumText>
           <RectButton
             style={styles.bigButton}
             onPress={this._handlePressRefreshButton}

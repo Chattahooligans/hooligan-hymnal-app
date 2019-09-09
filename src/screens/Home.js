@@ -318,30 +318,72 @@ class DeferredHomeContent extends React.Component {
           songbook={this.props.globalData.state.songbook}
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
         />
-        <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
-          <TouchableOpacity onPress={this._handlePressAllSongs}>
-            <MediumText style={styles.seeAllSongs}>
-              See all songs →
+        <ClipBorderRadius style={{marginTop: -2}}>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressSongbook}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-book"
+              size={23}
+              style={{
+                color: '#fff',
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <MediumText style={styles.bigButtonText}>
+              Songbook
             </MediumText>
-          </TouchableOpacity>
+          </RectButton>
+        </ClipBorderRadius>
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressRoster}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-people"
+              size={23}
+              style={{
+                color: '#fff',
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <MediumText style={styles.bigButtonText}>
+              Roster
+            </MediumText>
+          </RectButton>
+        </ClipBorderRadius>
+        <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
+          <MediumText style={{color: DefaultColors.ColorText, fontSize: FontSizes.bodyLarge, marginTop: 5}}>
+            Find more great features in the <Ionicons
+              name="md-menu"
+              size={FontSizes.bodyLarge}
+              style={{ backgroundColor: 'transparent', marginRight: 5}}
+            /> menu, top left
+          </MediumText>
         </View>
         <View flexDirection="row" style={{ marginHorizontal: 15, marginBottom: 10 }}>
           <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => {
             //WebBrowser.openBrowserAsync(item.url);
             Linking.openURL(WEBSITE_URL);
           }}>
-            <MediumText>Visit: </MediumText>
+            <MediumText style={{color: DefaultColors.ColorText}}>Visit: </MediumText>
             <UnderlineText>http://comeandjoin.us</UnderlineText>
           </TouchableOpacity>
         </View>
         <View style={{ marginHorizontal: 15, flex: 1 }}>
-          <MediumText>Follow us</MediumText>
+          <MediumText style={{color: DefaultColors.ColorText}}>Follow us</MediumText>
         </View>
         <View flexDirection="row" style={{ paddingHorizontal: 20 }}>
           {socialButtons}
         </View>
         <View style={{ marginHorizontal: 15, flex: 1 }}>
-          <MediumText>Síguenos</MediumText>
+          <MediumText style={{color: DefaultColors.ColorText}}>Síguenos</MediumText>
         </View>
         <View flexDirection="row" style={{ paddingHorizontal: 20 }}>
           {socialButtonsEsp}
@@ -350,10 +392,18 @@ class DeferredHomeContent extends React.Component {
     );
   }
 
-  _handlePressAllSongs = () => {
+  _handlePressSongbook = () => {
     this.props.navigation.dispatch(
       NavigationActions.navigate({
         routeName: 'Songbook'
+      })
+    );
+  };
+
+  _handlePressRoster = () => {
+    this.props.navigation.dispatch(
+      NavigationActions.navigate({
+        routeName: 'Roster'
       })
     );
   };
