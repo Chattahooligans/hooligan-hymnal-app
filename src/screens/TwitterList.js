@@ -12,7 +12,7 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 
 class TwitterList extends React.Component {
     static navigationOptions = ({ navigation }) => ({
-        title: 'Twitter List',
+        headerTitle: 'Twitter List',
         ...NavigationOptions,
         headerLeft: (
             <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
