@@ -11,6 +11,9 @@ import Home from './Home';
 import Instrumentation from './Instrumentation';
 import Player from './Player';
 import Roster from './Roster';
+import RosterFoePlayers from './RosterFoePlayers';
+import RosterFoes from './RosterFoes';
+import RosterHome from './RosterHome';
 import Shop from './Shop';
 import SingleSong from './SingleSong';
 import Songbook from './Songbook';
@@ -33,6 +36,9 @@ export default {
   Instrumentation,
   Player,
   Roster,
+  RosterFoePlayers,
+  RosterFoes,
+  RosterHome,
   Shop,
   SingleSong,
   Songbook,

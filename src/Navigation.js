@@ -50,12 +50,7 @@ const SongbookNavigation = StackNavigator(
 
 const RosterNavigation = StackNavigator(
   {
-    Roster: {
-      screen: Screens.Roster
-    },
-    Player: { screen: Screens.Player },
-    RosterSingleSong: { screen: Screens.SingleSong },
-    TwitterList: { screen: Screens.TwitterList }
+    RosterHome: { screen: Screens.RosterHome }
   },
   {
     ...DefaultStackConfig,
@@ -64,6 +59,7 @@ const RosterNavigation = StackNavigator(
     }
   }
 );
+
 
 const EventsNavigation = StackNavigator(
   {

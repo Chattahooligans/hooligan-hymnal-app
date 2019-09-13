@@ -251,7 +251,8 @@ class Player extends React.Component {
 
         <NavigationBar
           animatedBackgroundOpacity={headerOpacity}
-          style={[
+          paddingTop={0}
+          style={[{paddingTop: 0},
             Platform.OS === 'android'
               ? { height: Layout.headerHeight + Constants.statusBarHeight }
               : null
@@ -330,7 +331,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: Skin.Player_TopContainerBackground,
-    paddingTop: Constants.statusBarHeight + Layout.notchHeight + 20,
+    paddingTop: Constants.statusBarHeight + Layout.notchHeight,
     paddingBottom: 20,
     paddingHorizontal: 20,
     alignItems: 'center',

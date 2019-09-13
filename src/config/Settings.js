@@ -81,7 +81,8 @@ export const DefaultColors = {
   HeaderBackground: Palette.Navy,
   HeaderText: Palette.White,
   Text: Palette.Black,
-  ColorText: Palette.Navy
+  ColorText: Palette.Navy,
+  Secondary: Palette.Sky
 }
 
 export const Skin = {
@@ -92,5 +93,13 @@ export const Skin = {
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
   Player_Background: Palette.Sky,
   Roster_DefaultThumbnail: CLUB_LOGO,
+  Roster_TabBackground: DefaultColors.ButtonBackground,
+  Roster_ActiveTabIndicator: DefaultColors.ButtonText,
+  Roster_ActiveTabLabel: DefaultColors.ButtonText,
+  Roster_InactiveTabLabel: DefaultColors.Secondary,
+  Roster_FriendsTabIcon: 'md-heart',
+  Roster_FriendsTabLabel: 'Friends',
+  Roster_FoesTabIcon: 'md-thumbs-down',
+  Roster_FoesTabLabel: 'Foes',
   Player_DefaultImage: CLUB_LOGO,
 };
