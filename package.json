@@ -14,11 +14,11 @@
   },
   "dependencies": {
     "@airship/with-unstated": "^1.0.1",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "expo": "^32.0.0",
     "fbemitter": "^2.1.1",
     "hoist-non-react-statics": "^2.3.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.15",
     "moment": "2.20.1",
     "moment-timezone": "^0.5.14",
     "ramda": "^0.25.0",
@@ -37,7 +37,7 @@
   "devDependencies": {
     "babel-preset-react-native": "^4.0.1",
     "flow-bin": "^0.63.1",
-    "jest-expo": "^32.0.0",
+    "jest-expo": "^34.1.0",
     "react-test-renderer": "16.0.0"
   }
 }
