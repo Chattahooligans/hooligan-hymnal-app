@@ -67,7 +67,8 @@ const RosterTabs = TabNavigator(
     },
     {
         navigationOptions: {
-            swipeEnabled: false
+            swipeEnabled: true,
+            tabBarPosition: 'top'
         },
         tabBarOptions: {
             style: { backgroundColor: Skin.Roster_TabBackground },
