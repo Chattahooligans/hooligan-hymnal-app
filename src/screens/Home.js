@@ -44,7 +44,7 @@ let socialButtonsEsp = [];
 let banners = [];
 
 websites.forEach(item => {
-  if (item.icon) {
+  if (item.icon && item.url) {
     socialButtons.push(
       <TouchableOpacity
         key={item.url}
@@ -67,7 +67,7 @@ websites.forEach(item => {
         />
       </TouchableOpacity>
     );
-  } else if (item.image) {
+  } else if (item.image && item.url) {
     socialButtons.push(
       <TouchableOpacity
         key={item.url}
@@ -95,7 +95,7 @@ websites.forEach(item => {
 });
 
 esp_websites.forEach(item => {
-  if (item.icon) {
+  if (item.icon && item.url) {
     socialButtonsEsp.push(
       <TouchableOpacity
         key={item.url}
@@ -118,7 +118,7 @@ esp_websites.forEach(item => {
         />
       </TouchableOpacity>
     );
-  } else if (item.image) {
+  } else if (item.image && item.url) {
     socialButtonsEsps.push(
       <TouchableOpacity
         key={item.url}
