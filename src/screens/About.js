@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import NavigationOptions from '../config/NavigationOptions';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { FontSizes } from '../constants';
+import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 
@@ -43,33 +45,32 @@ class About extends React.Component {
   render() {
     return (
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky }}>
-        <View style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
-          <Text>Chattahooligan Hymnal</Text>
+        <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
+          <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10 }}>Chattahooligan Hymnal</BoldText>
+          <RegularText>The Chattahooligan Hymnal is built to help you support Chattanooga FC.</RegularText>
           <View style={{ height: 10 }} />
-          <Text>
-            Thanks for testing! Stay tuned for updates before the season begins
-          </Text>
-          <Text>
-            Please send feedback to Twitter: @chattahooligan or
-            thechattahooligans@gmail.com
-          </Text>
-          <View style={{ height: 50 }} />
-          <Text>Home screen video created by Jay Kaley</Text>
-          <Text>Menu photo from Phil Thach photography</Text>
-          <Text>Some player photos from Madonna Kemp and Ray Soldano, used with permission</Text>
-          <Text>Player headshots provided by Chattanooga FC, used with permission</Text>
-          <Text>
-            Some code based on open source @nodevember conference schedule app
-          </Text>
-          <View style={{ height: 50 }} />
+          <RegularText>Please send feedback to @chattahooligan or @hooliganhymnal on Twitter, or email thechattahooligans@gmail.com</RegularText>
+          <View style={{ height: 20 }} />
+          <MediumText>Credits</MediumText>
+          <RegularText>- Home screen video created by Jay Kaley</RegularText>
+          <RegularText>- Menu photo from Phil Thach photography</RegularText>
+          <RegularText>- Some player photos from Madonna Kemp and Ray Soldano, used with permission</RegularText>
+          <RegularText>- Player headshots provided by Chattanooga FC, used with permission</RegularText>
+          <RegularText>- Some code based on open source @nodevember conference schedule app</RegularText>
+          <View style={{ height: 20 }} />
+          <RegularText>Interested in contriburing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to @chattahooligan or @hooliganhymnal on Twitter, or email thechattahooligans@gmail.com</RegularText>
+          <View style={{ height: 20 }} />
           <ScrollView style={{flex: 1}}>
-            <Text>Debug</Text>
-            <Text selectable={true}>{this.state.token}</Text>
-            <Text></Text>
-            <Text selectable={true}>{JSON.stringify(this.state.response)}</Text>
+            <MediumText>Debug</MediumText>
+            <RegularText selectable={true}>{this.state.token}</RegularText>
+            <RegularText selectable={true}>
+              {
+                this.state.response ? 
+                  JSON.stringify(this.state.response) : ''
+              }
+            </RegularText>
           </ScrollView>
-          <Text></Text>
-        </View>
+        </ScrollView>
       </View>
     );
   }
