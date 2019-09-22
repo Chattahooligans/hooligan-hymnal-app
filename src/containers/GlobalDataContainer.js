@@ -1,3 +1,4 @@
+import { Platform } from 'react-native';
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
@@ -126,7 +127,9 @@ export default class GlobalDataContainer extends Container {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          pushToken: token
+          pushToken: token,
+          platform: Platform.OS,
+          platformVersion: Platform.Version
         })
       });
     } catch (e) {
