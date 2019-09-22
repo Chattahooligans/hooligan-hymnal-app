@@ -29,7 +29,7 @@ import find from 'lodash/find';
 
 import { Colors, FontSizes, Layout } from '../constants';
 import { Skin, DefaultColors } from '../config/Settings';
-import { Constants } from 'expo';
+import Constants from 'expo-constants';
 import { HeaderBackButton } from 'react-navigation';
 import gkNicknameSchema from '../data/goalkeeperNickname_schema.json';
 

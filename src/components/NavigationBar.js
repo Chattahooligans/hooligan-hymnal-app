@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animated, Platform, View, StyleSheet } from 'react-native';
-import { Constants } from 'expo';
+import Constants from 'expo-constants';
 import { Layout } from '../constants';
 import { Skin, DefaultColors } from '../config/Settings';
 

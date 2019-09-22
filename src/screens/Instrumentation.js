@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { WebBrowser } from 'expo';
+import * as WebBrowser from 'expo-web-browser';
 import NavigationOptions from '../config/NavigationOptions';
 import { INSTRUMENTATION_URL } from '../config/Settings';
 

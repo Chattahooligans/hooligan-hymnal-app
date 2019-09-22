@@ -26,7 +26,7 @@ import { conferenceHasEnded } from '../utils/index';
 import find from 'lodash/find';
 
 import { Colors, FontSizes, Layout } from '../constants';
-import { Constants } from 'expo';
+import Constants from 'expo-constants';
 import { HeaderBackButton } from 'react-navigation';
 
 // TODO: On row press, get the related song object by _id using snippet below and pass it to the next screen

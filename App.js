@@ -1,5 +1,7 @@
 import React from 'react';
-import { Asset, AppLoading, Font, Constants } from 'expo';
+import { AppLoading } from 'expo';
+import { Asset } from 'expo-asset';
+import * as Font from 'expo-font';
 import { Platform, View, StatusBar, YellowBox } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Provider } from 'unstated';

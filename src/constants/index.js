@@ -1,5 +1,5 @@
 import { Dimensions, Platform } from 'react-native';
-import { Constants } from 'expo';
+import Constants from 'expo-constants';
 import { Header } from 'react-navigation';
 
 const X_WIDTH = 375;

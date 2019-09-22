@@ -2,32 +2,29 @@
   "expo": {
     "name": "Chattahooligan Hymnal",
     "description": "The Chattahooligans' stadium chants and songs",
-    "slug": "app",
+    "slug": "chattahooligan-hymnal",
     "privacy": "public",
-    "version": "0.0.40",
+    "version": "0.0.41",
     "primaryColor": "#A3D8F7",
     "icon": "./assets/big-c-icon-ios.png",
     "orientation": "portrait",
-    "sdkVersion": "32.0.0",
+    "sdkVersion": "35.0.0",
     "splash": {
       "backgroundColor": "#A3D8F7",
       "resizeMode": "contain",
       "image": "./assets/big-c-splash-heebo.png"
     },
     "android": {
-      "package": "com.thechattahooligans.app",
+      "package": "com.chattahooligan.hymnal",
       "icon": "./assets/big-c-icon-android.png",
-      "versionCode": 15,
+      "versionCode": 1,
       "permissions": [],
       "googleServicesFile": "./google-services.json"
     },
     "ios": {
-      "bundleIdentifier": "com.thechattahooligans.app",
+      "bundleIdentifier": "com.chattahooligan.hymnal",
       "supportsTablet": true,
-      "loadJSInBackgroundExperimental": true,
-      "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "Chattahooligan Hymnal will use location to ignore notifications when you are not at the stadium."
-      }
+      "loadJSInBackgroundExperimental": true
     },
     "notification": {
       "icon": "./assets/speakerphone.png",

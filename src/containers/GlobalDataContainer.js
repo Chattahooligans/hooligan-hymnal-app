@@ -1,4 +1,6 @@
-import { Location, Notifications, Permissions } from 'expo';
+import { Notifications } from 'expo';
+import * as Permissions from 'expo-permissions';
+import * as Location from 'expo-location';
 import { Container } from 'unstated';
 import { getSongs } from '../services/songsService';
 import { getSongbook } from '../services/songbookService';

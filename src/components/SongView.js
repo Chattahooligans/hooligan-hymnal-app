@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, View, Image, StyleSheet, NativeModules, ToastAndroid, Clipboard, TouchableOpacity, Linking } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BoldText, RegularText } from './StyledText';
-import { WebBrowser } from 'expo';
+import * as WebBrowser from 'expo-web-browser';
 import ParsedText from 'react-native-parsed-text';
 import Tags from './Tags';
 import { FontSizes, Layout } from '../constants';

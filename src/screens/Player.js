@@ -13,7 +13,8 @@ import {
 } from 'react-native';
 
 import SongView from '../components/SongView';
-import { Constants, WebBrowser } from 'expo';
+import * as WebBrowser from 'expo-web-browser';
+import Constants from 'expo-constants';
 import FadeIn from 'react-native-fade-in-image';
 import ReadMore from 'react-native-read-more-text';
 import { BorderlessButton } from 'react-native-gesture-handler';

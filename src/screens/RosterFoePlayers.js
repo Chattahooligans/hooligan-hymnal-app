@@ -1,7 +1,7 @@
 import React from 'react';
 import { Animated, Image, FlatList, Platform, ScrollView, SectionList, StyleSheet, View} from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
-import { Constants } from 'expo';
+import Constants from 'expo-constants';
 import { Ionicons } from '@expo/vector-icons';
 import { HeaderBackButton } from 'react-navigation';
 import { RectButton } from 'react-native-gesture-handler';

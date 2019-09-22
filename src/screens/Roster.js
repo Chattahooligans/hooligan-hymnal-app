@@ -26,7 +26,7 @@ import Players from '../data/players.json';
 import Squads from '../data/roster.json';
 
 import { Colors, FontSizes, Layout } from '../constants';
-import { Constants } from 'expo';
+import Constants from 'expo-constants';
 
 import { find, propEq } from 'ramda';
 import { Palette, Skin } from '../config/Settings';
