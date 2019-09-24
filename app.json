@@ -28,6 +28,7 @@
     },
     "notification": {
       "icon": "./assets/speakerphone.png",
+      "iosDisplayInForeground": true,
       "color": "#A3D8F7"
     }
   }
