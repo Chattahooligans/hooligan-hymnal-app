@@ -103,6 +103,20 @@ const ShopNavigation = StackNavigator(
   }
 );
 
+const VolunteerNavigation = StackNavigator(
+  {
+    Events: {
+      screen: Screens.Volunteer
+    }
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: 'VOLUNTEER ↗️'
+    }
+  }
+);
+
 const InstrumentationNavigation = StackNavigator(
   {
     Events: {
@@ -159,6 +173,7 @@ const Drawer = DrawerNavigator(
     Events: { screen: EventsNavigation },
     Standings: { screen: StandingsNavigation },
     Shop: { screen: ShopNavigation },
+    Volunteer: { screen: VolunteerNavigation },
     Instrumentation: {screen: InstrumentationNavigation },
     CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation }

@@ -21,6 +21,7 @@ import Songs from './Songs';
 import Standings from './Standings';
 import TableOfContentsInline from './TableOfContentsInline';
 import TwitterList from './TwitterList';
+import Volunteer from './Volunteer';
 
 export default {
   About,
@@ -45,5 +46,6 @@ export default {
   Songs,
   Standings,
   TableOfContentsInline,
-  TwitterList
+  TwitterList,
+  Volunteer
 };
