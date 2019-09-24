@@ -20,6 +20,7 @@ import ReadMore from 'react-native-read-more-text';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { HeaderBackButton } from 'react-navigation';
 import { View as AnimatableView } from 'react-native-animatable';
+import ParsedText from 'react-native-parsed-text';
 import _ from 'lodash';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -248,7 +249,19 @@ class Player extends React.Component {
               renderRevealedFooter={this._renderRevealedFooter}
               onReady={this._handleTextReady}
             >
-              <RegularText style={styles.bodyText}>{player.bio}</RegularText>
+              <ParsedText 
+                parse={
+                  [
+                    {type: 'url', style: styles.url, onPress: this._urlPress},
+                    {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
+                    {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
+                  ]
+                }
+                style={styles.bodyText}
+                >
+                {player.bio}
+              </ParsedText>
+              <RegularText style={styles.bodyText}></RegularText>
             </ReadMore>
             {Settings.Player_ShowSongs && playerSongDisplay}
           </AnimatableView>
@@ -319,6 +332,10 @@ class Player extends React.Component {
       </TouchableOpacity>
     );
   };
+
+  _renderFormatted = (matchingString) => {
+    return matchingString.slice(1, matchingString.length-1)
+  }
 }
 
 const styles = StyleSheet.create({
@@ -350,6 +367,16 @@ const styles = StyleSheet.create({
     fontSize: FontSizes.bodyTitle,
     marginTop: 15,
     marginBottom: 3
+  },
+  bold: {
+    fontWeight: 'bold'
+  },
+  italic: {
+    fontStyle: 'italic'
+  },
+  url: {
+    color: 'blue',
+    textDecorationLine: 'underline'
   }
 });
 
