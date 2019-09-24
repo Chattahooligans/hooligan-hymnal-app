@@ -30,7 +30,7 @@ import { FontSizes, Icons, Layout } from '../constants';
 import { RegularText, BoldText, MediumText } from '../components/StyledText';
 import { Ionicons } from '@expo/vector-icons';
 import SongCard from '../components/SongCard';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette, Settings } from '../config/Settings';
 
 class Player extends React.Component {
   static navigationOptions = {
@@ -133,18 +133,24 @@ class Player extends React.Component {
 
     if (this.state.playerSongs.length === 0) {
       playerSongDisplay = (
-        <RegularText style={styles.bodyText}>
-          We are still working on a song for this player. Want to help? Submit
-          an idea!
-        </RegularText>
+        <View>
+          <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
+          <RegularText style={styles.bodyText}>
+            We are still working on a song for this player. Want to help? Submit
+            an idea!
+          </RegularText>
+        </View>
       );
     } else {
       playerSongDisplay = (
-        <FlatList
-          data={this.state.playerSongs}
-          renderItem={this._renderSongCard}
-          keyExtractor={(item, index) => index.toString()}
-        />
+        <View>
+          <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
+          <FlatList
+            data={this.state.playerSongs}
+            renderItem={this._renderSongCard}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        </View>
       );
     }
 
@@ -244,9 +250,7 @@ class Player extends React.Component {
             >
               <RegularText style={styles.bodyText}>{player.bio}</RegularText>
             </ReadMore>
-
-            <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
-            {playerSongDisplay}
+            {Settings.Player_ShowSongs && playerSongDisplay}
           </AnimatableView>
         </AnimatedScrollView>
 

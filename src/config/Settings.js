@@ -16,28 +16,28 @@ export const SocialPlatform = {
   YouTube: 'YouTube'
 };
 
+// URLs
 export const TWITTER_URL = 'https://twitter.com/chattahooligan';
 export const FACEBOOK_URL = 'https://www.facebook.com/TheChattahooligans';
 export const INSTAGRAM_URL = 'https://instagram.com/thechattahooligans';
 export const WEBSITE_URL = 'http://chattahooligan.com';
 export const YOUTUBE_URL = '';
 export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
-export const PRIDERAISER_URL =
-  'https://chatt.prideraiser.org/';
-export const GOFUNDME_URL =
-  'https://www.gofundme.com/chattahooligan-youth-soccer-investment';
+export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
+export const GOFUNDME_URL = 'https://www.gofundme.com/chattahooligan-youth-soccer-investment';
 export const ESP_TWITTER_URL = 'https://twitter.com/LosCFCHooligans';
 export const ESP_INSTAGRAM_URL = 'https://instagram.com/loschattahooligans';
 export const ESP_WEBSITE_URL = 'http://chattahooligan.com/es';
 export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
 export const INSTRUMENTATION_URL ='https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 
+// Common Images
+// like social media icons
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
 export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
-
 export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
-
+// used in SongView to link to sheet music
 export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
 
 // icon: Iconicons name
@@ -103,3 +103,10 @@ export const Skin = {
   Roster_FoesTabLabel: 'Foes',
   Player_DefaultImage: CLUB_LOGO,
 };
+
+/*
+  App Feature Flags
+*/
+export const Settings = {
+  Player_ShowSongs: true
+}
