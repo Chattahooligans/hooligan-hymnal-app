@@ -150,6 +150,7 @@ class Roster extends React.Component {
       });
       header = 
         <Picker
+          enabled={pickerItems.length > 1}
           selectedValue={this.state.currentSquadID}
           onValueChange={(itemValue) => this.setState({currentSquadID: itemValue})}
         >
