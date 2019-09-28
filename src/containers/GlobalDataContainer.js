@@ -53,11 +53,45 @@ export default class GlobalDataContainer extends Container {
       const roster = await getRoster();
       const foes = await getFoes();
       
-      this.setState({ songbook: songbook[0], songs, players, roster: roster[0], foes, htmlColors });
+      this.setState({ 
+        songbook: songbook[0], 
+        songs, 
+        players, 
+        roster: this.verifyRoster(players,roster[0]), 
+        foes, 
+        htmlColors });
     } catch (e) {
-      //alert("loadData exception: " + e.toString());
+      alert("loadData exception: " + e.toString());
     }
   };
+
+  verifyRoster = (players,roster) => {
+    let squads = [];
+
+    roster.squads.forEach(squadChild => {
+      let playerList = [];
+
+      squadChild.players.forEach(playerChild => {
+        try {
+          let player = players.find(player => player._id === playerChild._id);
+
+          if (player)
+            playerList.push(player);
+          else
+            console.log(playerChild._id + ' not found in players database');
+        } catch (err) {
+          console.log(playerChild._id + ' not found in players database');
+        }
+      });
+
+      if (0 < playerList.length)
+        squads.push({ _id: squadChild._id, squadTitle: squadChild.squadTitle, players: playerList });
+    });
+
+    roster.squads = squads;
+    
+    return roster;
+  }
 
   getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
