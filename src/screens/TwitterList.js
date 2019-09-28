@@ -11,74 +11,24 @@ import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 
 class TwitterList extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        headerTitle: 'Twitter List',
-        ...NavigationOptions,
-        headerLeft: (
-            <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-        )
-    });
-
-    state = {
-        handles: ''
-    }
-
-    componentDidMount() {
-        this.setData();
-    }
-
-  componentDidUpdate(prevProps) {
-    if (
-      (!prevProps.globalData.state.players &&
-      this.props.globalData.state.players) ||
-      (!prevProps.globalData.state.roster &&
-        this.props.globalData.state.roster)
-    ) {
-      this.setData();
-    }
-  }
-
-  setData = () => {
-    console.log('setData');
-
-    let handles = '';
-    let squads = [];
-    let players = this.props.globalData.state.players;
-    
-    this.props.globalData.state.roster.squads.forEach(squadChild => {
-      let playerList = [];
-
-      //console.log(squadChild.squad_title);
-      squadChild.players.forEach(playerChild => {
-        try {
-          let player = players.filter(player => player._id === playerChild._id)[0];
-          //console.log(player._id + " " + player.name);
-
-          playerList.push(player);
-        } catch (err) {
-          console.log(playerChild._id + ' not found in players database');
-        }
-      });
-
-      if (0 < playerList.length) {
-          squads.push({ title: squadChild.squadTitle, data: playerList });
-          playerList.forEach(element => {
-              if (element.twitter)
-                handles += '@'+element.twitter + ' '
-          });
-
-          handles += '@ChattanoogaFC @chattahooligan @LosCFCHooligans'
-      }
-    });
-
-    this.setState({ handles });
-
-    // TODO:
-    // line 92
-    // fix static navigationOptions.headerTitle = state.rosterTitle (there is a scoping issue here) 
-  }
+  static navigationOptions = ({ navigation }) => ({
+      headerTitle: 'Twitter List',
+      ...NavigationOptions,
+      headerLeft: (
+          <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+      )
+  });
 
   render() {
+    let handles = '';
+
+    this.props.navigation.state.params.squad.players.forEach(player => {
+      if (player.twitter)
+        handles += '@' + player.twitter + ' ';
+    });
+      
+    handles += '@ChattanoogaFC @chattahooligan @LosCFCHooligans';
+
     return (
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky }}>
         <View style={{ flex: 1, padding: 5 }}>
@@ -92,7 +42,7 @@ class TwitterList extends React.Component {
           You can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.
           </RegularText>
             <ScrollView style={{flex: 1, padding: 5, backgroundColor: Palette.White}}>
-                <RegularText style={{fontSize: 18}} selectable={true}>{this.state.handles}</RegularText>
+                <RegularText style={{fontSize: 18}} selectable={true}>{handles}</RegularText>
             </ScrollView>
             <ClipBorderRadius>
                 <RectButton

@@ -226,8 +226,8 @@ class Roster extends React.Component {
   };
 
   _handlePressTwitterListButton = () => {
-    let squadID = this.state.currentSquadID
-    this.props.navigation.navigate('TwitterList', {squadID});
+    let squad = this.state.squads.find(element => element._id == this.state.currentSquadID)
+    this.props.navigation.navigate('TwitterList', {squad});
   }
 }
 
