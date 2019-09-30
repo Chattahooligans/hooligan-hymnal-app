@@ -43,14 +43,7 @@ class CapoConfirmSendGoalkeeperNickname extends React.Component {
 
   componentWillMount() {
     Keyboard.dismiss();
-
-    if (Platform.OS === 'android' && !Constants.isDevice) {
-      console.log(
-        'Oops, this will not work on Sketch in an Android emulator. Try it on your device!'
-      );
-    } else {
-      //this._getLocationAsync();
-    }
+    //this._getLocationAsync();
   }
 
   _getLocationAsync = async () => {
