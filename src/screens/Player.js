@@ -244,7 +244,7 @@ class Player extends React.Component {
           >
             <MediumText style={styles.sectionHeader}>Bio</MediumText>
             <ReadMore
-              numberOfLines={3}
+              numberOfLines={Settings.Player_ShowSongs ? 3 : 9999}
               renderTruncatedFooter={this._renderTruncatedFooter}
               renderRevealedFooter={this._renderRevealedFooter}
               onReady={this._handleTextReady}
