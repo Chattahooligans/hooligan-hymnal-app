@@ -60,7 +60,6 @@ class PlayerRow extends React.Component {
           />
         </TouchableOpacity>    
     }
-
     return (
       <View style={styles.row}>
         <RectButton
@@ -108,9 +107,8 @@ class Roster extends React.Component {
   };
   
   state = {
-    rosterTitle: "Roster",
-    squads: [],
-    currentSquadID: null
+    rosters: [],
+    currentRosterID: null
   }
 
   componentDidMount() {
@@ -121,43 +119,41 @@ class Roster extends React.Component {
     if (
       !prevProps.globalData.state.players &&
       this.props.globalData.state.players ||
-      !prevProps.globalData.state.roster &&
-      this.props.globalData.state.roster
+      !prevProps.globalData.state.rosters &&
+      this.props.globalData.state.rosters
     ) {
       this.setData();
     }
   }
 
   setData = () => {
-    let rosterTitle = this.props.globalData.state.roster.rosterTitle;
-    let squads = this.props.globalData.state.roster.squads;
-
-    if (squads.length > 0)
-      this.setState({ rosterTitle, squads, currentSquadID: squads[0]._id });
+    let rosters = this.props.globalData.state.rosters
+    if (rosters.length > 0)
+      this.setState({ rosters, currentRosterID: rosters[0]._id });
     else
-      this.setState({ rosterTitle, squads, currentSquadID: null });
+      this.setState({ rosters, currentRosterID: null });
   }
 
   render() {
     let listDisplay = null;
     let header = null;
 
-    if (this.state.squads.length > 0)
+    if (this.state.rosters.length > 0)
     {
       let pickerItems = [];
-      this.state.squads.forEach(element => {
-        pickerItems.push(<Picker.Item label={element.squadTitle} value={element._id} key={element._id} />);
+      this.state.rosters.forEach(element => {
+        pickerItems.push(<Picker.Item label={element.rosterTitle} value={element._id} key={element._id} />);
       });
       header = 
         <Picker
           enabled={pickerItems.length > 1}
-          selectedValue={this.state.currentSquadID}
-          onValueChange={(itemValue) => this.setState({currentSquadID: itemValue})}
+          selectedValue={this.state.currentRosterID}
+          onValueChange={(itemValue) => this.setState({currentRosterID: itemValue})}
         >
           {pickerItems}
         </Picker>
   
-      let playerData = this.state.squads.find(element => element._id == this.state.currentSquadID).players;
+      let playerData = this.state.rosters.find(element => element._id == this.state.currentRosterID).players;
   
       listDisplay = 
         <FlatList
@@ -171,7 +167,7 @@ class Roster extends React.Component {
     {
       header = 
         <Picker>
-          <Picker.Item label='No Squads found' />
+          <Picker.Item label='No Rosters found' />
         </Picker>
       listDisplay = <View style={{flex: 1}}/>
     }
@@ -183,7 +179,7 @@ class Roster extends React.Component {
           {header}
           {listDisplay}
           <RectButton
-            enabled={this.state.squads.length > 0}
+            enabled={this.state.rosters.length > 0}
             style={styles.twitterListButtonStyle}
             onPress={this._handlePressTwitterListButton}
             underlayColor="#fff"
@@ -212,7 +208,7 @@ class Roster extends React.Component {
   _renderSectionHeader = ({ section }) => {
     return (
       <View style={styles.sectionHeader}>
-        <RegularText>{section.squadTitle}</RegularText>
+        <RegularText>{section.rosterTitle}</RegularText>
       </View>
     );
   };
@@ -227,8 +223,8 @@ class Roster extends React.Component {
   };
 
   _handlePressTwitterListButton = () => {
-    let squad = this.state.squads.find(element => element._id == this.state.currentSquadID)
-    this.props.navigation.navigate('TwitterList', {squad});
+    let roster = this.state.rosters.find(element => element._id == this.state.currentRosterID)
+    this.props.navigation.navigate('TwitterList', {roster});
   }
 }
 
