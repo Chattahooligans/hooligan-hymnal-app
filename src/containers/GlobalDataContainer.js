@@ -86,7 +86,7 @@ export default class GlobalDataContainer extends Container {
       });
 
       if (0 < playerList.length)
-        rosterList.push({ _id: roster._id, squadTitle: roster.rosterTitle, players: playerList });
+        rosterList.push({ _id: roster._id, rosterTitle: roster.rosterTitle, players: playerList });
     });
 
     //roster.squads = squads;
