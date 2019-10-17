@@ -3,7 +3,7 @@
     "name": "Chattahooligan Hymnal",
     "description": "Built to help you support Chattanooga FC",
     "slug": "chattahooligan-hymnal",
-    "owner": "chattahoolian",
+    "owner": "chattahooligan",
     "privacy": "public",
     "version": "1.0.0.42",
     "primaryColor": "#A3D8F7",
@@ -31,6 +31,10 @@
       "icon": "./assets/speakerphone.png",
       "iosDisplayInForeground": true,
       "color": "#A3D8F7"
-    }
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }
