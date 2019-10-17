@@ -1,10 +1,11 @@
 {
   "expo": {
     "name": "Chattahooligan Hymnal",
-    "description": "The Chattahooligans' stadium chants and songs",
+    "description": "Built to help you support Chattanooga FC",
     "slug": "chattahooligan-hymnal",
+    "owner": "chattahoolian",
     "privacy": "public",
-    "version": "0.0.41",
+    "version": "1.0.0.42",
     "primaryColor": "#A3D8F7",
     "icon": "./assets/big-c-icon-ios.png",
     "orientation": "portrait",
