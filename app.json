@@ -23,7 +23,7 @@
       "googleServicesFile": "./google-services.json"
     },
     "ios": {
-      "bundleIdentifier": "com.chattahooligan.hymnal",
+      "bundleIdentifier": "com.chattahooligan.app",
       "supportsTablet": true,
       "loadJSInBackgroundExperimental": true
     },
