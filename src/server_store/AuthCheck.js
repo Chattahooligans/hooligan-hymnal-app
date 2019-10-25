@@ -8,7 +8,7 @@ export default class AuthCheck extends ApiClient {
   
   async check(code) {
     try {
-      let response = await this.doRequest('authCheck', {
+      let response = await this.doRequest('users/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

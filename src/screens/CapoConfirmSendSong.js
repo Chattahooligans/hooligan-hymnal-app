@@ -136,7 +136,7 @@ class CapoConfirmSendSong extends React.Component {
     //console.log('---- object to wrap in a message to server ----\n', CapoMessageSchema);
 
     let notifications = new RemoteNotifications();
-
+    let bearerToken = "Bearer " + this.props.globalData.getBearerToken();
     notifications
       .create({
         sender: CapoMessageSchema.sender,
@@ -147,13 +147,11 @@ class CapoConfirmSendSong extends React.Component {
         push: pushFlag,
         announcement: null,
         song: CapoMessageSchema.song,
-        goalkeeperNickname: null,
-        authKey: this.props.globalData.getAuthKey()
-      })
+        goalkeeperNickname: null
+      }, bearerToken)
       .then(responseJson => {
         // this is the output from the server for sending our capo_message
         console.log(JSON.stringify(responseJson));
-
         this.props.globalData.setResponse(responseJson);
         // we REALLY need to confirm this got sent
         //alert("success or fail message? do we even know?");

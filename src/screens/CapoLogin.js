@@ -34,7 +34,8 @@ class CapoLogin extends React.Component {
   };
 
   state = {
-    password: ''
+    password: '',
+    username: ''
   };
 
   componentDidMount() {
@@ -51,12 +52,20 @@ class CapoLogin extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <RegularText style={styles.instructions}>Enter password to unlock</RegularText>
+        <RegularText style={styles.instructions}>Username/Email</RegularText>
+        <TextInput
+          style={styles.textInput}
+          autoFocus={true}
+          onChangeText={this._setUsername}
+          value={this.state.value}
+        />
+        <RegularText style={styles.instructions}>Password</RegularText>
         <TextInput
           style={styles.textInput}
           autoFocus={true}
           onChangeText={this._setPassword}
           value={this.state.value}
+          secureTextEntry={true}
         />
         <ClipBorderRadius>
           <RectButton
@@ -72,16 +81,20 @@ class CapoLogin extends React.Component {
   }
 
   _setPassword = password => this.setState({ password });
+  _setUsername = username => this.setState({ username });
 
   _handlePressSubmitButton = () => {
     let authChecker = new AuthCheck();
     authChecker
       .check({
-        authKey: this.state.password
+        email: this.state.username,
+        password: this.state.password,
+        rememberMe: true
       })
       .then(responseJson => {
+        console.log(responseJson);
         Keyboard.dismiss();
-        this.props.globalData.setAuthKey(this.state.password);
+        this.props.globalData.setBearerToken(responseJson.token);
         this.props.globalData.toggleUserAuth();
         this.props.navigation.navigate('CapoHome');
       })
@@ -115,11 +128,13 @@ const styles = StyleSheet.create({
     paddingTop: 15
   },
   instructions: {
-    fontSize: 18
+    fontSize: 18,
+    paddingLeft: 15
   },
   textInput: {
     fontSize: 18,
-    padding: 8
+    padding: 8,
+    paddingLeft: 15
   },
   bigButton: {
     backgroundColor: DefaultColors.ButtonBackground,

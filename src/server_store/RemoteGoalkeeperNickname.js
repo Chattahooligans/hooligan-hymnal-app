@@ -18,12 +18,13 @@ export default class RemoteNotifications extends ApiClient {
     }
   }
 
-  async create(goalkeeperNickname) {
+  async create(goalkeeperNickname, token) {
     try {
       let response = await this.doRequest('goalkeeperNicknames', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': token
         },
         body: JSON.stringify(goalkeeperNickname)
       });

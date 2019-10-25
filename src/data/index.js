@@ -1,9 +1,8 @@
 import _ from 'lodash';
 
 export const getFeaturedSong = (songbook, allSongs) => {
-  if (songbook && allSongs && allSongs.length) {
+  if (songbook && allSongs && allSongs.length && songbook.chapters) {
     let featuredSongs = [];
-
     songbook.chapters.forEach(chapter => {
       chapter.songs.forEach(songChild => {
         if (songChild.featured) {

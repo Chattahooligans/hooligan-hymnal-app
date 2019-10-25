@@ -124,16 +124,15 @@ class CapoConfirmSendGoalkeeperNickname extends React.Component {
     const { goalkeeperNickname, token } = this.props.globalData.state;
 
     let nickname = new RemoteGoalkeeperNickname();
-
+    let bearerToken = "Bearer " + this.props.globalData.getBearerToken();
     nickname
       .create({
         sender: token,
         push: pushFlag,
         nickname: goalkeeperNickname.nickname,
         backgroundColor: goalkeeperNickname.backgroundColor,
-        textColor: goalkeeperNickname.textColor,
-        authKey: this.props.globalData.getAuthKey()
-      })
+        textColor: goalkeeperNickname.textColor
+      }, bearerToken)
       .then(responseJson => {
         // this is the output from the server for sending our capo_message
         console.log(JSON.stringify(responseJson));

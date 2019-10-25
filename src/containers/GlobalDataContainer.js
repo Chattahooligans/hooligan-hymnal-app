@@ -191,7 +191,7 @@ export default class GlobalDataContainer extends Container {
 
   toggleUserAuth = value => this.setState({ unlocked: !this.state.unlocked });
 
-  setAuthKey = authKey => this.setState({ apiAuthKey: authKey });
+  setBearerToken = bearerToken => this.setState({ bearerToken });
 
-  getAuthKey = () => { return this.state.apiAuthKey; }
+  getBearerToken = () => { return this.state.bearerToken; }
 }
