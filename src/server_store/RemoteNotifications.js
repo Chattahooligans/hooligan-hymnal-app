@@ -30,7 +30,6 @@ export default class RemoteNotifications extends ApiClient {
   }
 
   async create(notification, token) {
-    console.log(JSON.stringify(notification));
     try {
       let response = await this.doRequest('notification', {
         method: 'POST',
