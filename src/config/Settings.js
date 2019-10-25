@@ -108,5 +108,6 @@ export const Skin = {
   App Feature Flags
 */
 export const Settings = {
+  CapoHome_GKNicknameEnabled: true,
   Player_ShowSongs: true
 }
