@@ -26,6 +26,7 @@ import NavigationBar from '../components/NavigationBar';
 import TalksUpNext from '../components/TalksUpNext';
 import MenuButton from '../components/MenuButton';
 import VideoBackground from '../components/VideoBackground';
+import SocialButtonPanel from '../components/SocialButtonPanel';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { connectDrawerButton } from '../Navigation';
 import { FontSizes, Layout, Colors } from '../constants';
@@ -37,112 +38,9 @@ import {
 
 import appParams from '../../app.json';
 
-import { Palette, DefaultColors, Skin, websites, esp_websites, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON, GOFUNDME_BW_ICON, PRIDERAISER_ICON, PRIDERAISER_URL } from '../config/Settings';
+import { Palette, DefaultColors, Skin, socialButtons, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON, GOFUNDME_BW_ICON, PRIDERAISER_ICON, PRIDERAISER_URL, Settings } from '../config/Settings';
 
-let socialButtons = [];
-let socialButtonsEsp = [];
 let banners = [];
-
-websites.forEach(item => {
-  if (item.icon && item.url) {
-    socialButtons.push(
-      <TouchableOpacity
-        key={item.url}
-        onPress={() => {
-          //WebBrowser.openBrowserAsync(item.url);
-          Linking.openURL(item.url);
-        }}
-      >
-        <Ionicons
-          name={item.icon}
-          size={30}
-          style={{
-            color: Skin.Home_SocialButtons,
-            marginTop: 3,
-            marginBottom: 3,
-            marginLeft: 10,
-            marginRight: 10,
-            backgroundColor: 'transparent'
-          }}
-        />
-      </TouchableOpacity>
-    );
-  } else if (item.image && item.url) {
-    socialButtons.push(
-      <TouchableOpacity
-        key={item.url}
-        onPress={() => {
-          //WebBrowser.openBrowserAsync(item.url);
-          Linking.openURL(item.url);
-        }}
-      >
-        <Image
-          source={item.image}
-          tintColor={item.tint ? Skin.Home_SocialButtons : '' }
-          style={{
-            width: 30,
-            height: 30,
-            marginTop: 3,
-            marginBottom: 3,
-            marginLeft: 10,
-            marginRight: 10,
-            backgroundColor: 'transparent'
-          }}
-        />
-      </TouchableOpacity>
-    );
-  }
-});
-
-esp_websites.forEach(item => {
-  if (item.icon && item.url) {
-    socialButtonsEsp.push(
-      <TouchableOpacity
-        key={item.url}
-        onPress={() => {
-          //WebBrowser.openBrowserAsync(item.url);
-          Linking.openURL(item.url);
-        }}
-      >
-        <Ionicons
-          name={item.icon}
-          size={30}
-          style={{
-            color: Skin.Home_SocialButtons,
-            marginTop: 3,
-            marginBottom: 3,
-            marginLeft: 10,
-            marginRight: 10,
-            backgroundColor: 'transparent'
-          }}
-        />
-      </TouchableOpacity>
-    );
-  } else if (item.image && item.url) {
-    socialButtonsEsps.push(
-      <TouchableOpacity
-        key={item.url}
-        onPress={() => {
-          //WebBrowser.openBrowserAsync(item.url);
-          Linking.openURL(item.url);
-        }}
-      >
-        <Image
-          source={item.image}
-          style={{
-            width: 30,
-            height: 30,
-            marginTop: 3,
-            marginBottom: 3,
-            marginLeft: 10,
-            marginRight: 10,
-            backgroundColor: 'transparent'
-          }}
-        />
-      </TouchableOpacity>
-    );
-  }
-});
 
 /*
 banners.push(
@@ -376,18 +274,7 @@ class DeferredHomeContent extends React.Component {
             <UnderlineText>http://comeandjoin.us</UnderlineText>
           </TouchableOpacity>
         </View>
-        <View style={{ marginHorizontal: 15, flex: 1 }}>
-          <MediumText style={{color: DefaultColors.ColorText}}>Follow us</MediumText>
-        </View>
-        <View flexDirection="row" style={{ paddingHorizontal: 20 }}>
-          {socialButtons}
-        </View>
-        <View style={{ marginHorizontal: 15, flex: 1 }}>
-          <MediumText style={{color: DefaultColors.ColorText}}>Síguenos</MediumText>
-        </View>
-        <View flexDirection="row" style={{ paddingHorizontal: 20 }}>
-          {socialButtonsEsp}
-        </View>
+        <SocialButtonPanel style={{ paddingHorizontal: 15 }} config={socialButtons} />
       </AnimatableView>
     );
   }
