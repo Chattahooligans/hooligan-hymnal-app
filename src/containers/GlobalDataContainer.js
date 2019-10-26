@@ -40,7 +40,6 @@ export default class GlobalDataContainer extends Container {
     goalkeeperNickname: null,
     htmlColors: null,
     token: null,
-    unlocked: false,
     response: null
   };
 
@@ -86,7 +85,7 @@ export default class GlobalDataContainer extends Container {
       });
 
       if (0 < playerList.length)
-        rosterList.push({ _id: roster._id, rosterTitle: roster.rosterTitle, players: playerList });
+        rosterList.push({ _id: roster._id, rosterTitle: roster.rosterTitle, players: playerList, default: roster.default });
     });
 
     //roster.squads = squads;
@@ -188,8 +187,6 @@ export default class GlobalDataContainer extends Container {
 
 
   setLocation = location => this.setState({ location });
-
-  toggleUserAuth = value => this.setState({ unlocked: !this.state.unlocked });
 
   setBearerToken = bearerToken => this.setState({ bearerToken });
 

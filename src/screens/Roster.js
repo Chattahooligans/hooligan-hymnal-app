@@ -127,11 +127,19 @@ class Roster extends React.Component {
   }
 
   setData = () => {
-    let rosters = this.props.globalData.state.rosters
-    if (rosters.length > 0)
-      this.setState({ rosters, currentRosterID: rosters[0]._id });
-    else
+    let rosters = this.props.globalData.state.rosters;
+    if (rosters.length > 0) {
+      var currentRosterId = rosters[0]._id;
+      //search for a default property. if present, override that to the current id.
+      for(let i = 0; i < rosters.length; i++) {
+        if(rosters[i].default) {
+          currentRosterId = rosters[i]._id;
+        }
+      }
+      this.setState({ rosters, currentRosterID: currentRosterId });
+    } else {
       this.setState({ rosters, currentRosterID: null });
+    }
   }
 
   render() {
