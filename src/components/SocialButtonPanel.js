@@ -49,7 +49,7 @@ export default class SocialButtonPanel extends React.Component {
             })
             
             section = 
-                <View style={this.props.style}>
+                <View style={this.props.style} key={element.header}>
                     <MediumText style={{color: element.headerColor ? element.headerColor : DefaultColors.ColorText}}>{element.header}</MediumText>
                     <View flexDirection="row" style={{paddingHorizontal: 5}}>{buttons}</View>
                 </View>
