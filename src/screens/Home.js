@@ -27,6 +27,7 @@ import TalksUpNext from '../components/TalksUpNext';
 import MenuButton from '../components/MenuButton';
 import VideoBackground from '../components/VideoBackground';
 import SocialButtonPanel from '../components/SocialButtonPanel';
+import HomeBannersPanel from '../components/HomeBannersPanel';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { connectDrawerButton } from '../Navigation';
 import { FontSizes, Layout, Colors } from '../constants';
@@ -38,48 +39,7 @@ import {
 
 import appParams from '../../app.json';
 
-import { Palette, DefaultColors, Skin, socialButtons, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON, GOFUNDME_BW_ICON, PRIDERAISER_ICON, PRIDERAISER_URL, Settings } from '../config/Settings';
-
-let banners = [];
-
-/*
-banners.push(
-  <TouchableOpacity style={{flexDirection: 'row', backgroundColor: Palette.Prideraiser, paddingHorizontal: 10, paddingVertical: 3}} onPress={this._handlePressPrideraiser}>
-    <Image
-      source={PRIDERAISER_ICON}
-      style={{
-        width: 20,
-        height: 20,
-        marginTop: 1,
-        marginBottom: 1,
-        marginRight: 5,
-        backgroundColor: 'transparent'
-      }}
-    />
-    <MediumText style={{ fontSize: 16, color: Palette.White }}>
-      Chattanooga Prideraiser
-    </MediumText>
-  </TouchableOpacity>
-)
-banners.push(
-  <TouchableOpacity style={{flexDirection: 'row', backgroundColor: Palette.Sky, paddingHorizontal: 10, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
-    <Image
-      source={GOFUNDME_BW_ICON}
-      tintColor={Skin.Home_SocialButtons}
-      style={{
-        width: 20,
-        height: 20,
-        marginTop: 1,
-        marginBottom: 1,
-        marginRight: 5,
-        backgroundColor: 'transparent'
-      }}
-    />
-    <MediumText style={{ fontSize: 16 }}>
-      Youth Soccer Investment Crowdfunding
-    </MediumText>
-  </TouchableOpacity>
-)*/ 
+import { Palette, DefaultColors, Skin, banners, socialButtons, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON, GOFUNDME_BW_ICON, PRIDERAISER_ICON, PRIDERAISER_URL, Settings } from '../config/Settings';
 
 class Home extends React.Component {
   state = {
@@ -208,9 +168,7 @@ class DeferredHomeContent extends React.Component {
     }
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
-        <View style={{ marginBottom: banners.length > 0 ? 10 : 0 }}>
-          {banners}
-        </View>
+        <HomeBannersPanel config={banners} />
         <TalksUpNext
           songs={this.props.globalData.state.songs}
           songbook={this.props.globalData.state.songbook}
