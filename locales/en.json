@@ -3,6 +3,33 @@
         "about": {
             "title": "About",
             "appTitle": "Chattahooligan Hymnal"
+        },
+        "capocompose": {
+            "title": "Compose Song",
+            "songtitle": "Title",
+            "songlyrics": "Lyrics",
+            "continue": "Continue"
+        },
+        "capoconfirmGK": {
+            "title": "Confirm GK Nickname?",
+            "sendonly": "Send Only",
+            "sendnotify": "Send &amp; Notify"
+        },
+        "capoconfirmsong": {
+            "title": "Confirm Song?",
+            "sendonly": "Send Only",
+            "sendnotify": "Send &amp; Notify"
+        },
+        "capohome": {
+            "title": "Capo Dashboard",
+            "selectsong": "Select Song",
+            "composesong": "Compose Song",
+            "gknickname": "GK Nickname"
+        },
+        "capologin": {
+            "title": "Capo Dashboard",
+            "enterpassword": "Enter password to unlock",
+            "unlock": "Unlock"
         }
     },
     "navigation": {

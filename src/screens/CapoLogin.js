@@ -29,7 +29,7 @@ import AuthCheck from '../server_store/AuthCheck';
 @withNavigation
 class CapoLogin extends React.Component {
   static navigationOptions = {
-    headerTitle: 'Capo Dashboard',
+    headerTitle: i18n.t('screens.capologin.title'),
     ...NavigationOptions
   };
 
@@ -51,7 +51,7 @@ class CapoLogin extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <RegularText style={styles.instructions}>Enter password to unlock</RegularText>
+        <RegularText style={styles.instructions}>{i18n.t('screens.capologin.enterpassword')}</RegularText>
         <TextInput
           style={styles.textInput}
           autoFocus={true}
@@ -64,7 +64,7 @@ class CapoLogin extends React.Component {
             onPress={this._handlePressSubmitButton}
             underlayColor="#fff"
           >
-            <MediumText style={styles.bigButtonText}>Unlock</MediumText>
+            <MediumText style={styles.bigButtonText}>{i18n.t('screens.capologin.unlock')}</MediumText>
           </RectButton>
         </ClipBorderRadius>
       </View>

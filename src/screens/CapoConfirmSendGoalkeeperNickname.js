@@ -30,11 +30,12 @@ import { Location, Permissions } from 'expo';
 
 import CapoMessageSchema from '../data/capo_message_schema';
 import RemoteGoalkeeperNickname from '../server_store/RemoteGoalkeeperNickname';
+import i18n from "../../i18n";
 
 @withNavigation
 class CapoConfirmSendGoalkeeperNickname extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Confirm GK Nickname?',
+    title: i18n.t('screens.capoconfirmGK.title'),
     ...NavigationOptions,
     headerLeft: (
       <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
@@ -72,7 +73,7 @@ class CapoConfirmSendGoalkeeperNickname extends React.Component {
                 underlayColor="#fff"
               >
                 <MediumText style={styles.bigButtonText}>
-                  Send Only
+                {i18n.t('screens.capocompose.sendonly')}
                 </MediumText>
                 <Ionicons
                   name="md-send"
@@ -92,7 +93,7 @@ class CapoConfirmSendGoalkeeperNickname extends React.Component {
                 underlayColor="#fff"
               >
                 <MediumText style={styles.bigButtonText}>
-                  Send &amp; Notify
+                {i18n.t('screens.capocompose.sendnotify')}
                 </MediumText>
                 <Ionicons
                   name="md-notifications"

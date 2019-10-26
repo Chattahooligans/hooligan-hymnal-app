@@ -26,6 +26,7 @@ import { Colors, FontSizes, Layout } from '../constants';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
+import i18n from "../../i18n";
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 // TODO: Create Song object, set title and lyrics based on data on this screen and pass to next screen (CapoConfirmSend)
@@ -35,7 +36,7 @@ import { Skin, DefaultColors, Palette } from '../config/Settings';
 @withNavigation
 class CapoComposeSong extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Compose Song',
+    title: i18n.t('screens.capocompose.title'),
     ...NavigationOptions,
     headerLeft: (
       <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
@@ -48,14 +49,14 @@ class CapoComposeSong extends React.Component {
         <KeyboardAvoidingView behavior="height" style={styles.container}>
           <TextInput
             style={styles.titleField}
-            placeholder="Title"
+            placeholder={i18n.t('screens.capocompose.songtitle')}
             onChangeText={this._setTitle}
           />
           <TextInput
             onChangeText={this._setLyrics}
             style={styles.lyricsField}
             multiline={true}
-            placeholder="Lyrics"
+            placeholder={i18n.t('screens.capocompose.songlyrics')}
           />
           <ClipBorderRadius>
             <RectButton
@@ -72,7 +73,7 @@ class CapoComposeSong extends React.Component {
                   marginRight: 5
                 }}
               />
-              <MediumText style={styles.bigButtonText}>Continue</MediumText>
+              <MediumText style={styles.bigButtonText}>{i18n.t('screens.capocompose.continue')}</MediumText>
             </RectButton>
           </ClipBorderRadius>
         </KeyboardAvoidingView>
