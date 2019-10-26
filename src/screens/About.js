@@ -6,6 +6,7 @@ import { FontSizes } from '../constants';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
+import i18n from "../../i18n";
 
 // About info, link to website/fb/twitter
 // maybe a url for the /songs page on website (where App Store/Google Play icons will be found)
@@ -13,7 +14,7 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 
 class About extends React.Component {
   static navigationOptions = {
-    title: 'About',
+    title: i18n.t('screens.about.title'),
     ...NavigationOptions
   };
 
@@ -46,7 +47,7 @@ class About extends React.Component {
     return (
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky }}>
         <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
-          <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10 }}>Chattahooligan Hymnal</BoldText>
+          <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10 }}>{i18n.t('screens.about.appTitle')}</BoldText>
           <RegularText>The Chattahooligan Hymnal is built to help you support Chattanooga FC.</RegularText>
           <View style={{ height: 10 }} />
           <RegularText>Please send feedback to @chattahooligan or @hooliganhymnal on Twitter, or email thechattahooligans@gmail.com</RegularText>
