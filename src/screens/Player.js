@@ -32,6 +32,7 @@ import { RegularText, BoldText, MediumText } from '../components/StyledText';
 import { Ionicons } from '@expo/vector-icons';
 import SongCard from '../components/SongCard';
 import { Skin, DefaultColors, Palette, Settings } from '../config/Settings';
+import i18n from "../../i18n";
 
 class Player extends React.Component {
   static navigationOptions = {
@@ -135,17 +136,16 @@ class Player extends React.Component {
     if (this.state.playerSongs.length === 0) {
       playerSongDisplay = (
         <View>
-          <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
+          <MediumText style={styles.sectionHeader}>{i18n.t('screens.player.playersongs')}</MediumText>
           <RegularText style={styles.bodyText}>
-            We are still working on a song for this player. Want to help? Submit
-            an idea!
+          {i18n.t('screens.player.stilllooking')}
           </RegularText>
         </View>
       );
     } else {
       playerSongDisplay = (
         <View>
-          <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
+          <MediumText style={styles.sectionHeader}>{i18n.t('screens.player.playersongs')}</MediumText>
           <FlatList
             data={this.state.playerSongs}
             renderItem={this._renderSongCard}
@@ -242,7 +242,7 @@ class Player extends React.Component {
             duration={500}
             style={styles.content}
           >
-            <MediumText style={styles.sectionHeader}>Bio</MediumText>
+            <MediumText style={styles.sectionHeader}>{i18n.t('screens.player.bio')}</MediumText>
             <ReadMore
               numberOfLines={Settings.Player_ShowSongs ? 3 : 9999}
               renderTruncatedFooter={this._renderTruncatedFooter}
@@ -298,7 +298,7 @@ class Player extends React.Component {
   _renderSongCard = ({ item }) => {
     return (
       <SongCard
-        headerTitle="Player Song"
+        headerTitle={i18n.t('screens.player.playersongheader')}
         navigationToScreen="RosterSingleSong"
         key={item._id}
         song={item}
@@ -314,7 +314,7 @@ class Player extends React.Component {
         onPress={handlePress}
       >
         <MediumText style={{ color: Palette.Navy, marginTop: 5 }}>
-          Read more
+          {i18n.t('screens.player.readmore')}
         </MediumText>
       </TouchableOpacity>
     );
@@ -327,7 +327,7 @@ class Player extends React.Component {
         onPress={handlePress}
       >
         <MediumText style={{ color: Palette.Navy, marginTop: 5 }}>
-          Show less
+          {i18n.t('screens.player.showless')}
         </MediumText>
       </TouchableOpacity>
     );

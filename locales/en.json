@@ -39,6 +39,26 @@
             "instructions1": "1. We're gonna score on you...",
             "instructions2": "2. Pick a color, any color",
             "instructions3": "3. Which is more readable?"
+        },
+        "events": {
+            "title": "Events",
+            "fallback": "Events open in WebBrowser component"
+        },
+        "home": {
+            "findthemenu": "Find more features in the menu, top left",
+            "visit": "Visit:"
+        },
+        "instrumentation": {
+            "title": "Instrumentation",
+            "fallback": "Instrumentation opens in WebBrowser component"
+        },
+        "player": {
+            "playersongs": "Player Songs",
+            "stilllooking": "We are still working on a song for this player. Want to help? Submit an idea!",
+            "bio": "Bio",
+            "playerheadersong": "Player Song",
+            "readmore": "Read more",
+            "showless": "Show less"
         }
     },
     "navigation": {

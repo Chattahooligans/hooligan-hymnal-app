@@ -40,6 +40,7 @@ import {
 import appParams from '../../app.json';
 
 import { Palette, DefaultColors, Skin, banners, socialButtons, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON, GOFUNDME_BW_ICON, PRIDERAISER_ICON, PRIDERAISER_URL, Settings } from '../config/Settings';
+import i18n from "../../i18n";
 
 class Home extends React.Component {
   state = {
@@ -216,11 +217,7 @@ class DeferredHomeContent extends React.Component {
         </ClipBorderRadius>
         <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
           <MediumText style={{color: DefaultColors.ColorText, fontSize: FontSizes.bodyLarge, marginTop: 5}}>
-            Find more great features in the <Ionicons
-              name="md-menu"
-              size={FontSizes.bodyLarge}
-              style={{ backgroundColor: 'transparent', marginRight: 5}}
-            /> menu, top left
+            {i18n.t('screens.home.findthemenu')}
           </MediumText>
         </View>
         <View flexDirection="row" style={{ marginHorizontal: 15, marginBottom: 10 }}>
@@ -228,7 +225,7 @@ class DeferredHomeContent extends React.Component {
             //WebBrowser.openBrowserAsync(item.url);
             Linking.openURL(WEBSITE_URL);
           }}>
-            <MediumText style={{color: DefaultColors.ColorText}}>Visit: </MediumText>
+            <MediumText style={{color: DefaultColors.ColorText}}>{i18n.t('screens.home.visit')} </MediumText>
             <UnderlineText>http://comeandjoin.us</UnderlineText>
           </TouchableOpacity>
         </View>

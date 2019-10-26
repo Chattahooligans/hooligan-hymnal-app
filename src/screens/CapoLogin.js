@@ -17,6 +17,7 @@ import { BoldText, MediumText, RegularText, UnderlineText } from '../components/
 import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors } from '../config/Settings';
 import AuthCheck from '../server_store/AuthCheck';
+import i18n from "../../i18n";
 
 // TODO: Hard code password for now
 // Add top nav bar with Back button
