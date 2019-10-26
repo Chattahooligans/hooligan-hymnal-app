@@ -28,6 +28,7 @@ import find from 'lodash/find';
 import { Colors, FontSizes, Layout } from '../constants';
 import Constants from 'expo-constants';
 import { HeaderBackButton } from 'react-navigation';
+import i18n from "../../i18n";
 
 // TODO: On row press, get the related song object by _id using snippet below and pass it to the next screen
 //      Songs.filter(song => song._id === songChild._id)[0]
@@ -61,7 +62,7 @@ class SongRow extends React.Component {
 
 class CapoSelectSong extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Select Song',
+    title: i18n.t('screens.caposelectsong.title'),
     ...NavigationOptions,
     headerLeft: (
       <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />

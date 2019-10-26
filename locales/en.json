@@ -30,6 +30,15 @@
             "title": "Capo Dashboard",
             "enterpassword": "Enter password to unlock",
             "unlock": "Unlock"
+        },
+        "caposelectsong": {
+            "title": "Select Song"
+        },
+        "caposetGKnickname": {
+            "title": "GK Nickname",
+            "instructions1": "1. We're gonna score on you...",
+            "instructions2": "2. Pick a color, any color",
+            "instructions3": "3. Which is more readable?"
         }
     },
     "navigation": {
