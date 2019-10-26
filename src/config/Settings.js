@@ -88,8 +88,8 @@ export const socialButtons = [
       { icon: 'logo-facebook', url: FACEBOOK_URL },
       { icon: 'logo-instagram', url: INSTAGRAM_URL },  
       { icon: 'md-cart', url: SHOP_URL },
-      { image: PRIDERAISER_ICON, url: PRIDERAISER_URL, tint: false },
-      { image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tint: true }
+      { image: PRIDERAISER_ICON, url: PRIDERAISER_URL, tintToSkin: false },
+      { image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tintToSkin: true }
     ]
   },
   {
@@ -106,6 +106,13 @@ export const socialButtons = [
 // { icon: 'md-browsers', url: WEBSITE_URL },
 // { image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
 // { image: GOFUNDME_ICON, url: GOFUNDME_URL }
+
+/*
+  "Headline" banners on home screen
+*/
+export const banners = [
+
+]
 
 /*
   App Feature Flags

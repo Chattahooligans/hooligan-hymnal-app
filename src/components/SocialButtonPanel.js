@@ -36,7 +36,7 @@ export default class SocialButtonPanel extends React.Component {
                         <TouchableOpacity key={item.url} onPress={() => { Linking.openURL(item.url) }}>
                             <Image
                                 source={item.image}
-                                tintColor={item.tint ? Skin.Home_SocialButtons : '' }
+                                tintColor={item.tintToSkin ? Skin.Home_SocialButtons : '' }
                                 style={{
                                     width: 30, height: 30,
                                     marginVertical: 3, marginHorizontal: 10,
