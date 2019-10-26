@@ -2,8 +2,8 @@
   "expo": {
     "name": "Chattahooligan Hymnal",
     "description": "Built to help you support Chattanooga Football Club",
-    "slug": "chattahooligan-hymnal",
     "owner": "chattahooligan",
+    "slug": "chattahooligan-hymnal",
     "privacy": "public",
     "version": "1.1.42",
     "primaryColor": "#A3D8F7",
