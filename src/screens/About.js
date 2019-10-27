@@ -48,21 +48,21 @@ class About extends React.Component {
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky }}>
         <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
           <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10 }}>{i18n.t('screens.about.appTitle')}</BoldText>
-          <RegularText>The Chattahooligan Hymnal is built to help you support Chattanooga FC.</RegularText>
+          <RegularText>{i18n.t('screens.about.why')}</RegularText>
           <View style={{ height: 10 }} />
-          <RegularText>Please send feedback to @chattahooligan or @hooliganhymnal on Twitter, or email thechattahooligans@gmail.com</RegularText>
+          <RegularText>{i18n.t('screens.about.feedback')}</RegularText>
           <View style={{ height: 20 }} />
-          <MediumText>Credits</MediumText>
-          <RegularText>- Home screen video created by Jay Kaley</RegularText>
-          <RegularText>- Menu photo from Phil Thach photography</RegularText>
-          <RegularText>- Some player photos from Madonna Kemp and Ray Soldano, used with permission</RegularText>
-          <RegularText>- Player headshots provided by Chattanooga FC, used with permission</RegularText>
-          <RegularText>- Some code based on open source @nodevember conference schedule app</RegularText>
+          <MediumText>{i18n.t('screens.about.credits')}</MediumText>
+          <RegularText>{i18n.t('screens.about.homescreenvideo')}</RegularText>
+          <RegularText>{i18n.t('screens.about.menuphoto')}</RegularText>
+          <RegularText>{i18n.t('screens.about.playerphotos')}</RegularText>
+          <RegularText>{i18n.t('screens.about.playerheadshots')}</RegularText>
+          <RegularText>{i18n.t('screens.about.nodevember')}</RegularText>
           <View style={{ height: 20 }} />
-          <RegularText>Interested in contriburing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to @chattahooligan or @hooliganhymnal on Twitter, or email thechattahooligans@gmail.com</RegularText>
+          <RegularText>{i18n.t('screens.about.contribute')}</RegularText>
           <View style={{ height: 20 }} />
           <ScrollView style={{flex: 1}}>
-            <MediumText>Debug</MediumText>
+            <MediumText>{i18n.t('screens.about.debug')}</MediumText>
             <RegularText selectable={true}>{this.state.token}</RegularText>
             <RegularText selectable={true}>
               {

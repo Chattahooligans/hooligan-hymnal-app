@@ -2,7 +2,17 @@
     "screens": {
         "about": {
             "title": "About",
-            "appTitle": "Chattahooligan Hymnal"
+            "appTitle": "Chattahooligan Hymnal",
+            "why": "The Chattahooligan Hymnal is built to help you support Chattanooga FC.",
+            "feedback": "Please send feedback to @chattahooligan or @hooliganhymnal on Twitter, or email thechattahooligans@gmail.com",
+            "credits": "Credits",
+            "debug": "Debug",
+            "contribute": "Interested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to @chattahooligan or @hooliganhymnal on Twitter, or email thechattahooligans@gmail.com",
+            "homescreenvideo": "- Home screen video created by Jay Kaley",
+            "menuphoto": "- Menu photo from Phil Thach photography",
+            "playerphotos": "- Some player photos from Madonna Kemp and Ray Soldano, used with permission",
+            "playerheadshots": "- Player headshots provided by Chattanooga FC, used with permission",
+            "nodevember": "- Some code based on open source @nodevember conference schedule app"
         },
         "capocompose": {
             "title": "Compose Song",
