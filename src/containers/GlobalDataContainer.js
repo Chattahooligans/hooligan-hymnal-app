@@ -9,7 +9,7 @@ import { getPlayers } from '../services/playersService';
 import { getRoster } from '../services/rosterService';
 import { getFoes } from '../services/foesService';
 import { HYMNAL_ADDRESS } from '../config/server';
-
+import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
 
 const PUSH_ENDPOINT = HYMNAL_ADDRESS + '/api/pushToken';
