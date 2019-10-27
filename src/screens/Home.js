@@ -191,7 +191,7 @@ class DeferredHomeContent extends React.Component {
               }}
             />
             <MediumText style={styles.bigButtonText}>
-              Songbook
+            {i18n.t('screens.home.songbook')}
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
@@ -211,7 +211,7 @@ class DeferredHomeContent extends React.Component {
               }}
             />
             <MediumText style={styles.bigButtonText}>
-              Roster
+            {i18n.t('screens.home.roster')}
             </MediumText>
           </RectButton>
         </ClipBorderRadius>

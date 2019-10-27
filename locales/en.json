@@ -56,7 +56,9 @@
         },
         "home": {
             "findthemenu": "Find more features in the menu, top left",
-            "visit": "Visit:"
+            "visit": "Visit:",
+            "songbook": "Songbook",
+            "roster": "Roster"
         },
         "instrumentation": {
             "title": "Instrumentation",
