@@ -259,7 +259,7 @@ class Player extends React.Component {
                 }
                 style={styles.bodyText}
                 >
-                {player.bio}
+                {i18n.getLocalizedBio(player.bio)}
               </ParsedText>
               <RegularText style={styles.bodyText}></RegularText>
             </ReadMore>
