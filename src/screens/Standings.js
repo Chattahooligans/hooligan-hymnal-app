@@ -2,12 +2,13 @@ import React from 'react';
 import { Text } from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
 import NavigationOptions from '../config/NavigationOptions';
+import i18n from "../../i18n";
 
 const standingsUrl = 'https://www.npsl.com/table/2019-npsl-members-cup/';
 
 export default class Standings extends React.Component {
   static navigationOptions = {
-    title: 'Standings',
+    title: i18n.t('screens.standings.title'),
     ...NavigationOptions
   };
 
@@ -22,7 +23,7 @@ export default class Standings extends React.Component {
 
   render() {
     return (
-      <Text>NPSL standings open in WebBrowser component</Text>
+      <Text>{i18n.t('screens.standings.fallback')}</Text>
     );
   }
 }

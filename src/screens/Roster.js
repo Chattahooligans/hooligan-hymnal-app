@@ -27,6 +27,8 @@ import Constants from 'expo-constants';
 
 import { find, propEq } from 'ramda';
 import { Palette, Skin } from '../config/Settings';
+import i18n from "../../i18n";
+
 
 class PlayerRow extends React.Component {
   render() {
@@ -103,12 +105,12 @@ class PlayerRow extends React.Component {
 
 class Roster extends React.Component {
   static navigationOptions = {
-    headerTitle: "Roster",
+    headerTitle: i18n.t('screens.roster.title'),
     ...NavigationOptions
   };
   
   state = {
-    rosterTitle: "Roster",
+    rosterTitle: i18n.t('screens.roster.title'),
     squads: [],
     currentSquadID: null
   }
@@ -171,7 +173,7 @@ class Roster extends React.Component {
     {
       header = 
         <Picker>
-          <Picker.Item label='No Squads found' />
+          <Picker.Item label={i18n.t('screens.roster.nosquadsfound')} />
         </Picker>
       listDisplay = <View style={{flex: 1}}/>
     }
@@ -201,7 +203,7 @@ class Roster extends React.Component {
               }}
             />
             <RegularText style={styles.twitterListButtonText}>
-              Twitter List
+              {i18n.t('screens.roster.twitterlist')}
             </RegularText>
           </RectButton>
         </View>

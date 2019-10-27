@@ -9,10 +9,11 @@ import { Skin, DefaultColors, Palette } from '../config/Settings';
 import { Ionicons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
+import i18n from "../../i18n";
 
 class TwitterList extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-      headerTitle: 'Twitter List',
+      headerTitle: i18n.t('screens.twitterlist.headertitle'),
       ...NavigationOptions,
       headerLeft: (
           <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
@@ -33,13 +34,10 @@ class TwitterList extends React.Component {
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky }}>
         <View style={{ flex: 1, padding: 5 }}>
           <MediumText style={{backgroundColor: Palette.White, paddingHorizontal: 5, fontSize: 18}}>
-            All Together, Now
+            { i18n.t('screens.twitterlist.calltoaction')}
           </MediumText>
           <RegularText style={{backgroundColor: Palette.White, padding: 5, marginBottom: 1}}>          
-          The connection between CFC fans and the team is unique, special, and tangible. 
-          Messages of encouragement, love, whatever, truly mean a lot to the players.
-          {"\n"}{"\n"}
-          You can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.
+            { i18n.t('screens.twitterlist.instructions')}
           </RegularText>
             <ScrollView style={{flex: 1, padding: 5, backgroundColor: Palette.White}}>
                 <RegularText style={{fontSize: 18}} selectable={true}>{handles}</RegularText>
@@ -62,7 +60,7 @@ class TwitterList extends React.Component {
                             backgroundColor: 'transparent'
                         }}
                     />
-                    <MediumText style={styles.bigButtonText}>Open Twitter App</MediumText>
+                    <MediumText style={styles.bigButtonText}>{ i18n.t('screens.twitterlist.opentwitter')}</MediumText>
                 </RectButton>
             </ClipBorderRadius>
           </View>

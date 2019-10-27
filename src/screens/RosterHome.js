@@ -22,6 +22,7 @@ import RosterFoePlayers from './RosterFoePlayers';
 import { defaultFormatUtc } from 'moment';
 // NO IDEA WHY THIS DOES NOT WORK
 import Screens from './';
+import i18n from "../../i18n";
 
 const FriendsNavigator = StackNavigator(
     {
@@ -80,7 +81,7 @@ const RosterTabs = TabNavigator(
 );
 export default class RosterHome extends React.Component {
     static navigationOptions = {
-      title: 'Roster',
+      title: i18n.t('screens.rosterhome.title'),
       ...NavigationOptions
     };
   

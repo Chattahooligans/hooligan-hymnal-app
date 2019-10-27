@@ -7,7 +7,7 @@ const volunteerUrl = 'http://chattahooligan.com/join/';
 
 export default class Standings extends React.Component {
   static navigationOptions = {
-    title: 'Volunteer',
+    title: i18n.t('screens.volunteer.title'),
     ...NavigationOptions
   };
 
@@ -22,7 +22,7 @@ export default class Standings extends React.Component {
 
   render() {
     return (
-      <Text>Chattahooligan volunteer form opens in WebBrowser component</Text>
+      <Text>{i18n.t('screens.volunteer.fallback')}</Text>
     );
   }
 }

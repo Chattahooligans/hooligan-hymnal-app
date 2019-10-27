@@ -59,6 +59,50 @@
             "playerheadersong": "Player Song",
             "readmore": "Read more",
             "showless": "Show less"
+        },
+        "roster": {
+            "title": "Roster",
+            "nosquadsfound": "No squads found",
+            "twitterlist": "Twitter List"
+        },
+        "rosterhome": {
+            "title": "Roster"
+        },
+        "shop": {
+            "title": "Merch Shop",
+            "fallback": "Merch shop opens in WebBrowser component"
+        },
+        "singlesong": {
+            "title": "Up Next"
+        },
+        "songbook": {
+            "defaultchaptertitle": "Cover",
+            "title": "Songbook",
+            "tableofcontents": "Table of Contents",
+            "swipetoview": "Swipe Left/Right to View Songs"
+        },
+        "songs": {
+            "title": "Songs",
+            "gamesongs:": "Game Songs",
+            "playersongs": "Player Songs",
+            "teamsongs": "Team Songs"
+        },
+        "standings": {
+            "title": "Standings",
+            "fallback": "Standings open in WebBrowser component"
+        },
+        "tocinline": {
+            "title": "Table of Contents"
+        },
+        "twitterlist": {
+            "headertitle": "Twitter List",
+            "calltoaction": "All Together, Now",
+            "instructions": "The connection between CFC fans and the team is unique, special, and tangible. Messages of encouragement, love, whatever, truly mean a lot to the players.\n\nYou can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.",
+            "opentwitter": "Open Twitter App"
+        },
+        "volunteer": {
+            "title": "Volunteer",
+            "fallback": "Chattahooligan volunteer form opens in WebBrowser component"
         }
     },
     "navigation": {
