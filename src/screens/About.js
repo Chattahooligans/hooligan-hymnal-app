@@ -58,7 +58,7 @@ class About extends React.Component {
           <RegularText>- Player headshots provided by Chattanooga FC, used with permission</RegularText>
           <RegularText>- Some code based on open source @nodevember conference schedule app</RegularText>
           <View style={{ height: 20 }} />
-          <RegularText>Interested in contriburing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to @chattahooligan or @hooliganhymnal on Twitter, or email thechattahooligans@gmail.com</RegularText>
+          <RegularText>Interested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to @chattahooligan or @hooliganhymnal on Twitter, or email thechattahooligans@gmail.com</RegularText>
           <View style={{ height: 20 }} />
           <ScrollView style={{flex: 1}}>
             <MediumText>Debug</MediumText>
