@@ -66,7 +66,9 @@
             "twitterlist": "Twitter List"
         },
         "rosterhome": {
-            "title": "Roster"
+            "title": "Roster",
+            "friends": "Friends",
+            "foes": "Foes"
         },
         "shop": {
             "title": "Merch Shop",
@@ -116,5 +118,14 @@
         "instrumentation": "INSTRUMENTATION ↗️",
         "capo": "CAPO DASHBOARD",
         "about": "ABOUT"
+    },
+    "positions": {
+        "Forward": "Forward",
+        "Defender": "Defender",
+        "Midfielder": "Midfielder",
+        "Goalkeeper": "Goalkeeper",
+        "Head Coach": "Head Coach",
+        "Associate Head Coach": "Associate Head Coach",
+        "Goalkeeper Coach": "Goalkeeper Coach"
     }
 }

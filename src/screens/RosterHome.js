@@ -37,7 +37,7 @@ const FriendsNavigator = StackNavigator(
             tabBarLabel: ({tintColor}) => { 
                 return <View style={styles.tabContainer}>
                     <Ionicons name={Skin.Roster_FriendsTabIcon} color={tintColor} size={23} style={styles.tabIcon} />
-                    <MediumText style={{ color: tintColor, fontSize: FontSizes.normalButton }}>{Skin.Roster_FriendsTabLabel}</MediumText>
+                    <MediumText style={{ color: tintColor, fontSize: FontSizes.normalButton }}>{i18n.t('screens.rosterhome.friends')}</MediumText>
                 </View>
             }
         }
@@ -54,7 +54,7 @@ const FoesNavigator = StackNavigator(
             tabBarLabel: ({tintColor}) => { 
                 return <View style={styles.tabContainer}>
                     <Ionicons name={Skin.Roster_FoesTabIcon} color={tintColor} size={23} style={styles.tabIcon} />
-                    <MediumText style={{ color: tintColor, fontSize: FontSizes.normalButton }}>{Skin.Roster_FoesTabLabel}</MediumText>
+                    <MediumText style={{ color: tintColor, fontSize: FontSizes.normalButton }}>{i18n.t('screens.rosterhome.foes')}</MediumText>
                 </View>
             }
         }

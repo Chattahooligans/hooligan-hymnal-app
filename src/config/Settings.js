@@ -69,9 +69,7 @@ export const Skin = {
   Roster_ActiveTabLabel: DefaultColors.ButtonText,
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'md-heart',
-  Roster_FriendsTabLabel: 'Friends',
   Roster_FoesTabIcon: 'md-thumbs-down',
-  Roster_FoesTabLabel: 'Foes',
   Player_DefaultImage: CLUB_LOGO,
 };
 
