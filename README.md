@@ -1,6 +1,6 @@
 # Hooligan Hymnal
 
-egotistical
+egotistical introduction of the project
 
 ## Features
 
