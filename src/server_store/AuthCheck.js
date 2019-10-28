@@ -29,8 +29,7 @@ export default class AuthCheck extends ApiClient {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': token
-        },
-        body: JSON.stringify({})
+        }
       });
       return await response.json();
     }
