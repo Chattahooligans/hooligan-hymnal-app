@@ -45,7 +45,6 @@ class CapoLogin extends React.Component {
 
   setData = () => {
     var token = this.props.globalData.getBearerToken();
-    console.log(token);
     if(token !== "") {
       //token is present from previous login
       //check if still valid and bypass login if so
@@ -118,8 +117,7 @@ class CapoLogin extends React.Component {
     authChecker
       .check({
         email: this.state.username,
-        password: this.state.password,
-        rememberMe: true
+        password: this.state.password
       })
       .then(responseJson => {
         Keyboard.dismiss();
