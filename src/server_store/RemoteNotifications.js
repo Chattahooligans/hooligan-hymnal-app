@@ -29,12 +29,13 @@ export default class RemoteNotifications extends ApiClient {
     }
   }
 
-  async create(notification) {
+  async create(notification, token) {
     try {
       let response = await this.doRequest('notification', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': token
         },
         body: JSON.stringify(notification)
       });
@@ -45,12 +46,13 @@ export default class RemoteNotifications extends ApiClient {
     }
   }
 
-  async update(id, notification) {
+  async update(id, notification, token) {
     try {
       let response = await this.doRequest(`notification/${id}`, {
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': token
         },
         body: JSON.stringify(notification)
       });
@@ -61,9 +63,13 @@ export default class RemoteNotifications extends ApiClient {
     }
   }
 
-  async remove(id) {
+  async remove(id, token) {
     try {
-      await this.doRequest(`notifications/${id}`, { method: 'DELETE' });
+      await this.doRequest(`notifications/${id}`, { 
+        method: 'DELETE', 
+        headers: {
+          'Authorization': token
+      } });
     }
     catch (error) {
       throw new ApiError(`Error deleting notification with id ${id} from server`, error);

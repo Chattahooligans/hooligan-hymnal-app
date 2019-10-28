@@ -29,10 +29,10 @@ export default class GlobalDataContainer extends Container {
       chapters: []
     },
     songs: null,
-    roster: {
+    rosters: {
       rosterTitle: '',
       season: '',
-      squads: []
+      players: []
     },
     players: null,
     foes: null,
@@ -40,7 +40,6 @@ export default class GlobalDataContainer extends Container {
     goalkeeperNickname: null,
     htmlColors: null,
     token: null,
-    unlocked: false,
     response: null
   };
 
@@ -50,14 +49,15 @@ export default class GlobalDataContainer extends Container {
       const songbook = await getSongbook();
 
       const players = await getPlayers();
-      const roster = await getRoster();
+      const rosters = await getRoster();
       const foes = await getFoes();
       
+      this.setState({ songbook: songbook[0], songs, rosters: rosters, players, htmlColors, foes });
       this.setState({ 
         songbook: songbook[0], 
         songs, 
         players, 
-        roster: this.verifyRoster(players,roster[0]), 
+        rosters: this.verifyRoster(players,rosters), 
         foes, 
         htmlColors });
     } catch (e) {
@@ -65,13 +65,13 @@ export default class GlobalDataContainer extends Container {
     }
   };
 
-  verifyRoster = (players,roster) => {
-    let squads = [];
+  verifyRoster = (players,rosters) => {
+    let rosterList = [];
 
-    roster.squads.forEach(squadChild => {
+    rosters.forEach(roster => {
       let playerList = [];
 
-      squadChild.players.forEach(playerChild => {
+      roster.players.forEach(playerChild => {
         try {
           let player = players.find(player => player._id === playerChild._id);
 
@@ -85,12 +85,11 @@ export default class GlobalDataContainer extends Container {
       });
 
       if (0 < playerList.length)
-        squads.push({ _id: squadChild._id, squadTitle: squadChild.squadTitle, players: playerList });
+        rosterList.push({ _id: roster._id, rosterTitle: roster.rosterTitle, players: playerList, default: roster.default });
     });
 
-    roster.squads = squads;
-    
-    return roster;
+    //roster.squads = squads;
+    return rosterList;
   }
 
   getLocationAsync = async () => {
@@ -190,9 +189,7 @@ export default class GlobalDataContainer extends Container {
 
   setLocation = location => this.setState({ location });
 
-  toggleUserAuth = value => this.setState({ unlocked: !this.state.unlocked });
+  setBearerToken = bearerToken => this.setState({ bearerToken });
 
-  setAuthKey = authKey => this.setState({ apiAuthKey: authKey });
-
-  getAuthKey = () => { return this.state.apiAuthKey; }
+  getBearerToken = () => { return this.state.bearerToken; }
 }
