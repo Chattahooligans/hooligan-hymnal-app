@@ -17,7 +17,7 @@ const theme = {
     primary: 'open-sans-bold'
   },
   colors: {
-    main: '#187f65'
+    main: '#A3D8F7'
   }
 };
 
