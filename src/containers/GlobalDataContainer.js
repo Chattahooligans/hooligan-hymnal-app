@@ -4,9 +4,9 @@ import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
 import { Container } from 'unstated';
 import { getSongs } from '../services/songsService';
-import { getSongbook } from '../services/songbookService';
+import { getSongbooks } from '../services/songbooksService';
 import { getPlayers } from '../services/playersService';
-import { getRoster } from '../services/rosterService';
+import { getRosters } from '../services/rostersService';
 import { getFoes } from '../services/foesService';
 import { HYMNAL_ADDRESS } from '../config/server';
 import appParams from '../../app.json';
@@ -46,15 +46,15 @@ export default class GlobalDataContainer extends Container {
   loadData = async () => {
     try {
       const songs = await getSongs();
-      const songbook = await getSongbook();
+      const songbooks = await getSongbooks();
 
       const players = await getPlayers();
-      const rosters = await getRoster();
+      const rosters = await getRosters();
       const foes = await getFoes();
       
-      this.setState({ songbook: songbook[0], songs, rosters: rosters, players, htmlColors, foes });
+      //this.setState({ songbook: songbooks[0], songs, rosters, players, htmlColors, foes });
       this.setState({ 
-        songbook: songbook[0], 
+        songbook: songbooks[0], 
         songs, 
         players, 
         rosters: this.verifyRoster(players,rosters), 
