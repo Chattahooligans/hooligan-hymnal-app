@@ -1,14 +1,17 @@
 # Hooligan Hymnal
 
-[egotistical introduction of the project]
-From the minds that brought you supporter culture revalations like Prideraiser.org and positioning capos in the back of the section, The Chattahooligans, independent supporters of Chattanooga Football Club, have conceived the future of SG information flow- Hooligan Hymnal. After rigorous experimentation and seeing our community embrace the technology, we shared it with our Mitten-state frenemies, the Northern Guard Supporters, and are advancing the platform even further.
+From the minds that brought you supporter culture revalations like [Prideraiser.org](https://prideraiser.org) and positioning capos in the back of the section, The Chattahooligans, independent supporters of Chattanooga Football Club, have conceived the future of SG information flow- Hooligan Hymnal. After rigorous experimentation and seeing our community embrace the technology, we shared it with our Mitten-state frenemies, the Northern Guard Supporters, and are advancing the platform even further.
 
 At long last, we're sharing this revolutionary invention with the world- to improve supporter culture for all of us and to make managing supporters groups less exhausting.
 
+### Reference Applications
+_Chattahooligan Hymnal_: [[Android]](https://https://play.google.com/store/apps/details?id=com.chattahooligan.hymnal) [[Apple]](https://apps.apple.com/us/app/chattahooligan-hymnal/id1484409711)
+
+_The Guardbook_: [[Android]](https://play.google.com/store/apps/details?id=com.northernguard.app) [[Apple]](https://apps.apple.com/us/app/the-guardbook/id1478449030)
+
 ## Features
 
-[brief table-setting]
-The smartphone application and server are chock full of useful features, each born from necessity and based on the experience of managing one of the most sophisticated supporters groups in the game.
+The smartphone application and server are chock full of useful features, each born from necessity and based on the experience of wrangling some of the most sophisticated supporters groups in the game.
 
 ### Digital Songbook/Chant Sheet
 
@@ -32,9 +35,14 @@ Send a reference to tricky song lyrics to every phone in the section, right befo
 
 [what else to highlight?]
 
+### Screenshots
+
+![Chattahooligan Hymnal Home Screen](/assets/readme-screenshots/chattahooligan-hymnal-home.png) ![Chattahooligan Hymnal Song](/assets/readme-screenshots/chattahooligan-hymnal-song.png) ![Chattahooligan Hymnal Table of Contents](/assets/readme-screenshots/chattahooligan-hymnal-toc.png) ![Chattahooligan Hymnal Roster](/assets/readme-screenshots/chattahooligan-hymnal-roster.png)
+
+
+
 ## Roadmap
 
-[CALL TO ACTION to get more developers]
 Necessity is the mother of invention. By sharing the project with soccer supporters groups around the world, we will assemble the greatest minds in the culture as contributors, and our collective work will improve all of our communities. 
 
 ### News Feed
