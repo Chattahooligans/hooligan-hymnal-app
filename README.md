@@ -4,6 +4,8 @@ From the minds that brought you supporter culture revalations like [Prideraiser.
 
 At long last, we're sharing this revolutionary invention with the world- to improve supporter culture for all of us and to make managing supporters groups less exhausting.
 
+<img src="/assets/readme-screenshots/chattahooligan-hymnal-home.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-song.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-toc.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-roster.png" width="188" height="333" />
+
 ### Reference Applications
 _Chattahooligan Hymnal_: [[Android]](https://https://play.google.com/store/apps/details?id=com.chattahooligan.hymnal) [[Apple]](https://apps.apple.com/us/app/chattahooligan-hymnal/id1484409711)
 
@@ -34,10 +36,6 @@ Send a reference to tricky song lyrics to every phone in the section, right befo
 ### And More
 
 [what else to highlight?]
-
-### Screenshots
-
-<img src="/assets/readme-screenshots/chattahooligan-hymnal-home.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-song.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-toc.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-roster.png" width="188" height="333" />
 
 ## Roadmap
 
