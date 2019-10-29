@@ -55,7 +55,7 @@
             "fallback": "Events open in WebBrowser component"
         },
         "home": {
-            "findthemenu": "Find more features in the menu, top left",
+            "findthemenu": "Find more features in the {{menuicon}} menu, top left",
             "visit": "Visit:",
             "songbook": "Songbook",
             "roster": "Roster"
