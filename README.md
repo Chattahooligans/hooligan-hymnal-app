@@ -57,6 +57,6 @@ Editing raw JSON is getting old, and we need a better way to keep Capo/SG office
 
 Hooligan Hymnal is a React Native project for Android and iOS devices built using [Expo](https://expo.io) with a Node.js backend and web-based administration tools built with Vue.js
 
-Check out our `docs` directory for information on how to configure and customize the app, and to prepare to deploy to the App and Play stores. Look at the [hymnal-server](https://github.com/Chattahooligans/hymnal-server) repo for the server, which is required to serve data to the app.
+Review the `docs` directory for information on how to configure and customize the app, and to prepare to deploy to Google Play and the App Store. Visit the [hymnal-server](https://github.com/Chattahooligans/hymnal-server) repo for the server, which is required to serve data to the client.
 
 Hooligan Hymnal maintains an active Slack channel with developers and SG leadership to guide the future of the platform. Our DMs are open [@hooliganhymnal](https://twitter.com/hooliganhymnal), if you can contribute to the project.
