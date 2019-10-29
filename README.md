@@ -3,7 +3,7 @@
 [egotistical introduction of the project]
 From the minds that brought you supporter culture revalations like Prideraiser.org and positioning capos in the back of the section, The Chattahooligans, independent supporters of Chattanooga Football Club, have conceived the future of SG information flow- Hooligan Hymnal. After rigorous experimentation and seeing our community embrace the technology, we shared it with our Mitten-state frenemies, the Northern Guard Supporters, and are advancing the platform even further.
 
-At long last, we're sharing our invention with the world- to make supporter culture better for all of us and to make managing supporters groups less exhausting.
+At long last, we're sharing this revolutionary invention with the world- to improve supporter culture for all of us and to make managing supporters groups less exhausting.
 
 ## Features
 
