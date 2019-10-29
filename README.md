@@ -1,10 +1,13 @@
 # Hooligan Hymnal
 
-egotistical introduction of the project
+[egotistical introduction of the project]
+
+From the minds that brought you supporter culture revalations like Prideraiser.org and positioning capos in the back of the section, The Chattahooligans, independent supporters of Chattanooga Football Club, have conceived the future of SG communications (information transfer?)- Hooligan Hymnal.
 
 ## Features
 
-brief table-setting
+[brief table-setting]
+The smartphone application and server are chock full of useful features, each born from necessity and based on the experience of managing one of the most sophisticated supporters groups in the game.
 
 ### Digital Songbook/Chant Sheet
 
@@ -14,11 +17,11 @@ brief table-setting
 
 ### And More
 
-what else to highlight?
+[what else to highlight?]
 
 ## Roadmap
 
-CALL TO ACTION to get more developers
+[CALL TO ACTION to get more developers]
 
 ### News Feed
 
