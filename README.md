@@ -37,7 +37,7 @@ Send a reference to tricky song lyrics to every phone in the section, right befo
 
 ### Screenshots
 
-![Chattahooligan Hymnal Home Screen](/assets/readme-screenshots/chattahooligan-hymnal-home.png) ![Chattahooligan Hymnal Song](/assets/readme-screenshots/chattahooligan-hymnal-song.png) ![Chattahooligan Hymnal Table of Contents](/assets/readme-screenshots/chattahooligan-hymnal-toc.png) ![Chattahooligan Hymnal Roster](/assets/readme-screenshots/chattahooligan-hymnal-roster.png)
+<img src="/assets/readme-screenshots/chattahooligan-hymnal-home.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-song.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-toc.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-roster.png" width="188" height="333" />
 
 ## Roadmap
 
