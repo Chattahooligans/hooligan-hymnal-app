@@ -20,7 +20,7 @@ Apple will not recognize your LLC without one. This process takes longer than it
 
 ## Register with the Play and App stores
 
-The Play store goes by relatively quickly once you pay your $30. Apple does more verification, which again will take more time.
+The Play store goes by relatively quickly once you pay your $25. Apple does more verification, which again will take more time.
 
 ## Designate at least one team member as the Apple uploader
 
@@ -36,7 +36,7 @@ You'll need to deploy your server and database early on in order to test. We sug
 
 ## Deploy to Play and App stores
 
-The Play Store will cost $25 yearly to register your org, while the App Store will cost $99 yearly. Make sure you registered your LLC as stated above. You will need to take screenshots running on each platform for their respective stores. The App Store requires both 6.5" and 5.5" screenshots in order to pubish for iPhone. If you enable `supportsTablet:true` in app.json, you will need to gather screenshots for both iPad geometries as well. (Note: The Chattahooligan's deployment currently supports this, while NGS's Guardbook disables this property, which causes iPad to use a zoomed in version of the iPhone app. No targeted tablet development has occurred yet; if you are in doubt, disable this property for now to save yourself some work with Apple.)
+Registering your org to publish on Google Play requires a $25 one-time free, while an Apple Developer account costs $99 annually. Make sure you registered your LLC as stated above. You will need to take screenshots running on each platform for their respective stores. The App Store requires both 6.5" and 5.5" screenshots in order to pubish for iPhone. If you enable `supportsTablet:true` in app.json, you will need to gather screenshots for both iPad geometries as well. (Note: The Chattahooligan's deployment currently supports this, while NGS's Guardbook disables this property, which causes iPad to use a zoomed in version of the iPhone app. No targeted tablet development has occurred yet; if you are in doubt, disable this property for now to save yourself some work with Apple.)
 
 ## App/Play Store gotchas
 
