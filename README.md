@@ -35,11 +35,11 @@ Send a reference to tricky song lyrics to every phone in the section, right befo
 
 ### And More
 
-[what else to highlight?]
+We include links to social media accounts, league standings, and fundraising initiatives on the home screen and/or menu. Customize it to fit your needs.
 
 ## Roadmap
 
-Necessity is the mother of invention. By sharing the project with soccer supporters groups around the world, we will assemble the greatest minds in the culture as contributors, and our collective work will improve all of our communities. 
+By sharing the project with soccer supporters groups around the world, we will assemble the greatest minds in the culture as contributors, and our collective work will improve all of our communities. Here's what we are focusing our attention after the 2019 season.
 
 ### News Feed
 
@@ -55,7 +55,7 @@ Editing raw JSON is getting old, and we need a better way to keep Capo/SG office
 
 ### And Beyond
 
-[TBD what we want to include in this section]
+All sorts of wild ideas are being considered: user chant submissions, "_Pip Boy_ Mode" for capos, and a romantic matching service to help supporters find true love (and to turn international players into domestic ones) are a few of the fun ones.
 
 ## For Developers
 
