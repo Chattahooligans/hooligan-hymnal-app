@@ -6,11 +6,6 @@ At long last, we're sharing this revolutionary invention with the world- to impr
 
 <img src="/assets/readme-screenshots/chattahooligan-hymnal-home.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-song.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-toc.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-roster.png" width="188" height="333" />
 
-### Reference Applications
-_Chattahooligan Hymnal_: [[Android]](https://https://play.google.com/store/apps/details?id=com.chattahooligan.hymnal) [[Apple]](https://apps.apple.com/us/app/chattahooligan-hymnal/id1484409711)
-
-_The Guardbook_: [[Android]](https://play.google.com/store/apps/details?id=com.northernguard.app) [[Apple]](https://apps.apple.com/us/app/the-guardbook/id1478449030)
-
 ## Features
 
 The smartphone application and server are chock full of useful features, each born from necessity and based on the experience of wrangling some of the most sophisticated supporters groups in the game.
@@ -64,3 +59,14 @@ Hooligan Hymnal is a React Native project for Android and iOS devices built usin
 Review the `docs` directory for information on how to configure and customize the app, and to prepare to deploy to Google Play and the App Store. Visit the [hymnal-server](https://github.com/Chattahooligans/hymnal-server) repo for the server, which is required to serve data to the client.
 
 Hooligan Hymnal maintains an active Slack channel with developers and SG leadership to guide the future of the platform. Our DMs are open [@hooliganhymnal](https://twitter.com/hooliganhymnal), if you can contribute to the project.
+
+## Getting Started
+
+Hooligan Hymnal is **not** a turnkey solution for supporters groups who want a mobile app. It a software platform— one that is currently in development with a long roadmap of new features, improved patterns and best practices in the existing codebase, more thorough documentation, and polish to come. SGs should expect a substantial time investment, some monetary expense, and to have their patience tested on the way to rolling out their own version of Hooligan Hymnal. 
+
+Expectations set? Here's what to do first:
+
+* Review the `docs` folder for guidance on configuration and deployment
+  * Work-in-progress
+* Get in touch. Reach out using your SG account to (@hooliganhymnal)[https://twitter.com/hooliganhymnal] or email [hooliganhymnal@gmail.com] to introduce yourself and request an invite to the project Slack channel.
+  * The core team and various SG stakeholders are active on Slack. The conversations there will determine the future of the project and asking for help is welcome, so we encourage every SG who uses Hooligan Hymnal to engage in that community.
