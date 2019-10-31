@@ -30,7 +30,7 @@ Send a reference to tricky song lyrics to every phone in the section, right befo
 
 ### And More
 
-We include links to social media accounts, league standings, and fundraising initiatives on the home screen and/or menu. Customize it to fit your needs.
+We include links to social media accounts, league standings, fundraising initiatives, and your SG's Prideraiser campaign (you _do_ have a Prideraiser campaign, don't you?) on the home screen and/or menu. Customize it to fit your needs.
 
 ## Roadmap
 
