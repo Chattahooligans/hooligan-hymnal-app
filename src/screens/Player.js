@@ -221,7 +221,7 @@ class Player extends React.Component {
                 />
               </FadeIn>
             </Animated.View>
-            <View style={{ flexDirection: 'row' }}>
+            <View style={{ flexDirection: i18n.getFlexDirection() }}>
               <BoldText style={styles.headerText}>
                 {player.squadNumber}{' '}
               </BoldText>
@@ -363,10 +363,16 @@ const styles = StyleSheet.create({
     color: DefaultColors.HeaderText,
     fontSize: FontSizes.subtitle
   },
+  bodyText: {
+    textAlign: i18n.getRTLTextAlign(), 
+    writingDirection: i18n.getWritingDirection()
+  },
   sectionHeader: {
     fontSize: FontSizes.bodyTitle,
     marginTop: 15,
-    marginBottom: 3
+    marginBottom: 3,
+    textAlign: i18n.getRTLTextAlign(), 
+    writingDirection: i18n.getWritingDirection()
   },
   bold: {
     fontWeight: 'bold'

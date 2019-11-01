@@ -9,6 +9,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { MediumText } from '../components/StyledText';
 import { DefaultColors, Skin } from '../config/Settings';
+import i18n from '../../i18n';
 
 export default class SocialButtonPanel extends React.Component {
     render() {
@@ -50,8 +51,8 @@ export default class SocialButtonPanel extends React.Component {
             
             section = 
                 <View style={this.props.style} key={element.header}>
-                    <MediumText style={{color: element.headerColor ? element.headerColor : DefaultColors.ColorText}}>{element.header}</MediumText>
-                    <View flexDirection="row" style={{paddingHorizontal: 5}}>{buttons}</View>
+                    <MediumText style={{color: element.headerColor ? element.headerColor : DefaultColors.ColorText, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>{element.header}</MediumText>
+                    <View flexDirection={i18n.getFlexDirection()} style={{paddingHorizontal: 5}}>{buttons}</View>
                 </View>
 
             sections.push(section);

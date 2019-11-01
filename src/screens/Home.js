@@ -215,12 +215,12 @@ class DeferredHomeContent extends React.Component {
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
-        <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
+        <View style={{ marginHorizontal: 15, marginBottom: 20, flexDirection: i18n.getFlexDirection() }}>
           <MediumText style={{color: DefaultColors.ColorText, fontSize: FontSizes.bodyLarge, marginTop: 5}}>
             {i18n.t('screens.home.findthemenu', {menuicon: "☰"})}
           </MediumText>
         </View>
-        <View flexDirection="row" style={{ marginHorizontal: 15, marginBottom: 10 }}>
+        <View flexDirection={i18n.getFlexDirection()} style={{ marginHorizontal: 15, marginBottom: 10 }}>
           <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => {
             //WebBrowser.openBrowserAsync(item.url);
             Linking.openURL(WEBSITE_URL);
@@ -314,7 +314,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: BORDER_RADIUS,
     overflow: 'hidden',
-    flexDirection: 'row'
+    flexDirection: i18n.getFlexDirection()
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,

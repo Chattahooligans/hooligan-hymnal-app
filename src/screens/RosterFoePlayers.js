@@ -13,6 +13,7 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { FontSizes, Icons, Layout } from '../constants';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
 import { defaultFormatUtc } from 'moment';
+import i18n from '../../i18n';
 
 class FoePlayerRow extends React.Component {
     render() {
@@ -23,7 +24,7 @@ class FoePlayerRow extends React.Component {
               <View style={{ width: 25, alignItems: 'flex-end' }}>
                 <BoldText style={{ color: this.props.textColor }}>{player.squadNumber}</BoldText>
               </View>
-              <View style={{ flexDirection: 'row' }}>
+              <View style={{ flexDirection: i18n.getFlexDirection() }}>
                 <BoldText style={{ color: this.props.textColor }}> | {player.name} </BoldText>
                 <RegularText style={{ color: this.props.textColor }}>({player.position})</RegularText>
               </View>
@@ -158,7 +159,7 @@ const styles = StyleSheet.create({
     },
     playerRow: {
         flex: 1,
-        flexDirection: 'row'
+        flexDirection: i18n.getFlexDirection()
     }
 });
 

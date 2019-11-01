@@ -69,7 +69,7 @@ class PlayerRow extends React.Component {
           activeOpacity={0.05}
           style={{ flex: 1 }}
         >
-          <View style={{flexDirection: 'row'}}>
+          <View style={{flexDirection: i18n.getFlexDirection()}}>
             <View style={styles.rowAvatarContainer}>
               <FadeIn>
                 <Image
@@ -85,9 +85,9 @@ class PlayerRow extends React.Component {
                 <BoldText>{player.squadNumber}</BoldText>
               </View>
               <View style={{ flexDirection: 'column' }}>
-                <MediumText>{player.name}</MediumText>
-                <RegularText>{i18n.t('positions.' + player.position)}</RegularText>
-                <RegularText>{player.flag}</RegularText>
+                <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{player.name}</MediumText>
+                <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('positions.' + player.position)}</RegularText>
+                <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{player.flag}</RegularText>
               </View>
             </View>
           </View>
@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
     backgroundColor: Palette.White,
     borderBottomWidth: 1,
     borderColor: '#eee',
-    flexDirection: 'row'
+    flexDirection: i18n.getFlexDirection()
   },
   rowAvatarContainer: {
     paddingVertical: 5,
@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
   },
   rowData: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: i18n.getFlexDirection()
   },
   sectionHeader: {
     paddingHorizontal: 10,
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    flexDirection: 'row'
+    flexDirection: i18n.getFlexDirection()
   },
   twitterListButtonText: {
     fontSize: FontSizes.normalButton,

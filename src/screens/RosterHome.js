@@ -60,16 +60,19 @@ const FoesNavigator = StackNavigator(
         }
     }
 );
-
+let tabs = {
+    Friends: FriendsNavigator,
+    Foes: FoesNavigator
+}
+//if(i18n.getFlexDirection() == "row-reverse") {
+//    tabs = {Foes: FoesNavigator, Friends: FriendsNavigator}
+//}
 const RosterTabs = TabNavigator(
-    {
-        Friends: FriendsNavigator,
-        Foes: FoesNavigator
-    },
+    tabs,
     {
         navigationOptions: {
             swipeEnabled: true,
-            tabBarPosition: 'top'
+            tabBarPosition: 'top',
         },
         tabBarOptions: {
             style: { backgroundColor: Skin.Roster_TabBackground },
@@ -111,7 +114,7 @@ export default class RosterHome extends React.Component {
   
   const styles = StyleSheet.create({
     tabContainer: {
-        flexDirection: 'row', 
+        flexDirection: i18n.getFlexDirection(), 
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -128,7 +131,7 @@ export default class RosterHome extends React.Component {
       justifyContent: 'center',
       borderRadius: BORDER_RADIUS,
       overflow: 'hidden',
-      flexDirection: 'row'
+      flexDirection: i18n.getFlexDirection()
     },
     bigButtonText: {
       fontSize: FontSizes.normalButton,
