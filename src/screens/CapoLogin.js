@@ -18,6 +18,7 @@ import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors } from '../config/Settings';
 import AuthCheck from '../server_store/AuthCheck';
 import i18n from "../../i18n";
+import {AsyncStorage} from 'react-native';
 
 // TODO: Hard code password for now
 // Add top nav bar with Back button
@@ -35,7 +36,8 @@ class CapoLogin extends React.Component {
   };
 
   state = {
-    password: ''
+    password: '',
+    username: ''
   };
 
   componentDidMount() {
@@ -43,21 +45,57 @@ class CapoLogin extends React.Component {
   }
 
   setData = () => {
-    if (this.props.globalData.state.unlocked) {
-      Keyboard.dismiss();
-      this.props.navigation.navigate('CapoHome');
+    var token = this.props.globalData.getBearerToken();
+    if(token !== "") {
+      //token is present from previous login
+      //check if still valid and bypass login if so
+      let authChecker = new AuthCheck();
+      authChecker.validToken("Bearer " + token)
+      .then(responseJson => {
+        //token is valid, skip login
+        Keyboard.dismiss();
+        this.props.navigation.navigate('CapoHome');
+      }).catch(reason => {
+        //we don't really care about the reason. just try to get
+        //username and password and show it
+        this.populateUserCredentials();
+      });
+      return;
     }
+    this.populateUserCredentials();
   }  
+
+  async populateUserCredentials() {
+    try {
+      const username = await AsyncStorage.getItem('@capousername');
+      const password = await AsyncStorage.getItem('@capopassword');
+      if(username !== null && password !== null) {
+        this._setPassword(password);
+        this._setUsername(username);
+      } else {
+      }
+    } catch(e) {
+      // fine then... keep your secrets
+    }
+  }
 
   render() {
     return (
       <View style={styles.container}>
-        <RegularText style={styles.instructions}>{i18n.t('screens.capologin.enterpassword')}</RegularText>
+        <RegularText style={styles.instructions}>{i18n.t('screens.capologin.username')}</RegularText>
+        <TextInput
+          style={styles.textInput}
+          autoFocus={true}
+          onChangeText={this._setUsername}
+          value={this.state.username}
+        />
+        <RegularText style={styles.instructions}>{i18n.t('screens.capologin.password')}</RegularText>
         <TextInput
           style={styles.textInput}
           autoFocus={true}
           onChangeText={this._setPassword}
-          value={this.state.value}
+          value={this.state.password}
+          secureTextEntry={true}
         />
         <ClipBorderRadius>
           <RectButton
@@ -73,17 +111,27 @@ class CapoLogin extends React.Component {
   }
 
   _setPassword = password => this.setState({ password });
+  _setUsername = username => this.setState({ username });
 
-  _handlePressSubmitButton = () => {
+  _handlePressSubmitButton = async () => {
     let authChecker = new AuthCheck();
     authChecker
       .check({
-        authKey: this.state.password
+        email: this.state.username,
+        password: this.state.password
       })
       .then(responseJson => {
         Keyboard.dismiss();
-        this.props.globalData.setAuthKey(this.state.password);
-        this.props.globalData.toggleUserAuth();
+        this.props.globalData.setBearerToken(responseJson.token);
+        storeData = async () => {
+          try {
+            await AsyncStorage.setItem('@capousername', this.state.username);
+            await AsyncStorage.setItem('@capopassword', this.state.password);
+          } catch (e) {
+            console.log(e);
+          }
+        };
+        storeData();
         this.props.navigation.navigate('CapoHome');
       })
       .catch(
@@ -116,11 +164,13 @@ const styles = StyleSheet.create({
     paddingTop: 15
   },
   instructions: {
-    fontSize: 18
+    fontSize: 18,
+    paddingLeft: 15
   },
   textInput: {
     fontSize: 18,
-    padding: 8
+    padding: 8,
+    paddingLeft: 15
   },
   bigButton: {
     backgroundColor: DefaultColors.ButtonBackground,

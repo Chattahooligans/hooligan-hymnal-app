@@ -4,7 +4,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { BoldText, RegularText } from './StyledText';
 import * as WebBrowser from 'expo-web-browser';
 import ParsedText from 'react-native-parsed-text';
-import Tags from './Tags';
 import { FontSizes, Layout } from '../constants';
 import { Skin, Palette, MUSICAL_SCORE_ICON } from '../config/Settings';
 

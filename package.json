@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@airship/with-unstated": "^1.0.1",
+    "@react-native-community/async-storage": "^1.6.2",
     "axios": "^0.18.1",
     "expo": "^35.0.0",
     "expo-asset": "~7.0.0",

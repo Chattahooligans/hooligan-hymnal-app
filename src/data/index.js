@@ -1,9 +1,8 @@
 import _ from 'lodash';
 
 export const getFeaturedSong = (songbook, allSongs) => {
-  if (songbook && allSongs && allSongs.length) {
+  if (songbook && allSongs && allSongs.length && songbook.chapters) {
     let featuredSongs = [];
-
     songbook.chapters.forEach(chapter => {
       chapter.songs.forEach(songChild => {
         if (songChild.featured) {
@@ -30,7 +29,6 @@ const DEFAULT_SONG = {
   create_time: '',
   update_time: '',
   title: 'Chattanooga Choo Choo',
-  tags: 'music,drums,bells,voice',
   lyrics:
     "Pardon me, boy\nIs that the Chattanooga Choo Choo?\nTrack twenty-nine\nCan you give me a shine?\nI can afford to board the\nChattanooga Choo Choo?\nI've got my fare\nAnd just a trifle to spare.\n\nWhen you hear the whistle\nBlowin' eight to the bar!\nThen you know that\nTennessee is not very far!\nShovel all the coal in\nGotta keep it rollin'\nWoo, woo, Chattanooga\nThere you are! (x4)",
   tbd_various_boolean_flags: '',

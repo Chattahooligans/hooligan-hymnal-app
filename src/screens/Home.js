@@ -23,7 +23,7 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
-import TalksUpNext from '../components/TalksUpNext';
+import UpNext from '../components/UpNext';
 import MenuButton from '../components/MenuButton';
 import VideoBackground from '../components/VideoBackground';
 import SocialButtonPanel from '../components/SocialButtonPanel';
@@ -170,7 +170,7 @@ class DeferredHomeContent extends React.Component {
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
         <HomeBannersPanel config={banners} />
-        <TalksUpNext
+        <UpNext
           songs={this.props.globalData.state.songs}
           songbook={this.props.globalData.state.songbook}
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
@@ -217,7 +217,7 @@ class DeferredHomeContent extends React.Component {
         </ClipBorderRadius>
         <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
           <MediumText style={{color: DefaultColors.ColorText, fontSize: FontSizes.bodyLarge, marginTop: 5}}>
-            {i18n.t('screens.home.findthemenu')}
+            {i18n.t('screens.home.findthemenu', {menuicon: "☰"})}
           </MediumText>
         </View>
         <View flexDirection="row" style={{ marginHorizontal: 15, marginBottom: 10 }}>

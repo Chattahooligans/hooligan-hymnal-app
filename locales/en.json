@@ -38,7 +38,8 @@
         },
         "capologin": {
             "title": "Capo Dashboard",
-            "enterpassword": "Enter password to unlock",
+            "username": "Username/Email",
+            "password": "Password",
             "unlock": "Unlock"
         },
         "caposelectsong": {

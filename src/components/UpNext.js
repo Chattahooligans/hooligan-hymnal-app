@@ -16,7 +16,7 @@ const GOALKEEPER_NICKNAME_ENDPOINT = HYMNAL_ADDRESS + '/api/goalkeeperNicknames/
 
 const GK_EXPIRATION_HOURS = 2;
 
-class TalksUpNext extends React.Component {
+class UpNext extends React.Component {
   state = {
     capoMessage: null,
     song: getFeaturedSong(this.props.songbook, this.props.songs),
@@ -165,4 +165,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default TalksUpNext;
+export default UpNext;
