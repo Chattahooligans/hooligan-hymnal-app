@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Linking, Text, StyleSheet, ScrollView } from 'react-native';
 import NavigationOptions from '../config/NavigationOptions';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
 import { FontSizes } from '../constants';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
+import ParsedText from 'react-native-parsed-text';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import i18n from "../../i18n";
@@ -43,23 +44,87 @@ class About extends React.Component {
     this.setState({token, response})
   }
 
+  _urlPress = (url) => {
+    WebBrowser.openBrowserAsync(url);
+  }
+
+  _emailPress = (email) => {
+    Linking.openURL('mailto:' + email);
+  }
+
+  _renderFormatted = (matchingString) => {
+    return matchingString.slice(1, matchingString.length-1)
+  }
+
   render() {
+    let creditsTexts = []
+    let creditsItems = i18n.t('screens.about.credits')
+    creditsItems.forEach(element => {
+      creditsTexts.push(
+        <ParsedText 
+          parse={
+            [
+              {type: 'url', style: styles.url, onPress: this._urlPress}, 
+              {type: 'email', style: styles.url, onPress: this._emailPress},
+              {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
+              {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
+            ]
+          }
+          style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
+          >
+          {element}
+        </ParsedText>
+      )
+    });
+
     return (
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
         <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
           <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
-          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.why')}</RegularText>
+          <ParsedText 
+            parse={
+              [
+                {type: 'url', style: styles.url, onPress: this._urlPress}, 
+                {type: 'email', style: styles.url, onPress: this._emailPress},
+                {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
+                {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
+              ]
+            }
+            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
+            >
+            {i18n.t('screens.about.why')}
+          </ParsedText>
           <View style={{ height: 10 }} />
-          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.feedback')}</RegularText>
+          <ParsedText 
+            parse={
+              [
+                {type: 'url', style: styles.url, onPress: this._urlPress}, 
+                {type: 'email', style: styles.url, onPress: this._emailPress},
+                {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
+                {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
+              ]
+            }
+            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
+            >
+            {i18n.t('screens.about.feedback')}
+          </ParsedText>
           <View style={{ height: 20 }} />
-          <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.credits')}</MediumText>
-          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.homescreenvideo')}</RegularText>
-          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.menuphoto')}</RegularText>
-          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.playerphotos')}</RegularText>
-          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.playerheadshots')}</RegularText>
-          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.nodevember')}</RegularText>
+          <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.creditsheading')}</MediumText>
+          {creditsTexts}
           <View style={{ height: 20 }} />
-          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.contribute')}</RegularText>
+          <ParsedText 
+            parse={
+              [
+                {type: 'url', style: styles.url, onPress: this._urlPress}, 
+                {type: 'email', style: styles.url, onPress: this._emailPress},
+                {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
+                {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
+              ]
+            }
+            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
+            >
+            {i18n.t('screens.about.contribute')}
+          </ParsedText>
           <View style={{ height: 20 }} />
           <ScrollView style={{flex: 1}}>
             <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.debug')}</MediumText>
@@ -77,6 +142,20 @@ class About extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  credits: {
+    fontFamily: 'heebo',
+  },
+  bold: {
+    fontWeight: 'bold'
+  },
+  italic: {
+    fontStyle: 'italic'
+  },
+  url: {
+    color: 'blue',
+    textDecorationLine: 'underline'
+  }
+});
 
 export default withUnstated(About, { globalData: GlobalDataContainer });
