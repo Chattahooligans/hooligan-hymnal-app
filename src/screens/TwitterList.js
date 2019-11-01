@@ -30,16 +30,16 @@ class TwitterList extends React.Component {
     handles += '@ChattanoogaFC @chattahooligan @LosCFCHooligans';
 
     return (
-      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky }}>
+      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
         <View style={{ flex: 1, padding: 5 }}>
-          <MediumText style={{backgroundColor: Palette.White, paddingHorizontal: 5, fontSize: 18}}>
+          <MediumText style={{backgroundColor: Palette.White, paddingHorizontal: 5, fontSize: 18, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>
             { i18n.t('screens.twitterlist.calltoaction')}
           </MediumText>
-          <RegularText style={{backgroundColor: Palette.White, padding: 5, marginBottom: 1}}>          
+          <RegularText style={{backgroundColor: Palette.White, padding: 5, marginBottom: 1, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>          
             { i18n.t('screens.twitterlist.instructions')}
           </RegularText>
             <ScrollView style={{flex: 1, padding: 5, backgroundColor: Palette.White}}>
-                <RegularText style={{fontSize: 18}} selectable={true}>{handles}</RegularText>
+                <RegularText style={{fontSize: 18, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}} selectable={true}>{handles}</RegularText>
             </ScrollView>
             <ClipBorderRadius>
                 <RectButton
@@ -94,12 +94,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: BORDER_RADIUS,
         overflow: 'hidden',
-        flexDirection: 'row'
+        flexDirection: i18n.getFlexDirection()
       },
       bigButtonText: {
         fontSize: FontSizes.normalButton,
         color: DefaultColors.ButtonText,
-        textAlign: 'center'
+        textAlign: 'center',
+        writingDirection: i18n.getWritingDirection()
       }
 });
 

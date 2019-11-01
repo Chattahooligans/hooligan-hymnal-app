@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     backgroundColor: '#fff',
     borderWidth: 1,
-    borderColor: '#fff'
+    borderColor: '#fff',
+    textAlign: i18n.getRTLTextAlign()
   },
   chapterText: {
     textAlign: 'center',
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    flexDirection: 'row'
+    flexDirection: i18n.getFlexDirection()
   },
   tocButtonText: {
     fontSize: FontSizes.normalButton,
@@ -113,7 +114,7 @@ class Songbook extends React.Component {
             <View
               key={item._id}
               chapter_title={chapterChild.chapter_title}
-              style={{ flex: 1, width: screenWidth }}
+              style={{ flex: 1, width: screenWidth, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
             >
               <SongView song={item} pageCount={pageCount} />
             </View>
@@ -184,7 +185,7 @@ class Songbook extends React.Component {
                 source={require('../../assets/songbook-front-cover-heebo.png')}
               />
               <View style={{ flex: 1 }} />
-              <RegularText>{i18n.t('screens.songbook.swipetoview')}</RegularText>
+              <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.songbook.swipetoview')}</RegularText>
               <View style={{ flex: 1 }} />
             </View>
             {this.state.songViews}

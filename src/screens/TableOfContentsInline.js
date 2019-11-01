@@ -64,7 +64,7 @@ class SongRow extends React.Component {
             <RegularText style={{ color: DefaultColors.ColorText }}>{song.title}</RegularText>
             {sheetMusicDisplay}
             {playDisplay}
-            <View style={{flex:1, flexDirection: 'row', justifyContent: 'flex-end', opacity: 0.5}}>
+            <View style={{flex:1, flexDirection: i18n.getFlexDirection(), justifyContent: 'flex-end', opacity: 0.5}}>
               <RegularText style={{marginRight: 10}}>
                 {capoSignal}
               </RegularText>
@@ -180,7 +180,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: 100 + '%',
-    paddingBottom: 8
+    paddingBottom: 8,
+    textAlign: i18n.getRTLTextAlign(),
+    writingDirection: i18n.getWritingDirection()
   },
   tocButton: {
     backgroundColor: DefaultColors.ButtonBackground,
@@ -190,7 +192,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    flexDirection: 'row'
+    flexDirection: i18n.getFlexDirection()
   },
   tocButtonText: {
     fontSize: FontSizes.normalButton,
@@ -203,7 +205,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: 1,
     borderColor: '#eee',
-    flexDirection: 'row'
+    flexDirection: i18n.getFlexDirection()
   },
   rowAvatarContainer: {
     paddingVertical: 5,
@@ -212,12 +214,12 @@ const styles = StyleSheet.create({
   },
   rowData: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: i18n.getFlexDirection(),
     justifyContent: 'space-between'
   },
   pageLabel: {
     width: 16,
-    textAlign: 'right',
+    textAlign: i18n.getRTLTextAlign(),
     color: '#999999'
   },
   sectionHeader: {
@@ -226,6 +228,8 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     backgroundColor: '#eee',
     borderWidth: 1,
-    borderColor: '#eee'
+    borderColor: '#eee',
+    textAlign: i18n.getRTLTextAlign(),
+    writingDirection: i18n.getWritingDirection()
   }
 });

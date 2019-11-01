@@ -45,26 +45,26 @@ class About extends React.Component {
 
   render() {
     return (
-      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky }}>
+      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
         <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
-          <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10 }}>{i18n.t('screens.about.appTitle')}</BoldText>
-          <RegularText>{i18n.t('screens.about.why')}</RegularText>
+          <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
+          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.why')}</RegularText>
           <View style={{ height: 10 }} />
-          <RegularText>{i18n.t('screens.about.feedback')}</RegularText>
+          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.feedback')}</RegularText>
           <View style={{ height: 20 }} />
-          <MediumText>{i18n.t('screens.about.credits')}</MediumText>
-          <RegularText>{i18n.t('screens.about.homescreenvideo')}</RegularText>
-          <RegularText>{i18n.t('screens.about.menuphoto')}</RegularText>
-          <RegularText>{i18n.t('screens.about.playerphotos')}</RegularText>
-          <RegularText>{i18n.t('screens.about.playerheadshots')}</RegularText>
-          <RegularText>{i18n.t('screens.about.nodevember')}</RegularText>
+          <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.credits')}</MediumText>
+          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.homescreenvideo')}</RegularText>
+          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.menuphoto')}</RegularText>
+          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.playerphotos')}</RegularText>
+          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.playerheadshots')}</RegularText>
+          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.nodevember')}</RegularText>
           <View style={{ height: 20 }} />
-          <RegularText>{i18n.t('screens.about.contribute')}</RegularText>
+          <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.contribute')}</RegularText>
           <View style={{ height: 20 }} />
           <ScrollView style={{flex: 1}}>
-            <MediumText>{i18n.t('screens.about.debug')}</MediumText>
-            <RegularText selectable={true}>{this.state.token}</RegularText>
-            <RegularText selectable={true}>
+            <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.debug')}</MediumText>
+            <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{this.state.token}</RegularText>
+            <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
               {
                 this.state.response ? 
                   JSON.stringify(this.state.response) : ''

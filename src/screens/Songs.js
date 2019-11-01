@@ -32,7 +32,7 @@ class SpeakerRow extends React.Component {
       >
         <View style={styles.row}>
           <View style={styles.rowData}>
-            <BoldText>{speaker.name}</BoldText>
+            <BoldText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{speaker.name}</BoldText>
             {speaker.organization ? (
               <MediumText>{speaker.organization}</MediumText>
             ) : null}
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: '#eee',
-    flexDirection: 'row'
+    flexDirection: i18n.getFlexDirection()
   },
   rowAvatarContainer: {
     paddingVertical: 5,
