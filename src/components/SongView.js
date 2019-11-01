@@ -66,6 +66,7 @@ export default class SongView extends React.Component {
               parse={
                 [
                   {type: 'url', style: styles.url, onPress: this._urlPress},
+                  {type: 'email', style: styles.url, onPress: this._emailPress},
                   {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
                   {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
                 ]
@@ -124,6 +125,10 @@ export default class SongView extends React.Component {
 
   _urlPress = (url) => {
     WebBrowser.openBrowserAsync(url);
+  }
+
+  _emailPress = (email) => {
+    Linking.openURL('mailto:' + email);
   }
 
   _renderFormatted = (matchingString) => {
