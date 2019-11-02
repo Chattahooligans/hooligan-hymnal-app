@@ -34,7 +34,7 @@ export default class SongCard extends React.Component {
           >
             {song.lyrics.replace('\n', '/')}
           </RegularText>
-          <MediumText style={{textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>See More...</MediumText>
+          <MediumText style={{textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>{i18n.t('components.songcard.seemore')}</MediumText>
         </View>
       </RectButton>
     );

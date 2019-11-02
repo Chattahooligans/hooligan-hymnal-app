@@ -258,6 +258,7 @@ class Player extends React.Component {
                   ]
                 }
                 style={styles.bodyText}
+                childrenProps
                 >
                 {i18n.getLocalizedBio(player.bio)}
               </ParsedText>

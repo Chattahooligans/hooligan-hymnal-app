@@ -52,7 +52,7 @@ export default class SongView extends React.Component {
 
     return (
       <View style={styles.container}>
-        <View style={{paddingBottom: 1, flexDirection: 'row'}}>
+        <View style={{paddingBottom: 1, flexDirection: i18n.getFlexDirection()}}>
           <View style={{flex: 1, backgroundColor: Palette.White}}>
             <BoldText style={styles.title} onLongPress={this._onLongPressTitle}>{song.title}</BoldText>
             {referenceDisplay}
@@ -61,7 +61,7 @@ export default class SongView extends React.Component {
           {playButtonDisplay}
         </View>
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
-          <View style={{flex: 1}}>
+          <View style={{flex: 1, flexDirection: i18n.getFlexDirection()}}>
             <RegularText style={styles.instructions}>{song.instructions}</RegularText>
             <ParsedText 
               parse={
@@ -78,7 +78,7 @@ export default class SongView extends React.Component {
               {song.lyrics}
             </ParsedText>
           </View>
-        </ScrollView>'Copied lyrics to clipboard'
+        </ScrollView>
         <View
           style={{
             backgroundColor: '#FFFFFF',

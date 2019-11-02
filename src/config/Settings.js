@@ -30,7 +30,7 @@ export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
 export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
 // used in SongView to link to sheet music
 export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
-import i18n from "../i18n"
+import i18n from "../../i18n"
 
 /*
     App Skin

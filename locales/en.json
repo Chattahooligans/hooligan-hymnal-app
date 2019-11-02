@@ -145,6 +145,9 @@
         },
         "upnext": {
             "upnext": "Up Next"
+        },
+        "songcard": {
+            "seemore": "See more..."
         }
     },
     "positions": {
