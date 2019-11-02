@@ -4,6 +4,7 @@ import { DrawerItems, NavigationActions, SafeAreaView } from 'react-navigation';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
+import i18n from '../../i18n';
 
 const CustomDrawer = props => (
   <View style={styles.container}>
@@ -23,7 +24,7 @@ const CustomDrawer = props => (
     <DrawerItems
       {...props}
       activeBackgroundColor="rgba(255,255,255,0.1)"
-      labelStyle={{ color: 'white' }}
+      labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
       onItemPress={({ route, focused }) => {
         if (route.routeName === 'CapoHome') {
           if (props.globalData.state.unlocked === true) {
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#333333'
+    backgroundColor: '#333333',
   },
   imageOverlay: {
     backgroundColor: 'rgba(3, 46, 85, 0.57)'
