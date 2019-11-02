@@ -73,7 +73,7 @@ class UpNext extends React.Component {
 
   componentWillMount() {
     this.setState({
-      label: 'Up Next',
+      label: i18n.t('components.upnext.upnext'),
     });
     this._refreshNotification();
     this._refreshGoalkeeperNickname();

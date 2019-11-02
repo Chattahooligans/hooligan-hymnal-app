@@ -132,6 +132,19 @@
         "capo": "CAPO DASHBOARD",
         "about": "ABOUT"
     },
+    "components": {
+        "gkNickname": {
+            "gonnascore": "We're gonna score on you, "
+        },
+        "songview": {
+            "copiedtitle": "Copied title to clipboard",
+            "copiedreference": "Copied reference to clipboard",
+            "copiedlyrics": "Copied lyrics to clipboard"
+        },
+        "upnext": {
+            "upnext": "Up Next"
+        }
+    },
     "positions": {
         "Forward": "Forward",
         "Defender": "Defender",
@@ -140,5 +153,9 @@
         "Head Coach": "Head Coach",
         "Associate Head Coach": "Associate Head Coach",
         "Goalkeeper Coach": "Goalkeeper Coach"
+    },
+    "settings": {
+        "socialEN": "Follow us",
+        "socialES": "Síguenos",
     }
 }

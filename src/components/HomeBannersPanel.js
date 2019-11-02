@@ -10,6 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { RegularText } from '../components/StyledText';
 import { FontSizes } from '../constants';
 import { DefaultColors, Skin } from '../config/Settings';
+import i18n from '../../i18n';
 
 export default class HomeBannersPanel extends React.Component {
     render() {
@@ -17,7 +18,7 @@ export default class HomeBannersPanel extends React.Component {
         this.props.config.forEach(item => {
             if (item.icon && item.url) {
                 banners.push(
-                    <TouchableOpacity style={{flexDirection: 'row', paddingHorizontal: 10, paddingVertical: 3, backgroundColor: item.backgroundColor}} 
+                    <TouchableOpacity style={{flexDirection: i18n.getFlexDirection(), paddingHorizontal: 10, paddingVertical: 3, backgroundColor: item.backgroundColor}} 
                         key={item.url} onPress={() => { Linking.openURL(item.url) }}>
                         <Ionicons
                             name={item.icon}
@@ -33,7 +34,7 @@ export default class HomeBannersPanel extends React.Component {
                 )
             } else if (item.image && item.url) {
                 banners.push(
-                    <TouchableOpacity style={{flexDirection: 'row', paddingHorizontal: 10, paddingVertical: 3, backgroundColor: item.backgroundColor}} 
+                    <TouchableOpacity style={{flexDirection: i18n.getFlexDirection(), paddingHorizontal: 10, paddingVertical: 3, backgroundColor: item.backgroundColor}} 
                         key={item.url} onPress={() => { Linking.openURL(item.url) }}>
                         <Image
                             source={item.image}

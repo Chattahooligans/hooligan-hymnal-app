@@ -4,8 +4,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { BoldText, RegularText } from './StyledText';
 import * as WebBrowser from 'expo-web-browser';
 import ParsedText from 'react-native-parsed-text';
-import { FontSizes, Layout } from '../constants';
+import { FontSizes, Layout } from '../constants';{i18n.t('components.gkNickname.gonnascore')}
 import { Skin, Palette, MUSICAL_SCORE_ICON } from '../config/Settings';
+import i18n from "../../i18n";
 
 // TODO: platform select
 // on android, longpress event with clipboard setting
@@ -76,7 +77,7 @@ export default class SongView extends React.Component {
               {song.lyrics}
             </ParsedText>
           </View>
-        </ScrollView>
+        </ScrollView>'Copied lyrics to clipboard'
         <View
           style={{
             backgroundColor: '#FFFFFF',
@@ -86,7 +87,7 @@ export default class SongView extends React.Component {
             marginBottom: 6,
             padding: 8,
             flex: 0,
-            flexDirection: 'row',
+            flexDirection: i18n.getFlexDirection(),
             justifyContent: 'space-between',
             alignItems: 'center',
           }}
@@ -108,17 +109,17 @@ export default class SongView extends React.Component {
   }
 
   _onLongPressTitle = () => {
-    ToastAndroid.show('Copied title to clipboard', ToastAndroid.SHORT);
+    ToastAndroid.show(i18n.t('components.songview.copiedtitle'), ToastAndroid.SHORT);
     Clipboard.setString(this.props.song.title);
   };
 
   _onLongPressReference = () => {
-    ToastAndroid.show('Copied reference to clipboard', ToastAndroid.SHORT);
+    ToastAndroid.show(i18n.t('components.songview.copiedreference'), ToastAndroid.SHORT);
     Clipboard.setString(this.props.song.reference_title);
   };
   
   _onLongPressLyrics = () => {
-    ToastAndroid.show('Copied lyrics to clipboard', ToastAndroid.SHORT);
+    ToastAndroid.show(i18n.t('components.songview.copiedlyrics'), ToastAndroid.SHORT);
     Clipboard.setString(this.props.song.lyrics);
   };
 

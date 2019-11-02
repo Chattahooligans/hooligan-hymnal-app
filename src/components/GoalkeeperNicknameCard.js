@@ -7,6 +7,7 @@ import { BoldText, RegularText, MediumText } from './StyledText';
 import { Colors, FontSizes } from '../constants';
 import { Ionicons } from '@expo/vector-icons';
 import { Skin, DefaultColors } from '../config/Settings';
+import i18n from "../../i18n"
 
 @withNavigation
 export default class GoalkeeperNicknameCard extends React.Component {
@@ -18,7 +19,7 @@ export default class GoalkeeperNicknameCard extends React.Component {
     }
 
     return (
-      <View style={{flexDirection: 'row', alignItems: 'center', 
+      <View style={{flexDirection: i18n.getFlexDirection(), alignItems: 'center', 
         backgroundColor: goalkeeperNickname.backgroundColor,
         paddingVertical: 5, paddingHorizontal: 10}}>
         <Ionicons
@@ -30,7 +31,7 @@ export default class GoalkeeperNicknameCard extends React.Component {
                 marginHorizontal: 5,
               }}
             />
-        <RegularText style={[styles.text, {color: goalkeeperNickname.textColor}]}>We're gonna score on you, </RegularText>
+        <RegularText style={[styles.text, {color: goalkeeperNickname.textColor}]}>{i18n.t('components.gkNickname.gonnascore')}</RegularText>
         <BoldText style={[styles.nickname, {color: goalkeeperNickname.textColor}]}>
         {goalkeeperNickname.nickname}
         </BoldText>
