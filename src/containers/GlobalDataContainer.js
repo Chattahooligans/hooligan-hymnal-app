@@ -162,6 +162,7 @@ export default class GlobalDataContainer extends Container {
         body: JSON.stringify({
           pushToken: token,
           expoExperience: '@' + appParams.expo.owner + '/' + appParams.expo.slug,
+          appVersion: appParams.expo.version,
           platform: Platform.OS,
           platformVersion: Platform.Version
         })
