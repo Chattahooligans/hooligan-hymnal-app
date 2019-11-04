@@ -13,8 +13,8 @@ i18n.translations = { en };
 //future: when app returns from backgroud on Android,
 //check `await Localization.getLocalizationAsync();` to update locale
 
-//const isRTL = Localization.isRTL;
-const isRTL = true;
+const isRTL = Localization.isRTL;
+//const isRTL = true;
 
 function getLocalizedBio(bio) {
     //if bio is only a string, return that string
