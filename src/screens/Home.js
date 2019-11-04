@@ -167,6 +167,22 @@ class DeferredHomeContent extends React.Component {
     if (!this.state.ready) {
       return null;
     }
+    
+    // "find the menu" instructions polish
+    let findTheMenu = i18n.t('screens.home.findthemenu')
+    console.log
+    let firstPart = findTheMenu.substring(0, findTheMenu.indexOf('%menuicon%'))
+    let secondPart = findTheMenu.substring(findTheMenu.indexOf('%menuicon%') + '%menuicon%'.length)
+    let findTheMenuText = <MediumText style={{color: DefaultColors.ColorText, fontSize: FontSizes.bodyLarge, marginTop: 5}}>
+        {firstPart}
+        <Ionicons
+          name="md-menu"
+          size={FontSizes.bodyLarge}
+          style={{ backgroundColor: 'transparent', marginRight: 5}}
+        />
+        {secondPart}
+      </MediumText>
+    
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
         <HomeBannersPanel config={banners} />
@@ -216,9 +232,7 @@ class DeferredHomeContent extends React.Component {
           </RectButton>
         </ClipBorderRadius>
         <View style={{ marginHorizontal: 15, marginBottom: 20, flexDirection: i18n.getFlexDirection() }}>
-          <MediumText style={{color: DefaultColors.ColorText, fontSize: FontSizes.bodyLarge, marginTop: 5}}>
-            {i18n.t('screens.home.findthemenu', {menuicon: "☰"})}
-          </MediumText>
+          {findTheMenuText}
         </View>
         <View flexDirection={i18n.getFlexDirection()} style={{ marginHorizontal: 15, marginBottom: 10 }}>
           <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => {
