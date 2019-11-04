@@ -19,7 +19,7 @@
         "capocompose": {
             "title": "Compose Song",
             "songtitle": "Titel",
-            "songlyrics": "Text",
+            "songlyrics": "Liedtext",
             "continue": "Weiter"
         },
         "capoconfirmGK": {
