@@ -31,11 +31,12 @@ import { Location, Permissions } from 'expo';
 import CapoMessageSchema from '../data/capo_message_schema';
 import SongSchema from '../data/song_schema';
 import RemoteNotifications from '../server_store/RemoteNotifications';
+import i18n from "../../i18n";
 
 @withNavigation
 class CapoConfirmSendSong extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Confirm Song?',
+    title: i18n.t('screens.capoconfirmsong.title'),
     ...NavigationOptions,
     headerLeft: (
       <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
@@ -71,7 +72,7 @@ class CapoConfirmSendSong extends React.Component {
                 underlayColor="#fff"
               >
                 <MediumText style={styles.bigButtonText}>
-                  Send Only
+                {i18n.t('screens.capoconfirmsong.sendonly')}
                 </MediumText>
                 <Ionicons
                   name="md-send"
@@ -91,7 +92,7 @@ class CapoConfirmSendSong extends React.Component {
                 underlayColor="#fff"
               >
                 <MediumText style={styles.bigButtonText}>
-                  Send &amp; Notify
+                {i18n.t('screens.capoconfirmsong.sendnotify')}
                 </MediumText>
                 <Ionicons
                   name="md-notifications"

@@ -30,6 +30,7 @@ export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
 export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
 // used in SongView to link to sheet music
 export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
+import i18n from "../../i18n"
 
 /*
     App Skin
@@ -69,9 +70,7 @@ export const Skin = {
   Roster_ActiveTabLabel: DefaultColors.ButtonText,
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'md-heart',
-  Roster_FriendsTabLabel: 'Friends',
   Roster_FoesTabIcon: 'md-thumbs-down',
-  Roster_FoesTabLabel: 'Foes',
   Player_DefaultImage: CLUB_LOGO,
 };
 
@@ -81,7 +80,7 @@ export const Skin = {
 // icon: Iconicons name
 export const socialButtons = [
   {
-    header: "Follow us",
+    header: i18n.t('settings.socialEN'),
     headerColor: DefaultColors.ColorText,
     items: [
       { icon: 'logo-twitter', url: TWITTER_URL },
@@ -93,7 +92,7 @@ export const socialButtons = [
     ]
   },
   {
-    header: "Síguenos",
+    header: i18n.t('settings.socialES'),
     headerColor: DefaultColors.ColorText,
     items: [
       { icon: 'logo-twitter', url: ESP_TWITTER_URL },

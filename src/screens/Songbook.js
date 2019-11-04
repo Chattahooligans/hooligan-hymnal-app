@@ -23,6 +23,7 @@ import { BoldText, MediumText, RegularText, UnderlineText } from '../components/
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import TableOfContentsInline from './TableOfContentsInline';
 import { Skin, DefaultColors} from '../config/Settings';
+import i18n from "../../i18n";
 
 const screenWidth = Dimensions.get('window').width;
 const firstValidPageIndex = 1;
@@ -34,7 +35,8 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     backgroundColor: '#fff',
     borderWidth: 1,
-    borderColor: '#fff'
+    borderColor: '#fff',
+    textAlign: i18n.getRTLTextAlign()
   },
   chapterText: {
     textAlign: 'center',
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    flexDirection: 'row'
+    flexDirection: i18n.getFlexDirection()
   },
   tocButtonText: {
     fontSize: FontSizes.normalButton,
@@ -64,13 +66,13 @@ const styles = StyleSheet.create({
   }
 });
 
-let defaultChapterTitle = 'Cover';
+let defaultChapterTitle = i18n.t('screens.songbook.defaultchaptertitle');
 
 // Android uses ViewPagerAndroid
 // iOS uses ScrollView with pagingEnabled and horizontal properties
 class Songbook extends React.Component {
   static navigationOptions = {
-    title: 'Songbook',
+    title: i18n.t('screens.songbook.title'),
     ...NavigationOptions
   };
 
@@ -112,7 +114,7 @@ class Songbook extends React.Component {
             <View
               key={item._id}
               chapter_title={chapterChild.chapter_title}
-              style={{ flex: 1, width: screenWidth }}
+              style={{ flex: 1, width: screenWidth, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
             >
               <SongView song={item} pageCount={pageCount} />
             </View>
@@ -153,7 +155,7 @@ class Songbook extends React.Component {
             }}
           />
           <RegularText style={styles.tocButtonText}>
-            Table of Contents
+            {i18n.t('screens.songbook.tableofcontents')}
           </RegularText>
         </RectButton>
       );
@@ -183,7 +185,7 @@ class Songbook extends React.Component {
                 source={require('../../assets/songbook-front-cover-heebo.png')}
               />
               <View style={{ flex: 1 }} />
-              <RegularText>Swipe Left/Right to View Songs</RegularText>
+              <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.songbook.swipetoview')}</RegularText>
               <View style={{ flex: 1 }} />
             </View>
             {this.state.songViews}
@@ -220,7 +222,7 @@ class Songbook extends React.Component {
     if (this.state.pageCount + 1 === pageIndex) {
       this.setState({
         tocButtonDisplay: false,
-        chapter_title: 'Table of Contents'
+        chapter_title: i18n.t('screens.songbook.tableofcontents')
       });
     } else if (firstValidPageIndex <= pageIndex) {
       this.setState({
@@ -239,7 +241,7 @@ class Songbook extends React.Component {
   scrollToToC = () => {
     this.setState({
       tocButtonDisplay: false,
-      chapter_title: 'Table of Contents'
+      chapter_title: i18n.t('screens.songbook.tableofcontents')
     });
     this._scrollView.scrollTo({
       x: screenWidth * (this.state.pageCount + 1),

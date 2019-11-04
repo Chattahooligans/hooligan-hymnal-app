@@ -10,6 +10,7 @@ import Navigation from './src/Navigation';
 import Home from './src/screens/Home';
 import imagesArray from './assets';
 
+
 YellowBox.ignoreWarnings(['Warning: bind()']);
 
 const theme = {

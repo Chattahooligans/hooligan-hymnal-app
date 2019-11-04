@@ -3,10 +3,11 @@ import { Text } from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
 import NavigationOptions from '../config/NavigationOptions';
 import { INSTRUMENTATION_URL } from '../config/Settings';
+import i18n from "../../i18n";
 
 export default class Instrumentation extends React.Component {
   static navigationOptions = {
-    title: 'Instrumentation',
+    title: i18n.t('screens.instrumentation.title'),
     ...NavigationOptions
   };
 
@@ -21,7 +22,7 @@ export default class Instrumentation extends React.Component {
 
   render() {
     return (
-      <Text>Instrumentation opens in WebBrowser component</Text>
+      <Text>{i18n.t('screens.instrumentation.fallback')}</Text>
     );
   }
 }

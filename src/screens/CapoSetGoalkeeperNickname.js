@@ -32,6 +32,7 @@ import { Skin, DefaultColors } from '../config/Settings';
 import Constants from 'expo-constants';
 import { HeaderBackButton } from 'react-navigation';
 import gkNicknameSchema from '../data/goalkeeperNickname_schema.json';
+import i18n from "../../i18n";
 
 // TODO: On row press, get the related song object by _id using snippet below and pass it to the next screen
 //      Songs.filter(song => song._id === songChild._id)[0]
@@ -67,7 +68,7 @@ class ColorRow extends React.Component {
 
 class CapoSetGoalkeeperNickname extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'GK Nickname',
+    title: i18n.t('screens.caposetGKnickname.title'),
     ...NavigationOptions,
     headerLeft: (
       <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
@@ -111,14 +112,14 @@ class CapoSetGoalkeeperNickname extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <MediumText style={styles.instructions}>1. We're gonna score on you...</MediumText>
+        <MediumText style={styles.instructions}>{i18n.t('screens.caposetGKnickname.instructions1')}</MediumText>
         <TextInput
           style={styles.textInput}
           autoFocus={true}
           onChangeText={this._setNickname}
           value={this.state.value}
         />
-        <MediumText style={styles.instructions}>2. Pick a color, any color</MediumText>
+        <MediumText style={styles.instructions}>{i18n.t('screens.caposetGKnickname.instructions2')}</MediumText>
         <SectionList
           style={styles.colorPicker}
           renderScrollComponent={props => <ScrollView {...props} />}
@@ -128,7 +129,7 @@ class CapoSetGoalkeeperNickname extends React.Component {
           sections={this.state.colorData}
           keyExtractor={(item, index) => index}
         />
-        <MediumText style={styles.instructions}>3. Which is more readable?</MediumText>
+        <MediumText style={styles.instructions}>{i18n.t('screens.caposetGKnickname.instructions3')}</MediumText>
         <ClipBorderRadius>
           <RectButton
             style={[styles.bigButton, {backgroundColor: this.state.color}]}

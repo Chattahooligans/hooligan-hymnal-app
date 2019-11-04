@@ -11,13 +11,14 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors, Settings } from '../config/Settings';
+import i18n from "../../i18n";
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 
 @withNavigation
 export default class CapoHome extends React.Component {
   static navigationOptions = {
-    title: 'Capo Dashboard',
+    title: i18n.t('screens.capohome.title'),
     ...NavigationOptions
   };
 
@@ -40,7 +41,7 @@ export default class CapoHome extends React.Component {
               }}
             />
             <MediumText style={styles.bigButtonText}>
-              Select Song
+            {i18n.t('screens.capohome.selectsong')}
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
@@ -60,7 +61,7 @@ export default class CapoHome extends React.Component {
               }}
             />
             <MediumText style={styles.bigButtonText}>
-              Compose Song
+            {i18n.t('screens.capohome.composesong')}
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
@@ -81,7 +82,7 @@ export default class CapoHome extends React.Component {
                 }}
               />
               <MediumText style={styles.bigButtonText}>
-                GK Nickname
+              {i18n.t('screens.capohome.gknickname')}
               </MediumText>
             </RectButton>
           </ClipBorderRadius>

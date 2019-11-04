@@ -10,6 +10,7 @@ import { RectButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { HYMNAL_ADDRESS } from '../config/server';
 import { DefaultColors } from '../config/Settings';
+import i18n from '../../i18n';
 
 const CAPO_MESSAGE_ENDPOINT = HYMNAL_ADDRESS + '/api/notifications/last';
 const GOALKEEPER_NICKNAME_ENDPOINT = HYMNAL_ADDRESS + '/api/goalkeeperNicknames/last';
@@ -41,7 +42,7 @@ class UpNext extends React.Component {
         <View
           style={{
             flex: 1,
-            flexDirection: 'row',
+            flexDirection: i18n.getFlexDirection(),
             justifyContent: 'space-between'
           }}
         >
@@ -72,7 +73,7 @@ class UpNext extends React.Component {
 
   componentWillMount() {
     this.setState({
-      label: 'Up Next',
+      label: i18n.t('components.upnext.upnext'),
     });
     this._refreshNotification();
     this._refreshGoalkeeperNickname();
@@ -161,7 +162,7 @@ const styles = StyleSheet.create({
     paddingRight: 3,
     marginRight: 3,
     overflow: 'hidden',
-    flexDirection: 'row'
+    flexDirection: i18n.getFlexDirection()
   }
 });
 

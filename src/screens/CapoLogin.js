@@ -17,6 +17,7 @@ import { BoldText, MediumText, RegularText, UnderlineText } from '../components/
 import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors } from '../config/Settings';
 import AuthCheck from '../server_store/AuthCheck';
+import i18n from "../../i18n";
 import {AsyncStorage} from 'react-native';
 
 // TODO: Hard code password for now
@@ -30,7 +31,7 @@ import {AsyncStorage} from 'react-native';
 @withNavigation
 class CapoLogin extends React.Component {
   static navigationOptions = {
-    headerTitle: 'Capo Dashboard',
+    headerTitle: i18n.t('screens.capologin.title'),
     ...NavigationOptions
   };
 
@@ -81,14 +82,14 @@ class CapoLogin extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <RegularText style={styles.instructions}>Username/Email</RegularText>
+        <RegularText style={styles.instructions}>{i18n.t('screens.capologin.username')}</RegularText>
         <TextInput
           style={styles.textInput}
           autoFocus={true}
           onChangeText={this._setUsername}
           value={this.state.username}
         />
-        <RegularText style={styles.instructions}>Password</RegularText>
+        <RegularText style={styles.instructions}>{i18n.t('screens.capologin.password')}</RegularText>
         <TextInput
           style={styles.textInput}
           autoFocus={true}
@@ -102,7 +103,7 @@ class CapoLogin extends React.Component {
             onPress={this._handlePressSubmitButton}
             underlayColor="#fff"
           >
-            <MediumText style={styles.bigButtonText}>Unlock</MediumText>
+            <MediumText style={styles.bigButtonText}>{i18n.t('screens.capologin.unlock')}</MediumText>
           </RectButton>
         </ClipBorderRadius>
       </View>

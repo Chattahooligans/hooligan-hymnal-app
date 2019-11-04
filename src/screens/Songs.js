@@ -8,15 +8,16 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import NavigationOptions from '../config/NavigationOptions';
 
 import songs from '../data/songs.json';
+import i18n from "../../i18n";
 
 const gameSongs = songs.filter(song => song.category === 'game');
 const playerSongs = songs.filter(song => song.category === 'player');
 const teamSongs = songs.filter(song => song.category === 'team');
 
 const SongData = [
-  { data: gameSongs, title: 'Game Songs' },
-  { data: playerSongs, title: 'Player Songs' },
-  { data: teamSongs, title: 'Team Songs' }
+  { data: gameSongs, title: i18n.t('screens.songs.gamesongs') },
+  { data: playerSongs, title: i18n.t('screens.songs.playersongs') },
+  { data: teamSongs, title: i18n.t('screens.songs.teamsongs') }
 ];
 
 class SpeakerRow extends React.Component {
@@ -31,7 +32,7 @@ class SpeakerRow extends React.Component {
       >
         <View style={styles.row}>
           <View style={styles.rowData}>
-            <BoldText>{speaker.name}</BoldText>
+            <BoldText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{speaker.name}</BoldText>
             {speaker.organization ? (
               <MediumText>{speaker.organization}</MediumText>
             ) : null}
@@ -49,7 +50,7 @@ class SpeakerRow extends React.Component {
 
 export default class Songs extends React.Component {
   static navigationOptions = {
-    title: 'Songs',
+    title: i18n.t('screens.songs.title'),
     ...NavigationOptions
   };
 
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: '#eee',
-    flexDirection: 'row'
+    flexDirection: i18n.getFlexDirection()
   },
   rowAvatarContainer: {
     paddingVertical: 5,

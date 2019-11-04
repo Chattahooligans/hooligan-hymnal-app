@@ -4,6 +4,7 @@ import SongView from '../components/SongView';
 import NavigationOptions from '../config/NavigationOptions';
 import { HeaderBackButton } from 'react-navigation';
 import { Skin, DefaultColors } from '../config/Settings';
+import i18n from "../../i18n";
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
 // add a unique header that includes a megaphone icon somewhere?
 export default class SingleSong extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Up Next',
+    title: i18n.t('screens.singlesong.title'),
     ...NavigationOptions,
     headerLeft: (
       <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />

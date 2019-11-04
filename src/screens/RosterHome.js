@@ -22,6 +22,7 @@ import RosterFoePlayers from './RosterFoePlayers';
 import { defaultFormatUtc } from 'moment';
 // NO IDEA WHY THIS DOES NOT WORK
 import Screens from './';
+import i18n from "../../i18n";
 
 const FriendsNavigator = StackNavigator(
     {
@@ -36,7 +37,7 @@ const FriendsNavigator = StackNavigator(
             tabBarLabel: ({tintColor}) => { 
                 return <View style={styles.tabContainer}>
                     <Ionicons name={Skin.Roster_FriendsTabIcon} color={tintColor} size={23} style={styles.tabIcon} />
-                    <MediumText style={{ color: tintColor, fontSize: FontSizes.normalButton }}>{Skin.Roster_FriendsTabLabel}</MediumText>
+                    <MediumText style={{ color: tintColor, fontSize: FontSizes.normalButton }}>{i18n.t('screens.rosterhome.friends')}</MediumText>
                 </View>
             }
         }
@@ -53,22 +54,25 @@ const FoesNavigator = StackNavigator(
             tabBarLabel: ({tintColor}) => { 
                 return <View style={styles.tabContainer}>
                     <Ionicons name={Skin.Roster_FoesTabIcon} color={tintColor} size={23} style={styles.tabIcon} />
-                    <MediumText style={{ color: tintColor, fontSize: FontSizes.normalButton }}>{Skin.Roster_FoesTabLabel}</MediumText>
+                    <MediumText style={{ color: tintColor, fontSize: FontSizes.normalButton }}>{i18n.t('screens.rosterhome.foes')}</MediumText>
                 </View>
             }
         }
     }
 );
-
+let tabs = {
+    Friends: FriendsNavigator,
+    Foes: FoesNavigator
+}
+//if(i18n.getFlexDirection() == "row-reverse") {
+//    tabs = {Foes: FoesNavigator, Friends: FriendsNavigator}
+//}
 const RosterTabs = TabNavigator(
-    {
-        Friends: FriendsNavigator,
-        Foes: FoesNavigator
-    },
+    tabs,
     {
         navigationOptions: {
             swipeEnabled: true,
-            tabBarPosition: 'top'
+            tabBarPosition: 'top',
         },
         tabBarOptions: {
             style: { backgroundColor: Skin.Roster_TabBackground },
@@ -80,7 +84,7 @@ const RosterTabs = TabNavigator(
 );
 export default class RosterHome extends React.Component {
     static navigationOptions = {
-      title: 'Roster',
+      title: i18n.t('screens.rosterhome.title'),
       ...NavigationOptions
     };
   
@@ -110,7 +114,7 @@ export default class RosterHome extends React.Component {
   
   const styles = StyleSheet.create({
     tabContainer: {
-        flexDirection: 'row', 
+        flexDirection: i18n.getFlexDirection(), 
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -127,7 +131,7 @@ export default class RosterHome extends React.Component {
       justifyContent: 'center',
       borderRadius: BORDER_RADIUS,
       overflow: 'hidden',
-      flexDirection: 'row'
+      flexDirection: i18n.getFlexDirection()
     },
     bigButtonText: {
       fontSize: FontSizes.normalButton,

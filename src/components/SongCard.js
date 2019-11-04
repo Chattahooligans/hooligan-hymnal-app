@@ -8,6 +8,7 @@ import SaveIconWhenSaved from './SaveIconWhenSaved';
 import { BoldText, RegularText, MediumText } from './StyledText';
 import { conferenceHasEnded, getSpeakerAvatarURL } from '../utils';
 import { Colors, FontSizes } from '../constants';
+import i18n from "../../i18n"
 
 @withNavigation
 export default class SongCard extends React.Component {
@@ -33,7 +34,7 @@ export default class SongCard extends React.Component {
           >
             {song.lyrics.replace('\n', '/')}
           </RegularText>
-          <MediumText>See More...</MediumText>
+          <MediumText style={{textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>{i18n.t('components.songcard.seemore')}</MediumText>
         </View>
       </RectButton>
     );
@@ -67,10 +68,14 @@ const styles = StyleSheet.create({
     paddingTop: 5
   },
   songLyrics: {
-    paddingTop: 10
+    paddingTop: 10,
+    textAlign: i18n.getRTLTextAlign(), 
+    writingDirection: i18n.getWritingDirection()
   },
   songTitle: {
-    fontSize: FontSizes.subtitle
+    fontSize: FontSizes.subtitle,
+    textAlign: i18n.getRTLTextAlign(), 
+    writingDirection: i18n.getWritingDirection()
   },
   nextYear: {
     textAlign: 'center',

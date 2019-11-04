@@ -3,6 +3,7 @@ import { Animated, Platform, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 import { Layout } from '../constants';
 import { Skin, DefaultColors } from '../config/Settings';
+import i18n from '../../i18n';
 
 export default class NavigationBar extends React.Component {
   render() {
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
   },
   navigationBarTitleContainer: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: i18n.getFlexDirection(),
     paddingHorizontal: 0,
     alignItems: 'center',
     justifyContent: Platform.OS === 'ios' ? 'center' : 'flex-start',

@@ -1,0 +1,166 @@
+{
+    "screens": {
+        "about": {
+            "title": "About",
+            "appTitle": "Chattahooligan Hymnal",
+            "why": "The Chattahooligan Hymnal is built to help you support Chattanooga FC.",
+            "feedback": "Please send feedback to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email thechattahooligans@gmail.com",
+            "creditsheading": "Credits",
+            "credits": [
+                "- Home screen video created by Jay Kaley",
+                "- Menu photo from Phil Thach photography",
+                "- Some player photos from Madonna Kemp and Ray Soldano, used with permission",
+                "- Player headshots provided by Chattanooga FC, used with permission",
+                "- Some code based on open source @nodevember conference schedule app"
+            ],
+            "debug": "Debug",
+            "contribute": "Interested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email thechattahooligans@gmail.com",
+        },
+        "capocompose": {
+            "title": "Compose Song",
+            "songtitle": "Title",
+            "songlyrics": "Lyrics",
+            "continue": "Continue"
+        },
+        "capoconfirmGK": {
+            "title": "Confirm GK Nickname?",
+            "sendonly": "Send Only",
+            "sendnotify": "Send &amp; Notify"
+        },
+        "capoconfirmsong": {
+            "title": "Confirm Song?",
+            "sendonly": "Send Only",
+            "sendnotify": "Send &amp; Notify"
+        },
+        "capohome": {
+            "title": "Capo Dashboard",
+            "selectsong": "Select Song",
+            "composesong": "Compose Song",
+            "gknickname": "GK Nickname"
+        },
+        "capologin": {
+            "title": "Capo Dashboard",
+            "username": "Username/Email",
+            "password": "Password",
+            "unlock": "Unlock"
+        },
+        "caposelectsong": {
+            "title": "Select Song"
+        },
+        "caposetGKnickname": {
+            "title": "GK Nickname",
+            "instructions1": "1. We're gonna score on you...",
+            "instructions2": "2. Pick a color, any color",
+            "instructions3": "3. Which is more readable?"
+        },
+        "events": {
+            "title": "Events",
+            "fallback": "Events open in WebBrowser component"
+        },
+        "home": {
+            "findthemenu": "Find more features in the {{menuicon}} menu, top left",
+            "visit": "Visit:",
+            "songbook": "Songbook",
+            "roster": "Roster"
+        },
+        "instrumentation": {
+            "title": "Instrumentation",
+            "fallback": "Instrumentation opens in WebBrowser component"
+        },
+        "player": {
+            "playersongs": "Player Songs",
+            "stilllooking": "We are still working on a song for this player. Want to help? Submit an idea!",
+            "bio": "Bio",
+            "playerheadersong": "Player Song",
+            "readmore": "Read more",
+            "showless": "Show less"
+        },
+        "roster": {
+            "title": "Roster",
+            "nosquadsfound": "No squads found",
+            "twitterlist": "Twitter List"
+        },
+        "rosterhome": {
+            "title": "Roster",
+            "friends": "Friends",
+            "foes": "Foes"
+        },
+        "shop": {
+            "title": "Merch Shop",
+            "fallback": "Merch shop opens in WebBrowser component"
+        },
+        "singlesong": {
+            "title": "Up Next"
+        },
+        "songbook": {
+            "defaultchaptertitle": "Cover",
+            "title": "Songbook",
+            "tableofcontents": "Table of Contents",
+            "swipetoview": "Swipe Left/Right to View Songs"
+        },
+        "songs": {
+            "title": "Songs",
+            "gamesongs:": "Game Songs",
+            "playersongs": "Player Songs",
+            "teamsongs": "Team Songs"
+        },
+        "standings": {
+            "title": "Standings",
+            "fallback": "Standings open in WebBrowser component"
+        },
+        "tocinline": {
+            "title": "Table of Contents"
+        },
+        "twitterlist": {
+            "headertitle": "Twitter List",
+            "calltoaction": "All Together, Now",
+            "instructions": "The connection between CFC fans and the team is unique, special, and tangible. Messages of encouragement, love, whatever, truly mean a lot to the players.\n\nYou can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.",
+            "opentwitter": "Open Twitter App"
+        },
+        "volunteer": {
+            "title": "Volunteer",
+            "fallback": "Chattahooligan volunteer form opens in WebBrowser component"
+        }
+    },
+    "navigation": {
+        "home": "HOME",
+        "songbook": "SONGBOOK",
+        "roster": "ROSTER",
+        "events": "EVENTS ↗️",
+        "standings": "NPSL-MC STANDINGS ↗️",
+        "shop": "MERCH SHOP ↗️",
+        "volunteer": "VOLUNTEER ↗️",
+        "instrumentation": "INSTRUMENTATION ↗️",
+        "capo": "CAPO DASHBOARD",
+        "about": "ABOUT"
+    },
+    "components": {
+        "gkNickname": {
+            "gonnascore": "We're gonna score on you, "
+        },
+        "songview": {
+            "copiedtitle": "Copied title to clipboard",
+            "copiedreference": "Copied reference to clipboard",
+            "copiedlyrics": "Copied lyrics to clipboard"
+        },
+        "upnext": {
+            "upnext": "Up Next"
+        },
+        "songcard": {
+            "seemore": "See more..."
+        }
+    },
+    "positions": {
+        "Forward": "Forward",
+        "Defender": "Defender",
+        "Midfielder": "Midfielder",
+        "Goalkeeper": "Goalkeeper",
+        "Head Coach": "Head Coach",
+        "Associate Head Coach": "Associate Head Coach",
+        "Goalkeeper Coach": "Goalkeeper Coach"
+    },
+    "settings": {
+        "socialEN": "Follow us",
+        "socialES": "Síguenos"
+    }
+}

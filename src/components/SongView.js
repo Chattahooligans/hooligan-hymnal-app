@@ -4,8 +4,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { BoldText, RegularText } from './StyledText';
 import * as WebBrowser from 'expo-web-browser';
 import ParsedText from 'react-native-parsed-text';
-import { FontSizes, Layout } from '../constants';
+import { FontSizes, Layout } from '../constants';{i18n.t('components.gkNickname.gonnascore')}
 import { Skin, Palette, MUSICAL_SCORE_ICON } from '../config/Settings';
+import i18n from "../../i18n";
 
 // TODO: platform select
 // on android, longpress event with clipboard setting
@@ -51,7 +52,7 @@ export default class SongView extends React.Component {
 
     return (
       <View style={styles.container}>
-        <View style={{paddingBottom: 1, flexDirection: 'row'}}>
+        <View style={{paddingBottom: 1, flexDirection: i18n.getFlexDirection()}}>
           <View style={{flex: 1, backgroundColor: Palette.White}}>
             <BoldText style={styles.title} onLongPress={this._onLongPressTitle}>{song.title}</BoldText>
             {referenceDisplay}
@@ -60,12 +61,13 @@ export default class SongView extends React.Component {
           {playButtonDisplay}
         </View>
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
-          <View style={{flex: 1}}>
+          <View style={{flex: 1, flexDirection: i18n.getFlexDirection()}}>
             <RegularText style={styles.instructions}>{song.instructions}</RegularText>
             <ParsedText 
               parse={
                 [
                   {type: 'url', style: styles.url, onPress: this._urlPress},
+                  {type: 'email', style: styles.url, onPress: this._emailPress},
                   {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
                   {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
                 ]
@@ -86,7 +88,7 @@ export default class SongView extends React.Component {
             marginBottom: 6,
             padding: 8,
             flex: 0,
-            flexDirection: 'row',
+            flexDirection: i18n.getFlexDirection(),
             justifyContent: 'space-between',
             alignItems: 'center',
           }}
@@ -108,22 +110,26 @@ export default class SongView extends React.Component {
   }
 
   _onLongPressTitle = () => {
-    ToastAndroid.show('Copied title to clipboard', ToastAndroid.SHORT);
+    ToastAndroid.show(i18n.t('components.songview.copiedtitle'), ToastAndroid.SHORT);
     Clipboard.setString(this.props.song.title);
   };
 
   _onLongPressReference = () => {
-    ToastAndroid.show('Copied reference to clipboard', ToastAndroid.SHORT);
+    ToastAndroid.show(i18n.t('components.songview.copiedreference'), ToastAndroid.SHORT);
     Clipboard.setString(this.props.song.reference_title);
   };
   
   _onLongPressLyrics = () => {
-    ToastAndroid.show('Copied lyrics to clipboard', ToastAndroid.SHORT);
+    ToastAndroid.show(i18n.t('components.songview.copiedlyrics'), ToastAndroid.SHORT);
     Clipboard.setString(this.props.song.lyrics);
   };
 
   _urlPress = (url) => {
     WebBrowser.openBrowserAsync(url);
+  }
+
+  _emailPress = (email) => {
+    Linking.openURL('mailto:' + email);
   }
 
   _renderFormatted = (matchingString) => {
@@ -158,7 +164,9 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     color: '#AAAAAA',
     backgroundColor: Palette.White,
-    paddingLeft: 12
+    paddingLeft: 12,
+    textAlign: i18n.getRTLTextAlign(), 
+    writingDirection: i18n.getWritingDirection()
   },
   lyrics: {
     fontFamily: 'heebo',
@@ -167,7 +175,9 @@ const styles = StyleSheet.create({
     flex: 1,
     color: Palette.Navy,
     backgroundColor: Palette.White,
-    paddingLeft: 8
+    paddingLeft: 8,
+    textAlign: i18n.getRTLTextAlign(), 
+    writingDirection: i18n.getWritingDirection()
   },
   bold: {
     fontWeight: 'bold'
