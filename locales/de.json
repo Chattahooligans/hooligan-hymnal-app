@@ -90,7 +90,7 @@
             "fallback": "Fanartikel-Shop öffnet im WebBrowser."
         },
         "singlesong": {
-            "title": "Hoch Nächstes"
+            "title": "Demnächst"
         },
         "songbook": {
             "defaultchaptertitle": "Cover",
@@ -144,7 +144,7 @@
             "copiedlyrics": "Liedtext in die Zwischenablage kopiiert"
         },
         "upnext": {
-            "upnext": "Hoch nächstes"
+            "upnext": "Demnächst"
         },
         "songcard": {
             "seemore": "Mehr anzeigen..."
