@@ -5,7 +5,7 @@
     "owner": "chattahooligan",
     "slug": "chattahooligan-hymnal",
     "privacy": "public",
-    "version": "1.3.1",
+    "version": "1.4.0",
     "primaryColor": "#A3D8F7",
     "icon": "./assets/big-c-icon-ios.png",
     "orientation": "portrait",
@@ -18,7 +18,7 @@
     "android": {
       "package": "com.chattahooligan.hymnal",
       "icon": "./assets/big-c-icon-android.png",
-      "versionCode": 3,
+      "versionCode": 4,
       "permissions": [],
       "googleServicesFile": "./google-services.json"
     },
