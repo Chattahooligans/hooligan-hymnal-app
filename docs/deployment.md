@@ -57,7 +57,7 @@ Neither Apple nor Google are friendly towards in-app uses of the term "donate". 
 
 Using a push notification or news feed item to suggest that people go to your website or social media feed for a new campaign is OK, and you may ask users from that secondary location to donate. Directly incorporating "donate" into the messaging or trying to create an in-app payment mechanism for it that doesn't go to a browser is the biggest concern.
 
-### Make sure "TestFlight" isn't visible in iOS photos
+### Make sure "TestFlight" isn't visible in iOS screenshots
 
 Using TestFlight makes it easy to beta test your new .ipa file. If it's present in a screenshot, however, Apple may reject your app. Edit the screenshot if needed.
 
