@@ -36,7 +36,7 @@ export default class VideoBackground extends React.Component {
             style={{ flex: 1 }}
             resizeMode="cover"
             shouldPlay
-            muted
+            isMuted={true}
             isLooping
           />
         </AnimatableView>
