@@ -13,6 +13,10 @@ Before going further, make sure you're aware of the costs involved. At an absolu
 
 You will also need access to a Mac to publish your iOS builds, since only their developer tools can handle the upload. Your SG may already have access to some of these things before you've started the project.
 
+# Assets
+
+See [our assets guide](assets.md) for a guide to images and photos you should customize for your implementation
+
 # GET STARTED ON THIS NOW
 
 Don't wait on following this guide until after you've customized Hooligan Hymnal for your SG! All of these steps take time- some of them a surprising amount of it. You don't want to miss your original launch target because of long delays with the App Store, for instance. Start the process immediately and customize the code while you wait on bureaucracies to email you back.
