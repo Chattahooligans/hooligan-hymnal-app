@@ -44,6 +44,16 @@ function getFlexDirection() {
     }
 }
 
+//we want the drawer menu to pop out of the right for RTL languages
+//if the user is using an rtl language
+function getDrawerPosition() {
+    if(isRTL) {
+        return "right"
+    } else {
+        return "left"
+    }
+}
+
 //for text areas that we align or default to the left in English, we invert that for rtl
 function getRTLTextAlign() {
     if(isRTL) {
@@ -65,6 +75,7 @@ function getWritingDirection() {
 
 i18n.getLocalizedBio = getLocalizedBio;
 i18n.getFlexDirection = getFlexDirection;
+i18n.getDrawerPosition = getDrawerPosition;
 i18n.getRTLTextAlign = getRTLTextAlign;
 i18n.getWritingDirection = getWritingDirection;
 export default i18n;
