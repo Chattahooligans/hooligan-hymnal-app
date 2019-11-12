@@ -4,13 +4,14 @@ import * as Localization from 'expo-localization';
 //import files
 import de from './locales/de.json';
 import en from './locales/en.json';
+import es from './locales/es.json';
 //default to English
-i18n.defaultLocale = 'en';
+i18n.defaultLocale = 'dn';
 //get user's current locale
 i18n.locale = Localization.locale;
 //if not found in the current locale, fallback to English
 i18n.fallbacks = true;
-i18n.translations = { de, en };
+i18n.translations = { de, en, es };
 //future: when app returns from backgroud on Android,
 //check `await Localization.getLocalizationAsync();` to update locale
 
