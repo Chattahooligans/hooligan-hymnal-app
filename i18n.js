@@ -6,7 +6,7 @@ import de from './locales/de.json';
 import en from './locales/en.json';
 import es from './locales/es.json';
 //default to English
-i18n.defaultLocale = 'dn';
+i18n.defaultLocale = 'en';
 //get user's current locale
 i18n.locale = Localization.locale;
 //if not found in the current locale, fallback to English
