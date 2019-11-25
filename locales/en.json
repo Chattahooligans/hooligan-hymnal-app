@@ -25,12 +25,12 @@
         "capoconfirmGK": {
             "title": "Confirm GK Nickname?",
             "sendonly": "Send Only",
-            "sendnotify": "Send &amp; Notify"
+            "sendnotify": "Send & Notify"
         },
         "capoconfirmsong": {
             "title": "Confirm Song?",
             "sendonly": "Send Only",
-            "sendnotify": "Send &amp; Notify"
+            "sendnotify": "Send & Notify"
         },
         "capohome": {
             "title": "Capo Dashboard",
