@@ -61,7 +61,7 @@ export default class SongView extends React.Component {
           {playButtonDisplay}
         </View>
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
-          <View style={{flex: 1, flexDirection: i18n.getFlexDirection()}}>
+          <View style={{flex: 1}}>
             <RegularText style={styles.instructions}>{song.instructions}</RegularText>
             <ParsedText 
               parse={
