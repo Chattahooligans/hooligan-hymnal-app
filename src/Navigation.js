@@ -135,9 +135,7 @@ const InstrumentationNavigation = StackNavigator(
 const CapoHomeNavigation = StackNavigator(
   {
     CapoLogin: { screen: Screens.CapoLogin },
-    CapoHome: {
-      screen: Screens.CapoHome
-    },
+    CapoHome: { screen: Screens.CapoHome },
     CapoSelectSong: { screen: Screens.CapoSelectSong },
     CapoComposeSong: { screen: Screens.CapoComposeSong },
     CapoConfirmSendSong: { screen: Screens.CapoConfirmSendSong },

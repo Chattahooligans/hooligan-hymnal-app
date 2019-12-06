@@ -36,7 +36,8 @@
             "title": "Capo Dashboard",
             "selectsong": "Select Song",
             "composesong": "Compose Song",
-            "gknickname": "GK Nickname"
+            "gknickname": "GK Nickname",
+            "createpost": "Create Post"
         },
         "capologin": {
             "title": "Capo Dashboard",
@@ -52,6 +53,9 @@
             "instructions1": "1. We're gonna score on you...",
             "instructions2": "2. Pick a color, any color",
             "instructions3": "3. Which is more readable?"
+        },
+        "createpost": {
+            "title": "Create Post"
         },
         "events": {
             "title": "Events",

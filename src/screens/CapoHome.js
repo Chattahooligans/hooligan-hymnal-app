@@ -87,6 +87,26 @@ export default class CapoHome extends React.Component {
             </RectButton>
           </ClipBorderRadius>
         }
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressCreatePostButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-paper"
+              size={23}
+              style={{
+                color: '#fff',
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <MediumText style={styles.bigButtonText}>
+            {i18n.t('screens.capohome.createpost')}
+            </MediumText>
+          </RectButton>
+        </ClipBorderRadius>
       </LoadingPlaceholder>
     );
   }
@@ -103,6 +123,10 @@ export default class CapoHome extends React.Component {
   _handlePressGoalkeeperNicknameButton = () => {
     Keyboard.dismiss();
     this.props.navigation.navigate('CapoSetGoalkeeperNickname');
+  };
+
+  _handlePressCreatePostButton = () => {
+    this.props.navigation.navigate('CreatePost');
   };
 }
 
