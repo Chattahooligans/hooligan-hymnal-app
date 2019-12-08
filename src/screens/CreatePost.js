@@ -25,7 +25,18 @@ class CreatePost extends React.Component {
         headerLeft: (
           <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
         )
-      });
+    });
+
+    state = {
+        post: null
+    }
+
+    componentDidMount() {
+        this.setData();
+    }
+
+    setData = () => {
+    }
 
     render() {
         return (
