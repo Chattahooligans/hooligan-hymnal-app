@@ -75,10 +75,35 @@ export default class GlobalDataContainer extends Container {
         try {
           let player = players.find(player => player._id === playerChild._id);
 
-          if (player)
-            playerList.push(player);
+          if (player) 
+          {
+            // overrides for Academy data
+            let clonePlayer = { ...player };
+            if (playerChild.hasOwnProperty('overridePosition'))
+              clonePlayer.position = playerChild.overridePosition;
+            if (playerChild.hasOwnProperty('overrideSquadNumber'))
+              clonePlayer.squadNumber = playerChild.overrideSquadNumber;
+
+            playerList.push(clonePlayer);
+          }
           else
+          {
             console.log(playerChild._id + ' not found in players database');
+            if(playerChild.hasOwnProperty('overrideName') &&
+              playerChild.hasOwnProperty('overridePosition') &&
+              playerChild.hasOwnProperty('overrideSquadNumber')
+            )
+            {
+              // make a temp player
+              let player = {
+                name: playerChild.overrideName,
+                position: playerChild.overridePosition,
+                squadNumber: playerChild.overrideSquadNumber
+              }
+
+              playerList.push(player);
+            }
+          }
         } catch (err) {
           console.log(playerChild._id + ' not found in players database');
         }

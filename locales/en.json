@@ -157,7 +157,10 @@
         "Goalkeeper": "Goalkeeper",
         "Head Coach": "Head Coach",
         "Associate Head Coach": "Associate Head Coach",
-        "Goalkeeper Coach": "Goalkeeper Coach"
+        "Goalkeeper Coach": "Goalkeeper Coach",
+        "2005 Boys": "2005 Boys",
+        "2006 Boys": "2006 Boys",
+        "2006 Girls": "2006 Girls"
     },
     "settings": {
         "socialEN": "Follow us",
