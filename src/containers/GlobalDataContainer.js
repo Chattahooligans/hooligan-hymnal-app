@@ -11,6 +11,7 @@ import { getFoes } from '../services/foesService';
 import { HYMNAL_ADDRESS } from '../config/server';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
+import { objectTypeAnnotation } from '@babel/types';
 
 const PUSH_ENDPOINT = HYMNAL_ADDRESS + '/api/pushToken';
 
@@ -81,6 +82,7 @@ export default class GlobalDataContainer extends Container {
             let clonePlayer = { ...player };
             if (playerChild.hasOwnProperty('override'))
             {
+              /*
               if (playerChild.override.hasOwnProperty('position'))
                 clonePlayer.position = playerChild.override.position;
               if (playerChild.override.hasOwnProperty('squadNumber'))
@@ -91,6 +93,8 @@ export default class GlobalDataContainer extends Container {
                 clonePlayer.thumbnail = playerChild.override.thumbnail;
               if (playerChild.override.hasOwnProperty('image'))
                 clonePlayer.image = playerChild.override.image;
+                */
+              Object.assign(clonePlayer, playerChild.override);
             }
 
             playerList.push(clonePlayer);
@@ -110,6 +114,7 @@ export default class GlobalDataContainer extends Container {
                 bio: ''
               }
 
+              /*
               if (playerChild.override.hasOwnProperty('name'))
                 player.name = playerChild.override.name;
               if (playerChild.override.hasOwnProperty('position'))
@@ -122,6 +127,8 @@ export default class GlobalDataContainer extends Container {
                 player.thumbnail = playerChild.override.thumbnail;
               if (playerChild.override.hasOwnProperty('image'))
                 player.image = playerChild.override.image;
+              */
+              Object.assign(player, playerChild.override);
 
               playerList.push(player);
             }
