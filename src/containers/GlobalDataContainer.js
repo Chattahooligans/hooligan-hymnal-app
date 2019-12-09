@@ -79,27 +79,41 @@ export default class GlobalDataContainer extends Container {
           {
             // overrides for Academy data
             let clonePlayer = { ...player };
-            if (playerChild.hasOwnProperty('overridePosition'))
-              clonePlayer.position = playerChild.overridePosition;
-            if (playerChild.hasOwnProperty('overrideSquadNumber'))
-              clonePlayer.squadNumber = playerChild.overrideSquadNumber;
+            if (playerChild.hasOwnProperty('override'))
+            {
+              if (playerChild.override.hasOwnProperty('position'))
+                clonePlayer.position = playerChild.override.position;
+              if (playerChild.override.hasOwnProperty('squadNumber'))
+                clonePlayer.squadNumber = playerChild.override.squadNumber;
+              if (playerChild.override.hasOwnProperty('bio'))
+                clonePlayer.bio = playerChild.override.bio;
+            }
 
             playerList.push(clonePlayer);
           }
           else
           {
+            //alert('creating new ' + JSON.stringify(playerChild));
             console.log(playerChild._id + ' not found in players database');
-            if(playerChild.hasOwnProperty('overrideName') &&
-              playerChild.hasOwnProperty('overridePosition') &&
-              playerChild.hasOwnProperty('overrideSquadNumber')
-            )
+
+            if (playerChild.hasOwnProperty('override'))
             {
               // make a temp player
               let player = {
-                name: playerChild.overrideName,
-                position: playerChild.overridePosition,
-                squadNumber: playerChild.overrideSquadNumber
+                name: '',
+                position: '',
+                squadNumber: '',
+                bio: ''
               }
+
+              if (playerChild.override.hasOwnProperty('name'))
+                player.name = playerChild.override.name;
+              if (playerChild.override.hasOwnProperty('position'))
+                player.position = playerChild.override.position;
+              if (playerChild.override.hasOwnProperty('squadNumber'))
+                player.squadNumber = playerChild.override.squadNumber;
+              if (playerChild.override.hasOwnProperty('bio'))
+                player.bio = playerChild.override.bio;
 
               playerList.push(player);
             }
