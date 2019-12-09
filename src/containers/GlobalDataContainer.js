@@ -87,6 +87,10 @@ export default class GlobalDataContainer extends Container {
                 clonePlayer.squadNumber = playerChild.override.squadNumber;
               if (playerChild.override.hasOwnProperty('bio'))
                 clonePlayer.bio = playerChild.override.bio;
+              if (playerChild.override.hasOwnProperty('thumbnail'))
+                clonePlayer.thumbnail = playerChild.override.thumbnail;
+              if (playerChild.override.hasOwnProperty('image'))
+                clonePlayer.image = playerChild.override.image;
             }
 
             playerList.push(clonePlayer);
