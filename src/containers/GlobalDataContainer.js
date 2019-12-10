@@ -139,7 +139,12 @@ export default class GlobalDataContainer extends Container {
       });
 
       if (0 < playerList.length)
-        rosterList.push({ _id: roster._id, rosterTitle: roster.rosterTitle, players: playerList, default: roster.default });
+      {
+        let thisRoster = {}
+        Object.assign(thisRoster, roster);
+        thisRoster.players = playerList;
+        rosterList.push(thisRoster);
+      }
     });
 
     //roster.squads = squads;
