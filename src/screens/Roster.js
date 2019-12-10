@@ -175,6 +175,8 @@ class Roster extends React.Component {
           element.defaultThumbnail = currentRoster.defaultThumbnail;
         if (currentRoster.hasOwnProperty('defaultImage'))
           element.defaultImage = currentRoster.defaultImage;
+        if (currentRoster.hasOwnProperty('showPlayerSongs'))
+          element.showPlayerSongs = currentRoster.showPlayerSongs;
       });
   
       listDisplay = 

@@ -74,6 +74,12 @@ class Player extends React.Component {
     let playerSocialDisplay;
     let playerSocialIcons = [];
 
+    let showPlayerSongs = true;
+    if (Settings.hasOwnProperty('Player_ShowSongs'))
+      showPlayerSongs = Settings.Player_ShowSongs;
+    if (player.hasOwnProperty('showPlayerSongs') && player.showPlayerSongs == false)
+      showPlayerSongs = false;
+
     if (player.twitter) {
       playerSocialIcons.push(
         <TouchableOpacity
@@ -246,7 +252,7 @@ class Player extends React.Component {
           >
             <MediumText style={styles.sectionHeader}>{i18n.t('screens.player.bio')}</MediumText>
             <ReadMore
-              numberOfLines={Settings.Player_ShowSongs ? 3 : 9999}
+              numberOfLines={showPlayerSongs ? 3 : 9999}
               renderTruncatedFooter={this._renderTruncatedFooter}
               renderRevealedFooter={this._renderRevealedFooter}
               onReady={this._handleTextReady}
@@ -266,7 +272,7 @@ class Player extends React.Component {
               </ParsedText>
               <RegularText style={styles.bodyText}></RegularText>
             </ReadMore>
-            {Settings.Player_ShowSongs && playerSongDisplay}
+            {showPlayerSongs && playerSongDisplay}
           </AnimatableView>
         </AnimatedScrollView>
 
