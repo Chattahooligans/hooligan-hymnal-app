@@ -130,6 +130,8 @@ class Player extends React.Component {
     let playerSongDisplay;
 
     let playerImage = Skin.Player_DefaultImage;
+    if (player.defaultImage)
+      playerImage = {uri: player.defaultImage};
     if (player.image)
       playerImage = {uri: player.image};
 

@@ -35,6 +35,8 @@ class PlayerRow extends React.Component {
     const { item: player } = this.props;
 
     let thumbnail = Skin.Roster_DefaultThumbnail;
+    if (player.defaultThumbnail)
+      thumbnail = {uri: player.defaultThumbnail};
     if (player.thumbnail)
       thumbnail = {uri: player.thumbnail};
 
@@ -157,6 +159,7 @@ class Roster extends React.Component {
       });
       header = 
         <Picker
+          mode='dropdown'
           enabled={pickerItems.length > 1}
           selectedValue={this.state.currentRosterID}
           onValueChange={(itemValue) => this.setState({currentRosterID: itemValue})}
@@ -164,7 +167,15 @@ class Roster extends React.Component {
           {pickerItems}
         </Picker>
   
-      let playerData = this.state.rosters.find(element => element._id == this.state.currentRosterID).players;
+      let currentRoster = this.state.rosters.find(element => element._id == this.state.currentRosterID);
+      let playerData = currentRoster.players;
+      // inherit defaults from Roster document and pass to Player
+      playerData.forEach(element => {
+        if (currentRoster.hasOwnProperty('defaultThumbnail'))
+          element.defaultThumbnail = currentRoster.defaultThumbnail;
+        if (currentRoster.hasOwnProperty('defaultImage'))
+          element.defaultImage = currentRoster.defaultImage;
+      });
   
       listDisplay = 
         <FlatList
