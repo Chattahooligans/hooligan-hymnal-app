@@ -36,6 +36,23 @@ function getLocalizedBio(bio) {
     }
 }
 
+function getLocalizedText(text) {
+    //if bio is only a string, return that string
+    if(typeof(text) === "string") return text;
+    //otherwise, see if the current locale is in there.
+    var currentLocale = i18n.currentLocale();
+    var defaultLocale = i18n.defaultLocale;
+    if(currentLocale in text) {
+        return bio[currentLocale];
+    } else if(defaultLocale in text) {
+        return bio[defaultLocale];
+    } else {
+        //well, that's weird
+        console.log("getLocalizedText couldn't find a sensible thing to return");
+        return "";
+    }
+}
+
 //for things like the twitter list, we want to reverse element alignment
 //if the user is using an rtl language
 function getFlexDirection() {
@@ -76,6 +93,7 @@ function getWritingDirection() {
 }
 
 i18n.getLocalizedBio = getLocalizedBio;
+i18n.getLocalizedText = getLocalizedText;
 i18n.getFlexDirection = getFlexDirection;
 i18n.getDrawerPosition = getDrawerPosition;
 i18n.getRTLTextAlign = getRTLTextAlign;
