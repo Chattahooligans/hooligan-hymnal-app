@@ -8,6 +8,7 @@ import { getSongbooks } from '../services/songbooksService';
 import { getPlayers } from '../services/playersService';
 import { getRosters } from '../services/rostersService';
 import { getFoes } from '../services/foesService';
+import { getSgVoices } from '../services/sgVoicesService';
 import { HYMNAL_ADDRESS } from '../config/server';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
@@ -39,6 +40,7 @@ export default class GlobalDataContainer extends Container {
     foes: null,
     currentFoe: null,
     goalkeeperNickname: null,
+    sgVoices: null,
     htmlColors: null,
     token: null,
     response: null
@@ -52,6 +54,7 @@ export default class GlobalDataContainer extends Container {
       const players = await getPlayers();
       const rosters = await getRosters();
       const foes = await getFoes();
+      const sgVoices = await getSgVoices();
       
       //this.setState({ songbook: songbooks[0], songs, rosters, players, htmlColors, foes });
       this.setState({ 
@@ -60,6 +63,7 @@ export default class GlobalDataContainer extends Container {
         players, 
         rosters: this.verifyRoster(players,rosters), 
         foes, 
+        sgVoices,
         htmlColors });
     } catch (e) {
       alert("loadData exception: " + e.toString());
