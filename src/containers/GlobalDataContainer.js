@@ -21,6 +21,7 @@ export default class GlobalDataContainer extends Container {
     currentSong: {},
     location: null,
     pushToken: null,
+    currentUser: null,
     songbook: {
       songbook_title: '',
       organization: '',
@@ -255,6 +256,9 @@ export default class GlobalDataContainer extends Container {
   setLocation = location => this.setState({ location });
 
   setBearerToken = bearerToken => this.setState({ bearerToken });
+
+  // contains .user and .token (above, bearerToken until its refactored out)
+  setCurrentUser = currentUser => this.setState({ currentUser });
 
   getBearerToken = () => { return this.state.bearerToken; }
 }

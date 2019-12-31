@@ -123,6 +123,7 @@ class CapoLogin extends React.Component {
       .then(responseJson => {
         Keyboard.dismiss();
         this.props.globalData.setBearerToken(responseJson.token);
+        this.props.globalData.setCurrentUser(responseJson);
         storeData = async () => {
           try {
             await AsyncStorage.setItem('@capousername', this.state.username);
