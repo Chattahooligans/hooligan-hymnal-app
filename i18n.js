@@ -43,11 +43,11 @@ function getLocalizedText(text) {
     var currentLocale = i18n.currentLocale();
     var defaultLocale = i18n.defaultLocale;
     if(currentLocale in text) {
-        return bio[currentLocale];
+        return text[currentLocale];
     } else if(defaultLocale in text) {
-        return bio[defaultLocale];
-    } else if(bio.length > 0) {
-        return bio[0];
+        return text[defaultLocale];
+    } else if(text.length > 0) {
+        return text[0];
     } else {
         //well, that's weird
         console.log("getLocalizedText couldn't find a sensible thing to return");
