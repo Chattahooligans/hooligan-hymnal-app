@@ -46,10 +46,12 @@ function getLocalizedText(text) {
         return bio[currentLocale];
     } else if(defaultLocale in text) {
         return bio[defaultLocale];
+    } else if(bio.length > 0) {
+        return bio[0];
     } else {
         //well, that's weird
         console.log("getLocalizedText couldn't find a sensible thing to return");
-        return "";
+        return "Cannot parse " + JSON.stringify(text);
     }
 }
 
