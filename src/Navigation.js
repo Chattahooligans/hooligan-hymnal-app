@@ -4,6 +4,7 @@ import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import Screens from './screens';
 import CustomDrawer from './components/CustomDrawer';
 import i18n from "../i18n";
+import screens from './screens';
 
 const { width: deviceWidth } = Dimensions.get('window');
 
@@ -140,7 +141,8 @@ const CapoHomeNavigation = StackNavigator(
     CapoComposeSong: { screen: Screens.CapoComposeSong },
     CapoConfirmSendSong: { screen: Screens.CapoConfirmSendSong },
     CapoSetGoalkeeperNickname: { screen: Screens.CapoSetGoalkeeperNickname },
-    CapoConfirmSendGoalkeeperNickname: { screen: Screens.CapoConfirmSendGoalkeeperNickname }
+    CapoConfirmSendGoalkeeperNickname: { screen: Screens.CapoConfirmSendGoalkeeperNickname },
+    CreatePost: { screen: Screens.CreatePost }
   },
   {
     ...DefaultStackConfig,
