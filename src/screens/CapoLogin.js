@@ -45,14 +45,14 @@ class CapoLogin extends React.Component {
   }
 
   setData = () => {
-    var token = this.props.globalData.getBearerToken();
-    if(token !== "") {
-      //token is present from previous login
+    var bearerToken = this.props.globalData.getBearerToken();
+    if(bearerToken !== "") {
+      //bearerToken is present from previous login
       //check if still valid and bypass login if so
       let authChecker = new AuthCheck();
-      authChecker.validToken("Bearer " + token)
+      authChecker.validToken("Bearer " + bearerToken)
       .then(responseJson => {
-        //token is valid, skip login
+        //bearerToken is valid, skip login
         Keyboard.dismiss();
         this.props.navigation.navigate('CapoHome');
       }).catch(reason => {

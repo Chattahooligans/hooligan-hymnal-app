@@ -20,7 +20,7 @@ export default class GlobalDataContainer extends Container {
   state = {
     currentSong: {},
     location: null,
-    token: null,
+    pushToken: null,
     songbook: {
       songbook_title: '',
       organization: '',
@@ -212,11 +212,11 @@ export default class GlobalDataContainer extends Container {
         return;
       }
 
-      // Get the token that uniquely identifies this device
-      let token = await Notifications.getExpoPushTokenAsync();
-      this.setState({ token });
+      // Get the pushToken that uniquely identifies this device
+      let pushToken = await Notifications.getExpoPushTokenAsync();
+      this.setState({ pushToken });
 
-      // POST the token to your backend server from where you can retrieve it to send push notifications.
+      // POST the pushToken to your backend server from where you can retrieve it to send push notifications.
       return fetch(PUSH_ENDPOINT, {
         method: 'POST',
         headers: {
@@ -224,7 +224,7 @@ export default class GlobalDataContainer extends Container {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          pushToken: token,
+          pushToken: pushToken,
           expoExperience: '@' + appParams.expo.owner + '/' + appParams.expo.slug,
           appVersion: appParams.expo.version,
           platform: Platform.OS,
