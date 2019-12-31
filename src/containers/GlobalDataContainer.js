@@ -256,9 +256,9 @@ export default class GlobalDataContainer extends Container {
   setLocation = location => this.setState({ location });
 
   setBearerToken = bearerToken => this.setState({ bearerToken });
+  getBearerToken = () => { return this.state.bearerToken; }
 
   // contains .user and .token (above, bearerToken until its refactored out)
   setCurrentUser = currentUser => this.setState({ currentUser });
-
-  getBearerToken = () => { return this.state.bearerToken; }
+  getCurrentUser = () => {  return this.state.currentUser }
 }
