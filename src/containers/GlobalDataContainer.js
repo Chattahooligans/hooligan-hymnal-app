@@ -58,22 +58,23 @@ export default class GlobalDataContainer extends Container {
       const rosters = await getRosters();
       const foes = await getFoes();
       const sgVoices = await getSgVoices();
-      
+
       //this.setState({ songbook: songbooks[0], songs, rosters, players, htmlColors, foes });
-      this.setState({ 
-        songbook: songbooks[0], 
-        songs, 
-        players, 
-        rosters: this.verifyRoster(players,rosters), 
-        foes, 
+      this.setState({
+        songbook: songbooks[0],
+        songs,
+        players,
+        rosters: this.verifyRoster(players, rosters),
+        foes,
         sgVoices,
-        htmlColors });
+        htmlColors
+      });
     } catch (e) {
       alert("loadData exception: " + e.toString());
     }
   };
 
-  verifyRoster = (players,rosters) => {
+  verifyRoster = (players, rosters) => {
     let rosterList = [];
 
     rosters.forEach(roster => {
@@ -83,12 +84,10 @@ export default class GlobalDataContainer extends Container {
         try {
           let player = players.find(player => player._id === playerChild._id);
 
-          if (player) 
-          {
+          if (player) {
             // overrides for Academy data
             let clonePlayer = { ...player };
-            if (playerChild.hasOwnProperty('override'))
-            {
+            if (playerChild.hasOwnProperty('override')) {
               /*
               if (playerChild.override.hasOwnProperty('position'))
                 clonePlayer.position = playerChild.override.position;
@@ -106,13 +105,11 @@ export default class GlobalDataContainer extends Container {
 
             playerList.push(clonePlayer);
           }
-          else
-          {
+          else {
             //alert('creating new ' + JSON.stringify(playerChild));
             console.log(playerChild._id + ' not found in players database');
 
-            if (playerChild.hasOwnProperty('override'))
-            {
+            if (playerChild.hasOwnProperty('override')) {
               // make a temp player
               let player = {
                 name: '',
@@ -145,8 +142,7 @@ export default class GlobalDataContainer extends Container {
         }
       });
 
-      if (0 < playerList.length)
-      {
+      if (0 < playerList.length) {
         let thisRoster = {}
         Object.assign(thisRoster, roster);
         thisRoster.players = playerList;
@@ -244,14 +240,14 @@ export default class GlobalDataContainer extends Container {
     });
 
   setGoalkeeperNickname = (nick, callback) =>
-  this.setState({ goalkeeperNickname: nick }, () => {
-    if (callback) callback();
-  });
+    this.setState({ goalkeeperNickname: nick }, () => {
+      if (callback) callback();
+    });
 
   setResponse = (response, callback) =>
-  this.setState({response: response}, () => {
-    if (callback) callback();
-  });
+    this.setState({ response: response }, () => {
+      if (callback) callback();
+    });
 
 
   setLocation = location => this.setState({ location });
@@ -261,10 +257,10 @@ export default class GlobalDataContainer extends Container {
 
   // contains .user and .token (above, bearerToken until its refactored out)
   setCurrentUser = currentUser => this.setState({ currentUser });
-  getCurrentUser = () => {  return this.state.currentUser }
+  getCurrentUser = () => { return this.state.currentUser }
 
   // News Feed helper functions
-  initNewPost = () => {
+  initNewPost = (callback) => {
     // inital settings for creating a new feed item
     let newPost = {
       sender: {
@@ -278,11 +274,7 @@ export default class GlobalDataContainer extends Container {
       images: [],
       attachments: []
     }
-    // we should know the Voices that this user has permission to publish as by this point, and can set the fields appropriately
-    console.log("setting " + JSON.stringify(newPost));
-    
-    this.setState({ currentPostDraft: newPost });
-
-    console.log("just set " + JSON.stringify(this.getCurrentPostDraft()));
+    // we should know the Voices that this user has permission to publish as by this point, and can set the fields appropriately    
+    this.setState({ currentPostDraft: newPost }, () => { if (callback) callback(); });
   }
 }

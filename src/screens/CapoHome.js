@@ -130,8 +130,11 @@ class CapoHome extends React.Component {
   _handlePressCreatePostButton = () => {
     // later, we'll check for existing drafts and prompt the user on what to do
     // ...or create an entire drafts feature
-    this.props.globalData.initNewPost();
-    this.props.navigation.navigate('CreatePost');
+    let nav = this.props.navigation
+    function navToCreatePost() {
+      nav.navigate('CreatePost')
+    }
+    this.props.globalData.initNewPost(navToCreatePost);
   };
 }
 
