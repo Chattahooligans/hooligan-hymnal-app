@@ -42,7 +42,8 @@ export default class GlobalDataContainer extends Container {
     goalkeeperNickname: null,
     sgVoices: null,
     htmlColors: null,
-    token: null,
+    bearerToken: null,
+    currentPostDraft: null,
     response: null
   };
 
