@@ -35,7 +35,7 @@ class CreatePost extends React.Component {
     // TODO: get locales from server
     // We put some dummy data in here for the initial render
     state = {
-        sgVoices: [{ _id: -1, name: "initial def", defaultLocale:"en"}],
+        sgVoices: [{ _id: -1, name: "initial def", defaultLocale: "en" }],
         locales: ["de", "en", "es", "pt"],
         post: {
             voice: {},
@@ -90,8 +90,9 @@ class CreatePost extends React.Component {
                         enabled={voicePickerItems.length > 1}
                         selectedValue={this.state.post.voice}
                         onValueChange={(itemValue) => {
-                            this.state.post.voice = itemValue;
-                            this.state.post.locale = itemValue.defaultLocale;
+                            let post = this.state.post;
+                            post.voice = itemValue;
+                            post.locale = itemValue.defaultLocale;
                             this.setState({ post });
                         }}
                     >
@@ -101,9 +102,10 @@ class CreatePost extends React.Component {
                         style={{ width: 100 }}
                         mode='dropdown'
                         visible={localePickerItems.length > 1}
-                        selectedValue={this.state.selectedLocale}
+                        selectedValue={this.state.post.locale}
                         onValueChange={(itemValue) => {
-                            this.state.post.locale = itemValue;
+                            let post = this.state.post;
+                            post.locale = itemValue;
                             this.setState({ post });
                         }}
                     >
@@ -112,18 +114,33 @@ class CreatePost extends React.Component {
                 </View>
                 <TextInput
                     style={styles.textInput}
-                    multiline={true}>
-                    hello world
+                    multiline={true}
+                    placeholder={"post body here"}
+                    onChangeText={(text) => {
+                        let post = this.state.post;
+                        post.text = text;
+                        this.setState({ post });
+                    }}>
+                    {this.state.post.text}
                 </TextInput>
                 <Text>images container</Text>
                 <Text>attachments list</Text>
                 <View style={styles.toggleContainer}>
                     <RegularText style={styles.toggleLabel}>Pinned post?</RegularText>
-                    <Switch></Switch>
+                    <Switch />
                 </View>
                 <View style={styles.toggleContainer}>
                     <RegularText style={styles.toggleLabel}>Send push notification?</RegularText>
-                    <Switch></Switch>
+                    <Switch
+                        value={this.state.post.push}
+                        onValueChange={(value) => {
+                            let post = this.state.post;
+                            post.push = value;
+                            this.setState({ post });
+                        }
+
+                        }
+                    />
                 </View>
             </ScrollView>
         );
