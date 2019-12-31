@@ -33,12 +33,15 @@ class CreatePost extends React.Component {
     });
 
     // TODO: get locales from server
+    // We put some dummy data in here for the initial render
     state = {
-        sgVoices: [],
-        selectedVoice: null,
+        sgVoices: [{ _id: -1, name: "initial def", defaultLocale:"en"}],
         locales: ["de", "en", "es", "pt"],
-        selectedLocale: "en",
-        post: null
+        post: {
+            voice: {},
+            locale: "en",
+            push: false
+        }
     }
 
     componentDidMount() {
@@ -57,17 +60,15 @@ class CreatePost extends React.Component {
     }
 
     setData = () => {
-        let selectedVoice = this.props.globalData.state.sgVoices[0];
-        let selectedLocale = this.props.globalData.state.sgVoices[0].defaultLocale;
+        let sgVoices = this.props.globalData.state.sgVoices;
+        let post = this.props.globalData.state.currentPostDraft;
+        console.log("Inside CreatePost.setData() " + JSON.stringify(this.props.globalData.state.currentPostDraft));
+        if (post.voice == null)
+            post.voice = sgVoices[0];
+        if (post.locale == null)
+            post.locale = sgVoices[0].defaultLocale;
 
-        // TODO: If currentPostDraft exists, override selectedVoice/selectedLocale before setting state
-
-        this.setState({
-            sgVoices: this.props.globalData.state.sgVoices,
-            selectedVoice: selectedVoice,
-            selectedLocale: selectedLocale,
-            post: this.props.globalData.state.currentPostDraft
-        });
+        this.setState({ sgVoices, post });
     }
 
     render() {
@@ -87,8 +88,12 @@ class CreatePost extends React.Component {
                         style={{ flex: 1 }}
                         mode='dropdown'
                         enabled={voicePickerItems.length > 1}
-                        selectedValue={this.state.selectedVoice}
-                        onValueChange={(itemValue) => this.setState({ selectedVoice: itemValue, selectedLocale: itemValue.defaultLocale })}
+                        selectedValue={this.state.post.voice}
+                        onValueChange={(itemValue) => {
+                            this.state.post.voice = itemValue;
+                            this.state.post.locale = itemValue.defaultLocale;
+                            this.setState({ post });
+                        }}
                     >
                         {voicePickerItems}
                     </Picker>
@@ -97,7 +102,10 @@ class CreatePost extends React.Component {
                         mode='dropdown'
                         visible={localePickerItems.length > 1}
                         selectedValue={this.state.selectedLocale}
-                        onValueChange={(itemValue) => this.setState({ selectedLocale: itemValue })}
+                        onValueChange={(itemValue) => {
+                            this.state.post.locale = itemValue;
+                            this.setState({ post });
+                        }}
                     >
                         {localePickerItems}
                     </Picker>
@@ -110,11 +118,11 @@ class CreatePost extends React.Component {
                 <Text>images container</Text>
                 <Text>attachments list</Text>
                 <View style={styles.toggleContainer}>
-                    <RegularText style={ styles.toggleLabel }>Pinned post?</RegularText>
+                    <RegularText style={styles.toggleLabel}>Pinned post?</RegularText>
                     <Switch></Switch>
                 </View>
                 <View style={styles.toggleContainer}>
-                    <RegularText style={ styles.toggleLabel }>Send push notification?</RegularText>
+                    <RegularText style={styles.toggleLabel}>Send push notification?</RegularText>
                     <Switch></Switch>
                 </View>
             </ScrollView>

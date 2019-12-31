@@ -13,6 +13,7 @@ import { HYMNAL_ADDRESS } from '../config/server';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
 import { objectTypeAnnotation } from '@babel/types';
+import i18n from "../../i18n";
 
 const PUSH_ENDPOINT = HYMNAL_ADDRESS + '/api/pushToken';
 
@@ -261,4 +262,27 @@ export default class GlobalDataContainer extends Container {
   // contains .user and .token (above, bearerToken until its refactored out)
   setCurrentUser = currentUser => this.setState({ currentUser });
   getCurrentUser = () => {  return this.state.currentUser }
+
+  // News Feed helper functions
+  initNewPost = () => {
+    // inital settings for creating a new feed item
+    let newPost = {
+      sender: {
+        user: this.state.currentUser.id,
+        pushToken: this.state.pushToken
+      },
+      push: false,
+      voice: null,
+      locale: null,
+      text: "",
+      images: [],
+      attachments: []
+    }
+    // we should know the Voices that this user has permission to publish as by this point, and can set the fields appropriately
+    console.log("setting " + JSON.stringify(newPost));
+    
+    this.setState({ currentPostDraft: newPost });
+
+    console.log("just set " + JSON.stringify(this.getCurrentPostDraft()));
+  }
 }

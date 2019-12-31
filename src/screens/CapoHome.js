@@ -3,6 +3,8 @@ import { Keyboard, Image, Platform, StyleSheet, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
+import withUnstated from '@airship/with-unstated';
+import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { NavigationActions } from 'react-navigation';
 import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
@@ -16,7 +18,7 @@ import i18n from "../../i18n";
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 
 @withNavigation
-export default class CapoHome extends React.Component {
+class CapoHome extends React.Component {
   static navigationOptions = {
     title: i18n.t('screens.capohome.title'),
     ...NavigationOptions
@@ -126,6 +128,9 @@ export default class CapoHome extends React.Component {
   };
 
   _handlePressCreatePostButton = () => {
+    // later, we'll check for existing drafts and prompt the user on what to do
+    // ...or create an entire drafts feature
+    this.props.globalData.initNewPost();
     this.props.navigation.navigate('CreatePost');
   };
 }
@@ -163,3 +168,5 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   }
 });
+
+export default withUnstated(CapoHome, { globalData: GlobalDataContainer });
