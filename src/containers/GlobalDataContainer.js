@@ -268,7 +268,7 @@ export default class GlobalDataContainer extends Container {
         pushToken: this.state.pushToken
       },
       push: false,
-      voice: null,
+      channel: null,
       locale: null,
       text: "",
       images: [],

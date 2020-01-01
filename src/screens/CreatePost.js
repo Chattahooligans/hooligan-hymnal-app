@@ -111,10 +111,10 @@ class CreatePost extends React.Component {
                         style={{ flex: 1 }}
                         mode='dropdown'
                         enabled={channelPickerItems.length > 1}
-                        selectedValue={this.state.post.voice}
+                        selectedValue={this.state.post.channel}
                         onValueChange={(itemValue) => {
                             let post = this.state.post;
-                            post.voice = itemValue;
+                            post.channel = itemValue;
                             post.locale = itemValue.defaultLocale;
                             this.setState({ post });
                         }}
