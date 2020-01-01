@@ -66,10 +66,10 @@ class CreatePost extends React.Component {
         let allowedChannels = [];
 
         channels.forEach(channel => {
-            console.log("channel: " + channel.name + ", user: " + this.props.globalData.state.currentUser.user.id) 
+            console.log("channel: " + channel.name + ", user: " + this.props.globalData.state.currentUser.user._id) 
             channel.users.forEach(user => {
                 console.log("user: " + JSON.stringify(user))
-                if (user._id === this.props.globalData.state.currentUser.user.id &&
+                if (user._id === this.props.globalData.state.currentUser.user._id &&
                     user.canCreate)
                     allowedChannels.push(channel);
             })
