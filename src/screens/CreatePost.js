@@ -62,13 +62,32 @@ class CreatePost extends React.Component {
     setData = () => {
         let channels = this.props.globalData.state.channels;
         let post = this.props.globalData.state.currentPostDraft;
-        console.log("Inside CreatePost.setData() " + JSON.stringify(this.props.globalData.state.currentPostDraft));
-        if (post.channel == null)
-            post.channel = channels[0];
-        if (post.locale == null)
-            post.locale = channels[0].defaultLocale;
 
-        this.setState({ channels, post });
+        let allowedChannels = [];
+
+        channels.forEach(channel => {
+            console.log("channel: " + channel.name + ", user: " + this.props.globalData.state.currentUser.user.id) 
+            channel.users.forEach(user => {
+                console.log("user: " + JSON.stringify(user))
+                if (user._id === this.props.globalData.state.currentUser.user.id &&
+                    user.canCreate)
+                    allowedChannels.push(channel);
+            })
+        })
+
+        if (allowedChannels.length > 0) {
+            if (post.channel == null)
+                post.channel = allowedChannels[0];
+            if (post.locale == null)
+                post.locale = allowedChannels[0].defaultLocale;
+        }
+
+        this.setState({ channels: allowedChannels, post });
+
+        if (0 === allowedChannels.length) {
+            alert("No allowed channels for user: " + this.props.globalData.state.currentUser.user.id + " " + this.props.globalData.state.currentUser.user.email)
+            this.props.navigation.goBack();
+        }
     }
 
     render() {
