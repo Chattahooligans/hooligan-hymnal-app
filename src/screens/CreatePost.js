@@ -66,12 +66,16 @@ class CreatePost extends React.Component {
         let allowedChannels = [];
 
         channels.forEach(channel => {
-            console.log("channel: " + channel.name + ", user: " + this.props.globalData.state.currentUser.user._id) 
+            console.log("channel: " + channel.name + ", user: " + this.props.globalData.state.currentUser.user._id)
             channel.users.forEach(user => {
                 console.log("user: " + JSON.stringify(user))
                 if (user._id === this.props.globalData.state.currentUser.user._id &&
-                    user.canCreate)
+                    user.canCreate) {
+                    // promote canPush up the object tree for easier access
+                    channel.canPush = user.canPush;
+
                     allowedChannels.push(channel);
+                }
             })
         })
 
@@ -145,12 +149,9 @@ class CreatePost extends React.Component {
                 <Text>images container</Text>
                 <Text>attachments list</Text>
                 <View style={styles.toggleContainer}>
-                    <RegularText style={styles.toggleLabel}>Pinned post?</RegularText>
-                    <Switch />
-                </View>
-                <View style={styles.toggleContainer}>
                     <RegularText style={styles.toggleLabel}>Send push notification?</RegularText>
                     <Switch
+                        enabled={this.state.post.channel.canPush}
                         value={this.state.post.push}
                         onValueChange={(value) => {
                             let post = this.state.post;
