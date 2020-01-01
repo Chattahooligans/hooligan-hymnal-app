@@ -8,7 +8,7 @@ import { getSongbooks } from '../services/songbooksService';
 import { getPlayers } from '../services/playersService';
 import { getRosters } from '../services/rostersService';
 import { getFoes } from '../services/foesService';
-import { getSgVoices } from '../services/sgVoicesService';
+import { getChannels } from '../services/channelsService';
 import { HYMNAL_ADDRESS } from '../config/server';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
@@ -42,7 +42,7 @@ export default class GlobalDataContainer extends Container {
     foes: null,
     currentFoe: null,
     goalkeeperNickname: null,
-    sgVoices: null,
+    channels: null,
     htmlColors: null,
     bearerToken: null,
     currentPostDraft: null,
@@ -57,7 +57,7 @@ export default class GlobalDataContainer extends Container {
       const players = await getPlayers();
       const rosters = await getRosters();
       const foes = await getFoes();
-      const sgVoices = await getSgVoices();
+      const channels = await getChannels();
 
       //this.setState({ songbook: songbooks[0], songs, rosters, players, htmlColors, foes });
       this.setState({
@@ -66,7 +66,7 @@ export default class GlobalDataContainer extends Container {
         players,
         rosters: this.verifyRoster(players, rosters),
         foes,
-        sgVoices,
+        channels,
         htmlColors
       });
     } catch (e) {
@@ -274,7 +274,7 @@ export default class GlobalDataContainer extends Container {
       images: [],
       attachments: []
     }
-    // we should know the Voices that this user has permission to publish as by this point, and can set the fields appropriately    
+    // we should know the Channel(s) that this user has permission to publish as by this point, and can set the fields appropriately    
     this.setState({ currentPostDraft: newPost }, () => { if (callback) callback(); });
   }
 }

@@ -35,10 +35,10 @@ class CreatePost extends React.Component {
     // TODO: get locales from server
     // We put some dummy data in here for the initial render
     state = {
-        sgVoices: [{ _id: -1, name: "initial def", defaultLocale: "en" }],
+        channels: [{ _id: -1, name: "initial def", defaultLocale: "en" }],
         locales: ["de", "en", "es", "pt"],
         post: {
-            voice: {},
+            channel: {},
             locale: "en",
             push: false
         }
@@ -52,29 +52,29 @@ class CreatePost extends React.Component {
         if (
             !prevProps.globalData.state.currentPostDraft &&
             this.props.globalData.state.currentPostDraft ||
-            !prevProps.globalData.state.sgVoices &&
-            this.props.globalData.state.sgVoices
+            !prevProps.globalData.state.channels &&
+            this.props.globalData.state.channels
         ) {
             this.setData();
         }
     }
 
     setData = () => {
-        let sgVoices = this.props.globalData.state.sgVoices;
+        let channels = this.props.globalData.state.channels;
         let post = this.props.globalData.state.currentPostDraft;
         console.log("Inside CreatePost.setData() " + JSON.stringify(this.props.globalData.state.currentPostDraft));
-        if (post.voice == null)
-            post.voice = sgVoices[0];
+        if (post.channel == null)
+            post.channel = channels[0];
         if (post.locale == null)
-            post.locale = sgVoices[0].defaultLocale;
+            post.locale = channels[0].defaultLocale;
 
-        this.setState({ sgVoices, post });
+        this.setState({ channels, post });
     }
 
     render() {
-        let voicePickerItems = [];
-        this.state.sgVoices.forEach(element => {
-            voicePickerItems.push(<Picker.Item label={element.name} value={element} key={element._id} />);
+        let channelPickerItems = [];
+        this.state.channels.forEach(element => {
+            channelPickerItems.push(<Picker.Item label={element.name} value={element} key={element._id} />);
         });
         let localePickerItems = [];
         this.state.locales.forEach(element => {
@@ -87,7 +87,7 @@ class CreatePost extends React.Component {
                     <Picker
                         style={{ flex: 1 }}
                         mode='dropdown'
-                        enabled={voicePickerItems.length > 1}
+                        enabled={channelPickerItems.length > 1}
                         selectedValue={this.state.post.voice}
                         onValueChange={(itemValue) => {
                             let post = this.state.post;
@@ -96,7 +96,7 @@ class CreatePost extends React.Component {
                             this.setState({ post });
                         }}
                     >
-                        {voicePickerItems}
+                        {channelPickerItems}
                     </Picker>
                     <Picker
                         style={{ width: 100 }}
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
         flexDirection: i18n.getFlexDirection()
     },
     textInput: {
-        flex: 1,
+        height: 200,
         paddingHorizontal: 4,
         borderWidth: 1,
         fontSize: 18,
