@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
+import { BigButton } from '../components/BigButton';
 import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
@@ -95,6 +96,11 @@ class PostPreview extends React.Component {
                         <MediumText style={styles.bigButtonText}>{i18n.t('screens.postpreview.schedule')}</MediumText>
                     </RectButton>
                 </ClipBorderRadius>
+                <BigButton iconName="md-send" label="Submit" onPress={() => alert("Press")} />
+                <BigButton iconName="md-add" label="Compose Song" onPress={() => alert("Press")} />
+                <BigButton iconName="md-book" label="Songbook" onPress={() => alert("Press")} />
+                <BigButton iconName="md-people" label="Roster" onPress={() => alert("Press")} />
+                <BigButton iconName="md-send" iconPosition="right" label="Submit" onPress={() => alert("Press")} />         
             </ScrollView>
         );
     }
