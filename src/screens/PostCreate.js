@@ -11,7 +11,7 @@ import {
     View,
     Keyboard
 } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
@@ -174,24 +174,7 @@ class PostCreate extends React.Component {
                         }}
                     />
                 </View>
-                <ClipBorderRadius>
-                    <RectButton
-                        style={styles.bigButton}
-                        onPress={this._handlePressContinueButton}
-                        underlayColor="#fff"
-                    >
-                        <Ionicons
-                            size={23}
-                            style={{
-                                color: '#fff',
-                                marginTop: 3,
-                                backgroundColor: 'transparent',
-                                marginRight: 5
-                            }}
-                        />
-                        <MediumText style={styles.bigButtonText}>{i18n.t('screens.postcreate.continue')}</MediumText>
-                    </RectButton>
-                </ClipBorderRadius>
+                <BigButton label={i18n.t('screens.postcreate.continue')} onPress={this._handlePressContinueButton} />
             </ScrollView>
         );
     }
@@ -204,20 +187,6 @@ class PostCreate extends React.Component {
         this.props.globalData.setCurrentPostDraft(this.state.post, navToPostPreview);
     };
 }
-
-const BORDER_RADIUS = 3;
-const ClipBorderRadius = ({ children, style }) => {
-    return (
-        <View
-            style={[
-                { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
-                style
-            ]}
-        >
-            {children}
-        </View>
-    );
-};
 
 const styles = StyleSheet.create({
     postAsContainer: {
@@ -240,22 +209,6 @@ const styles = StyleSheet.create({
     toggleLabel: {
         flex: 1,
         textAlign: i18n.getRTLTextAlign()
-    },
-    bigButton: {
-        backgroundColor: DefaultColors.ButtonBackground,
-        paddingHorizontal: 15,
-        height: 50,
-        marginHorizontal: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: BORDER_RADIUS,
-        overflow: 'hidden',
-        flexDirection: 'row'
-    },
-    bigButtonText: {
-        fontSize: FontSizes.normalButton,
-        color: DefaultColors.ButtonText,
-        textAlign: 'center'
     }
 });
 
