@@ -45,15 +45,15 @@ class Post extends React.Component {
         console.log("Rendering Post:\n" + JSON.stringify(post));
 
         return (
-            <View>
+            <View style={styles.container}>
                 {/* Facebook style */}
                 <View style={{ flexDirection: i18n.getFlexDirection() }}>
                     <FadeIn>
                         <Image
                             source={{ uri: post.channel.avatarUrl }}
-                            style={{ width: 50, height: 50, borderRadius: 25 }} />
+                            style={{ width: 50, height: 50, borderRadius: 25, marginRight: 4 }} />
                     </FadeIn>
-                    <View>
+                    <View style={{ marginTop: 3 }}>
                         <BoldText>{post.channel.name}</BoldText>
                         <RegularText>{post.publishedAt.toString()}</RegularText>
                     </View>
@@ -91,26 +91,30 @@ class Post extends React.Component {
 }
 
 const styles = {
+    container: {
+        marginTop: 5,
+        marginHorizontal: 8
+    },
     text: {
+        marginTop: 3,
         fontFamily: 'heebo',
         fontSize: 18,
         lineHeight: 24,
         flex: 1,
         color: Palette.Navy,
         backgroundColor: Palette.White,
-        paddingLeft: 8,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
     },
     bold: {
         fontWeight: 'bold'
-      },
-      italic: {
+    },
+    italic: {
         fontStyle: 'italic'
-      },
-      url: {
+    },
+    url: {
         color: 'blue',
         textDecorationLine: 'underline'
-      }
+    }
 }
 export default withUnstated(Post, { globalData: GlobalDataContainer });
