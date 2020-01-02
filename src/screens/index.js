@@ -6,11 +6,12 @@ import CapoHome from './CapoHome';
 import CapoLogin from './CapoLogin';
 import CapoSetGoalkeeperNickname from './CapoSetGoalkeeperNickname';
 import CapoSelectSong from './CapoSelectSong';
-import PostCreate from './PostCreate';
 import Events from './Events';
 import Home from './Home';
 import Instrumentation from './Instrumentation';
 import Player from './Player';
+import PostCreate from './PostCreate';
+import PostPreview from  './PostPreview';
 import Roster from './Roster';
 import RosterFoePlayers from './RosterFoePlayers';
 import RosterFoes from './RosterFoes';
@@ -38,6 +39,7 @@ export default {
   Instrumentation,
   Player,
   PostCreate,
+  PostPreview,
   Roster,
   RosterFoePlayers,
   RosterFoes,

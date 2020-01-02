@@ -29,6 +29,18 @@ class PostCreate extends React.Component {
         ...NavigationOptions,
         headerLeft: (
             <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+        ),
+        headerRight: (
+            <Ionicons
+                name="md-code-download"
+                size={23}
+                style={{
+                    color: '#fff',
+                    backgroundColor: 'transparent',
+                    marginRight: 16
+                }}
+                onPress={() => Keyboard.dismiss()}
+            />
         )
     });
 
@@ -37,8 +49,9 @@ class PostCreate extends React.Component {
     state = {
         channels: [{ _id: -1, name: "initial def", defaultLocale: "en" }],
         locales: ["de", "en", "es", "pt"],
+        selectedChannel: { _id: -1, name: "initial def", defaultLocale: "en" },
         post: {
-            channel: {},
+            channel: -1,
             locale: "en",
             push: false
         }
@@ -61,6 +74,7 @@ class PostCreate extends React.Component {
 
     setData = () => {
         let channels = this.props.globalData.state.channels;
+        let selectedChannel;
         let post = this.props.globalData.state.currentPostDraft;
 
         let allowedChannels = [];
@@ -78,13 +92,15 @@ class PostCreate extends React.Component {
         })
 
         if (allowedChannels.length > 0) {
-            if (post.channel == null)
-                post.channel = allowedChannels[0];
+            if (post.channel == null) {
+                post.channel = allowedChannels[0]._id;
+                selectedChannel = allowedChannels[0];
+            }
             if (post.locale == null)
                 post.locale = allowedChannels[0].defaultLocale;
         }
 
-        this.setState({ channels: allowedChannels, post });
+        this.setState({ channels: allowedChannels, selectedChannel, post });
 
         if (0 === allowedChannels.length) {
             alert("No allowed channels for user: " + this.props.globalData.state.currentUser.user.id + " " + this.props.globalData.state.currentUser.user.email)
@@ -109,12 +125,12 @@ class PostCreate extends React.Component {
                         style={{ flex: 1 }}
                         mode='dropdown'
                         enabled={channelPickerItems.length > 1}
-                        selectedValue={this.state.post.channel}
-                        onValueChange={(itemValue) => {
+                        selectedValue={this.state.selectedChannel}
+                        onValueChange={(selectedChannel) => {
                             let post = this.state.post;
-                            post.channel = itemValue;
-                            post.locale = itemValue.defaultLocale;
-                            this.setState({ post });
+                            post.channel = selectedChannel._id;
+                            post.locale = selectedChannel.defaultLocale;
+                            this.setState({ selectedChannel, post });
                         }}
                     >
                         {channelPickerItems}
@@ -149,15 +165,13 @@ class PostCreate extends React.Component {
                 <View style={styles.toggleContainer}>
                     <RegularText style={styles.toggleLabel}>Send push notification?</RegularText>
                     <Switch
-                        enabled={this.state.post.channel.canPush}
+                        enabled={this.state.selectedChannel.canPush}
                         value={this.state.post.push}
                         onValueChange={(value) => {
                             let post = this.state.post;
                             post.push = value;
                             this.setState({ post });
-                        }
-
-                        }
+                        }}
                     />
                 </View>
                 <ClipBorderRadius>
@@ -185,7 +199,6 @@ class PostCreate extends React.Component {
     _handlePressContinueButton = () => {
         let nav = this.props.navigation
         function navToPostPreview() {
-            alert("Preview Post");
             nav.navigate('PostPreview')
         }
         this.props.globalData.setCurrentPostDraft(this.state.post, navToPostPreview);

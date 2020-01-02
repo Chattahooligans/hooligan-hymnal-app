@@ -58,10 +58,10 @@
             "title": "Create Post",
             "continue": "Continue"
         },
-        "postedit": {
-            "title": "Edit Post",
-            "submit": "Submit",
-            "schedule": "Schedule"
+        "postpreview": {
+            "title": "Preview Post",
+            "submit": "Submit Post",
+            "schedule": "Schedule Post"
         },
         "events": {
             "title": "Events",
