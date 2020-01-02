@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { BigButton } from '../components/BigButton';
+import Post from '../components/Post';
 import NavigationOptions from '../config/NavigationOptions';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -53,22 +54,20 @@ class PostPreview extends React.Component {
     render() {
         return (
             <ScrollView style={{ flex: 1 }}>
-                <View style={{ flex: 1 }}>
-                    <Text>
-                        {JSON.stringify(this.state.post)}
-                    </Text>
-                </View>
+                <Post post={this.state.post} />
                 <BigButton
                     label={i18n.t('screens.postpreview.submit')}
                     onPress={this._handlePressSubmitButton} />
                 <BigButton
                     label={i18n.t('screens.postpreview.schedule')}
                     onPress={this._handlePressScheduleButton} />
+                {/*
                 <BigButton iconName="md-send" label="Submit" onPress={() => alert("Press")} />
                 <BigButton iconName="md-add" label="Compose Song" onPress={() => alert("Press")} />
                 <BigButton iconName="md-book" label="Songbook" onPress={() => alert("Press")} />
                 <BigButton iconName="md-people" label="Roster" onPress={() => alert("Press")} />
                 <BigButton iconName="md-send" iconPosition="right" label="Submit" onPress={() => alert("Press")} />
+                */}
             </ScrollView>
         );
     }

@@ -267,10 +267,11 @@ export default class GlobalDataContainer extends Container {
         user: this.state.currentUser.user._id,
         pushToken: this.state.pushToken
       },
+      publishedAt: JSON.stringify(new Date()),
       push: false,
       channel: null,
       locale: null,
-      text: "",
+      text: "Hello, World.\n\nThis is text for a new post",
       images: [],
       attachments: []
     }
@@ -278,5 +279,20 @@ export default class GlobalDataContainer extends Container {
   }
   setCurrentPostDraft = (post, callback) => { 
     this.setState({ currentPostDraft: post }, () => { if (callback) callback(); });
+  }
+
+  getChannelBasicInfo = (channelId) => {
+    let channelToReturn = { _id: -1, name: "No channel found" };
+    const channel = this.state.channels.find(channel => channel._id === channelId)
+    
+    if (channel && channel.active) {
+      channelToReturn._id = channel._id;
+      channelToReturn.name = channel.name;
+      channelToReturn.description = channel.description;
+      channelToReturn.avatarUrl = channel.avatarUrl;
+      channelToReturn.headerUrl = channel.headerUrl;
+    }
+
+    return channelToReturn;
   }
 }
