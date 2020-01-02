@@ -142,7 +142,7 @@ const CapoHomeNavigation = StackNavigator(
     CapoConfirmSendSong: { screen: Screens.CapoConfirmSendSong },
     CapoSetGoalkeeperNickname: { screen: Screens.CapoSetGoalkeeperNickname },
     CapoConfirmSendGoalkeeperNickname: { screen: Screens.CapoConfirmSendGoalkeeperNickname },
-    CreatePost: { screen: Screens.CreatePost }
+    PostCreate: { screen: Screens.PostCreate }
   },
   {
     ...DefaultStackConfig,

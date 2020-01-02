@@ -23,9 +23,9 @@ import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
 import i18n from "../../i18n";
 
-class CreatePost extends React.Component {
+class PostCreate extends React.Component {
     static navigationOptions = ({ navigation }) => ({
-        title: i18n.t('screens.createpost.title'),
+        title: i18n.t('screens.postcreate.title'),
         ...NavigationOptions,
         headerLeft: (
             <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
@@ -66,9 +66,7 @@ class CreatePost extends React.Component {
         let allowedChannels = [];
 
         channels.forEach(channel => {
-            console.log("channel: " + channel.name + ", user: " + this.props.globalData.state.currentUser.user._id)
             channel.users.forEach(user => {
-                console.log("user: " + JSON.stringify(user))
                 if (user._id === this.props.globalData.state.currentUser.user._id &&
                     user.canCreate) {
                     // promote canPush up the object tree for easier access
@@ -162,12 +160,52 @@ class CreatePost extends React.Component {
                         }
                     />
                 </View>
+                <ClipBorderRadius>
+                    <RectButton
+                        style={styles.bigButton}
+                        onPress={this._handlePressContinueButton}
+                        underlayColor="#fff"
+                    >
+                        <Ionicons
+                            size={23}
+                            style={{
+                                color: '#fff',
+                                marginTop: 3,
+                                backgroundColor: 'transparent',
+                                marginRight: 5
+                            }}
+                        />
+                        <MediumText style={styles.bigButtonText}>{i18n.t('screens.postcreate.continue')}</MediumText>
+                    </RectButton>
+                </ClipBorderRadius>
             </ScrollView>
         );
     }
+
+    _handlePressContinueButton = () => {
+        let nav = this.props.navigation
+        function navToPostPreview() {
+            alert("Preview Post");
+            nav.navigate('PostPreview')
+        }
+        this.props.globalData.setCurrentPostDraft(this.state.post, navToPostPreview);
+    };
 }
 
 const BORDER_RADIUS = 3;
+const ClipBorderRadius = ({ children, style }) => {
+    return (
+        <View
+            style={[
+                { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
+                style
+            ]}
+        >
+            {children}
+        </View>
+    );
+};
+
 const styles = StyleSheet.create({
     postAsContainer: {
         flexDirection: i18n.getFlexDirection()
@@ -189,7 +227,23 @@ const styles = StyleSheet.create({
     toggleLabel: {
         flex: 1,
         textAlign: i18n.getRTLTextAlign()
+    },
+    bigButton: {
+        backgroundColor: DefaultColors.ButtonBackground,
+        paddingHorizontal: 15,
+        height: 50,
+        marginHorizontal: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: BORDER_RADIUS,
+        overflow: 'hidden',
+        flexDirection: 'row'
+    },
+    bigButtonText: {
+        fontSize: FontSizes.normalButton,
+        color: DefaultColors.ButtonText,
+        textAlign: 'center'
     }
 });
 
-export default withUnstated(CreatePost, { globalData: GlobalDataContainer });
+export default withUnstated(PostCreate, { globalData: GlobalDataContainer });

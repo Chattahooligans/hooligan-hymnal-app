@@ -37,7 +37,7 @@
             "selectsong": "Select Song",
             "composesong": "Compose Song",
             "gknickname": "GK Nickname",
-            "createpost": "Create Post"
+            "postcreate": "Create Post"
         },
         "capologin": {
             "title": "Capo Dashboard",
@@ -54,8 +54,14 @@
             "instructions2": "2. Pick a color, any color",
             "instructions3": "3. Which is more readable?"
         },
-        "createpost": {
-            "title": "Create Post"
+        "postcreate": {
+            "title": "Create Post",
+            "continue": "Continue"
+        },
+        "postedit": {
+            "title": "Edit Post",
+            "submit": "Submit",
+            "schedule": "Schedule"
         },
         "events": {
             "title": "Events",

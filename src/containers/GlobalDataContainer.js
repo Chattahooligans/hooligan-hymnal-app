@@ -274,7 +274,9 @@ export default class GlobalDataContainer extends Container {
       images: [],
       attachments: []
     }
-    // we should know the Channel(s) that this user has permission to publish as by this point, and can set the fields appropriately    
-    this.setState({ currentPostDraft: newPost }, () => { if (callback) callback(); });
+    this.setCurrentPostDraft(newPost, callback);
+  }
+  setCurrentPostDraft = (post, callback) => { 
+    this.setState({ currentPostDraft: post }, () => { if (callback) callback(); });
   }
 }

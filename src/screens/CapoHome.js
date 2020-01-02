@@ -92,7 +92,7 @@ class CapoHome extends React.Component {
         <ClipBorderRadius>
           <RectButton
             style={styles.bigButton}
-            onPress={this._handlePressCreatePostButton}
+            onPress={this._handlePressPostCreateButton}
             underlayColor="#fff"
           >
             <Ionicons
@@ -105,7 +105,7 @@ class CapoHome extends React.Component {
               }}
             />
             <MediumText style={styles.bigButtonText}>
-            {i18n.t('screens.capohome.createpost')}
+            {i18n.t('screens.capohome.postcreate')}
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
@@ -127,14 +127,14 @@ class CapoHome extends React.Component {
     this.props.navigation.navigate('CapoSetGoalkeeperNickname');
   };
 
-  _handlePressCreatePostButton = () => {
+  _handlePressPostCreateButton = () => {
     // later, we'll check for existing drafts and prompt the user on what to do
     // ...or create an entire drafts feature
     let nav = this.props.navigation
-    function navToCreatePost() {
-      nav.navigate('CreatePost')
+    function navToPostCreate() {
+      nav.navigate('PostCreate')
     }
-    this.props.globalData.initNewPost(navToCreatePost);
+    this.props.globalData.initNewPost(navToPostCreate);
   };
 }
 
