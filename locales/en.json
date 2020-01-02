@@ -148,6 +148,9 @@
         "gkNickname": {
             "gonnascore": "We're gonna score on you, "
         },
+        "post": {
+            "copied": "Copied"
+        },
         "songview": {
             "copiedtitle": "Copied title to clipboard",
             "copiedreference": "Copied reference to clipboard",
