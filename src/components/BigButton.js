@@ -14,7 +14,7 @@ export class BigButton extends React.Component {
                 iconPosition = "right";
 
         return (
-            <View style={[{ borderRadius: 3, overflow: 'hidden', marginTop: 10 }, this.props.style]}>
+            <View style={[styles.container, this.props.style]}>
                 <RectButton
                     style={styles.bigButton}
                     onPress={this.props.onPress}
@@ -40,7 +40,7 @@ export class BigButton extends React.Component {
                             style={{
                                 color: '#fff',
                                 backgroundColor: 'transparent',
-                                marginHorizontal: 8,                                
+                                marginHorizontal: 8,
                                 marginVertical: 3,
                                 position: 'absolute',
                                 right: 8
@@ -54,6 +54,11 @@ export class BigButton extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        borderRadius: 3,
+        overflow: 'hidden', 
+        marginTop: 10
+    },
     bigButton: {
         backgroundColor: DefaultColors.ButtonBackground,
         paddingHorizontal: 15,

@@ -11,11 +11,9 @@ import {
     View,
     Keyboard
 } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { BigButton } from '../components/BigButton';
 import NavigationOptions from '../config/NavigationOptions';
-import { Ionicons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Colors, FontSizes, Layout } from '../constants';
@@ -60,47 +58,17 @@ class PostPreview extends React.Component {
                         {JSON.stringify(this.state.post)}
                     </Text>
                 </View>
-                <ClipBorderRadius>
-                    <RectButton
-                        style={styles.bigButton}
-                        onPress={this._handlePressSubmitButton}
-                        underlayColor="#fff"
-                    >
-                        <Ionicons
-                            size={23}
-                            style={{
-                                color: '#fff',
-                                marginTop: 3,
-                                backgroundColor: 'transparent',
-                                marginRight: 5
-                            }}
-                        />
-                        <MediumText style={styles.bigButtonText}>{i18n.t('screens.postpreview.submit')}</MediumText>
-                    </RectButton>
-                </ClipBorderRadius>
-                <ClipBorderRadius>
-                    <RectButton
-                        style={styles.bigButton}
-                        onPress={this._handlePressScheduleButton}
-                        underlayColor="#fff"
-                    >
-                        <Ionicons
-                            size={23}
-                            style={{
-                                color: '#fff',
-                                marginTop: 3,
-                                backgroundColor: 'transparent',
-                                marginRight: 5
-                            }}
-                        />
-                        <MediumText style={styles.bigButtonText}>{i18n.t('screens.postpreview.schedule')}</MediumText>
-                    </RectButton>
-                </ClipBorderRadius>
+                <BigButton
+                    label={i18n.t('screens.postpreview.submit')}
+                    onPress={this._handlePressSubmitButton} />
+                <BigButton
+                    label={i18n.t('screens.postpreview.schedule')}
+                    onPress={this._handlePressScheduleButton} />
                 <BigButton iconName="md-send" label="Submit" onPress={() => alert("Press")} />
                 <BigButton iconName="md-add" label="Compose Song" onPress={() => alert("Press")} />
                 <BigButton iconName="md-book" label="Songbook" onPress={() => alert("Press")} />
                 <BigButton iconName="md-people" label="Roster" onPress={() => alert("Press")} />
-                <BigButton iconName="md-send" iconPosition="right" label="Submit" onPress={() => alert("Press")} />         
+                <BigButton iconName="md-send" iconPosition="right" label="Submit" onPress={() => alert("Press")} />
             </ScrollView>
         );
     }
@@ -113,37 +81,8 @@ class PostPreview extends React.Component {
     };
 }
 
-const BORDER_RADIUS = 3;
-const ClipBorderRadius = ({ children, style }) => {
-    return (
-        <View
-            style={[
-                { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
-                style
-            ]}
-        >
-            {children}
-        </View>
-    );
-};
-
 const styles = StyleSheet.create({
-    bigButton: {
-        backgroundColor: DefaultColors.ButtonBackground,
-        paddingHorizontal: 15,
-        height: 50,
-        marginHorizontal: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: BORDER_RADIUS,
-        overflow: 'hidden',
-        flexDirection: 'row'
-    },
-    bigButtonText: {
-        fontSize: FontSizes.normalButton,
-        color: DefaultColors.ButtonText,
-        textAlign: 'center'
-    }
+
 });
 
 export default withUnstated(PostPreview, { globalData: GlobalDataContainer });
