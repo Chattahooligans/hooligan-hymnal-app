@@ -26,7 +26,7 @@ import { HeaderBackButton } from 'react-navigation';
 import i18n from "../../i18n";
 
 import PostAttach from './PostAttach';
-import About from './About';
+import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 
 class PostCreate extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -160,7 +160,6 @@ class PostCreate extends React.Component {
                 <TextInput
                     style={styles.textInput}
                     multiline={true}
-                    placeholder={"post body here"}
                     onChangeText={(text) => {
                         let post = this.state.post;
                         post.text = text;
@@ -195,10 +194,13 @@ class PostCreate extends React.Component {
                     }}>
                     <View style={{ marginTop: 22, flex: 1 }}>
                         <View style={{ flex: 1 }}>
+                            {/*
                             <PostAttach onAttachmentComplete={() => {
                                 alert("attachment complete")
                                 this.setAttachmentModalVisible(false);
                             }} />
+                            */}
+                            <PostAttachmentSelectPlayer />
 
                             <Button
                                 title="Cancel"
