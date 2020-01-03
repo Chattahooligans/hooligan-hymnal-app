@@ -55,6 +55,13 @@ class PostPreview extends React.Component {
         return (
             <ScrollView style={{ flex: 1 }}>
                 <Post post={this.state.post} />
+                <View style={styles.toggleContainer}>
+                    <RegularText style={styles.toggleLabel}>Send push notification?</RegularText>
+                    <Switch
+                        enabled={false}
+                        value={this.state.post && this.state.post.push}
+                    />
+                </View>
                 <BigButton
                     label={i18n.t('screens.postpreview.submit')}
                     onPress={this._handlePressSubmitButton} />
@@ -81,7 +88,16 @@ class PostPreview extends React.Component {
 }
 
 const styles = StyleSheet.create({
-
+    toggleContainer: {
+        alignItems: 'center',
+        paddingHorizontal: 4,
+        borderWidth: 1,
+        flexDirection: i18n.getFlexDirection()
+    },
+    toggleLabel: {
+        flex: 1,
+        textAlign: i18n.getRTLTextAlign()
+    }
 });
 
 export default withUnstated(PostPreview, { globalData: GlobalDataContainer });
