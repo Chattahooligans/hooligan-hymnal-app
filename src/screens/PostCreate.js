@@ -167,8 +167,8 @@ class PostCreate extends React.Component {
                     }}>
                     {this.state.post.text}
                 </TextInput>
-                <Text>images container</Text>
-                <Text>attachments list</Text>
+                <Text>Images {JSON.stringify(post.images)}</Text>
+                <Text>Attachments {JSON.stringify(post.attachments)}</Text>
                 <Button title="Add Attachment" color={DefaultColors.ButtonBackground} onPress={this._handlePressAddAttachment} />
                 <View style={styles.toggleContainer}>
                     <RegularText style={styles.toggleLabel}>Send push notification?</RegularText>
@@ -200,7 +200,12 @@ class PostCreate extends React.Component {
                                 this.setAttachmentModalVisible(false);
                             }} />
                             */}
-                            <PostAttachmentSelectPlayer />
+                            <PostAttachmentSelectPlayer onAttachmentComplete={(data) => {
+                                alert(JSON.stringify(data));
+                                let post = this.state.post;
+                                post.attachments.push(data);
+                                this.setAttachmentModalVisible(false);
+                            }} />
 
                             <Button
                                 title="Cancel"

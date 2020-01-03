@@ -31,7 +31,7 @@ class PlayerRow extends React.Component {
             <View style={styles.row}>
                 <TouchableOpacity
                     onPress={this._handlePress}
-                    activeOpacity={0.05}
+                    activeOpacity={0.2}
                     style={{ flex: 1 }}>
                     <View style={{ flexDirection: i18n.getFlexDirection() }}>
                         <View style={styles.rowAvatarContainer}>
@@ -61,7 +61,7 @@ class PlayerRow extends React.Component {
     }
 
     _handlePress = () => {
-        this.props.onPress(this.props.item);
+        this.props.onPress(this.props.player);
     };
 }
 
@@ -97,10 +97,16 @@ class PostAttachmentSelectPlayer extends React.Component {
         });
         return isMatch;
     }
-    comparePlayers(a,b) {
+    comparePlayers = (a,b) => {
         return (a.name > b.name);
     }
 
+    _handlePressPlayer = (player) => {
+        console.log("selected player: " + player.name)
+        if (this.props.onAttachmentComplete)
+            this.props.onAttachmentComplete({ type: "player", _id: player._id, name: player.name, data: null });
+    }
+ 
     render() {
         let filteredPlayers = [];
         if (this.state.search == "")
@@ -108,9 +114,6 @@ class PostAttachmentSelectPlayer extends React.Component {
         else
             filteredPlayers = this.state.players.filter(this.isSearchMatch);
         filteredPlayers.sort(this.comparePlayers);
-
-        let filteredString = "";
-        filteredPlayers.forEach(player => { filteredString += (player.name + ", ") })
 
         return (
             <View style={{ flex: 1 }}>
@@ -137,7 +140,7 @@ class PostAttachmentSelectPlayer extends React.Component {
                 <FlatList
                     renderScrollComponent={props => <ScrollView {...props} />}
                     data={filteredPlayers}
-                    renderItem={(item) => { return <PlayerRow player={item.item} /> }}
+                    renderItem={(item) => { return <PlayerRow player={item.item} onPress={this._handlePressPlayer} /> }}
                     keyExtractor={(item) => item._id}
                 />
             </View>
