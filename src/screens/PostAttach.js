@@ -44,8 +44,7 @@ class PostAttach extends React.Component {
                 <BigButton label="Link to Songbook" iconName="md-book" />
                 <BigButton label="Link to Roster" iconName="md-people" />
 
-                <BigButton label="SIMULATE COMPLETE" iconName="md-checkmark" iconPosition="right"
-                    onPress={this._handlePressSimulate} />
+                <BigButton label="SIMULATE COMPLETE" iconName="md-checkmark" iconPosition="right" onPress={() => alert("Simulate Complete Press")} />
                 <Button onPress={this._handlePressSimulate} title="Simulate" />
             </View>
         )

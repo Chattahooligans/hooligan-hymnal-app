@@ -184,7 +184,7 @@ class PostCreate extends React.Component {
                     />
                 </View>
                 <BigButton label={i18n.t('screens.postcreate.continue')} onPress={this._handlePressContinueButton} />
-
+                <BigButton label="SIMULATE COMPLETE" iconName="md-checkmark" iconPosition="right" onPress={() => alert("Simulate Complete Press")} />
                 <Modal
                     style={{ flex: 1 }}
                     animationType="slide"
