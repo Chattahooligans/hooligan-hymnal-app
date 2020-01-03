@@ -4,7 +4,6 @@ import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import Screens from './screens';
 import CustomDrawer from './components/CustomDrawer';
 import i18n from "../i18n";
-import screens from './screens';
 
 const { width: deviceWidth } = Dimensions.get('window');
 

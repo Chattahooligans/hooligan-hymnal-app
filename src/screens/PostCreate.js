@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+    Button,
+    Modal,
     Text,
     Image,
     Picker,
@@ -22,6 +24,9 @@ import { Skin, DefaultColors } from '../config/Settings';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
 import i18n from "../../i18n";
+
+import PostAttach from './PostAttach';
+import About from './About';
 
 class PostCreate extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -54,7 +59,12 @@ class PostCreate extends React.Component {
             channel: -1,
             locale: "en",
             push: false
-        }
+        },
+        attachmentModalVisible: false
+    }
+
+    setAttachmentModalVisible(visible) {
+        this.setState({ attachmentModalVisible: visible });
     }
 
     componentDidMount() {
@@ -131,8 +141,7 @@ class PostCreate extends React.Component {
                             post.channel = selectedChannel._id;
                             post.locale = selectedChannel.defaultLocale;
                             this.setState({ selectedChannel, post });
-                        }}
-                    >
+                        }}>
                         {channelPickerItems}
                     </Picker>
                     <Picker
@@ -144,8 +153,7 @@ class PostCreate extends React.Component {
                             let post = this.state.post;
                             post.locale = itemValue;
                             this.setState({ post });
-                        }}
-                    >
+                        }}>
                         {localePickerItems}
                     </Picker>
                 </View>
@@ -162,6 +170,7 @@ class PostCreate extends React.Component {
                 </TextInput>
                 <Text>images container</Text>
                 <Text>attachments list</Text>
+                <Button title="Add Attachment" color={DefaultColors.ButtonBackground} onPress={this._handlePressAddAttachment} />
                 <View style={styles.toggleContainer}>
                     <RegularText style={styles.toggleLabel}>Send push notification?</RegularText>
                     <Switch
@@ -175,8 +184,41 @@ class PostCreate extends React.Component {
                     />
                 </View>
                 <BigButton label={i18n.t('screens.postcreate.continue')} onPress={this._handlePressContinueButton} />
+
+                <Modal
+                    style={{ flex: 1 }}
+                    animationType="slide"
+                    transparent={false}
+                    visible={this.state.attachmentModalVisible}
+                    onRequestClose={() => {
+                        Alert.alert('Modal has been closed.');
+                    }}>
+                    <View style={{ marginTop: 22, flex: 1 }}>
+                        <View style={{ flex: 1 }}>
+                            <PostAttach onAttachmentComplete={() => {
+                                alert("attachment complete")
+                                this.setAttachmentModalVisible(false);
+                            }} />
+
+                            <Button
+                                title="Cancel"
+                                color={DefaultColors.ButtonBackground}
+                                onPress={() => this.setAttachmentModalVisible(false)} />
+                        </View>
+                    </View>
+                </Modal>
             </ScrollView>
         );
+    }
+
+    _handlePressAddAttachment = () => {
+        this.setAttachmentModalVisible(true);
+    }
+
+    addAttachment = (attachment) => {
+        let post = this.state.post;
+        post.attachments.push(attachment);
+        this.setState({ post });
     }
 
     _handlePressContinueButton = () => {

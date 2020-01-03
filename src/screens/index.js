@@ -10,6 +10,7 @@ import Events from './Events';
 import Home from './Home';
 import Instrumentation from './Instrumentation';
 import Player from './Player';
+import PostAttach from './PostAttach';
 import PostCreate from './PostCreate';
 import PostPreview from  './PostPreview';
 import Roster from './Roster';
@@ -38,6 +39,7 @@ export default {
   Home,
   Instrumentation,
   Player,
+  PostAttach,
   PostCreate,
   PostPreview,
   Roster,
