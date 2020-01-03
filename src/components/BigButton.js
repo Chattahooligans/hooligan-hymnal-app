@@ -8,6 +8,8 @@ import { DefaultColors } from '../config/Settings';
 
 export class BigButton extends React.Component {
     render() {
+        console.log("Rendering BigButton .label: " + this.props.label + " .onPress: " + this.props.onPress);
+
         let iconPosition = "left";
         if (this.props.iconName)
             if (this.props.iconPosition == "right")
