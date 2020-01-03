@@ -34,7 +34,7 @@ class PostAttach extends React.Component {
 
         return (
             <View style={{ flex: 1 }} setData>
-                <RegularText>Attachments</RegularText>
+                <BoldText style={{textAlign: 'center'}}>Post Attachment Types</BoldText>
 
                 <BigButton label="Select Player" iconName="md-person" />
                 <BigButton label="Select Song" iconName="md-musical-notes" />
