@@ -1,9 +1,10 @@
 import React from 'react';
-import { ScrollView, View, Image, StyleSheet, NativeModules, ToastAndroid, Clipboard, TouchableOpacity, Linking } from 'react-native';
+import { ScrollView, View, Image, StyleSheet, NativeModules, Clipboard, TouchableOpacity, Linking } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BoldText, RegularText } from './StyledText';
 import * as WebBrowser from 'expo-web-browser';
 import ParsedText from 'react-native-parsed-text';
+import Toast from 'react-native-simple-toast';
 import { FontSizes, Layout } from '../constants';{i18n.t('components.gkNickname.gonnascore')}
 import { Skin, Palette, MUSICAL_SCORE_ICON } from '../config/Settings';
 import i18n from "../../i18n";
@@ -110,17 +111,17 @@ export default class SongView extends React.Component {
   }
 
   _onLongPressTitle = () => {
-    ToastAndroid.show(i18n.t('components.songview.copiedtitle'), ToastAndroid.SHORT);
+    Toast.show(i18n.t('components.songview.copiedtitle'));
     Clipboard.setString(this.props.song.title);
   };
 
   _onLongPressReference = () => {
-    ToastAndroid.show(i18n.t('components.songview.copiedreference'), ToastAndroid.SHORT);
+    Toast.show(i18n.t('components.songview.copiedreference'));
     Clipboard.setString(this.props.song.reference_title);
   };
   
   _onLongPressLyrics = () => {
-    ToastAndroid.show(i18n.t('components.songview.copiedlyrics'), ToastAndroid.SHORT);
+    Toast.show(i18n.t('components.songview.copiedlyrics'));
     Clipboard.setString(this.props.song.lyrics);
   };
 
