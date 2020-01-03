@@ -15,6 +15,7 @@ import { Skin, Palette } from '../config/Settings';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import i18n from "../../i18n";
+import PostAttachmentPlayer from './PostAttachmentPlayer';
 
 class Post extends React.Component {
     state = {
@@ -45,6 +46,19 @@ class Post extends React.Component {
         let post = this.state.post;
         console.log("Rendering Post:\n" + JSON.stringify(post));
 
+        let attachmentDisplay = [];
+        post.attachments.forEach((attachment, index) => {
+            if ("player" == attachment.type) {
+                let player = this.props.globalData.state.players.find(player => player._id === attachment._id);
+                console.log("attach player: " + JSON.stringify(player));
+                let playerDisplay = <PostAttachmentPlayer key={index} player={player} />
+                attachmentDisplay.push(playerDisplay);
+            }
+            else {
+                attachmentDisplay.push(<RegularText key={index}>Can't render attachment {JSON.stringify(attachmentDisplay)}</RegularText>);
+            }
+        });
+
         return (
             <View style={styles.container}>
                 {/* Facebook style */}
@@ -73,7 +87,9 @@ class Post extends React.Component {
                     {post.text}
                 </ParsedText>
                 <RegularText>Images {JSON.stringify(post.images)}</RegularText>
-                <RegularText>Attachments {JSON.stringify(post.attachments)}</RegularText>
+                <View>
+                    {attachmentDisplay}
+                </View>
             </View>
         )
     }

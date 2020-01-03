@@ -127,6 +127,7 @@ class PostCreate extends React.Component {
         this.state.locales.forEach(element => {
             localePickerItems.push(<Picker.Item label={element} value={element} key={element} />);
         });
+        let post = this.state.post;
 
         return (
             <ScrollView style={{ flex: 1 }}>
@@ -183,14 +184,13 @@ class PostCreate extends React.Component {
                     />
                 </View>
                 <BigButton label={i18n.t('screens.postcreate.continue')} onPress={this._handlePressContinueButton} />
-                <BigButton label="SIMULATE COMPLETE" iconName="md-checkmark" iconPosition="right" onPress={() => alert("Simulate Complete Press")} />
                 <Modal
                     style={{ flex: 1 }}
                     animationType="slide"
                     transparent={false}
                     visible={this.state.attachmentModalVisible}
                     onRequestClose={() => {
-                        Alert.alert('Modal has been closed.');
+                        //alert('Modal has been closed.');
                     }}>
                     <View style={{ marginTop: 22, flex: 1 }}>
                         <View style={{ flex: 1 }}>
@@ -201,7 +201,6 @@ class PostCreate extends React.Component {
                             }} />
                             */}
                             <PostAttachmentSelectPlayer onAttachmentComplete={(data) => {
-                                alert(JSON.stringify(data));
                                 let post = this.state.post;
                                 post.attachments.push(data);
                                 this.setAttachmentModalVisible(false);
