@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Clipboard,
     Image,
     Linking,
     Platform,
@@ -9,7 +10,7 @@ import {
 import FadeIn from 'react-native-fade-in-image';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
-import { FontSizes, Layout } from '../constants';
+import Toast from 'react-native-simple-toast';
 import { Skin, Palette } from '../config/Settings';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
@@ -78,7 +79,7 @@ class Post extends React.Component {
     }
 
     _onLongPressText = () => {
-        ToastAndroid.show(i18n.t('components.post.copied'), ToastAndroid.SHORT);
+        Toast.show(i18n.t('components.post.copied'));
         Clipboard.setString(this.props.post.text);
     };
 
@@ -90,7 +91,7 @@ class Post extends React.Component {
 
 }
 
-const styles = {
+const styles = StyleSheet.create({
     container: {
         marginTop: 5,
         marginHorizontal: 8
@@ -116,5 +117,6 @@ const styles = {
         color: 'blue',
         textDecorationLine: 'underline'
     }
-}
+})
+
 export default withUnstated(Post, { globalData: GlobalDataContainer });
