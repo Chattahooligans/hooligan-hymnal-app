@@ -20,7 +20,7 @@ class Post extends React.Component {
     state = {
         post: {
             publishedAt: JSON.stringify(new Date()),
-            channel: { _id: -1, name: "", avatarUrl: "" },
+            channelData: { _id: -1, name: "", avatarUrl: "" },
             text: "",
             images: [],
             attachments: []
@@ -36,7 +36,7 @@ class Post extends React.Component {
     setData() {
         if (this.props.post) {
             let post = this.props.post;
-            post.channel = this.props.globalData.getChannelBasicInfo(this.props.post.channel)
+            post.channelData = this.props.globalData.getChannelBasicInfo(this.props.post.channel)
             this.setState({ post });
         }
     }
@@ -51,11 +51,11 @@ class Post extends React.Component {
                 <View style={{ flexDirection: i18n.getFlexDirection() }}>
                     <FadeIn>
                         <Image
-                            source={{ uri: post.channel.avatarUrl }}
+                            source={{ uri: post.channelData.avatarUrl }}
                             style={{ width: 50, height: 50, borderRadius: 25, marginRight: 4 }} />
                     </FadeIn>
                     <View style={{ marginTop: 3 }}>
-                        <BoldText>{post.channel.name}</BoldText>
+                        <BoldText>{post.channelData.name}</BoldText>
                         <RegularText>{post.publishedAt.toString()}</RegularText>
                     </View>
                 </View>
