@@ -18,7 +18,7 @@ import i18n from "../../i18n";
 class Post extends React.Component {
     state = {
         post: {
-            publishedAt: Date.now,
+            publishedAt: JSON.stringify(new Date()),
             channel: { _id: -1, name: "", avatarUrl: "" },
             text: "",
             images: [],
