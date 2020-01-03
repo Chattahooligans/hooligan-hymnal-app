@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { MediumText } from './StyledText';
@@ -7,6 +7,7 @@ import { FontSizes } from '../constants';
 import { DefaultColors } from '../config/Settings';
 
 export class BigButton extends React.Component {
+
     render() {
         console.log("Rendering BigButton .label: " + this.props.label + " .onPress: " + this.props.onPress);
 
@@ -15,14 +16,52 @@ export class BigButton extends React.Component {
             if (this.props.iconPosition == "right")
                 iconPosition = "right";
 
-        let simple = true
+        let inModal = false;
+        if (this.props.inModal)
+            inModal = true;
+
+        let modal = true;
 
         return (
             <View>
-                {simple &&
-                    <Button title={this.props.label + " icon:" + this.props.iconName} onPress={this.props.onPress} />
+                {/*<Button title={this.props.label + " icon:" + this.props.iconName} onPress={this.props.onPress} />*/}
+                {inModal &&
+                    <View style={[styles.container, this.props.style]}>
+                        <TouchableOpacity
+                            style={styles.bigButton}
+                            activeOpacity={0.95}
+                            onPress={this.props.onPress}>
+                            {(this.props.iconName && iconPosition == "left") &&
+                                <Ionicons
+                                    name={this.props.iconName}
+                                    size={23}
+                                    style={{
+                                        color: '#fff',
+                                        backgroundColor: 'transparent',
+                                        marginHorizontal: 8,
+                                        marginVertical: 3
+                                    }} />
+                            }
+                            <MediumText style={styles.bigButtonText}>
+                                {this.props.label}
+                            </MediumText>
+                            {(this.props.iconName && iconPosition == "right") &&
+                                <Ionicons
+                                    name={this.props.iconName}
+                                    size={23}
+                                    style={{
+                                        color: '#fff',
+                                        backgroundColor: 'transparent',
+                                        marginHorizontal: 8,
+                                        marginVertical: 3,
+                                        position: 'absolute',
+                                        right: 8
+                                    }} />
+                            }
+                        </TouchableOpacity>
+                    </View>
                 }
-                {!simple &&
+                {!inModal &&
                     <View style={[styles.container, this.props.style]}>
                         <RectButton
                             style={styles.bigButton}
