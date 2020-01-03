@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 import { MediumText } from './StyledText';
@@ -15,40 +15,49 @@ export class BigButton extends React.Component {
             if (this.props.iconPosition == "right")
                 iconPosition = "right";
 
+        let simple = true
+
         return (
-            <View style={[styles.container, this.props.style]}>
-                <RectButton
-                    style={styles.bigButton}
-                    onPress={this.props.onPress}
-                    underlayColor="#fff">
-                    {(this.props.iconName && iconPosition == "left") &&
-                        <Ionicons
-                            name={this.props.iconName}
-                            size={23}
-                            style={{
-                                color: '#fff',
-                                backgroundColor: 'transparent',
-                                marginHorizontal: 8,
-                                marginVertical: 3
-                            }} />
-                    }
-                    <MediumText style={styles.bigButtonText}>
-                        {this.props.label}
-                    </MediumText>
-                    {(this.props.iconName && iconPosition == "right") &&
-                        <Ionicons
-                            name={this.props.iconName}
-                            size={23}
-                            style={{
-                                color: '#fff',
-                                backgroundColor: 'transparent',
-                                marginHorizontal: 8,
-                                marginVertical: 3,
-                                position: 'absolute',
-                                right: 8
-                            }} />
-                    }
-                </RectButton>
+            <View>
+                {simple &&
+                    <Button title={this.props.label + " icon:" + this.props.iconName} onPress={this.props.onPress} />
+                }
+                {!simple &&
+                    <View style={[styles.container, this.props.style]}>
+                        <RectButton
+                            style={styles.bigButton}
+                            onPress={this.props.onPress}
+                            underlayColor="#fff">
+                            {(this.props.iconName && iconPosition == "left") &&
+                                <Ionicons
+                                    name={this.props.iconName}
+                                    size={23}
+                                    style={{
+                                        color: '#fff',
+                                        backgroundColor: 'transparent',
+                                        marginHorizontal: 8,
+                                        marginVertical: 3
+                                    }} />
+                            }
+                            <MediumText style={styles.bigButtonText}>
+                                {this.props.label}
+                            </MediumText>
+                            {(this.props.iconName && iconPosition == "right") &&
+                                <Ionicons
+                                    name={this.props.iconName}
+                                    size={23}
+                                    style={{
+                                        color: '#fff',
+                                        backgroundColor: 'transparent',
+                                        marginHorizontal: 8,
+                                        marginVertical: 3,
+                                        position: 'absolute',
+                                        right: 8
+                                    }} />
+                            }
+                        </RectButton>
+                    </View>
+                }
             </View>
         )
     }
@@ -58,7 +67,7 @@ export class BigButton extends React.Component {
 const styles = StyleSheet.create({
     container: {
         borderRadius: 3,
-        overflow: 'hidden', 
+        overflow: 'hidden',
         marginTop: 10
     },
     bigButton: {
