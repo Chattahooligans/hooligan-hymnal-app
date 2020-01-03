@@ -272,7 +272,7 @@ export default class GlobalDataContainer extends Container {
       channel: null,
       channelData: null,
       locale: null,
-      text: "Hello, World.\n\nThis is text for a new post that has *markdown* _support_ and links to http://comeandjoin.us",
+      text: "",
       images: [],
       attachments: []
     }
