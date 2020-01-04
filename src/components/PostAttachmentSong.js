@@ -51,7 +51,7 @@ export default class PostAttachmentSong extends React.Component {
                                     ]
                                 }
                                 style={styles.lyrics}>
-                                {lyrics}
+                                {lyrics}...
                             </ParsedText>
                         </View>
                     </View>
