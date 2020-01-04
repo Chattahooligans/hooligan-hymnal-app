@@ -174,7 +174,7 @@ class PostCreate extends React.Component {
                 <Text>Attachments {JSON.stringify(post.attachments)}</Text>
                 <Button title="Add Attachment" color={DefaultColors.ButtonBackground} onPress={this._handlePressAddAttachment} />
                 <View style={styles.toggleContainer}>
-                    <RegularText style={styles.toggleLabel}>Send push notification?</RegularText>
+                    <RegularText style={styles.toggleLabel}>Bother people with a push notification? Seriously?</RegularText>
                     <Switch
                         enabled={this.state.selectedChannel.canPush}
                         value={this.state.post.push}
