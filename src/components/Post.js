@@ -16,6 +16,7 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import i18n from "../../i18n";
 import PostAttachmentPlayer from './PostAttachmentPlayer';
+import PostAttachmentSong from './PostAttachmentSong';
 
 class Post extends React.Component {
     state = {
@@ -46,16 +47,40 @@ class Post extends React.Component {
         let post = this.state.post;
         console.log("Rendering Post:\n" + JSON.stringify(post));
 
+        let textDisplay;
+        if (post.text) {
+            textDisplay =
+                <ParsedText
+                    parse={
+                        [
+                            { type: 'url', style: styles.url, onPress: this._urlPress },
+                            { type: 'email', style: styles.url, onPress: this._emailPress },
+                            { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
+                            { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted }
+                        ]
+                    }
+                    style={styles.text}
+                    onLongPress={this._onLongPressText}>
+                    {post.text}
+                </ParsedText>
+        }
+
         let attachmentDisplay = [];
         post.attachments.forEach((attachment, index) => {
-            if ("player" == attachment.type) {
-                let player = this.props.globalData.state.players.find(player => player._id === attachment._id);
-                console.log("attach player: " + JSON.stringify(player));
-                let playerDisplay = <PostAttachmentPlayer key={index} player={player} />
-                attachmentDisplay.push(playerDisplay);
-            }
-            else {
-                attachmentDisplay.push(<RegularText key={index}>Can't render attachment {JSON.stringify(attachmentDisplay)}</RegularText>);
+            switch (attachment.type) {
+                case "player":
+                    let player = this.props.globalData.state.players.find(player => player._id === attachment._id);
+                    let playerDisplay = <PostAttachmentPlayer key={index} player={player} />
+                    attachmentDisplay.push(playerDisplay);
+                    break;
+                case "song":
+                    let song = this.props.globalData.state.songs.find(song => song._id === attachment._id);
+                    console.log("attach song: " + JSON.stringify(song));
+                    let songDisplay = <PostAttachmentSong key={index} song={song} />
+                    attachmentDisplay.push(songDisplay);
+                    break;
+                default:
+                    attachmentDisplay.push(<RegularText key={index}>Can't render attachment {JSON.stringify(attachmentDisplay)}</RegularText>);
             }
         });
 
@@ -73,19 +98,8 @@ class Post extends React.Component {
                         <RegularText>{post.publishedAt.toString()}</RegularText>
                     </View>
                 </View>
-                <ParsedText
-                    parse={
-                        [
-                            { type: 'url', style: styles.url, onPress: this._urlPress },
-                            { type: 'email', style: styles.url, onPress: this._emailPress },
-                            { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
-                            { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted }
-                        ]
-                    }
-                    style={styles.text}
-                    onLongPress={this._onLongPressText}>
-                    {post.text}
-                </ParsedText>
+                {textDisplay}
+
                 <RegularText>Images {JSON.stringify(post.images)}</RegularText>
                 <View>
                     {attachmentDisplay}

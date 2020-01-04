@@ -24,7 +24,7 @@ class SongRow extends React.Component {
 
         let referenceDisplay;
         if (song.reference_title)
-            referenceDisplay = <RegularText style={styles.reference} onLongPress={this._onLongPressReference}>{song.reference_title}</RegularText>
+            referenceDisplay = <RegularText style={styles.reference}>{song.reference_title}</RegularText>
 
         let lyrics = song.lyrics + "\n";
         lyrics = lyrics.substring(0, lyrics.indexOf("\n"));
@@ -45,7 +45,7 @@ class SongRow extends React.Component {
                             ]
                         }
                         style={styles.lyrics}>
-                        {lyrics}
+                        {lyrics}...
                     </ParsedText>
                 </TouchableOpacity>
             </View>
