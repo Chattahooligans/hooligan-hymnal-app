@@ -164,8 +164,7 @@ const styles = StyleSheet.create({
         fontStyle: 'italic',
         color: Palette.Navy,
         backgroundColor: Palette.White,
-        paddingLeft: 12,
-        paddingBottom: 3
+        paddingLeft: 12
     },
     lyrics: {
         fontFamily: 'heebo',
@@ -175,6 +174,7 @@ const styles = StyleSheet.create({
         color: Palette.Navy,
         backgroundColor: Palette.White,
         paddingLeft: 12,
+        paddingTop: 3,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
     },
