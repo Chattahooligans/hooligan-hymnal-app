@@ -28,6 +28,7 @@ import i18n from "../../i18n";
 import PostAttach from './PostAttach';
 import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
+import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 
 class PostCreate extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -200,15 +201,18 @@ class PostCreate extends React.Component {
                                 alert("attachment complete")
                                 this.setAttachmentModalVisible(false);
                             }} />
-                            */}
-                            {/*
                             <PostAttachmentSelectPlayer onAttachmentComplete={(data) => {
                                 let post = this.state.post;
                                 post.attachments.push(data);
                                 this.setAttachmentModalVisible(false);
                             }} />
-                            */}
                             <PostAttachmentSelectSong onAttachmentComplete={(data) => {
+                                let post = this.state.post;
+                                post.attachments.push(data);
+                                this.setAttachmentModalVisible(false);
+                            }} />
+                            */}
+                            <PostAttachmentComposeSong onAttachmentComplete={(data) => {
                                 let post = this.state.post;
                                 post.attachments.push(data);
                                 this.setAttachmentModalVisible(false);

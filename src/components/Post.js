@@ -74,8 +74,13 @@ class Post extends React.Component {
                     attachmentDisplay.push(playerDisplay);
                     break;
                 case "song":
-                    let song = this.props.globalData.state.songs.find(song => song._id === attachment._id);
-                    console.log("attach song: " + JSON.stringify(song));
+                    let song;
+                    if (attachment._id) {
+                        song = this.props.globalData.state.songs.find(song => song._id === attachment._id);
+                        console.log("attach song: " + JSON.stringify(song));
+                    } else if (attachment.data) {
+                        song = attachment.data;
+                    }
                     let songDisplay = <PostAttachmentSong key={index} song={song} />
                     attachmentDisplay.push(songDisplay);
                     break;

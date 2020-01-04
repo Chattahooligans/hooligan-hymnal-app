@@ -11,6 +11,7 @@ import Home from './Home';
 import Instrumentation from './Instrumentation';
 import Player from './Player';
 import PostAttach from './PostAttach';
+import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostCreate from './PostCreate';
@@ -42,6 +43,7 @@ export default {
   Instrumentation,
   Player,
   PostAttach,
+  PostAttachmentComposeSong,
   PostAttachmentSelectPlayer,
   PostAttachmentSelectSong,
   PostCreate,
