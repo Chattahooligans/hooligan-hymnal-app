@@ -15,6 +15,7 @@ import { Skin, Palette } from '../config/Settings';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import i18n from "../../i18n";
+import PostAttachmentGkNickname from './PostAttachmentGkNickname';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
 
@@ -67,7 +68,7 @@ class Post extends React.Component {
 
         let attachmentDisplay = [];
         post.attachments.forEach((attachment, index) => {
-            switch (attachment.type) {
+            switch (attachment.type.toLowerCase()) {
                 case "player":
                     let player = this.props.globalData.state.players.find(player => player._id === attachment._id);
                     let playerDisplay = <PostAttachmentPlayer key={index} player={player} />
@@ -84,8 +85,13 @@ class Post extends React.Component {
                     let songDisplay = <PostAttachmentSong key={index} song={song} />
                     attachmentDisplay.push(songDisplay);
                     break;
+                case "gknickname":
+                    let gkNickname = attachment.data;
+                    let gkNicknameDisplay = <PostAttachmentGkNickname key={index} gkNickname={gkNickname} />
+                    attachmentDisplay.push(gkNicknameDisplay);
+                    break;
                 default:
-                    attachmentDisplay.push(<RegularText key={index}>Can't render attachment {JSON.stringify(attachmentDisplay)}</RegularText>);
+                    attachmentDisplay.push(<RegularText key={index}>Can't render attachment {JSON.stringify(attachment)}</RegularText>);
             }
         });
 

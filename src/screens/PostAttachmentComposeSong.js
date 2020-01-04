@@ -1,10 +1,7 @@
 import React from 'react';
 import {
-    Image,
-    FlatList,
     Keyboard,
     KeyboardAvoidingView,
-    ScrollView,
     StyleSheet,
     TextInput,
     TouchableOpacity,
@@ -12,12 +9,8 @@ import {
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import ParsedText from 'react-native-parsed-text';
 import { Ionicons } from '@expo/vector-icons';
-import FadeIn from 'react-native-fade-in-image';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
-import withUnstated from '@airship/with-unstated';
-import GlobalDataContainer from '../containers/GlobalDataContainer';
 import i18n from "../../i18n";
 
 export default class PostAttachmentComposeSong extends React.Component {
@@ -30,6 +23,7 @@ export default class PostAttachmentComposeSong extends React.Component {
         return (
             <View style={{ flex: 1 }}>
                 <KeyboardAvoidingView behavior="height" style={styles.container}>
+                    <BoldText style={{ textAlign: 'center' }}>Compose Song</BoldText>
                     <TextInput
                         style={styles.titleInput}
                         placeholder={i18n.t('screens.capocompose.songtitle')}

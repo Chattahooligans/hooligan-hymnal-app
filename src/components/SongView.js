@@ -5,7 +5,7 @@ import { BoldText, RegularText } from './StyledText';
 import * as WebBrowser from 'expo-web-browser';
 import ParsedText from 'react-native-parsed-text';
 import Toast from 'react-native-simple-toast';
-import { FontSizes, Layout } from '../constants';{i18n.t('components.gkNickname.gonnascore')}
+import { FontSizes, Layout } from '../constants';
 import { Skin, Palette, MUSICAL_SCORE_ICON } from '../config/Settings';
 import i18n from "../../i18n";
 

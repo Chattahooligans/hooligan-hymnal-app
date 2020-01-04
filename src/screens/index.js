@@ -12,6 +12,7 @@ import Instrumentation from './Instrumentation';
 import Player from './Player';
 import PostAttach from './PostAttach';
 import PostAttachmentComposeSong from './PostAttachmentComposeSong';
+import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
 import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostCreate from './PostCreate';
@@ -44,6 +45,7 @@ export default {
   Player,
   PostAttach,
   PostAttachmentComposeSong,
+  PostAttachmentComposeGkNickname,
   PostAttachmentSelectPlayer,
   PostAttachmentSelectSong,
   PostCreate,

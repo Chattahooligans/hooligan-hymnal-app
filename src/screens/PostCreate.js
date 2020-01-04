@@ -29,6 +29,7 @@ import PostAttach from './PostAttach';
 import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostAttachmentComposeSong from './PostAttachmentComposeSong';
+import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
 
 class PostCreate extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -211,8 +212,13 @@ class PostCreate extends React.Component {
                                 post.attachments.push(data);
                                 this.setAttachmentModalVisible(false);
                             }} />
-                            */}
                             <PostAttachmentComposeSong onAttachmentComplete={(data) => {
+                                let post = this.state.post;
+                                post.attachments.push(data);
+                                this.setAttachmentModalVisible(false);
+                            }} />
+                            */}
+                            <PostAttachmentComposeGkNickname onAttachmentComplete={(data) => {
                                 let post = this.state.post;
                                 post.attachments.push(data);
                                 this.setAttachmentModalVisible(false);

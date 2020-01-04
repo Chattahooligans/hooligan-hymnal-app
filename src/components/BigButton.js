@@ -18,13 +18,17 @@ export class BigButton extends React.Component {
         if (this.props.inModal)
             inModal = true;
 
+        let contentColor = DefaultColors.ButtonText;
+        if (this.props.color)
+            contentColor = this.props.color;
+
         return (
             <View>
                 {/*<Button title={this.props.label + " icon:" + this.props.iconName} onPress={this.props.onPress} />*/}
                 {inModal &&
-                    <View style={[styles.container, this.props.style]}>
+                    <View style={styles.container}>
                         <TouchableOpacity
-                            style={styles.bigButton}
+                            style={[styles.bigButton, this.props.style]}
                             activeOpacity={0.95}
                             onPress={this.props.onPress}>
                             {(this.props.iconName && iconPosition == "left") &&
@@ -32,13 +36,13 @@ export class BigButton extends React.Component {
                                     name={this.props.iconName}
                                     size={23}
                                     style={{
-                                        color: '#fff',
+                                        color: contentColor,
                                         backgroundColor: 'transparent',
                                         marginHorizontal: 8,
                                         marginVertical: 3
                                     }} />
                             }
-                            <MediumText style={styles.bigButtonText}>
+                            <MediumText style={[styles.bigButtonText, { color: contentColor }]}>
                                 {this.props.label}
                             </MediumText>
                             {(this.props.iconName && iconPosition == "right") &&
@@ -46,7 +50,7 @@ export class BigButton extends React.Component {
                                     name={this.props.iconName}
                                     size={23}
                                     style={{
-                                        color: '#fff',
+                                        color: contentColor,
                                         backgroundColor: 'transparent',
                                         marginHorizontal: 8,
                                         marginVertical: 3,
@@ -58,9 +62,9 @@ export class BigButton extends React.Component {
                     </View>
                 }
                 {!inModal &&
-                    <View style={[styles.container, this.props.style]}>
+                    <View style={styles.container}>
                         <RectButton
-                            style={styles.bigButton}
+                            style={[styles.bigButton, this.props.style]}
                             onPress={this.props.onPress}
                             underlayColor="#fff">
                             {(this.props.iconName && iconPosition == "left") &&
@@ -68,13 +72,13 @@ export class BigButton extends React.Component {
                                     name={this.props.iconName}
                                     size={23}
                                     style={{
-                                        color: '#fff',
+                                        color: contentColor,
                                         backgroundColor: 'transparent',
                                         marginHorizontal: 8,
                                         marginVertical: 3
                                     }} />
                             }
-                            <MediumText style={styles.bigButtonText}>
+                            <MediumText style={[styles.bigButtonText, { color: contentColor }]}>
                                 {this.props.label}
                             </MediumText>
                             {(this.props.iconName && iconPosition == "right") &&
@@ -82,7 +86,7 @@ export class BigButton extends React.Component {
                                     name={this.props.iconName}
                                     size={23}
                                     style={{
-                                        color: '#fff',
+                                        color: contentColor,
                                         backgroundColor: 'transparent',
                                         marginHorizontal: 8,
                                         marginVertical: 3,
@@ -102,13 +106,13 @@ export class BigButton extends React.Component {
 const styles = StyleSheet.create({
     container: {
         borderRadius: 3,
-        overflow: 'hidden',
-        marginTop: 10
+        overflow: 'hidden'
     },
     bigButton: {
         backgroundColor: DefaultColors.ButtonBackground,
         paddingHorizontal: 15,
         height: 50,
+        marginTop: 10,
         marginHorizontal: 15,
         alignItems: 'center',
         justifyContent: 'center',
@@ -118,7 +122,7 @@ const styles = StyleSheet.create({
     },
     bigButtonText: {
         fontSize: FontSizes.normalButton,
-        color: DefaultColors.ButtonText,
-        textAlign: 'center'
+        textAlign: 'center',
+        color: DefaultColors.ButtonText
     }
 });
