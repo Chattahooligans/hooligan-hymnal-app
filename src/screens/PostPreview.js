@@ -9,7 +9,8 @@ import {
     Switch,
     TextInput,
     View,
-    Keyboard
+    Keyboard,
+    TouchableNativeFeedbackBase
 } from 'react-native';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { BigButton } from '../components/BigButton';
@@ -68,23 +69,40 @@ class PostPreview extends React.Component {
                 <BigButton
                     label={i18n.t('screens.postpreview.schedule')}
                     onPress={this._handlePressScheduleButton} />
-                {/*
-                <BigButton iconName="md-send" label="Submit" onPress={() => alert("Press")} />
-                <BigButton iconName="md-add" label="Compose Song" onPress={() => alert("Press")} />
-                <BigButton iconName="md-book" label="Songbook" onPress={() => alert("Press")} />
-                <BigButton iconName="md-people" label="Roster" onPress={() => alert("Press")} />
-                <BigButton iconName="md-send" iconPosition="right" label="Submit" onPress={() => alert("Press")} />
-                */}
             </ScrollView>
         );
     }
 
     _handlePressSubmitButton = () => {
         alert(i18n.t('screens.postcreate.submit'))
-    };
+        const publishedAt = new Date().toISOString();
+
+        let postForServer = {};
+        Object.assign(postForServer, this.state.post);
+        delete postForServer.channelData;
+
+        console.log("send this to the server")
+        console.log(JSON.stringify(postForServer))
+
+        // and update the publishedAt time
+        let post = this.state.post;
+        post.publishedAt = publishedAt;
+        let nav = this.props.navigation
+        function navHome() {
+            nav.popToTop();
+            nav.navigate("Home")
+        }
+        this.props.globalData.setCurrentPostDraft(post, navHome);
+
+        // TODO: turn on ActivityIndicator/disable button, 
+        //      talk to server/await response
+        //      disable ActivityIndicator/enable button
+        //      navigate home
+        //this.props.globalData.setCurrentPostDraft(post, navHome);
+    }
     _handlePressScheduleButton = () => {
         alert(i18n.t('screens.postcreate.schedule'))
-    };
+    }
 }
 
 const styles = StyleSheet.create({
