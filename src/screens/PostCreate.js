@@ -158,11 +158,17 @@ class PostCreate extends React.Component {
         }
     }
 
+    compareChannels = (a,b) =>
+    {
+        return a.name > b.name;
+    }
+
     render() {
         let channelPickerItems = [];
         this.state.channels.forEach(element => {
             channelPickerItems.push(<Picker.Item label={element.name} value={element} key={element._id} />);
         });
+        channelPickerItems = channelPickerItems.sort(this.compareChannels);
         let localePickerItems = [];
         this.state.locales.forEach(element => {
             localePickerItems.push(<Picker.Item label={element} value={element} key={element} />);
