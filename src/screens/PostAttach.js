@@ -8,9 +8,27 @@ import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
+import NavigationOptions from '../config/NavigationOptions';
+import { StackNavigator } from 'react-navigation';
+import { Skin, DefaultColors } from '../config/Settings';
 import i18n from "../../i18n";
 
-class PostAttach extends React.Component {
+import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
+import PostAttachmentSelectSong from './PostAttachmentSelectSong';
+import PostAttachmentComposeSong from './PostAttachmentComposeSong';
+import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
+import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
+
+class PostAttachScreen extends React.Component {
+    static navigationOptions = {
+        title: "Add Attachment to Post",
+        headerStyle: { backgroundColor: DefaultColors.NavigationBarBackground },
+        headerTintColor: 'white',
+        headerTitleStyle: {
+            fontFamily: 'heebo-bold'
+        }
+    };
+
     state = {
         onAttachmentComplete: null
     }
@@ -28,24 +46,40 @@ class PostAttach extends React.Component {
         }
     }
     render() {
-        let onAttachmentComplete = this.state.onAttachmentComplete;
-        console.log("onAttachmentComplete is:\n" + onAttachmentComplete);
+        console.log("onAttachmentComplete is:\n" + this.state.onAttachmentComplete);
 
         return (
-            <View style={{ flex: 1 }} setData>
-                <BoldText style={{textAlign: 'center'}}>Post Attachment Types</BoldText>
+            <ScrollView style={{ flex: 1 }}>
+                <BoldText style={{ textAlign: 'center' }}>Attachment Types</BoldText>
 
-                <BigButton label="Select Player" iconName="md-person" />
-                <BigButton label="Select Song" iconName="md-musical-notes" />
-                <BigButton label="Compose Song" iconName="md-microphone" />
-                <BigButton label="GK Nickname" iconName="md-hand" />
-                <BigButton label="Tweet the Players" iconName="logo-twitter" />
-                <BigButton label="Link to Songbook" iconName="md-book" />
-                <BigButton label="Link to Roster" iconName="md-people" />
+                <BigButton
+                    label="Select Player" iconName="md-person" inModal={true}
+                    onPress={() => {
+                        this.props.navigation.navigate("PostAttachmentSelectPlayer",
+                            { onAttachmentComplete: this.state.onAttachmentComplete })
+                    }} />
+                <BigButton label="Select Song" iconName="md-musical-notes" inModal={true}
+                    onPress={() => { this.props.navigation.navigate("PostAttachmentSelectSong") }} />
+                <BigButton label="Compose Song" iconName="md-microphone" inModal={true}
+                    onPress={() => { this.props.navigation.navigate("PostAttachmentComposeSong") }} />
+                <BigButton label="GK Nickname" iconName="md-hand" inModal={true}
+                    onPress={() => { this.props.navigation.navigate("PostAttachmentComposeGkNickname") }} />
+                <BigButton label="Tweet the Players" iconName="logo-twitter" inModal={true}
+                    onPress={() => { this.props.navigation.navigate("PostAttachmentSelectMassTweet") }} />
+
+                <BigButton label="Link to App Songbook" iconName="md-book"
+                    style={{ backgroundColor: "gray" }} />
+                <BigButton label="Link to App Roster" iconName="md-people"
+                    style={{ backgroundColor: "gray" }} />
 
                 <BigButton inModal={true} label="SIMULATE COMPLETE" iconName="md-checkmark" iconPosition="right" onPress={this._handlePressSimulate} />
-            </View>
+            </ScrollView>
         )
+    }
+
+    onAttachmentComplete = (data) => {
+        if (this.onAttachmentComplete)
+            this.onAttachmentComplete(data);
     }
 
     _handlePressSimulate = () => {
@@ -56,8 +90,23 @@ class PostAttach extends React.Component {
     };
 }
 
+const AttachmentTypesNavigator = StackNavigator(
+    {
+        PostAttachScreen: { screen: PostAttachScreen },
+        PostAttachmentSelectPlayer: { screen: PostAttachmentSelectPlayer },
+        PostAttachmentSelectSong: { screen: PostAttachmentSelectSong },
+        PostAttachmentComposeSong: { screen: PostAttachmentComposeSong },
+        PostAttachmentComposeGkNickname: { screen: PostAttachmentComposeGkNickname },
+        PostAttachmentSelectMassTweet: { screen: PostAttachmentSelectMassTweet }
+    }
+)
+
+export default class PostAttach extends React.Component {
+    render() {
+        return <AttachmentTypesNavigator />
+    }
+}
+
 const styles = StyleSheet.create({
 
 });
-
-export default withUnstated(PostAttach, { globalData: GlobalDataContainer });

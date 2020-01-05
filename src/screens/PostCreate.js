@@ -198,11 +198,12 @@ class PostCreate extends React.Component {
                     }}>
                     <View style={{ marginTop: 22, flex: 1 }}>
                         <View style={{ flex: 1 }}>
-                            {/*
                             <PostAttach onAttachmentComplete={() => {
-                                alert("attachment complete")
+                                let post = this.state.post;
+                                post.attachments.push(data);
                                 this.setAttachmentModalVisible(false);
                             }} />
+                            {/*
                             <PostAttachmentSelectPlayer onAttachmentComplete={(data) => {
                                 let post = this.state.post;
                                 post.attachments.push(data);
@@ -223,12 +224,12 @@ class PostCreate extends React.Component {
                                 post.attachments.push(data);
                                 this.setAttachmentModalVisible(false);
                             }} />
-                            */}
                             <PostAttachmentSelectMassTweet onAttachmentComplete={(data) => {
                                 let post = this.state.post;
                                 post.attachments.push(data);
                                 this.setAttachmentModalVisible(false);
                             }} />
+                            */}
 
                             <Button
                                 title="Cancel"
