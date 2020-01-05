@@ -223,7 +223,7 @@ class PostCreate extends React.Component {
                         }}
                     />
                 </View>
-                <BigButton label={i18n.t('screens.postcreate.continue')} onPress={this._handlePressContinueButton} />
+                <BigButton style={{ marginBottom: 10 }} label={i18n.t('screens.postcreate.continue')} onPress={this._handlePressContinueButton} />
                 <Modal
                     style={{ flex: 1 }}
                     animationType="slide"

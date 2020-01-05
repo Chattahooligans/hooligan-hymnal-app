@@ -67,6 +67,7 @@ class PostPreview extends React.Component {
                     label={i18n.t('screens.postpreview.submit')}
                     onPress={this._handlePressSubmitButton} />
                 <BigButton
+                    style={{ marginBottom: 10 }}
                     label={i18n.t('screens.postpreview.schedule')}
                     onPress={this._handlePressScheduleButton} />
             </ScrollView>
