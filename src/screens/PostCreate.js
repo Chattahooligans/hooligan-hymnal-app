@@ -19,6 +19,7 @@ import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
+import { StackNavigator } from 'react-navigation';
 import { Colors, FontSizes, Layout } from '../constants';
 import { Skin, DefaultColors } from '../config/Settings';
 import { Constants } from 'expo';
@@ -30,7 +31,19 @@ import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
-import PostAttachmentSelectMassTweet from  './PostAttachmentSelectMassTweet';
+import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
+
+const AttachmentTypesNavigator = StackNavigator(
+    {
+        PostAttach: { screen: PostAttach },
+        PostAttachmentSelectPlayer: { screen: PostAttachmentSelectPlayer },
+        PostAttachmentSelectSong: { screen: PostAttachmentSelectSong },
+        PostAttachmentComposeSong: { screen: PostAttachmentComposeSong },
+        PostAttachmentComposeGkNickname: { screen: PostAttachmentComposeGkNickname },
+        PostAttachmentSelectMassTweet: { screen: PostAttachmentSelectMassTweet }
+    },
+    { headerLayoutPreset: 'center' }
+)
 
 class PostCreate extends React.Component {
     static navigationOptions = ({ navigation }) => ({
@@ -72,6 +85,7 @@ class PostCreate extends React.Component {
     }
 
     componentDidMount() {
+        this.props.globalData.setOnAttachmentComplete(this.addAttachment);
         this.setData();
     }
 
@@ -198,12 +212,12 @@ class PostCreate extends React.Component {
                     }}>
                     <View style={{ marginTop: 22, flex: 1 }}>
                         <View style={{ flex: 1 }}>
+                            {/*
                             <PostAttach onAttachmentComplete={() => {
                                 let post = this.state.post;
                                 post.attachments.push(data);
                                 this.setAttachmentModalVisible(false);
                             }} />
-                            {/*
                             <PostAttachmentSelectPlayer onAttachmentComplete={(data) => {
                                 let post = this.state.post;
                                 post.attachments.push(data);
@@ -231,6 +245,8 @@ class PostCreate extends React.Component {
                             }} />
                             */}
 
+                            <AttachmentTypesNavigator />
+
                             <Button
                                 title="Cancel"
                                 color={DefaultColors.ButtonBackground}
@@ -247,6 +263,7 @@ class PostCreate extends React.Component {
     }
 
     addAttachment = (attachment) => {
+        console.log("addAttachment: " + JSON.stringify(attachment))
         let post = this.state.post;
         post.attachments.push(attachment);
         this.setState({ post });

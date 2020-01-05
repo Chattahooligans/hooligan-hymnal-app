@@ -46,6 +46,7 @@ export default class GlobalDataContainer extends Container {
     htmlColors: null,
     bearerToken: null,
     currentPostDraft: null,
+    onAttachmentComplete: null,
     response: null
   };
 
@@ -278,14 +279,14 @@ export default class GlobalDataContainer extends Container {
     }
     this.setCurrentPostDraft(newPost, callback);
   }
-  setCurrentPostDraft = (post, callback) => { 
+  setCurrentPostDraft = (post, callback) => {
     this.setState({ currentPostDraft: post }, () => { if (callback) callback(); });
   }
 
   getChannelBasicInfo = (channelId) => {
     let channelToReturn = { _id: -1, name: "No channel found" };
     const channel = this.state.channels.find(channel => channel._id === channelId)
-    
+
     if (channel && channel.active) {
       channelToReturn._id = channel._id;
       channelToReturn.name = channel.name;
@@ -295,5 +296,9 @@ export default class GlobalDataContainer extends Container {
     }
 
     return channelToReturn;
+  }
+
+  setOnAttachmentComplete = (onAttachmentComplete, callback) => {
+    this.setState({ onAttachmentComplete }, () => { if (callback) callback() });
   }
 }

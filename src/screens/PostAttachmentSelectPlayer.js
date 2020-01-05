@@ -66,6 +66,15 @@ class PlayerRow extends React.Component {
 }
 
 class PostAttachmentSelectPlayer extends React.Component {
+    static navigationOptions = {
+        title: "Select Player",
+        headerStyle: { backgroundColor: DefaultColors.NavigationBarBackground },
+        headerTintColor: 'white',
+        headerTitleStyle: {
+            fontFamily: 'heebo-bold'
+        }
+    };
+
     state = {
         search: "",
         players: []
@@ -82,6 +91,9 @@ class PostAttachmentSelectPlayer extends React.Component {
 
     setData = () => {
         this.setState({ players: this.props.globalData.state.players });
+
+        console.log("state.params: " + JSON.stringify(this.props.navigation.state.params))
+        console.log("state: " + JSON.stringify(this.props.navigation.state))
     }
 
     _onSearchChange = (text) => {
@@ -97,15 +109,23 @@ class PostAttachmentSelectPlayer extends React.Component {
         });
         return isMatch;
     }
-    comparePlayers = (a,b) => {
+    comparePlayers = (a, b) => {
         return (a.name > b.name);
     }
 
     _handlePressPlayer = (player) => {
-        if (this.props.onAttachmentComplete)
-            this.props.onAttachmentComplete({ type: "player", _id: player._id });
+        /*
+        if (this.props.onAttachmentComplete) {
+            const onAttachmentComplete = this.props.onAttachmentComplete;
+            onAttachmentComplete({ type: "player", _id: player._id });
+        }
+        */
+
+        console.log("NAV PARAMS")
+        console.log("state.params: " + JSON.stringify(this.props.navigation.state.params))
+        console.log("state: " + JSON.stringify(this.props.navigation.state))
     }
- 
+
     render() {
         let filteredPlayers = [];
         if (this.state.search == "")
