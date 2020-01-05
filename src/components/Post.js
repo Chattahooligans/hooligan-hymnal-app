@@ -47,7 +47,8 @@ class Post extends React.Component {
 
     render() {
         let post = this.state.post;
-        console.log("Rendering Post:\n" + JSON.stringify(post));
+        // turn back on when learning 2 Images
+        //console.log("Rendering Post:\n" + JSON.stringify(post));
 
         let textDisplay;
         if (post.text) {
