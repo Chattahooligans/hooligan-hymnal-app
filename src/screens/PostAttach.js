@@ -9,7 +9,7 @@ import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import NavigationOptions from '../config/NavigationOptions';
-import { Skin, DefaultColors } from '../config/Settings';
+import { Settings } from '../config/Settings';
 import i18n from "../../i18n";
 
 class PostAttach extends React.Component {
@@ -47,12 +47,14 @@ class PostAttach extends React.Component {
                             onAttachmentComplete: this.props.screenProps.onAttachmentComplete
                         })
                     }} />
-                <BigButton label="GK Nickname" iconName="md-hand" inModal={true}
-                    onPress={() => {
-                        this.props.navigation.navigate("PostAttachmentComposeGkNickname", {
-                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
-                        })
-                    }} />
+                {Settings.CapoHome_GKNicknameEnabled &&
+                    <BigButton label="GK Nickname" iconName="md-hand" inModal={true}
+                        onPress={() => {
+                            this.props.navigation.navigate("PostAttachmentComposeGkNickname", {
+                                onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                            })
+                        }} />
+                }
 
                 <BigButton label="Link to App Songbook" iconName="md-book"
                     style={{ backgroundColor: "gray" }} />

@@ -65,10 +65,12 @@ class PostPreview extends React.Component {
                 </View>
                 <BigButton
                     label={i18n.t('screens.postpreview.submit')}
+                    iconName="md-send" iconPosition="right"
                     onPress={this._handlePressSubmitButton} />
                 <BigButton
-                    style={{ marginBottom: 10 }}
+                    style={{ marginBottom: 10, backgroundColor: "gray" }}
                     label={i18n.t('screens.postpreview.schedule')}
+                    iconName="md-time" iconPosition="right"
                     onPress={this._handlePressScheduleButton} />
             </ScrollView>
         );
