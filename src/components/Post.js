@@ -16,6 +16,7 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import i18n from "../../i18n";
 import PostAttachmentGkNickname from './PostAttachmentGkNickname';
+import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
 
@@ -78,7 +79,6 @@ class Post extends React.Component {
                     let song;
                     if (attachment._id) {
                         song = this.props.globalData.state.songs.find(song => song._id === attachment._id);
-                        console.log("attach song: " + JSON.stringify(song));
                     } else if (attachment.data) {
                         song = attachment.data;
                     }
@@ -89,6 +89,11 @@ class Post extends React.Component {
                     let gkNickname = attachment.data;
                     let gkNicknameDisplay = <PostAttachmentGkNickname key={index} gkNickname={gkNickname} />
                     attachmentDisplay.push(gkNicknameDisplay);
+                    break;
+                case "masstweet":
+                    let roster = this.props.globalData.state.rosters.find(roster => roster._id === attachment.data.rosterId);
+                    let massTweetDisplay = <PostAttachmentMassTweet key={index} roster={roster} />
+                    attachmentDisplay.push(massTweetDisplay);
                     break;
                 default:
                     attachmentDisplay.push(<RegularText key={index}>Can't render attachment {JSON.stringify(attachment)}</RegularText>);

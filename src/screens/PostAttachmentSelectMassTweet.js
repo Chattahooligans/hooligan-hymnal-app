@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Ionicons } from '@expo/vector-icons';
+import FadeIn from 'react-native-fade-in-image';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -19,14 +20,30 @@ class RosterRow extends React.Component {
     render() {
         const roster = this.props.roster;
 
+        let thumbnail = Skin.Roster_DefaultThumbnail;
+        if (roster.defaultThumbnail)
+            thumbnail = { uri: roster.defaultThumbnail };
+
         return (
             <View style={styles.row}>
                 <TouchableOpacity
                     onPress={this._handlePress}
                     activeOpacity={0.2}
                     style={{ flex: 1 }}>
-                    <BoldText style={styles.title}>{roster.rosterTitle}</BoldText>
-                    <RegularText style={styles.season}>{roster.season}</RegularText>
+                    <View style={{ flexDirection: i18n.getFlexDirection() }}>
+                        <View style={styles.rowImageContainer}>
+                            <FadeIn>
+                                <Image
+                                    source={thumbnail}
+                                    style={{ width: 50, height: 50, borderRadius: 25 }}
+                                />
+                            </FadeIn>
+                        </View>
+                        <View>
+                            <BoldText style={styles.title}>{roster.rosterTitle}</BoldText>
+                            <RegularText style={styles.season}>{roster.season}</RegularText>
+                        </View>
+                    </View>
                 </TouchableOpacity>
             </View>
         );
@@ -133,11 +150,17 @@ const styles = StyleSheet.create({
         borderColor: '#eee',
         flexDirection: i18n.getFlexDirection()
     },
+    rowLogoContainer: {
+        paddingVertical: 5,
+        paddingHorizontal: 5
+    },
     title: {
         fontSize: 18,
         color: Palette.Navy,
         backgroundColor: Palette.White,
         paddingLeft: 4,
+        textAlign: i18n.getRTLTextAlign(),
+        writingDirection: i18n.getWritingDirection()
     },
     season: {
         fontFamily: 'heebo',

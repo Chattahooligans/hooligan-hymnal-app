@@ -95,7 +95,8 @@ export default class PostAttachmentPlayer extends React.Component {
     }
 
     _handlePress = () => {
-        this.props.onPress(this.props.player);
+        if (this.props.onPress)
+            this.props.onPress(this.props.player);
     };
 }
 

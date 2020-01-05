@@ -65,7 +65,8 @@ export default class PostAttachmentSong extends React.Component {
     }
 
     _handlePress = () => {
-
+        it(this.props.onPress)
+            this.props.onPress(this.props.song);
     };
 }
 
