@@ -13,6 +13,7 @@ import Player from './Player';
 import PostAttach from './PostAttach';
 import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
+import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
 import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostCreate from './PostCreate';
@@ -46,6 +47,7 @@ export default {
   PostAttach,
   PostAttachmentComposeSong,
   PostAttachmentComposeGkNickname,
+  
   PostAttachmentSelectPlayer,
   PostAttachmentSelectSong,
   PostCreate,
