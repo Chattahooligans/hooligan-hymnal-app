@@ -36,24 +36,20 @@ export default class PostAttachmentMassTweet extends React.Component {
                         </View>
                         <View style={{ flex: 1 }}>
                             <BoldText style={styles.title}>{roster.rosterTitle}</BoldText>
-                            <RegularText style={styles.tweetAll}>Tweet all players</RegularText>
+                            <View style={styles.tweetAllContainer}>
+                                <Ionicons
+                                    name={'logo-twitter'}
+                                    size={16}
+                                    style={{
+                                        color: Palette.Sky,
+                                        backgroundColor: 'transparent'
+                                    }} />
+                                <RegularText style={styles.tweetAllText}>Tweet all players</RegularText>
+                            </View>
                         </View>
-                        <TouchableOpacity
-                            style={{ alignContent: 'center' }}
-                            onPress={() => { alert("go to twitter screen") }}>
-                            <Ionicons
-                                name={'logo-twitter'}
-                                size={30}
-                                style={{
-                                    color: Palette.Sky,
-                                    marginVertical: 3,
-                                    marginHorizontal: 10,
-                                    backgroundColor: 'transparent'
-                                }} />
-                        </TouchableOpacity>
                     </View>
                 </TouchableOpacity>
-            </View>
+            </View >
         );
     }
 
@@ -85,15 +81,19 @@ const styles = StyleSheet.create({
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
     },
-    tweetAll: {
+    tweetAllContainer: {
+        flexDirection: i18n.getFlexDirection(),
+        alignItems: 'center',
+        marginHorizontal: 8
+    },
+    tweetAllText: {
         fontFamily: 'heebo',
         fontSize: 16,
         lineHeight: 24,
         flex: 1,
         color: Palette.Navy,
         backgroundColor: Palette.White,
-        paddingLeft: 12,
-        paddingTop: 3,
+        marginLeft: 5,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
     },
