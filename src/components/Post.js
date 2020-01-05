@@ -14,11 +14,12 @@ import Toast from 'react-native-simple-toast';
 import { Skin, Palette } from '../config/Settings';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
-import i18n from "../../i18n";
 import PostAttachmentGkNickname from './PostAttachmentGkNickname';
 import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
+import moment from 'moment';
+import i18n from "../../i18n";
 
 class Post extends React.Component {
     state = {
@@ -43,6 +44,13 @@ class Post extends React.Component {
             post.channelData = this.props.globalData.getChannelBasicInfo(this.props.post.channel)
             this.setState({ post });
         }
+    }
+
+    parseDate = (postPublishedAt) => {
+        const now = new Date();
+        const publishedAt = new Date(postPublishedAt);
+        let displayAs = (publishedAt.getMonth()+1) + "/" + publishedAt.getDate() + "/" + publishedAt.getFullYear() + ", " + publishedAt.getHours() + ":" + publishedAt.getMinutes();
+        return displayAs;
     }
 
     render() {
@@ -112,7 +120,7 @@ class Post extends React.Component {
                     </FadeIn>
                     <View style={{ marginTop: 3 }}>
                         <BoldText>{post.channelData.name}</BoldText>
-                        <RegularText>{post.publishedAt.toString()}</RegularText>
+                        <RegularText>{moment(post.publishedAt).fromNow()}</RegularText>
                     </View>
                 </View>
                 {textDisplay}
