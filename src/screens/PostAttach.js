@@ -46,15 +46,15 @@ class PostAttach extends React.Component {
                             onAttachmentComplete: this.props.screenProps.onAttachmentComplete
                         })
                     }} />
-                <BigButton label="GK Nickname" iconName="md-hand" inModal={true}
-                    onPress={() => {
-                        this.props.navigation.navigate("PostAttachmentComposeGkNickname", {
-                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
-                        })
-                    }} />
                 <BigButton label="Tweet the Players" iconName="logo-twitter" inModal={true}
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectMassTweet", {
+                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                        })
+                    }} />
+                <BigButton label="GK Nickname" iconName="md-hand" inModal={true}
+                    onPress={() => {
+                        this.props.navigation.navigate("PostAttachmentComposeGkNickname", {
                             onAttachmentComplete: this.props.screenProps.onAttachmentComplete
                         })
                     }} />
