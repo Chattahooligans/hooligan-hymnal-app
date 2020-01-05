@@ -272,8 +272,7 @@ export default class GlobalDataContainer extends Container {
     let newPost = {
       sender: {
         user: this.state.currentUser.user._id,
-        pushToken: this.state.pushToken,
-        loginToken: this.state.currentUser.token  
+        pushToken: this.state.pushToken
       },
       publishedAt: new Date().toISOString(),
       push: false,
