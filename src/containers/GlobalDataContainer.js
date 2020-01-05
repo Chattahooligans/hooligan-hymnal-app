@@ -268,7 +268,7 @@ export default class GlobalDataContainer extends Container {
         user: this.state.currentUser.user._id,
         pushToken: this.state.pushToken
       },
-      publishedAt: JSON.stringify(new Date()),
+      publishedAt: new Date().toISOString(),
       push: false,
       channel: null,
       channelData: null,
