@@ -41,8 +41,7 @@ const AttachmentTypesNavigator = StackNavigator(
         PostAttachmentComposeSong: { screen: PostAttachmentComposeSong },
         PostAttachmentComposeGkNickname: { screen: PostAttachmentComposeGkNickname },
         PostAttachmentSelectMassTweet: { screen: PostAttachmentSelectMassTweet }
-    },
-    { headerLayoutPreset: 'center' }
+    }
 )
 
 class PostCreate extends React.Component {
@@ -82,7 +81,26 @@ class PostCreate extends React.Component {
 
     setAttachmentModalVisible(visible) {
         this.setState({ attachmentModalVisible: visible });
+
     }
+    addAttachment = (attachment) => {
+        console.log("addAttachment: " + JSON.stringify(attachment))
+        let post = this.state.post;
+        post.attachments.push(attachment);
+        this.setState({ post });
+    }
+
+    _handlePressAddAttachment = () => {
+        this.setAttachmentModalVisible(true);
+    }
+
+    _handlePressContinueButton = () => {
+        let nav = this.props.navigation
+        function navToPostPreview() {
+            nav.navigate('PostPreview')
+        }
+        this.props.globalData.setCurrentPostDraft(this.state.post, navToPostPreview);
+    };
 
     componentDidMount() {
         this.props.globalData.setOnAttachmentComplete(this.addAttachment);
@@ -245,7 +263,12 @@ class PostCreate extends React.Component {
                             }} />
                             */}
 
-                            <AttachmentTypesNavigator />
+                            <AttachmentTypesNavigator screenProps={{
+                                testProp: "testProp", 
+                                onAttachmentComplete: this.addAttachment, 
+                                testProp2: "testProp2",
+                                globalOnAttachmentComplete: this.props.globalData.state.onAttachmentComplete
+                            }} />
 
                             <Button
                                 title="Cancel"
@@ -257,25 +280,6 @@ class PostCreate extends React.Component {
             </ScrollView>
         );
     }
-
-    _handlePressAddAttachment = () => {
-        this.setAttachmentModalVisible(true);
-    }
-
-    addAttachment = (attachment) => {
-        console.log("addAttachment: " + JSON.stringify(attachment))
-        let post = this.state.post;
-        post.attachments.push(attachment);
-        this.setState({ post });
-    }
-
-    _handlePressContinueButton = () => {
-        let nav = this.props.navigation
-        function navToPostPreview() {
-            nav.navigate('PostPreview')
-        }
-        this.props.globalData.setCurrentPostDraft(this.state.post, navToPostPreview);
-    };
 }
 
 const styles = StyleSheet.create({

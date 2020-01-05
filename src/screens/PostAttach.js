@@ -38,6 +38,7 @@ class PostAttach extends React.Component {
     }
     render() {
         console.log("state.onAttachmentComplete is:\n" + this.state.onAttachmentComplete);
+        console.log("props.screenProps: " + JSON.stringify(this.props.screenProps));
 
         return (
             <ScrollView style={{ flex: 1 }}>
