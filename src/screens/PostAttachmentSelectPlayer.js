@@ -67,12 +67,7 @@ class PlayerRow extends React.Component {
 
 class PostAttachmentSelectPlayer extends React.Component {
     static navigationOptions = {
-        title: "Select Player",
-        headerStyle: { backgroundColor: DefaultColors.NavigationBarBackground },
-        headerTintColor: 'white',
-        headerTitleStyle: {
-            fontFamily: 'heebo-bold'
-        }
+        header: null
     };
 
     state = {

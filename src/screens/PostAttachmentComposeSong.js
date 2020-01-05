@@ -14,6 +14,10 @@ import { Skin, DefaultColors, Palette } from '../config/Settings';
 import i18n from "../../i18n";
 
 export default class PostAttachmentComposeSong extends React.Component {
+    static navigationOptions = {
+        header: null
+    };
+    
     state = {
         title: "",
         lyrics: ""

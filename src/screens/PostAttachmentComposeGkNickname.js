@@ -34,6 +34,10 @@ class ColorRow extends React.Component {
 }
 
 class PostAttachmentComposeGkNickname extends React.Component {
+    static navigationOptions = {
+        header: null
+    };
+    
     state = {
         colorData: [],
         nickname: "Nickname",

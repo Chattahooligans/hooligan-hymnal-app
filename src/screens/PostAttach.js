@@ -14,12 +14,7 @@ import i18n from "../../i18n";
 
 class PostAttach extends React.Component {
     static navigationOptions = {
-        title: "Add Attachment to Post",
-        headerStyle: { backgroundColor: DefaultColors.NavigationBarBackground },
-        headerTintColor: 'white',
-        headerTitleStyle: {
-            fontFamily: 'heebo-bold'
-        }
+        header: null
     };
 
     render() {

@@ -55,6 +55,10 @@ class RosterRow extends React.Component {
 }
 
 class PostAttachmentSelectMassTweet extends React.Component {
+    static navigationOptions = {
+        header: null
+    };
+    
     state = {
         search: "",
         rosters: []
