@@ -123,7 +123,7 @@ class CapoLogin extends React.Component {
       .then(responseJson => {
         Keyboard.dismiss();
         this.props.globalData.setBearerToken(responseJson.token);
-        this.props.globalData.setCurrentUser(responseJson);
+        //this.props.globalData.setCurrentUser(responseJson);
         storeData = async () => {
           try {
             await AsyncStorage.setItem('@capousername', this.state.username);
@@ -133,7 +133,13 @@ class CapoLogin extends React.Component {
           }
         };
         storeData();
-        this.props.navigation.navigate('CapoHome');
+        //this.props.navigation.navigate('CapoHome');
+
+        let nav = this.props.navigation
+        function navToCapoHome() {
+            nav.navigate('CapoHome')
+        }
+        this.props.globalData.setCurrentUser(responseJson, navToCapoHome);
       })
       .catch(
         //if I was a good person I'd give you an error message but I'm tired
