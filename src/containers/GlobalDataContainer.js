@@ -257,7 +257,13 @@ export default class GlobalDataContainer extends Container {
   getBearerToken = () => { return this.state.bearerToken; }
 
   // contains .user and .token (above, bearerToken until its refactored out)
-  setCurrentUser = currentUser => this.setState({ currentUser });
+  // rename bearerToken from .token to .loginToken?
+  setCurrentUser = (currentUser, callback) => {
+    this.setState({ currentUser }, () => {
+      if (callback)
+        callback();
+    });
+  }
   getCurrentUser = () => { return this.state.currentUser }
 
   // News Feed helper functions
@@ -266,7 +272,8 @@ export default class GlobalDataContainer extends Container {
     let newPost = {
       sender: {
         user: this.state.currentUser.user._id,
-        pushToken: this.state.pushToken
+        pushToken: this.state.pushToken,
+        loginToken: this.state.currentUser.token  
       },
       publishedAt: new Date().toISOString(),
       push: false,
