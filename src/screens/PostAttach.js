@@ -22,54 +22,50 @@ class PostAttach extends React.Component {
         }
     };
 
-    state = {
-        onAttachmentComplete: null
-    }
-
-    componentDidMount = () => this.setData();
-    componentDidUpdate(prevProps) {
-        if (!prevProps.globalData.state.onAttachmentComplete && this.props.globalData.state.onAttachmentComplete)
-            this.setData();
-    }
-
-    setData() {
-        console.log("PostAttach.setData");
-        this.setState({ onAttachmentComplete: this.props.globalData.state.onAttachmentComplete });
-    }
     render() {
-        console.log("state.onAttachmentComplete is:\n" + this.state.onAttachmentComplete);
-        console.log("props.screenProps: " + JSON.stringify(this.props.screenProps));
-
         return (
             <ScrollView style={{ flex: 1 }}>
-                    <BoldText style={{ textAlign: 'center' }}>Attachment Types</BoldText>
+                <BoldText style={{ textAlign: 'center' }}>Attachment Types</BoldText>
 
-                    <BigButton
-                        label="Select Player" iconName="md-person" inModal={true}
-                        onPress={() => {
-                            let params = {
-                                onAttachmentComplete: this.state.onAttachmentComplete,
-                                test: "test"
-                            }
-                            console.log("passing params to button: " + JSON.stringify(params))
-                            this.props.navigation.navigate("PostAttachmentSelectPlayer", params)
-                        }} />
-                    <BigButton label="Select Song" iconName="md-musical-notes" inModal={true}
-                        onPress={() => { this.props.navigation.navigate("PostAttachmentSelectSong") }} />
-                    <BigButton label="Compose Song" iconName="md-microphone" inModal={true}
-                        onPress={() => { this.props.navigation.navigate("PostAttachmentComposeSong") }} />
-                    <BigButton label="GK Nickname" iconName="md-hand" inModal={true}
-                        onPress={() => { this.props.navigation.navigate("PostAttachmentComposeGkNickname") }} />
-                    <BigButton label="Tweet the Players" iconName="logo-twitter" inModal={true}
-                        onPress={() => { this.props.navigation.navigate("PostAttachmentSelectMassTweet") }} />
+                <BigButton
+                    label="Select Player" iconName="md-person" inModal={true}
+                    onPress={() => {
+                        this.props.navigation.navigate("PostAttachmentSelectPlayer", {
+                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                        })
+                    }} />
+                <BigButton label="Select Song" iconName="md-musical-notes" inModal={true}
+                    onPress={() => {
+                        this.props.navigation.navigate("PostAttachmentSelectSong", {
+                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                        })
+                    }} />
+                <BigButton label="Compose Song" iconName="md-microphone" inModal={true}
+                    onPress={() => {
+                        this.props.navigation.navigate("PostAttachmentComposeSong", {
+                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                        })
+                    }} />
+                <BigButton label="GK Nickname" iconName="md-hand" inModal={true}
+                    onPress={() => {
+                        this.props.navigation.navigate("PostAttachmentComposeGkNickname", {
+                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                        })
+                    }} />
+                <BigButton label="Tweet the Players" iconName="logo-twitter" inModal={true}
+                    onPress={() => {
+                        this.props.navigation.navigate("PostAttachmentSelectMassTweet", {
+                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                        })
+                    }} />
 
-                    <BigButton label="Link to App Songbook" iconName="md-book"
-                        style={{ backgroundColor: "gray" }} />
-                    <BigButton label="Link to App Roster" iconName="md-people"
-                        style={{ backgroundColor: "gray" }} />
+                <BigButton label="Link to App Songbook" iconName="md-book"
+                    style={{ backgroundColor: "gray" }} />
+                <BigButton label="Link to App Roster" iconName="md-people"
+                    style={{ backgroundColor: "gray" }} />
 
-                    <BigButton inModal={true} label="SIMULATE COMPLETE" iconName="md-checkmark" iconPosition="right" onPress={this._handlePressSimulate} />
-                </ScrollView>
+                <BigButton inModal={true} label="SIMULATE COMPLETE" iconName="md-checkmark" iconPosition="right" onPress={this._handlePressSimulate} />
+            </ScrollView>
         )
     }
 

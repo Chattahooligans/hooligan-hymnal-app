@@ -38,8 +38,8 @@ export default class PostAttachmentComposeSong extends React.Component {
                         label="Attach"
                         inModal={true}
                         onPress={() => {
-                            if (this.props.onAttachmentComplete)
-                                this.props.onAttachmentComplete({ type: "song", data: { title: this.state.title, lyrics: this.state.lyrics } });
+                            if (this.props.screenProps.onAttachmentComplete)
+                                this.props.screenProps.onAttachmentComplete({ type: "song", data: { title: this.state.title, lyrics: this.state.lyrics } });
                         }} />
                 </KeyboardAvoidingView>
             </View>

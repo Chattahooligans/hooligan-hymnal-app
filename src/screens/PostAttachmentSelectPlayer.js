@@ -91,9 +91,6 @@ class PostAttachmentSelectPlayer extends React.Component {
 
     setData = () => {
         this.setState({ players: this.props.globalData.state.players });
-
-        console.log("state.params: " + JSON.stringify(this.props.navigation.state.params))
-        console.log("state: " + JSON.stringify(this.props.navigation.state))
     }
 
     _onSearchChange = (text) => {
@@ -114,16 +111,8 @@ class PostAttachmentSelectPlayer extends React.Component {
     }
 
     _handlePressPlayer = (player) => {
-        /*
-        if (this.props.onAttachmentComplete) {
-            const onAttachmentComplete = this.props.onAttachmentComplete;
-            onAttachmentComplete({ type: "player", _id: player._id });
-        }
-        */
-
-        console.log("NAV PARAMS")
-        console.log("state.params: " + JSON.stringify(this.props.navigation.state.params))
-        console.log("state: " + JSON.stringify(this.props.navigation.state))
+        if (this.props.screenProps.onAttachmentComplete)
+            this.props.screenProps.onAttachmentComplete({ type: "player", _id: player._id });
     }
 
     render() {

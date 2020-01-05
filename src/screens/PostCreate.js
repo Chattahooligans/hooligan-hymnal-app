@@ -90,6 +90,11 @@ class PostCreate extends React.Component {
         this.setState({ post });
     }
 
+    onAttachmentComplete = (attachment) => {
+        this.addAttachment(attachment);
+        this.setAttachmentModalVisible(false);
+    }
+
     _handlePressAddAttachment = () => {
         this.setAttachmentModalVisible(true);
     }
@@ -103,7 +108,6 @@ class PostCreate extends React.Component {
     };
 
     componentDidMount() {
-        this.props.globalData.setOnAttachmentComplete(this.addAttachment);
         this.setData();
     }
 
@@ -264,10 +268,7 @@ class PostCreate extends React.Component {
                             */}
 
                             <AttachmentTypesNavigator screenProps={{
-                                testProp: "testProp", 
-                                onAttachmentComplete: this.addAttachment, 
-                                testProp2: "testProp2",
-                                globalOnAttachmentComplete: this.props.globalData.state.onAttachmentComplete
+                                onAttachmentComplete: this.onAttachmentComplete
                             }} />
 
                             <Button
