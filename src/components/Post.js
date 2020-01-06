@@ -10,6 +10,7 @@ import {
 import FadeIn from 'react-native-fade-in-image';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
+import { Ionicons } from '@expo/vector-icons';
 import Toast from 'react-native-simple-toast';
 import { Skin, Palette } from '../config/Settings';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -44,13 +45,6 @@ class Post extends React.Component {
             post.channelData = this.props.globalData.getChannelBasicInfo(this.props.post.channel)
             this.setState({ post });
         }
-    }
-
-    parseDate = (postPublishedAt) => {
-        const now = new Date();
-        const publishedAt = new Date(postPublishedAt);
-        let displayAs = (publishedAt.getMonth()+1) + "/" + publishedAt.getDate() + "/" + publishedAt.getFullYear() + ", " + publishedAt.getHours() + ":" + publishedAt.getMinutes();
-        return displayAs;
     }
 
     render() {
@@ -118,10 +112,21 @@ class Post extends React.Component {
                             source={{ uri: post.channelData.avatarUrl }}
                             style={{ width: 50, height: 50, borderRadius: 25, marginRight: 4 }} />
                     </FadeIn>
-                    <View style={{ marginTop: 3 }}>
+                    <View style={{ flex: 1, marginTop: 3 }}>
                         <BoldText>{post.channelData.name}</BoldText>
                         <RegularText>{moment(post.publishedAt).fromNow()}</RegularText>
                     </View>
+                    {post.push &&
+                        <Ionicons
+                            name="md-notifications"
+                            size={18}
+                            style={{
+                                color: Palette.Sky,
+                                backgroundColor: 'transparent',
+                                marginRight: 3,
+                                marginTop: 3
+                            }} />
+                    }
                 </View>
                 {textDisplay}
 

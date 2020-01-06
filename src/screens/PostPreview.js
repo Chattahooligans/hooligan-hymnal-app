@@ -56,13 +56,6 @@ class PostPreview extends React.Component {
         return (
             <ScrollView style={{ flex: 1 }}>
                 <Post post={this.state.post} />
-                <View style={styles.toggleContainer}>
-                    <RegularText style={styles.toggleLabel}>Bother people with a push notification? Seriously?</RegularText>
-                    <Switch
-                        enabled={false}
-                        value={this.state.post && this.state.post.push}
-                    />
-                </View>
                 <BigButton
                     label={i18n.t('screens.postpreview.submit')}
                     iconName="md-send" iconPosition="right"
