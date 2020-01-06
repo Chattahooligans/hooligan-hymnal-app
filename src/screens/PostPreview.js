@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Clipboard,
     Text,
     Image,
     Picker,
@@ -79,6 +80,7 @@ class PostPreview extends React.Component {
 
         console.log("send this to the server")
         console.log(JSON.stringify(postForServer))
+        Clipboard.setString(JSON.stringify(postForServer));
 
         // and update the publishedAt time
         let post = this.state.post;
