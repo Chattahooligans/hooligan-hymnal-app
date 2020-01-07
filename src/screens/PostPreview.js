@@ -56,7 +56,9 @@ class PostPreview extends React.Component {
     render() {
         return (
             <ScrollView style={{ flex: 1 }}>
-                <Post post={this.state.post} />
+                <Post
+                    post={this.state.post}
+                    navigation={this.props.navigation} />
                 <BigButton
                     label={i18n.t('screens.postpreview.submit')}
                     iconName="md-send" iconPosition="right"

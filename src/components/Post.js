@@ -51,6 +51,8 @@ class Post extends React.Component {
         let post = this.state.post;
         // turn back on when learning 2 Images
         //console.log("Rendering Post:\n" + JSON.stringify(post));
+        let nav = this.props.navigation;
+        console.log("nav: " + nav);
 
         let textDisplay;
         if (post.text) {
@@ -75,7 +77,8 @@ class Post extends React.Component {
             switch (attachment.type.toLowerCase()) {
                 case "player":
                     let player = this.props.globalData.state.players.find(player => player._id === attachment._id);
-                    let playerDisplay = <PostAttachmentPlayer key={index} player={player} />
+                    let playerDisplay = <PostAttachmentPlayer key={index} player={player}
+                        onPress={() => { this.props.navigation.navigate("Player", { player }) }} />
                     attachmentDisplay.push(playerDisplay);
                     break;
                 case "song":
@@ -85,7 +88,8 @@ class Post extends React.Component {
                     } else if (attachment.data) {
                         song = attachment.data;
                     }
-                    let songDisplay = <PostAttachmentSong key={index} song={song} />
+                    let songDisplay = <PostAttachmentSong key={index} song={song}
+                        onPress={() => { this.props.navigation.navigate("SingleSong", { song }) }} />
                     attachmentDisplay.push(songDisplay);
                     break;
                 case "gknickname":
@@ -95,7 +99,8 @@ class Post extends React.Component {
                     break;
                 case "masstweet":
                     let roster = this.props.globalData.state.rosters.find(roster => roster._id === attachment.data.rosterId);
-                    let massTweetDisplay = <PostAttachmentMassTweet key={index} roster={roster} />
+                    let massTweetDisplay = <PostAttachmentMassTweet key={index} roster={roster}
+                        onPress={() => { this.props.navigation.navigate("TwitterList", { roster }) }} />
                     attachmentDisplay.push(massTweetDisplay);
                     break;
                 default:
