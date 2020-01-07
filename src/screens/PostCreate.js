@@ -104,7 +104,9 @@ class PostCreate extends React.Component {
         function navToPostPreview() {
             nav.navigate('PostPreview')
         }
-        this.props.globalData.setCurrentPostDraft(this.state.post, navToPostPreview);
+        let post = this.state.post;
+        post.publishedAt = new Date().toISOString();
+        this.props.globalData.setCurrentPostDraft(post, navToPostPreview);
     };
 
     componentDidMount() {
