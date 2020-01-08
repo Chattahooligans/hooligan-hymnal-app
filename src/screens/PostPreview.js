@@ -74,14 +74,12 @@ class PostPreview extends React.Component {
         let post = this.state.post;
         post.publishedAt = publishedAt;
         this.props.globalData.setCurrentPostDraft(post);
-
         let postForServer = {};
         Object.assign(postForServer, this.state.post);
         delete postForServer.channelData;
 
-        let response = null;
         try {
-            response = await createPost(postForServer, this.props.globalData.getCurrentUser().token)
+            let response = await createPost(postForServer, this.props.globalData.getCurrentUser().token)
             console.log("Response")
             console.log(response);
 
@@ -91,7 +89,6 @@ class PostPreview extends React.Component {
             this.props.navigation.navigate("Home");
         }
         catch (ex) {
-            console.log(ex.toString())
             alert(ex.toString())
 
             this.setState({ loading: false });
