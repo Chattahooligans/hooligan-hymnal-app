@@ -27,7 +27,7 @@ export default class PostAttachmentPlayer extends React.Component {
             instagramDisplay =
                 <TouchableOpacity
                     style={{ alignContent: 'center' }}
-                    key={player.instagram}
+                    key={"IG: " + player.instagram}
                     onPress={() => { Linking.openURL('https://instagram.com/' + player.instagram) }}>
                     <Ionicons
                         name={'logo-instagram'}
@@ -46,7 +46,7 @@ export default class PostAttachmentPlayer extends React.Component {
             twitterDisplay =
                 <TouchableOpacity
                     style={{ alignContent: 'center' }}
-                    key={player.twitter}
+                    key={"Twitter: " + player.twitter}
                     onPress={() => { Linking.openURL('https://twitter.com/intent/tweet?text=@' + player.twitter + '+') }}>
                     <Ionicons
                         name={'logo-twitter'}
