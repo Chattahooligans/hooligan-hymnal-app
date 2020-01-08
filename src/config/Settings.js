@@ -54,16 +54,20 @@ export const DefaultColors = {
   HeaderText: Palette.White,
   Text: Palette.Black,
   ColorText: Palette.Navy,
+  Primary: Palette.Navy,
   Secondary: Palette.Sky
 }
 
 export const Skin = {
   Home_SocialButtons: DefaultColors.ButtonBackground,
+  ModalLoader_ActivityIndicator: DefaultColors.Primary,
+  ModalLoader_Background: DefaultColors.Secondary,
+  ModalLoader_Container: "#00000040",
   Songbook_Background: Palette.Sky,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Navy,
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
-  Player_Background: Palette.Sky,
+  Player_Background: Palette.Sky,  
   Roster_DefaultThumbnail: CLUB_LOGO,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
@@ -120,5 +124,5 @@ export const banners = [
 */
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
-  Player_ShowSongs: true
+  Player_ShowSongs: true,
 }

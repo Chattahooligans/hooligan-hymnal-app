@@ -52,7 +52,7 @@ class Post extends React.Component {
         // turn back on when learning 2 Images
         //console.log("Rendering Post:\n" + JSON.stringify(post));
         let nav = this.props.navigation;
-        console.log("nav: " + nav);
+        //console.log("nav: " + nav);
 
         let textDisplay;
         if (post.text) {
