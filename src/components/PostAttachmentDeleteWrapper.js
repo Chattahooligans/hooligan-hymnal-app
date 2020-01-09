@@ -60,7 +60,10 @@ class PostAttachmentDeleteWrapper extends React.Component {
                     {attachmentDisplay}
                 </View>
                 <TouchableOpacity
-                    onPress={() => this.props.onPressDelete(this.props.attachment)}>
+                    onPress={() => {
+                        if (this.props.onPressDelete)
+                            this.props.onPressDelete(this.props.attachment)
+                    }}>
                     <Ionicons
                         name="md-close"
                         size={50}
