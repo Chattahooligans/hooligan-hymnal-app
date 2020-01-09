@@ -2,7 +2,8 @@ import React from 'react';
 import {
     Clipboard,
     ScrollView,
-    StyleSheet
+    StyleSheet,
+    View
 } from 'react-native';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { BigButton } from '../components/BigButton';
@@ -49,9 +50,11 @@ class PostPreview extends React.Component {
     render() {
         return (
             <ScrollView style={{ flex: 1 }}>
-                <Post
-                    post={this.state.post}
-                    navigation={this.props.navigation} />
+                <View pointerEvents="none">
+                    <Post
+                        post={this.state.post}
+                        navigation={this.props.navigation} />
+                </View>
                 <BigButton
                     label={i18n.t('screens.postpreview.submit')}
                     iconName="md-send" iconPosition="right"
