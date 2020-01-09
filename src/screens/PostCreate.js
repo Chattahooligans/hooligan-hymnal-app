@@ -32,6 +32,7 @@ import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
 import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
+import PostAttachmentDeleteWrapper from '../components/PostAttachmentDeleteWrapper';
 
 const AttachmentTypesNavigator = StackNavigator(
     {
@@ -74,7 +75,9 @@ class PostCreate extends React.Component {
         post: {
             channel: -1,
             locale: "en",
-            push: false
+            push: false,
+            images: [],
+            attachments: []
         },
         attachmentModalVisible: false
     }
@@ -160,6 +163,15 @@ class PostCreate extends React.Component {
         }
     }
 
+    deleteAttachment = (toDelete) => {
+        let post = this.state.post
+        let indexToDelete = post.attachments.indexOf(toDelete)
+        if (indexToDelete != -1)
+            post.attachments.splice(indexToDelete, 1)
+
+        this.setState({ post });
+    }
+
     render() {
         let channelPickerItems = [];
         this.state.channels.forEach(element => {
@@ -171,6 +183,9 @@ class PostCreate extends React.Component {
             localePickerItems.push(<Picker.Item label={element} value={element} key={element} />);
         });
         let post = this.state.post;
+
+        let attachmentsDisplay = [];
+        post.attachments.forEach((attachment, index) => attachmentsDisplay.push(<PostAttachmentDeleteWrapper attachment={attachment} index={index} onPressDelete={this.deleteAttachment} />))
 
         return (
             <ScrollView style={{ flex: 1 }}>
@@ -212,7 +227,18 @@ class PostCreate extends React.Component {
                     {this.state.post.text}
                 </TextInput>
                 <Text>Images {JSON.stringify(post.images)}</Text>
-                <Text>Attachments {JSON.stringify(post.attachments)}</Text>
+                {attachmentsDisplay}
+                {/*
+                <SortableListView
+                    data={post.attachments}
+                    onRowMoved={attachment => {
+                        let post = this.state.post;
+                        post.attachments.splice(attachment.to, 0, post.attachments.splice(attachment.from, 1)[0])
+                        this.setState({ post });
+                        this.forceUpdate()
+                    }}
+                    renderRow={(row, index) => this.renderAttachmentItem(row, index)} />
+                */}
                 <Button title="Add Attachment" color={DefaultColors.ButtonBackground} onPress={this._handlePressAddAttachment} />
                 <View style={styles.toggleContainer}>
                     <RegularText style={styles.toggleLabel}>Bother people with a push notification? Seriously?</RegularText>
