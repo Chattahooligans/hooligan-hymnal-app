@@ -5,6 +5,7 @@ import {
   Platform,
   Text,
   Image,
+  RefreshControl,
   TouchableOpacity,
   ScrollView,
   StyleSheet,
@@ -41,10 +42,12 @@ import appParams from '../../app.json';
 
 import { Palette, DefaultColors, Skin, banners, socialButtons, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON, GOFUNDME_BW_ICON, PRIDERAISER_ICON, PRIDERAISER_URL, Settings } from '../config/Settings';
 import i18n from "../../i18n";
+import { watchPositionAsync } from 'expo-location';
 
 class Home extends React.Component {
   state = {
-    scrollY: new Animated.Value(0)
+    scrollY: new Animated.Value(0),
+    refreshing: false
   };
 
   static navigationOptions = {
@@ -67,8 +70,7 @@ class Home extends React.Component {
       // TODO: open SingleSong screen and send it the Song object buried inside the notification
 
       // kinda like this but it doesn't work from this far out (because navigation doesn't exist yet)
-      if (notification.data.song)
-      {
+      if (notification.data.song) {
         this.props.navigation.navigate('SingleSong', {
           song: notification.data.song
         });
@@ -83,6 +85,16 @@ class Home extends React.Component {
       // We don't necessarily want to do anything in this case
     }
   };
+
+  onRefresh = () => {
+    this.setState({ refreshing: true });
+    console.log("refreshing")
+
+    setTimeout(() => {
+      this.setState({ refreshing: false });
+      alert("refresh complete");
+    }, 5000);
+  }
 
   render() {
     const { scrollY } = this.state;
@@ -106,6 +118,7 @@ class Home extends React.Component {
             ],
             { useNativeDriver: true }
           )}
+          refreshControl={<RefreshControl refreshing={this.state.refreshing} onRefresh={this.onRefresh} />}
         >
           <View
             style={{
@@ -139,7 +152,7 @@ class Home extends React.Component {
         <NavigationBar
           renderLeftButton={() => <MenuButton />}
           animatedBackgroundOpacity={headerOpacity}
-          style={{ marginLeft: -14, marginTop: 5}}
+          style={{ marginLeft: -14, marginTop: 5 }}
         />
       </View>
     );
@@ -155,7 +168,7 @@ class DeferredHomeContent extends React.Component {
   componentDidMount() {
     if (this.props.globalData.state.pushToken == null)
       this.props.globalData.registerForPushNotificationsAsync();
-      
+
     if (this.state.ready) {
       return;
     }
@@ -169,22 +182,22 @@ class DeferredHomeContent extends React.Component {
     if (!this.state.ready) {
       return null;
     }
-    
+
     // "find the menu" instructions polish
     let findTheMenu = i18n.t('screens.home.findthemenu')
     console.log
     let firstPart = findTheMenu.substring(0, findTheMenu.indexOf('%menuicon%'))
     let secondPart = findTheMenu.substring(findTheMenu.indexOf('%menuicon%') + '%menuicon%'.length)
-    let findTheMenuText = <MediumText style={{color: DefaultColors.ColorText, fontSize: FontSizes.bodyLarge, marginTop: 5}}>
-        {firstPart}
-        <Ionicons
-          name="md-menu"
-          size={FontSizes.bodyLarge}
-          style={{ backgroundColor: 'transparent', marginRight: 5}}
-        />
-        {secondPart}
-      </MediumText>
-    
+    let findTheMenuText = <MediumText style={{ color: DefaultColors.ColorText, fontSize: FontSizes.bodyLarge, marginTop: 5 }}>
+      {firstPart}
+      <Ionicons
+        name="md-menu"
+        size={FontSizes.bodyLarge}
+        style={{ backgroundColor: 'transparent', marginRight: 5 }}
+      />
+      {secondPart}
+    </MediumText>
+
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
         <HomeBannersPanel config={banners} />
@@ -193,7 +206,7 @@ class DeferredHomeContent extends React.Component {
           songbook={this.props.globalData.state.songbook}
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
         />
-        <ClipBorderRadius style={{marginTop: -2}}>
+        <ClipBorderRadius style={{ marginTop: -2 }}>
           <RectButton
             style={styles.bigButton}
             onPress={this._handlePressSongbook}
@@ -209,7 +222,7 @@ class DeferredHomeContent extends React.Component {
               }}
             />
             <MediumText style={styles.bigButtonText}>
-            {i18n.t('screens.home.songbook')}
+              {i18n.t('screens.home.songbook')}
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
@@ -229,7 +242,7 @@ class DeferredHomeContent extends React.Component {
               }}
             />
             <MediumText style={styles.bigButtonText}>
-            {i18n.t('screens.home.roster')}
+              {i18n.t('screens.home.roster')}
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
@@ -237,11 +250,11 @@ class DeferredHomeContent extends React.Component {
           {findTheMenuText}
         </View>
         <View flexDirection={i18n.getFlexDirection()} style={{ marginHorizontal: 15, marginBottom: 10 }}>
-          <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => {
+          <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => {
             //WebBrowser.openBrowserAsync(item.url);
             Linking.openURL(WEBSITE_URL);
           }}>
-            <MediumText style={{color: DefaultColors.ColorText}}>{i18n.t('screens.home.visit')} </MediumText>
+            <MediumText style={{ color: DefaultColors.ColorText }}>{i18n.t('screens.home.visit')} </MediumText>
             <UnderlineText>http://comeandjoin.us</UnderlineText>
           </TouchableOpacity>
         </View>
