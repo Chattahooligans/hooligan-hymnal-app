@@ -33,6 +33,68 @@ class CapoHome extends React.Component {
         <BoldText>{this.props.globalData.state.currentUser.user.email}</BoldText>
         <RegularText>{this.props.globalData.state.pushToken}</RegularText>
         <View style={{ marginVertical: 10 }} />
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressSelectSongButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-musical-notes"
+              size={23}
+              style={{
+                color: '#fff',
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <MediumText style={styles.bigButtonText}>
+              {i18n.t('screens.capohome.selectsong')}
+            </MediumText>
+          </RectButton>
+        </ClipBorderRadius>
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressComposeSongButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-add"
+              size={23}
+              style={{
+                color: '#fff',
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <MediumText style={styles.bigButtonText}>
+              {i18n.t('screens.capohome.composesong')}
+            </MediumText>
+          </RectButton>
+        </ClipBorderRadius>
+        {Settings.CapoHome_GKNicknameEnabled &&
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressGoalkeeperNicknameButton}
+              underlayColor="#fff"
+            >
+              <Ionicons
+                name="md-hand"
+                size={23}
+                style={{
+                  color: '#fff',
+                  backgroundColor: 'transparent',
+                  marginRight: 5
+                }}
+              />
+              <MediumText style={styles.bigButtonText}>
+                {i18n.t('screens.capohome.gknickname')}
+              </MediumText>
+            </RectButton>
+          </ClipBorderRadius>
+        }
         <BigButton
           label={i18n.t('screens.capohome.postcreate')}
           iconName="md-paper"
@@ -40,6 +102,21 @@ class CapoHome extends React.Component {
       </View>
     );
   }
+
+  _handlePressSelectSongButton = () => {
+    Keyboard.dismiss();
+    this.props.navigation.navigate('CapoSelectSong');
+  };
+
+  _handlePressComposeSongButton = () => {
+    this.props.navigation.navigate('CapoComposeSong');
+  };
+
+  _handlePressGoalkeeperNicknameButton = () => {
+    Keyboard.dismiss();
+    this.props.navigation.navigate('CapoSetGoalkeeperNickname');
+  };
+
 
   _handlePressPostCreateButton = () => {
     // later, we'll check for existing drafts and prompt the user on what to do
@@ -52,8 +129,39 @@ class CapoHome extends React.Component {
   };
 }
 
-const styles = StyleSheet.create({
+const ClipBorderRadius = ({ children, style }) => {
+  return (
+    <View
+      style={[
+        { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
+        style
+      ]}
+    >
+      {children}
+    </View>
+  );
+};
 
+const BORDER_RADIUS = 3;
+
+
+const styles = StyleSheet.create({
+  bigButton: {
+    backgroundColor: DefaultColors.ButtonBackground,
+    paddingHorizontal: 15,
+    height: 50,
+    marginHorizontal: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: BORDER_RADIUS,
+    overflow: 'hidden',
+    flexDirection: 'row'
+  },
+  bigButtonText: {
+    fontSize: FontSizes.normalButton,
+    color: DefaultColors.ButtonText,
+    textAlign: 'center'
+  }
 });
 
 export default withUnstated(CapoHome, { globalData: GlobalDataContainer });
