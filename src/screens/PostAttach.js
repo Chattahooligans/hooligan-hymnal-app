@@ -60,8 +60,6 @@ class PostAttach extends React.Component {
                     style={{ backgroundColor: "gray" }} />
                 <BigButton label="Link to App Roster" iconName="md-people"
                     style={{ backgroundColor: "gray" }} />
-
-                <BigButton inModal={true} label="SIMULATE COMPLETE" iconName="md-checkmark" iconPosition="right" onPress={this._handlePressSimulate} />
             </ScrollView>
         )
     }
@@ -70,13 +68,6 @@ class PostAttach extends React.Component {
         if (this.onAttachmentComplete)
             this.onAttachmentComplete(data);
     }
-
-    _handlePressSimulate = () => {
-        console.log("simulate click");
-        alert("simulate click");
-        if (this.state.onAttachmentComplete)
-            this.state.onAttachmentComplete();
-    };
 }
 
 export default withUnstated(PostAttach, { globalData: GlobalDataContainer });
