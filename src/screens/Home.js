@@ -153,7 +153,9 @@ class DeferredHomeContent extends React.Component {
   };
 
   componentDidMount() {
-    this.props.globalData.registerForPushNotificationsAsync();
+    if (this.props.globalData.state.pushToken == null)
+      this.props.globalData.registerForPushNotificationsAsync();
+      
     if (this.state.ready) {
       return;
     }
