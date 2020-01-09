@@ -79,6 +79,8 @@ class PostPreview extends React.Component {
         delete postForServer.channelData;
 
         try {
+            console.log("send this to the server")
+            console.log(JSON.stringify(postForServer))
             let response = await createPost(postForServer, this.props.globalData.getCurrentUser().token)
             console.log("Response")
             console.log(response);
