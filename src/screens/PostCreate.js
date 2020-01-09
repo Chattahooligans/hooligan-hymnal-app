@@ -185,7 +185,7 @@ class PostCreate extends React.Component {
         let post = this.state.post;
 
         let attachmentsDisplay = [];
-        post.attachments.forEach((attachment, index) => attachmentsDisplay.push(<PostAttachmentDeleteWrapper attachment={attachment} index={index} onPressDelete={this.deleteAttachment} />))
+        post.attachments.forEach((attachment, index) => attachmentsDisplay.push(<PostAttachmentDeleteWrapper attachment={attachment} key={"attachment-" + attachment.type + "-" + index} onPressDelete={this.deleteAttachment} />))
 
         return (
             <ScrollView style={{ flex: 1 }}>

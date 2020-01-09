@@ -18,13 +18,12 @@ import i18n from "../../i18n";
 class PostAttachmentDeleteWrapper extends React.Component {
     render() {
         let attachment = this.props.attachment;
-        let index = this.props.index;
         let attachmentDisplay;
 
         switch (attachment.type.toLowerCase()) {
             case "player":
                 let player = this.props.globalData.state.players.find(player => player._id === attachment._id);
-                let playerDisplay = <PostAttachmentPlayer key={index} player={player}
+                let playerDisplay = <PostAttachmentPlayer player={player}
                     onPress={() => { this.props.navigation.navigate("Player", { player }) }} />
                 attachmentDisplay = playerDisplay;
                 break;
@@ -35,23 +34,23 @@ class PostAttachmentDeleteWrapper extends React.Component {
                 } else if (attachment.data) {
                     song = attachment.data;
                 }
-                let songDisplay = <PostAttachmentSong key={index} song={song}
+                let songDisplay = <PostAttachmentSong song={song}
                     onPress={() => { this.props.navigation.navigate("SingleSong", { song }) }} />
                 attachmentDisplay = songDisplay;
                 break;
             case "gknickname":
                 let gkNickname = attachment.data;
-                let gkNicknameDisplay = <PostAttachmentGkNickname key={index} gkNickname={gkNickname} />
+                let gkNicknameDisplay = <PostAttachmentGkNickname gkNickname={gkNickname} />
                 attachmentDisplay = gkNicknameDisplay;
                 break;
             case "masstweet":
                 let roster = this.props.globalData.state.rosters.find(roster => roster._id === attachment.data.rosterId);
-                let massTweetDisplay = <PostAttachmentMassTweet key={index} roster={roster}
+                let massTweetDisplay = <PostAttachmentMassTweet roster={roster}
                     onPress={() => { this.props.navigation.navigate("TwitterList", { roster }) }} />
                 attachmentDisplay = massTweetDisplay;
                 break;
             default:
-                attachmentDisplay = <RegularText key={index}>Can't render attachment {JSON.stringify(attachment)}</RegularText>;
+                attachmentDisplay = <RegularText>Can't render attachment {JSON.stringify(attachment)}</RegularText>;
         }
 
         return (
