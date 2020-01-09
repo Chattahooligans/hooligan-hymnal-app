@@ -6,7 +6,7 @@ export const getFeed = () =>
 export const createPost = (post, token) =>
   API.post(
     '/api/feed',
-    JSON.stringify(post),
+    post,
     {
       headers: {
         'Authorization': "Bearer " + token
