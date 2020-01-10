@@ -30,6 +30,7 @@ import VideoBackground from '../components/VideoBackground';
 import SocialButtonPanel from '../components/SocialButtonPanel';
 import HomeBannersPanel from '../components/HomeBannersPanel';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
+import Post from '../components/Post';
 import { connectDrawerButton } from '../Navigation';
 import { FontSizes, Layout, Colors } from '../constants';
 import {
@@ -88,12 +89,12 @@ class Home extends React.Component {
 
   onRefresh = () => {
     this.setState({ refreshing: true });
-    console.log("refreshing")
+
+    const feed = this.props.globalData.refreshFeed();
 
     setTimeout(() => {
       this.setState({ refreshing: false });
-      alert("refresh complete");
-    }, 5000);
+    }, 2000);
   }
 
   render() {
@@ -183,6 +184,8 @@ class DeferredHomeContent extends React.Component {
       return null;
     }
 
+    console.log("FEED:\n" + JSON.stringify(this.props.globalData.state.feed))
+
     // "find the menu" instructions polish
     let findTheMenu = i18n.t('screens.home.findthemenu')
     console.log
@@ -198,20 +201,30 @@ class DeferredHomeContent extends React.Component {
       {secondPart}
     </MediumText>
 
+    let postsDisplay = [];
+    const posts = this.props.globalData.state.feed;
+    posts.forEach((post) => {
+      let postDisplay = <Post post={post} />
+      postsDisplay.push(postDisplay);
+    })
+
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
         <HomeBannersPanel config={banners} />
+        {/*
         <UpNext
           songs={this.props.globalData.state.songs}
           songbook={this.props.globalData.state.songbook}
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
         />
+        */}
+        {postsDisplay}
         <ClipBorderRadius style={{ marginTop: -2 }}>
           <RectButton
             style={styles.bigButton}
             onPress={this._handlePressSongbook}
             underlayColor="#fff"
-          >
+            >
             <Ionicons
               name="md-book"
               size={23}
@@ -220,7 +233,7 @@ class DeferredHomeContent extends React.Component {
                 backgroundColor: 'transparent',
                 marginRight: 5
               }}
-            />
+              />
             <MediumText style={styles.bigButtonText}>
               {i18n.t('screens.home.songbook')}
             </MediumText>
@@ -231,7 +244,7 @@ class DeferredHomeContent extends React.Component {
             style={styles.bigButton}
             onPress={this._handlePressRoster}
             underlayColor="#fff"
-          >
+            >
             <Ionicons
               name="md-people"
               size={23}
@@ -240,7 +253,7 @@ class DeferredHomeContent extends React.Component {
                 backgroundColor: 'transparent',
                 marginRight: 5
               }}
-            />
+              />
             <MediumText style={styles.bigButtonText}>
               {i18n.t('screens.home.roster')}
             </MediumText>

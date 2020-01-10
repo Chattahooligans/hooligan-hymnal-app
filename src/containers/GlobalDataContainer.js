@@ -9,6 +9,7 @@ import { getPlayers } from '../services/playersService';
 import { getRosters } from '../services/rostersService';
 import { getFoes } from '../services/foesService';
 import { getChannels } from '../services/channelsService';
+import { getFeed } from '../services/feedService';
 import { HYMNAL_ADDRESS } from '../config/server';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
@@ -46,7 +47,7 @@ export default class GlobalDataContainer extends Container {
     htmlColors: null,
     bearerToken: null,
     currentPostDraft: null,
-    onAttachmentComplete: null,
+    feed: [],
     response: null
   };
 
@@ -59,6 +60,7 @@ export default class GlobalDataContainer extends Container {
       const rosters = await getRosters();
       const foes = await getFoes();
       const channels = await getChannels();
+      const feed = await getFeed();
 
       //this.setState({ songbook: songbooks[0], songs, rosters, players, htmlColors, foes });
       this.setState({
@@ -68,6 +70,7 @@ export default class GlobalDataContainer extends Container {
         rosters: this.verifyRoster(players, rosters),
         foes,
         channels,
+        feed,
         htmlColors
       });
     } catch (e) {
@@ -304,7 +307,8 @@ export default class GlobalDataContainer extends Container {
     return channelToReturn;
   }
 
-  setOnAttachmentComplete = (onAttachmentComplete, callback) => {
-    this.setState({ onAttachmentComplete }, () => { if (callback) callback() });
+  refreshFeed = async () => {
+    const feed = await getFeed();
+    this.setState({ feed });
   }
 }
