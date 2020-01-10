@@ -134,8 +134,10 @@ class Post extends React.Component {
                     }
                 </View>
                 {textDisplay}
-
+                
+                {/*
                 <RegularText>Images {JSON.stringify(post.images)}</RegularText>
+                */}
                 <View>
                     {attachmentDisplay}
                 </View>
@@ -159,7 +161,9 @@ class Post extends React.Component {
 const styles = StyleSheet.create({
     container: {
         marginTop: 5,
-        marginHorizontal: 8
+        marginHorizontal: 8,
+        borderWidth: 1,
+        borderColor: "#eee"
     },
     text: {
         marginTop: 3,
