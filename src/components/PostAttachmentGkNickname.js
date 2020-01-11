@@ -22,12 +22,14 @@ export default class PostAttachmentGkNickname extends React.Component {
                         size={50}
                         style={{ color: gkNickname.textColor }} />
                 </View>
-                <RegularText style={[styles.text, { color: gkNickname.textColor }]}>
-                    {i18n.t('components.gkNickname.gonnascore')}
-                </RegularText>
-                <BoldText style={[styles.nickname, { color: gkNickname.textColor }]}>
-                    {gkNickname.nickname}
-                </BoldText>
+                <View style={styles.textContainer}>
+                    <RegularText style={[styles.text, { color: gkNickname.textColor }]}>
+                        {i18n.t('components.gkNickname.gonnascore')}
+                    </RegularText>
+                    <BoldText style={[styles.nickname, { color: gkNickname.textColor }]}>
+                        {gkNickname.nickname}
+                    </BoldText>
+                </View>
             </View>
         );
     }
@@ -43,6 +45,9 @@ const styles = StyleSheet.create({
     imageContainer: {
         paddingVertical: 5,
         paddingHorizontal: 5
+    },
+    textContainer: {
+        flex: 1
     },
     text: {
         fontSize: FontSizes.subtitle
