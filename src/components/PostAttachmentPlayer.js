@@ -36,7 +36,7 @@ export default class PostAttachmentPlayer extends React.Component {
                         style={{
                             color: Palette.Sky,
                             marginVertical: 3,
-                            marginHorizontal: 10,
+                            marginHorizontal: 5,
                             backgroundColor: 'transparent'
                         }} />
                 </TouchableOpacity>
@@ -55,7 +55,7 @@ export default class PostAttachmentPlayer extends React.Component {
                         style={{
                             color: Palette.Sky,
                             marginVertical: 3,
-                            marginHorizontal: 10,
+                            marginHorizontal: 5,
                             backgroundColor: 'transparent'
                         }} />
                 </TouchableOpacity>
