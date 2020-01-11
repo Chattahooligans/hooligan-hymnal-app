@@ -28,7 +28,7 @@ const FriendsNavigator = StackNavigator(
     {
         Roster: { screen: Roster },
         Player: { screen: Player },
-        RosterSingleSong: { screen: SingleSong },
+        SingleSong: { screen: SingleSong },
         TwitterList: { screen: TwitterList }
     },
     {

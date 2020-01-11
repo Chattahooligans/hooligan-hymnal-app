@@ -308,7 +308,7 @@ class Player extends React.Component {
     return (
       <SongCard
         headerTitle={i18n.t('screens.player.playersongheader')}
-        navigationToScreen="RosterSingleSong"
+        navigationToScreen="SingleSong"
         key={item._id}
         song={item}
         style={{ borderBottomWidth: 1, borderColor: '#eee' }}
