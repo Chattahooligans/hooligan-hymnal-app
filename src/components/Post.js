@@ -158,11 +158,8 @@ class Post extends React.Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: Palette.White,
-        marginTop: 6,
-        marginHorizontal: 5,
-        borderWidth: 1,
-        borderBottomWidth: 3,
-        borderColor: "#eee"
+        marginTop: Skin.Home_MarginVertical,
+        marginHorizontal: 5
     },
     headerContainer: {
         flexDirection: i18n.getFlexDirection(),

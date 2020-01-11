@@ -63,7 +63,13 @@ export const DefaultColors = {
 }
 
 export const Skin = {
-  Home_SocialButtons: DefaultColors.ButtonBackground,
+  Home_BackgroundColor: DefaultColors.Primary,
+  Home_BigButtonsBackground: DefaultColors.ButtonBackground,
+  Home_BigButtonsLabel: DefaultColors.ButtonText,
+  Home_FindTheMenuLabel: DefaultColors.Primary,
+  Home_SocialButtons: DefaultColors.Primary,
+  Home_Website: Palette.Black,
+  Home_MarginVertical: 6,
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Secondary,
   ModalLoader_Container: "#00000040",

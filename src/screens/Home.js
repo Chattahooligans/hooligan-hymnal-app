@@ -12,10 +12,8 @@ import {
   View
 } from 'react-native';
 import { Asset, LinearGradient, Notifications, WebBrowser, Video } from 'expo';
-import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { BigButton } from '../components/BigButton';
 import { NavigationActions } from 'react-navigation';
-import FadeIn from 'react-native-fade-in-image';
 import { View as AnimatableView } from 'react-native-animatable';
 import { Ionicons } from '@expo/vector-icons';
 import { withNavigation } from 'react-navigation';
@@ -25,20 +23,13 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
-import UpNext from '../components/UpNext';
 import MenuButton from '../components/MenuButton';
 import VideoBackground from '../components/VideoBackground';
 import SocialButtonPanel from '../components/SocialButtonPanel';
 import HomeBannersPanel from '../components/HomeBannersPanel';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import Post from '../components/Post';
-import { connectDrawerButton } from '../Navigation';
 import { FontSizes, Layout, Colors } from '../constants';
-import {
-  HideWhenConferenceHasStarted,
-  HideWhenConferenceHasEnded,
-  ShowWhenConferenceHasEnded
-} from '../utils';
 
 import appParams from '../../app.json';
 
@@ -107,7 +98,7 @@ class Home extends React.Component {
     });
 
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: Skin.Home_BackgroundColor }}>
         <AnimatedScrollView
           style={{ flex: 1 }}
           contentContainerStyle={{ paddingBottom: 20 + Layout.notchHeight / 2 }}
@@ -167,7 +158,7 @@ class StaticHomeContent_Buttons extends React.Component {
     let findTheMenu = i18n.t('screens.home.findthemenu')
     let firstPart = findTheMenu.substring(0, findTheMenu.indexOf('%menuicon%'))
     let secondPart = findTheMenu.substring(findTheMenu.indexOf('%menuicon%') + '%menuicon%'.length)
-    let findTheMenuText = <MediumText style={{ color: DefaultColors.ColorText, fontSize: FontSizes.bodyLarge, marginTop: 5 }}>
+    let findTheMenuText = <MediumText style={{ color: Skin.Home_FindTheMenuLabel, fontSize: FontSizes.bodyLarge, marginTop: 5 }}>
       {firstPart}
       <Ionicons
         name="md-menu"
@@ -177,9 +168,15 @@ class StaticHomeContent_Buttons extends React.Component {
     </MediumText>
 
     return (
-      <View>
-        <BigButton label={i18n.t('screens.home.songbook')} iconName="md-book" onPress={this._handlePressSongbook} />
-        <BigButton label={i18n.t('screens.home.roster')} iconName="md-people" onPress={this._handlePressRoster} />
+      <View style={styles.staticButtonsContainer}>
+        <BigButton
+          style={{ backgroundColor: Skin.Home_BigButtonsBackground }} tintColor={Skin.Home_BigButtonsLabel}
+          label={i18n.t('screens.home.songbook')} iconName="md-book"
+          onPress={this._handlePressSongbook} />
+        <BigButton
+          style={{ backgroundColor: Skin.Home_BigButtonsBackground }} tintColor={Skin.Home_BigButtonsLabel}
+          label={i18n.t('screens.home.roster')} iconName="md-people"
+          onPress={this._handlePressRoster} />
         <View style={{ marginHorizontal: 15, flexDirection: i18n.getFlexDirection() }}>
           {findTheMenuText}
         </View>
@@ -191,10 +188,10 @@ class StaticHomeContent_Buttons extends React.Component {
 class StaticHomeContent_Links extends React.Component {
   render() {
     return (
-      <View>
+      <View style={styles.staticLinksContainer}>
         <TouchableOpacity style={{ flexDirection: i18n.getFlexDirection(), marginHorizontal: 15, marginBottom: 10 }} onPress={() => { Linking.openURL(WEBSITE_URL) }}>
-          <MediumText style={{ color: DefaultColors.ColorText }}>{i18n.t('screens.home.visit')} </MediumText>
-          <UnderlineText>{WEBSITE_URL}</UnderlineText>
+          <MediumText style={{ color: Skin.Home_SocialButtons }}>{i18n.t('screens.home.visit')} </MediumText>
+          <UnderlineText style={{ color: Skin.Home_Website }}>{WEBSITE_URL}</UnderlineText>
         </TouchableOpacity>
         <SocialButtonPanel style={{ paddingHorizontal: 15 }} config={socialButtons} />
       </View>
@@ -327,7 +324,8 @@ const styles = StyleSheet.create({
   },
   staticButtonsContainer: {
     backgroundColor: Palette.White,
-    marginTop: 6,
+    marginTop: Skin.Home_MarginVertical,
+    paddingBottom: 5,
     marginHorizontal: 5,
     borderWidth: 1,
     borderBottomWidth: 3,
@@ -335,7 +333,8 @@ const styles = StyleSheet.create({
   },
   staticLinksContainer: {
     backgroundColor: Palette.White,
-    marginTop: 6,
+    marginTop: Skin.Home_MarginVertical,
+    paddingVertical: 5,
     marginHorizontal: 5,
     borderWidth: 1,
     borderBottomWidth: 3,
