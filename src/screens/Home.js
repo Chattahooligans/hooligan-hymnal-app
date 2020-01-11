@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { Asset, LinearGradient, Notifications, WebBrowser, Video } from 'expo';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
+import { BigButton } from '../components/BigButton';
 import { NavigationActions } from 'react-navigation';
 import FadeIn from 'react-native-fade-in-image';
 import { View as AnimatableView } from 'react-native-animatable';
@@ -160,6 +161,58 @@ class Home extends React.Component {
   }
 }
 
+class StaticHomeContent_Buttons extends React.Component {
+  render() {
+    // "find the menu" instructions polish
+    let findTheMenu = i18n.t('screens.home.findthemenu')
+    let firstPart = findTheMenu.substring(0, findTheMenu.indexOf('%menuicon%'))
+    let secondPart = findTheMenu.substring(findTheMenu.indexOf('%menuicon%') + '%menuicon%'.length)
+    let findTheMenuText = <MediumText style={{ color: DefaultColors.ColorText, fontSize: FontSizes.bodyLarge, marginTop: 5 }}>
+      {firstPart}
+      <Ionicons
+        name="md-menu"
+        size={FontSizes.bodyLarge}
+        style={{ backgroundColor: 'transparent', marginRight: 5 }} />
+      {secondPart}
+    </MediumText>
+
+    return (
+      <View>
+        <BigButton label={i18n.t('screens.home.songbook')} iconName="md-book" onPress={this._handlePressSongbook} />
+        <BigButton label={i18n.t('screens.home.roster')} iconName="md-people" onPress={this._handlePressRoster} />
+        <View style={{ marginHorizontal: 15, flexDirection: i18n.getFlexDirection() }}>
+          {findTheMenuText}
+        </View>
+      </View>
+    )
+  }
+}
+
+class StaticHomeContent_Links extends React.Component {
+  render() {
+    return (
+      <View>
+        <TouchableOpacity style={{ flexDirection: i18n.getFlexDirection(), marginHorizontal: 15, marginBottom: 10 }} onPress={() => { Linking.openURL(WEBSITE_URL) }}>
+          <MediumText style={{ color: DefaultColors.ColorText }}>{i18n.t('screens.home.visit')} </MediumText>
+          <UnderlineText>{WEBSITE_URL}</UnderlineText>
+        </TouchableOpacity>
+        <SocialButtonPanel style={{ paddingHorizontal: 15 }} config={socialButtons} />
+      </View>
+    )
+  }
+}
+
+class StaticHomeContent extends React.Component {
+  render() {
+    return (
+      <View>
+        <StaticHomeContent_Buttons />
+        <StaticHomeContent_Links />
+      </View>
+    )
+  }
+}
+
 @withNavigation
 class DeferredHomeContent extends React.Component {
   state = {
@@ -186,92 +239,32 @@ class DeferredHomeContent extends React.Component {
 
     console.log("FEED:\n" + JSON.stringify(this.props.globalData.state.feed))
 
-    // "find the menu" instructions polish
-    let findTheMenu = i18n.t('screens.home.findthemenu')
-    console.log
-    let firstPart = findTheMenu.substring(0, findTheMenu.indexOf('%menuicon%'))
-    let secondPart = findTheMenu.substring(findTheMenu.indexOf('%menuicon%') + '%menuicon%'.length)
-    let findTheMenuText = <MediumText style={{ color: DefaultColors.ColorText, fontSize: FontSizes.bodyLarge, marginTop: 5 }}>
-      {firstPart}
-      <Ionicons
-        name="md-menu"
-        size={FontSizes.bodyLarge}
-        style={{ backgroundColor: 'transparent', marginRight: 5 }}
-      />
-      {secondPart}
-    </MediumText>
-
-    let postsDisplay = [];
+    let scrollItems = [];
     const posts = this.props.globalData.state.feed;
     posts.forEach((post) => {
       let postDisplay = <Post post={post} navigation={this.props.navigation} />
-      postsDisplay.push(postDisplay);
+      scrollItems.push(postDisplay);
     })
+
+    // for some reason this doesn't blow up when scrollItems.length is small or zero
+    scrollItems.splice(0, 0, <HomeBannersPanel config={banners} />)
+    scrollItems.splice(2, 0, <StaticHomeContent_Buttons />)
+    scrollItems.splice(4, 0, <StaticHomeContent_Links />)
+
+    //scrollItems.splice(2, 0, <StaticHomeContent />)
 
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
-        <HomeBannersPanel config={banners} />
         {/*
+        <HomeBannersPanel config={banners} />
         <UpNext
           songs={this.props.globalData.state.songs}
           songbook={this.props.globalData.state.songbook}
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
         />
+        <StaticHomeContent />
         */}
-        {postsDisplay}
-        <ClipBorderRadius style={{ marginTop: -2 }}>
-          <RectButton
-            style={styles.bigButton}
-            onPress={this._handlePressSongbook}
-            underlayColor="#fff"
-          >
-            <Ionicons
-              name="md-book"
-              size={23}
-              style={{
-                color: '#fff',
-                backgroundColor: 'transparent',
-                marginRight: 5
-              }}
-            />
-            <MediumText style={styles.bigButtonText}>
-              {i18n.t('screens.home.songbook')}
-            </MediumText>
-          </RectButton>
-        </ClipBorderRadius>
-        <ClipBorderRadius>
-          <RectButton
-            style={styles.bigButton}
-            onPress={this._handlePressRoster}
-            underlayColor="#fff"
-          >
-            <Ionicons
-              name="md-people"
-              size={23}
-              style={{
-                color: '#fff',
-                backgroundColor: 'transparent',
-                marginRight: 5
-              }}
-            />
-            <MediumText style={styles.bigButtonText}>
-              {i18n.t('screens.home.roster')}
-            </MediumText>
-          </RectButton>
-        </ClipBorderRadius>
-        <View style={{ marginHorizontal: 15, marginBottom: 20, flexDirection: i18n.getFlexDirection() }}>
-          {findTheMenuText}
-        </View>
-        <View flexDirection={i18n.getFlexDirection()} style={{ marginHorizontal: 15, marginBottom: 10 }}>
-          <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => {
-            //WebBrowser.openBrowserAsync(item.url);
-            Linking.openURL(WEBSITE_URL);
-          }}>
-            <MediumText style={{ color: DefaultColors.ColorText }}>{i18n.t('screens.home.visit')} </MediumText>
-            <UnderlineText>http://comeandjoin.us</UnderlineText>
-          </TouchableOpacity>
-        </View>
-        <SocialButtonPanel style={{ paddingHorizontal: 15 }} config={socialButtons} />
+        {scrollItems}
       </AnimatableView>
     );
   }
@@ -313,21 +306,6 @@ const OverscrollView = () => (
   />
 );
 
-const ClipBorderRadius = ({ children, style }) => {
-  return (
-    <View
-      style={[
-        { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
-        style
-      ]}
-    >
-      {children}
-    </View>
-  );
-};
-
-const BORDER_RADIUS = 3;
-
 const styles = StyleSheet.create({
   headerContent: {
     flex: 1,
@@ -347,26 +325,22 @@ const styles = StyleSheet.create({
     color: DefaultColors.HeaderText,
     fontSize: 14
   },
-  bigButton: {
-    backgroundColor: DefaultColors.ButtonBackground,
-    paddingHorizontal: 15,
-    height: 50,
-    marginHorizontal: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: BORDER_RADIUS,
-    overflow: 'hidden',
-    flexDirection: i18n.getFlexDirection()
+  staticButtonsContainer: {
+    backgroundColor: Palette.White,
+    marginTop: 6,
+    marginHorizontal: 5,
+    borderWidth: 1,
+    borderBottomWidth: 3,
+    borderColor: "#eee"
   },
-  bigButtonText: {
-    fontSize: FontSizes.normalButton,
-    color: DefaultColors.ButtonText,
-    textAlign: 'center'
+  staticLinksContainer: {
+    backgroundColor: Palette.White,
+    marginTop: 6,
+    marginHorizontal: 5,
+    borderWidth: 1,
+    borderBottomWidth: 3,
+    borderColor: "#eee"
   },
-  seeAllSongs: {
-    fontSize: FontSizes.normalButton,
-    color: Palette.Navy
-  }
 });
 
 export default withUnstated(Home, { globalData: GlobalDataContainer });
