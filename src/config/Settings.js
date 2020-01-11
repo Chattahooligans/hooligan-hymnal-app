@@ -11,7 +11,7 @@
 export const TWITTER_URL = 'https://twitter.com/chattahooligan';
 export const FACEBOOK_URL = 'https://www.facebook.com/TheChattahooligans';
 export const INSTAGRAM_URL = 'https://instagram.com/thechattahooligans';
-export const WEBSITE_URL = 'http://chattahooligan.com';
+export const WEBSITE_URL = 'http://comeandjoin.us';
 export const YOUTUBE_URL = '';
 export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
 export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
