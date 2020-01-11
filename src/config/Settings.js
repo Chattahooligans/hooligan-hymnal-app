@@ -69,7 +69,7 @@ export const Skin = {
   Home_FindTheMenuLabel: DefaultColors.Primary,
   Home_SocialButtons: DefaultColors.Primary,
   Home_Website: Palette.Black,
-  Home_MarginVertical: 6,
+  Home_PostMarginVertical: 6,
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Secondary,
   ModalLoader_Container: "#00000040",
