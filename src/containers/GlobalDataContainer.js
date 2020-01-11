@@ -10,13 +10,13 @@ import { getRosters } from '../services/rostersService';
 import { getFoes } from '../services/foesService';
 import { getChannels } from '../services/channelsService';
 import { getFeed } from '../services/feedService';
-import { HYMNAL_ADDRESS } from '../config/server';
+import { HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../config/Settings';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
 import { objectTypeAnnotation } from '@babel/types';
 import i18n from "../../i18n";
 
-const PUSH_ENDPOINT = HYMNAL_ADDRESS + '/api/pushToken';
+const PUSH_ENDPOINT = HOOLIGAN_HYMNAL_SERVER_ADDRESS + '/api/pushToken';
 
 export default class GlobalDataContainer extends Container {
   state = {

@@ -7,6 +7,10 @@
 
 // TODO: Build home screen dynamically based on this websites object
 
+//export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
+// news feed dev branch
+export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://hymnal-serve-news-feed-vf0sbpf.herokuapp.com'
+
 // URLs
 export const TWITTER_URL = 'https://twitter.com/chattahooligan';
 export const FACEBOOK_URL = 'https://www.facebook.com/TheChattahooligans';

@@ -8,12 +8,11 @@ import { Colors, FontSizes } from '../constants';
 import { getFeaturedSong } from '../data';
 import { RectButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
-import { HYMNAL_ADDRESS } from '../config/server';
-import { DefaultColors } from '../config/Settings';
+import { DefaultColors, HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../config/Settings';
 import i18n from '../../i18n';
 
-const CAPO_MESSAGE_ENDPOINT = HYMNAL_ADDRESS + '/api/notifications/last';
-const GOALKEEPER_NICKNAME_ENDPOINT = HYMNAL_ADDRESS + '/api/goalkeeperNicknames/last';
+const CAPO_MESSAGE_ENDPOINT = HOOLIGAN_HYMNAL_SERVER_ADDRESS + '/api/notifications/last';
+const GOALKEEPER_NICKNAME_ENDPOINT = HOOLIGAN_HYMNAL_SERVER_ADDRESS + '/api/goalkeeperNicknames/last';
 
 const GK_EXPIRATION_HOURS = 2;
 
