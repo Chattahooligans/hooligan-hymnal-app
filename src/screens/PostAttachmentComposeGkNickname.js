@@ -93,7 +93,7 @@ class PostAttachmentComposeGkNickname extends React.Component {
                 <BigButton
                     style={{ backgroundColor: this.state.color, marginTop: 0, paddingTop: 2 }}
                     label={this.state.nickname}
-                    color="white"
+                    tintColor="white"
                     iconName="md-hand"
                     inModal={true}
                     onPress={() => {
@@ -112,7 +112,7 @@ class PostAttachmentComposeGkNickname extends React.Component {
                 <BigButton
                     style={{ backgroundColor: this.state.color }}
                     label={this.state.nickname}
-                    color="black"
+                    tintColor="black"
                     iconName="md-hand"
                     inModal={true}
                     onPress={() => {

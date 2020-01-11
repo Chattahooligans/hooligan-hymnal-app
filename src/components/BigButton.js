@@ -18,9 +18,9 @@ export class BigButton extends React.Component {
         if (this.props.inModal)
             inModal = true;
 
-        let contentColor = DefaultColors.ButtonText;
-        if (this.props.color)
-            contentColor = this.props.color;
+        let tintColor = DefaultColors.ButtonText;
+        if (this.props.tintColor)
+            tintColor = this.props.tintColor;
 
         return (
             <View>
@@ -36,13 +36,13 @@ export class BigButton extends React.Component {
                                     name={this.props.iconName}
                                     size={23}
                                     style={{
-                                        color: contentColor,
+                                        color: tintColor,
                                         backgroundColor: 'transparent',
                                         marginHorizontal: 8,
                                         marginVertical: 3
                                     }} />
                             }
-                            <MediumText style={[styles.bigButtonText, { color: contentColor }]}>
+                            <MediumText style={[styles.bigButtonText, { color: tintColor }]}>
                                 {this.props.label}
                             </MediumText>
                             {(this.props.iconName && iconPosition == "right") &&
@@ -50,7 +50,7 @@ export class BigButton extends React.Component {
                                     name={this.props.iconName}
                                     size={23}
                                     style={{
-                                        color: contentColor,
+                                        color: tintColor,
                                         backgroundColor: 'transparent',
                                         marginHorizontal: 8,
                                         marginVertical: 3,
@@ -72,13 +72,13 @@ export class BigButton extends React.Component {
                                     name={this.props.iconName}
                                     size={23}
                                     style={{
-                                        color: contentColor,
+                                        color: tintColor,
                                         backgroundColor: 'transparent',
                                         marginHorizontal: 8,
                                         marginVertical: 3
                                     }} />
                             }
-                            <MediumText style={[styles.bigButtonText, { color: contentColor }]}>
+                            <MediumText style={[styles.bigButtonText, { color: tintColor }]}>
                                 {this.props.label}
                             </MediumText>
                             {(this.props.iconName && iconPosition == "right") &&
@@ -86,7 +86,7 @@ export class BigButton extends React.Component {
                                     name={this.props.iconName}
                                     size={23}
                                     style={{
-                                        color: contentColor,
+                                        color: tintColor,
                                         backgroundColor: 'transparent',
                                         marginHorizontal: 8,
                                         marginVertical: 3,
