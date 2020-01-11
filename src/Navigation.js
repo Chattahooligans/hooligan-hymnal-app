@@ -25,7 +25,9 @@ const SongsNavigation = StackNavigator(
 const HomeNavigation = StackNavigator(
   {
     Home: { screen: Screens.Home },
-    SingleSong: { screen: Screens.SingleSong }
+    SingleSong: { screen: Screens.SingleSong },
+    Player: { screen: Screens.Player },
+    TwitterList: { screen: Screens.TwitterList }
   },
   {
     ...DefaultStackConfig,
@@ -175,7 +177,7 @@ const Drawer = DrawerNavigator(
     Standings: { screen: StandingsNavigation },
     Shop: { screen: ShopNavigation },
     Volunteer: { screen: VolunteerNavigation },
-    Instrumentation: {screen: InstrumentationNavigation },
+    Instrumentation: { screen: InstrumentationNavigation },
     CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation }
   },

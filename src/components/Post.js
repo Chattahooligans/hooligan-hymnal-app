@@ -111,36 +111,33 @@ class Post extends React.Component {
         return (
             <View style={styles.container}>
                 {/* Facebook style */}
-                <View style={{ flexDirection: i18n.getFlexDirection() }}>
+                <View style={styles.headerContainer}>
                     <FadeIn>
                         <Image
                             source={{ uri: post.channelData.avatarUrl }}
-                            style={{ width: 50, height: 50, borderRadius: 25, marginRight: 4 }} />
+                            style={styles.channelImage} />
                     </FadeIn>
-                    <View style={{ flex: 1, marginTop: 3 }}>
-                        <BoldText>{post.channelData.name}</BoldText>
-                        <RegularText>{moment(post.publishedAt).fromNow()}</RegularText>
+                    <View style={styles.headerTextContainer}>
+                        <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
+                        <RegularText style={styles.timestampText}>{moment(post.publishedAt).fromNow()}</RegularText>
                     </View>
                     {post.push &&
                         <Ionicons
                             name="md-notifications"
                             size={18}
-                            style={{
-                                color: Palette.Sky,
-                                backgroundColor: 'transparent',
-                                marginRight: 3,
-                                marginTop: 3
-                            }} />
+                            style={styles.notificationSymbol} />
                     }
                 </View>
                 {textDisplay}
-                
+
                 {/*
                 <RegularText>Images {JSON.stringify(post.images)}</RegularText>
                 */}
-                <View>
-                    {attachmentDisplay}
-                </View>
+                {attachmentDisplay.length > 0 &&
+                    <View style={styles.attachmentsContainer}>
+                        {attachmentDisplay}
+                    </View>
+                }
             </View>
         )
     }
@@ -160,21 +157,52 @@ class Post extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 5,
-        marginHorizontal: 8,
+        backgroundColor: Palette.White,
+        marginTop: 4,
+        marginHorizontal: 5,
         borderWidth: 1,
+        borderBottomWidth: 2,
         borderColor: "#eee"
     },
+    headerContainer: {
+        flexDirection: i18n.getFlexDirection(),
+        padding: 4
+    },
+    channelImage: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        marginRight: 8
+    },
+    headerTextContainer: {
+        flex: 1
+    },
+    channelText: {
+
+    },
+    timestampText: {
+
+    },
+    notificationSymbol: {
+        color: Palette.Sky,
+        marginRight: 3
+    },
     text: {
-        marginTop: 3,
+        paddingVertical: 3,
+        paddingHorizontal: 8,
         fontFamily: 'heebo',
         fontSize: 18,
         lineHeight: 24,
         flex: 1,
         color: Palette.Navy,
-        backgroundColor: Palette.White,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
+    },
+    imagesContainer: {
+
+    },
+    attachmentsContainer: {
+
     },
     bold: {
         fontWeight: 'bold'

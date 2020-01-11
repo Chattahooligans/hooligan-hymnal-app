@@ -9,6 +9,7 @@ import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Ionicons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
+import containerStyle from './PostAttachmentContainerStyle';
 import i18n from "../../i18n";
 
 export default class PostAttachmentMassTweet extends React.Component {
@@ -20,7 +21,7 @@ export default class PostAttachmentMassTweet extends React.Component {
             thumbnail = { uri: roster.defaultThumbnail };
 
         return (
-            <View style={styles.row}>
+            <View style={styles.container}>
                 <TouchableOpacity
                     onPress={this._handlePress}
                     activeOpacity={0.2}
@@ -49,7 +50,7 @@ export default class PostAttachmentMassTweet extends React.Component {
                         </View>
                     </View>
                 </TouchableOpacity>
-            </View >
+            </View>
         );
     }
 
@@ -60,16 +61,12 @@ export default class PostAttachmentMassTweet extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    row: {
+    container: {
+        ...containerStyle,
         flex: 1,
-        paddingTop: 10,
-        padding: 10,
-        backgroundColor: Palette.White,
-        borderBottomWidth: 1,
-        borderColor: '#eee',
         flexDirection: i18n.getFlexDirection()
     },
-    rowLogoContainer: {
+    imageContainer: {
         paddingVertical: 5,
         paddingHorizontal: 5
     },

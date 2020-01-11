@@ -7,6 +7,7 @@ import { withNavigation } from 'react-navigation';
 import { BoldText, RegularText } from './StyledText';
 import { FontSizes } from '../constants';
 import { Ionicons } from '@expo/vector-icons';
+import containerStyle from './PostAttachmentContainerStyle';
 import i18n from "../../i18n"
 
 export default class PostAttachmentGkNickname extends React.Component {
@@ -14,20 +15,13 @@ export default class PostAttachmentGkNickname extends React.Component {
         const gkNickname = this.props.gkNickname;
 
         return (
-            <View
-                style={{
-                    flexDirection: i18n.getFlexDirection(), alignItems: 'center',
-                    backgroundColor: gkNickname.backgroundColor,
-                    paddingVertical: 5, paddingHorizontal: 10
-                }}>
-                <Ionicons
-                    name="md-hand"
-                    size={23}
-                    style={{
-                        color: gkNickname.textColor,
-                        backgroundColor: 'transparent',
-                        marginHorizontal: 5,
-                    }} />
+            <View style={[styles.container, { backgroundColor: gkNickname.backgroundColor }]}>
+                <View style={styles.imageContainer}>
+                    <Ionicons
+                        name="md-hand"
+                        size={50}
+                        style={{ color: gkNickname.textColor }} />
+                </View>
                 <RegularText style={[styles.text, { color: gkNickname.textColor }]}>
                     {i18n.t('components.gkNickname.gonnascore')}
                 </RegularText>
@@ -40,6 +34,16 @@ export default class PostAttachmentGkNickname extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        ...containerStyle,
+        flex: 1,
+        flexDirection: i18n.getFlexDirection(),
+        alignItems: "center"
+    },
+    imageContainer: {
+        paddingVertical: 5,
+        paddingHorizontal: 5
+    },
     text: {
         fontSize: FontSizes.subtitle
     },

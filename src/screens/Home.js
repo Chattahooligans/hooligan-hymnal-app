@@ -204,7 +204,7 @@ class DeferredHomeContent extends React.Component {
     let postsDisplay = [];
     const posts = this.props.globalData.state.feed;
     posts.forEach((post) => {
-      let postDisplay = <Post post={post} />
+      let postDisplay = <Post post={post} navigation={this.props.navigation} />
       postsDisplay.push(postDisplay);
     })
 
@@ -224,7 +224,7 @@ class DeferredHomeContent extends React.Component {
             style={styles.bigButton}
             onPress={this._handlePressSongbook}
             underlayColor="#fff"
-            >
+          >
             <Ionicons
               name="md-book"
               size={23}
@@ -233,7 +233,7 @@ class DeferredHomeContent extends React.Component {
                 backgroundColor: 'transparent',
                 marginRight: 5
               }}
-              />
+            />
             <MediumText style={styles.bigButtonText}>
               {i18n.t('screens.home.songbook')}
             </MediumText>
@@ -244,7 +244,7 @@ class DeferredHomeContent extends React.Component {
             style={styles.bigButton}
             onPress={this._handlePressRoster}
             underlayColor="#fff"
-            >
+          >
             <Ionicons
               name="md-people"
               size={23}
@@ -253,7 +253,7 @@ class DeferredHomeContent extends React.Component {
                 backgroundColor: 'transparent',
                 marginRight: 5
               }}
-              />
+            />
             <MediumText style={styles.bigButtonText}>
               {i18n.t('screens.home.roster')}
             </MediumText>

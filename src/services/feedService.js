@@ -85,9 +85,11 @@ export async function getFeed() {
   posts.push(samplePost2)
   posts.push(samplePost3)
   posts.push(samplePost4)
+  posts.push(samplePostVerbose)
 
   // return the post or an empty array
-  if (Math.round(Math.random()))
+  //if (Math.round(Math.random()))
+  if (true)
     return posts;
   else
     return [];

@@ -10,6 +10,7 @@ import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Ionicons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
+import containerStyle from './PostAttachmentContainerStyle';
 import i18n from "../../i18n";
 
 export default class PostAttachmentPlayer extends React.Component {
@@ -61,13 +62,13 @@ export default class PostAttachmentPlayer extends React.Component {
         }
 
         return (
-            <View style={styles.row}>
+            <View style={styles.container}>
                 <TouchableOpacity
                     onPress={this._handlePress}
                     activeOpacity={0.2}
                     style={{ flex: 1 }}>
                     <View style={{ flexDirection: i18n.getFlexDirection() }}>
-                        <View style={styles.rowAvatarContainer}>
+                        <View style={styles.imageContainer}>
                             <FadeIn>
                                 <Image
                                     source={thumbnail}
@@ -101,16 +102,12 @@ export default class PostAttachmentPlayer extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    row: {
+    container: {
+        ...containerStyle,
         flex: 1,
-        paddingTop: 10,
-        padding: 10,
-        backgroundColor: Palette.White,
-        borderBottomWidth: 1,
-        borderColor: '#eee',
         flexDirection: i18n.getFlexDirection()
     },
-    rowAvatarContainer: {
+    imageContainer: {
         paddingVertical: 5,
         paddingHorizontal: 5
     },
