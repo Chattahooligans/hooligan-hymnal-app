@@ -64,8 +64,8 @@ export const DefaultColors = {
 
 export const Skin = {
   Home_BackgroundColor: DefaultColors.Primary,
-  Home_BigButtonsBackground: DefaultColors.ButtonBackground,
-  Home_BigButtonsLabel: DefaultColors.ButtonText,
+  Home_BigButtonsBackground: DefaultColors.Secondary,
+  Home_BigButtonsLabel: DefaultColors.Primary,
   Home_FindTheMenuLabel: DefaultColors.Primary,
   Home_SocialButtons: DefaultColors.Primary,
   Home_Website: Palette.Black,
