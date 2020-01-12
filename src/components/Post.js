@@ -5,6 +5,7 @@ import {
     Linking,
     Platform,
     StyleSheet,
+    TouchableOpacity,
     View
 } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
@@ -119,7 +120,9 @@ class Post extends React.Component {
                     </FadeIn>
                     <View style={styles.headerTextContainer}>
                         <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
-                        <RegularText style={styles.timestampText}>{moment(post.publishedAt).fromNow()}</RegularText>
+                        <TouchableOpacity onPress={() => { this.props.navigation.navigate("SinglePost", { post }) }}>
+                            <RegularText style={styles.timestampText}>{moment(post.publishedAt).fromNow()}</RegularText>
+                        </TouchableOpacity>
                     </View>
                     {post.push &&
                         <Ionicons

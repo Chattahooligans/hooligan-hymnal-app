@@ -25,6 +25,7 @@ const SongsNavigation = StackNavigator(
 const HomeNavigation = StackNavigator(
   {
     Home: { screen: Screens.Home },
+    SinglePost: { screen: Screens.SinglePost },
     SingleSong: { screen: Screens.SingleSong },
     Player: { screen: Screens.Player },
     TwitterList: { screen: Screens.TwitterList }

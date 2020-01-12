@@ -23,6 +23,7 @@ import RosterFoePlayers from './RosterFoePlayers';
 import RosterFoes from './RosterFoes';
 import RosterHome from './RosterHome';
 import Shop from './Shop';
+import SinglePost from './SinglePost';
 import SingleSong from './SingleSong';
 import Songbook from './Songbook';
 import Songs from './Songs';
@@ -47,7 +48,6 @@ export default {
   PostAttach,
   PostAttachmentComposeSong,
   PostAttachmentComposeGkNickname,
-  
   PostAttachmentSelectPlayer,
   PostAttachmentSelectSong,
   PostCreate,
@@ -57,6 +57,7 @@ export default {
   RosterFoes,
   RosterHome,
   Shop,
+  SinglePost,
   SingleSong,
   Songbook,
   Songs,
