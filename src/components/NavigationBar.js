@@ -78,11 +78,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   navigationBarTitleContainer: {
-    flex: 1,
-    flexDirection: i18n.getFlexDirection(),
-    paddingHorizontal: 0,
-    alignItems: 'center',
-    justifyContent: Platform.OS === 'ios' ? 'center' : 'flex-start',
+    marginTop: Constants.statusBarHeight+4
   },
   navigationBarLeftButton: {
     marginTop: 4,

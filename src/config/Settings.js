@@ -27,6 +27,9 @@ export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
 export const INSTRUMENTATION_URL ='https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 
 // Common Images
+export const HOME_SCREEN_NAVBAR = require('../../assets/home-logo.png');
+//export const HOME_SCREEN_NAVBAR = require('../../assets/home-big-c-logo.png');
+export const HOME_SCREEN_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
 // like social media icons
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');

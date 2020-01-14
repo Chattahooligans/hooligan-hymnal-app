@@ -30,10 +30,20 @@ import HomeBannersPanel from '../components/HomeBannersPanel';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import Post from '../components/Post';
 import { FontSizes, Layout, Colors } from '../constants';
+import Constants from 'expo-constants';
 
 import appParams from '../../app.json';
 
-import { Palette, DefaultColors, Skin, banners, socialButtons, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON, GOFUNDME_BW_ICON, PRIDERAISER_ICON, PRIDERAISER_URL, Settings } from '../config/Settings';
+import {
+  Palette,
+  DefaultColors,
+  Skin,
+  banners,
+  socialButtons,
+  WEBSITE_URL,
+  HOME_SCREEN_NAVBAR,
+  HOME_SCREEN_VIDEO_OVERLAY,
+} from '../config/Settings';
 import i18n from "../../i18n";
 import { watchPositionAsync } from 'expo-location';
 
@@ -127,7 +137,7 @@ class Home extends React.Component {
               <View style={styles.headerVideoOverlay} />
             </View>
             <Image
-              source={require('../../assets/home-big-c-logo.png')}
+              source={HOME_SCREEN_VIDEO_OVERLAY}
               style={{ height: 100, resizeMode: 'contain', marginTop: 20 }}
               tintColor={DefaultColors.HeaderText}
             />
@@ -144,6 +154,12 @@ class Home extends React.Component {
 
         <NavigationBar
           renderLeftButton={() => <MenuButton />}
+          renderTitle={() =>
+            <Image
+              source={HOME_SCREEN_NAVBAR}
+              style={{ height: Layout.headerHeight - (Constants.statusBarHeight / 2), width: Layout.window.width, resizeMode: 'contain' }}
+              tintColor={DefaultColors.HeaderText} />
+          }
           animatedBackgroundOpacity={headerOpacity}
         />
       </View>
@@ -268,13 +284,6 @@ class DeferredHomeContent extends React.Component {
       </AnimatableView>
     );
   }
-
-  _handlePressPrideraiser = () => {
-    Linking.openURL(PRIDERAISER_URL);
-  };
-  _handlePressGoFundMe = () => {
-    Linking.openURL(GOFUNDME_URL);
-  };
 }
 
 const OverscrollView = () => (
