@@ -24,7 +24,7 @@ export default class PostAttachmentGkNickname extends React.Component {
                 </View>
                 <View style={styles.textContainer}>
                     <RegularText style={[styles.preambleText, { color: gkNickname.textColor }]}>
-                        {i18n.t('components.gkNickname.gonnascore')}
+                        {i18n.t('components.postattachmentgknickname.gonnascore')}
                     </RegularText>
                     <BoldText style={[styles.nicknameText, { color: gkNickname.textColor }]}>
                         {gkNickname.nickname}

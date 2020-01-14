@@ -45,7 +45,7 @@ export default class PostAttachmentMassTweet extends React.Component {
                                         color: Palette.Sky,
                                         backgroundColor: 'transparent'
                                     }} />
-                                <RegularText style={styles.tweetAllText}>Tweet all players</RegularText>
+                                <RegularText style={styles.tweetAllText}>T{i18n.t('components.postattachmentmasstweet.tweettheplayers')}</RegularText>
                             </View>
                         </View>
                     </View>

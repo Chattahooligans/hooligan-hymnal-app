@@ -239,9 +239,9 @@ class PostCreate extends React.Component {
                     }}
                     renderRow={(row, index) => this.renderAttachmentItem(row, index)} />
                 */}
-                <Button title="Add Attachment" color={DefaultColors.ButtonBackground} onPress={this._handlePressAddAttachment} />
+                <Button title={i18n.t('screens.postcreate.addattachment')} color={DefaultColors.ButtonBackground} onPress={this._handlePressAddAttachment} />
                 <View style={styles.toggleContainer}>
-                    <RegularText style={styles.toggleLabel}>Bother people with a push notification? Seriously?</RegularText>
+                    <RegularText style={styles.toggleLabel}>{i18n.t('screens.postcreate.push')}</RegularText>
                     <Switch
                         enabled={this.state.selectedChannel.canPush}
                         value={this.state.post.push}
@@ -301,7 +301,7 @@ class PostCreate extends React.Component {
                             }} />
 
                             <Button
-                                title="Cancel"
+                                title={i18n.t('screens.postcreate.cancel')}
                                 color={DefaultColors.ButtonBackground}
                                 onPress={() => this.setAttachmentModalVisible(false)} />
                         </View>

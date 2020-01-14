@@ -27,19 +27,19 @@ export default class PostAttachmentComposeSong extends React.Component {
         return (
             <View style={{ flex: 1 }}>
                 <KeyboardAvoidingView behavior="height" style={styles.container}>
-                    <BoldText style={{ textAlign: 'center' }}>Compose Song</BoldText>
+                    <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattchmentcomposesong.composesong')}</BoldText>
                     <TextInput
                         style={styles.titleInput}
-                        placeholder={i18n.t('screens.capocompose.songtitle')}
+                        placeholder={i18n.t('screens.postattchmentcomposesong.title')}
                         onChangeText={(text) => this.setState({ title: text })} />
                     <TextInput
                         style={styles.lyricsInput}
                         multiline={true}
-                        placeholder={i18n.t('screens.capocompose.songlyrics')}
+                        placeholder={i18n.t('screens.postattchmentcomposesong.lyrics')}
                         onChangeText={(text) => this.setState({ lyrics: text })} />
                     <BigButton
                         style={{ paddingBottom: 10 }}
-                        label="Attach"
+                        label={i18n.t('screens.postattchmentcomposesong.attach')}
                         inModal={true}
                         onPress={() => {
                             if (this.props.screenProps.onAttachmentComplete)

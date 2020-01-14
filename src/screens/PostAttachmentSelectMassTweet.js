@@ -114,11 +114,11 @@ class PostAttachmentSelectMassTweet extends React.Component {
 
         return (
             <View style={{ flex: 1 }}>
-                <BoldText style={{ textAlign: 'center' }}>Select Roster</BoldText>
+                <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattachmentselectmasstweet.selectroster')}</BoldText>
                 <View style={{ flexDirection: i18n.getFlexDirection(), borderWidth: 1 }}>
                     <TextInput
                         style={styles.textInput}
-                        placeholder={"Search"}
+                        placeholder={i18n.t('screens.postattachmentselectmasstweet.search')}
                         value={this.state.search}
                         onChangeText={this._onSearchChange} />
                     <TouchableOpacity

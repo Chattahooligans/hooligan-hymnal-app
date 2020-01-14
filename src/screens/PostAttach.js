@@ -20,35 +20,35 @@ class PostAttach extends React.Component {
     render() {
         return (
             <ScrollView style={{ flex: 1 }}>
-                <BoldText style={{ textAlign: 'center' }}>Attachment Types</BoldText>
+                <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattach.attachmenttypes')}</BoldText>
 
                 <BigButton
-                    label="Select Player" iconName="md-person" inModal={true}
+                    label={i18n.t('screens.postattach.selectplayer')} iconName="md-person" inModal={true}
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectPlayer", {
                             onAttachmentComplete: this.props.screenProps.onAttachmentComplete
                         })
                     }} />
-                <BigButton label="Select Song" iconName="md-musical-notes" inModal={true}
+                <BigButton label={i18n.t('screens.postattach.selectsong')} iconName="md-musical-notes" inModal={true}
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectSong", {
                             onAttachmentComplete: this.props.screenProps.onAttachmentComplete
                         })
                     }} />
-                <BigButton label="Compose Song" iconName="md-microphone" inModal={true}
+                <BigButton label={i18n.t('screens.postattach.composesong')} iconName="md-microphone" inModal={true}
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentComposeSong", {
                             onAttachmentComplete: this.props.screenProps.onAttachmentComplete
                         })
                     }} />
-                <BigButton label="Tweet the Players" iconName="logo-twitter" inModal={true}
+                <BigButton label={i18n.t('screens.postattach.masstweet')} iconName="logo-twitter" inModal={true}
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectMassTweet", {
                             onAttachmentComplete: this.props.screenProps.onAttachmentComplete
                         })
                     }} />
                 {Settings.CapoHome_GKNicknameEnabled &&
-                    <BigButton label="GK Nickname" iconName="md-hand" inModal={true}
+                    <BigButton label={i18n.t('screens.postattach.gknickname')} iconName="md-hand" inModal={true}
                         onPress={() => {
                             this.props.navigation.navigate("PostAttachmentComposeGkNickname", {
                                 onAttachmentComplete: this.props.screenProps.onAttachmentComplete

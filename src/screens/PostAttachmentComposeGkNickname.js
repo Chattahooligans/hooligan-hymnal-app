@@ -68,13 +68,13 @@ class PostAttachmentComposeGkNickname extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, paddingBottom: 10 }}>
-                <BoldText style={{ textAlign: 'center' }}>GK Nickname</BoldText>
-                <MediumText style={styles.instructions}>{i18n.t('screens.caposetGKnickname.instructions1')}</MediumText>
+                <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattachmentcomposegknickname.gknickname')}</BoldText>
+                <MediumText style={styles.instructions}>{i18n.t('screens.postattachmentcomposegknickname.instructions1')}</MediumText>
                 <TextInput
                     style={styles.nicknameInput}
                     autoFocus={true}
                     onChangeText={(text) => this.setState({ nickname: text })} />
-                <MediumText style={styles.instructions}>{i18n.t('screens.caposetGKnickname.instructions2')}</MediumText>
+                <MediumText style={styles.instructions}>{i18n.t('screens.postattachmentcomposegknickname.instructions2')}</MediumText>
                 <SectionList
                     style={styles.colorPicker}
                     renderScrollComponent={props => <ScrollView {...props} />}
@@ -89,7 +89,7 @@ class PostAttachmentComposeGkNickname extends React.Component {
                     }}
                     sections={this.state.colorData}
                     keyExtractor={(item, index) => (item.name + " " + index)} />
-                <MediumText style={[styles.instructions, { paddingTop: 8 }]}>{i18n.t('screens.caposetGKnickname.instructions3')}</MediumText>
+                <MediumText style={[styles.instructions, { paddingTop: 8 }]}>{i18n.t('screens.postattachmentcomposegknickname.instructions3')}</MediumText>
                 <BigButton
                     style={{ backgroundColor: this.state.color, marginTop: 0, paddingTop: 2 }}
                     label={this.state.nickname}
