@@ -11,7 +11,7 @@ import { DefaultColors, Palette, Skin } from '../config/Settings';
 
 export default class SinglePost extends React.Component {
     static navigationOptions = ({ navigation }) => ({
-        title: appParams.expo.name,
+        title: "View Post",
         ...NavigationOptions,
         headerLeft: (
             <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
