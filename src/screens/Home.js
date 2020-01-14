@@ -153,6 +153,10 @@ class Home extends React.Component {
 }
 
 class StaticHomeContent_Buttons extends React.Component {
+  _handlePressSongbook = () => { this.props.navigation.navigate('Songbook') }
+
+  _handlePressRoster = () => { this.props.navigation.navigate('Roster') }
+
   render() {
     // "find the menu" instructions polish
     let findTheMenu = i18n.t('screens.home.findthemenu')
@@ -245,7 +249,7 @@ class DeferredHomeContent extends React.Component {
 
     // for some reason this doesn't blow up when scrollItems.length is small or zero
     scrollItems.splice(0, 0, <HomeBannersPanel config={banners} />)
-    scrollItems.splice(2, 0, <StaticHomeContent_Buttons />)
+    scrollItems.splice(2, 0, <StaticHomeContent_Buttons navigation={this.props.navigation} />)
     scrollItems.splice(4, 0, <StaticHomeContent_Links />)
 
     //scrollItems.splice(2, 0, <StaticHomeContent />)
@@ -265,22 +269,6 @@ class DeferredHomeContent extends React.Component {
       </AnimatableView>
     );
   }
-
-  _handlePressSongbook = () => {
-    this.props.navigation.dispatch(
-      NavigationActions.navigate({
-        routeName: 'Songbook'
-      })
-    );
-  };
-
-  _handlePressRoster = () => {
-    this.props.navigation.dispatch(
-      NavigationActions.navigate({
-        routeName: 'Roster'
-      })
-    );
-  };
 
   _handlePressPrideraiser = () => {
     Linking.openURL(PRIDERAISER_URL);
