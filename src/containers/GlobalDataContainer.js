@@ -293,7 +293,13 @@ export default class GlobalDataContainer extends Container {
   }
 
   getChannelBasicInfo = (channelId) => {
-    let channelToReturn = { _id: -1, name: "No channel found" };
+    let channelToReturn = { 
+      _id: -1, 
+      name: "No channel found",
+      description: "",
+      avatarUrl: "",
+      headerUrl: "" 
+    };
     const channel = this.state.channels.find(channel => channel._id === channelId)
 
     if (channel && channel.active) {
