@@ -92,11 +92,7 @@ class Home extends React.Component {
   onRefresh = () => {
     this.setState({ refreshing: true });
 
-    const feed = this.props.globalData.refreshFeed();
-
-    setTimeout(() => {
-      this.setState({ refreshing: false });
-    }, 2000);
+    this.props.globalData.refreshFeed();
   }
 
   render() {
