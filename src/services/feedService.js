@@ -1,10 +1,10 @@
 import API from './baseService';
 
-/*
+// TODO: remove /all once .active works
 export const getFeed = () =>
-  API.get('/api/feed').then(response => response.data);
-  */
+  API.get('/api/feed/all').then(response => response.data);
 
+/*
 export async function getFeed() {
   let posts = [];
 
@@ -94,6 +94,7 @@ export async function getFeed() {
   else
     return [];
 }
+*/
 
 export const createPost = (post, token) =>
   API.post(
