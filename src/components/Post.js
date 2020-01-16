@@ -55,6 +55,16 @@ class Post extends React.Component {
         let nav = this.props.navigation;
         //console.log("nav: " + nav);
 
+        // display relative time only if a post is from today, else just a regular timestamp
+        let publishedAtDisplay = "";
+        if (moment(post.publishedAt).isSame(moment(), 'day'))
+            publishedAtDisplay = moment(post.publishedAt).fromNow()
+        else
+            publishedAtDisplay = moment(post.publishedAt).format("M/D/YY h:mma")
+
+        console.log(moment(post.publishedAt).fromNow())
+        console.log(moment(post.publishedAt).format("M/D/YY h:mma"))
+
         let textDisplay;
         if (post.text) {
             textDisplay =
@@ -121,7 +131,7 @@ class Post extends React.Component {
                     <View style={styles.headerTextContainer}>
                         <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
                         <TouchableOpacity onPress={() => { this.props.navigation.navigate("SinglePost", { post }) }}>
-                            <RegularText style={styles.timestampText}>{moment(post.publishedAt).fromNow()}</RegularText>
+                            <RegularText style={styles.timestampText}>{publishedAtDisplay}</RegularText>
                         </TouchableOpacity>
                     </View>
                     {post.push &&
