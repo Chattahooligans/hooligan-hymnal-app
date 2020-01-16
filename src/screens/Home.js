@@ -59,10 +59,10 @@ class Home extends React.Component {
   };
 
   componentDidMount() {
-    Notifications.addListener(this._handleNotification);
-    if (!this.props.globalData.state.songs) {
-      this.props.globalData.loadData();
+    if (!this.props.globalData.state.loadDataComplete) {
+      await this.props.globalData.loadData();
     }
+    Notifications.addListener(this._handleNotification);
   }
 
   _handleNotification = notification => {
