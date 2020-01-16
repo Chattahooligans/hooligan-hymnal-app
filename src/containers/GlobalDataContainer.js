@@ -48,7 +48,8 @@ export default class GlobalDataContainer extends Container {
     bearerToken: null,
     currentPostDraft: null,
     feed: [],
-    response: null
+    response: null,
+    loadDataComplete: false
   };
 
   loadData = async () => {
@@ -71,7 +72,8 @@ export default class GlobalDataContainer extends Container {
         foes,
         channels,
         feed,
-        htmlColors
+        htmlColors,
+        loadDataComplete: true
       });
     } catch (e) {
       alert("loadData exception: " + e.toString());
