@@ -58,7 +58,7 @@ class Home extends React.Component {
     header: null
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     if (!this.props.globalData.state.loadDataComplete) {
       await this.props.globalData.loadData();
     }
@@ -89,10 +89,12 @@ class Home extends React.Component {
     }
   };
 
-  onRefresh = () => {
+  async onRefresh() {
     this.setState({ refreshing: true });
 
-    this.props.globalData.refreshFeed();
+    await this.props.globalData.refreshFeed();
+
+    this.setState({ refreshing: false });
   }
 
   render() {
