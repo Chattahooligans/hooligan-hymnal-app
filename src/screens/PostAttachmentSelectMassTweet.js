@@ -101,7 +101,7 @@ class PostAttachmentSelectMassTweet extends React.Component {
 
     _handlePressRoster = (roster) => {
         if (this.props.screenProps.onAttachmentComplete)
-            this.props.screenProps.onAttachmentComplete({ type: "masstweet", data: { rosterId: roster._id } });
+            this.props.screenProps.onAttachmentComplete({ attachmentType: "masstweet", data: { rosterId: roster._id } });
     }
 
     render() {

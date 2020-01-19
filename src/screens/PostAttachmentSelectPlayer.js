@@ -107,7 +107,7 @@ class PostAttachmentSelectPlayer extends React.Component {
 
     _handlePressPlayer = (player) => {
         if (this.props.screenProps.onAttachmentComplete)
-            this.props.screenProps.onAttachmentComplete({ type: "player", _id: player._id });
+            this.props.screenProps.onAttachmentComplete({ attachmentType: "player", relatedId: player._id });
     }
 
     render() {

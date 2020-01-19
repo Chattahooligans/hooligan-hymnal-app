@@ -45,7 +45,7 @@ export default class PostAttachmentComposeSong extends React.Component {
                             if (this.props.screenProps.onAttachmentComplete)
                                 this.props.screenProps.onAttachmentComplete(
                                     {
-                                        type: "song",
+                                        attachmentType: "song",
                                         data: {
                                             title: this.state.title,
                                             lyrics: this.state.lyrics

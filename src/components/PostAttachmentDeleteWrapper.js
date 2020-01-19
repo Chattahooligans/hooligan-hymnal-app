@@ -20,17 +20,17 @@ class PostAttachmentDeleteWrapper extends React.Component {
         let attachment = this.props.attachment;
         let attachmentDisplay;
 
-        switch (attachment.type.toLowerCase()) {
+        switch (attachment.attachmentType.toLowerCase()) {
             case "player":
-                let player = this.props.globalData.state.players.find(player => player._id === attachment._id);
+                let player = this.props.globalData.state.players.find(player => player._id === attachment.relatedId);
                 let playerDisplay = <PostAttachmentPlayer player={player}
                     onPress={() => { this.props.navigation.navigate("Player", { player }) }} />
                 attachmentDisplay = playerDisplay;
                 break;
             case "song":
                 let song;
-                if (attachment._id) {
-                    song = this.props.globalData.state.songs.find(song => song._id === attachment._id);
+                if (attachment.relatedId) {
+                    song = this.props.globalData.state.songs.find(song => song._id === attachment.relatedId);
                 } else if (attachment.data) {
                     song = attachment.data;
                 }

@@ -100,7 +100,7 @@ class PostAttachmentComposeGkNickname extends React.Component {
                         if (this.props.screenProps.onAttachmentComplete)
                             this.props.screenProps.onAttachmentComplete(
                                 {
-                                    type: "gknickname",
+                                    attachmentType: "gknickname",
                                     data: {
                                         nickname: this.state.nickname,
                                         backgroundColor: this.state.color,
@@ -119,7 +119,7 @@ class PostAttachmentComposeGkNickname extends React.Component {
                         if (this.props.onAttachmentComplete)
                             this.props.onAttachmentComplete(
                                 {
-                                    type: "gknickname",
+                                    attachmentType: "gknickname",
                                     data: {
                                         nickname: this.state.nickname,
                                         backgroundColor: this.state.color,
