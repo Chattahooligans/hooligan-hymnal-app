@@ -45,6 +45,7 @@
     "react-native-resource-saving-container": "^1.0.2",
     "react-native-screens": "1.0.0-alpha.23",
     "react-native-simple-toast": "^1.0.0",
+    "react-native-tiny-toast": "^1.0.6",
     "react-navigation": "1.5.11",
     "react-navigation-tabs": "^2.4.1",
     "unstated": "^2.1.1"

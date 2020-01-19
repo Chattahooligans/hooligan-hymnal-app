@@ -4,7 +4,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { BoldText, RegularText } from './StyledText';
 import * as WebBrowser from 'expo-web-browser';
 import ParsedText from 'react-native-parsed-text';
-import Toast from 'react-native-simple-toast';
+import Toast from "react-native-tiny-toast";
+// import Toast from 'react-native-simple-toast';
 import { FontSizes, Layout } from '../constants';
 import { Skin, Palette, MUSICAL_SCORE_ICON } from '../config/Settings';
 import i18n from "../../i18n";
@@ -15,15 +16,15 @@ import i18n from "../../i18n";
 export default class SongView extends React.Component {
   render() {
     let song = this.props.song;
-    
+
     let referenceDisplay;
     let playButtonDisplay;
     let sheetMusicDisplay;
     if (song.reference_title)
       referenceDisplay = <RegularText style={styles.reference} onLongPress={this._onLongPressReference}>{song.reference_title}</RegularText>
     if (song.reference_link)
-      playButtonDisplay = <TouchableOpacity style={{top: 0, bottom: 0, paddingHorizontal: 6, 
-                            backgroundColor: Palette.White}} 
+      playButtonDisplay = <TouchableOpacity style={{top: 0, bottom: 0, paddingHorizontal: 6,
+                            backgroundColor: Palette.White}}
                             onPress={() => {WebBrowser.openBrowserAsync(song.reference_link)}}>
                             <Ionicons
                               name={'md-play-circle'}
@@ -36,7 +37,7 @@ export default class SongView extends React.Component {
                           </TouchableOpacity>
     if (song.sheetMusicLink)
       sheetMusicDisplay = <TouchableOpacity style={{top: 0, bottom: 0, paddingLeft: 6, paddingTop: 6,
-                            backgroundColor: Palette.White}} 
+                            backgroundColor: Palette.White}}
                             onPress={() => {Linking.openURL(song.sheetMusicLink)}}>
                             <Image
                               resizeMode='contain'
@@ -64,7 +65,7 @@ export default class SongView extends React.Component {
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
           <View style={{flex: 1}}>
             <RegularText style={styles.instructions}>{song.instructions}</RegularText>
-            <ParsedText 
+            <ParsedText
               parse={
                 [
                   {type: 'url', style: styles.url, onPress: this._urlPress},
@@ -73,7 +74,7 @@ export default class SongView extends React.Component {
                   {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
                 ]
               }
-              style={styles.lyrics} 
+              style={styles.lyrics}
               onLongPress={this._onLongPressLyrics}
               >
               {song.lyrics}
@@ -119,7 +120,7 @@ export default class SongView extends React.Component {
     Toast.show(i18n.t('components.songview.copiedreference'));
     Clipboard.setString(this.props.song.reference_title);
   };
-  
+
   _onLongPressLyrics = () => {
     Toast.show(i18n.t('components.songview.copiedlyrics'));
     Clipboard.setString(this.props.song.lyrics);
@@ -166,7 +167,7 @@ const styles = StyleSheet.create({
     color: '#AAAAAA',
     backgroundColor: Palette.White,
     paddingLeft: 12,
-    textAlign: i18n.getRTLTextAlign(), 
+    textAlign: i18n.getRTLTextAlign(),
     writingDirection: i18n.getWritingDirection()
   },
   lyrics: {
@@ -177,7 +178,7 @@ const styles = StyleSheet.create({
     color: Palette.Navy,
     backgroundColor: Palette.White,
     paddingLeft: 8,
-    textAlign: i18n.getRTLTextAlign(), 
+    textAlign: i18n.getRTLTextAlign(),
     writingDirection: i18n.getWritingDirection()
   },
   bold: {
