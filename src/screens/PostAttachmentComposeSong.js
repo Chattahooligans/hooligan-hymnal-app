@@ -38,8 +38,8 @@ export default class PostAttachmentComposeSong extends React.Component {
                         placeholder={i18n.t('screens.postattchmentcomposesong.lyrics')}
                         onChangeText={(text) => this.setState({ lyrics: text })} />
                     <BigButton
-                        style={{ paddingBottom: 10 }}
                         label={i18n.t('screens.postattchmentcomposesong.attach')}
+                        iconName="md-add" iconPosition="right"
                         inModal={true}
                         onPress={() => {
                             if (this.props.screenProps.onAttachmentComplete)
