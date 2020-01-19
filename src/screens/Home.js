@@ -61,9 +61,9 @@ class Home extends React.Component {
   async componentDidMount() {
     if (!this.props.globalData.state.loadDataComplete)
       await this.props.globalData.loadData();
-    else 
+    else
       this.onRefresh()
-    
+
     Notifications.addListener(this._handleNotification);
   }
 
@@ -113,14 +113,24 @@ class Home extends React.Component {
           style={{ flex: 1 }}
           contentContainerStyle={{ paddingBottom: 20 + Layout.notchHeight / 2 }}
           scrollEventThrottle={1}
-          onScroll={Animated.event(
-            [
+          onScroll={
+            Animated.event(
+              [
+                {
+                  nativeEvent: { contentOffset: { y: scrollY } }
+                }
+              ],
               {
-                nativeEvent: { contentOffset: { y: scrollY } }
+                useNativeDriver: true,
+                listener: (event) => {
+                  if ((event.nativeEvent.layoutMeasurement.height + event.nativeEvent.contentOffset.y > 
+                    (event.nativeEvent.contentSize.height - 50)) &&
+                    event.nativeEvent.velocity.y > 0)
+                    console.log("At bottom, load the next page of posts (if it's not already loading)")
+                }
               }
-            ],
-            { useNativeDriver: true }
-          )}
+            )
+          }
           refreshControl={<RefreshControl refreshing={this.state.refreshing} onRefresh={this.onRefresh} />}
         >
           <View
