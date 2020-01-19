@@ -69,9 +69,9 @@ class PostCreate extends React.Component {
     // TODO: get locales from server
     // We put some dummy data in here for the initial render
     state = {
-        channels: [{ _id: -1, name: "initial def", defaultLocale: "en" }],
+        channels: [{ _id: -1, name: "initial def", defaultLocale: "en", users: [] }],
         locales: ["de", "en", "es", "pt"],
-        selectedChannel: { _id: -1, name: "initial def", defaultLocale: "en" },
+        selectedChannel: { _id: -1, name: "initial def", defaultLocale: "en", users: [] },
         post: {
             channel: -1,
             locale: "en",
@@ -136,13 +136,8 @@ class PostCreate extends React.Component {
 
         channels.forEach(channel => {
             channel.users.forEach(user => {
-                if (user._id === this.props.globalData.state.currentUser.user._id &&
-                    user.canCreate) {
-                    // promote canPush up the object tree for easier access
-                    channel.canPush = user.canPush;
-
+                if (user._id === this.props.globalData.state.currentUser.user._id && user.canCreate)
                     allowedChannels.push(channel);
-                }
             })
         })
 
@@ -186,6 +181,11 @@ class PostCreate extends React.Component {
 
         let attachmentsDisplay = [];
         post.attachments.forEach((attachment, index) => attachmentsDisplay.push(<PostAttachmentDeleteWrapper attachment={attachment} key={"attachment-" + attachment.type + "-" + index} onPressDelete={this.deleteAttachment} />))
+        
+        let canPush = false;
+        console.log("selected users?")
+        if(this.state.selectedChannel.users.length > 0)
+            canPush = this.state.selectedChannel.users.find(user => user._id == this.props.globalData.state.currentUser.user._id).canPush
 
         return (
             <ScrollView style={{ flex: 1 }}>
@@ -243,7 +243,7 @@ class PostCreate extends React.Component {
                 <View style={styles.toggleContainer}>
                     <RegularText style={styles.toggleLabel}>{i18n.t('screens.postcreate.push')}</RegularText>
                     <Switch
-                        enabled={this.state.selectedChannel.canPush}
+                        enabled={canPush}
                         value={this.state.post.push}
                         onValueChange={(value) => {
                             let post = this.state.post;
