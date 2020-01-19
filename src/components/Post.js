@@ -53,7 +53,6 @@ class Post extends React.Component {
         // turn back on when learning 2 Images
         //console.log("Rendering Post:\n" + JSON.stringify(post));
         let nav = this.props.navigation;
-        //console.log("nav: " + nav);
 
         // display relative time only if a post is from today, else just a regular timestamp
         let publishedAtDisplay = "";
@@ -61,9 +60,6 @@ class Post extends React.Component {
             publishedAtDisplay = moment(post.publishedAt).fromNow()
         else
             publishedAtDisplay = moment(post.publishedAt).format("M/D/YY h:mma")
-
-        console.log(moment(post.publishedAt).fromNow())
-        console.log(moment(post.publishedAt).format("M/D/YY h:mma"))
 
         let textDisplay;
         if (post.text) {
