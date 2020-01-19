@@ -183,7 +183,6 @@ class PostCreate extends React.Component {
         post.attachments.forEach((attachment, index) => attachmentsDisplay.push(<PostAttachmentDeleteWrapper attachment={attachment} key={"attachment-" + attachment.type + "-" + index} onPressDelete={this.deleteAttachment} />))
         
         let canPush = false;
-        console.log("selected users?")
         if(this.state.selectedChannel.users.length > 0)
             canPush = this.state.selectedChannel.users.find(user => user._id == this.props.globalData.state.currentUser.user._id).canPush
 

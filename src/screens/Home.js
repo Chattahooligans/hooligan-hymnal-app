@@ -253,8 +253,6 @@ class DeferredHomeContent extends React.Component {
       return null;
     }
 
-    console.log("FEED:\n" + JSON.stringify(this.props.globalData.state.feed))
-
     let scrollItems = [];
     const posts = this.props.globalData.state.feed;
     posts.forEach((post) => {
