@@ -59,9 +59,11 @@ class Home extends React.Component {
   };
 
   async componentDidMount() {
-    if (!this.props.globalData.state.loadDataComplete) {
+    if (!this.props.globalData.state.loadDataComplete)
       await this.props.globalData.loadData();
-    }
+    else 
+      this.onRefresh()
+    
     Notifications.addListener(this._handleNotification);
   }
 
@@ -89,7 +91,7 @@ class Home extends React.Component {
     }
   };
 
-  async onRefresh() {
+  onRefresh = async () => {
     this.setState({ refreshing: true });
 
     await this.props.globalData.refreshFeed();
@@ -256,14 +258,14 @@ class DeferredHomeContent extends React.Component {
     let scrollItems = [];
     const posts = this.props.globalData.state.feed;
     posts.forEach((post) => {
-      let postDisplay = <Post post={post} navigation={this.props.navigation} />
+      let postDisplay = <Post key={post._id} post={post} navigation={this.props.navigation} />
       scrollItems.push(postDisplay);
     })
 
     // for some reason this doesn't blow up when scrollItems.length is small or zero
-    scrollItems.splice(0, 0, <HomeBannersPanel config={banners} />)
-    scrollItems.splice(2, 0, <StaticHomeContent_Buttons navigation={this.props.navigation} />)
-    scrollItems.splice(4, 0, <StaticHomeContent_Links />)
+    scrollItems.splice(0, 0, <HomeBannersPanel key={"homeBanners"} config={banners} />)
+    scrollItems.splice(2, 0, <StaticHomeContent_Buttons key={"homeButtons"} navigation={this.props.navigation} />)
+    scrollItems.splice(4, 0, <StaticHomeContent_Links key={"homeLinks"} />)
 
     //scrollItems.splice(2, 0, <StaticHomeContent />)
 
