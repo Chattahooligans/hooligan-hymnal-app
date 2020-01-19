@@ -100,7 +100,7 @@ class PostPreview extends React.Component {
         }
     }
     _handlePressScheduleButton = () => {
-        alert(i18n.t('screens.postcreate.schedule'))
+        
     }
 }
 
