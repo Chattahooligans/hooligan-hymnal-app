@@ -79,8 +79,10 @@ export const Skin = {
   Songbook_Background: Palette.Sky,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Navy,
-  Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
   Player_Background: Palette.Sky,  
+  Player_DefaultImage: CLUB_LOGO,
+  Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
+  Post_DefaultChannelThumbnail: require('../../assets/big-c-icon-android.png'),
   Roster_DefaultThumbnail: CLUB_LOGO,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
@@ -88,7 +90,6 @@ export const Skin = {
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'md-heart',
   Roster_FoesTabIcon: 'md-thumbs-down',
-  Player_DefaultImage: CLUB_LOGO,
 };
 
 /*

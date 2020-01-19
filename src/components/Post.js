@@ -54,6 +54,10 @@ class Post extends React.Component {
         //console.log("Rendering Post:\n" + JSON.stringify(post));
         let nav = this.props.navigation;
 
+        let channelImage = Skin.Post_DefaultChannelThumbnail;
+        if (post.channelData.avatarUrl)
+            channelImage = { uri: post.channelData.avatarUrl }
+
         // display relative time only if a post is from today, else just a regular timestamp
         let publishedAtDisplay = "";
         if (moment(post.publishedAt).isSame(moment(), 'day'))
@@ -121,7 +125,7 @@ class Post extends React.Component {
                 <View style={styles.headerContainer}>
                     <FadeIn>
                         <Image
-                            source={{ uri: post.channelData.avatarUrl }}
+                            source={channelImage}
                             style={styles.channelImage} />
                     </FadeIn>
                     <View style={styles.headerTextContainer}>
