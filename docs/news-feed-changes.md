@@ -43,3 +43,6 @@ Channels are the "voice" used by an admin to post to the feed. It is required to
 {"_id":"5dbcff12e0354c001588ff99","canCreate":true,"canEdit":true,"canDelete":true,"canPush":true}
 ]
 }
+
+# seed the feed
+Make one post from your SG channel before you advertise to your users, something like "Welcome to The Guardbook," so your home screen isn't empty to start
