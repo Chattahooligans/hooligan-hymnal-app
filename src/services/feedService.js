@@ -1,5 +1,8 @@
 import API from './baseService';
 
+export const getPost = (postId) =>
+  API.get('/api/feed/' + postId).then(response => response.data);
+
 export const getFeed = () =>
   API.get('/api/feed/').then(response => response.data);
 
