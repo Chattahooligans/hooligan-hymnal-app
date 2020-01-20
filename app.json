@@ -18,7 +18,7 @@
     "android": {
       "package": "com.chattahooligan.hymnal",
       "icon": "./assets/big-c-icon-android.png",
-      "versionCode": 4,
+      "versionCode": 5,
       "permissions": [],
       "googleServicesFile": "./google-services.json"
     },

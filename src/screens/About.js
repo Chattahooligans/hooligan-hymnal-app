@@ -20,7 +20,7 @@ class About extends React.Component {
   };
 
   state = {
-    token: "",
+    pushToken: "",
     response: null
   }
 
@@ -30,8 +30,8 @@ class About extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (
-      (!prevProps.globalData.state.token &&
-      this.props.globalData.state.token) ||
+      (!prevProps.globalData.state.pushToken &&
+      this.props.globalData.state.pushToken) ||
       (!prevProps.globalData.state.response &&
         this.props.globalData.state.response)
     ) {
@@ -40,8 +40,8 @@ class About extends React.Component {
   }
 
   setData = () => {
-    let { token, response } = this.props.globalData.state
-    this.setState({token, response})
+    let { pushToken, response } = this.props.globalData.state
+    this.setState({pushToken, response})
   }
 
   _urlPress = (url) => {
@@ -128,7 +128,7 @@ class About extends React.Component {
           <View style={{ height: 20 }} />
           <ScrollView style={{flex: 1}}>
             <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.debug')}</MediumText>
-            <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{this.state.token}</RegularText>
+            <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{this.state.pushToken}</RegularText>
             <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
               {
                 this.state.response ? 

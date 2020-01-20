@@ -7,11 +7,15 @@
 
 // TODO: Build home screen dynamically based on this websites object
 
+//export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
+// news feed dev branch
+export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://hymnal-serve-news-feed-vf0sbpf.herokuapp.com'
+
 // URLs
 export const TWITTER_URL = 'https://twitter.com/chattahooligan';
 export const FACEBOOK_URL = 'https://www.facebook.com/TheChattahooligans';
 export const INSTAGRAM_URL = 'https://instagram.com/thechattahooligans';
-export const WEBSITE_URL = 'http://chattahooligan.com';
+export const WEBSITE_URL = 'http://comeandjoin.us';
 export const YOUTUBE_URL = '';
 export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
 export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
@@ -23,6 +27,9 @@ export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
 export const INSTRUMENTATION_URL ='https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 
 // Common Images
+export const HOME_SCREEN_NAVBAR = require('../../assets/home-logo.png');
+//export const HOME_SCREEN_NAVBAR = require('../../assets/home-big-c-logo.png');
+export const HOME_SCREEN_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
 // like social media icons
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
@@ -54,16 +61,28 @@ export const DefaultColors = {
   HeaderText: Palette.White,
   Text: Palette.Black,
   ColorText: Palette.Navy,
+  Primary: Palette.Navy,
   Secondary: Palette.Sky
 }
 
 export const Skin = {
-  Home_SocialButtons: DefaultColors.ButtonBackground,
+  Home_BackgroundColor: DefaultColors.Primary,
+  Home_BigButtonsBackground: DefaultColors.ButtonBackground,
+  Home_BigButtonsLabel: DefaultColors.ButtonText,
+  Home_FindTheMenuLabel: DefaultColors.Primary,
+  Home_SocialButtons: DefaultColors.Primary,
+  Home_Website: Palette.Black,
+  Home_PostMarginVertical: 6,
+  ModalLoader_ActivityIndicator: DefaultColors.Primary,
+  ModalLoader_Background: DefaultColors.Secondary,
+  ModalLoader_Container: "#00000040",
   Songbook_Background: Palette.Sky,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Navy,
+  Player_Background: Palette.Sky,  
+  Player_DefaultImage: CLUB_LOGO,
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
-  Player_Background: Palette.Sky,
+  Post_DefaultChannelThumbnail: require('../../assets/big-c-icon-android.png'),
   Roster_DefaultThumbnail: CLUB_LOGO,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
@@ -71,7 +90,6 @@ export const Skin = {
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'md-heart',
   Roster_FoesTabIcon: 'md-thumbs-down',
-  Player_DefaultImage: CLUB_LOGO,
 };
 
 /*
@@ -120,5 +138,5 @@ export const banners = [
 */
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
-  Player_ShowSongs: true
+  Player_ShowSongs: true,
 }

@@ -45,14 +45,14 @@ class CapoLogin extends React.Component {
   }
 
   setData = () => {
-    var token = this.props.globalData.getBearerToken();
-    if(token !== "") {
-      //token is present from previous login
+    var bearerToken = this.props.globalData.getBearerToken();
+    if(bearerToken !== "") {
+      //bearerToken is present from previous login
       //check if still valid and bypass login if so
       let authChecker = new AuthCheck();
-      authChecker.validToken("Bearer " + token)
+      authChecker.validToken("Bearer " + bearerToken)
       .then(responseJson => {
-        //token is valid, skip login
+        //bearerToken is valid, skip login
         Keyboard.dismiss();
         this.props.navigation.navigate('CapoHome');
       }).catch(reason => {
@@ -123,6 +123,7 @@ class CapoLogin extends React.Component {
       .then(responseJson => {
         Keyboard.dismiss();
         this.props.globalData.setBearerToken(responseJson.token);
+        //this.props.globalData.setCurrentUser(responseJson);
         storeData = async () => {
           try {
             await AsyncStorage.setItem('@capousername', this.state.username);
@@ -132,7 +133,13 @@ class CapoLogin extends React.Component {
           }
         };
         storeData();
-        this.props.navigation.navigate('CapoHome');
+        //this.props.navigation.navigate('CapoHome');
+
+        let nav = this.props.navigation
+        function navToCapoHome() {
+            nav.navigate('CapoHome')
+        }
+        this.props.globalData.setCurrentUser(responseJson, navToCapoHome);
       })
       .catch(
         //if I was a good person I'd give you an error message but I'm tired

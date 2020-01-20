@@ -33,13 +33,13 @@
             "sendnotify": "Enviar e notificar"
         },
         "capohome": {
-            "title": "Menu", 
+            "title": "Menu",
             "selectsong": "Selecionar hino",
             "composesong": "Compor hino",
             "gknickname": "Apelido do goleiro"
         },
         "capologin": {
-            "title": "Menu", 
+            "title": "Menu",
             "username": "Username/Email",
             "password": "Password",
             "unlock": "Unlock"
@@ -52,6 +52,50 @@
             "instructions1": "1. Nós vamos marcar gol em você...",
             "instructions2": "2. Escolha uma cor, qualquer cor",
             "instructions3": "3. Qual é mais fácil de ler?"
+        },
+        "postattach": {
+            "attachmenttypes": "Attachment Types",
+            "selectplayer": "Select Player",
+            "selectsong": "Select Song",
+            "composesong": "Compose Song",
+            "masstweet": "Tweet the Players",
+            "gknickname": "GK Nickname"
+        },
+        "postattachmentcomposegknickname": {
+            "gknickname": "GK Nickname",
+            "instructions1": "1. We're gonna score on you...",
+            "instructions2": "2. Pick a color, any color",
+            "instructions3": "3. Which is more readable?"
+        },
+        "postattchmentcomposesong": {
+            "composesong": "Compose Song",
+            "title": "Title",
+            "lyrics": "Lyrics",
+            "attach": "Attach"
+        },
+        "postattachmentselectmasstweet": {
+            "selectroster": "Select Roster",
+            "search": "Search"
+        },
+        "postattachmentselectplayer": {
+            "selectplayer": "Select Player",
+            "search": "Search"
+        },
+        "postattachmentselectsong": {
+            "selectsong": "Select Song",
+            "search": "Search"
+        },
+        "postcreate": {
+            "title": "Create Post",
+            "addattachment": "Add Attachment",
+            "push": "Bother people with a push notification? Seriously?",
+            "cancel": "Cancel",
+            "continue": "Continue"
+        },
+        "postpreview": {
+            "title": "Preview Post",
+            "submit": "Submit Post",
+            "schedule": "Schedule Post"
         },
         "events": {
             "title": "Eventos",
@@ -93,7 +137,7 @@
             "title": "A seguir"
         },
         "songbook": {
-            "defaultchaptertitle": "Capa", 
+            "defaultchaptertitle": "Capa",
             "title": "Repertorio",
             "tableofcontents": "Indice",
             "swipetoview": "Swipe direita/esquerda para visualizar os hinos"
@@ -131,12 +175,21 @@
         "shop": "LOJA DO TIME ↗️",
         "volunteer": "SE INSCREVA COMO VOLUNTARIO ↗️",
         "instrumentation": "MELODIAS ↗️",
-        "capo": "MENU", 
+        "capo": "MENU",
         "about": "MAIS INFORMACOES"
     },
     "components": {
         "gkNickname": {
-            "gonnascore": "Nós vamos marcar gol em você, "
+            "gonnascore": "We're gonna score on you, "
+        },
+        "post": {
+            "copied": "Copied"
+        },
+        "postattachmentgknickname": {
+            "gonnascore": "We're gonna score on you, "
+        },
+        "postattachmentmasstweet": {
+            "tweettheplayers": "Tweet the Players"
         },
         "songview": {
             "copiedtitle": "Titulo copiado no clipboard",
@@ -164,4 +217,3 @@
         "socialES": "Síguenos"
     }
 }
-

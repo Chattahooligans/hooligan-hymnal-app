@@ -25,7 +25,10 @@ const SongsNavigation = StackNavigator(
 const HomeNavigation = StackNavigator(
   {
     Home: { screen: Screens.Home },
-    SingleSong: { screen: Screens.SingleSong }
+    SinglePost: { screen: Screens.SinglePost },
+    SingleSong: { screen: Screens.SingleSong },
+    Player: { screen: Screens.Player },
+    TwitterList: { screen: Screens.TwitterList }
   },
   {
     ...DefaultStackConfig,
@@ -135,14 +138,14 @@ const InstrumentationNavigation = StackNavigator(
 const CapoHomeNavigation = StackNavigator(
   {
     CapoLogin: { screen: Screens.CapoLogin },
-    CapoHome: {
-      screen: Screens.CapoHome
-    },
+    CapoHome: { screen: Screens.CapoHome },
     CapoSelectSong: { screen: Screens.CapoSelectSong },
     CapoComposeSong: { screen: Screens.CapoComposeSong },
     CapoConfirmSendSong: { screen: Screens.CapoConfirmSendSong },
     CapoSetGoalkeeperNickname: { screen: Screens.CapoSetGoalkeeperNickname },
-    CapoConfirmSendGoalkeeperNickname: { screen: Screens.CapoConfirmSendGoalkeeperNickname }
+    CapoConfirmSendGoalkeeperNickname: { screen: Screens.CapoConfirmSendGoalkeeperNickname },
+    PostCreate: { screen: Screens.PostCreate },
+    PostPreview: { screen: Screens.PostPreview }
   },
   {
     ...DefaultStackConfig,
@@ -175,7 +178,7 @@ const Drawer = DrawerNavigator(
     Standings: { screen: StandingsNavigation },
     Shop: { screen: ShopNavigation },
     Volunteer: { screen: VolunteerNavigation },
-    Instrumentation: {screen: InstrumentationNavigation },
+    Instrumentation: { screen: InstrumentationNavigation },
     CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation }
   },

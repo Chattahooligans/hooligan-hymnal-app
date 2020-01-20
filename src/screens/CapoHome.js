@@ -3,11 +3,14 @@ import { Keyboard, Image, Platform, StyleSheet, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
+import withUnstated from '@airship/with-unstated';
+import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { NavigationActions } from 'react-navigation';
 import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
 
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors, Settings } from '../config/Settings';
@@ -16,15 +19,20 @@ import i18n from "../../i18n";
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 
 @withNavigation
-export default class CapoHome extends React.Component {
+class CapoHome extends React.Component {
   static navigationOptions = {
     title: i18n.t('screens.capohome.title'),
     ...NavigationOptions
   };
 
   render() {
+    console.log("Logged in as " + JSON.stringify(this.props.globalData.state.currentUser))
     return (
-      <LoadingPlaceholder>
+      <View style={{ flex: 1 }}>
+        <RegularText>Logged in as </RegularText>
+        <BoldText>{this.props.globalData.state.currentUser.user.email}</BoldText>
+        <RegularText>{this.props.globalData.state.pushToken}</RegularText>
+        <View style={{ marginVertical: 10 }} />
         <ClipBorderRadius>
           <RectButton
             style={styles.bigButton}
@@ -41,7 +49,7 @@ export default class CapoHome extends React.Component {
               }}
             />
             <MediumText style={styles.bigButtonText}>
-            {i18n.t('screens.capohome.selectsong')}
+              {i18n.t('screens.capohome.selectsong')}
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
@@ -61,11 +69,11 @@ export default class CapoHome extends React.Component {
               }}
             />
             <MediumText style={styles.bigButtonText}>
-            {i18n.t('screens.capohome.composesong')}
+              {i18n.t('screens.capohome.composesong')}
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
-        { Settings.CapoHome_GKNicknameEnabled && 
+        {Settings.CapoHome_GKNicknameEnabled &&
           <ClipBorderRadius>
             <RectButton
               style={styles.bigButton}
@@ -82,12 +90,16 @@ export default class CapoHome extends React.Component {
                 }}
               />
               <MediumText style={styles.bigButtonText}>
-              {i18n.t('screens.capohome.gknickname')}
+                {i18n.t('screens.capohome.gknickname')}
               </MediumText>
             </RectButton>
           </ClipBorderRadius>
         }
-      </LoadingPlaceholder>
+        <BigButton
+          label={i18n.t('screens.capohome.postcreate')}
+          iconName="md-paper"
+          onPress={this._handlePressPostCreateButton} />
+      </View>
     );
   }
 
@@ -103,6 +115,17 @@ export default class CapoHome extends React.Component {
   _handlePressGoalkeeperNicknameButton = () => {
     Keyboard.dismiss();
     this.props.navigation.navigate('CapoSetGoalkeeperNickname');
+  };
+
+
+  _handlePressPostCreateButton = () => {
+    // later, we'll check for existing drafts and prompt the user on what to do
+    // ...or create an entire drafts feature
+    let nav = this.props.navigation
+    function navToPostCreate() {
+      nav.navigate('PostCreate')
+    }
+    this.props.globalData.initNewPost(navToPostCreate);
   };
 }
 
@@ -120,6 +143,7 @@ const ClipBorderRadius = ({ children, style }) => {
 };
 
 const BORDER_RADIUS = 3;
+
 
 const styles = StyleSheet.create({
   bigButton: {
@@ -139,3 +163,5 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   }
 });
+
+export default withUnstated(CapoHome, { globalData: GlobalDataContainer });

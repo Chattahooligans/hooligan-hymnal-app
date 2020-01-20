@@ -10,11 +10,20 @@ import Events from './Events';
 import Home from './Home';
 import Instrumentation from './Instrumentation';
 import Player from './Player';
+import PostAttach from './PostAttach';
+import PostAttachmentComposeSong from './PostAttachmentComposeSong';
+import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
+import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
+import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
+import PostAttachmentSelectSong from './PostAttachmentSelectSong';
+import PostCreate from './PostCreate';
+import PostPreview from  './PostPreview';
 import Roster from './Roster';
 import RosterFoePlayers from './RosterFoePlayers';
 import RosterFoes from './RosterFoes';
 import RosterHome from './RosterHome';
 import Shop from './Shop';
+import SinglePost from './SinglePost';
 import SingleSong from './SingleSong';
 import Songbook from './Songbook';
 import Songs from './Songs';
@@ -36,11 +45,19 @@ export default {
   Home,
   Instrumentation,
   Player,
+  PostAttach,
+  PostAttachmentComposeSong,
+  PostAttachmentComposeGkNickname,
+  PostAttachmentSelectPlayer,
+  PostAttachmentSelectSong,
+  PostCreate,
+  PostPreview,
   Roster,
   RosterFoePlayers,
   RosterFoes,
   RosterHome,
   Shop,
+  SinglePost,
   SingleSong,
   Songbook,
   Songs,

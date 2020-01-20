@@ -8,18 +8,22 @@ import { getSongbooks } from '../services/songbooksService';
 import { getPlayers } from '../services/playersService';
 import { getRosters } from '../services/rostersService';
 import { getFoes } from '../services/foesService';
-import { HYMNAL_ADDRESS } from '../config/server';
+import { getChannels } from '../services/channelsService';
+import { getFeed } from '../services/feedService';
+import { HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../config/Settings';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
 import { objectTypeAnnotation } from '@babel/types';
+import i18n from "../../i18n";
 
-const PUSH_ENDPOINT = HYMNAL_ADDRESS + '/api/pushToken';
+const PUSH_ENDPOINT = HOOLIGAN_HYMNAL_SERVER_ADDRESS + '/api/pushToken';
 
 export default class GlobalDataContainer extends Container {
   state = {
     currentSong: {},
     location: null,
-    token: null,
+    pushToken: null,
+    currentUser: null,
     songbook: {
       songbook_title: '',
       organization: '',
@@ -39,9 +43,13 @@ export default class GlobalDataContainer extends Container {
     foes: null,
     currentFoe: null,
     goalkeeperNickname: null,
+    channels: null,
     htmlColors: null,
-    token: null,
-    response: null
+    bearerToken: null,
+    currentPostDraft: null,
+    feed: [],
+    response: null,
+    loadDataComplete: false
   };
 
   loadData = async () => {
@@ -52,21 +60,27 @@ export default class GlobalDataContainer extends Container {
       const players = await getPlayers();
       const rosters = await getRosters();
       const foes = await getFoes();
-      
+      const channels = await getChannels();
+      const feed = await getFeed();
+
       //this.setState({ songbook: songbooks[0], songs, rosters, players, htmlColors, foes });
-      this.setState({ 
-        songbook: songbooks[0], 
-        songs, 
-        players, 
-        rosters: this.verifyRoster(players,rosters), 
-        foes, 
-        htmlColors });
+      this.setState({
+        songbook: songbooks[0],
+        songs,
+        players,
+        rosters: this.verifyRoster(players, rosters),
+        foes,
+        channels,
+        feed,
+        htmlColors,
+        loadDataComplete: true
+      });
     } catch (e) {
       alert("loadData exception: " + e.toString());
     }
   };
 
-  verifyRoster = (players,rosters) => {
+  verifyRoster = (players, rosters) => {
     let rosterList = [];
 
     rosters.forEach(roster => {
@@ -76,12 +90,10 @@ export default class GlobalDataContainer extends Container {
         try {
           let player = players.find(player => player._id === playerChild._id);
 
-          if (player) 
-          {
+          if (player) {
             // overrides for Academy data
             let clonePlayer = { ...player };
-            if (playerChild.hasOwnProperty('override'))
-            {
+            if (playerChild.hasOwnProperty('override')) {
               /*
               if (playerChild.override.hasOwnProperty('position'))
                 clonePlayer.position = playerChild.override.position;
@@ -99,13 +111,11 @@ export default class GlobalDataContainer extends Container {
 
             playerList.push(clonePlayer);
           }
-          else
-          {
+          else {
             //alert('creating new ' + JSON.stringify(playerChild));
             console.log(playerChild._id + ' not found in players database');
 
-            if (playerChild.hasOwnProperty('override'))
-            {
+            if (playerChild.hasOwnProperty('override')) {
               // make a temp player
               let player = {
                 name: '',
@@ -138,8 +148,7 @@ export default class GlobalDataContainer extends Container {
         }
       });
 
-      if (0 < playerList.length)
-      {
+      if (0 < playerList.length) {
         let thisRoster = {}
         Object.assign(thisRoster, roster);
         thisRoster.players = playerList;
@@ -207,11 +216,11 @@ export default class GlobalDataContainer extends Container {
         return;
       }
 
-      // Get the token that uniquely identifies this device
-      let token = await Notifications.getExpoPushTokenAsync();
-      this.setState({ token });
+      // Get the pushToken that uniquely identifies this device
+      let pushToken = await Notifications.getExpoPushTokenAsync();
+      this.setState({ pushToken });
 
-      // POST the token to your backend server from where you can retrieve it to send push notifications.
+      // POST the pushToken to your backend server from where you can retrieve it to send push notifications.
       return fetch(PUSH_ENDPOINT, {
         method: 'POST',
         headers: {
@@ -219,7 +228,7 @@ export default class GlobalDataContainer extends Container {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          pushToken: token,
+          pushToken: pushToken,
           expoExperience: '@' + appParams.expo.owner + '/' + appParams.expo.slug,
           appVersion: appParams.expo.version,
           platform: Platform.OS,
@@ -237,19 +246,77 @@ export default class GlobalDataContainer extends Container {
     });
 
   setGoalkeeperNickname = (nick, callback) =>
-  this.setState({ goalkeeperNickname: nick }, () => {
-    if (callback) callback();
-  });
+    this.setState({ goalkeeperNickname: nick }, () => {
+      if (callback) callback();
+    });
 
   setResponse = (response, callback) =>
-  this.setState({response: response}, () => {
-    if (callback) callback();
-  });
+    this.setState({ response: response }, () => {
+      if (callback) callback();
+    });
 
 
   setLocation = location => this.setState({ location });
 
   setBearerToken = bearerToken => this.setState({ bearerToken });
-
   getBearerToken = () => { return this.state.bearerToken; }
+
+  // contains .user and .token (above, bearerToken until its refactored out)
+  // rename bearerToken from .token to .loginToken?
+  setCurrentUser = (currentUser, callback) => {
+    this.setState({ currentUser }, () => {
+      if (callback)
+        callback();
+    });
+  }
+  getCurrentUser = () => { return this.state.currentUser }
+
+  // News Feed helper functions
+  initNewPost = (callback) => {
+    // inital settings for creating a new feed item
+    let newPost = {
+      sender: {
+        user: this.state.currentUser.user._id,
+        pushToken: this.state.pushToken
+      },
+      publishedAt: new Date().toISOString(),
+      push: false,
+      channel: null,
+      channelData: null,
+      locale: null,
+      text: "",
+      images: [],
+      attachments: []
+    }
+    this.setCurrentPostDraft(newPost, callback);
+  }
+  setCurrentPostDraft = (post, callback) => {
+    this.setState({ currentPostDraft: post }, () => { if (callback) callback(); });
+  }
+
+  getChannelBasicInfo = (channelId) => {
+    let channelToReturn = { 
+      _id: -1, 
+      name: "No channel found",
+      description: "",
+      avatarUrl: "",
+      headerUrl: "" 
+    };
+    const channel = this.state.channels.find(channel => channel._id === channelId)
+
+    if (channel && channel.active) {
+      channelToReturn._id = channel._id;
+      channelToReturn.name = channel.name;
+      channelToReturn.description = channel.description;
+      channelToReturn.avatarUrl = channel.avatarUrl;
+      channelToReturn.headerUrl = channel.headerUrl;
+    }
+
+    return channelToReturn;
+  }
+
+  refreshFeed = async () => {
+    const feed = await getFeed();
+    this.setState({ feed });
+  }
 }
