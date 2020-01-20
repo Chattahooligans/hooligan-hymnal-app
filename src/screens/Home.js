@@ -20,6 +20,7 @@ import { withNavigation } from 'react-navigation';
 
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
+import { getPost } from '../services/feedService';
 
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
@@ -67,27 +68,34 @@ class Home extends React.Component {
     Notifications.addListener(this._handleNotification);
   }
 
-  _handleNotification = notification => {
+  _handleNotification = async (notification) => {
+    //console.log("notification " + notification.origin + ", data: " + JSON.stringify(notification.data))
+
     if (notification.origin === 'selected') {
       // notification was tapped, either from the app already open or from entering the app
-      // console.log('SELECTED notification', notification.data.song.title);
 
-      // TODO: open SingleSong screen and send it the Song object buried inside the notification
+      if (notification.data.postId) {
+        let post = await getPost(notification.data.postId)
+        this.props.navigation.navigate("SinglePost", { post });
+      }
 
-      // kinda like this but it doesn't work from this far out (because navigation doesn't exist yet)
+      // classic Song notifications for users without the update, deprecate this soon
       if (notification.data.song) {
         this.props.navigation.navigate('SingleSong', {
           song: notification.data.song
         });
       }
-
-      // Maybe set app state and do something with it that way?
-      // this.setState({ notification: notification });
     } else if (notification.origin === 'received') {
       // notification was received, either app was already open or it just opened up but not from the notification
-      // no way to tell which?
-      // console.log('RECEIVED notification', notification.data.song.title);
       // We don't necessarily want to do anything in this case
+
+      if (notification.data.postId) {
+        // refresh the feed data itself
+        this.onRefresh()
+
+        let post = await getPost(notification.data.postId)
+        this.props.navigation.navigate("SinglePost", { post });
+      }
     }
   };
 
