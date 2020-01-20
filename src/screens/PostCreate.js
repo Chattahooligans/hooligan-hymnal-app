@@ -128,6 +128,7 @@ class PostCreate extends React.Component {
     }
 
     setData = () => {
+        let currentUserId = this.props.globalData.state.currentUser.user.id
         let channels = this.props.globalData.state.channels;
         let selectedChannel;
         let post = this.props.globalData.state.currentPostDraft;
@@ -136,7 +137,7 @@ class PostCreate extends React.Component {
 
         channels.forEach(channel => {
             channel.users.forEach(user => {
-                if (user._id === this.props.globalData.state.currentUser.user._id && user.canCreate)
+                if (user._id === currentUserId && user.canCreate)
                     allowedChannels.push(channel);
             })
         })
@@ -145,6 +146,10 @@ class PostCreate extends React.Component {
             if (post.channel == null) {
                 post.channel = allowedChannels[0]._id;
                 selectedChannel = allowedChannels[0];
+
+                // we need .users to exist, at least as an empty array
+                if (!selectedChannel.hasOwnProperty("users"))
+                    selectedChannel.users = [];
             }
             if (post.locale == null)
                 post.locale = allowedChannels[0].defaultLocale;
@@ -153,7 +158,7 @@ class PostCreate extends React.Component {
         this.setState({ channels: allowedChannels, selectedChannel, post });
 
         if (0 === allowedChannels.length) {
-            alert("No allowed channels for user: " + this.props.globalData.state.currentUser.user.id + " " + this.props.globalData.state.currentUser.user.email)
+            alert("No allowed channels for user: " + currentUserId + " " + this.props.globalData.state.currentUser.user.email)
             this.props.navigation.goBack();
         }
     }
@@ -168,6 +173,8 @@ class PostCreate extends React.Component {
     }
 
     render() {
+        let currentUserId = this.props.globalData.state.currentUser.user.id
+
         let channelPickerItems = [];
         this.state.channels.forEach(element => {
             channelPickerItems.push(<Picker.Item label={element.name} value={element} key={element._id} />);
@@ -181,10 +188,11 @@ class PostCreate extends React.Component {
 
         let attachmentsDisplay = [];
         post.attachments.forEach((attachment, index) => attachmentsDisplay.push(<PostAttachmentDeleteWrapper attachment={attachment} key={"attachment-" + attachment.attachmentType + "-" + index} onPressDelete={this.deleteAttachment} />))
-        
+
         let canPush = false;
-        if(this.state.selectedChannel.users.length > 0)
-            canPush = this.state.selectedChannel.users.find(user => user._id == this.props.globalData.state.currentUser.user._id).canPush
+        if (this.state.selectedChannel)
+            if (this.state.selectedChannel.users.length > 0)
+                canPush = this.state.selectedChannel.users.find(user => user._id == currentUserId).canPush
 
         return (
             <ScrollView style={{ flex: 1 }}>
