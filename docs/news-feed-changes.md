@@ -1,5 +1,9 @@
 Do this stuff before you upgrade from Hooligan Hymnal 1.6.1 to 1.7
 
+# users collection
+add .feedAllowed to your users who will post to the feed
+This isn't checked for yet, but that code change is imminent
+
 # rosters collection
 Roster documents have a few new properties. They are optional now, but may be required in the future.
 
