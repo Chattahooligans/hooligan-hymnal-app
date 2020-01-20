@@ -137,16 +137,16 @@ class Player extends React.Component {
 
     let playerImage = Skin.Player_DefaultImage;
     if (player.defaultImage)
-      playerImage = {uri: player.defaultImage};
-    if (player.image)
-      playerImage = {uri: player.image};
+      playerImage = { uri: player.defaultImage };
+    if (player.images.length > 0)
+      playerImage = { uri: player.images[0] };
 
     if (this.state.playerSongs.length === 0) {
       playerSongDisplay = (
         <View>
           <MediumText style={styles.sectionHeader}>{i18n.t('screens.player.playersongs')}</MediumText>
           <RegularText style={styles.bodyText}>
-          {i18n.t('screens.player.stilllooking')}
+            {i18n.t('screens.player.stilllooking')}
           </RegularText>
         </View>
       );
@@ -257,17 +257,17 @@ class Player extends React.Component {
               renderRevealedFooter={this._renderRevealedFooter}
               onReady={this._handleTextReady}
             >
-              <ParsedText 
+              <ParsedText
                 parse={
                   [
-                    {type: 'url', style: styles.url, onPress: this._urlPress},
-                    {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
-                    {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
+                    { type: 'url', style: styles.url, onPress: this._urlPress },
+                    { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
+                    { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted }
                   ]
                 }
                 style={styles.bodyText}
                 childrenProps
-                >
+              >
                 {i18n.getLocalizedBio(player.bio)}
               </ParsedText>
               <RegularText style={styles.bodyText}></RegularText>
@@ -279,10 +279,10 @@ class Player extends React.Component {
         <NavigationBar
           animatedBackgroundOpacity={headerOpacity}
           paddingTop={0}
-          style={[{paddingTop: 0},
-            Platform.OS === 'android'
-              ? { height: Layout.headerHeight + Constants.statusBarHeight }
-              : null
+          style={[{ paddingTop: 0 },
+          Platform.OS === 'android'
+            ? { height: Layout.headerHeight + Constants.statusBarHeight }
+            : null
           ]}
           renderLeftButton={() => (
             <View
@@ -343,7 +343,7 @@ class Player extends React.Component {
   };
 
   _renderFormatted = (matchingString) => {
-    return matchingString.slice(1, matchingString.length-1)
+    return matchingString.slice(1, matchingString.length - 1)
   }
 }
 
@@ -373,14 +373,14 @@ const styles = StyleSheet.create({
     fontSize: FontSizes.subtitle
   },
   bodyText: {
-    textAlign: i18n.getRTLTextAlign(), 
+    textAlign: i18n.getRTLTextAlign(),
     writingDirection: i18n.getWritingDirection()
   },
   sectionHeader: {
     fontSize: FontSizes.bodyTitle,
     marginTop: 15,
     marginBottom: 3,
-    textAlign: i18n.getRTLTextAlign(), 
+    textAlign: i18n.getRTLTextAlign(),
     writingDirection: i18n.getWritingDirection()
   },
   bold: {
