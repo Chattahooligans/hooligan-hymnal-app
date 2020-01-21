@@ -123,18 +123,23 @@ class Home extends React.Component {
           scrollEventThrottle={1}
           onScroll={
             Animated.event(
-              [
-                {
-                  nativeEvent: { contentOffset: { y: scrollY } }
+              [{
+                nativeEvent: {
+                  contentInset: {
+                    bottom: 1
+                  },
+                  contentOffset: {
+                    y: scrollY
+                  }
                 }
-              ],
+              }],
               {
                 useNativeDriver: true,
                 listener: (event) => {
                   if ((event.nativeEvent.layoutMeasurement.height + event.nativeEvent.contentOffset.y >
-                    (event.nativeEvent.contentSize.height - 20)) &&
-                    event.nativeEvent.velocity.y > 0)
-                    console.log("At bottom, load the next page of posts (if it's not already loading)")
+                    (event.nativeEvent.contentSize.height - 20)) && ((event.nativeEvent.contentOffset.y + event.nativeEvent.contentSize.height) > event.nativeEvent.contentSize.height)) {
+                      console.log("At bottom, load the next page of posts (if it's not already loading)")
+                    }
                 }
               }
             )

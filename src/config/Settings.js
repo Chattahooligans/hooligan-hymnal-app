@@ -79,7 +79,7 @@ export const Skin = {
   Songbook_Background: Palette.Sky,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Navy,
-  Player_Background: Palette.Sky,  
+  Player_Background: Palette.Sky,
   Player_DefaultImage: CLUB_LOGO,
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
   Post_DefaultChannelThumbnail: require('../../assets/big-c-icon-android.png'),
@@ -103,7 +103,7 @@ export const socialButtons = [
     items: [
       { icon: 'logo-twitter', url: TWITTER_URL },
       { icon: 'logo-facebook', url: FACEBOOK_URL },
-      { icon: 'logo-instagram', url: INSTAGRAM_URL },  
+      { icon: 'logo-instagram', url: INSTAGRAM_URL },
       { icon: 'md-cart', url: SHOP_URL },
       { image: PRIDERAISER_ICON, url: PRIDERAISER_URL, tintToSkin: false },
       { image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tintToSkin: true }
