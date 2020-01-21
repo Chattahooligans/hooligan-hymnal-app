@@ -88,6 +88,8 @@ class PostPreview extends React.Component {
             console.log("Response")
             console.log(response);
 
+            this.props.globalData.setResponse(response)
+
             this.setState({ loading: false });
 
             this.props.navigation.popToTop();
