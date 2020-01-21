@@ -33,6 +33,12 @@ class CapoHome extends React.Component {
         <BoldText>{this.props.globalData.state.currentUser.user.email}</BoldText>
         <RegularText>{this.props.globalData.state.pushToken}</RegularText>
         <View style={{ marginVertical: 10 }} />
+        <BigButton
+          label={i18n.t('screens.capohome.postcreate')}
+          iconName="md-paper"
+          onPress={this._handlePressPostCreateButton} />
+        <View style={{ marginVertical: 10 }} />
+        <BoldText>Legacy Features - soon to be deprecated</BoldText>
         <ClipBorderRadius>
           <RectButton
             style={styles.bigButton}
@@ -95,10 +101,6 @@ class CapoHome extends React.Component {
             </RectButton>
           </ClipBorderRadius>
         }
-        <BigButton
-          label={i18n.t('screens.capohome.postcreate')}
-          iconName="md-paper"
-          onPress={this._handlePressPostCreateButton} />
       </View>
     );
   }
