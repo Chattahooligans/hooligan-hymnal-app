@@ -24,9 +24,21 @@ Put some swagger into your deployment with custom bios and photo albums. Include
 
 _Friends and Foes_ will include opponent's roster information right in the app, thanks to a growing collection of league website scrapers.
 
-### Updates and Push Notifications
+### [New!] News Feed and Push Notifications
 
-Send a reference to tricky song lyrics to every phone in the section, right before your capos call for it, to learn new material easier. Issue announcements about special events, merch drops, and more. Updates and push notifications get the information you want circulated in front of the eyeballs of your fans, without relying on the mercy of social media algorithms.
+Send a reference to tricky song lyrics to every phone in the section, right before your capos call for it, to learn new material easier. Issue announcements about special events, merch drops, and more. Hooligan Hymnal's News Feed feature will keep your fans informed, without relying on the mercy of social media algorithms to deliver your posts, and without paying for promotion.
+
+Optional _Push Notifications_ deliver posts to fans as soon as they are made.
+
+The flexible and powerful _Post Attachments_ framework lets you reference a song or player below your post, and it's easy to write custom types. (We will consider PRs of novel post attachment types.)
+
+_Channels_ let admins post with the voice and tone of different functions in your SG. Set up distinct channels for your merch team, your community service program, chapters in other cities, and so on.
+
+### Localization
+
+We are committed to outreach to non-English-speaking communities to bring new fans to the clubs we love. Hooligan Hymnal uses _i18n_ out-of-the box, so non-native speakers can navigate the application interface, and allowing _La Barra_ supporters to publish their own apps as easily as English-speaking SGs. 
+
+All UI text lives in a locale file, making it easy for you to adjust the feel of your app deployment.
 
 ### And More
 
@@ -36,17 +48,21 @@ We include links to social media accounts, league standings, fundraising initiat
 
 By sharing the project with soccer supporters groups around the world, we will assemble the greatest minds in the culture as contributors, and our collective work will improve all of our communities. Here's what we are focusing our attention after the 2019 season.
 
-### News Feed
+### News Feed Improvements
 
-The updates/push notifications feature was originally added to circulate chants in the stadium, then we realized later it could also be used for special announcements. Our next major feature will be an in-app news feed, a polished experience to keep our fans informed, all without having to pay Facebook to let them see what we post.
-
-### Localization
-
-We committed to outreach to non-English-speaking communities to bring new fans to the clubs we love. Hooligan Hymnal will have a foundation for localization out-of-the box, so non-native speakers can navigate the application interface, and allowing _La Barra_ supporters to publish their own apps as easily as English-speaking SGs. 
+News Feed has just launched (as of late January 2020), and there is more work to be done before we are happy with the core experience. Next up is pagination of posts/infinite scrolling and adding images to posts. In the future, we'll give users control on which _Channels_ they see posts from.
 
 ### Web-based Data Management
 
-Editing raw JSON is getting old, and we need a better way to keep Capo/SG officer features secure. A web-based application to manage all of the Hooligan Hymnal data is coming soon.
+Editing raw JSON is getting old, and we need a better way to keep Capo/SG officer features secure. A web-based application to manage all of the Hooligan Hymnal data is currently in development.
+
+### Configuration and Skinning
+
+The platform has made huge strides in configuration and skinning since its early days as a Chattanooga-only project. We will continue progress to make Hooligan Hymnal easy to set up and deploy.
+
+### Events
+
+We have an opportunity to create a presentation for Events that serves SGs in ways that typical apps and services do not. Join our Slack channel- let's solve it together.
 
 ### And Beyond
 
