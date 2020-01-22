@@ -189,10 +189,11 @@ const styles = StyleSheet.create({
         flex: 1
     },
     channelText: {
-
+        fontSize: 16,
+        color: Skin.Post_ChannelTextColor
     },
     timestampText: {
-
+        color: Skin.Post_TimestampTextColor
     },
     notificationSymbol: {
         color: Palette.Sky,
@@ -202,10 +203,10 @@ const styles = StyleSheet.create({
         paddingVertical: 3,
         paddingHorizontal: 8,
         fontFamily: Skin.Font_ParsedText,
-        fontSize: 18,
-        lineHeight: 24,
+        fontSize: Skin.Post_FontSize,
+        lineHeight: Skin.Post_LineHeight,
         flex: 1,
-        color: Palette.Navy,
+        color: Skin.Post_TextColor,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
     },
@@ -222,7 +223,7 @@ const styles = StyleSheet.create({
         fontStyle: 'italic'
     },
     url: {
-        color: 'blue',
+        color: Skin.Post_LinkColor,
         textDecorationLine: 'underline'
     }
 })
