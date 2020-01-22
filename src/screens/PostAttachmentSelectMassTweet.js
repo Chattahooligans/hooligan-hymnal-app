@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
         writingDirection: i18n.getWritingDirection()
     },
     season: {
-        fontFamily: 'heebo',
+        fontFamily: Skin.Font_ParsedText,
         fontSize: 16,
         lineHeight: 24,
         flex: 1,

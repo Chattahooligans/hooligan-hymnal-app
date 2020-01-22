@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     text: {
         paddingVertical: 3,
         paddingHorizontal: 8,
-        fontFamily: 'heebo',
+        fontFamily: Skin.Font_ParsedText,
         fontSize: 18,
         lineHeight: 24,
         flex: 1,
