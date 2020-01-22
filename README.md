@@ -4,7 +4,7 @@ From the minds that brought you supporter culture revalations like [Prideraiser.
 
 At long last, we're sharing this revolutionary invention with the world- to improve supporter culture for all of us and to make managing supporters groups less exhausting.
 
-<img src="/assets/readme-screenshots/chattahooligan-hymnal-home.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-song.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-toc.png" width="188" height="333" /> <img src="/assets/readme-screenshots/chattahooligan-hymnal-roster.png" width="188" height="333" />
+<img src="/docs/readme-screenshots/chattahooligan-hymnal-home.png" width="188" height="333" /> <img src="/docs/readme-screenshots/chattahooligan-hymnal-song.png" width="188" height="333" /> <img src="/docs/readme-screenshots/chattahooligan-hymnal-toc.png" width="188" height="333" /> <img src="/docs/readme-screenshots/chattahooligan-hymnal-roster.png" width="188" height="333" />
 
 ## Features
 
