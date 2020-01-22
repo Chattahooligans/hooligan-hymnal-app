@@ -29,10 +29,17 @@ class CapoHome extends React.Component {
     console.log("Logged in as " + JSON.stringify(this.props.globalData.state.currentUser))
     return (
       <View style={{ flex: 1 }}>
-        <RegularText>Logged in as </RegularText>
-        <BoldText>{this.props.globalData.state.currentUser.user.email}</BoldText>
-        <RegularText>{this.props.globalData.state.pushToken}</RegularText>
+        <View style={{ padding: 10 }}>
+          <RegularText>Logged in as </RegularText>
+          <BoldText>{this.props.globalData.state.currentUser.user.email}</BoldText>
+          <RegularText>{this.props.globalData.state.pushToken}</RegularText>
+        </View>
+        <BigButton
+          label={i18n.t('screens.capohome.postcreate')}
+          iconName="md-paper"
+          onPress={this._handlePressPostCreateButton} />
         <View style={{ marginVertical: 10 }} />
+        <BoldText style={{ paddingHorizontal: 10 }}>Legacy Features - soon to be deprecated</BoldText>
         <ClipBorderRadius>
           <RectButton
             style={styles.bigButton}
@@ -95,10 +102,6 @@ class CapoHome extends React.Component {
             </RectButton>
           </ClipBorderRadius>
         }
-        <BigButton
-          label={i18n.t('screens.capohome.postcreate')}
-          iconName="md-paper"
-          onPress={this._handlePressPostCreateButton} />
       </View>
     );
   }

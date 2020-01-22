@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     writingDirection: i18n.getWritingDirection()
   },
   lyrics: {
-    fontFamily: 'heebo',
+    fontFamily: Skin.Font_ParsedText,
     fontSize: 18,
     lineHeight: 24,
     flex: 1,

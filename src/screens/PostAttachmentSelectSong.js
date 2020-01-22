@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
         paddingLeft: 12
     },
     lyrics: {
-        fontFamily: 'heebo',
+        fontFamily: Skin.Font_ParsedText,
         fontSize: 16,
         lineHeight: 24,
         flex: 1,

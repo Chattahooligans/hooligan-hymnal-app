@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 8
     },
     tweetAllText: {
-        fontFamily: 'heebo',
+        fontFamily: Skin.Font_ParsedText,
         fontSize: 16,
         lineHeight: 24,
         flex: 1,

@@ -24,7 +24,7 @@ export const ESP_TWITTER_URL = 'https://twitter.com/LosCFCHooligans';
 export const ESP_INSTAGRAM_URL = 'https://instagram.com/loschattahooligans';
 export const ESP_WEBSITE_URL = 'http://chattahooligan.com/es';
 export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
-export const INSTRUMENTATION_URL ='https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
+export const INSTRUMENTATION_URL = 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 
 // Common Images
 export const HOME_SCREEN_NAVBAR = require('../../assets/home-logo.png');
@@ -65,7 +65,25 @@ export const DefaultColors = {
   Secondary: Palette.Sky
 }
 
+// NOTE: Heebo is a Chattahooligan-brand font. 
+/* 
+  You can use your own fonts in Hooligan Hymnal by including files in /assets/ 
+  and editing App.js. Look for Font.loadAsync() to see how fonts are loaded and registered as strings
+ 
+  Default fonts are included in /assets/ and the proper config values are...
+  Font_Regular: 'open-sans',
+  Font_Medium: 'open-sans-semibold',
+  Font_Bold: 'open-sans-bold',
+  Font_ParsedText: 'open-sans',
+
+  Font_Light is currently unused in the app.
+*/
 export const Skin = {
+  Font_Light: 'heebo-light',
+  Font_Regular: 'heebo',
+  Font_Medium: 'heebo-medium',
+  Font_Bold: 'heebo-bold',
+  Font_ParsedText: 'heebo',
   Home_BackgroundColor: DefaultColors.Primary,
   Home_BigButtonsBackground: DefaultColors.ButtonBackground,
   Home_BigButtonsLabel: DefaultColors.ButtonText,
@@ -89,7 +107,7 @@ export const Skin = {
   Roster_ActiveTabLabel: DefaultColors.ButtonText,
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'md-heart',
-  Roster_FoesTabIcon: 'md-thumbs-down',
+  Roster_FoesTabIcon: 'md-thumbs-down'
 };
 
 /*

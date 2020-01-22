@@ -37,7 +37,7 @@ class PostAttachmentComposeGkNickname extends React.Component {
     static navigationOptions = {
         header: null
     };
-    
+
     state = {
         colorData: [],
         nickname: "Nickname",
@@ -116,8 +116,8 @@ class PostAttachmentComposeGkNickname extends React.Component {
                     iconName="md-hand"
                     inModal={true}
                     onPress={() => {
-                        if (this.props.onAttachmentComplete)
-                            this.props.onAttachmentComplete(
+                        if (this.props.screenProps.onAttachmentComplete)
+                            this.props.screenProps.onAttachmentComplete(
                                 {
                                     attachmentType: "gknickname",
                                     data: {

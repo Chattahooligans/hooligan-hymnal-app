@@ -144,7 +144,7 @@ class About extends React.Component {
 
 const styles = StyleSheet.create({
   credits: {
-    fontFamily: 'heebo',
+    fontFamily: Skin.Font_ParsedText,
   },
   bold: {
     fontWeight: 'bold'
