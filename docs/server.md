@@ -3,27 +3,32 @@
 ## Required Env Variables
 ### Development
   ```
-  PORT=5000
+  ENV=development
+  PORT=3000
   MONGO_URI=mongodb://localhost/<db_name_here>
   SECRET_KEY=
-  TOKEN_EXPIRES=
-  REFRESH_SECRET_KEY=
-  REFRESH_TOKEN_EXPIRES=
-  API_KEY=
-  ENV=development
-  CLOUDINARY_URL=<Generate following link below.>
   INPUT_LANGUAGE=["en", "es", "de"]
+  CLOUDINARY_URL=<Generate following link below.>>
+  TOKEN_EXPIRES="1h"
+  REFRESH_TOKEN_EXPIRES="1d"
+  MAIL_HOST=
+  MAIL_PORT=587
+  MAIL_USER=
+  MAIL_PASS=
   ```
 
 ### Production
   ```
-  MONGO_URI=<MLab URL>
+  MONGO_URI=mongodb://localhost/<db_name_here>
   SECRET_KEY=
-  TOKEN_EXPIRES=
-  REFRESH_SECRET_KEY=
-  REFRESH_TOKEN_EXPIRES=
-  CLOUDINARY_URL=<Generate following link below.>
   INPUT_LANGUAGE=["en", "es", "de"]
+  CLOUDINARY_URL=<Generate following link below.>>
+  TOKEN_EXPIRES="1h"
+  REFRESH_TOKEN_EXPIRES="1d"
+  MAIL_HOST=
+  MAIL_PORT=587
+  MAIL_USER=
+  MAIL_PASS=
   ```
 
 ## Settings requirements
@@ -64,3 +69,7 @@
 
   ### INPUT LANGUAGE
   Settings for multilang bios.. This will also be used in multilang for other sections of the app.. There is also an endpoint on the server that allows the app to get language settings also at `/api/i18n-settings`
+
+  ### EMAIL (SMTP Settings)
+  If your SG use gmail for there email we suggest using it as it is free to use, limit 500 emails per day. Hopefully 500 people don't need to reset there password on the same day. Below are the instructions from google down below. You will need to add 2 Factor Auth for the account. The instructions you are looking for is under ***Use the Gmail SMTP Server*** keep the default port number.
+  [https://support.google.com/a/answer/176600?hl=en](https://support.google.com/a/answer/176600?hl=en)
