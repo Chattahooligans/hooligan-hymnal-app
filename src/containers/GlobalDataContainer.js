@@ -272,7 +272,7 @@ export default class GlobalDataContainer extends Container {
   getCurrentUser = () => { return this.state.currentUser }
 
   logoutCurrentUser = (callback) => {
-    this.setState({ user: null, bearerToken: null }, () => {
+    this.setState({ currentUser: null, bearerToken: null }, () => {
       if (callback)
         callback()
     })

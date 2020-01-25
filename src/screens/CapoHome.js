@@ -26,6 +26,13 @@ class CapoHome extends React.Component {
   };
 
   render() {
+    if (null == this.props.globalData.state.currentUser) {
+      this.props.navigation.popToTop();
+      return (
+        <RegularText>Not logged in</RegularText>
+      )
+    }
+
     console.log("Logged in as " + JSON.stringify(this.props.globalData.state.currentUser))
     return (
       <View style={{ flex: 1 }}>
@@ -136,7 +143,7 @@ class CapoHome extends React.Component {
   _handlePressLogoutButton = () => {
     let nav = this.props.navigation
     function navLogout() {
-      nav.goBack();
+      nav.popToTop();
     }
     this.props.globalData.logoutCurrentUser(navLogout);
   }
