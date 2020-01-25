@@ -36,7 +36,8 @@
             "title": "Tablero de Capo",
             "selectsong": "Elige una canción",
             "composesong": "Compone Una Canción",
-            "gknickname": "Apodo de Portero"
+            "gknickname": "Apodo de Portero",
+            "logout": "Logout"
         },
         "capologin": {
             "title": "Tablero de Capo",

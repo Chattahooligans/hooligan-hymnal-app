@@ -37,7 +37,8 @@
             "selectsong": "Select Song",
             "composesong": "Compose Song",
             "gknickname": "GK Nickname",
-            "postcreate": "Create Post"
+            "postcreate": "Create Post",
+            "logout": "Logout"
         },
         "capologin": {
             "title": "Capo Dashboard",

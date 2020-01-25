@@ -36,7 +36,8 @@
             "title": "Menu",
             "selectsong": "Selecionar hino",
             "composesong": "Compor hino",
-            "gknickname": "Apelido do goleiro"
+            "gknickname": "Apelido do goleiro",
+            "logout": "Logout"
         },
         "capologin": {
             "title": "Menu",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Keyboard, Image, Platform, StyleSheet, View } from 'react-native';
+import { Button, Keyboard, Image, Platform, StyleSheet, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
@@ -102,6 +102,8 @@ class CapoHome extends React.Component {
             </RectButton>
           </ClipBorderRadius>
         }
+        <View style={{ flex: 1 }} />
+        <Button title={i18n.t('screens.capohome.logout')} color={DefaultColors.ButtonBackground} onPress={this._handlePressLogoutButton} />
       </View>
     );
   }
@@ -130,6 +132,14 @@ class CapoHome extends React.Component {
     }
     this.props.globalData.initNewPost(navToPostCreate);
   };
+
+  _handlePressLogoutButton = () => {
+    let nav = this.props.navigation
+    function navLogout() {
+      nav.goBack();
+    }
+    this.props.globalData.logoutCurrentUser(navLogout);
+  }
 }
 
 const ClipBorderRadius = ({ children, style }) => {

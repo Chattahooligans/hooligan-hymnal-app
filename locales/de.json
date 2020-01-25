@@ -36,7 +36,8 @@
             "title": "Capo Dashboard",
             "selectsong": "Lied auswählen",
             "composesong": "Lied komponieren",
-            "gknickname": "GK Spitzname"
+            "gknickname": "GK Spitzname",
+            "logout": "Logout"
         },
         "capologin": {
             "title": "Capo Dashboard",

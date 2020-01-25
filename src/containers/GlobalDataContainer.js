@@ -271,6 +271,13 @@ export default class GlobalDataContainer extends Container {
   }
   getCurrentUser = () => { return this.state.currentUser }
 
+  logoutCurrentUser = (callback) => {
+    this.setState({ user: null, bearerToken: null }, () => {
+      if (callback)
+        callback()
+    })
+  }
+
   // News Feed helper functions
   initNewPost = (callback) => {
     // inital settings for creating a new feed item
@@ -295,12 +302,12 @@ export default class GlobalDataContainer extends Container {
   }
 
   getChannelBasicInfo = (channelId) => {
-    let channelToReturn = { 
-      _id: -1, 
+    let channelToReturn = {
+      _id: -1,
       name: "No channel found",
       description: "",
       avatarUrl: "",
-      headerUrl: "" 
+      headerUrl: ""
     };
     const channel = this.state.channels.find(channel => channel._id === channelId)
 
