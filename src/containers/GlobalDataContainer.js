@@ -321,6 +321,19 @@ export default class GlobalDataContainer extends Container {
 
     return channelToReturn;
   }
+  getChannelPermissions = (channelId, userId) => {
+    const channel = this.state.channels.find(channel => channel._id === channelId)
+    if (channel) {
+      let user = channel.users.find(user => user._id === userId);
+      
+      if (user)
+        return user;
+      else
+        return {}
+    }
+    else
+      return {}
+  }
 
   refreshFeed = async () => {
     const feed = await getFeed();

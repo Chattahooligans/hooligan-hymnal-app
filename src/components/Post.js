@@ -50,7 +50,6 @@ class Post extends React.Component {
     }
 
     render() {
-        console.log("post currentUser: " + JSON.stringify(this.props.globalData.getCurrentUser()))
         let post = this.state.post;
         // turn back on when learning 2 Images
         //console.log("Rendering Post:\n" + JSON.stringify(post));
@@ -121,6 +120,21 @@ class Post extends React.Component {
             }
         });
 
+        let menuOptions = [];
+        if (this.props.globalData.getCurrentUser()) {
+            const channelId = post.channelData._id;
+            const currentUserId = this.props.globalData.getCurrentUser().user.id;
+            const currentUserFeedAllowed = this.props.globalData.getCurrentUser().user.feedAllowed;
+            const channelPermissions = this.props.globalData.getChannelPermissions(channelId, currentUserId);
+
+            if (currentUserFeedAllowed) {
+                if (channelPermissions.canEdit)
+                    menuOptions.push(<RegularText>Edit</RegularText>)
+                if (channelPermissions.canDelete)
+                    menuOptions.push(<RegularText>Delete</RegularText>)
+            }
+        }
+
         return (
             <View style={styles.container}>
                 {/* Facebook style */}
@@ -150,6 +164,7 @@ class Post extends React.Component {
                                 style={styles.menu} />
                         </TouchableOpacity>
                     }
+                    {menuOptions}
                 </View>
                 {textDisplay}
 
