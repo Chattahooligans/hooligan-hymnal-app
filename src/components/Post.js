@@ -50,6 +50,7 @@ class Post extends React.Component {
     }
 
     render() {
+        console.log("post currentUser: " + JSON.stringify(this.props.globalData.getCurrentUser()))
         let post = this.state.post;
         // turn back on when learning 2 Images
         //console.log("Rendering Post:\n" + JSON.stringify(post));
@@ -141,6 +142,14 @@ class Post extends React.Component {
                             size={18}
                             style={styles.notificationSymbol} />
                     }
+                    {this.props.globalData.getCurrentUser() &&
+                        <TouchableOpacity>
+                            <Ionicons
+                                name="md-arrow-dropdown"
+                                size={18}
+                                style={styles.menu} />
+                        </TouchableOpacity>
+                    }
                 </View>
                 {textDisplay}
 
@@ -197,6 +206,11 @@ const styles = StyleSheet.create({
     },
     notificationSymbol: {
         color: Palette.Sky,
+        marginRight: 3
+    },
+    menu: {
+        color: Skin.Post_ChannelTextColor,
+        marginLeft: 5,
         marginRight: 3
     },
     text: {
