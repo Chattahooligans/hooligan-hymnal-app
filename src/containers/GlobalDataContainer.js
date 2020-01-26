@@ -9,7 +9,7 @@ import { getPlayers } from '../services/playersService';
 import { getRosters } from '../services/rostersService';
 import { getFoes } from '../services/foesService';
 import { getChannels } from '../services/channelsService';
-import { getFeed } from '../services/feedService';
+import { getFeed, hidePost } from '../services/feedService';
 import { HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../config/Settings';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
@@ -338,5 +338,15 @@ export default class GlobalDataContainer extends Container {
   refreshFeed = async () => {
     const feed = await getFeed();
     this.setState({ feed });
+  }
+
+  hidePost = async (postId) => {
+    await hidePost(postId, this.state.currentUser.token);
+
+    feedAfterHide = this.state.feed.filter((item) => item._id !== postId)
+    this.setState({feed: feedAfterHide})
+
+    // TODO: uncomment this after cache refresh is implemented
+    //await this.refreshFeed();
   }
 }

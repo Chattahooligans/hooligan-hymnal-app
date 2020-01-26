@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Alert,
     Clipboard,
     Image,
     Linking,
@@ -8,6 +9,14 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
+import {
+    Menu,
+    MenuProvider,
+    MenuOptions,
+    MenuOption,
+    MenuTrigger,
+    renderers
+} from 'react-native-popup-menu';
 import FadeIn from 'react-native-fade-in-image';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
@@ -23,6 +32,8 @@ import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
 import moment from 'moment';
 import i18n from "../../i18n";
+
+const { SlideInMenu } = renderers;
 
 class Post extends React.Component {
     state = {
@@ -47,6 +58,11 @@ class Post extends React.Component {
             post.channelData = this.props.globalData.getChannelBasicInfo(this.props.post.channel)
             this.setState({ post });
         }
+    }
+
+    hidePost = async () => {        
+        if (this.props.post)
+            this.props.globalData.hidePost(this.props.post._id)
     }
 
     render() {
@@ -121,6 +137,7 @@ class Post extends React.Component {
         });
 
         let menuOptions = [];
+        let menuDisplay;
         if (this.props.globalData.getCurrentUser()) {
             const channelId = post.channelData._id;
             const currentUserId = this.props.globalData.getCurrentUser().user.id;
@@ -128,11 +145,57 @@ class Post extends React.Component {
             const channelPermissions = this.props.globalData.getChannelPermissions(channelId, currentUserId);
 
             if (currentUserFeedAllowed) {
+                /*
                 if (channelPermissions.canEdit)
-                    menuOptions.push(<RegularText>Edit</RegularText>)
-                if (channelPermissions.canDelete)
-                    menuOptions.push(<RegularText>Delete</RegularText>)
+                    menuOptions.push(<MenuOption value={"edit"} text="Edit Post" />)
+                if (channelPermissions.canDelete) 
+                    menuOptions.push(<MenuOption value={"delete"} text="Hide Post" />)
+                */
+                if (channelPermissions.canDelete) {
+                    menuDisplay =
+                        <TouchableOpacity
+                            onPress={() => {
+                                Alert.alert(
+                                    i18n.t('components.post.hidealerttitle'),
+                                    i18n.t('components.post.hidealertmessage'),
+                                    [
+                                        {
+                                            text: i18n.t('components.post.hidealertcancel'),
+                                            style: "cancel"
+                                        },
+                                        {
+                                            text: i18n.t('components.post.hidealertconfirm'),
+                                            onPress: () => {this.hidePost()}
+                                        }
+                                    ]
+                                )
+                            }}>
+                            <Ionicons
+                                name="md-arrow-dropdown"
+                                size={18}
+                                style={styles.menu} />
+                        </TouchableOpacity>
+                }
             }
+
+            /*
+            if (menuOptions.length > 0) {
+                menuDisplay =
+                    <MenuProvider>
+                        <Menu renderer={SlideInMenu} onSelect={value => alert(`Selected number: ${value}`)}>
+                            <MenuTrigger>
+                                    <Ionicons
+                                        name="md-arrow-dropdown"
+                                        size={18}
+                                        style={styles.menu} />
+                            </MenuTrigger>
+                            <MenuOptions>
+                                {menuOptions}
+                            </MenuOptions>
+                        </Menu>
+                    </MenuProvider>
+                }
+                   */
         }
 
         return (
@@ -156,15 +219,7 @@ class Post extends React.Component {
                             size={18}
                             style={styles.notificationSymbol} />
                     }
-                    {this.props.globalData.getCurrentUser() &&
-                        <TouchableOpacity>
-                            <Ionicons
-                                name="md-arrow-dropdown"
-                                size={18}
-                                style={styles.menu} />
-                        </TouchableOpacity>
-                    }
-                    {menuOptions}
+                    {menuDisplay}
                 </View>
                 {textDisplay}
 

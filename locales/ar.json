@@ -183,7 +183,11 @@
             "gonnascore": "We're gonna score on you, "
         },
         "post": {
-            "copied": "Copied"
+            "copied": "Copied",
+            "hidealerttitle": "Hide Post",
+            "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
+            "hidealertcancel": "Cancel",
+            "hidealertconfirm": "Hide"
         },
         "postattachmentgknickname": {
             "gonnascore": "We're gonna score on you, "
