@@ -20,12 +20,12 @@ export default class SongView extends React.Component {
     let referenceDisplay;
     let playButtonDisplay;
     let sheetMusicDisplay;
-    if (song.reference_title)
-      referenceDisplay = <RegularText style={styles.reference} onLongPress={this._onLongPressReference}>{song.reference_title}</RegularText>
-    if (song.reference_link)
+    if (song.referenceTitle)
+      referenceDisplay = <RegularText style={styles.reference} onLongPress={this._onLongPressReference}>{song.referenceTitle}</RegularText>
+    if (song.referenceLink)
       playButtonDisplay = <TouchableOpacity style={{top: 0, bottom: 0, paddingHorizontal: 6,
                             backgroundColor: Palette.White}}
-                            onPress={() => {WebBrowser.openBrowserAsync(song.reference_link)}}>
+                            onPress={() => {WebBrowser.openBrowserAsync(song.referenceLink)}}>
                             <Ionicons
                               name={'md-play-circle'}
                               size={50}

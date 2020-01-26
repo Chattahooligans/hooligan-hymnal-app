@@ -62,7 +62,7 @@ class Player extends React.Component {
   setData = () => {
     let player = this.props.navigation.state.params.player;
     let playerSongs = [];
-    playerSongs = this.props.globalData.state.songs.filter(song => song.player_id === player._id)
+    playerSongs = this.props.globalData.state.songs.filter(song => song.playerId === player._id)
 
     this.setState({ playerSongs });
   }

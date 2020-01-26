@@ -23,8 +23,8 @@ class SongRow extends React.Component {
         const song = this.props.song;
 
         let referenceDisplay;
-        if (song.reference_title)
-            referenceDisplay = <RegularText style={styles.reference}>{song.reference_title}</RegularText>
+        if (song.referenceTitle)
+            referenceDisplay = <RegularText style={styles.reference}>{song.referenceTitle}</RegularText>
 
         let lyrics = song.lyrics + "\n";
         lyrics = lyrics.substring(0, lyrics.indexOf("\n"));

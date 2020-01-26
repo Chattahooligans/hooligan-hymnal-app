@@ -34,7 +34,7 @@ class SongRow extends React.Component {
     
     let playDisplay;
     let sheetMusicDisplay;
-    if (song.reference_link)
+    if (song.referenceLink)
       playDisplay = <View style={{ justifyContent: 'center', alignItems: 'center', marginLeft: 3 }}>
                       <Ionicons
                         name={'md-play-circle'}
