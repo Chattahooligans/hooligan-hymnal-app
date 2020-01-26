@@ -60,8 +60,12 @@ class Home extends React.Component {
   };
 
   async componentDidMount() {
-    if (!this.props.globalData.state.loadDataComplete)
+    if (!this.props.globalData.state.loadDataComplete) {
+      // shot refresh indicator on initial load
+      this.setState({refreshing: true})
       await this.props.globalData.loadData();
+      this.setState({refreshing: false})
+    }
     else
       this.onRefresh()
 
@@ -138,8 +142,8 @@ class Home extends React.Component {
                 listener: (event) => {
                   if ((event.nativeEvent.layoutMeasurement.height + event.nativeEvent.contentOffset.y >
                     (event.nativeEvent.contentSize.height - 20)) && ((event.nativeEvent.contentOffset.y + event.nativeEvent.contentSize.height) > event.nativeEvent.contentSize.height)) {
-                      console.log("At bottom, load the next page of posts (if it's not already loading)")
-                    }
+                    console.log("At bottom, load the next page of posts (if it's not already loading)")
+                  }
                 }
               }
             )
