@@ -21,7 +21,7 @@ import { withNavigation } from 'react-navigation';
 
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { getPost } from '../services/feedService';
+import { getPost, engageNotification } from '../services/feedService';
 
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
@@ -62,6 +62,9 @@ class Home extends React.Component {
   };
 
   async componentDidMount() {
+    if (this.props.globalData.state.pushToken == null)
+      await this.props.globalData.registerForPushNotificationsAsync();
+
     if (!this.props.globalData.state.loadDataComplete) {
       // shot refresh indicator on initial load
       this.setState({ refreshing: true })
@@ -81,6 +84,8 @@ class Home extends React.Component {
       // notification was tapped, either from the app already open or from entering the app
 
       if (notification.data.postId) {
+        engageNotification(notification.data.postId, this.props.globalData.state.pushToken)
+
         let post = await getPost(notification.data.postId)
         this.props.navigation.navigate("SinglePost", { post });
       }
@@ -93,8 +98,8 @@ class Home extends React.Component {
       }
     } else if (notification.origin === 'received') {
       // notification was received, either app was already open or it just opened up but not from the notification
-      // We don't necessarily want to do anything in this case
 
+      /*
       if (notification.data.postId) {
         // refresh the feed data itself
         this.onRefresh()
@@ -102,6 +107,7 @@ class Home extends React.Component {
         let post = await getPost(notification.data.postId)
         this.props.navigation.navigate("SinglePost", { post });
       }
+      */
     }
   };
 
@@ -288,9 +294,6 @@ class DeferredHomeContent extends React.Component {
   };
 
   componentDidMount() {
-    if (this.props.globalData.state.pushToken == null)
-      this.props.globalData.registerForPushNotificationsAsync();
-
     if (this.state.ready) {
       return;
     }

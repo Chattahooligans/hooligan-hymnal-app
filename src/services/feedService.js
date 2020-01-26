@@ -29,3 +29,12 @@ export const hidePost = (postId, token) =>
   )
     .then(response => response.data);
 
+export const engageNotification = (postId, pushToken) =>
+  API.post(
+    '/api/notifications/' + postId + '/engagements',
+    {
+      pushToken: pushToken,
+      engagedAt: (new Date()).toISOString()
+    }
+  )
+    .then(response => response.data)
