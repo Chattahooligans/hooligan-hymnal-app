@@ -10,7 +10,7 @@ import { getRosters } from '../services/rostersService';
 import { getFoes } from '../services/foesService';
 import { getChannels } from '../services/channelsService';
 import { getFeed, hidePost } from '../services/feedService';
-import { HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../config/Settings';
+import { HOOLIGAN_HYMNAL_SERVER_ADDRESS, Settings } from '../config/Settings';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
 import { objectTypeAnnotation } from '@babel/types';

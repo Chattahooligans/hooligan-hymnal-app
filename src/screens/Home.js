@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ActivityIndicator,
   Animated,
   Linking,
   Platform,
@@ -51,7 +52,8 @@ import { watchPositionAsync } from 'expo-location';
 class Home extends React.Component {
   state = {
     scrollY: new Animated.Value(0),
-    refreshing: false
+    refreshing: false,
+    loadingMore: false
   };
 
   static navigationOptions = {
@@ -62,9 +64,9 @@ class Home extends React.Component {
   async componentDidMount() {
     if (!this.props.globalData.state.loadDataComplete) {
       // shot refresh indicator on initial load
-      this.setState({refreshing: true})
+      this.setState({ refreshing: true })
       await this.props.globalData.loadData();
-      this.setState({refreshing: false})
+      this.setState({ refreshing: false })
     }
     else
       this.onRefresh()
@@ -111,6 +113,20 @@ class Home extends React.Component {
     this.setState({ refreshing: false });
   }
 
+  onLoadMore = async () => {
+    // don't load more if we're already loading
+    if (this.state.loadingMore === false) {
+      /*
+      this.setState({ loadingMore: true });
+
+      // replace with load more
+      await this.props.globalData.refreshFeed();
+
+      this.setState({ loadingMore: false });
+      */
+    }
+  }
+
   render() {
     const { scrollY } = this.state;
     const headerOpacity = scrollY.interpolate({
@@ -143,6 +159,7 @@ class Home extends React.Component {
                   if ((event.nativeEvent.layoutMeasurement.height + event.nativeEvent.contentOffset.y >
                     (event.nativeEvent.contentSize.height - 20)) && ((event.nativeEvent.contentOffset.y + event.nativeEvent.contentSize.height) > event.nativeEvent.contentSize.height)) {
                     console.log("At bottom, load the next page of posts (if it's not already loading)")
+                    this.onLoadMore();
                   }
                 }
               }
@@ -176,6 +193,14 @@ class Home extends React.Component {
           </View>
 
           <DeferredHomeContent globalData={this.props.globalData} />
+          <View style={{ flex: 1, flexDirection: "row", justifyContent: "center", paddingVertical: 10 }}>
+            {this.state.loadingMore &&
+              <ActivityIndicator
+                animating={true}
+                size="large"
+                color={Skin.Home_LoadMoreActivityIndicator} />
+            }
+          </View>
           <OverscrollView />
         </AnimatedScrollView>
 

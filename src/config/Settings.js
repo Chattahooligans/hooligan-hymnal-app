@@ -90,6 +90,7 @@ export const Skin = {
   Home_BigButtonsBackground: DefaultColors.ButtonBackground,
   Home_BigButtonsLabel: DefaultColors.ButtonText,
   Home_FindTheMenuLabel: DefaultColors.Primary,
+  Home_LoadMoreActivityIndicator: DefaultColors.Secondary,
   Home_SocialButtons: DefaultColors.Primary,
   Home_Website: Palette.Black,
   Home_PostMarginVertical: 6,
@@ -164,5 +165,6 @@ export const banners = [
 */
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
+  Home_PostsPerPage: 2,
   Player_ShowSongs: true,
 }
