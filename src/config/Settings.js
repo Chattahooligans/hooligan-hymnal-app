@@ -163,8 +163,12 @@ export const banners = [
 /*
   App Feature Flags
 */
+// Roster_SortPlayersBy: "default", "number", "name"
+//      later- "position" with priority
+//      (hopefully this gets deprecated and replaced with something in the UI later)
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
   Home_PostsPerPage: 20,
   Player_ShowSongs: true,
+  Roster_SortPlayersBy: "number"
 }
