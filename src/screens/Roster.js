@@ -153,7 +153,7 @@ class Roster extends React.Component {
   sortPlayersName = (a, b) => {
     return (a.name > b.name)
   }
-  // TODO: sortPlayersPosition with priorities
+  // TODO: sortPlayersPosition with priorities, sort by name or number if a tie? number probably
 
   render() {
     let listDisplay = null;
