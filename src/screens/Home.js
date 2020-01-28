@@ -122,14 +122,11 @@ class Home extends React.Component {
   onLoadMore = async () => {
     // don't load more if we're already loading
     if (this.state.loadingMore === false) {
-      /*
       this.setState({ loadingMore: true });
 
-      // replace with load more
-      await this.props.globalData.refreshFeed();
+      await this.props.globalData.loadMoreFeed();
 
       this.setState({ loadingMore: false });
-      */
     }
   }
 
@@ -164,7 +161,6 @@ class Home extends React.Component {
                 listener: (event) => {
                   if ((event.nativeEvent.layoutMeasurement.height + event.nativeEvent.contentOffset.y >
                     (event.nativeEvent.contentSize.height - 20)) && ((event.nativeEvent.contentOffset.y + event.nativeEvent.contentSize.height) > event.nativeEvent.contentSize.height)) {
-                    console.log("At bottom, load the next page of posts (if it's not already loading)")
                     this.onLoadMore();
                   }
                 }

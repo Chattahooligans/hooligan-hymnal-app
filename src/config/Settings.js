@@ -165,6 +165,6 @@ export const banners = [
 */
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
-  Home_PostsPerPage: 2,
+  Home_PostsPerPage: 20,
   Player_ShowSongs: true,
 }

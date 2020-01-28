@@ -9,7 +9,7 @@ import { getPlayers } from '../services/playersService';
 import { getRosters } from '../services/rostersService';
 import { getFoes } from '../services/foesService';
 import { getChannels } from '../services/channelsService';
-import { getFeed, hidePost } from '../services/feedService';
+import { getFeed, getMoreFeed, hidePost } from '../services/feedService';
 import { HOOLIGAN_HYMNAL_SERVER_ADDRESS, Settings } from '../config/Settings';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
@@ -48,6 +48,7 @@ export default class GlobalDataContainer extends Container {
     bearerToken: null,
     currentPostDraft: null,
     feed: [],
+    feedAtEnd: false,
     response: null,
     loadDataComplete: false
   };
@@ -62,6 +63,7 @@ export default class GlobalDataContainer extends Container {
       const foes = await getFoes();
       const channels = await getChannels();
       const feed = await getFeed();
+      const feedAtEnd = feed.length < Settings.Home_PostsPerPage;
 
       //this.setState({ songbook: songbooks[0], songs, rosters, players, htmlColors, foes });
       this.setState({
@@ -72,6 +74,7 @@ export default class GlobalDataContainer extends Container {
         foes,
         channels,
         feed,
+        feedAtEnd,
         htmlColors,
         loadDataComplete: true
       });
@@ -325,7 +328,7 @@ export default class GlobalDataContainer extends Container {
     const channel = this.state.channels.find(channel => channel._id === channelId)
     if (channel) {
       let user = channel.users.find(user => user._id === userId);
-      
+
       if (user)
         return user;
       else
@@ -337,14 +340,26 @@ export default class GlobalDataContainer extends Container {
 
   refreshFeed = async () => {
     const feed = await getFeed();
-    this.setState({ feed });
+    this.setState({ feed, feedAtEnd: false });
+  }
+
+  loadMoreFeed = async () => {
+    if (this.state.feed.length > 0 && !this.state.feedAtEnd) {
+      const lastPublishedAt = this.state.feed[this.state.feed.length - 1].publishedAt;
+      const moreFeed = await getMoreFeed(lastPublishedAt);
+      const feedAtEnd = moreFeed.length < Settings.Home_PostsPerPage;
+      const prevFeed = this.state.feed;
+      const feed = prevFeed.concat(moreFeed);
+
+      this.setState({ feed, feedAtEnd });
+    }
   }
 
   hidePost = async (postId) => {
     await hidePost(postId, this.state.currentUser.token);
 
-    feedAfterHide = this.state.feed.filter((item) => item._id !== postId)
-    this.setState({feed: feedAfterHide})
+    let feedAfterHide = this.state.feed.filter((item) => item._id !== postId)
+    this.setState({ feed: feedAfterHide })
 
     // TODO: uncomment this after cache refresh is implemented
     //await this.refreshFeed();
