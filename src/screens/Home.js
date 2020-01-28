@@ -86,8 +86,15 @@ class Home extends React.Component {
       if (notification.data.postId) {
         engageNotification(notification.data.postId, this.props.globalData.state.pushToken)
 
-        let post = await getPost(notification.data.postId)
-        this.props.navigation.navigate("SinglePost", { post });
+        try {
+          let post = await getPost(notification.data.postId)
+          if (post)
+            if (post.active)
+              this.props.navigation.navigate("SinglePost", { post });
+        }
+        catch (e) {
+          //
+        }
       }
 
       // classic Song notifications for users without the update, deprecate this soon
