@@ -24,7 +24,8 @@ export default class SinglePost extends React.Component {
                 <Post
                     style={{ flex: 1 }}
                     post={this.props.navigation.state.params.post}
-                    navigation={this.props.navigation} />
+                    navigation={this.props.navigation}
+                    navToFullScreen={false} />
             </ScrollView>
         );
     }

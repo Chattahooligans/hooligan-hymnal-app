@@ -60,7 +60,7 @@ class Post extends React.Component {
         }
     }
 
-    hidePost = async () => {        
+    hidePost = async () => {
         if (this.props.post)
             this.props.globalData.hidePost(this.props.post._id)
     }
@@ -81,6 +81,12 @@ class Post extends React.Component {
             publishedAtDisplay = moment(post.publishedAt).fromNow()
         else
             publishedAtDisplay = moment(post.publishedAt).format("M/D/YY h:mma")
+
+        let navToFullScreen = true;
+        if (this.props.hasOwnProperty("navToFullScreen"))
+            if (false == this.props.navToFullScreen)
+                navToFullScreen = false;
+
 
         let textDisplay;
         if (post.text) {
@@ -165,7 +171,7 @@ class Post extends React.Component {
                                         },
                                         {
                                             text: i18n.t('components.post.hidealertconfirm'),
-                                            onPress: () => {this.hidePost()}
+                                            onPress: () => { this.hidePost() }
                                         }
                                     ]
                                 )
@@ -209,9 +215,14 @@ class Post extends React.Component {
                     </FadeIn>
                     <View style={styles.headerTextContainer}>
                         <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
-                        <TouchableOpacity onPress={() => { this.props.navigation.navigate("SinglePost", { post }) }}>
+                        {navToFullScreen &&
+                            <TouchableOpacity onPress={() => { this.props.navigation.navigate("SinglePost", { post }) }}>
+                                <RegularText style={styles.timestampText}>{publishedAtDisplay}</RegularText>
+                            </TouchableOpacity>
+                        }
+                        {!navToFullScreen &&
                             <RegularText style={styles.timestampText}>{publishedAtDisplay}</RegularText>
-                        </TouchableOpacity>
+                        }
                     </View>
                     {post.push &&
                         <Ionicons
