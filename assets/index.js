@@ -1,4 +1,5 @@
 export default [
+  require('./423Soccer.png'),
   require('./chattahooligans.png'),
   require('./chattfc_logo.png'),
   require('./drawer-hero-background.png'),
@@ -12,6 +13,7 @@ export default [
   require('./icon.png'),
   require('./musical-score.png'),
   require('./prideraiser.png'),
+  require('./section109pod.png'),
   require('./songbook-front-cover.png'),
   require('./speakerphone.png'),
   require('./splash.png')

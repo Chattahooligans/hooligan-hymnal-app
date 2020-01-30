@@ -39,6 +39,14 @@ export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
 export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
 // used in SongView to link to sheet music
 export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
+
+// Other link
+export const BAD_PODCAST_423_URL = 'https://anchor.fm/423soccerpod';
+export const BAD_PODCAST_423_ICON = require('../../assets/423Soccer.png');
+export const BAD_PODCAST_109_URL = 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964';
+export const BAD_PODCAST_109_ICON = require('../../assets/section109pod.png');
+
+
 import i18n from "../../i18n"
 
 /*
@@ -143,6 +151,14 @@ export const socialButtons = [
       { icon: 'logo-twitter', url: ESP_TWITTER_URL },
       { icon: 'logo-instagram', url: ESP_INSTAGRAM_URL },
       { icon: 'md-browsers', url: ESP_WEBSITE_URL }
+    ]
+  },
+  {
+    header: i18n.t('settings.other'),
+    headerColor: DefaultColors.ColorText,
+    items: [
+      { image: BAD_PODCAST_423_ICON, url: BAD_PODCAST_423_URL, tintToSkin: false },
+      { image: BAD_PODCAST_109_ICON, url: BAD_PODCAST_109_URL, tintToSkin: false },
     ]
   }
 ]
