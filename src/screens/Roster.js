@@ -148,7 +148,14 @@ class Roster extends React.Component {
   }
 
   sortPlayersNumber = (a, b) => {
+    let aNum = Number(a.squadNumber)
+    let bNum = Number(b.squadNumber)
+    
+    if (!Number.isNaN(aNum) && !Number.isNaN(bNum))
+    return (aNum > bNum)
+    
     return (a.squadNumber > b.squadNumber)
+    // by happenstance, these conditions are all we need to sort "C"-numbered coaches to the bottom and handle 1 vs 2 digit squad numbers
   }
   sortPlayersName = (a, b) => {
     return (a.name > b.name)
