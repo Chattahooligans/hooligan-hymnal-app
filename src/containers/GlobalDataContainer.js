@@ -361,7 +361,6 @@ export default class GlobalDataContainer extends Container {
     let feedAfterHide = this.state.feed.filter((item) => item._id !== postId)
     this.setState({ feed: feedAfterHide })
 
-    // TODO: uncomment this after cache refresh is implemented
-    //await this.refreshFeed();
+    await this.refreshFeed();
   }
 }
