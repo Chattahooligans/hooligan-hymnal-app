@@ -90,7 +90,7 @@ class PostAttachmentSelectSong extends React.Component {
 
     isSearchMatch = (song) => {
         let isMatch = false;
-        ["title", "reference", "lyrics"].forEach((prop) => {
+        ["title", "reference", "lyrics", "category"].forEach((prop) => {
             if (song[prop] &&
                 song[prop].toLowerCase().includes(this.state.search.toLowerCase()))
                 isMatch = true;
