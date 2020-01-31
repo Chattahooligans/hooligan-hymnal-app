@@ -118,7 +118,7 @@ export default class SongView extends React.Component {
 
   _onLongPressReference = () => {
     Toast.show(i18n.t('components.songview.copiedreference'));
-    Clipboard.setString(this.props.song.reference_title);
+    Clipboard.setString(this.props.song.referenceTitle);
   };
 
   _onLongPressLyrics = () => {
