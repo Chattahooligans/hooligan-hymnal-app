@@ -13,6 +13,7 @@ import {
     View,
     Keyboard
 } from 'react-native';
+import ModalSelector from 'react-native-modal-selector';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import NavigationOptions from '../config/NavigationOptions';
@@ -174,16 +175,101 @@ class PostCreate extends React.Component {
 
     render() {
         let currentUserId = this.props.globalData.state.currentUser.user.id
+        let channelPicker = null;
+        let localePicker = null;
 
-        let channelPickerItems = [];
-        this.state.channels.forEach(element => {
-            channelPickerItems.push(<Picker.Item label={element.name} value={element} key={element._id} />);
-        });
-        channelPickerItems = channelPickerItems.sort(((a, b) => a.name > b.name));
-        let localePickerItems = [];
-        this.state.locales.forEach(element => {
-            localePickerItems.push(<Picker.Item label={element} value={element} key={element} />);
-        });
+        if (Platform.OS === "ios") {
+            let channelPickerItems = [];
+            this.state.channels.forEach(element => {
+                channelPickerItems.push({ key: element._id, label: element.name, value: element });
+            });
+            channelPickerItems = channelPickerItems.sort(((a, b) => a.name > b.name));
+            let localePickerItems = [];
+            this.state.locales.forEach(element => {
+                localePickerItems.push({ key: element, label: element });
+            });
+
+            console.log(Platform.OS)
+            console.log("SELECTED CHANNEL")
+            console.log(this.state.selectedChannel)
+            console.log("LOCALE")
+            console.log(this.state.post.locale)
+
+            channelPicker =
+                <ModalSelector
+                    style={{ flex: 1 }}
+                    data={channelPickerItems}
+                    selectedKey={this.state.selectedChannel._id}
+                    onChange={(selectedChannelItem) => {
+                        let post = this.state.post;
+                        post.channel = selectedChannelItem.value._id;
+                        post.locale = selectedChannelItem.value.defaultLocale;
+                        this.setState({ selectedChannel: selectedChannelItem.value, post });
+                    }}>
+                    <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
+                        <Text style={{ flex: 1 }}>{this.state.selectedChannel.name}</Text>
+                        <Ionicons name={'md-arrow-dropdown'} />
+                    </View>
+                </ModalSelector>
+
+            localePicker =
+                <ModalSelector
+                    style={{ width: 60 }}
+                    data={localePickerItems}
+                    selectedKey={this.state.post.locale}
+                    disabled={localePickerItems.length < 1}
+                    onValueChange={(localeItem) => {
+                        let post = this.state.post;
+                        post.locale = localeItem.key;
+                        this.setState({ post });
+                    }}>
+                    <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
+                        <Text style={{ flex: 1 }}>{this.state.post.locale}</Text>
+                        <Ionicons name={'md-arrow-dropdown'} />
+                    </View>
+                </ModalSelector>
+        }
+        else {
+            let channelPickerItems = [];
+            this.state.channels.forEach(element => {
+                channelPickerItems.push(<Picker.Item label={element.name} value={element} key={element._id} />);
+            });
+            channelPickerItems = channelPickerItems.sort(((a, b) => a.name > b.name));
+            let localePickerItems = [];
+            this.state.locales.forEach(element => {
+                localePickerItems.push(<Picker.Item label={element} value={element} key={element} />);
+            });
+
+            channelPicker =
+                <Picker
+                    style={{ flex: 1 }}
+                    mode='dropdown'
+                    enabled={channelPickerItems.length > 1}
+                    selectedValue={this.state.selectedChannel}
+                    onValueChange={(selectedChannel) => {
+                        let post = this.state.post;
+                        post.channel = selectedChannel._id;
+                        post.locale = selectedChannel.defaultLocale;
+                        this.setState({ selectedChannel, post });
+                    }}>
+                    {channelPickerItems}
+                </Picker>
+
+            localePicker =
+                <Picker
+                    style={{ width: 60 }}
+                    mode='dropdown'
+                    visible={localePickerItems.length > 1}
+                    selectedValue={this.state.post.locale}
+                    onValueChange={(itemValue) => {
+                        let post = this.state.post;
+                        post.locale = itemValue;
+                        this.setState({ post });
+                    }}>
+                    {localePickerItems}
+                </Picker>
+        }
+
         let post = this.state.post;
 
         let attachmentsDisplay = [];
@@ -197,31 +283,8 @@ class PostCreate extends React.Component {
         return (
             <ScrollView style={{ flex: 1 }}>
                 <View style={styles.postAsContainer}>
-                    <Picker
-                        style={{ flex: 1 }}
-                        mode='dropdown'
-                        enabled={channelPickerItems.length > 1}
-                        selectedValue={this.state.selectedChannel}
-                        onValueChange={(selectedChannel) => {
-                            let post = this.state.post;
-                            post.channel = selectedChannel._id;
-                            post.locale = selectedChannel.defaultLocale;
-                            this.setState({ selectedChannel, post });
-                        }}>
-                        {channelPickerItems}
-                    </Picker>
-                    <Picker
-                        style={{ width: 100 }}
-                        mode='dropdown'
-                        visible={localePickerItems.length > 1}
-                        selectedValue={this.state.post.locale}
-                        onValueChange={(itemValue) => {
-                            let post = this.state.post;
-                            post.locale = itemValue;
-                            this.setState({ post });
-                        }}>
-                        {localePickerItems}
-                    </Picker>
+                    {channelPicker}
+                    {localePicker}
                 </View>
                 <TextInput
                     style={styles.textInput}
