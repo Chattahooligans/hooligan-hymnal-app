@@ -251,7 +251,7 @@ class PostCreate extends React.Component {
 
             localePicker =
                 <Picker
-                    style={{ width: 60 }}
+                    style={{ width: 100 }}
                     mode='dropdown'
                     visible={localePickerItems.length > 1}
                     selectedValue={this.state.post.locale}
