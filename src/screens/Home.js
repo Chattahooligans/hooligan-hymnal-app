@@ -188,10 +188,12 @@ class Home extends React.Component {
           }
         >
           {(this.state.refreshing && Platform.OS == "ios") &&
-            <ActivityIndicator
-              animating={true}
-              size="large"
-              color={DefaultColors.Secondary} />
+            <View style={{ paddingTop: Constants.statusBarHeight }}>
+              <ActivityIndicator
+                animating={true}
+                size="large"
+                color={DefaultColors.Secondary} />
+            </View>
           }
           <View
             style={{
