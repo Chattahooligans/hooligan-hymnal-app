@@ -174,12 +174,25 @@ class Home extends React.Component {
               }
             )
           }
-          refreshControl={<RefreshControl 
-            refreshing={this.state.refreshing} 
-            onRefresh={this.onRefresh}
-            progressBackgroundColor={DefaultColors.Secondary}
-            colors={[DefaultColors.Primary]} />}
+          refreshControl={
+            Platform.OS === "ios" ?
+              <RefreshControl
+                refreshing={false}
+                onRefresh={this.onRefresh} />
+              :
+              <RefreshControl
+                refreshing={this.state.refreshing}
+                onRefresh={this.onRefresh}
+                progressBackgroundColor={DefaultColors.Secondary}
+                colors={[DefaultColors.Primary]} />
+          }
         >
+          {(this.state.refreshing && Platform.OS == "ios") &&
+            <ActivityIndicator
+              animating={true}
+              size="large"
+              color={DefaultColors.Secondary} />
+          }
           <View
             style={{
               backgroundColor: Palette.Navy,
