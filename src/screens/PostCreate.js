@@ -189,12 +189,6 @@ class PostCreate extends React.Component {
                 localePickerItems.push({ key: element, label: element });
             });
 
-            console.log(Platform.OS)
-            console.log("SELECTED CHANNEL")
-            console.log(this.state.selectedChannel)
-            console.log("LOCALE")
-            console.log(this.state.post.locale)
-
             channelPicker =
                 <ModalSelector
                     style={{ flex: 1 }}
@@ -218,7 +212,7 @@ class PostCreate extends React.Component {
                     data={localePickerItems}
                     selectedKey={this.state.post.locale}
                     disabled={localePickerItems.length < 1}
-                    onValueChange={(localeItem) => {
+                    onChange={(localeItem) => {
                         let post = this.state.post;
                         post.locale = localeItem.key;
                         this.setState({ post });
