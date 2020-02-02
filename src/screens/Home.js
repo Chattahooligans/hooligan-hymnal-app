@@ -174,7 +174,11 @@ class Home extends React.Component {
               }
             )
           }
-          refreshControl={<RefreshControl refreshing={this.state.refreshing} onRefresh={this.onRefresh} />}
+          refreshControl={<RefreshControl 
+            refreshing={this.state.refreshing} 
+            onRefresh={this.onRefresh}
+            progressBackgroundColor={DefaultColors.Secondary}
+            colors={[DefaultColors.Primary]} />}
         >
           <View
             style={{
