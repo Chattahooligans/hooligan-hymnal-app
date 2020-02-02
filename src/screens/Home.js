@@ -174,8 +174,27 @@ class Home extends React.Component {
               }
             )
           }
-          refreshControl={<RefreshControl refreshing={this.state.refreshing} onRefresh={this.onRefresh} />}
+          refreshControl={
+            Platform.OS === "ios" ?
+              <RefreshControl
+                refreshing={false}
+                onRefresh={this.onRefresh} />
+              :
+              <RefreshControl
+                refreshing={this.state.refreshing}
+                onRefresh={this.onRefresh}
+                progressBackgroundColor={Skin.Home_RefreshBackground_Android}
+                colors={[Skin.Home_Refresh_Android]} />
+          }
         >
+          {(this.state.refreshing && Platform.OS == "ios") &&
+            <View style={{ paddingTop: Constants.statusBarHeight }}>
+              <ActivityIndicator
+                animating={true}
+                size="large"
+                color={Skin.Home_LoadMoreActivityIndicator_iOS} />
+            </View>
+          }
           <View
             style={{
               backgroundColor: Palette.Navy,
@@ -207,7 +226,7 @@ class Home extends React.Component {
               <ActivityIndicator
                 animating={true}
                 size="large"
-                color={Skin.Home_LoadMoreActivityIndicator} />
+                color={Platform.OS === "ios" ? Skin.Home_LoadMoreActivityIndicator_iOS : Skin.Home_LoadMoreActivityIndicator_Android} />
             }
           </View>
           <OverscrollView />

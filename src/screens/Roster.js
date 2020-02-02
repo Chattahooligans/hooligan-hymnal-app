@@ -4,8 +4,10 @@ import {
   Image,
   Linking,
   Picker,
+  Platform,
   SectionList,
   StyleSheet,
+  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -15,6 +17,7 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Ionicons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
+import ModalSelector from 'react-native-modal-selector';
 
 import NavigationOptions from '../config/NavigationOptions';
 import { NavigationActions } from 'react-navigation';
@@ -150,10 +153,10 @@ class Roster extends React.Component {
   sortPlayersNumber = (a, b) => {
     let aNum = Number(a.squadNumber)
     let bNum = Number(b.squadNumber)
-    
+
     if (!Number.isNaN(aNum) && !Number.isNaN(bNum))
-    return (aNum > bNum)
-    
+      return (aNum > bNum)
+
     return (a.squadNumber > b.squadNumber)
     // by happenstance, these conditions are all we need to sort "C"-numbered coaches to the bottom and handle 1 vs 2 digit squad numbers
   }
@@ -173,18 +176,36 @@ class Roster extends React.Component {
 
     if (this.state.rosters.length > 0) {
       let pickerItems = [];
-      this.state.rosters.forEach(element => {
-        pickerItems.push(<Picker.Item label={element.rosterTitle} value={element._id} key={element._id} />);
-      });
-      header =
-        <Picker
-          mode='dropdown'
-          enabled={pickerItems.length > 1}
-          selectedValue={this.state.currentRosterID}
-          onValueChange={(itemValue) => this.setState({ currentRosterID: itemValue })}
-        >
-          {pickerItems}
-        </Picker>
+
+      if (Platform.OS === "ios") {
+        this.state.rosters.forEach(element => {
+          pickerItems.push({ key: element._id, label: element.rosterTitle });
+        });
+        header =
+          <ModalSelector
+            data={pickerItems}
+            selectedKey={this.state.currentRosterID}
+            onChange={(item) => this.setState({ currentRosterID: item.key })}>
+            <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
+              <Text style={{ flex: 1 }}>{this.state.rosters.find(roster => roster._id == this.state.currentRosterID).rosterTitle}</Text>
+              <Ionicons name={'md-arrow-dropdown'} />
+            </View>
+          </ModalSelector>
+      }
+      else {
+        let pickerItems = [];
+        this.state.rosters.forEach(element => {
+          pickerItems.push(<Picker.Item label={element.rosterTitle} value={element._id} key={element._id} />);
+        });
+        header =
+          <Picker
+            mode='dropdown'
+            enabled={pickerItems.length > 1}
+            selectedValue={this.state.currentRosterID}
+            onValueChange={(itemValue) => this.setState({ currentRosterID: itemValue })} >
+            {pickerItems}
+          </Picker>
+      }
 
       let currentRoster = this.state.rosters.find(element => element._id == this.state.currentRosterID);
       let playerData = currentRoster.players;

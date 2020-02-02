@@ -287,8 +287,7 @@ class Player extends React.Component {
           renderLeftButton={() => (
             <View
               style={{
-                // gross dumb things
-                paddingTop: Platform.OS === 'android' ? 10 : 0,
+                paddingTop: 10,
                 marginTop: Layout.notchHeight > 0 ? -5 : 0
               }}
             >
