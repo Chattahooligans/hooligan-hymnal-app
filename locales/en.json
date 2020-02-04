@@ -89,6 +89,8 @@
         },
         "postcreate": {
             "title": "Create Post",
+            "uploadimage": "Upload Image",
+            "nopermission": "Permissions failed",
             "addattachment": "Add Attachment",
             "push": "Bother people with a push notification? Seriously?",
             "cancel": "Cancel",

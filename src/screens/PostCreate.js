@@ -13,6 +13,8 @@ import {
     View,
     Keyboard
 } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
+import * as Permissions from 'expo-permissions';
 import ModalSelector from 'react-native-modal-selector';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
@@ -101,6 +103,30 @@ class PostCreate extends React.Component {
 
     _handlePressAddAttachment = () => {
         this.setAttachmentModalVisible(true);
+    }
+
+    _handlePressUploadImage = async () => {
+        let cameraAllowed = (await Permissions.getAsync(Permissions.CAMERA)).status
+        if (cameraAllowed !== "granted")
+            cameraAllowed = (await Permissions.askAsync(Permissions.CAMERA)).status
+        let cameraRollAllowed = (await Permissions.getAsync(Permissions.CAMERA_ROLL)).status
+        if (cameraRollAllowed !== "granted")
+            cameraRollAllowed = (await Permissions.askAsync(Permissions.CAMERA_ROLL)).status
+
+        if (!cameraAllowed || !cameraRollAllowed) {
+            alert(i18n.t('screens.postcreate.nopermission'))
+            return
+        }
+        else {
+            const selectedImage = await ImagePicker.launchImageLibraryAsync({
+                mediaTypes: ImagePicker.MediaTypeOptions.Images,
+                base64: false,
+                exif: false
+            })
+
+            console.log("SELECTED IMAGE")
+            console.log(selectedImage)
+        }
     }
 
     _handlePressContinueButton = () => {
@@ -291,18 +317,8 @@ class PostCreate extends React.Component {
                     {this.state.post.text}
                 </TextInput>
                 <Text>Images {JSON.stringify(post.images)}</Text>
+                <Button title={i18n.t('screens.postcreate.uploadimage')} color={DefaultColors.ButtonBackground} onPress={this._handlePressUploadImage} />
                 {attachmentsDisplay}
-                {/*
-                <SortableListView
-                    data={post.attachments}
-                    onRowMoved={attachment => {
-                        let post = this.state.post;
-                        post.attachments.splice(attachment.to, 0, post.attachments.splice(attachment.from, 1)[0])
-                        this.setState({ post });
-                        this.forceUpdate()
-                    }}
-                    renderRow={(row, index) => this.renderAttachmentItem(row, index)} />
-                */}
                 <Button title={i18n.t('screens.postcreate.addattachment')} color={DefaultColors.ButtonBackground} onPress={this._handlePressAddAttachment} />
                 <View style={styles.toggleContainer}>
                     <RegularText style={styles.toggleLabel}>{i18n.t('screens.postcreate.push')}</RegularText>
