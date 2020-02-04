@@ -10,8 +10,8 @@ import { DefaultColors } from '../config/Settings';
 export default class PostImageDeleteWrapper extends React.Component {
     render() {
         return (
-            <View>
-                <Image style={{ width: 100, height: 100, resizeMode: "cover" }}
+            <View style={{ marginHorizontal: 2 }}>
+                <Image style={{ width: 150, height: 150, resizeMode: "cover" }}
                     source={{ uri: this.props.uri }} />
                 <TouchableOpacity
                     onPress={() => {
