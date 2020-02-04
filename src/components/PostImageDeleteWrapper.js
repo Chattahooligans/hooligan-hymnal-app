@@ -5,6 +5,7 @@ import {
     View
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { DefaultColors } from '../config/Settings';
 
 export default class PostImageDeleteWrapper extends React.Component {
     render() {

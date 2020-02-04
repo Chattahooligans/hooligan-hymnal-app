@@ -36,6 +36,7 @@ import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
 import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
 import PostAttachmentDeleteWrapper from '../components/PostAttachmentDeleteWrapper';
+import PostImageDeleteWrapper from '../components/PostImageDeleteWrapper';
 
 const AttachmentTypesNavigator = StackNavigator(
     {
@@ -124,8 +125,9 @@ class PostCreate extends React.Component {
                 exif: false
             })
 
-            console.log("SELECTED IMAGE")
-            console.log(selectedImage)
+            let post = this.state.post;
+            post.images.push(selectedImage.uri);
+            this.setState({ post });
         }
     }
 
@@ -188,6 +190,15 @@ class PostCreate extends React.Component {
             alert("No allowed channels for user: " + currentUserId + " " + this.props.globalData.state.currentUser.user.email)
             this.props.navigation.goBack();
         }
+    }
+
+    deleteImage = (toDelete) => {
+        let post = this.state.post
+        let indexToDelete = post.images.indexOf(toDelete)
+        if (indexToDelete != -1)
+            post.images.splice(indexToDelete, 1)
+
+        this.setState({ post });
     }
 
     deleteAttachment = (toDelete) => {
@@ -292,6 +303,9 @@ class PostCreate extends React.Component {
 
         let post = this.state.post;
 
+        let imagesDisplay = [];
+        post.images.forEach((image, index) => imagesDisplay.push(<PostImageDeleteWrapper uri={image} key={"image-" + index} onPressDelete={this.deleteImage} />))
+
         let attachmentsDisplay = [];
         post.attachments.forEach((attachment, index) => attachmentsDisplay.push(<PostAttachmentDeleteWrapper attachment={attachment} key={"attachment-" + attachment.attachmentType + "-" + index} onPressDelete={this.deleteAttachment} />))
 
@@ -316,7 +330,7 @@ class PostCreate extends React.Component {
                     }}>
                     {this.state.post.text}
                 </TextInput>
-                <Text>Images {JSON.stringify(post.images)}</Text>
+                {imagesDisplay}
                 <Button title={i18n.t('screens.postcreate.uploadimage')} color={DefaultColors.ButtonBackground} onPress={this._handlePressUploadImage} />
                 {attachmentsDisplay}
                 <Button title={i18n.t('screens.postcreate.addattachment')} color={DefaultColors.ButtonBackground} onPress={this._handlePressAddAttachment} />
