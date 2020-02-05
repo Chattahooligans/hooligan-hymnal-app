@@ -5,6 +5,8 @@ import {
     StyleSheet,
     View
 } from 'react-native';
+import * as ImageManipulator from 'expo-image-manipulator';
+import * as FileSystem from 'expo-file-system';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { BigButton } from '../components/BigButton';
 import { ModalLoader } from '../components/ModalLoader';
@@ -70,6 +72,17 @@ class PostPreview extends React.Component {
         )
     }
 
+    serializeImages = async (images) => {
+        let serializedImages = [];
+
+        for (let i = 0; i < images.length; i++) {
+            let serialized = await FileSystem.readAsStringAsync(images[i], { encoding: FileSystem.EncodingType.Base64 });
+            serializedImages.push(serialized);
+        }
+
+        return serializedImages;
+    }
+
     _handlePressSubmitButton = async () => {
         this.setState({ loading: true });
         const publishedAt = new Date().toISOString();
@@ -80,6 +93,8 @@ class PostPreview extends React.Component {
         let postForServer = {};
         Object.assign(postForServer, this.state.post);
         delete postForServer.channelData;
+
+        postForServer.images = await this.serializeImages(postForServer.images);
 
         try {
             console.log("send this to the server")
@@ -102,7 +117,7 @@ class PostPreview extends React.Component {
         }
     }
     _handlePressScheduleButton = () => {
-        
+
     }
 }
 
