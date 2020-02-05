@@ -2,6 +2,7 @@ import React from 'react';
 import {
     Alert,
     Clipboard,
+    Dimensions,
     Image,
     Linking,
     Platform,
@@ -30,6 +31,7 @@ import PostAttachmentGkNickname from './PostAttachmentGkNickname';
 import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
+import PostImageWrapper from './PostImageWrapper';
 import moment from 'moment';
 import i18n from "../../i18n";
 
@@ -105,6 +107,16 @@ class Post extends React.Component {
                     {post.text}
                 </ParsedText>
         }
+
+        let containerWidth = Dimensions.get("window").width - (2 * styles.container.marginHorizontal)
+        let imageDisplay = [];
+        post.images.forEach((image, index) => {
+            imageDisplay.push(
+                <PostImageWrapper containerWidth={containerWidth}
+                    key={post._id + "-image-" + index}
+                    source={{ uri: image }} />
+            )
+        })
 
         let attachmentDisplay = [];
         post.attachments.forEach((attachment, index) => {
@@ -234,9 +246,12 @@ class Post extends React.Component {
                 </View>
                 {textDisplay}
 
-                {/*
-                <RegularText>Images {JSON.stringify(post.images)}</RegularText>
-                */}
+                {imageDisplay.length > 0 &&
+                    <View style={styles.imagesContainer}>
+                        {imageDisplay}
+                    </View>
+                }
+
                 {attachmentDisplay.length > 0 &&
                     <View style={styles.attachmentsContainer}>
                         {attachmentDisplay}
@@ -306,7 +321,9 @@ const styles = StyleSheet.create({
         writingDirection: i18n.getWritingDirection()
     },
     imagesContainer: {
-
+        borderTopWidth: 1,
+        borderColor: '#eee',
+        backgroundColor: '#fff'
     },
     attachmentsContainer: {
 
