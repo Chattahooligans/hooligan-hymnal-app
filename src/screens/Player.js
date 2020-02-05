@@ -239,7 +239,7 @@ class Player extends React.Component {
               <RegularText> {player.flag}</RegularText>
             </View>
             <RegularText style={styles.headerText}>
-              {player.position}
+              {i18n.t('positions.' + player.position)}
             </RegularText>
             {playerSocialDisplay}
           </View>
