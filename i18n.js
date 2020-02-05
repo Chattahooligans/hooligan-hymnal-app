@@ -25,9 +25,13 @@ function getLocalizedBio(bio) {
     //otherwise, see if the current locale is in there.
     var currentLocale = i18n.currentLocale();
     var defaultLocale = i18n.defaultLocale;
+    var shortLocale = currentLocale.substring(0,2);
     if(currentLocale in bio) {
         return bio[currentLocale];
-    } else if(defaultLocale in bio) {
+    } else if (shortLocale in bio) { 
+        return bio[shortLocale];
+    }
+    else if(defaultLocale in bio) {
         return bio[defaultLocale];
     } else {
         //well, that's weird
