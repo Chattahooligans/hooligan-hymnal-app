@@ -34,6 +34,7 @@ import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
+import PostAttachmentSelectJuanstagram from './PostAttachmentSelectJuanstagram';
 import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
 import PostAttachmentDeleteWrapper from '../components/PostAttachmentDeleteWrapper';
 import PostImageDeleteWrapper from '../components/PostImageDeleteWrapper';
@@ -45,7 +46,8 @@ const AttachmentTypesNavigator = StackNavigator(
         PostAttachmentSelectSong: { screen: PostAttachmentSelectSong },
         PostAttachmentComposeSong: { screen: PostAttachmentComposeSong },
         PostAttachmentComposeGkNickname: { screen: PostAttachmentComposeGkNickname },
-        PostAttachmentSelectMassTweet: { screen: PostAttachmentSelectMassTweet }
+        PostAttachmentSelectMassTweet: { screen: PostAttachmentSelectMassTweet },
+        PostAttachmentSelectJuanstagram: { screen: PostAttachmentSelectJuanstagram }
     }
 )
 

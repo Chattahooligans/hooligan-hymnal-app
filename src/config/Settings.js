@@ -188,6 +188,7 @@ export const banners = [
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
   Home_PostsPerPage: 20,
+  Juanstagram: true,
   Player_ShowSongs: true,
   Roster_SortPlayersBy: "number"
 }

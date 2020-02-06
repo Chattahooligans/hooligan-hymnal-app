@@ -28,6 +28,7 @@ import { Skin, Palette } from '../config/Settings';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import PostAttachmentGkNickname from './PostAttachmentGkNickname';
+import PostAttachmentJuanstagram from './PostAttachmentJuanstagram';
 import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
@@ -148,6 +149,11 @@ class Post extends React.Component {
                     let massTweetDisplay = <PostAttachmentMassTweet key={index} roster={roster}
                         onPress={() => { this.props.navigation.navigate("TwitterList", { roster }) }} />
                     attachmentDisplay.push(massTweetDisplay);
+                    break;
+                case "juanstagram":
+                    let juanstagramPost = attachment.data.juanstagramPost;
+                    let juanstagramDisplay = <PostAttachmentJuanstagram juanstagramPost={juanstagramPost} />
+                    attachmentDisplay.push(juanstagramDisplay);
                     break;
                 default:
                     attachmentDisplay.push(<RegularText key={index}>Can't render attachment {JSON.stringify(attachment)}</RegularText>);

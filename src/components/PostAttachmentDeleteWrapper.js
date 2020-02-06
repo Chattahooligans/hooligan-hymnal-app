@@ -11,6 +11,7 @@ import { RegularText } from './StyledText';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import PostAttachmentGkNickname from './PostAttachmentGkNickname';
+import PostAttachmentJuanstagram from './PostAttachmentJuanstagram';
 import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
@@ -49,6 +50,11 @@ class PostAttachmentDeleteWrapper extends React.Component {
                 let massTweetDisplay = <PostAttachmentMassTweet roster={roster}
                     onPress={() => { this.props.navigation.navigate("TwitterList", { roster }) }} />
                 attachmentDisplay = massTweetDisplay;
+                break;
+            case "juanstagram":
+                let juanstagramPost = attachment.data.juanstagramPost;
+                let juanstagramDisplay = <PostAttachmentJuanstagram juanstagramPost={juanstagramPost} />
+                attachmentDisplay = juanstagramDisplay;
                 break;
             default:
                 attachmentDisplay = <RegularText>Can't render attachment {JSON.stringify(attachment)}</RegularText>;
