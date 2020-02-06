@@ -286,7 +286,7 @@ export default class GlobalDataContainer extends Container {
     // inital settings for creating a new feed item
     let newPost = {
       sender: {
-        user: this.state.currentUser.user._id,
+        user: this.state.currentUser.user.id,
         pushToken: this.state.pushToken
       },
       publishedAt: new Date().toISOString(),
