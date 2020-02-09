@@ -7,6 +7,7 @@ import {
     Linking,
     Modal,
     Platform,
+    ScrollView,
     StyleSheet,
     TouchableOpacity,
     View
@@ -25,7 +26,7 @@ import ParsedText from 'react-native-parsed-text';
 import { Ionicons } from '@expo/vector-icons';
 // import Toast from 'react-native-simple-toast';
 import Toast from "react-native-tiny-toast";
-import { Skin, Palette } from '../config/Settings';
+import { Skin, Palette, DefaultColors } from '../config/Settings';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import PostAttachmentGkNickname from './PostAttachmentGkNickname';
@@ -117,18 +118,60 @@ class Post extends React.Component {
         let imageDisplay = [];
         let imageViewerData = [];
         post.images.forEach((image, index) => {
-            imageDisplay.push(
-                <TouchableOpacity
-                    key={post._id + "-touchaable-image-" + index}
-                    activeOpacity={1}
-                    onPress={() => { this.setState({ imageViewerVisible: true, imageViewerIndex: index }) }}>
-                    <PostImageWrapper containerWidth={containerWidth}
-                        key={post._id + "-image-" + index}
-                        source={{ uri: image }} />
-                </TouchableOpacity>
-            )
             imageViewerData.push({ url: image })
         })
+        if (post.images.length == 1) {
+            // flow the entire image in the feed if there's only one
+            post.images.forEach((image, index) => {
+                imageDisplay.push(
+                    <TouchableOpacity
+                        key={post._id + "-touchable-image-" + index}
+                        activeOpacity={1}
+                        onPress={() => { this.setState({ imageViewerVisible: true, imageViewerIndex: index }) }}>
+                        <PostImageWrapper containerWidth={containerWidth}
+                            key={post._id + "-image-" + index}
+                            source={{ uri: image }} />
+                    </TouchableOpacity>
+                )
+            })
+        }
+        else if (post.images.length == 2) {
+            // just thumbnails if more than one
+            post.images.forEach((image, index) => {
+                imageDisplay.push(
+                    <TouchableOpacity
+                        key={post._id + "-touchable-image-" + index}
+                        activeOpacity={1}
+                        onPress={() => { this.setState({ imageViewerVisible: true, imageViewerIndex: index }) }}>
+                        <Image
+                            key={post._id + "-image-" + index}
+                            style={{
+                                width: containerWidth / 2, height: containerWidth / 2
+                            }}
+                            source={{ uri: image }}
+                            resizeMode="cover" />
+                    </TouchableOpacity>
+                )
+            })
+        }
+        else {
+            post.images.forEach((image, index) => {
+                imageDisplay.push(
+                    <TouchableOpacity
+                        key={post._id + "-touchable-image-" + index}
+                        activeOpacity={1}
+                        onPress={() => { this.setState({ imageViewerVisible: true, imageViewerIndex: index }) }}>
+                        <Image
+                            key={post._id + "-image-" + index}
+                            style={{
+                                width: containerWidth / 2.5, height: containerWidth / 2.5
+                            }}
+                            source={{ uri: image }}
+                            resizeMode="cover" />
+                    </TouchableOpacity>
+                )
+            })
+        }
 
         let attachmentDisplay = [];
         post.attachments.forEach((attachment, index) => {
@@ -263,10 +306,20 @@ class Post extends React.Component {
                 </View>
                 {textDisplay}
 
-                {imageDisplay.length > 0 &&
+                {imageDisplay.length === 1 &&
                     <View style={styles.imagesContainer}>
                         {imageDisplay}
                     </View>
+                }
+                {imageDisplay.length === 2 &&
+                    <ScrollView style={styles.imagesContainer} horizontal={true}>
+                        {imageDisplay}
+                    </ScrollView>
+                }
+                {imageDisplay.length > 2 &&
+                    <ScrollView style={styles.imagesContainer} horizontal={true} persistentScrollbar={true}>
+                        {imageDisplay}
+                    </ScrollView>
                 }
 
                 {attachmentDisplay.length > 0 &&
