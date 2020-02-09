@@ -118,7 +118,7 @@ class Post extends React.Component {
         let imageDisplay = [];
         let imageViewerData = [];
         post.images.forEach((image, index) => {
-            imageViewerData.push({ url: image })
+            imageViewerData.push({ url: image.url })
         })
         if (post.images.length == 1) {
             // flow the entire image in the feed if there's only one
@@ -130,7 +130,7 @@ class Post extends React.Component {
                         onPress={() => { this.setState({ imageViewerVisible: true, imageViewerIndex: index }) }}>
                         <PostImageWrapper containerWidth={containerWidth}
                             key={post._id + "-image-" + index}
-                            source={{ uri: image }} />
+                            source={{ uri: image.url }} />
                     </TouchableOpacity>
                 )
             })
@@ -150,7 +150,7 @@ class Post extends React.Component {
                                 borderWidth: 2, borderRadius: 10, borderColor: 'white',
                                 overflow: "hidden"
                             }}
-                            source={{ uri: image }}
+                            source={{ uri: image.url }}
                             resizeMode="cover" />
                     </TouchableOpacity>
                 )
@@ -170,7 +170,7 @@ class Post extends React.Component {
                                 borderWidth: 2, borderRadius: 10, borderColor: 'white',
                                 overflow: "hidden"
                             }}
-                            source={{ uri: image }}
+                            source={{ uri: image.url }}
                             resizeMode="cover" />
                     </TouchableOpacity>
                 )
