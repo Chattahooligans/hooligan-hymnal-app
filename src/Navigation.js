@@ -28,7 +28,8 @@ const HomeNavigation = StackNavigator(
     SinglePost: { screen: Screens.SinglePost },
     SingleSong: { screen: Screens.SingleSong },
     Player: { screen: Screens.Player },
-    TwitterList: { screen: Screens.TwitterList }
+    TwitterList: { screen: Screens.TwitterList },
+    Channel: { screen: Screens.Channel }
   },
   {
     ...DefaultStackConfig,

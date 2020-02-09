@@ -6,6 +6,7 @@ import CapoHome from './CapoHome';
 import CapoLogin from './CapoLogin';
 import CapoSetGoalkeeperNickname from './CapoSetGoalkeeperNickname';
 import CapoSelectSong from './CapoSelectSong';
+import Channel from './Channel';
 import Events from './Events';
 import Home from './Home';
 import Instrumentation from './Instrumentation';
@@ -41,6 +42,7 @@ export default {
   CapoLogin,
   CapoSetGoalkeeperNickname,
   CapoSelectSong,
+  Channel,
   Events,
   Home,
   Instrumentation,
