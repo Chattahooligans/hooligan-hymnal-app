@@ -312,12 +312,12 @@ class Post extends React.Component {
                     </View>
                 }
                 {imageDisplay.length === 2 &&
-                    <ScrollView style={styles.imagesContainer} horizontal={true}>
+                    <View style={[{ flexDirection: i18n.getFlexDirection() }, styles.imagesContainer]}>
                         {imageDisplay}
-                    </ScrollView>
+                    </View>
                 }
                 {imageDisplay.length > 2 &&
-                    <ScrollView style={styles.imagesContainer} horizontal={true} persistentScrollbar={true}>
+                    <ScrollView style={[{ flexDirection: i18n.getFlexDirection() }, styles.imagesContainer]} horizontal={true} persistentScrollbar={true}>
                         {imageDisplay}
                     </ScrollView>
                 }
