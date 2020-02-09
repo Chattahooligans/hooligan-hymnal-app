@@ -97,7 +97,6 @@ class PostPreview extends React.Component {
           } else {
             data.append(key, post[key])
           }
-          // data.append(key, JSON.stringify(post[key]));
         });
         if (post.images) {
           const { images } = post;
@@ -105,8 +104,11 @@ class PostPreview extends React.Component {
             data.append("images", image)
           })
         }
-        if (post.sender) {
-          // debugger;
+        if (post.attachments) {
+          const { attachments } = post;
+          attachments.forEach(attach => {
+            data.append("attachments", JSON.stringify(attach))
+          });
         }
         this.setState({ loading: true });
         const publishedAt = new Date().toISOString();
@@ -115,7 +117,7 @@ class PostPreview extends React.Component {
         this.props.globalData.setCurrentPostDraft(post);
         let postForServer = {};
         // Object.assign(data, this.state.post);
-        delete postForServer.channelData;
+        delete data.channelData;
 
         // postForServer.images = await this.serializeImages(postForServer.images);
 
