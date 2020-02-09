@@ -1,6 +1,8 @@
 import React from 'react';
 import {
     Image,
+    Platform,
+    RefreshControl,
     ScrollView,
     StyleSheet,
     View
@@ -17,7 +19,7 @@ import { getFeedForChannel, getMoreFeedForChannel } from '../services/feedServic
 
 class Channel extends React.Component {
     static navigationOptions = ({ navigation }) => ({
-        title: "View Post: " + this.state.channelData.name,
+        title: "Channel: " + navigation.state.params.channelData.name,
         ...NavigationOptions,
         headerLeft: (
             <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
@@ -25,7 +27,7 @@ class Channel extends React.Component {
     });
 
     state = {
-        channelData: { name: "", description: "", avatarUrl: "", headerUrl: "" },
+        channelData: { _id: "", name: "init name", description: "", avatarUrl: "", headerUrl: "" },
         feed: [],
         loadDataComplete: false,
         refreshing: false,
@@ -34,6 +36,7 @@ class Channel extends React.Component {
     }
 
     componentDidMount = async () => {
+
         if (!this.state.loadDataComplete) {
             await this.onRefresh()
 
@@ -44,7 +47,7 @@ class Channel extends React.Component {
     onRefresh = async () => {
         this.setState({ refreshing: true })
 
-        let feed = await getFeedForChannel(this.props.navigation.state.params.channelId)
+        let feed = await getFeedForChannel(this.props.navigation.state.params.channelData._id)
         const feedAtEnd = feed.length < Settings.Home_PostsPerPage
 
         this.setState({ feed, refreshing: false, feedAtEnd })
@@ -55,7 +58,7 @@ class Channel extends React.Component {
         if (this.state.loadingMore === false) {
             this.setState({ loadingMore: true })
 
-            let moreFeed = await getMoreFeedForChannel(this.props.navigation.state.params.channelId, this.state.feed[this.state.feed.length - 1].publishedAt)
+            let moreFeed = await getMoreFeedForChannel(this.props.navigation.state.params.channelData._id, this.state.feed[this.state.feed.length - 1].publishedAt)
             const feedAtEnd = moreFeed.length < Settings.Home_PostsPerPage
             const prevFeed = this.state.feed
             const feed = prevFeed.concat(moreFeed)
@@ -65,13 +68,15 @@ class Channel extends React.Component {
     }
 
     render() {
-        let channelData = this.props.globalData.getChannelBasicInfo(this.props.navigation.state.params.channelId)
+        let channelData = this.props.navigation.state.params.channelData
         let channelPostsDisplay = []
+
         this.state.feed.forEach((post) => {
             channelPostsDisplay.push(
                 <Post key={post._id} post={post} navigation={this.props.navigation} />
             )
         })
+
 
         return (
             <ScrollView
@@ -103,12 +108,18 @@ class Channel extends React.Component {
                     <Image
                         style={styles.avatar}
                         source={{ uri: channelData.avatarUrl }} />
-                    <View style={{ flex: 1 }}>
-                        <BoldText style={styles.channelName}>{channelData.name}</BoldText>
-                        <RegularText style={styles.description}>{channelData.description}</RegularText>
-                    </View>
+                    <BoldText style={styles.channelName}>{channelData.name}</BoldText>
                 </View>
+                <RegularText style={styles.description}>{channelData.description}</RegularText>
                 {channelPostsDisplay}
+                <View style={{ flex: 1, flexDirection: "row", justifyContent: "center", paddingVertical: 10 }}>
+                    {this.state.loadingMore &&
+                        <ActivityIndicator
+                            animating={true}
+                            size="large"
+                            color={Platform.OS === "ios" ? Skin.Home_LoadMoreActivityIndicator_iOS : Skin.Home_LoadMoreActivityIndicator_Android} />
+                    }
+                </View>
             </ScrollView>
         )
     }
