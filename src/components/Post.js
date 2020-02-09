@@ -412,8 +412,6 @@ const styles = StyleSheet.create({
         writingDirection: i18n.getWritingDirection()
     },
     imagesContainer: {
-        borderTopWidth: 1,
-        borderColor: '#eee',
         backgroundColor: '#fff'
     },
     attachmentsContainer: {
