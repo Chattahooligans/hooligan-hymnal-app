@@ -5,6 +5,7 @@ import {
     Dimensions,
     Image,
     Linking,
+    Modal,
     Platform,
     StyleSheet,
     TouchableOpacity,
@@ -33,6 +34,7 @@ import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
 import PostImageWrapper from './PostImageWrapper';
+import ImageViewer from 'react-native-image-zoom-viewer';
 import moment from 'moment';
 import i18n from "../../i18n";
 
@@ -46,7 +48,9 @@ class Post extends React.Component {
             text: "",
             images: [],
             attachments: []
-        }
+        },
+        imageViewerVisible: false,
+        imageViewerIndex: 0
     }
 
     componentDidMount = () => this.setData();
@@ -111,12 +115,19 @@ class Post extends React.Component {
 
         let containerWidth = Dimensions.get("window").width - (2 * styles.container.marginHorizontal)
         let imageDisplay = [];
+        let imageViewerData = [];
         post.images.forEach((image, index) => {
             imageDisplay.push(
-                <PostImageWrapper containerWidth={containerWidth}
-                    key={post._id + "-image-" + index}
-                    source={{ uri: image }} />
+                <TouchableOpacity
+                    key={post._id + "-touchaable-image-" + index}
+                    activeOpacity={1}
+                    onPress={() => { this.setState({ imageViewerVisible: true, imageViewerIndex: index }) }}>
+                    <PostImageWrapper containerWidth={containerWidth}
+                        key={post._id + "-image-" + index}
+                        source={{ uri: image }} />
+                </TouchableOpacity>
             )
+            imageViewerData.push({ url: image })
         })
 
         let attachmentDisplay = [];
@@ -262,6 +273,23 @@ class Post extends React.Component {
                     <View style={styles.attachmentsContainer}>
                         {attachmentDisplay}
                     </View>
+                }
+
+                {imageViewerData.length > 0 &&
+                    <Modal
+                        visible={this.state.imageViewerVisible}
+                        transparent={true}
+                        onRequestClose={() => this.setState({ imageViewerVisible: false })}>
+                        <ImageViewer
+                            doubleClickInterval={500}
+                            renderIndicator={() => { }}
+                            enablePreload={true}
+                            imageUrls={imageViewerData}
+                            index={this.state.imageViewerIndex}
+                            enableSwipeDown={true}
+                            onSwipeDown={() => { this.setState({ imageViewerVisible: false }) }}
+                        />
+                    </Modal>
                 }
             </View>
         )
