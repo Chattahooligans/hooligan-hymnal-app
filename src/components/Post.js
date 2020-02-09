@@ -208,15 +208,19 @@ class Post extends React.Component {
             <View style={styles.container}>
                 {/* Facebook style */}
                 <View style={styles.headerContainer}>
-                    <FadeIn>
-                        <Image
-                            source={channelImage}
-                            style={styles.channelImage} />
-                    </FadeIn>
+                    <TouchableOpacity onPress={() => { this.props.navigation.navigate("Channel", { channelId: post.channelData._id }) }}>
+                        <FadeIn>
+                            <Image
+                                source={channelImage}
+                                style={styles.channelImage} />
+                        </FadeIn>
+                    </TouchableOpacity>
                     <View style={styles.headerTextContainer}>
-                        <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
+                        <TouchableOpacity>
+                            <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
+                        </TouchableOpacity>
                         {navToFullScreen &&
-                            <TouchableOpacity onPress={() => { this.props.navigation.navigate("SinglePost", { post }) }}>
+                            <TouchableOpacity onPress={() => { this.props.navigation.navigate("Channel", { channelId: post.channelData._id }) }}>
                                 <RegularText style={styles.timestampText}>{publishedAtDisplay}</RegularText>
                             </TouchableOpacity>
                         }
