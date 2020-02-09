@@ -146,7 +146,9 @@ class Post extends React.Component {
                         <Image
                             key={post._id + "-image-" + index}
                             style={{
-                                width: containerWidth / 2, height: containerWidth / 2
+                                width: containerWidth / 2, height: containerWidth / 2,
+                                borderWidth: 2, borderRadius: 10, borderColor: 'white',
+                                overflow: "hidden"
                             }}
                             source={{ uri: image }}
                             resizeMode="cover" />
@@ -164,7 +166,9 @@ class Post extends React.Component {
                         <Image
                             key={post._id + "-image-" + index}
                             style={{
-                                width: containerWidth / 2.5, height: containerWidth / 2.5
+                                width: containerWidth / 2.5, height: containerWidth / 2.5,
+                                borderWidth: 2, borderRadius: 10, borderColor: 'white',
+                                overflow: "hidden"
                             }}
                             source={{ uri: image }}
                             resizeMode="cover" />
@@ -317,7 +321,7 @@ class Post extends React.Component {
                     </View>
                 }
                 {imageDisplay.length > 2 &&
-                    <ScrollView style={[{ flexDirection: i18n.getFlexDirection() }, styles.imagesContainer]} horizontal={true} persistentScrollbar={true}>
+                    <ScrollView style={[{ flexDirection: i18n.getFlexDirection() }, styles.imagesContainer]} horizontal={true}>
                         {imageDisplay}
                     </ScrollView>
                 }
