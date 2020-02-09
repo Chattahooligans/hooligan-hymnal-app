@@ -371,39 +371,6 @@ class PostCreate extends React.Component {
                     }}>
                     <View style={{ marginTop: 22, flex: 1 }}>
                         <View style={{ flex: 1 }}>
-                            {/*
-                            <PostAttach onAttachmentComplete={() => {
-                                let post = this.state.post;
-                                post.attachments.push(data);
-                                this.setAttachmentModalVisible(false);
-                            }} />
-                            <PostAttachmentSelectPlayer onAttachmentComplete={(data) => {
-                                let post = this.state.post;
-                                post.attachments.push(data);
-                                this.setAttachmentModalVisible(false);
-                            }} />
-                            <PostAttachmentSelectSong onAttachmentComplete={(data) => {
-                                let post = this.state.post;
-                                post.attachments.push(data);
-                                this.setAttachmentModalVisible(false);
-                            }} />
-                            <PostAttachmentComposeSong onAttachmentComplete={(data) => {
-                                let post = this.state.post;
-                                post.attachments.push(data);
-                                this.setAttachmentModalVisible(false);
-                            }} />
-                            <PostAttachmentComposeGkNickname onAttachmentComplete={(data) => {
-                                let post = this.state.post;
-                                post.attachments.push(data);
-                                this.setAttachmentModalVisible(false);
-                            }} />
-                            <PostAttachmentSelectMassTweet onAttachmentComplete={(data) => {
-                                let post = this.state.post;
-                                post.attachments.push(data);
-                                this.setAttachmentModalVisible(false);
-                            }} />
-                            */}
-
                             <AttachmentTypesNavigator screenProps={{
                                 onAttachmentComplete: this.onAttachmentComplete
                             }} />
