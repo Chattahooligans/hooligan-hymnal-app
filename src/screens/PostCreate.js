@@ -14,6 +14,7 @@ import {
     Keyboard
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+// import ImagePicker from 'react-native-image-picker';
 import * as Permissions from 'expo-permissions';
 import ModalSelector from 'react-native-modal-selector';
 import { BigButton } from '../components/BigButton';
@@ -121,15 +122,23 @@ class PostCreate extends React.Component {
             return
         }
         else {
-            const selectedImage = await ImagePicker.launchImageLibraryAsync({
+            let selectedImage = await ImagePicker.launchImageLibraryAsync({
                 mediaTypes: ImagePicker.MediaTypeOptions.Images,
                 base64: false,
                 exif: false
             })
+            selectedImage.fileName = `IMG_${Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}`
 
-            let post = this.state.post;
-            post.images.push(selectedImage.uri);
-            this.setState({ post });
+            if (!selectedImage.cancelled) {
+              let post = this.state.post;
+              console.log(selectedImage);
+              post.images.push({
+                name: selectedImage.fileName,
+                type: selectedImage.type,
+                uri: Platform.OS === "android" ? selectedImage.uri : selectedImage.uri.replace('file://', '')
+              });
+              this.setState({ post });
+            }
         }
     }
 
@@ -139,6 +148,7 @@ class PostCreate extends React.Component {
             nav.navigate('PostPreview')
         }
         let post = this.state.post;
+        post.sender.user = this.props.globalData.state.currentUser.user["id"]
         post.publishedAt = new Date().toISOString();
         this.props.globalData.setCurrentPostDraft(post, navToPostPreview);
     };
@@ -196,9 +206,10 @@ class PostCreate extends React.Component {
 
     deleteImage = (toDelete) => {
         let post = this.state.post
-        let indexToDelete = post.images.indexOf(toDelete)
-        if (indexToDelete != -1)
-            post.images.splice(indexToDelete, 1)
+        let imageToDelete = post.images.filter(img => img.uri === toDelete)[0];
+        if (imageToDelete) {
+          post.images = post.images.filter(img => img.uri !== imageToDelete.uri)
+        }
 
         this.setState({ post });
     }
@@ -213,7 +224,7 @@ class PostCreate extends React.Component {
     }
 
     render() {
-        let currentUserId = this.props.globalData.state.currentUser.user.id
+        let currentUserId = this.props.globalData.state.currentUser.user["id"]
         let channelPicker = null;
         let localePicker = null;
 
@@ -306,7 +317,7 @@ class PostCreate extends React.Component {
         let post = this.state.post;
 
         let imagesDisplay = [];
-        post.images.forEach((image, index) => imagesDisplay.push(<PostImageDeleteWrapper uri={image} key={"image-" + index} onPressDelete={this.deleteImage} />))
+        post.images.forEach((image, index) => imagesDisplay.push(<PostImageDeleteWrapper uri={image.uri} key={"image-" + index} onPressDelete={this.deleteImage} />))
 
         let attachmentsDisplay = [];
         post.attachments.forEach((attachment, index) => attachmentsDisplay.push(<PostAttachmentDeleteWrapper attachment={attachment} key={"attachment-" + attachment.attachmentType + "-" + index} onPressDelete={this.deleteAttachment} />))

@@ -4,23 +4,26 @@ import { Settings } from '../config/Settings';
 export const getPost = (postId) =>
   API.get('/api/feed/' + postId).then(response => response.data);
 
-export const getFeed = () => 
+export const getFeed = () =>
   API.get('/api/feed/?limit=' + Settings.Home_PostsPerPage).then(response => response.data);
 
-export const getMoreFeed = (publishedBefore) => 
+export const getMoreFeed = (publishedBefore) =>
   API.get('/api/feed/?publishedBefore=' + publishedBefore + '&limit=' + Settings.Home_PostsPerPage).then(response => response.data);
 
-export const createPost = (post, token) =>
-  API.post(
+export const createPost = async (post, token) => {
+  await API.post(
     '/api/feed',
     post,
     {
       headers: {
-        'Authorization': "Bearer " + token
+        'Authorization': "Bearer " + token,
+        'Content-Type': 'multipart/form-data'
       }
-    }
+    },
   )
-    .then(response => response.data);
+    .then(response => response.data)
+    .catch(err => console.log(err));
+}
 
 export const hidePost = (postId, token) =>
   API.delete(

@@ -115,7 +115,7 @@ class Post extends React.Component {
             imageDisplay.push(
                 <PostImageWrapper containerWidth={containerWidth}
                     key={post._id + "-image-" + index}
-                    source={{ uri: image }} />
+                    source={{ uri: image.uri }} />
             )
         })
 
@@ -172,7 +172,7 @@ class Post extends React.Component {
                 /*
                 if (channelPermissions.canEdit)
                     menuOptions.push(<MenuOption value={"edit"} text="Edit Post" />)
-                if (channelPermissions.canDelete) 
+                if (channelPermissions.canDelete)
                     menuOptions.push(<MenuOption value={"delete"} text="Hide Post" />)
                 */
                 if (channelPermissions.canDelete) {

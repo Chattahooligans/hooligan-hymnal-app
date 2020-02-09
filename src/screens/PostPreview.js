@@ -3,7 +3,8 @@ import {
     Clipboard,
     ScrollView,
     StyleSheet,
-    View
+    View,
+    Platform
 } from 'react-native';
 import * as ImageManipulator from 'expo-image-manipulator';
 import * as FileSystem from 'expo-file-system';
@@ -84,22 +85,44 @@ class PostPreview extends React.Component {
     }
 
     _handlePressSubmitButton = async () => {
+        const data = new FormData();
+        const { post } = this.state;
+        Object.keys(post).forEach(key => {
+          if (key == 'sender') {
+            const senderInfo = {
+              user: post[key].user || 'test',
+              pushToken: post[key].pushToken || 'teser'
+            }
+            data.append(key, JSON.stringify(senderInfo))
+          } else {
+            data.append(key, post[key])
+          }
+          // data.append(key, JSON.stringify(post[key]));
+        });
+        if (post.images) {
+          const { images } = post;
+          images.forEach(image => {
+            data.append("images", image)
+          })
+        }
+        if (post.sender) {
+          // debugger;
+        }
         this.setState({ loading: true });
         const publishedAt = new Date().toISOString();
 
-        let post = this.state.post;
         post.publishedAt = publishedAt;
         this.props.globalData.setCurrentPostDraft(post);
         let postForServer = {};
-        Object.assign(postForServer, this.state.post);
+        // Object.assign(data, this.state.post);
         delete postForServer.channelData;
 
-        postForServer.images = await this.serializeImages(postForServer.images);
+        // postForServer.images = await this.serializeImages(postForServer.images);
 
         try {
             console.log("send this to the server")
             console.log(JSON.stringify(postForServer))
-            let response = await createPost(postForServer, this.props.globalData.getCurrentUser().token)
+            let response = await createPost(data, this.props.globalData.getCurrentUser().token)
             console.log("Response")
             console.log(response);
 
