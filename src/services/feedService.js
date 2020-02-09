@@ -11,10 +11,10 @@ export const getMoreFeed = (publishedBefore) =>
   API.get('/api/feed/?publishedBefore=' + publishedBefore + '&limit=' + Settings.Home_PostsPerPage).then(response => response.data);
 
 export const getFeedForChannel = (channelId) =>
-  API.get('/api/feed/' + channelId + '/?limit=' + Settings.Home_PostsPerPage).then(response => response.data);
+  API.get('/api/feed/channel/' + channelId + '/?limit=' + Settings.Home_PostsPerPage).then(response => response.data);
 
 export const getMoreFeedForChannel = (channelId, publishedBefore) =>
-  API.get('/api/feed/' + channelId + '/?publishedBefore=' + publishedBefore + '&limit=' + Settings.Home_PostsPerPage).then(response => response.data);
+  API.get('/api/feed/channel/' + channelId + '/?publishedBefore=' + publishedBefore + '&limit=' + Settings.Home_PostsPerPage).then(response => response.data);
 
 export const createPost = (post, token) =>
   API.post(
