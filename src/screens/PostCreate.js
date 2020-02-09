@@ -148,7 +148,6 @@ class PostCreate extends React.Component {
             nav.navigate('PostPreview')
         }
         let post = this.state.post;
-        post.sender.user = this.props.globalData.state.currentUser.user["id"]
         post.publishedAt = new Date().toISOString();
         this.props.globalData.setCurrentPostDraft(post, navToPostPreview);
     };
@@ -224,7 +223,7 @@ class PostCreate extends React.Component {
     }
 
     render() {
-        let currentUserId = this.props.globalData.state.currentUser.user["id"]
+        let currentUserId = this.props.globalData.state.currentUser.user.id
         let channelPicker = null;
         let localePicker = null;
 
