@@ -52,7 +52,8 @@ class PostPreview extends React.Component {
     render() {
         return (
             <ScrollView style={{ flex: 1 }}>
-                <View pointerEvents="none">
+                {/*<View pointerEvents="none">*/}
+                <View>
                     <Post
                         post={this.state.post}
                         navigation={this.props.navigation} />
