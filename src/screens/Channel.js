@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    ActivityIndicator,
     Image,
     Platform,
     RefreshControl,
@@ -55,7 +56,7 @@ class Channel extends React.Component {
 
     onLoadMore = async () => {
         // don't load more if we're already loading
-        if (this.state.loadingMore === false) {
+        if (this.state.loadingMore === false && !this.state.feedAtEnd) {
             this.setState({ loadingMore: true })
 
             let moreFeed = await getMoreFeedForChannel(this.props.navigation.state.params.channelData._id, this.state.feed[this.state.feed.length - 1].publishedAt)
@@ -80,6 +81,13 @@ class Channel extends React.Component {
 
         return (
             <ScrollView
+                style={styles.container}
+                onScroll={(event) => {
+                    if ((event.nativeEvent.layoutMeasurement.height + event.nativeEvent.contentOffset.y >
+                        (event.nativeEvent.contentSize.height - 20)) && ((event.nativeEvent.contentOffset.y + event.nativeEvent.contentSize.height) > event.nativeEvent.contentSize.height)) {
+                        this.onLoadMore();
+                    }
+                }}
                 refreshControl={
                     Platform.OS === "ios" ?
                         <RefreshControl
@@ -104,13 +112,15 @@ class Channel extends React.Component {
                 <Image
                     style={styles.header}
                     source={{ uri: channelData.headerUrl }} />
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                    <Image
-                        style={styles.avatar}
-                        source={{ uri: channelData.avatarUrl }} />
-                    <BoldText style={styles.channelName}>{channelData.name}</BoldText>
+                <View style={styles.channelInfoContainer}>
+                    <View style={{ flex: 1, flexDirection: "row" }}>
+                        <Image
+                            style={styles.avatar}
+                            source={{ uri: channelData.avatarUrl }} />
+                        <BoldText style={styles.channelName}>{channelData.name}</BoldText>
+                    </View>
+                    <RegularText style={styles.description}>{channelData.description}</RegularText>
                 </View>
-                <RegularText style={styles.description}>{channelData.description}</RegularText>
                 {channelPostsDisplay}
                 <View style={{ flex: 1, flexDirection: "row", justifyContent: "center", paddingVertical: 10 }}>
                     {this.state.loadingMore &&
@@ -128,7 +138,11 @@ class Channel extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: DefaultColors.Primary
+    },
+    channelInfoContainer: {
+        backgroundColor: Palette.White
     },
     header: {
 
@@ -140,10 +154,10 @@ const styles = StyleSheet.create({
         marginRight: 8
     },
     channelName: {
-
+        color: Skin.Post_ChannelTextColor
     },
     channelDescription: {
-
+        color: Skin.Post_ChannelTextColor
     }
 });
 
