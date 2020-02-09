@@ -346,8 +346,8 @@ class PostCreate extends React.Component {
                 <ScrollView horizontal={true}>
                     {imagesDisplay}
                 </ScrollView>
-                <Button title={i18n.t('screens.postcreate.uploadimage')} color={DefaultColors.ButtonBackground} onPress={this._handlePressUploadImage} />
                 {attachmentsDisplay}
+                <Button title={i18n.t('screens.postcreate.uploadimage')} color={DefaultColors.ButtonBackground} onPress={this._handlePressUploadImage} />
                 <Button title={i18n.t('screens.postcreate.addattachment')} color={DefaultColors.ButtonBackground} onPress={this._handlePressAddAttachment} />
                 <View style={styles.toggleContainer}>
                     <RegularText style={styles.toggleLabel}>{i18n.t('screens.postcreate.push')}</RegularText>
