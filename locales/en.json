@@ -186,6 +186,10 @@
         "gkNickname": {
             "gonnascore": "We're gonna score on you, "
         },
+        "imageviewer": {
+            "savetolocal": "Save to Device",
+            "cancel": "Cancel"
+        },
         "post": {
             "copied": "Copied",
             "hidealerttitle": "Hide Post",

@@ -345,6 +345,7 @@ class Post extends React.Component {
                             index={this.state.imageViewerIndex}
                             enableSwipeDown={true}
                             onSwipeDown={() => { this.setState({ imageViewerVisible: false }) }}
+                            menuContext={{ saveToLocal: i18n.t('components.imageviewer.savetolocal'), cancel: i18n.t('components.imageviewer.cancel') }}
                         />
                     </Modal>
                 }
