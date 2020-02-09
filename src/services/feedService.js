@@ -4,11 +4,17 @@ import { Settings } from '../config/Settings';
 export const getPost = (postId) =>
   API.get('/api/feed/' + postId).then(response => response.data);
 
-export const getFeed = () => 
+export const getFeed = () =>
   API.get('/api/feed/?limit=' + Settings.Home_PostsPerPage).then(response => response.data);
 
-export const getMoreFeed = (publishedBefore) => 
+export const getMoreFeed = (publishedBefore) =>
   API.get('/api/feed/?publishedBefore=' + publishedBefore + '&limit=' + Settings.Home_PostsPerPage).then(response => response.data);
+
+export const getFeedForChannel = (channelId) =>
+  API.get('/api/feed/' + channelId + '/?limit=' + Settings.Home_PostsPerPage).then(response => response.data);
+
+export const getMoreFeedForChannel = (channelId, publishedBefore) =>
+  API.get('/api/feed/' + channelId + '/?publishedBefore=' + publishedBefore + '&limit=' + Settings.Home_PostsPerPage).then(response => response.data);
 
 export const createPost = (post, token) =>
   API.post(
