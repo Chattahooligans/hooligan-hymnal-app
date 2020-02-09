@@ -208,7 +208,7 @@ class Post extends React.Component {
             <View style={styles.container}>
                 {/* Facebook style */}
                 <View style={styles.headerContainer}>
-                    <TouchableOpacity onPress={() => { this.props.navigation.navigate("Channel", { channelData: post.channelData }) }}>
+                    <TouchableOpacity onPress={() => { /*this.props.navigation.navigate("Channel", { channelData: post.channelData })*/ }}>
                         <FadeIn>
                             <Image
                                 source={channelImage}
@@ -216,7 +216,7 @@ class Post extends React.Component {
                         </FadeIn>
                     </TouchableOpacity>
                     <View style={styles.headerTextContainer}>
-                        <TouchableOpacity onPress={() => { this.props.navigation.navigate("Channel", { channelData: post.channelData }) }}>
+                        <TouchableOpacity onPress={() => { /*this.props.navigation.navigate("Channel", { channelData: post.channelData })*/ }}>
                             <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
                         </TouchableOpacity>
                         {navToFullScreen &&
