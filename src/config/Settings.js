@@ -59,7 +59,9 @@ export const Palette = {
   Sky: '#A3D8F7',
   White: '#FFFFFF',
   Black: '#000000',
-  Prideraiser: '#a55eea'
+  Prideraiser: '#a55eea',
+  YellowCard: '#ffcc00',
+  RedCard: '#ff0000'
 };
 
 export const DefaultColors = {

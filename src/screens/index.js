@@ -19,6 +19,7 @@ import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostCreate from './PostCreate';
 import PostPreview from  './PostPreview';
+import RefereeCard from './RefereeCard';
 import Roster from './Roster';
 import RosterFoePlayers from './RosterFoePlayers';
 import RosterFoes from './RosterFoes';
@@ -54,6 +55,7 @@ export default {
   PostAttachmentSelectSong,
   PostCreate,
   PostPreview,
+  RefereeCard,
   Roster,
   RosterFoePlayers,
   RosterFoes,

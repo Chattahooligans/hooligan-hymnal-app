@@ -1,9 +1,16 @@
 import React from 'react';
-import { Image, ScrollView, StyleSheet, View } from 'react-native';
-import { DrawerItems, NavigationActions, SafeAreaView } from 'react-navigation';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View
+} from 'react-native';
+import { DrawerItems, NavigationActions, SafeAreaView, StackNavigator } from 'react-navigation';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
+import { Palette } from '../config/Settings';
 import i18n from '../../i18n';
 
 const CustomDrawer = props => (
@@ -35,9 +42,26 @@ const CustomDrawer = props => (
             }
           } else {
             props.onItemPress({ route });
+            console.log("nav keys")
+            Object.keys(props).forEach((key) => {
+              if (key != 'globalData')
+                console.log("KEY " + key)
+                console.log(props[key])
+            })
           }
         }}
       />
+      <View style={styles.cardContainer}>
+        <View style={{ flex: 1 }} />
+        <TouchableOpacity
+          onPress={() => { props.navigation.navigate("RedCard") }}>
+          <View style={[styles.card, { backgroundColor: Palette.RedCard }]}></View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => { props.navigation.navigate("YellowCard") }}>
+          <View style={[styles.card, { backgroundColor: Palette.YellowCard }]}></View>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   </View>
 );
@@ -47,6 +71,18 @@ const styles = StyleSheet.create({
     height: 140 + Layout.notchHeight,
     width: '100%',
     resizeMode: 'cover'
+  },
+  card: {
+    margin: 5,
+    width: 20,
+    height: 30,
+    borderRadius: 5
+  },
+  cardContainer: {
+    flex: 1,
+    flexDirection: i18n.getFlexDirection(),
+    marginRight: 5,
+    marginBottom: 5
   },
   container: {
     flex: 1,

@@ -3,6 +3,7 @@ import { Dimensions } from 'react-native';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import Screens from './screens';
 import CustomDrawer from './components/CustomDrawer';
+import { Palette } from './config/Settings';
 import i18n from "../i18n";
 
 const { width: deviceWidth } = Dimensions.get('window');
@@ -170,6 +171,20 @@ const AboutNavigation = StackNavigator(
   }
 );
 
+const RedCard = (props) => (<Screens.RefereeCard {...props} name="RedCard" title={"Red Card"} color={Palette.RedCard} />)
+const YellowCard = (props) => (<Screens.RefereeCard {...props} name="YellowCard" title={"Yellow Card"} color={Palette.YellowCard} />)
+const CardNavigation = StackNavigator(
+  {
+    RedCard, YellowCard
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: " "
+    }
+  }
+);
+
 const Drawer = DrawerNavigator(
   {
     Home: { screen: HomeNavigation },
@@ -181,7 +196,8 @@ const Drawer = DrawerNavigator(
     Volunteer: { screen: VolunteerNavigation },
     Instrumentation: { screen: InstrumentationNavigation },
     CapoHome: { screen: CapoHomeNavigation },
-    About: { screen: AboutNavigation }
+    About: { screen: AboutNavigation },
+    CardNavigation: { screen: CardNavigation }
   },
   {
     contentComponent: props => <CustomDrawer {...props} />,
