@@ -3,6 +3,7 @@ import { Dimensions } from 'react-native';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import Screens from './screens';
 import CustomDrawer from './components/CustomDrawer';
+import NavigationOptions from './config/NavigationOptions'; 
 import { Palette } from './config/Settings';
 import i18n from "../i18n";
 
@@ -185,7 +186,9 @@ const RedCardNavigation = StackNavigator(
   },
   {
     navigationOptions: {
-      header: null,
+      ...NavigationOptions,
+      title: "Flash 'Em",
+      headerStyle: { backgroundColor: Palette.RedCard },
       drawerLabel: NullDrawerLabel
     }
   }
@@ -196,7 +199,9 @@ const YellowCardNavigation = StackNavigator(
   },
   {
     navigationOptions: {
-      header: null,
+      ...NavigationOptions,
+      title: "Flash 'Em",
+      headerStyle: { backgroundColor: Palette.YellowCard },
       drawerLabel: NullDrawerLabel
     }
   }
