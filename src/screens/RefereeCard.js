@@ -8,13 +8,11 @@ import { Skin } from '../config/Settings';
 
 export default class RefereeCard extends React.Component {
     static navigationOptions = ({ navigation }) => ({
-        title: this.props.title,
-        headerStyle: { backgroundColor: this.props.color },
-        headerTintColor: 'white',
-        headerLeft: <MenuButton />,
-        headerTitleStyle: {
-            fontFamily: Skin.Font_Bold
-        }
+        title: "Flash 'Em",
+        ...NavigationOptions,
+        headerLeft: (
+            <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+        )
     });
 
     render() {

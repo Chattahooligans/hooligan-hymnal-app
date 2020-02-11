@@ -171,16 +171,33 @@ const AboutNavigation = StackNavigator(
   }
 );
 
+class NullDrawerLabel extends React.Component {
+  render() {
+    return null;
+  }
+}
+
 const RedCard = (props) => (<Screens.RefereeCard {...props} name="RedCard" title={"Red Card"} color={Palette.RedCard} />)
 const YellowCard = (props) => (<Screens.RefereeCard {...props} name="YellowCard" title={"Yellow Card"} color={Palette.YellowCard} />)
-const CardNavigation = StackNavigator(
+const RedCardNavigation = StackNavigator(
   {
-    RedCard, YellowCard
+    RedCard
   },
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: " "
+      drawerLabel: NullDrawerLabel
+    }
+  }
+);
+const YellowCardNavigation = StackNavigator(
+  {
+    YellowCard
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: NullDrawerLabel
     }
   }
 );
@@ -197,7 +214,8 @@ const Drawer = DrawerNavigator(
     Instrumentation: { screen: InstrumentationNavigation },
     CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation },
-    CardNavigation: { screen: CardNavigation }
+    RedCard: { screen: RedCardNavigation },
+    YellowCard: { screen: YellowCardNavigation },
   },
   {
     contentComponent: props => <CustomDrawer {...props} />,
