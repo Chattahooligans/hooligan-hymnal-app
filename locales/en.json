@@ -99,6 +99,9 @@
             "submit": "Submit Post",
             "schedule": "Schedule Post"
         },
+        "refereecard": {
+            "title": "Flash 'Em"
+        },
         "events": {
             "title": "Events",
             "fallback": "Events open in WebBrowser component"
