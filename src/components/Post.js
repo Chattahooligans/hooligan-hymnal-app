@@ -82,6 +82,13 @@ class Post extends React.Component {
         else
             publishedAtDisplay = moment(post.publishedAt).format("M/D/YY h:mma")
 
+        let navToChannel = true;
+        if (this.props.hasOwnProperty("navToChannel"))
+            if (false == this.props.navToChannel)
+                navToChannel = false;
+        
+        console.log("NAV TO CHANNEL " + navToChannel)
+
         let navToFullScreen = true;
         if (this.props.hasOwnProperty("navToFullScreen"))
             if (false == this.props.navToFullScreen)
@@ -208,17 +215,31 @@ class Post extends React.Component {
             <View style={styles.container}>
                 {/* Facebook style */}
                 <View style={styles.headerContainer}>
-                    <TouchableOpacity onPress={() => { /*this.props.navigation.navigate("Channel", { channelData: post.channelData })*/ }}>
+                    {navToChannel &&
+                        <TouchableOpacity disabled={true} onPress={() => { this.props.navigation.navigate("Channel", { channelData: post.channelData }) }}>
+                            <FadeIn>
+                                <Image
+                                    source={channelImage}
+                                    style={styles.channelImage} />
+                            </FadeIn>
+                        </TouchableOpacity>
+                    }
+                    {!navToChannel &&
                         <FadeIn>
                             <Image
                                 source={channelImage}
                                 style={styles.channelImage} />
                         </FadeIn>
-                    </TouchableOpacity>
+                    }
                     <View style={styles.headerTextContainer}>
-                        <TouchableOpacity onPress={() => { /*this.props.navigation.navigate("Channel", { channelData: post.channelData })*/ }}>
+                        {navToChannel &&
+                            <TouchableOpacity disabled={true} onPress={() => { this.props.navigation.navigate("Channel", { channelData: post.channelData }) }}>
+                                <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
+                            </TouchableOpacity>
+                        }
+                        {!navToChannel &&
                             <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
-                        </TouchableOpacity>
+                        }
                         {navToFullScreen &&
                             <TouchableOpacity onPress={() => { this.props.navigation.navigate("SinglePost", { post }) }}>
                                 <RegularText style={styles.timestampText}>{publishedAtDisplay}</RegularText>

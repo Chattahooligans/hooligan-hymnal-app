@@ -74,7 +74,7 @@ class Channel extends React.Component {
 
         this.state.feed.forEach((post) => {
             channelPostsDisplay.push(
-                <Post key={post._id} post={post} navigation={this.props.navigation} />
+                <Post key={post._id} post={post} navToChannel={false} navigation={this.props.navigation} />
             )
         })
 
