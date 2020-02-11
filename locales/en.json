@@ -100,7 +100,8 @@
             "schedule": "Schedule Post"
         },
         "refereecard": {
-            "title": "Flash 'Em"
+            "titlered": "Flash 'Em",
+            "titleyellow": "Flash 'Em"
         },
         "events": {
             "title": "Events",

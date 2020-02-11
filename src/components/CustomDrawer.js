@@ -51,7 +51,7 @@ const CustomDrawer = props => (
           }
         }}
       />
-      {Settings.Navigation_ShowRefereeCards &&
+      {Settings.RefereeCards_Show &&
         <View style={styles.cardContainer}>
           <View style={{ flex: 1 }} />
           <TouchableOpacity

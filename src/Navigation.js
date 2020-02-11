@@ -187,7 +187,7 @@ const RedCardNavigation = StackNavigator(
   {
     navigationOptions: {
       ...NavigationOptions,
-      title: i18n.t('screens.refereecard.title'),
+      title: i18n.t('screens.refereecard.titlered'),
       headerStyle: { backgroundColor: Palette.RedCard },
       drawerLabel: NullDrawerLabel
     }
@@ -200,7 +200,7 @@ const YellowCardNavigation = StackNavigator(
   {
     navigationOptions: {
       ...NavigationOptions,
-      title: i18n.t('screens.refereecard.title'),
+      title: i18n.t('screens.refereecard.titleyellow'),
       headerStyle: { backgroundColor: Palette.YellowCard },
       drawerLabel: NullDrawerLabel
     }
