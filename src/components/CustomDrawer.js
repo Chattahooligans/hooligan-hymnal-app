@@ -46,7 +46,7 @@ const CustomDrawer = props => (
             Object.keys(props).forEach((key) => {
               if (key != 'globalData')
                 console.log("KEY " + key)
-                console.log(props[key])
+              console.log(props[key])
             })
           }
         }}
@@ -54,12 +54,12 @@ const CustomDrawer = props => (
       <View style={styles.cardContainer}>
         <View style={{ flex: 1 }} />
         <TouchableOpacity
-          onPress={() => { props.navigation.navigate("RedCard") }}>
-          <View style={[styles.card, { backgroundColor: Palette.RedCard }]}></View>
-        </TouchableOpacity>
-        <TouchableOpacity
           onPress={() => { props.navigation.navigate("YellowCard") }}>
           <View style={[styles.card, { backgroundColor: Palette.YellowCard }]}></View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => { props.navigation.navigate("RedCard") }}>
+          <View style={[styles.card, { backgroundColor: Palette.RedCard }]}></View>
         </TouchableOpacity>
       </View>
     </ScrollView>
