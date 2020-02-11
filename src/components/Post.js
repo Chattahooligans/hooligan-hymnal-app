@@ -86,8 +86,6 @@ class Post extends React.Component {
         if (this.props.hasOwnProperty("navToChannel"))
             if (false == this.props.navToChannel)
                 navToChannel = false;
-        
-        console.log("NAV TO CHANNEL " + navToChannel)
 
         let navToFullScreen = true;
         if (this.props.hasOwnProperty("navToFullScreen"))
