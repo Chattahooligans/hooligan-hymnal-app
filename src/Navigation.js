@@ -1,9 +1,9 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, View } from 'react-native';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import Screens from './screens';
 import CustomDrawer from './components/CustomDrawer';
-import NavigationOptions from './config/NavigationOptions'; 
+import NavigationOptions from './config/NavigationOptions';
 import { Palette } from './config/Settings';
 import i18n from "../i18n";
 
@@ -172,12 +172,6 @@ const AboutNavigation = StackNavigator(
   }
 );
 
-class NullDrawerLabel extends React.Component {
-  render() {
-    return null;
-  }
-}
-
 const RedCard = () => (<Screens.RefereeCard name="RedCard" color={Palette.RedCard} />)
 const YellowCard = () => (<Screens.RefereeCard name="YellowCard" color={Palette.YellowCard} />)
 const RedCardNavigation = StackNavigator(
@@ -189,7 +183,7 @@ const RedCardNavigation = StackNavigator(
       ...NavigationOptions,
       title: i18n.t('screens.refereecard.titlered'),
       headerStyle: { backgroundColor: Palette.RedCard },
-      drawerLabel: NullDrawerLabel
+      drawerLabel: () => null
     }
   }
 );
@@ -202,7 +196,7 @@ const YellowCardNavigation = StackNavigator(
       ...NavigationOptions,
       title: i18n.t('screens.refereecard.titleyellow'),
       headerStyle: { backgroundColor: Palette.YellowCard },
-      drawerLabel: NullDrawerLabel
+      drawerLabel: () => null
     }
   }
 );
