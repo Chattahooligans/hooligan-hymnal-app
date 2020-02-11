@@ -4,7 +4,7 @@ import * as WebBrowser from 'expo-web-browser';
 import NavigationOptions from '../config/NavigationOptions';
 import i18n from "../../i18n";
 
-const standingsUrl = 'https://www.npsl.com/table/2019-npsl-members-cup/';
+const standingsUrl = 'https://www.nisaofficial.com/standings';
 
 export default class Standings extends React.Component {
   static navigationOptions = {
