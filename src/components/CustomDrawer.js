@@ -10,7 +10,7 @@ import { DrawerItems, NavigationActions, SafeAreaView, StackNavigator } from 're
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
-import { Palette } from '../config/Settings';
+import { Palette, Settings } from '../config/Settings';
 import i18n from '../../i18n';
 
 const CustomDrawer = props => (
@@ -51,17 +51,19 @@ const CustomDrawer = props => (
           }
         }}
       />
-      <View style={styles.cardContainer}>
-        <View style={{ flex: 1 }} />
-        <TouchableOpacity
-          onPress={() => { props.navigation.navigate("YellowCard") }}>
-          <View style={[styles.card, { backgroundColor: Palette.YellowCard }]}></View>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => { props.navigation.navigate("RedCard") }}>
-          <View style={[styles.card, { backgroundColor: Palette.RedCard }]}></View>
-        </TouchableOpacity>
-      </View>
+      {Settings.Navigation_ShowRefereeCards &&
+        <View style={styles.cardContainer}>
+          <View style={{ flex: 1 }} />
+          <TouchableOpacity
+            onPress={() => { props.navigation.navigate("YellowCard") }}>
+            <View style={[styles.card, { backgroundColor: Palette.YellowCard }]}></View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => { props.navigation.navigate("RedCard") }}>
+            <View style={[styles.card, { backgroundColor: Palette.RedCard }]}></View>
+          </TouchableOpacity>
+        </View>
+      }
     </ScrollView>
   </View>
 );

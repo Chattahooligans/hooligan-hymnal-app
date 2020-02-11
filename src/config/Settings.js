@@ -191,5 +191,6 @@ export const Settings = {
   CapoHome_GKNicknameEnabled: true,
   Home_PostsPerPage: 20,
   Player_ShowSongs: true,
-  Roster_SortPlayersBy: "number"
+  Roster_SortPlayersBy: "number",
+  Navigation_ShowRefereeCards: true
 }
