@@ -3,18 +3,11 @@ import {
     StyleSheet,
     View
 } from 'react-native';
-import NavigationOptions from '../config/NavigationOptions';
-import { Skin } from '../config/Settings';
+import { Layout } from '../constants';
+import Constants from 'expo-constants';
+import { HeaderBackButton } from 'react-navigation';
 
 export default class RefereeCard extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: "Flash 'Em",
-        ...NavigationOptions,
-        headerLeft: (
-            <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-        )
-    });
-
     render() {
         return (
             <View style={[styles.container, { backgroundColor: this.props.color }]} />

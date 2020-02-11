@@ -177,15 +177,15 @@ class NullDrawerLabel extends React.Component {
   }
 }
 
-const RedCard = (props) => (<Screens.RefereeCard {...props} name="RedCard" title={"Red Card"} color={Palette.RedCard} />)
-const YellowCard = (props) => (<Screens.RefereeCard {...props} name="YellowCard" title={"Yellow Card"} color={Palette.YellowCard} />)
+const RedCard = () => (<Screens.RefereeCard name="RedCard" color={Palette.RedCard} />)
+const YellowCard = () => (<Screens.RefereeCard name="YellowCard" color={Palette.YellowCard} />)
 const RedCardNavigation = StackNavigator(
   {
     RedCard
   },
   {
-    ...DefaultStackConfig,
     navigationOptions: {
+      header: null,
       drawerLabel: NullDrawerLabel
     }
   }
@@ -195,8 +195,8 @@ const YellowCardNavigation = StackNavigator(
     YellowCard
   },
   {
-    ...DefaultStackConfig,
     navigationOptions: {
+      header: null,
       drawerLabel: NullDrawerLabel
     }
   }
