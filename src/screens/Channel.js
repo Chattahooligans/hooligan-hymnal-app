@@ -109,17 +109,16 @@ class Channel extends React.Component {
                             color={Skin.Channel_LoadMoreActivityIndicator_iOS} />
                     </View>
                 }
-                <Image
-                    style={styles.header}
-                    source={{ uri: channelData.headerUrl }} />
-                <View style={styles.channelInfoContainer}>
-                    <View style={{ flex: 1, flexDirection: "row" }}>
-                        <Image
-                            style={styles.avatar}
-                            source={{ uri: channelData.avatarUrl }} />
+                <View style={styles.header}>
+                    <Image
+                        source={{ uri: channelData.headerUrl }} />
+                    <Image
+                        style={styles.avatar}
+                        source={{ uri: channelData.avatarUrl }} />
+                    <View style={styles.channelInfoContainer}>
                         <BoldText style={styles.channelName}>{channelData.name}</BoldText>
+                        <RegularText style={styles.channelDescription}>{channelData.description}</RegularText>
                     </View>
-                    <RegularText style={styles.channelDescription}>{channelData.description}</RegularText>
                 </View>
                 {channelPostsDisplay}
                 <View style={{ flex: 1, flexDirection: "row", justifyContent: "center", paddingVertical: 10 }}>
@@ -141,10 +140,10 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: Skin.Channel_Background,
     },
-    channelInfoContainer: {
+    header: {
         backgroundColor: Skin.Channel_Background,
     },
-    header: {
+    channelInfoContainer: {
 
     },
     avatar: {
