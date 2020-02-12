@@ -97,8 +97,8 @@ class Channel extends React.Component {
                         <RefreshControl
                             refreshing={this.state.refreshing}
                             onRefresh={this.onRefresh}
-                            progressBackgroundColor={Skin.Home_RefreshBackground_Android}
-                            colors={[Skin.Home_Refresh_Android]} />
+                            progressBackgroundColor={Skin.Channel_RefreshBackground_Android}
+                            colors={[Skin.Channel_Refresh_Android]} />
                 }
             >
                 {(this.state.refreshing && Platform.OS == "ios") &&
@@ -106,7 +106,7 @@ class Channel extends React.Component {
                         <ActivityIndicator
                             animating={true}
                             size="large"
-                            color={Skin.Home_LoadMoreActivityIndicator_iOS} />
+                            color={Skin.Channel_LoadMoreActivityIndicator_iOS} />
                     </View>
                 }
                 <Image
@@ -119,7 +119,7 @@ class Channel extends React.Component {
                             source={{ uri: channelData.avatarUrl }} />
                         <BoldText style={styles.channelName}>{channelData.name}</BoldText>
                     </View>
-                    <RegularText style={styles.description}>{channelData.description}</RegularText>
+                    <RegularText style={styles.channelDescription}>{channelData.description}</RegularText>
                 </View>
                 {channelPostsDisplay}
                 <View style={{ flex: 1, flexDirection: "row", justifyContent: "center", paddingVertical: 10 }}>
@@ -127,7 +127,7 @@ class Channel extends React.Component {
                         <ActivityIndicator
                             animating={true}
                             size="large"
-                            color={Platform.OS === "ios" ? Skin.Home_LoadMoreActivityIndicator_iOS : Skin.Home_LoadMoreActivityIndicator_Android} />
+                            color={Platform.OS === "ios" ? Skin.Channel_LoadMoreActivityIndicator_iOS : Skin.Channel_LoadMoreActivityIndicator_Android} />
                     }
                 </View>
             </ScrollView>
@@ -139,10 +139,10 @@ class Channel extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: DefaultColors.Primary
+        backgroundColor: Skin.Channel_Background,
     },
     channelInfoContainer: {
-        backgroundColor: Palette.White
+        backgroundColor: Skin.Channel_Background,
     },
     header: {
 
@@ -154,10 +154,10 @@ const styles = StyleSheet.create({
         marginRight: 8
     },
     channelName: {
-        color: Skin.Post_ChannelTextColor
+        color: Skin.Channel_NameLabel
     },
     channelDescription: {
-        color: Skin.Post_ChannelTextColor
+        color: Skin.Channel_DescriptionLabel
     }
 });
 

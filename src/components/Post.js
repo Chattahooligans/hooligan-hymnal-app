@@ -214,7 +214,7 @@ class Post extends React.Component {
                 {/* Facebook style */}
                 <View style={styles.headerContainer}>
                     {navToChannel &&
-                        <TouchableOpacity disabled={true} onPress={() => { this.props.navigation.navigate("Channel", { channelData: post.channelData }) }}>
+                        <TouchableOpacity onPress={() => { this.props.navigation.navigate("Channel", { channelData: post.channelData }) }}>
                             <FadeIn>
                                 <Image
                                     source={channelImage}
@@ -231,7 +231,7 @@ class Post extends React.Component {
                     }
                     <View style={styles.headerTextContainer}>
                         {navToChannel &&
-                            <TouchableOpacity disabled={true} onPress={() => { this.props.navigation.navigate("Channel", { channelData: post.channelData }) }}>
+                            <TouchableOpacity onPress={() => { this.props.navigation.navigate("Channel", { channelData: post.channelData }) }}>
                                 <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
                             </TouchableOpacity>
                         }
@@ -303,17 +303,17 @@ const styles = StyleSheet.create({
     },
     channelText: {
         fontSize: 16,
-        color: Skin.Post_ChannelTextColor
+        color: Skin.Post_ChannelLabel
     },
     timestampText: {
-        color: Skin.Post_TimestampTextColor
+        color: Skin.Post_TimestampLabel
     },
     notificationSymbol: {
         color: Palette.Sky,
         marginRight: 3
     },
     menu: {
-        color: Skin.Post_ChannelTextColor,
+        color: Skin.Post_ChannelLabel,
         marginLeft: 5,
         marginRight: 3
     },
