@@ -9,9 +9,9 @@
 
 // HEY! Don't include a trailing slash / on this url.
 // If you do, you're gonna have a bad time because your serer calls will not work
-export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
-// news feed dev branch
-//export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://hymnal-serve-news-feed-vf0sbpf.herokuapp.com'
+//export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
+// news feed images dev branch
+export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://guardbook-beta.herokuapp.com/'
 
 // URLs
 export const TWITTER_URL = 'https://twitter.com/chattahooligan';
