@@ -29,9 +29,12 @@ export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
 export const INSTRUMENTATION_URL = 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 
 // Common Images
-export const HOME_SCREEN_NAVBAR = require('../../assets/home-logo.png');
-//export const HOME_SCREEN_NAVBAR = require('../../assets/home-big-c-logo.png');
-export const HOME_SCREEN_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
+export const HOME_NAVBAR_LOGO = require('../../assets/home-logo.png');
+//export const HOME_NAVBAR_LOGO = require('../../assets/home-big-c-logo.png');
+export const HOME_VIDEO = require('../../assets/5MB_video.mp4');
+export const HOME_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
+export const DRAWER_HERO_BACKGROUND = require('../../assets/drawer-hero-background.png');
+export const DRAWER_HERO_OVERLAY = require('../../assets/drawer-hero-logo.png');
 // like social media icons
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
@@ -103,17 +106,22 @@ export const Skin = {
   Channel_NameLabel: DefaultColors.Primary,
   Channel_Refresh_Android: DefaultColors.Secondary,
   Channel_RefreshBackground_Android: DefaultColors.Primary,
+  Drawer_HeroBackground: DRAWER_HERO_BACKGROUND,
+  Drawer_HeroOverlay: DRAWER_HERO_OVERLAY,
   Home_BackgroundColor: DefaultColors.Primary,
   Home_BigButtonsBackground: DefaultColors.ButtonBackground,
   Home_BigButtonsLabel: DefaultColors.ButtonText,
   Home_FindTheMenuLabel: DefaultColors.Primary,
   Home_LoadMoreActivityIndicator_Android: DefaultColors.Secondary,
   Home_LoadMoreActivityIndicator_iOS: Palette.White,
+  Home_NavbarLogo: HOME_NAVBAR_LOGO,
+  Home_PostMarginVertical: 6,
   Home_Refresh_Android: DefaultColors.Primary,
   Home_RefreshBackground_Android: DefaultColors.Secondary,
   Home_SocialButtons: DefaultColors.Primary,
+  Home_Video: HOME_VIDEO,
+  Home_VideoOverlay: HOME_VIDEO_OVERLAY,
   Home_Website: Palette.Black,
-  Home_PostMarginVertical: 6,
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Secondary,
   ModalLoader_Container: "#00000040",
