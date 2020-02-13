@@ -109,15 +109,22 @@ class Channel extends React.Component {
                             color={Skin.Channel_LoadMoreActivityIndicator_iOS} />
                     </View>
                 }
-                <View style={styles.header}>
-                    <Image
-                        source={{ uri: channelData.headerUrl }} />
-                    <Image
-                        style={styles.avatar}
-                        source={{ uri: channelData.avatarUrl }} />
-                    <View style={styles.channelInfoContainer}>
-                        <BoldText style={styles.channelName}>{channelData.name}</BoldText>
+                <View style={styles.channelHeaderContainer}>
+                    <View style={styles.headerContainer}>
+                        <Image
+                            style={styles.headerImage}
+                            source={{ uri: channelData.headerUrl }} />
+                    </View>
+                    <View style={styles.channelNameContainer}>
+                        <BoldText numberOfLines={1} style={styles.channelName}>{channelData.name}</BoldText>
+                    </View>
+                    <View style={styles.channelDescriptionContainer}>
                         <RegularText style={styles.channelDescription}>{channelData.description}</RegularText>
+                    </View>
+                    <View style={styles.avatarContainer}>
+                        <Image
+                            style={styles.avatar}
+                            source={{ uri: channelData.avatarUrl }} />
                     </View>
                 </View>
                 {channelPostsDisplay}
@@ -140,11 +147,26 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: Skin.Channel_Background,
     },
-    header: {
+    channelHeaderContainer: {
         backgroundColor: Skin.Channel_Background,
     },
-    channelInfoContainer: {
-
+    headerContainer: {
+        borderBottomWidth: 5,
+        borderBottomColor: DefaultColors.Primary
+    },
+    headerImage: {
+        height: 110,
+        backgroundColor: DefaultColors.Primary
+    },
+    avatarContainer: {
+        width: 110,
+        height: 110,
+        borderRadius: 55,
+        borderWidth: 5,
+        borderColor: DefaultColors.Primary,
+        position: "absolute",
+        top: 55,
+        left: 10
     },
     avatar: {
         width: 100,
@@ -152,8 +174,18 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         marginRight: 8
     },
+    channelNameContainer: {
+        height: 60,
+        marginLeft: 130,
+        justifyContent: "center"
+    },
     channelName: {
-        color: Skin.Channel_NameLabel
+        color: Skin.Channel_NameLabel,
+        textAlignVertical: "center",
+        fontSize: 20
+    },
+    channelDescriptionContainer: {
+        marginHorizontal: 15
     },
     channelDescription: {
         color: Skin.Channel_DescriptionLabel
