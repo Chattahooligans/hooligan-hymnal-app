@@ -155,24 +155,23 @@ const styles = StyleSheet.create({
         borderBottomColor: DefaultColors.Primary
     },
     headerImage: {
-        height: 110,
+        height: 100,
         backgroundColor: DefaultColors.Primary
     },
     avatarContainer: {
-        width: 110,
-        height: 110,
-        borderRadius: 55,
-        borderWidth: 5,
-        borderColor: DefaultColors.Primary,
-        position: "absolute",
-        top: 55,
-        left: 10
-    },
-    avatar: {
         width: 100,
         height: 100,
         borderRadius: 50,
-        marginRight: 8
+        borderWidth: 5,
+        borderColor: DefaultColors.Primary,
+        position: "absolute",
+        top: 50,
+        left: 10
+    },
+    avatar: {
+        width: 90,
+        height: 90,
+        borderRadius: 45
     },
     channelNameContainer: {
         height: 60,
