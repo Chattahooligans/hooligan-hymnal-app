@@ -3,16 +3,30 @@ import {
     Image,
     Modal,
     StyleSheet,
+    TextInput,
     TouchableOpacity,
     View
 } from 'react-native';
+import { BigButton } from '../components/BigButton';
+import { BoldText, RegularText } from '../components/StyledText';
 import { Ionicons } from '@expo/vector-icons';
 import { DefaultColors } from '../config/Settings';
+import i18n from "../../i18n";
 
 export default class PostImageDeleteWrapper extends React.Component {
+    state = {
+        metadataModalVisible: false,
+        metadata: {
+            credit: ""
+        }
+    }
+
+    componentDidMount = () => {
+        this.setState({ metadataCredit: this.props.credit })
+    }
 
     onPressMetadata = () => {
-        alert("launch metadata form")
+        this.setState({ metadataModalVisible: true })
     }
 
     render() {
@@ -41,6 +55,42 @@ export default class PostImageDeleteWrapper extends React.Component {
                         style={{ color: DefaultColors.Primary, backgroundColor: 'transparent' }}
                     />
                 </TouchableOpacity>
+                <Modal
+                    animationType="slide"
+                    transparent={false}
+                    visible={this.state.metadataModalVisible}>
+                    <View style={{ padding: 10 }}>
+                        <BoldText style={{ textAlign: 'center' }}>Set Image Metadata</BoldText>
+                        <TextInput
+                            style={styles.metadataTextInput}
+                            placeholder={"Image Credit"}
+                            value={this.state.metadataCredit}
+                            onChangeText={(text) => {
+                                let metadata = this.state.metadata
+                                metadata.credit = text
+                                this.setState({ metadata })
+                            }} />
+                        <TextInput
+                            editable={false}
+                            style={styles.metadataTextInput}
+                            placeholder={"Caption"} />
+                        <TextInput
+                            editable={false}
+                            style={styles.metadataTextInput}
+                            placeholder={"Tag Event"} />
+                        <TextInput
+                            editable={false}
+                            style={styles.metadataTextInput}
+                            placeholder={"GPS Coordinates"} />
+                    </View>
+                    <BigButton label={"Save"} iconName="md-save" iconPosition="right" inModal={true}
+                        onPress={() => {
+                            this.setState({ metadataModalVisible: false }, () => {
+                                if (this.props.onSaveMetadata)
+                                    this.props.onPressDelete(this.state.metadata)
+                            })
+                        }} />
+                </Modal>
             </View>
         )
     }
@@ -72,5 +122,9 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         alignItems: "center",
         justifyContent: "center"
+    },
+    metadataTextInput: {
+        fontSize: 18,
+        height: 50
     }
 });
