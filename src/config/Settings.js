@@ -11,7 +11,7 @@
 // If you do, you're gonna have a bad time because your serer calls will not work
 //export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
 // news feed images dev branch
-export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://hymnal-serve-create-pos-z66dsp.herokuapp.com'
+export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-dev.herokuapp.com'
 
 // URLs
 export const TWITTER_URL = 'https://twitter.com/chattahooligan';
