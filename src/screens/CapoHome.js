@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Keyboard, Image, Platform, StyleSheet, View } from 'react-native';
+import { Button, Keyboard, Image, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
@@ -13,7 +13,7 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
-import { Skin, DefaultColors, Settings } from '../config/Settings';
+import { Skin, DefaultColors, Settings, HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../config/Settings';
 import i18n from "../../i18n";
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
@@ -34,68 +34,31 @@ class CapoHome extends React.Component {
     }
 
     console.log("Logged in as " + JSON.stringify(this.props.globalData.state.currentUser))
+    let permissions = []
+    Object.keys(this.props.globalData.state.currentUser.user).forEach((key) => {
+      console.log("key " + key)
+      if (key.toLowerCase().includes("allowed")) {
+        console.log("pushing")
+        permissions.push(key + ":" + this.props.globalData.state.currentUser.user[key])
+      }
+    })
     return (
       <View style={{ flex: 1 }}>
-        <View style={{ padding: 10 }}>
-          <RegularText>Logged in as </RegularText>
-          <BoldText>{this.props.globalData.state.currentUser.user.email}</BoldText>
-          <RegularText>{this.props.globalData.state.pushToken}</RegularText>
-        </View>
-        <BigButton
-          label={i18n.t('screens.capohome.postcreate')}
-          iconName="md-paper"
-          onPress={this._handlePressPostCreateButton} />
-        <View style={{ marginVertical: 10 }} />
-        <BoldText style={{ paddingHorizontal: 10 }}>Legacy Features - soon to be deprecated</BoldText>
-        <ClipBorderRadius>
-          <RectButton
-            style={styles.bigButton}
-            onPress={this._handlePressSelectSongButton}
-            underlayColor="#fff"
-          >
-            <Ionicons
-              name="md-musical-notes"
-              size={23}
-              style={{
-                color: '#fff',
-                backgroundColor: 'transparent',
-                marginRight: 5
-              }}
-            />
-            <MediumText style={styles.bigButtonText}>
-              {i18n.t('screens.capohome.selectsong')}
-            </MediumText>
-          </RectButton>
-        </ClipBorderRadius>
-        <ClipBorderRadius>
-          <RectButton
-            style={styles.bigButton}
-            onPress={this._handlePressComposeSongButton}
-            underlayColor="#fff"
-          >
-            <Ionicons
-              name="md-add"
-              size={23}
-              style={{
-                color: '#fff',
-                backgroundColor: 'transparent',
-                marginRight: 5
-              }}
-            />
-            <MediumText style={styles.bigButtonText}>
-              {i18n.t('screens.capohome.composesong')}
-            </MediumText>
-          </RectButton>
-        </ClipBorderRadius>
-        {Settings.CapoHome_GKNicknameEnabled &&
+        <ScrollView style={{ flex: 1 }}>
+          <BigButton
+            label={i18n.t('screens.capohome.postcreate')}
+            iconName="md-paper"
+            onPress={this._handlePressPostCreateButton} />
+          <View style={{ marginVertical: 10 }} />
+          <BoldText style={{ paddingHorizontal: 10 }}>Legacy Features - soon to be deprecated</BoldText>
           <ClipBorderRadius>
             <RectButton
               style={styles.bigButton}
-              onPress={this._handlePressGoalkeeperNicknameButton}
+              onPress={this._handlePressSelectSongButton}
               underlayColor="#fff"
             >
               <Ionicons
-                name="md-hand"
+                name="md-musical-notes"
                 size={23}
                 style={{
                   color: '#fff',
@@ -104,12 +67,65 @@ class CapoHome extends React.Component {
                 }}
               />
               <MediumText style={styles.bigButtonText}>
-                {i18n.t('screens.capohome.gknickname')}
+                {i18n.t('screens.capohome.selectsong')}
               </MediumText>
             </RectButton>
           </ClipBorderRadius>
-        }
-        <View style={{ flex: 1 }} />
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressComposeSongButton}
+              underlayColor="#fff"
+            >
+              <Ionicons
+                name="md-add"
+                size={23}
+                style={{
+                  color: '#fff',
+                  backgroundColor: 'transparent',
+                  marginRight: 5
+                }}
+              />
+              <MediumText style={styles.bigButtonText}>
+                {i18n.t('screens.capohome.composesong')}
+              </MediumText>
+            </RectButton>
+          </ClipBorderRadius>
+          {Settings.CapoHome_GKNicknameEnabled &&
+            <ClipBorderRadius>
+              <RectButton
+                style={styles.bigButton}
+                onPress={this._handlePressGoalkeeperNicknameButton}
+                underlayColor="#fff"
+              >
+                <Ionicons
+                  name="md-hand"
+                  size={23}
+                  style={{
+                    color: '#fff',
+                    backgroundColor: 'transparent',
+                    marginRight: 5
+                  }}
+                />
+                <MediumText style={styles.bigButtonText}>
+                  {i18n.t('screens.capohome.gknickname')}
+                </MediumText>
+              </RectButton>
+            </ClipBorderRadius>
+          }
+          <View style={{ flex: 1 }} />
+          <View style={{ padding: 10 }}>
+            <BoldText>DEBUG</BoldText>
+            <MediumText>Connected to:</MediumText>
+            <RegularText>{HOOLIGAN_HYMNAL_SERVER_ADDRESS}</RegularText>
+            <MediumText>Logged in as:</MediumText>
+            <RegularText>{this.props.globalData.state.currentUser.user.email}</RegularText>
+            <MediumText>Device ID (pushToken):</MediumText>
+            <RegularText>{this.props.globalData.state.pushToken}</RegularText>
+            <MediumText>Permissions:</MediumText>
+            <RegularText>{permissions.join()}</RegularText>
+          </View>
+        </ScrollView>
         <Button title={i18n.t('screens.capohome.logout')} color={DefaultColors.ButtonBackground} onPress={this._handlePressLogoutButton} />
       </View>
     );
