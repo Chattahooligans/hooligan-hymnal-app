@@ -90,6 +90,10 @@ export default class PostImageDeleteWrapper extends React.Component {
                                     this.props.onPressDelete(this.state.metadata)
                             })
                         }} />
+                    <BigButton label={"Cancel"} inModal={true}
+                        onPress={() => {
+                            this.setState({ metadataModalVisible: false })
+                        }} />
                 </Modal>
             </View>
         )
