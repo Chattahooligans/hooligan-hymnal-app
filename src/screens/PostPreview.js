@@ -83,13 +83,19 @@ class PostPreview extends React.Component {
 
     processImages = async (images) => {
         // do renaming, resizing, compressing, etc from this function, as necessary
-        let processedImages = [];
+        let processedImages = []
 
         for (let i = 0; i < images.length; i++) {
             let imageToProcess = images[i]
             // this is Collin code that used to live on PostCreate.js, not sure what it does
             imageToProcess.fileName = `IMG_${Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}`
-            processedImages.push(imageToProcess);
+            
+            // convert metadata to top-level props
+            imageToProcess.credit = imageToProcess.metadata.credit
+            imageToProcess.caption = imageToProcess.metadata.caption
+            delete imageToProcess.metadata
+
+            processedImages.push(imageToProcess)
         }
 
         return processedImages;
