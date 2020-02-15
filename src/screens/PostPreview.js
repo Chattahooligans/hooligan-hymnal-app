@@ -105,7 +105,8 @@ class PostPreview extends React.Component {
         this.setState({ loading: true });
 
         const data = new FormData();
-        const { post } = this.state;
+        let post = {};
+        Object.assign(post, this.state.post)
 
         // publishedAt was set when we started creating the post, and time has elapsed since then
         // update publishedAt to the current time
