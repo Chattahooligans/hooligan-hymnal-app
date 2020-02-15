@@ -145,7 +145,7 @@ class PostPreview extends React.Component {
         try {
             console.log("send this to the server")
             console.log(JSON.stringify(data))
-            //let response = await createPost(data, this.props.globalData.getCurrentUser().token)
+            let response = await createPost(data, this.props.globalData.getCurrentUser().token)
             console.log("Response")
             console.log(response);
 
