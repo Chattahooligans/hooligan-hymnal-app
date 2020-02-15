@@ -115,6 +115,9 @@ class PostPreview extends React.Component {
 
         post.images = await this.processImages(post.images)
 
+        // unnecessary to send this to the server
+        delete post.channelData;
+
         Object.keys(post).forEach(key => {
             if (key == 'sender') {
                 const senderInfo = {
@@ -139,16 +142,10 @@ class PostPreview extends React.Component {
             });
         }
 
-        let postForServer = {};
-        // Object.assign(data, this.state.post);
-        delete data.channelData;
-
-        // postForServer.images = await this.serializeImages(postForServer.images);
-
         try {
             console.log("send this to the server")
-            console.log(JSON.stringify(postForServer))
-            let response = await createPost(data, this.props.globalData.getCurrentUser().token)
+            console.log(JSON.stringify(data))
+            //let response = await createPost(data, this.props.globalData.getCurrentUser().token)
             console.log("Response")
             console.log(response);
 
