@@ -125,13 +125,13 @@ class PostCreate extends React.Component {
             let selectedImage = await ImagePicker.launchImageLibraryAsync({
                 mediaTypes: ImagePicker.MediaTypeOptions.Images
             })
-            selectedImage.fileName = `IMG_${Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}`
 
             if (!selectedImage.cancelled) {
                 let post = this.state.post;
                 console.log(selectedImage);
+                // selectedImage is either the string "image" or "video", depending on what was selected, not file extension
+                // we only select "image" at this point, but maybe future use?
                 post.images.push({
-                    name: selectedImage.fileName,
                     type: selectedImage.type,
                     uri: selectedImage.uri,
                     metadata: {

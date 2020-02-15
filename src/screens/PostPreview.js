@@ -73,48 +73,66 @@ class PostPreview extends React.Component {
         )
     }
 
-    serializeImages = async (images) => {
-        let serializedImages = [];
+    serializeImage = async (image) => {
+        let serializedImage = "";
+
+        serializedImage = await FileSystem.readAsStringAsync(image, { encoding: FileSystem.EncodingType.Base64 });
+
+        return serializedImage;
+    }
+
+    processImages = async (images) => {
+        // do renaming, resizing, compressing, etc from this function, as necessary
+        let processedImages = [];
 
         for (let i = 0; i < images.length; i++) {
-            let serialized = await FileSystem.readAsStringAsync(images[i], { encoding: FileSystem.EncodingType.Base64 });
-            serializedImages.push(serialized);
+            let imageToProcess = images[i]
+            // this is Collin code that used to live on PostCreate.js, not sure what it does
+            imageToProcess.fileName = `IMG_${Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}`
+            processedImages.push(imageToProcess);
         }
 
-        return serializedImages;
+        return processedImages;
     }
 
     _handlePressSubmitButton = async () => {
+        this.setState({ loading: true });
+
         const data = new FormData();
         const { post } = this.state;
+
+        // publishedAt was set when we started creating the post, and time has elapsed since then
+        // update publishedAt to the current time
+        const publishedAt = new Date().toISOString();
+        post.publishedAt = publishedAt;
+        // TODO: check to see if publishedAt is in the future, because we are scheduling it for the future, and don't override
+
+        post.images = await this.processImages(post.images)
+
         Object.keys(post).forEach(key => {
-          if (key == 'sender') {
-            const senderInfo = {
-              user: post[key].user || 'test',
-              pushToken: post[key].pushToken || 'teser'
+            if (key == 'sender') {
+                const senderInfo = {
+                    user: post[key].user || 'test',
+                    pushToken: post[key].pushToken || 'teser'
+                }
+                data.append(key, JSON.stringify(senderInfo))
+            } else {
+                data.append(key, post[key])
             }
-            data.append(key, JSON.stringify(senderInfo))
-          } else {
-            data.append(key, post[key])
-          }
         });
         if (post.images) {
-          const { images } = post;
-          images.forEach(image => {
-            data.append("images", image)
-          })
+            const { images } = post;
+            images.forEach(image => {
+                data.append("images", image)
+            })
         }
         if (post.attachments) {
-          const { attachments } = post;
-          attachments.forEach(attach => {
-            data.append("attachments", JSON.stringify(attach))
-          });
+            const { attachments } = post;
+            attachments.forEach(attach => {
+                data.append("attachments", JSON.stringify(attach))
+            });
         }
-        this.setState({ loading: true });
-        const publishedAt = new Date().toISOString();
 
-        post.publishedAt = publishedAt;
-        this.props.globalData.setCurrentPostDraft(post);
         let postForServer = {};
         // Object.assign(data, this.state.post);
         delete data.channelData;
