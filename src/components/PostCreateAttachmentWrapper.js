@@ -17,7 +17,7 @@ import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
 import i18n from "../../i18n";
 
-class PostAttachmentDeleteWrapper extends React.Component {
+class PostCreateAttachmentWrapper extends React.Component {
     render() {
         let attachment = this.props.attachment;
         let attachmentDisplay;
@@ -99,4 +99,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default withUnstated(PostAttachmentDeleteWrapper, { globalData: GlobalDataContainer });
+export default withUnstated(PostCreateAttachmentWrapper, { globalData: GlobalDataContainer });

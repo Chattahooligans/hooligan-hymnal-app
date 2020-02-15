@@ -37,8 +37,8 @@ import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
 import PostAttachmentSelectJuanstagram from './PostAttachmentSelectJuanstagram';
 import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
-import PostAttachmentDeleteWrapper from '../components/PostAttachmentDeleteWrapper';
-import PostImageDeleteWrapper from '../components/PostImageDeleteWrapper';
+import PostCreateAttachmentWrapper from '../components/PostCreateAttachmentWrapper';
+import PostCreateImageWrapper from '../components/PostCreateImageWrapper';
 
 const AttachmentTypesNavigator = StackNavigator(
     {
@@ -123,21 +123,24 @@ class PostCreate extends React.Component {
         }
         else {
             let selectedImage = await ImagePicker.launchImageLibraryAsync({
-                mediaTypes: ImagePicker.MediaTypeOptions.Images,
-                base64: false,
-                exif: false
+                mediaTypes: ImagePicker.MediaTypeOptions.Images
             })
             selectedImage.fileName = `IMG_${Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}`
 
             if (!selectedImage.cancelled) {
-              let post = this.state.post;
-              console.log(selectedImage);
-              post.images.push({
-                name: selectedImage.fileName,
-                type: selectedImage.type,
-                uri: Platform.OS === "android" ? selectedImage.uri : selectedImage.uri.replace('file://', '')
-              });
-              this.setState({ post });
+                let post = this.state.post;
+                console.log(selectedImage);
+                post.images.push({
+                    name: selectedImage.fileName,
+                    type: selectedImage.type,
+                    uri: selectedImage.uri,
+                    metadata: {
+                        caption: "",
+                        credit: ""
+                    }
+                });
+                // uri: Platform.OS === "android" ? selectedImage.uri : selectedImage.uri.replace('file://', '')
+                this.setState({ post });
             }
         }
     }
@@ -205,12 +208,21 @@ class PostCreate extends React.Component {
 
     deleteImage = (toDelete) => {
         let post = this.state.post
-        let imageToDelete = post.images.filter(img => img.uri === toDelete)[0];
+        let imageToDelete = post.images.filter(img => img.uri === toDelete)[0]
         if (imageToDelete) {
-          post.images = post.images.filter(img => img.uri !== imageToDelete.uri)
-        }
+            post.images = post.images.filter(img => img.uri !== imageToDelete.uri)
 
-        this.setState({ post });
+            this.setState({ post })
+        }
+    }
+    saveMetadata = (uri, metadata) => {
+        let post = this.state.post
+        let index = post.images.findIndex(img => img.uri === uri)
+        if (index != -1) {
+            post.images[index].metadata = metadata
+
+            this.setState({ post })
+        }
     }
 
     deleteAttachment = (toDelete) => {
@@ -316,10 +328,18 @@ class PostCreate extends React.Component {
         let post = this.state.post;
 
         let imagesDisplay = [];
-        post.images.forEach((image, index) => imagesDisplay.push(<PostImageDeleteWrapper uri={image.uri} key={"image-" + index} onPressDelete={this.deleteImage} />))
+        post.images.forEach((image, index) => {
+            imagesDisplay.push(
+                <PostCreateImageWrapper
+                    key={"image-" + index}
+                    uri={image.uri}
+                    metadata={image.metadata}
+                    onPressDelete={this.deleteImage}
+                    onSaveMetadata={this.saveMetadata} />)
+        })
 
         let attachmentsDisplay = [];
-        post.attachments.forEach((attachment, index) => attachmentsDisplay.push(<PostAttachmentDeleteWrapper attachment={attachment} key={"attachment-" + attachment.attachmentType + "-" + index} onPressDelete={this.deleteAttachment} />))
+        post.attachments.forEach((attachment, index) => attachmentsDisplay.push(<PostCreateAttachmentWrapper attachment={attachment} key={"attachment-" + attachment.attachmentType + "-" + index} onPressDelete={this.deleteAttachment} />))
 
         let canPush = false;
         if (this.state.selectedChannel)

@@ -7,22 +7,23 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import { BigButton } from '../components/BigButton';
-import { BoldText, RegularText } from '../components/StyledText';
+import { BigButton } from './BigButton';
+import { BoldText } from './StyledText';
 import { Ionicons } from '@expo/vector-icons';
 import { DefaultColors } from '../config/Settings';
 import i18n from "../../i18n";
 
-export default class PostImageDeleteWrapper extends React.Component {
+export default class PostCreateImageWrapper extends React.Component {
     state = {
         metadataModalVisible: false,
         metadata: {
+            caption: "",
             credit: ""
         }
     }
 
     componentDidMount = () => {
-        this.setState({ metadataCredit: this.props.credit })
+        this.setState({ metadata: this.props.metadata })
     }
 
     onPressMetadata = () => {
@@ -42,7 +43,7 @@ export default class PostImageDeleteWrapper extends React.Component {
                     }}>
                     <Ionicons
                         name="md-close"
-                        size={25}
+                        size={22}
                         style={{ color: DefaultColors.Primary, backgroundColor: 'transparent' }}
                     />
                 </TouchableOpacity>
@@ -51,7 +52,7 @@ export default class PostImageDeleteWrapper extends React.Component {
                     onPress={this.onPressMetadata}>
                     <Ionicons
                         name="md-code"
-                        size={25}
+                        size={22}
                         style={{ color: DefaultColors.Primary, backgroundColor: 'transparent' }}
                     />
                 </TouchableOpacity>
@@ -60,37 +61,42 @@ export default class PostImageDeleteWrapper extends React.Component {
                     transparent={false}
                     visible={this.state.metadataModalVisible}>
                     <View style={{ padding: 10 }}>
-                        <BoldText style={{ textAlign: 'center' }}>Set Image Metadata</BoldText>
+                        <BoldText style={styles.metadataTitle}>{i18n.t('components.postcreateimagewrapper.metadatatitle')}</BoldText>
+                        <BoldText style={styles.metadataLabel}>{i18n.t('components.postcreateimagewrapper.credit')}</BoldText>
                         <TextInput
                             style={styles.metadataTextInput}
-                            placeholder={"Image Credit"}
-                            value={this.state.metadataCredit}
+                            placeholder={i18n.t('components.postcreateimagewrapper.credit')}
+                            value={this.state.metadata.credit}
                             onChangeText={(text) => {
                                 let metadata = this.state.metadata
                                 metadata.credit = text
                                 this.setState({ metadata })
                             }} />
+                        <BoldText style={styles.metadataLabel}>{i18n.t('components.postcreateimagewrapper.caption')}</BoldText>
                         <TextInput
-                            editable={false}
-                            style={styles.metadataTextInput}
-                            placeholder={"Caption"} />
-                        <TextInput
-                            editable={false}
-                            style={styles.metadataTextInput}
-                            placeholder={"Tag Event"} />
-                        <TextInput
-                            editable={false}
-                            style={styles.metadataTextInput}
-                            placeholder={"GPS Coordinates"} />
+                            style={styles.metadataMultilineTextInput}
+                            multiline={true}
+                            placeholder={i18n.t('components.postcreateimagewrapper.caption')}
+                            value={this.state.metadata.caption}
+                            onChangeText={(text) => {
+                                let metadata = this.state.metadata
+                                metadata.caption = text
+                                this.setState({ metadata })
+                            }} />
                     </View>
-                    <BigButton label={"Save"} iconName="md-save" iconPosition="right" inModal={true}
+                    <BigButton
+                        label={i18n.t('components.postcreateimagewrapper.save')}
+                        iconName="md-save" iconPosition="right"
+                        inModal={true}
                         onPress={() => {
                             this.setState({ metadataModalVisible: false }, () => {
                                 if (this.props.onSaveMetadata)
-                                    this.props.onPressDelete(this.state.metadata)
+                                    this.props.onSaveMetadata(this.props.uri, this.state.metadata)
                             })
                         }} />
-                    <BigButton label={"Cancel"} inModal={true}
+                    <BigButton
+                        label={i18n.t('components.postcreateimagewrapper.cancel')}
+                        inModal={true}
                         onPress={() => {
                             this.setState({ metadataModalVisible: false })
                         }} />
@@ -127,8 +133,19 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     },
+    metadataTitle: {
+        fontSize: 18,
+        textAlign: "center"
+    },
+    metadataLabel: {
+
+    },
     metadataTextInput: {
         fontSize: 18,
         height: 50
+    },
+    metadataMultilineTextInput: {
+        fontSize: 18,
+        height: 100
     }
 });

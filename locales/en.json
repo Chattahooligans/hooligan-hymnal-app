@@ -203,6 +203,13 @@
         "postattachmentmasstweet": {
             "tweettheplayers": "Tweet the Players"
         },
+        "postcreateimagewrapper": {
+            "metadatatitle": "Image Metadata",
+            "credit": "Image Credit",
+            "caption": "Caption",
+            "save": "Save Metadata",
+            "cancel": "Cancel"
+        },
         "songview": {
             "copiedtitle": "Copied title to clipboard",
             "copiedreference": "Copied reference to clipboard",
