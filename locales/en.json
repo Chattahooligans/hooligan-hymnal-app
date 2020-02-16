@@ -212,6 +212,7 @@
             "credit": "Image Credit",
             "caption": "Caption",
             "save": "Save Metadata",
+            "clear": "Clear Metadata",
             "cancel": "Cancel"
         },
         "songview": {

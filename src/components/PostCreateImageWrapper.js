@@ -95,6 +95,22 @@ export default class PostCreateImageWrapper extends React.Component {
                             })
                         }} />
                     <BigButton
+                        label={i18n.t('components.postcreateimagewrapper.clear')}
+                        inModal={true}
+                        onPress={() => {
+                            let metadata = {
+                                caption: "",
+                                credit: ""
+                            }
+                            // chain those callbacks!
+                            this.setState({ metadata }, () => {
+                                this.setState({ metadataModalVisible: false }, () => {
+                                    if (this.props.onSaveMetadata)
+                                        this.props.onSaveMetadata(this.props.uri, this.state.metadata)
+                                })
+                            })
+                        }} />
+                    <BigButton
                         label={i18n.t('components.postcreateimagewrapper.cancel')}
                         inModal={true}
                         onPress={() => {
