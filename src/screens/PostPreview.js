@@ -11,6 +11,7 @@ import * as FileSystem from 'expo-file-system';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { BigButton } from '../components/BigButton';
 import { ModalLoader } from '../components/ModalLoader';
+//import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Post from '../components/Post';
 import NavigationOptions from '../config/NavigationOptions';
 import withUnstated from '@airship/with-unstated';
@@ -32,7 +33,9 @@ class PostPreview extends React.Component {
 
     state = {
         post: null,
-        loading: false
+        loading: false,
+        dateTimePickerVisible: false,
+        dateTimePickerInitialDate: new Date()
     }
 
     componentDidMount() {
@@ -67,6 +70,15 @@ class PostPreview extends React.Component {
                     label={i18n.t('screens.postpreview.schedule')}
                     iconName="md-time" iconPosition="right"
                     onPress={this._handlePressScheduleButton} />
+
+                {/*
+                <DateTimePickerModal 
+                    isVisible={this.state.dateTimePickerVisible}
+                    mode="datetime"
+                    date={this.state.dateTimePickerInitialDate}
+                    onCancel={this.onScheduleCancel}
+                    onConfirm={this.onScheduleConfirm} />
+                */}
 
                 <ModalLoader loading={this.state.loading} />
             </ScrollView>
@@ -184,7 +196,15 @@ class PostPreview extends React.Component {
         }
     }
     _handlePressScheduleButton = () => {
-
+        //this.setState({ dateTimePickerVisible: true, dateTimePickerInitialDate: new Date() })
+    }
+    onScheduleConfirm = (date) => {
+        let now = new Date()
+        console.log("future? " + (date > now))
+        this.setState({ dateTimePickerVisible: false })
+    }
+    onScheduleCancel = () => {
+        this.setState({ dateTimePickerVisible: false })
     }
 }
 
