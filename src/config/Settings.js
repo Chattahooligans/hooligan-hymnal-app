@@ -199,11 +199,24 @@ export const banners = [
 /*
   App Feature Flags
 */
+// CapoHome_GKNicknameEnabled: true, false
+//      This is a longrunning inside joke in Chattanooga
+// Channels_Enabled: true, false
+//      Some SGs will only ever have one channel
+//      and tapping into a whole hunk of UI will be jarring and confusing to users
+// Home_PostsPerPage: number
+//      Load this many news feed items, then load this many more if the user scrolls to the bottom
+// Player_ShowSongs: true, false
+//      Some SGs write songs for each player
+//      Toggle a related UI element in the Roster/Player screen
 // Roster_SortPlayersBy: "default", "number", "name"
 //      later- "position" with priority
 //      (hopefully this gets deprecated and replaced with something in the UI later)
+// RefereeCards_Show: true, false
+//      Show yellow/red card icons in the nav drawer
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
+  ChannelUI_Enabled: true,
   Home_PostsPerPage: 20,
   Player_ShowSongs: true,
   Roster_SortPlayersBy: "number",
