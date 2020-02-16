@@ -216,7 +216,7 @@ export const banners = [
 //      Show yellow/red card icons in the nav drawer
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
-  ChannelUI_Enabled: true,
+  ChannelUI_Enabled: false,
   Home_PostsPerPage: 20,
   Player_ShowSongs: true,
   Roster_SortPlayersBy: "number",
