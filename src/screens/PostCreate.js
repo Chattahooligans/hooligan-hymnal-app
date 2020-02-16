@@ -150,8 +150,16 @@ class PostCreate extends React.Component {
         function navToPostPreview() {
             nav.navigate('PostPreview')
         }
+
         let post = this.state.post;
         post.publishedAt = new Date().toISOString();
+        post.images.forEach((image) => {
+            // convert metadata fields to top level properties of .image[i]
+            image.credit = image.metadata.credit
+            image.caption = image.metadata.caption
+            // don't delete image.metadata yet, we might navigate back to this screen
+        })
+
         this.props.globalData.setCurrentPostDraft(post, navToPostPreview);
     };
 

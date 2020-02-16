@@ -90,9 +90,7 @@ class PostPreview extends React.Component {
             // this is Collin code that used to live on PostCreate.js, not sure what it does
             imageToProcess.fileName = `IMG_${Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}`
             
-            // convert metadata to top-level props
-            imageToProcess.credit = imageToProcess.metadata.credit
-            imageToProcess.caption = imageToProcess.metadata.caption
+            // metadata was converted to top-level props on PostCreate, remove it here
             delete imageToProcess.metadata
 
             processedImages.push(imageToProcess)
