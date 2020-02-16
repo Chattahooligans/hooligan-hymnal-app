@@ -130,7 +130,6 @@ class PostCreate extends React.Component {
                 let post = this.state.post;
                 console.log(selectedImage);
                 // selectedImage is either the string "image" or "video", depending on what was selected, not file extension
-                // we only select "image" at this point, but maybe future use?
                 post.images.push({
                     type: selectedImage.type,
                     uri: selectedImage.uri,
@@ -139,6 +138,7 @@ class PostCreate extends React.Component {
                         credit: ""
                     }
                 });
+                // not sure this does anything? seems to render just fine on ios
                 // uri: Platform.OS === "android" ? selectedImage.uri : selectedImage.uri.replace('file://', '')
                 this.setState({ post });
             }
