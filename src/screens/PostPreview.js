@@ -87,36 +87,56 @@ class PostPreview extends React.Component {
 
         for (let i = 0; i < images.length; i++) {
             let imageToProcess = images[i]
-            // this is Collin code that used to live on PostCreate.js, not sure what it does
-            imageToProcess.fileName = `IMG_${Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}`
-            
+            // this is Collin code that used to live on PostCreate.js
+            //imageToProcess.fileName = `IMG_${Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}`
+
+            // ImagePicker already gives us a generated unique file name
+            let splits = images[i].uri.split("/")
+            imageToProcess.name = splits[splits.length - 1]
+
             // metadata was converted to top-level props on PostCreate, remove it here
             delete imageToProcess.metadata
 
             processedImages.push(imageToProcess)
         }
 
-        return processedImages;
+        return processedImages
     }
 
     _handlePressSubmitButton = async () => {
-        this.setState({ loading: true });
+        this.setState({ loading: true })
 
-        const data = new FormData();
-        let post = {};
+        const data = new FormData()
+        let post = {}
         Object.assign(post, this.state.post)
 
         // publishedAt was set when we started creating the post, and time has elapsed since then
         // update publishedAt to the current time
-        const publishedAt = new Date().toISOString();
-        post.publishedAt = publishedAt;
+        const publishedAt = new Date().toISOString()
+        post.publishedAt = publishedAt
         // TODO: check to see if publishedAt is in the future, because we are scheduling it for the future, and don't override
 
         post.images = await this.processImages(post.images)
 
         // unnecessary to send this to the server
-        delete post.channelData;
+        delete post.channelData
 
+        // what if we just put the whole post in one object, rather than key by key?
+        // will simplify the server logic as well
+        data.append("post", post)
+        /*
+        // maybe we need an extra block in formdata for uploads
+        post.images.forEach(image => {
+            data.append("files", {
+                uri: image.uri,
+                name: image.name,
+                type: image.type
+            })
+        });
+        */
+
+        /*
+        // Collin's original code
         Object.keys(post).forEach(key => {
             if (key == 'sender') {
                 const senderInfo = {
@@ -140,10 +160,12 @@ class PostPreview extends React.Component {
                 data.append("attachments", JSON.stringify(attach))
             });
         }
+        */
+
 
         try {
             console.log("send this to the server")
-            console.log(JSON.stringify(data))
+            console.log(data)
             let response = await createPost(data, this.props.globalData.getCurrentUser().token)
             console.log("createPost() response")
             console.log(response);
