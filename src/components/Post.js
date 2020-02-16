@@ -23,7 +23,7 @@ import ParsedText from 'react-native-parsed-text';
 import { Ionicons } from '@expo/vector-icons';
 // import Toast from 'react-native-simple-toast';
 import Toast from "react-native-tiny-toast";
-import { Skin, Palette } from '../config/Settings';
+import { Skin, Palette,Settings } from '../config/Settings';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import PostAttachmentGkNickname from './PostAttachmentGkNickname';
@@ -82,7 +82,7 @@ class Post extends React.Component {
         else
             publishedAtDisplay = moment(post.publishedAt).format("M/D/YY h:mma")
 
-        let navToChannel = true;
+        let navToChannel = Settings.ChannelUI_Enabled;
         if (this.props.hasOwnProperty("navToChannel"))
             if (false == this.props.navToChannel)
                 navToChannel = false;
