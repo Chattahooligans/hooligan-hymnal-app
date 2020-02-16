@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
     },
     metadataMultilineTextInput: {
         fontSize: 18,
-        height: 100
+        height: 100,
+        textAlignVertical: 'top'
     }
 });
