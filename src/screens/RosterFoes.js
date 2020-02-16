@@ -1,6 +1,7 @@
 import React from 'react';
-import { FlatList, ScrollView, SectionList, StyleSheet, View} from 'react-native';
+import { FlatList, ScrollView, SectionList, StyleSheet, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
+import { BigButton } from '../components/BigButton';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import NavigationOptions from '../config/NavigationOptions';
@@ -21,17 +22,10 @@ class FoeRow extends React.Component {
             foe.textColor = styles.bigButtonText.color;
 
         return (
-            <ClipBorderRadius>
-                <RectButton
-                    style={[styles.bigButton, {backgroundColor: foe.backgroundColor}]}
-                    onPress={this._handlePress}
-                    underlayColor="#fff"
-                >
-                    <MediumText style={[styles.bigButtonText, {color: foe.textColor}]}>
-                        {foe.opponent}
-                    </MediumText>
-                </RectButton>
-            </ClipBorderRadius>
+            <BigButton
+                style={{ marginTop: 10, backgroundColor: foe.backgroundColor, tintColor: foe.textColor }}
+                label={foe.opponent}
+                onPress={this._handlePress} />
         )
     }
 
@@ -56,28 +50,28 @@ class RosterFoes extends React.Component {
     setData = () => {
         let foes = [];
         this.props.globalData.state.foes.forEach(foeChild => {
-            foes.push(foeChild);            
+            foes.push(foeChild);
         });
 
         foes.sort(this.compareFoes);
 
-        this.setState({foes});
+        this.setState({ foes });
     }
 
     compareFoes = (a, b) => {
         const opponentA = a.opponent;
         const opponentB = b.opponent;
-    
+
         if (opponentA > opponentB)
-          return 1;
+            return 1;
         else if (opponentB > opponentA)
-          return -1;
-    
+            return -1;
+
         return 0;
-      };
+    };
 
     _renderItem = item => {
-        return ( <FoeRow item={item} onPress={this._handlePressFoeButton} /> )
+        return (<FoeRow item={item} onPress={this._handlePressFoeButton} />)
     }
 
     _handlePressFoeButton = foe => {
@@ -101,17 +95,17 @@ class RosterFoes extends React.Component {
 const ClipBorderRadius = ({ children, style }) => {
     return (
         <View
-        style={[
-            { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
-            style
-        ]}
+            style={[
+                { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
+                style
+            ]}
         >
-        {children}
+            {children}
         </View>
     );
 };
 
-  const BORDER_RADIUS = 3;
+const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
     bigButton: {
@@ -124,13 +118,13 @@ const styles = StyleSheet.create({
         borderRadius: BORDER_RADIUS,
         overflow: 'hidden',
         flexDirection: 'row'
-      },
-      bigButtonText: {
+    },
+    bigButtonText: {
         fontSize: FontSizes.normalButton,
         color: DefaultColors.ButtonText,
         textAlign: 'center'
-      },
-      row: {
+    },
+    row: {
         flex: 1,
         paddingTop: 10,
         padding: 10,
