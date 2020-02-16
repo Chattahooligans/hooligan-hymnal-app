@@ -190,6 +190,10 @@
             "savetolocal": "Save to Device",
             "cancel": "Cancel"
         },
+        "imageviewerfooter": {
+            "captionprefix": "",
+            "creditprefix": "📷: "
+        },
         "post": {
             "copied": "Copied",
             "hidealerttitle": "Hide Post",

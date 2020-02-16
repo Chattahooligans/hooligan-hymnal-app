@@ -36,6 +36,7 @@ import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
 import PostImageWrapper from './PostImageWrapper';
 import ImageViewer from 'react-native-image-zoom-viewer';
+import ImageViewerFooter from './ImageViewerFooter';
 import moment from 'moment';
 import i18n from "../../i18n";
 
@@ -51,7 +52,8 @@ class Post extends React.Component {
             attachments: []
         },
         imageViewerVisible: false,
-        imageViewerIndex: 0
+        imageViewerIndex: 0,
+        imageViewerFooterVisible: true
     }
 
     componentDidMount = () => this.setData();
@@ -117,8 +119,8 @@ class Post extends React.Component {
         let containerWidth = Dimensions.get("window").width - (2 * styles.container.marginHorizontal)
         let imageDisplay = [];
         let imageViewerData = [];
-        post.images.forEach(({ url }, index) => {
-            imageViewerData.push({ url })
+        post.images.forEach((image, index) => {
+            imageViewerData.push({ url: image.uri })
         })
         if (post.images.length == 1) {
             // flow the entire image in the feed if there's only one
@@ -127,7 +129,7 @@ class Post extends React.Component {
                     <TouchableOpacity
                         key={post._id + "-touchable-image-" + index}
                         activeOpacity={1}
-                        onPress={() => { this.setState({ imageViewerVisible: true, imageViewerIndex: index }) }}>
+                        onPress={() => { this.setState({ imageViewerVisible: true, imageViewerFooterVisible: true, imageViewerIndex: index }) }}>
                         <PostImageWrapper containerWidth={containerWidth}
                             key={post._id + "-image-" + index}
                             source={image} />
@@ -142,7 +144,7 @@ class Post extends React.Component {
                     <TouchableOpacity
                         key={post._id + "-touchable-image-" + index}
                         activeOpacity={1}
-                        onPress={() => { this.setState({ imageViewerVisible: true, imageViewerIndex: index }) }}>
+                        onPress={() => { this.setState({ imageViewerVisible: true, imageViewerFooterVisible: true, imageViewerIndex: index }) }}>
                         <Image
                             key={post._id + "-image-" + index}
                             style={{
@@ -162,7 +164,7 @@ class Post extends React.Component {
                     <TouchableOpacity
                         key={post._id + "-touchable-image-" + index}
                         activeOpacity={1}
-                        onPress={() => { this.setState({ imageViewerVisible: true, imageViewerIndex: index }) }}>
+                        onPress={() => { this.setState({ imageViewerVisible: true, imageViewerFooterVisible: true, imageViewerIndex: index }) }}>
                         <Image
                             key={post._id + "-image-" + index}
                             style={{
@@ -346,6 +348,12 @@ class Post extends React.Component {
                             enableSwipeDown={true}
                             onSwipeDown={() => { this.setState({ imageViewerVisible: false }) }}
                             menuContext={{ saveToLocal: i18n.t('components.imageviewer.savetolocal'), cancel: i18n.t('components.imageviewer.cancel') }}
+                            onClick={() => {
+                                let imageViewerFooterVisible = this.state.imageViewerFooterVisible
+                                imageViewerFooterVisible = !imageViewerFooterVisible
+                                this.setState({ imageViewerFooterVisible })
+                            }}
+                            renderFooter={(index) => (<ImageViewerFooter images={post.images} index={index} visible={this.state.imageViewerFooterVisible} />)}
                         />
                     </Modal>
                 }
