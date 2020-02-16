@@ -52,17 +52,17 @@ const CustomDrawer = props => (
         }}
       />
       {Settings.RefereeCards_Show &&
-        <View style={{ flex: 1 }} />
-        <View style={styles.cardContainer}>
-          <View style={{ flex: 1 }} />
-          <TouchableOpacity
-            onPress={() => { props.navigation.navigate("YellowCard") }}>
-            <View style={[styles.card, { backgroundColor: Palette.YellowCard }]}></View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => { props.navigation.navigate("RedCard") }}>
-            <View style={[styles.card, { backgroundColor: Palette.RedCard }]}></View>
-          </TouchableOpacity>
+        <View style={{ flex: 1, justifyContent: "flex-end" }}>
+          <View style={styles.cardContainer}>
+            <TouchableOpacity
+              onPress={() => { props.navigation.navigate("YellowCard") }}>
+              <View style={[styles.card, { backgroundColor: Palette.YellowCard }]}></View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => { props.navigation.navigate("RedCard") }}>
+              <View style={[styles.card, { backgroundColor: Palette.RedCard }]}></View>
+            </TouchableOpacity>
+          </View>
         </View>
       }
     </ScrollView>
@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
     flexDirection: i18n.getFlexDirection(),
+    justifyContent: "flex-end",
     marginRight: 5,
     marginBottom: 5
   },
