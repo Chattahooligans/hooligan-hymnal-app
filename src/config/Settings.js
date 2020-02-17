@@ -209,16 +209,20 @@ export const banners = [
 // Player_ShowSongs: true, false
 //      Some SGs write songs for each player
 //      Toggle a related UI element in the Roster/Player screen
+// RefereeCards_Show: true, false
+//      Show yellow/red card icons in the nav drawer
 // Roster_SortPlayersBy: "default", "number", "name"
 //      later- "position" with priority
 //      (hopefully this gets deprecated and replaced with something in the UI later)
-// RefereeCards_Show: true, false
-//      Show yellow/red card icons in the nav drawer
+// RosterFoes_DefaultCompetition: string
+//      Matches .competition field of objects from the database foes collection
+//      This field is case sensitive and must match exactly
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
   ChannelUI_Enabled: false,
   Home_PostsPerPage: 20,
   Player_ShowSongs: true,
+  RefereeCards_Show: true,
   Roster_SortPlayersBy: "number",
-  RefereeCards_Show: true
+  RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"
 }

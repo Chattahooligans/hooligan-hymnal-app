@@ -14,6 +14,7 @@ import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Ionicons } from '@expo/vector-icons';
+import { Settings } from '../config/Settings';
 import i18n from "../../i18n";
 
 class FoeRow extends React.Component {
@@ -74,7 +75,13 @@ class RosterFoes extends React.Component {
         this.props.globalData.state.foes.forEach(foe => (foes[foe.competition]).push(foe))
         competitions.forEach(competition => foes[competition].sort((a, b) => a.opponent > b.opponent))
 
-        this.setState({ foes, selectedCompetition: competitions.length > 0 ? competitions[0] : "" });
+        let selectedCompetition = ""
+        if (competitions.length > 0)
+            selectedCompetition = competitions[0]
+        if (competitions.includes(Settings.RosterFoes_DefaultCompetition))
+            selectedCompetition = Settings.RosterFoes_DefaultCompetition
+
+        this.setState({ foes, selectedCompetition });
     }
 
     _renderItem = item => {
