@@ -14,9 +14,6 @@ import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Ionicons } from '@expo/vector-icons';
-import { BoldText, MediumText, RegularText } from '../components/StyledText';
-import { FontSizes } from '../constants';
-import { Palette, Skin, DefaultColors } from '../config/Settings';
 import i18n from "../../i18n";
 
 class FoeRow extends React.Component {
