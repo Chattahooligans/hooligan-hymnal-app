@@ -13,6 +13,7 @@ import ModalSelector from 'react-native-modal-selector';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import { Ionicons } from '@expo/vector-icons';
 import { BoldText, MediumText, RegularText } from '../components/StyledText';
 import { FontSizes } from '../constants';
 import { Palette, Skin, DefaultColors } from '../config/Settings';
