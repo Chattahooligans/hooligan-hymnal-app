@@ -2,8 +2,10 @@ import React from 'react';
 import {
     FlatList,
     Picker,
+    Platform,
     ScrollView,
-    StyleSheet
+    StyleSheet,
+    Text
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import ModalSelector from 'react-native-modal-selector';
@@ -13,6 +15,7 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, MediumText, RegularText } from '../components/StyledText';
 import { FontSizes } from '../constants';
 import { Palette, Skin, DefaultColors } from '../config/Settings';
+import i18n from "../../i18n";
 
 class FoeRow extends React.Component {
     render() {
@@ -84,10 +87,59 @@ class RosterFoes extends React.Component {
     }
 
     render() {
-        let pickerItems = [];
+        let header = null;
+        if (Object.keys(this.state.foes).length > 0) {
+            let pickerItems = [];
+
+            if (Platform.OS === "ios") {
+                Object.keys(this.state.foes).forEach(competition => {
+                    pickerItems.push({ key: competition, label: competition });
+                });
+                header =
+                    <ModalSelector
+                        data={pickerItems}
+                        selectedKey={this.state.selectedCompetition}
+                        onChange={(item) => this.setState({ selectedCompetition: item.key })}>
+                        <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
+                            <Text style={{ flex: 1 }}>{this.state.selectedCompetition}</Text>
+                            <Ionicons name={'md-arrow-dropdown'} />
+                        </View>
+                    </ModalSelector>
+            }
+            else {
+                let pickerItems = [];
+                Object.keys(this.state.foes).forEach(competition => {
+                    pickerItems.push(<Picker.Item label={competition} value={competition} />);
+                });
+                header =
+                    <Picker
+                        mode='dropdown'
+                        enabled={pickerItems.length > 1}
+                        selectedValue={this.state.selectedCompetition}
+                        onValueChange={(itemValue) => this.setState({ selectedCompetition: itemValue })} >
+                        {pickerItems}
+                    </Picker>
+            }
+        }
+        else {
+            if (Platform.OS === "ios") {
+                header =
+                    <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
+                        <Text style={{ flex: 1 }}>{i18n.t('screens.rosterfoes.nonefound')}</Text>
+                        <Ionicons name={'md-arrow-dropdown'} />
+                    </View>
+            }
+            else {
+                header =
+                    <Picker>
+                        <Picker.Item label={i18n.t('screens.rosterfoes.nonefound')} />
+                    </Picker>
+            }
+        }
 
         return (
             <LoadingPlaceholder>
+                {header}
                 <FlatList
                     renderScrollComponent={props => <ScrollView {...props} />}
                     data={this.state.foes[this.state.selectedCompetition]}
