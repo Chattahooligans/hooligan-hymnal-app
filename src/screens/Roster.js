@@ -238,10 +238,21 @@ class Roster extends React.Component {
         />
     }
     else {
-      header =
-        <Picker>
-          <Picker.Item label={i18n.t('screens.roster.nosquadsfound')} />
-        </Picker>
+
+      if (Platform.OS === "ios") {
+        header =
+          <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
+            <Text style={{ flex: 1 }}>{i18n.t('screens.roster.nosquadsfound')}</Text>
+            <Ionicons name={'md-arrow-dropdown'} />
+          </View>
+      }
+      else {
+        header =
+          <Picker>
+            <Picker.Item label={i18n.t('screens.roster.nosquadsfound')} />
+          </Picker>
+      }
+
       listDisplay = <View style={{ flex: 1 }} />
     }
 

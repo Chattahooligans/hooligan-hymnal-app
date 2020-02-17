@@ -130,6 +130,10 @@
             "nosquadsfound": "No squads found",
             "twitterlist": "Twitter List"
         },
+        "rosterfoes": {
+            "title": "Roster",
+            "nonefound": "None found"
+        },
         "rosterhome": {
             "title": "Roster",
             "friends": "Friends",
