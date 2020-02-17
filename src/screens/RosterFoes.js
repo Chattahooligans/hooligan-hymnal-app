@@ -5,7 +5,8 @@ import {
     Platform,
     ScrollView,
     StyleSheet,
-    Text
+    Text,
+    View,
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import ModalSelector from 'react-native-modal-selector';
