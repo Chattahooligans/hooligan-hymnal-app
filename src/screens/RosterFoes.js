@@ -108,7 +108,7 @@ class RosterFoes extends React.Component {
             else {
                 let pickerItems = [];
                 Object.keys(this.state.foes).forEach(competition => {
-                    pickerItems.push(<Picker.Item label={competition} value={competition} />);
+                    pickerItems.push(<Picker.Item label={competition} value={competition} key={competition} />);
                 });
                 header =
                     <Picker
