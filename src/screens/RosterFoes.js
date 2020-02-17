@@ -1,10 +1,14 @@
 import React from 'react';
-import { FlatList, ScrollView, SectionList, StyleSheet, View } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import {
+    FlatList,
+    Picker,
+    ScrollView,
+    StyleSheet
+} from 'react-native';
 import { BigButton } from '../components/BigButton';
+import ModalSelector from 'react-native-modal-selector';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import NavigationOptions from '../config/NavigationOptions';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, MediumText, RegularText } from '../components/StyledText';
 import { FontSizes } from '../constants';
@@ -23,7 +27,11 @@ class FoeRow extends React.Component {
 
         return (
             <BigButton
-                style={{ marginTop: 10, backgroundColor: foe.backgroundColor, tintColor: foe.textColor }}
+                style={{
+                    marginTop: 10,
+                    backgroundColor: foe.backgroundColor,
+                    tintColor: foe.textColor
+                }}
                 label={foe.opponent}
                 onPress={this._handlePress} />
         )
@@ -36,7 +44,8 @@ class FoeRow extends React.Component {
 
 class RosterFoes extends React.Component {
     state = {
-        foes: []
+        foes: {},
+        selectedCompetition: ""
     }
 
     componentDidMount() {
@@ -48,27 +57,23 @@ class RosterFoes extends React.Component {
     }
 
     setData = () => {
-        let foes = [];
-        this.props.globalData.state.foes.forEach(foeChild => {
-            foes.push(foeChild);
-        });
+        let foes = {}
+        let competitions = []
 
-        foes.sort(this.compareFoes);
+        // bucket by competition
+        this.props.globalData.state.foes.forEach(foe => {
+            if (!competitions.includes(foe.competition))
+                competitions.push(foe.competition)
+        })
+        competitions.sort((a, b) => a > b)
+        competitions.forEach(competition => foes[competition] = [])
 
-        this.setState({ foes });
+        // sort foes into buckets
+        this.props.globalData.state.foes.forEach(foe => (foes[foe.competition]).push(foe))
+        competitions.forEach(competition => foes[competition].sort((a, b) => a.opponent > b.opponent))
+
+        this.setState({ foes, selectedCompetition: competitions.length > 0 ? competitions[0] : "" });
     }
-
-    compareFoes = (a, b) => {
-        const opponentA = a.opponent;
-        const opponentB = b.opponent;
-
-        if (opponentA > opponentB)
-            return 1;
-        else if (opponentB > opponentA)
-            return -1;
-
-        return 0;
-    };
 
     _renderItem = item => {
         return (<FoeRow item={item} onPress={this._handlePressFoeButton} />)
@@ -79,11 +84,13 @@ class RosterFoes extends React.Component {
     }
 
     render() {
+        let pickerItems = [];
+
         return (
             <LoadingPlaceholder>
                 <FlatList
                     renderScrollComponent={props => <ScrollView {...props} />}
-                    data={this.state.foes}
+                    data={this.state.foes[this.state.selectedCompetition]}
                     renderItem={this._renderItem}
                     keyExtractor={(item, index) => index.toString()}
                 />
@@ -92,46 +99,8 @@ class RosterFoes extends React.Component {
     }
 }
 
-const ClipBorderRadius = ({ children, style }) => {
-    return (
-        <View
-            style={[
-                { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
-                style
-            ]}
-        >
-            {children}
-        </View>
-    );
-};
-
-const BORDER_RADIUS = 3;
-
 const styles = StyleSheet.create({
-    bigButton: {
-        backgroundColor: DefaultColors.ButtonBackground,
-        paddingHorizontal: 15,
-        height: 50,
-        marginHorizontal: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: BORDER_RADIUS,
-        overflow: 'hidden',
-        flexDirection: 'row'
-    },
-    bigButtonText: {
-        fontSize: FontSizes.normalButton,
-        color: DefaultColors.ButtonText,
-        textAlign: 'center'
-    },
-    row: {
-        flex: 1,
-        paddingTop: 10,
-        padding: 10,
-        borderBottomWidth: 1,
-        borderColor: '#eee',
-        flexDirection: 'row'
-    }
+
 });
 
 export default withUnstated(RosterFoes, { globalData: GlobalDataContainer });
