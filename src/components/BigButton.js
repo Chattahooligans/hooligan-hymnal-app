@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import {
     Platform,
     StyleSheet,
@@ -14,13 +14,6 @@ import { DefaultColors } from '../config/Settings';
 
 export class BigButton extends React.Component {
     render() {
-        let ButtonWrapper;
-        if (Platform.OS === "")
-            ButtonWrapper = <TouchableHighlight />
-        else
-            ButtonWrapper =
-                <TouchableNativeFeedback />
-
         let iconPosition = "left";
         if (this.props.iconName)
             if (this.props.iconPosition == "right")
@@ -34,8 +27,34 @@ export class BigButton extends React.Component {
         if (this.props.tintColor)
             tintColor = this.props.tintColor;
 
-        return (
-            <TouchableNativeFeedback
+        if (Platform.OS === "ios")
+            return (
+                <TouchableHighlight
+                    disabled={this.props.disabled}
+                    style={this.props.style}
+                    underlayColor={'#fff'}
+                    onPress={this.props.onPress}>
+                    <View style={[styles.container, this.props.buttonStyle]}>
+                        {(this.props.iconName && iconPosition == "left") &&
+                            <Ionicons
+                                name={this.props.iconName}
+                                size={23}
+                                style={[styles.iconLeft, { color: tintColor }]} />
+                        }
+                        <MediumText style={[styles.label, this.props.labelStyle, { color: tintColor }]}>
+                            {this.props.label}
+                        </MediumText>
+                        {(this.props.iconName && iconPosition == "right") &&
+                            <Ionicons
+                                name={this.props.iconName}
+                                size={23}
+                                style={[styles.iconRight, { color: tintColor }]} />
+                        }
+                    </View>
+                </TouchableHighlight>
+            )
+        if (Platform.OS === "android")
+            return <TouchableNativeFeedback
                 disabled={this.props.disabled}
                 style={this.props.style}
                 onPress={this.props.onPress}>
@@ -57,7 +76,6 @@ export class BigButton extends React.Component {
                     }
                 </View>
             </TouchableNativeFeedback>
-        )
     }
 
 }
