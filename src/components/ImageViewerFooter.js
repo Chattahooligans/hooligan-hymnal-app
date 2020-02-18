@@ -10,8 +10,16 @@ import i18n from "../../i18n";
 export default class ImageViewerFooter extends React.Component {
     render() {
         let visible = this.props.visible
-        let caption = this.props.images[this.props.index].metadata.caption
-        let credit = this.props.images[this.props.index].metadata.credit
+        let caption = ""
+        let credit = ""
+
+        if (this.props.images[this.props.index].hasOwnProperty("metadata"))
+            if (this.props.images[this.props.index].metadata.hasOwnProperty("caption"))
+                caption = this.props.images[this.props.index].metadata.caption
+
+        if (this.props.images[this.props.index].hasOwnProperty("metadata"))
+            if (this.props.images[this.props.index].metadata.hasOwnProperty("credit"))
+                caption = this.props.images[this.props.index].metadata.credit
 
         if (!caption && !credit)
             visible = false
