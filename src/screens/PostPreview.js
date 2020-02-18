@@ -72,7 +72,7 @@ class PostPreview extends React.Component {
                     onPress={this._handlePressScheduleButton} />
 
                 {/*
-                <DateTimePickerModal 
+                <DateTimePickerModal
                     isVisible={this.state.dateTimePickerVisible}
                     mode="datetime"
                     date={this.state.dateTimePickerInitialDate}
@@ -116,84 +116,155 @@ class PostPreview extends React.Component {
     }
 
     _handlePressSubmitButton = async () => {
-        this.setState({ loading: true })
+      this.setState({
+        loading: true
+      });
 
-        const data = new FormData()
-        let post = {}
-        Object.assign(post, this.state.post)
+      const { post } = this.state;
+      const { token } = this.props.globalData.getCurrentUser();
 
-        // publishedAt was set when we started creating the post, and time has elapsed since then
-        // update publishedAt to the current time
-        const publishedAt = new Date().toISOString()
-        post.publishedAt = publishedAt
-        // TODO: check to see if publishedAt is in the future, because we are scheduling it for the future, and don't override
+      const formData = new FormData();
+      formData.append("sender", JSON.stringify(post.sender));
+      formData.append("publishedAt", post.publishedAt);
+      formData.append("push", post.push ? "true" : "false");
+      formData.append("channel", post.channel);
+      formData.append("locale", post.locale);
+      formData.append("text", post.text);
 
-        post.images = await this.processImages(post.images)
-
-        // unnecessary to send this to the server
-        delete post.channelData
-
-        // what if we just put the whole post in one object, rather than key by key?
-        // will simplify the server logic as well
-        data.append("post", post)
-        /*
-        // maybe we need an extra block in formdata for uploads
+      if (post.images || post.images.length) {
         post.images.forEach(image => {
-            data.append("files", {
-                uri: image.uri,
-                name: image.name,
-                type: image.type
-            })
-        });
-        */
-
-        /*
-        // Collin's original code
-        Object.keys(post).forEach(key => {
-            if (key == 'sender') {
-                const senderInfo = {
-                    user: post[key].user || 'test',
-                    pushToken: post[key].pushToken || 'teser'
-                }
-                data.append(key, JSON.stringify(senderInfo))
-            } else {
-                data.append(key, post[key])
+          const imgUri = image.uri.split('/');
+          debugger;
+          formData.append("images", {
+            uri: image.uri,
+            name: imgUri[imgUri.length - 1],
+            type: `${image.type}/${imgUri[imgUri.length - 1].split('.')[1]}`,
+            metadata: {
+              caption: image.metadata.caption,
+              credit: image.metadata.credit
             }
+          })
+        })
+      }
+      if (post.attachments || post.attachments.length) {
+        post.attachments.forEach(attachment => {
+          formData.append("attachments", JSON.stringify(attachment))
+        })
+      }
+
+      try {
+        const response = await createPost(formData, token)
+        this.setState({
+          loading: false
         });
-        if (post.images) {
-            const { images } = post;
-            images.forEach(image => {
-                data.append("images", image)
-            })
-        }
-        if (post.attachments) {
-            const { attachments } = post;
-            attachments.forEach(attach => {
-                data.append("attachments", JSON.stringify(attach))
-            });
-        }
-        */
+        this.props.globalData.setResponse(response)
+        this.props.navigation.popToTop()
+        this.props.navigation.navigate('Home')
+      } catch (ex) {
+        console.log(ex)
+      }
+
+      // debugger;
 
 
-        try {
-            console.log("send this to the server")
-            console.log(data)
-            let response = await createPost(data, this.props.globalData.getCurrentUser().token)
-            console.log("createPost() response")
-            console.log(response);
+      // fetch(`https://f20e6790.ngrok.io/api/feed`, {
+      //   method: 'POST',
+      //   headers: {
+      //     'Authorization': `Bearer ${token}`
+      //   },
+      //   body: formData
+      // }).then(response => {
+      //   console.log(response)
+      //   this.setState({
+      //     loading: false
+      //   });
+      //   this.props.navigation.popToTop()
+      //   this.props.navigation.navigate('Home')
+      // }).catch(error => {
+      //   this.setState({
+      //     loading: false
+      //   })
+      //   console.log(error)
+      //   debugger;
+      // })
 
-            this.props.globalData.setResponse(response)
+        // this.setState({ loading: true })
 
-            this.setState({ loading: false });
+        // const data = new FormData()
+        // let post = {}
+        // Object.assign(post, this.state.post)
 
-            this.props.navigation.popToTop();
-            this.props.navigation.navigate("Home");
-        }
-        catch (ex) {
-            alert(ex.toString())
+        // // publishedAt was set when we started creating the post, and time has elapsed since then
+        // // update publishedAt to the current time
+        // const publishedAt = new Date().toISOString()
+        // post.publishedAt = publishedAt
+        // // TODO: check to see if publishedAt is in the future, because we are scheduling it for the future, and don't override
 
-            this.setState({ loading: false });
-        }
+        // post.images = await this.processImages(post.images)
+
+        // // unnecessary to send this to the server
+        // delete post.channelData
+
+        // // what if we just put the whole post in one object, rather than key by key?
+        // // will simplify the server logic as well
+        // // data.append("post", post)
+        // /*
+        // // maybe we need an extra block in formdata for uploads
+        // post.images.forEach(image => {
+        //     data.append("files", {
+        //         uri: image.uri,
+        //         name: image.name,
+        //         type: image.type
+        //     })
+        // });
+        // */
+
+
+        // // Collin's original code
+        // Object.keys(post).forEach(key => {
+        //     if (key == 'sender') {
+        //         const senderInfo = {
+        //             user: post[key].user || 'test',
+        //             pushToken: post[key].pushToken || 'teser'
+        //         }
+        //         data.append(key, JSON.stringify(senderInfo))
+        //     } else {
+        //         data.append(key, post[key])
+        //     }
+        // });
+        // if (post.images.length > 0) {
+        //     const { images } = post;
+        //     images.forEach(image => {
+        //         data.append("images", image)
+        //     })
+        // }
+        // if (post.attachments.length > 0) {
+        //     const { attachments } = post;
+        //     attachments.forEach(attach => {
+        //         data.append("attachments", JSON.stringify(attach))
+        //     });
+        // }
+
+
+        // try {
+        //     console.log("send this to the server")
+        //     console.log(data)
+        //     let response = await createPost(data, this.props.globalData.getCurrentUser().token)
+        //     console.log("createPost() response")
+        //     console.log(response);
+
+        //     this.props.globalData.setResponse(response)
+
+        //     this.setState({ loading: false });
+
+        //     this.props.navigation.popToTop();
+        //     this.props.navigation.navigate("Home");
+        // }
+        // catch (ex) {
+        //     alert(ex.toString())
+
+        //     this.setState({ loading: false });
+        // }
     }
     _handlePressScheduleButton = () => {
         //this.setState({ dateTimePickerVisible: true, dateTimePickerInitialDate: new Date() })

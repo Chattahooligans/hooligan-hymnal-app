@@ -11,18 +11,16 @@ export const getMoreFeed = (publishedBefore) =>
   API.get('/api/feed/?publishedBefore=' + publishedBefore + '&limit=' + Settings.Home_PostsPerPage).then(response => response.data);
 
 export const createPost = async (post, token) => {
-  await API.post(
-    '/api/feed',
-    post,
-    {
-      headers: {
-        'Authorization': "Bearer " + token,
-        'Content-Type': 'multipart/form-data'
-      }
-    },
-  )
-    .then(response => response.data)
-    .catch(err => console.log(err));
+  await API.post('/api/feed', post, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    }
+  }).then((response) => {
+    return response.data;
+  }).catch(err => {
+    debugger;
+    console.error(err)
+  });
 }
 
 export const hidePost = (postId, token) =>
