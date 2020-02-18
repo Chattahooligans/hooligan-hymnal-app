@@ -19,10 +19,6 @@ export class BigButton extends React.Component {
             if (this.props.iconPosition == "right")
                 iconPosition = "right";
 
-        let inModal = false;
-        if (this.props.inModal)
-            inModal = true;
-
         let tintColor = DefaultColors.ButtonText;
         if (this.props.tintColor)
             tintColor = this.props.tintColor;

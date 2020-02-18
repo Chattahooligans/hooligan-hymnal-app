@@ -95,7 +95,6 @@ class PostAttachmentComposeGkNickname extends React.Component {
                     label={this.state.nickname}
                     tintColor="white"
                     iconName="md-hand"
-                    inModal={true}
                     onPress={() => {
                         if (this.props.screenProps.onAttachmentComplete)
                             this.props.screenProps.onAttachmentComplete(
@@ -114,7 +113,6 @@ class PostAttachmentComposeGkNickname extends React.Component {
                     label={this.state.nickname}
                     tintColor="black"
                     iconName="md-hand"
-                    inModal={true}
                     onPress={() => {
                         if (this.props.screenProps.onAttachmentComplete)
                             this.props.screenProps.onAttachmentComplete(
