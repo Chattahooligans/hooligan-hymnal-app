@@ -138,11 +138,11 @@ class PostPreview extends React.Component {
             uri: image.uri,
             name: imgUri[imgUri.length - 1],
             type: `${image.type}/${imgUri[imgUri.length - 1].split('.')[1]}`,
-            metadata: {
-              caption: image.metadata.caption,
-              credit: image.metadata.credit
-            }
           })
+          formData.append("metadata", JSON.stringify({
+            caption: image.metadata.caption,
+            credit: image.metadata.credit
+          }));
         })
       }
       if (post.attachments || post.attachments.length) {
