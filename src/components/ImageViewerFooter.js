@@ -10,8 +10,8 @@ import i18n from "../../i18n";
 export default class ImageViewerFooter extends React.Component {
     render() {
         let visible = this.props.visible
-        let caption = this.props.images[this.props.index].caption
-        let credit = this.props.images[this.props.index].credit
+        let caption = this.props.images[this.props.index].metadata.caption
+        let credit = this.props.images[this.props.index].metadata.credit
 
         if (!caption && !credit)
             visible = false
@@ -22,10 +22,10 @@ export default class ImageViewerFooter extends React.Component {
             return (
                 <View style={styles.container}>
                     {caption.length > 0 &&
-                        <RegularText style={styles.caption}>{i18n.t('components.imageviewerfooter.captionprefix')}{this.props.images[this.props.index].caption}</RegularText>
+                        <RegularText style={styles.caption}>{i18n.t('components.imageviewerfooter.captionprefix')}{caption}</RegularText>
                     }
                     {credit.length > 0 &&
-                        <RegularText style={styles.credit}>{i18n.t('components.imageviewerfooter.creditprefix')}{this.props.images[this.props.index].credit}</RegularText>
+                        <RegularText style={styles.credit}>{i18n.t('components.imageviewerfooter.creditprefix')}{credit}</RegularText>
                     }
                 </View>
             )
