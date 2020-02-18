@@ -19,7 +19,7 @@ export default class ImageViewerFooter extends React.Component {
 
         if (this.props.images[this.props.index].hasOwnProperty("metadata"))
             if (this.props.images[this.props.index].metadata.hasOwnProperty("credit"))
-                caption = this.props.images[this.props.index].metadata.credit
+                credit = this.props.images[this.props.index].metadata.credit
 
         if (!caption && !credit)
             visible = false
