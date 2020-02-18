@@ -134,7 +134,6 @@ class PostPreview extends React.Component {
       if (post.images || post.images.length) {
         post.images.forEach(image => {
           const imgUri = image.uri.split('/');
-          debugger;
           formData.append("images", {
             uri: image.uri,
             name: imgUri[imgUri.length - 1],
