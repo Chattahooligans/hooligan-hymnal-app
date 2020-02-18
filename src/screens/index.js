@@ -6,6 +6,7 @@ import CapoHome from './CapoHome';
 import CapoLogin from './CapoLogin';
 import CapoSetGoalkeeperNickname from './CapoSetGoalkeeperNickname';
 import CapoSelectSong from './CapoSelectSong';
+import Channel from './Channel';
 import Events from './Events';
 import Home from './Home';
 import Instrumentation from './Instrumentation';
@@ -19,6 +20,7 @@ import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostCreate from './PostCreate';
 import PostPreview from  './PostPreview';
+import RefereeCard from './RefereeCard';
 import Roster from './Roster';
 import RosterFoePlayers from './RosterFoePlayers';
 import RosterFoes from './RosterFoes';
@@ -42,6 +44,7 @@ export default {
   CapoLogin,
   CapoSetGoalkeeperNickname,
   CapoSelectSong,
+  Channel,
   Events,
   Home,
   Instrumentation,
@@ -55,6 +58,7 @@ export default {
   PostAttachmentSelectSong,
   PostCreate,
   PostPreview,
+  RefereeCard,
   Roster,
   RosterFoePlayers,
   RosterFoes,

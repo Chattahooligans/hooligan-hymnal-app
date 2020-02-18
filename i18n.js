@@ -25,9 +25,13 @@ function getLocalizedBio(bio) {
     //otherwise, see if the current locale is in there.
     var currentLocale = i18n.currentLocale();
     var defaultLocale = i18n.defaultLocale;
+    var shortLocale = currentLocale.substring(0,2);
     if(currentLocale in bio) {
         return bio[currentLocale];
-    } else if(defaultLocale in bio) {
+    } else if (shortLocale in bio) { 
+        return bio[shortLocale];
+    }
+    else if(defaultLocale in bio) {
         return bio[defaultLocale];
     } else {
         //well, that's weird
@@ -42,8 +46,11 @@ function getLocalizedText(text) {
     //otherwise, see if the current locale is in there.
     var currentLocale = i18n.currentLocale();
     var defaultLocale = i18n.defaultLocale;
+    var shortLocale = currentLocale.substring(0,2);
     if(currentLocale in text) {
         return text[currentLocale];
+    } else if (shortLocale in text) { 
+        return text[shortLocale];
     } else if(defaultLocale in text) {
         return text[defaultLocale];
     } else if(text.length > 0) {

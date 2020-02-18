@@ -10,6 +10,12 @@ export const getFeed = () =>
 export const getMoreFeed = (publishedBefore) =>
   API.get('/api/feed/?publishedBefore=' + publishedBefore + '&limit=' + Settings.Home_PostsPerPage).then(response => response.data);
 
+export const getFeedForChannel = (channelId) =>
+  API.get('/api/feed/channel/' + channelId + '/?limit=' + Settings.Home_PostsPerPage).then(response => response.data);
+
+export const getMoreFeedForChannel = (channelId, publishedBefore) =>
+  API.get('/api/feed/channel/' + channelId + '/?publishedBefore=' + publishedBefore + '&limit=' + Settings.Home_PostsPerPage).then(response => response.data);
+
 export const createPost = async (post, token) => {
   await API.post('/api/feed', post, {
     headers: {

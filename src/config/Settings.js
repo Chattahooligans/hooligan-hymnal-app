@@ -9,8 +9,8 @@
 
 // HEY! Don't include a trailing slash / on this url.
 // If you do, you're gonna have a bad time because your serer calls will not work
-//export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
-// news feed images dev branch
+// export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
+// dev branch
 export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-dev.herokuapp.com'
 
 // URLs
@@ -29,9 +29,12 @@ export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
 export const INSTRUMENTATION_URL = 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 
 // Common Images
-export const HOME_SCREEN_NAVBAR = require('../../assets/home-logo.png');
-//export const HOME_SCREEN_NAVBAR = require('../../assets/home-big-c-logo.png');
-export const HOME_SCREEN_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
+export const HOME_NAVBAR_LOGO = require('../../assets/home-logo.png');
+//export const HOME_NAVBAR_LOGO = require('../../assets/home-big-c-logo.png');
+export const HOME_VIDEO = require('../../assets/5MB_video.mp4');
+export const HOME_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
+export const DRAWER_HERO_BACKGROUND = require('../../assets/drawer-hero-background.png');
+export const DRAWER_HERO_OVERLAY = require('../../assets/drawer-hero-logo.png');
 // like social media icons
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
@@ -59,7 +62,9 @@ export const Palette = {
   Sky: '#A3D8F7',
   White: '#FFFFFF',
   Black: '#000000',
-  Prideraiser: '#a55eea'
+  Prideraiser: '#a55eea',
+  YellowCard: '#ffcc00',
+  RedCard: '#ff0000'
 };
 
 export const DefaultColors = {
@@ -94,17 +99,29 @@ export const Skin = {
   Font_Medium: 'heebo-medium',
   Font_Bold: 'heebo-bold',
   Font_ParsedText: 'heebo',
+  Channel_Background: DefaultColors.Secondary,
+  Channel_DescriptionLabel: DefaultColors.Primary,
+  Channel_LoadMoreActivityIndicator_Android: DefaultColors.Primary,
+  Channel_LoadMoreActivityIndicator_iOS: DefaultColors.Primary,
+  Channel_NameLabel: DefaultColors.Primary,
+  Channel_Refresh_Android: DefaultColors.Secondary,
+  Channel_RefreshBackground_Android: DefaultColors.Primary,
+  Drawer_HeroBackground: DRAWER_HERO_BACKGROUND,
+  Drawer_HeroOverlay: DRAWER_HERO_OVERLAY,
   Home_BackgroundColor: DefaultColors.Primary,
   Home_BigButtonsBackground: DefaultColors.ButtonBackground,
   Home_BigButtonsLabel: DefaultColors.ButtonText,
   Home_FindTheMenuLabel: DefaultColors.Primary,
   Home_LoadMoreActivityIndicator_Android: DefaultColors.Secondary,
   Home_LoadMoreActivityIndicator_iOS: Palette.White,
+  Home_NavbarLogo: HOME_NAVBAR_LOGO,
+  Home_PostMarginVertical: 6,
   Home_Refresh_Android: DefaultColors.Primary,
   Home_RefreshBackground_Android: DefaultColors.Secondary,
   Home_SocialButtons: DefaultColors.Primary,
+  Home_Video: HOME_VIDEO,
+  Home_VideoOverlay: HOME_VIDEO_OVERLAY,
   Home_Website: Palette.Black,
-  Home_PostMarginVertical: 6,
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Secondary,
   ModalLoader_Container: "#00000040",
@@ -115,12 +132,12 @@ export const Skin = {
   Player_DefaultImage: CLUB_LOGO,
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
   Post_DefaultChannelThumbnail: require('../../assets/big-c-icon-android.png'),
-  Post_ChannelTextColor: DefaultColors.ColorText,
+  Post_ChannelLabel: DefaultColors.ColorText,
   Post_FontSize: 17,
   Post_LineHeight: 22,
   Post_LinkColor: "blue",
   Post_TextColor: DefaultColors.Text,
-  Post_TimestampTextColor: DefaultColors.ColorText,
+  Post_TimestampLabel: DefaultColors.ColorText,
   Roster_DefaultThumbnail: CLUB_LOGO,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
@@ -182,13 +199,31 @@ export const banners = [
 /*
   App Feature Flags
 */
+// CapoHome_GKNicknameEnabled: true, false
+//      This is a longrunning inside joke in Chattanooga
+// Channels_Enabled: true, false
+//      Some SGs will only ever have one channel
+//      and tapping into a whole hunk of UI will be jarring and confusing to users
+// Home_PostsPerPage: number
+//      Load this many news feed items, then load this many more if the user scrolls to the bottom
+// Player_ShowSongs: true, false
+//      Some SGs write songs for each player
+//      Toggle a related UI element in the Roster/Player screen
+// RefereeCards_Show: true, false
+//      Show yellow/red card icons in the nav drawer
 // Roster_SortPlayersBy: "default", "number", "name"
 //      later- "position" with priority
 //      (hopefully this gets deprecated and replaced with something in the UI later)
+// RosterFoes_DefaultCompetition: string
+//      Matches .competition field of objects from the database foes collection
+//      This field is case sensitive and must match exactly
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
+  ChannelUI_Enabled: false,
   Home_PostsPerPage: 20,
   Juanstagram: true,
   Player_ShowSongs: true,
-  Roster_SortPlayersBy: "number"
+  RefereeCards_Show: true,
+  Roster_SortPlayersBy: "number",
+  RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"
 }
