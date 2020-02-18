@@ -91,7 +91,7 @@ class PostAttachmentComposeGkNickname extends React.Component {
                     keyExtractor={(item, index) => (item.name + " " + index)} />
                 <MediumText style={[styles.instructions, { paddingTop: 8 }]}>{i18n.t('screens.postattachmentcomposegknickname.instructions3')}</MediumText>
                 <BigButton
-                    style={{ backgroundColor: this.state.color, marginTop: 0, paddingTop: 2 }}
+                    buttonStyle={{ backgroundColor: this.state.color, marginTop: 0, paddingTop: 2 }}
                     label={this.state.nickname}
                     tintColor="white"
                     iconName="md-hand"
@@ -110,7 +110,7 @@ class PostAttachmentComposeGkNickname extends React.Component {
                             );
                     }} />
                 <BigButton
-                    style={{ backgroundColor: this.state.color }}
+                    buttonStyle={{ backgroundColor: this.state.color }}
                     label={this.state.nickname}
                     tintColor="black"
                     iconName="md-hand"

@@ -1,14 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import {
+    Platform,
+    StyleSheet,
+    TouchableHighlight,
+    TouchableNativeFeedback,
+    TouchableOpacity,
+    View
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { MediumText } from './StyledText';
 import { FontSizes } from '../constants';
 import { DefaultColors } from '../config/Settings';
 
 export class BigButton extends React.Component {
-
     render() {
+        let ButtonWrapper;
+        if (Platform.OS === "")
+            ButtonWrapper = <TouchableHighlight />
+        else
+            ButtonWrapper =
+                <TouchableNativeFeedback />
+
         let iconPosition = "left";
         if (this.props.iconName)
             if (this.props.iconPosition == "right")
@@ -23,81 +35,28 @@ export class BigButton extends React.Component {
             tintColor = this.props.tintColor;
 
         return (
-            <View>
-                {/*<Button title={this.props.label + " icon:" + this.props.iconName} onPress={this.props.onPress} />*/}
-                {inModal &&
-                    <View style={styles.container}>
-                        <TouchableOpacity
-                            style={[styles.bigButton, this.props.style]}
-                            activeOpacity={0.95}
-                            onPress={this.props.onPress}>
-                            {(this.props.iconName && iconPosition == "left") &&
-                                <Ionicons
-                                    name={this.props.iconName}
-                                    size={23}
-                                    style={{
-                                        color: tintColor,
-                                        backgroundColor: 'transparent',
-                                        marginHorizontal: 8,
-                                        marginVertical: 3
-                                    }} />
-                            }
-                            <MediumText style={[styles.bigButtonText, { color: tintColor }]}>
-                                {this.props.label}
-                            </MediumText>
-                            {(this.props.iconName && iconPosition == "right") &&
-                                <Ionicons
-                                    name={this.props.iconName}
-                                    size={23}
-                                    style={{
-                                        color: tintColor,
-                                        backgroundColor: 'transparent',
-                                        marginHorizontal: 8,
-                                        marginVertical: 3,
-                                        position: 'absolute',
-                                        right: 8
-                                    }} />
-                            }
-                        </TouchableOpacity>
-                    </View>
-                }
-                {!inModal &&
-                    <View style={styles.container}>
-                        <RectButton
-                            style={[styles.bigButton, this.props.style]}
-                            onPress={this.props.onPress}
-                            underlayColor="#fff">
-                            {(this.props.iconName && iconPosition == "left") &&
-                                <Ionicons
-                                    name={this.props.iconName}
-                                    size={23}
-                                    style={{
-                                        color: tintColor,
-                                        backgroundColor: 'transparent',
-                                        marginHorizontal: 8,
-                                        marginVertical: 3
-                                    }} />
-                            }
-                            <MediumText style={[styles.bigButtonText, { color: tintColor }]}>
-                                {this.props.label}
-                            </MediumText>
-                            {(this.props.iconName && iconPosition == "right") &&
-                                <Ionicons
-                                    name={this.props.iconName}
-                                    size={23}
-                                    style={{
-                                        color: tintColor,
-                                        backgroundColor: 'transparent',
-                                        marginHorizontal: 8,
-                                        marginVertical: 3,
-                                        position: 'absolute',
-                                        right: 8
-                                    }} />
-                            }
-                        </RectButton>
-                    </View>
-                }
-            </View>
+            <TouchableNativeFeedback
+                disabled={this.props.disabled}
+                style={this.props.style}
+                onPress={this.props.onPress}>
+                <View style={[styles.container, this.props.buttonStyle]}>
+                    {(this.props.iconName && iconPosition == "left") &&
+                        <Ionicons
+                            name={this.props.iconName}
+                            size={23}
+                            style={[styles.iconLeft, { color: tintColor }]} />
+                    }
+                    <MediumText style={[styles.label, this.props.labelStyle, { color: tintColor }]}>
+                        {this.props.label}
+                    </MediumText>
+                    {(this.props.iconName && iconPosition == "right") &&
+                        <Ionicons
+                            name={this.props.iconName}
+                            size={23}
+                            style={[styles.iconRight, { color: tintColor }]} />
+                    }
+                </View>
+            </TouchableNativeFeedback>
         )
     }
 
@@ -105,10 +64,6 @@ export class BigButton extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        borderRadius: 3,
-        overflow: 'hidden'
-    },
-    bigButton: {
         backgroundColor: DefaultColors.ButtonBackground,
         paddingHorizontal: 15,
         height: 50,
@@ -120,7 +75,19 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         flexDirection: 'row'
     },
-    bigButtonText: {
+    iconLeft: {
+        backgroundColor: 'transparent',
+        marginHorizontal: 8,
+        marginVertical: 3
+    },
+    iconRight: {
+        backgroundColor: 'transparent',
+        marginHorizontal: 8,
+        marginVertical: 3,
+        position: 'absolute',
+        right: 8
+    },
+    label: {
         fontSize: FontSizes.normalButton,
         textAlign: 'center',
         color: DefaultColors.ButtonText

@@ -23,32 +23,32 @@ class PostAttach extends React.Component {
                 <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattach.attachmenttypes')}</BoldText>
 
                 <BigButton
-                    label={i18n.t('screens.postattach.selectplayer')} iconName="md-person" inModal={true}
+                    label={i18n.t('screens.postattach.selectplayer')} iconName="md-person"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectPlayer", {
                             onAttachmentComplete: this.props.screenProps.onAttachmentComplete
                         })
                     }} />
-                <BigButton label={i18n.t('screens.postattach.selectsong')} iconName="md-musical-notes" inModal={true}
+                <BigButton label={i18n.t('screens.postattach.selectsong')} iconName="md-musical-notes"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectSong", {
                             onAttachmentComplete: this.props.screenProps.onAttachmentComplete
                         })
                     }} />
-                <BigButton label={i18n.t('screens.postattach.composesong')} iconName="md-microphone" inModal={true}
+                <BigButton label={i18n.t('screens.postattach.composesong')} iconName="md-microphone"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentComposeSong", {
                             onAttachmentComplete: this.props.screenProps.onAttachmentComplete
                         })
                     }} />
-                <BigButton label={i18n.t('screens.postattach.masstweet')} iconName="logo-twitter" inModal={true}
+                <BigButton label={i18n.t('screens.postattach.masstweet')} iconName="logo-twitter"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectMassTweet", {
                             onAttachmentComplete: this.props.screenProps.onAttachmentComplete
                         })
                     }} />
                 {Settings.CapoHome_GKNicknameEnabled &&
-                    <BigButton label={i18n.t('screens.postattach.gknickname')} iconName="md-hand" inModal={true}
+                    <BigButton label={i18n.t('screens.postattach.gknickname')} iconName="md-hand"
                         onPress={() => {
                             this.props.navigation.navigate("PostAttachmentComposeGkNickname", {
                                 onAttachmentComplete: this.props.screenProps.onAttachmentComplete
@@ -56,10 +56,14 @@ class PostAttach extends React.Component {
                         }} />
                 }
 
-                <BigButton label="Link to App Songbook" iconName="md-book"
-                    style={{ backgroundColor: "gray" }} />
-                <BigButton label="Link to App Roster" iconName="md-people"
-                    style={{ backgroundColor: "gray" }} />
+                <BigButton
+                    disabled={true}
+                    label="Link to App Songbook" iconName="md-book"
+                    buttonStyle={{ backgroundColor: "gray" }} />
+                <BigButton
+                    disabled={true}
+                    label="Link to App Roster" iconName="md-people"
+                    buttonStyle={{ backgroundColor: "gray" }} />
             </ScrollView>
         )
     }

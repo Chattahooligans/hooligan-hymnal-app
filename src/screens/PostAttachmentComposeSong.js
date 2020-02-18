@@ -40,7 +40,6 @@ export default class PostAttachmentComposeSong extends React.Component {
                     <BigButton
                         label={i18n.t('screens.postattchmentcomposesong.attach')}
                         iconName="md-add" iconPosition="right"
-                        inModal={true}
                         onPress={() => {
                             if (this.props.screenProps.onAttachmentComplete)
                                 this.props.screenProps.onAttachmentComplete(

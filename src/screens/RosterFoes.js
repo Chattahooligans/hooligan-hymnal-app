@@ -30,10 +30,7 @@ class FoeRow extends React.Component {
 
         return (
             <BigButton
-                style={{
-                    marginTop: 10,
-                    backgroundColor: foe.backgroundColor
-                }}
+                buttonStyle={{ backgroundColor: foe.backgroundColor, borderWidth: 3, borderColor: foe.accentColor }}
                 tintColor={foe.textColor}
                 label={foe.opponent}
                 onPress={this._handlePress} />
