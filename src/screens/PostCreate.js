@@ -375,7 +375,7 @@ class PostCreate extends React.Component {
                     {imagesDisplay}
                 </ScrollView>
                 {attachmentsDisplay}
-                <Button title={"Link Remote Image"} color={DefaultColors.ButtonBackground} onPress={this._handlePressLinkImage} />
+                <Button title={i18n.t('screens.postcreate.linkimage')} color={DefaultColors.ButtonBackground} onPress={this._handlePressLinkImage} />
                 {Settings.PostCreate_UploadImageEnabled &&
                     <Button title={i18n.t('screens.postcreate.uploadimage')} color={DefaultColors.ButtonBackground} onPress={this._handlePressUploadImage} />
                 }
@@ -401,27 +401,27 @@ class PostCreate extends React.Component {
                     visible={this.state.linkImageModalVisible}>
                     <View style={{ flex: 1 }}>
                         <View style={{ flex: 1, padding: 10 }}>
-                            <RegularText style={styles.linkImageTitle}>{"Paste the exact web address of an image which ends in jpg or png"}</RegularText>
-                            <BoldText style={styles.linkImageTitle}>{"Paste URI"}</BoldText>
+                            <RegularText style={styles.linkImageTitle}>{i18n.t('screens.postcreate.linkimageinstructions')}</RegularText>
+                            <BoldText style={styles.linkImageTitle}>{i18n.t('screens.postcreate.pasteuri')}</BoldText>
                             <TextInput
                                 style={styles.linkImageTextInput}
-                                placeholder={"Paste URI"}
+                                placeholder={i18n.t('screens.postcreate.pasteuri')}
                                 value={this.state.linkImageUri}
                                 onChangeText={(text) => {
                                     this.setState({ linkImageUri: text })
                                 }} />
 
-                            <BoldText style={styles.linkImageTitle}>{"Paste Thumbnail URI"}</BoldText>
+                            <BoldText style={styles.linkImageTitle}>{i18n.t('screens.postcreate.pastethumbnailuri')}</BoldText>
                             <TextInput
                                 style={styles.linkImageTextInput}
-                                placeholder={"Paste URI"}
+                                placeholder={i18n.t('screens.postcreate.pastethumbnailuri')}
                                 value={this.state.linkImageThumbnailUri}
                                 onChangeText={(text) => {
                                     this.setState({ linkImageThumbnailUri: text })
                                 }} />
 
                             <BigButton
-                                label={"Link"}
+                                label={i18n.t('screens.postcreate.link')}
                                 iconName="md-link" iconPosition="right"
                                 inModal={true}
                                 onPress={() => {

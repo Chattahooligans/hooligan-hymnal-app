@@ -89,12 +89,17 @@
         },
         "postcreate": {
             "title": "Create Post",
+            "linkimage": "Link Remote Image",
             "uploadimage": "Upload Image",
             "nopermission": "Permissions failed",
             "addattachment": "Add Attachment",
             "push": "Bother people with a push notification? Seriously?",
             "cancel": "Cancel",
-            "continue": "Continue"
+            "continue": "Continue",
+            "linkimageinstructions": "Paste the exact web address of an image which ends in jpg or png",
+            "pasteuri": "Paste URI",
+            "pastethumbnailuri": "Paste Thumbnail URI",
+            "link": "Link Image"
         },
         "postpreview": {
             "title": "Preview Post",
