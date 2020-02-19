@@ -19,6 +19,7 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Skin, DefaultColors } from '../config/Settings';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
+import * as mime from 'react-native-mime-types';
 import i18n from "../../i18n";
 import { createPost } from '../services/feedService';
 
@@ -106,9 +107,7 @@ class PostPreview extends React.Component {
             // ImagePicker already gives us a generated unique file name
             let splits = images[i].uri.split("/")
             imageToProcess.name = splits[splits.length - 1]
-
-            // metadata was converted to top-level props on PostCreate, remove it here
-            delete imageToProcess.metadata
+            imageToProcess.type = mime.lookup(imageToProcess.name)
 
             processedImages.push(imageToProcess)
         }
@@ -121,8 +120,12 @@ class PostPreview extends React.Component {
         loading: true
       });
 
-      const { post } = this.state;
+      let post = {};
+      Object.assign(post, this.state.post);
+      //const { post } = this.state;
       const { token } = this.props.globalData.getCurrentUser();
+
+      post.images = await this.processImages(post.images);
 
       const formData = new FormData();
       formData.append("sender", JSON.stringify(post.sender));
@@ -134,11 +137,10 @@ class PostPreview extends React.Component {
 
       if (post.images || post.images.length) {
         post.images.forEach(image => {
-          const imgUri = image.uri.split('/');
           formData.append("images", {
             uri: image.uri,
-            name: imgUri[imgUri.length - 1],
-            type: `${image.type}/${imgUri[imgUri.length - 1].split('.')[1]}`,
+            name: image.name,
+            type: image.type
           })
           formData.append("metadata", JSON.stringify({
             caption: image.metadata.caption,

@@ -29,6 +29,7 @@ import { Skin, DefaultColors } from '../config/Settings';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
 import i18n from "../../i18n";
+import * as mime from 'react-native-mime-types';
 
 import PostAttach from './PostAttach';
 import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
@@ -128,18 +129,15 @@ class PostCreate extends React.Component {
 
             if (!selectedImage.cancelled) {
                 let post = this.state.post;
-                console.log(selectedImage);
                 // selectedImage is either the string "image" or "video", depending on what was selected, not file extension
                 post.images.push({
-                    type: selectedImage.type,
                     uri: selectedImage.uri,
                     metadata: {
                         caption: "",
                         credit: ""
                     }
                 });
-                // not sure this does anything? seems to render just fine on ios
-                // uri: Platform.OS === "android" ? selectedImage.uri : selectedImage.uri.replace('file://', '')
+
                 this.setState({ post });
             }
         }
@@ -153,12 +151,6 @@ class PostCreate extends React.Component {
 
         let post = this.state.post;
         post.publishedAt = new Date().toISOString();
-        post.images.forEach((image) => {
-            // convert metadata fields to top level properties of .image[i]
-            image.credit = image.metadata.credit
-            image.caption = image.metadata.caption
-            // don't delete image.metadata yet, we might navigate back to this screen
-        })
 
         this.props.globalData.setCurrentPostDraft(post, navToPostPreview);
     };
