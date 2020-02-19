@@ -42,12 +42,6 @@ const CustomDrawer = props => (
             }
           } else {
             props.onItemPress({ route });
-            console.log("nav keys")
-            Object.keys(props).forEach((key) => {
-              if (key != 'globalData')
-                console.log("KEY " + key)
-              console.log(props[key])
-            })
           }
         }}
       />
