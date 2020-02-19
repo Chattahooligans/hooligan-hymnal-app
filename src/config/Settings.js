@@ -209,6 +209,8 @@ export const banners = [
 // Player_ShowSongs: true, false
 //      Some SGs write songs for each player
 //      Toggle a related UI element in the Roster/Player screen
+// PostCreate_UploadImageEnabled: true, false
+//      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
 // RefereeCards_Show: true, false
 //      Show yellow/red card icons in the nav drawer
 // Roster_SortPlayersBy: "default", "number", "name"
@@ -220,10 +222,11 @@ export const banners = [
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
   ChannelUI_Enabled: false,
-  Home_PostsPerPage: 20,
+  Home_PostsPerPage: 5,
+  ImageResizeDimensions: { larger: 1216, smaller: 912 },
   Juanstagram: true,
   Player_ShowSongs: true,
-  PostCreate_UploadImageEnabled: false,
+  PostCreate_UploadImageEnabled: true,
   RefereeCards_Show: true,
   Roster_SortPlayersBy: "number",
   RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"

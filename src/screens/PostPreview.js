@@ -16,7 +16,7 @@ import Post from '../components/Post';
 import NavigationOptions from '../config/NavigationOptions';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { Skin, DefaultColors } from '../config/Settings';
+import { Skin, DefaultColors, Settings } from '../config/Settings';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
 import * as mime from 'react-native-mime-types';
@@ -87,12 +87,56 @@ class PostPreview extends React.Component {
         )
     }
 
-    serializeImage = async (image) => {
+    serializeImageBase64 = async (image) => {
         let serializedImage = "";
 
         serializedImage = await FileSystem.readAsStringAsync(image, { encoding: FileSystem.EncodingType.Base64 });
 
         return serializedImage;
+    }
+
+    resizeJpeg = async (image) => {
+        console.log("ATTEMPT RESIZE " + JSON.stringify(image))
+
+        if (image.height > image.width) {
+            // portrait orientation, but maybe not 3:4 or 9:16 (we don't care)
+            if (image.height > Settings.ImageResizeDimensions.larger || image.width > Settings.ImageResizeDimensions.smaller) {
+                let manipResult = await ImageManipulator.manipulateAsync(
+                    image.uri,
+                    [{ resize: { width: Settings.ImageResizeDimensions.smaller } }],
+                    { compress: 1, format: ImageManipulator.SaveFormat.JPEG })
+
+                return manipResult.uri
+            }
+
+            return image.uri
+        }
+        else if (image.width > image.height) {
+            // landscape orientation, but maybe not 3:4 or 16:9 (we don't care)
+            if (image.width > Settings.ImageResizeDimensions.larger || image.height > Settings.ImageResizeDimensions.smaller) {
+                let manipResult = await ImageManipulator.manipulateAsync(
+                    image.uri,
+                    [{ resize: { height: Settings.ImageResizeDimensions.smaller } }],
+                    { compress: 1, format: ImageManipulator.SaveFormat.JPEG })
+
+                return manipResult.uri
+            }
+
+            return image.uri
+        }
+        else {
+            // must be a square
+            if (image.width > Settings.ImageResizeDimensions.smaller) {
+                let manipResult = await ImageManipulator.manipulateAsync(
+                    image.uri,
+                    [{ resize: { width: Settings.ImageResizeDimensions.smaller } }],
+                    { compress: 1, format: ImageManipulator.SaveFormat.JPEG })
+
+                return manipResult.uri
+            }
+
+            return image.uri
+        }
     }
 
     processImages = async (images) => {
@@ -106,7 +150,15 @@ class PostPreview extends React.Component {
                 // ImagePicker already gives us a generated unique file name
                 let splits = images[i].uri.split("/")
                 imageToProcess.name = splits[splits.length - 1]
+                // get MIME type
                 imageToProcess.type = mime.lookup(imageToProcess.name)
+
+                // resize
+                if (imageToProcess.type == "image/jpeg")
+                    imageToProcess.uri = await this.resizeJpeg(images[i])
+
+                delete imageToProcess.width
+                delete imageToProcess.height
 
                 processedImages.push(imageToProcess)
             }
@@ -140,6 +192,7 @@ class PostPreview extends React.Component {
 
         if (post.images || post.images.length) {
             post.images.forEach(image => {
+                console.log("ATTACH IMAGE " + JSON.stringify(image))
                 if (!image.hasOwnProperty("thumbnailUri")) {
                     formData.append("images", {
                         uri: image.uri,

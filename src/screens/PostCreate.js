@@ -141,6 +141,8 @@ class PostCreate extends React.Component {
                 // selectedImage is either the string "image" or "video", depending on what was selected, not file extension
                 post.images.push({
                     uri: selectedImage.uri,
+                    width: selectedImage.width,
+                    height: selectedImage.width,
                     metadata: {
                         caption: "",
                         credit: ""

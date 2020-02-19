@@ -76,7 +76,6 @@ class Post extends React.Component {
     }
 
     getScaledUri = (uri) => {
-        console.log("GET SCALED URI: " + uri)
         let host = "cloudinary.com"
         //let containerWidth = Dimensions.get("window").width - (2 * styles.container.marginHorizontal)
         //let transform = "c_scale,w_" + Math.round(containerWidth) + "/"
@@ -98,8 +97,6 @@ class Post extends React.Component {
                     scaledUri.slice(position)
                 ].join("")
             }
-
-            console.log("AFTER SCALE URI: " + scaledUri)
 
             return scaledUri
         }
