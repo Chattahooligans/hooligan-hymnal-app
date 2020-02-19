@@ -100,93 +100,108 @@ class PostPreview extends React.Component {
         let processedImages = []
 
         for (let i = 0; i < images.length; i++) {
-            let imageToProcess = images[i]
-            // this is Collin code that used to live on PostCreate.js
-            //imageToProcess.fileName = `IMG_${Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)}`
+            if (!images[i].hasOwnProperty("thumbnailUri")) {
+                let imageToProcess = images[i]
 
-            // ImagePicker already gives us a generated unique file name
-            let splits = images[i].uri.split("/")
-            imageToProcess.name = splits[splits.length - 1]
-            imageToProcess.type = mime.lookup(imageToProcess.name)
+                // ImagePicker already gives us a generated unique file name
+                let splits = images[i].uri.split("/")
+                imageToProcess.name = splits[splits.length - 1]
+                imageToProcess.type = mime.lookup(imageToProcess.name)
 
-            processedImages.push(imageToProcess)
+                processedImages.push(imageToProcess)
+            }
+            else {
+                processedImages.push(images[i])
+            }
         }
 
         return processedImages
     }
 
     _handlePressSubmitButton = async () => {
-      this.setState({
-        loading: true
-      });
-
-      let post = {};
-      Object.assign(post, this.state.post);
-      //const { post } = this.state;
-      const { token } = this.props.globalData.getCurrentUser();
-
-      post.images = await this.processImages(post.images);
-
-      const formData = new FormData();
-      formData.append("sender", JSON.stringify(post.sender));
-      formData.append("publishedAt", post.publishedAt);
-      formData.append("push", post.push ? "true" : "false");
-      formData.append("channel", post.channel);
-      formData.append("locale", post.locale);
-      formData.append("text", post.text);
-
-      if (post.images || post.images.length) {
-        post.images.forEach(image => {
-          formData.append("images", {
-            uri: image.uri,
-            name: image.name,
-            type: image.type
-          })
-          formData.append("metadata", JSON.stringify({
-            caption: image.metadata.caption,
-            credit: image.metadata.credit
-          }));
-        })
-      }
-      if (post.attachments || post.attachments.length) {
-        formData.append("attachments", JSON.stringify(post.attachments))
-      }
-
-      try {
-        const response = await createPost(formData, token)
         this.setState({
-          loading: false
+            loading: true
         });
-        this.props.globalData.setResponse(response)
-        this.props.navigation.popToTop()
-        this.props.navigation.navigate('Home')
-      } catch (ex) {
-        console.log(ex)
-      }
 
-      // debugger;
+        let post = {};
+        Object.assign(post, this.state.post);
+        //const { post } = this.state;
+        const { token } = this.props.globalData.getCurrentUser();
+
+        post.images = await this.processImages(post.images);
+
+        const formData = new FormData();
+        formData.append("sender", JSON.stringify(post.sender));
+        formData.append("publishedAt", post.publishedAt);
+        formData.append("push", post.push ? "true" : "false");
+        formData.append("channel", post.channel);
+        formData.append("locale", post.locale);
+        formData.append("text", post.text);
+
+        if (post.images || post.images.length) {
+            post.images.forEach(image => {
+                if (!image.hasOwnProperty("thumbnailUri")) {
+                    formData.append("images", {
+                        uri: image.uri,
+                        name: image.name,
+                        type: image.type
+                    })
+                    formData.append("metadata", JSON.stringify({
+                        caption: image.metadata.caption,
+                        credit: image.metadata.credit
+                    }));
+                }
+                else {
+                    formData.append("images", {
+                        uri: image.uri,
+                        thumbnailUri: image.thumbnailUri
+                    })
+                    formData.append("metadata", JSON.stringify({
+                        caption: image.metadata.caption,
+                        credit: image.metadata.credit
+                    }));
+                }
+            })
+        }
+        if (post.attachments || post.attachments.length) {
+            formData.append("attachments", JSON.stringify(post.attachments))
+        }
+
+        try {
+            const response = await createPost(formData, token)
+            this.setState({
+                loading: false
+            });
+            this.props.globalData.setResponse(response)
+            this.props.navigation.popToTop()
+            this.props.navigation.navigate('Home')
+        } catch (ex) {
+            console.log(ex)
+        }
+
+        // debugger;
 
 
-      // fetch(`https://f20e6790.ngrok.io/api/feed`, {
-      //   method: 'POST',
-      //   headers: {
-      //     'Authorization': `Bearer ${token}`
-      //   },
-      //   body: formData
-      // }).then(response => {
-      //   console.log(response)
-      //   this.setState({
-      //     loading: false
-      //   });
-      //   this.props.navigation.popToTop()
-      //   this.props.navigation.navigate('Home')
-      // }).catch(error => {
-      //   this.setState({
-      //     loading: false
-      //   })
-      //   console.log(error)
-      //   debugger;
-      // })
+        // fetch(`https://f20e6790.ngrok.io/api/feed`, {
+        //   method: 'POST',
+        //   headers: {
+        //     'Authorization': `Bearer ${token}`
+        //   },
+        //   body: formData
+        // }).then(response => {
+        //   console.log(response)
+        //   this.setState({
+        //     loading: false
+        //   });
+        //   this.props.navigation.popToTop()
+        //   this.props.navigation.navigate('Home')
+        // }).catch(error => {
+        //   this.setState({
+        //     loading: false
+        //   })
+        //   console.log(error)
+        //   debugger;
+        // })
 
         // this.setState({ loading: true })
 
