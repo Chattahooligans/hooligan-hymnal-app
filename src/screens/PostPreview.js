@@ -149,9 +149,7 @@ class PostPreview extends React.Component {
         })
       }
       if (post.attachments || post.attachments.length) {
-        post.attachments.forEach(attachment => {
-          formData.append("attachments", JSON.stringify(attachment))
-        })
+        formData.append("attachments", JSON.stringify(post.attachments))
       }
 
       try {
