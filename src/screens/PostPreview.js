@@ -103,7 +103,7 @@ class PostPreview extends React.Component {
             if (image.height > Settings.ImageResizeDimensions.larger || image.width > Settings.ImageResizeDimensions.smaller) {
                 let manipResult = await ImageManipulator.manipulateAsync(
                     image.uri,
-                    [{ resize: { width: Settings.ImageResizeDimensions.smaller } }],
+                    [{ resize: { height: Settings.ImageResizeDimensions.larger } }],
                     { compress: 1, format: ImageManipulator.SaveFormat.JPEG })
 
                 return manipResult.uri
@@ -116,7 +116,7 @@ class PostPreview extends React.Component {
             if (image.width > Settings.ImageResizeDimensions.larger || image.height > Settings.ImageResizeDimensions.smaller) {
                 let manipResult = await ImageManipulator.manipulateAsync(
                     image.uri,
-                    [{ resize: { height: Settings.ImageResizeDimensions.smaller } }],
+                    [{ resize: { width: Settings.ImageResizeDimensions.larger } }],
                     { compress: 1, format: ImageManipulator.SaveFormat.JPEG })
 
                 return manipResult.uri
