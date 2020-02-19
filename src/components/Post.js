@@ -76,21 +76,31 @@ class Post extends React.Component {
     }
 
     getScaledUri = (uri) => {
+        console.log("GET SCALED URI: " + uri)
         let host = "cloudinary.com"
-        let containerWidth = Dimensions.get("window").width - (2 * styles.container.marginHorizontal)
-        let transform = "c_scale,w_" + Math.round(containerWidth) + "/"
+        //let containerWidth = Dimensions.get("window").width - (2 * styles.container.marginHorizontal)
+        //let transform = "c_scale,w_" + Math.round(containerWidth) + "/"
+        let transformPrefix = "c_scale,"
+        let transform = transformPrefix + "w_500/"
         let spliceAfter = "/upload/"
 
         // check both, in case of weirdness
         if (uri.includes(host) && uri.includes(spliceAfter)) {
+            console.l
             let scaledUri = uri
             let position = scaledUri.indexOf(spliceAfter) + spliceAfter.length
-            scaledUri = [
-                scaledUri.slice(0, position),
-                transform,
-                scaledUri.slice(position)
-            ].join("")
-            
+
+            // weird thing where these chained together, not sure why, but this will avoid it
+            if (!scaledUri.includes(transformPrefix)) {
+                scaledUri = [
+                    scaledUri.slice(0, position),
+                    transform,
+                    scaledUri.slice(position)
+                ].join("")
+            }
+
+            console.log("AFTER SCALE URI: " + scaledUri)
+
             return scaledUri
         }
         else
@@ -152,9 +162,17 @@ class Post extends React.Component {
         if (post.images.length == 1) {
             // flow the entire image in the feed if there's only one
             post.images.forEach((image, index) => {
-                // use cloudinary transforms to only load/render a thumbnail
+
+                // large images slow performance
                 let thumbnail = { ...image }
-                thumbnail.uri = this.getScaledUri(image.uri)
+                if (thumbnail.hasOwnProperty("thumbnailUri")) {
+                    // remotely linked images may explicitly contain a thumbnail
+                    thumbnail.uri = thumbnail.thumbnailUri
+                }
+                else {
+                    // use cloudinary transforms to only load/render a thumbnail
+                    thumbnail.uri = this.getScaledUri(image.uri)
+                }
 
                 imageDisplay.push(
                     <TouchableOpacity
@@ -171,9 +189,16 @@ class Post extends React.Component {
         else if (post.images.length == 2) {
             // just thumbnails if more than one
             post.images.forEach((image, index) => {
-                // use cloudinary transforms to only load/render a thumbnail
+                // large images slow performance
                 let thumbnail = { ...image }
-                thumbnail.uri = this.getScaledUri(image.uri)
+                if (thumbnail.hasOwnProperty("thumbnailUri")) {
+                    // remotely linked images may explicitly contain a thumbnail
+                    thumbnail.uri = thumbnail.thumbnailUri
+                }
+                else {
+                    // use cloudinary transforms to only load/render a thumbnail
+                    thumbnail.uri = this.getScaledUri(image.uri)
+                }
 
                 imageDisplay.push(
                     <TouchableOpacity
@@ -195,9 +220,16 @@ class Post extends React.Component {
         }
         else {
             post.images.forEach((image, index) => {
-                // use cloudinary transforms to only load/render a thumbnail
+                // large images slow performance
                 let thumbnail = { ...image }
-                thumbnail.uri = this.getScaledUri(image.uri)
+                if (thumbnail.hasOwnProperty("thumbnailUri")) {
+                    // remotely linked images may explicitly contain a thumbnail
+                    thumbnail.uri = thumbnail.thumbnailUri
+                }
+                else {
+                    // use cloudinary transforms to only load/render a thumbnail
+                    thumbnail.uri = this.getScaledUri(image.uri)
+                }
 
                 imageDisplay.push(
                     <TouchableOpacity
