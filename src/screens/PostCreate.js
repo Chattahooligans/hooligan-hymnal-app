@@ -25,7 +25,7 @@ import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { StackNavigator } from 'react-navigation';
 import { Colors, FontSizes, Layout } from '../constants';
-import { Skin, DefaultColors } from '../config/Settings';
+import { Skin, DefaultColors, Settings } from '../config/Settings';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
 import i18n from "../../i18n";
@@ -366,7 +366,9 @@ class PostCreate extends React.Component {
                     {imagesDisplay}
                 </ScrollView>
                 {attachmentsDisplay}
-                <Button title={i18n.t('screens.postcreate.uploadimage')} color={DefaultColors.ButtonBackground} onPress={this._handlePressUploadImage} />
+                {Settings.PostCreate_UploadImageEnabled &&
+                    <Button title={i18n.t('screens.postcreate.uploadimage')} color={DefaultColors.ButtonBackground} onPress={this._handlePressUploadImage} />
+                }
                 <Button title={i18n.t('screens.postcreate.addattachment')} color={DefaultColors.ButtonBackground} onPress={this._handlePressAddAttachment} />
                 <View style={styles.toggleContainer}>
                     <RegularText style={styles.toggleLabel}>{i18n.t('screens.postcreate.push')}</RegularText>

@@ -223,6 +223,7 @@ export const Settings = {
   Home_PostsPerPage: 20,
   Juanstagram: true,
   Player_ShowSongs: true,
+  PostCreate_UploadImageEnabled: false,
   RefereeCards_Show: true,
   Roster_SortPlayersBy: "number",
   RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"
