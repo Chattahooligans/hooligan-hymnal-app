@@ -87,12 +87,14 @@ class PostCreate extends React.Component {
             images: [],
             attachments: []
         },
-        attachmentModalVisible: false
+        attachmentModalVisible: false,
+        linkImageModalVisible: false,
+        linkImageUri: "",
+        linkImageThumbnailUri: ""
     }
 
     setAttachmentModalVisible(visible) {
         this.setState({ attachmentModalVisible: visible });
-
     }
     addAttachment = (attachment) => {
         console.log("addAttachment: " + JSON.stringify(attachment))
@@ -108,6 +110,13 @@ class PostCreate extends React.Component {
 
     _handlePressAddAttachment = () => {
         this.setAttachmentModalVisible(true);
+    }
+
+    setLinkImageModalVisible(visible) {
+        this.setState({ linkImageModalVisible: visible });
+    }
+    _handlePressLinkImage = () => {
+        this.setLinkImageModalVisible(true);
     }
 
     _handlePressUploadImage = async () => {
@@ -366,6 +375,7 @@ class PostCreate extends React.Component {
                     {imagesDisplay}
                 </ScrollView>
                 {attachmentsDisplay}
+                <Button title={"Link Remote Image"} color={DefaultColors.ButtonBackground} onPress={this._handlePressLinkImage} />
                 {Settings.PostCreate_UploadImageEnabled &&
                     <Button title={i18n.t('screens.postcreate.uploadimage')} color={DefaultColors.ButtonBackground} onPress={this._handlePressUploadImage} />
                 }
@@ -383,28 +393,74 @@ class PostCreate extends React.Component {
                     />
                 </View>
                 <BigButton buttonStyle={{ marginBottom: 10 }} label={i18n.t('screens.postcreate.continue')} onPress={this._handlePressContinueButton} />
+
                 <Modal
                     style={{ flex: 1 }}
                     animationType="slide"
                     transparent={false}
-                    visible={this.state.attachmentModalVisible}
-                    onRequestClose={() => {
-                        //alert('Modal has been closed.');
-                    }}>
-                    <View style={{ marginTop: 22, flex: 1 }}>
-                        <View style={{ flex: 1 }}>
-                            <AttachmentTypesNavigator screenProps={{
-                                onAttachmentComplete: this.onAttachmentComplete
-                            }} />
+                    visible={this.state.linkImageModalVisible}>
+                    <View style={{ flex: 1 }}>
+                        <View style={{ flex: 1, padding: 10 }}>
+                            <RegularText style={styles.linkImageTitle}>{"Paste the exact web address of an image which ends in jpg or png"}</RegularText>
+                            <BoldText style={styles.linkImageTitle}>{"Paste URI"}</BoldText>
+                            <TextInput
+                                style={styles.linkImageTextInput}
+                                placeholder={"Paste URI"}
+                                value={this.state.linkImageUri}
+                                onChangeText={(text) => {
+                                    this.setState({ linkImageUri: text })
+                                }} />
 
-                            <Button
-                                title={i18n.t('screens.postcreate.cancel')}
-                                color={DefaultColors.ButtonBackground}
-                                onPress={() => this.setAttachmentModalVisible(false)} />
+                            <BoldText style={styles.linkImageTitle}>{"Paste Thumbnail URI"}</BoldText>
+                            <TextInput
+                                style={styles.linkImageTextInput}
+                                placeholder={"Paste URI"}
+                                value={this.state.linkImageThumbnailUri}
+                                onChangeText={(text) => {
+                                    this.setState({ linkImageThumbnailUri: text })
+                                }} />
+
+                            <BigButton
+                                label={"Link"}
+                                iconName="md-link" iconPosition="right"
+                                inModal={true}
+                                onPress={() => {
+                                    let post = this.state.post
+                                    post.images.push({
+                                        uri: this.state.linkImageUri,
+                                        thumbnailUri: this.state.linkImageThumbnailUri,
+                                        metadata: {
+                                            caption: "",
+                                            credit: ""
+                                        }
+                                    })
+                                    this.setState({ linkImageModalVisible: false, post, linkImageUri: "", linkImageThumbnailUri: "" })
+                                }} />
                         </View>
+                        <Button
+                            title={i18n.t('screens.postcreate.cancel')}
+                            color={DefaultColors.ButtonBackground}
+                            onPress={() => this.setLinkImageModalVisible(false)} />
                     </View>
                 </Modal>
-            </ScrollView>
+
+                <Modal
+                    style={{ flex: 1 }}
+                    animationType="slide"
+                    transparent={false}
+                    visible={this.state.attachmentModalVisible}>
+                    <View style={{ flex: 1 }}>
+                        <AttachmentTypesNavigator screenProps={{
+                            onAttachmentComplete: this.onAttachmentComplete
+                        }} />
+
+                        <Button
+                            title={i18n.t('screens.postcreate.cancel')}
+                            color={DefaultColors.ButtonBackground}
+                            onPress={() => this.setAttachmentModalVisible(false)} />
+                    </View>
+                </Modal>
+            </ScrollView >
         );
     }
 }
@@ -430,6 +486,12 @@ const styles = StyleSheet.create({
     toggleLabel: {
         flex: 1,
         textAlign: i18n.getRTLTextAlign()
+    },
+    linkImageTitle: {
+        fontSize: 18
+    },
+    linkImageTextInput: {
+        height: 50
     }
 });
 
