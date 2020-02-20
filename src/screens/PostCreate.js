@@ -142,7 +142,7 @@ class PostCreate extends React.Component {
                 post.images.push({
                     uri: selectedImage.uri,
                     width: selectedImage.width,
-                    height: selectedImage.width,
+                    height: selectedImage.height,
                     metadata: {
                         caption: "",
                         credit: ""
