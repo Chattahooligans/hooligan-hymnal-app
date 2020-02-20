@@ -104,7 +104,7 @@ class PostPreview extends React.Component {
                 let manipResult = await ImageManipulator.manipulateAsync(
                     image.uri,
                     [{ resize: { height: Settings.ImageResizeDimensions.larger } }],
-                    { compress: 1, format: ImageManipulator.SaveFormat.JPEG })
+                    { compress: Settings.ImageResizeQuality, format: ImageManipulator.SaveFormat.JPEG })
 
                 return manipResult.uri
             }
@@ -117,7 +117,7 @@ class PostPreview extends React.Component {
                 let manipResult = await ImageManipulator.manipulateAsync(
                     image.uri,
                     [{ resize: { width: Settings.ImageResizeDimensions.larger } }],
-                    { compress: 1, format: ImageManipulator.SaveFormat.JPEG })
+                    { compress: Settings.ImageResizeQuality, format: ImageManipulator.SaveFormat.JPEG })
 
                 return manipResult.uri
             }
@@ -130,7 +130,7 @@ class PostPreview extends React.Component {
                 let manipResult = await ImageManipulator.manipulateAsync(
                     image.uri,
                     [{ resize: { width: Settings.ImageResizeDimensions.smaller } }],
-                    { compress: 1, format: ImageManipulator.SaveFormat.JPEG })
+                    { compress: Settings.ImageResizeQuality, format: ImageManipulator.SaveFormat.JPEG })
 
                 return manipResult.uri
             }

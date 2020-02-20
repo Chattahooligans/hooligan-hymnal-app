@@ -223,6 +223,7 @@ export const Settings = {
   CapoHome_GKNicknameEnabled: true,
   ChannelUI_Enabled: false,
   Home_PostsPerPage: 5,
+  ImageResizeQuality: 1,
   ImageResizeDimensions: { larger: 1216, smaller: 912 },
   Juanstagram: true,
   Player_ShowSongs: true,
