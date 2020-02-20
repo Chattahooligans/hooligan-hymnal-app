@@ -138,7 +138,7 @@ class Player extends React.Component {
     let playerImage = Skin.Player_DefaultImage;
     if (player.defaultImage)
       playerImage = { uri: player.defaultImage };
-    if (player.images.length > 0)
+    if (player.images && player.images.length > 0)
       playerImage = { uri: player.images[0] };
 
     if (this.state.playerSongs.length === 0) {
