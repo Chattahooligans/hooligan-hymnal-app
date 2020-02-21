@@ -144,7 +144,7 @@ class PostPreview extends React.Component {
         let processedImages = []
 
         for (let i = 0; i < images.length; i++) {
-            if (!images[i].hasOwnProperty("thumbnailUri")) {
+            if (!images[i].hasOwnProperty("remote")) {
                 let imageToProcess = images[i]
 
                 // ImagePicker already gives us a generated unique file name
@@ -193,7 +193,7 @@ class PostPreview extends React.Component {
         if (post.images || post.images.length) {
             post.images.forEach(image => {
                 console.log("ATTACH IMAGE " + JSON.stringify(image))
-                if (!image.hasOwnProperty("thumbnailUri")) {
+                if (!image.hasOwnProperty("remote")) {
                     formData.append("images", {
                         uri: image.uri,
                         name: image.name,
@@ -206,7 +206,7 @@ class PostPreview extends React.Component {
                 }
                 else {
                     formData.append("images", {
-                        uri: image.uri,
+                        remoteUri: image.uri,
                         thumbnailUri: image.thumbnailUri
                     })
                     formData.append("metadata", JSON.stringify({

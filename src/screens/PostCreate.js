@@ -429,6 +429,7 @@ class PostCreate extends React.Component {
                                 onPress={() => {
                                     let post = this.state.post
                                     post.images.push({
+                                        remote: true,
                                         uri: this.state.linkImageUri,
                                         thumbnailUri: this.state.linkImageThumbnailUri,
                                         metadata: {
