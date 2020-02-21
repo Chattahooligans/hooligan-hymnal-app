@@ -106,9 +106,8 @@ class Post extends React.Component {
 
     render() {
         let post = this.state.post;
-        // turn back on when learning 2 Images
-        //console.log("Rendering Post:\n" + JSON.stringify(post));
         let nav = this.props.navigation;
+        //console.log("Rendering Post:\n" + JSON.stringify(post));
 
         let channelImage = Skin.Post_DefaultChannelThumbnail;
         if (post.channelData.avatarUrl)
@@ -162,7 +161,7 @@ class Post extends React.Component {
 
                 // large images slow performance
                 let thumbnail = { ...image }
-                if (thumbnail.hasOwnProperty("thumbnailUri")) {
+                if (thumbnail.hasOwnProperty("thumbnailUri") && (thumbnail.thumbnailUri != "")) {
                     // remotely linked images may explicitly contain a thumbnail
                     thumbnail.uri = thumbnail.thumbnailUri
                 }
