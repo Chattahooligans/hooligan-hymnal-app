@@ -192,7 +192,6 @@ class PostPreview extends React.Component {
 
         if (post.images || post.images.length) {
             post.images.forEach(image => {
-                console.log("ATTACH IMAGE " + JSON.stringify(image))
                 if (!image.hasOwnProperty("remote")) {
                     formData.append("images", {
                         uri: image.uri,
@@ -221,6 +220,8 @@ class PostPreview extends React.Component {
         }
 
         try {
+            console.log("SEND THIS TO SERVER")
+            console.log(formData)
             const response = await createPost(formData, token)
             this.setState({
                 loading: false
