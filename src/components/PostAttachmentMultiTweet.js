@@ -28,7 +28,7 @@ export default class PostAttachmentMultiTweet extends React.Component {
                                     name={'logo-twitter'}
                                     size={16}
                                     style={{
-                                        color: Palette.Rouge,
+                                        color: Palette.Navy,
                                         backgroundColor: 'transparent'
                                     }} />
                                 <RegularText style={styles.tweetAllText}>{i18n.t('components.postattachmentmultitweet.tweettheplayers')}</RegularText>
