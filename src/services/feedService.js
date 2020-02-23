@@ -24,8 +24,8 @@ export const createPost = async (post, token) => {
   }).then((response) => {
     return response.data;
   }).catch(err => {
-    debugger;
     console.error(err)
+    debugger;
   });
 }
 
