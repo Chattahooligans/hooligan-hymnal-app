@@ -32,6 +32,7 @@ import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
 import moment from 'moment';
 import i18n from "../../i18n";
+import PostAttachmentMultiTweet from './PostAttachmentMultiTweet';
 
 const { SlideInMenu } = renderers;
 
@@ -112,6 +113,7 @@ class Post extends React.Component {
         }
 
         let attachmentDisplay = [];
+        let tweetablePlayers = [];
         post.attachments.forEach((attachment, index) => {
             switch (attachment.attachmentType.toLowerCase()) {
                 case "player":
@@ -119,6 +121,9 @@ class Post extends React.Component {
                     let playerDisplay = <PostAttachmentPlayer key={index} player={player}
                         onPress={() => { this.props.navigation.navigate("Player", { player }) }} />
                     attachmentDisplay.push(playerDisplay);
+                    if(player.hasOwnProperty("twitter") && player.twitter != "") {
+                        tweetablePlayers.push(player);
+                    }
                     break;
                 case "song":
                     let song;
@@ -146,6 +151,10 @@ class Post extends React.Component {
                     attachmentDisplay.push(<RegularText key={index}>Can't render attachment {JSON.stringify(attachment)}</RegularText>);
             }
         });
+
+        if(tweetablePlayers.length > 1) {
+            attachmentDisplay.push(<PostAttachmentMultiTweet key={99} players={tweetablePlayers} />)
+        }
 
         let menuOptions = [];
         let menuDisplay;
