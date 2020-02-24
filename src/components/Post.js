@@ -153,7 +153,7 @@ class Post extends React.Component {
         });
 
         if(tweetablePlayers.length > 1) {
-            attachmentDisplay.push(<PostAttachmentMultiTweet key={99} players={tweetablePlayers} />)
+            attachmentDisplay.push(<PostAttachmentMultiTweet key={post.attachments.length} players={tweetablePlayers} />)
         }
 
         let menuOptions = [];
