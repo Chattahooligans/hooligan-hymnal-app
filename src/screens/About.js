@@ -9,7 +9,7 @@ import {
 import NavigationOptions from '../config/NavigationOptions';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
 import { FontSizes } from '../constants';
-import { BoldText, RegularText, MediumText } from '../components/StyledText';
+import { BoldText, MediumText, RegularTextMonospace } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -134,14 +134,14 @@ class About extends React.Component {
           <View style={{ height: 20 }} />
           <ScrollView style={{ flex: 1 }}>
             <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.debug')}</MediumText>
-          <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>width: {Dimensions.get("window").width}, height: {Dimensions.get("window").height}</RegularText>
-            <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{this.state.pushToken}</RegularText>
-            <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
+            <RegularTextMonospace selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>width: {Dimensions.get("window").width}, height: {Dimensions.get("window").height}</RegularTextMonospace>
+            <RegularTextMonospace selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{this.state.pushToken}</RegularTextMonospace>
+            <RegularTextMonospace selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
               {
                 this.state.response ?
                   JSON.stringify(this.state.response) : ''
               }
-            </RegularText>
+            </RegularTextMonospace>
           </ScrollView>
         </ScrollView>
       </View>
