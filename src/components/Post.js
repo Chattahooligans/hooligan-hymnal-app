@@ -187,7 +187,7 @@ class Post extends React.Component {
             post.images.forEach((image, index) => {
                 // large images slow performance
                 let thumbnail = { ...image }
-                if (thumbnail.hasOwnProperty("thumbnailUri")) {
+                if (thumbnail.hasOwnProperty("thumbnailUri") && (thumbnail.thumbnailUri != "")) {
                     // remotely linked images may explicitly contain a thumbnail
                     thumbnail.uri = thumbnail.thumbnailUri
                 }
@@ -218,7 +218,7 @@ class Post extends React.Component {
             post.images.forEach((image, index) => {
                 // large images slow performance
                 let thumbnail = { ...image }
-                if (thumbnail.hasOwnProperty("thumbnailUri")) {
+                if (thumbnail.hasOwnProperty("thumbnailUri") && (thumbnail.thumbnailUri != "")) {
                     // remotely linked images may explicitly contain a thumbnail
                     thumbnail.uri = thumbnail.thumbnailUri
                 }
