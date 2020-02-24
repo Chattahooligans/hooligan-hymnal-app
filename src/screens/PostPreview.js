@@ -189,6 +189,35 @@ class PostPreview extends React.Component {
         formData.append("locale", post.locale);
         formData.append("text", post.text);
 
+        post.images.forEach((image, index) => {
+            if (image.hasOwnProperty("remote")) {
+                formData.append("remoteImages", JSON.stringify({
+                    index: index,
+                    uri: image.uri,
+                    thumbnailUri: image.thumbnailUri
+                }));
+                formData.append("remoteMetadata", JSON.stringify({
+                    index: index,
+                    caption: image.metadata.caption,
+                    credit: image.metadata.credit
+                }));
+            }
+            else {
+                formData.append("images", {
+                    index: index,
+                    uri: image.uri,
+                    name: image.name,
+                    type: image.type
+                });
+                formData.append("metadata", JSON.stringify({
+                    index: index,
+                    caption: image.metadata.caption,
+                    credit: image.metadata.credit
+                }));
+            }
+        })
+
+        /*
         if (post.images || post.images.length) {
           const localImages = post.images.filter(i => !i.hasOwnProperty("remote"))
           const remoteImages = post.images.filter(i => i.hasOwnProperty("remote"))
@@ -214,6 +243,7 @@ class PostPreview extends React.Component {
             }));
           });
         }
+        */
         if (post.attachments || post.attachments.length) {
             formData.append("attachments", JSON.stringify(post.attachments))
         }
