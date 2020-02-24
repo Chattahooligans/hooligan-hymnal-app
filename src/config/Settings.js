@@ -48,6 +48,7 @@ export const BAD_PODCAST_423_URL = 'https://anchor.fm/423soccerpod';
 export const BAD_PODCAST_423_ICON = require('../../assets/423Soccer.png');
 export const BAD_PODCAST_109_URL = 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964';
 export const BAD_PODCAST_109_ICON = require('../../assets/section109pod.png');
+export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
 
 
 import i18n from "../../i18n"
@@ -179,6 +180,7 @@ export const socialButtons = [
     items: [
       { image: BAD_PODCAST_423_ICON, url: BAD_PODCAST_423_URL, tintToSkin: false },
       { image: BAD_PODCAST_109_ICON, url: BAD_PODCAST_109_URL, tintToSkin: false },
+      { icon: 'logo-reddit', url: REDDIT_CHATTANOOGAFC_URL },
     ]
   }
 ]
