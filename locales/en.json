@@ -228,6 +228,9 @@
             "clear": "Clear Metadata",
             "cancel": "Cancel"
         },
+        "postattachmentmultitweet": {
+            "tweettheplayers": "Tweet them all!"
+        },
         "songview": {
             "copiedtitle": "Copied title to clipboard",
             "copiedreference": "Copied reference to clipboard",
