@@ -439,6 +439,7 @@ class PostCreate extends React.Component {
                                     })
                                     this.setState({ linkImageModalVisible: false, post, linkImageUri: "", linkImageThumbnailUri: "" })
                                 }} />
+                            <RegularText style={styles.linkImageTitle}>{i18n.t('screens.postcreate.linkimagewarning')}</RegularText>
                         </View>
                         <Button
                             title={i18n.t('screens.postcreate.cancel')}

@@ -96,7 +96,8 @@
             "push": "Bother people with a push notification? Seriously?",
             "cancel": "Cancel",
             "continue": "Continue",
-            "linkimageinstructions": "Paste the exact web address of an image which ends in jpg or png",
+            "linkimageinstructions": "Paste the exact web address of an image",
+            "linkimagewarning": "WARNING:\n- Performance can slow down with large images. Consider linking to a smaller version as a thumbnail\n- Also, no validation or error checking is done on remotely linked images. Admins should proceed only with care and caution.",
             "pasteuri": "Paste URI",
             "pastethumbnailuri": "Paste Thumbnail URI",
             "link": "Link Image"
