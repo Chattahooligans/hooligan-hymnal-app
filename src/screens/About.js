@@ -134,7 +134,7 @@ class About extends React.Component {
           <View style={{ height: 20 }} />
           <ScrollView style={{ flex: 1 }}>
             <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.debug')}</MediumText>
-            <RegularTextMonospace selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>width: {Dimensions.get("window").width}, height: {Dimensions.get("window").height}</RegularTextMonospace>
+            <RegularTextMonospace selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>width: {Dimensions.get("screen").width}, height: {Dimensions.get("screen").height}</RegularTextMonospace>
             <RegularTextMonospace selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{this.state.pushToken}</RegularTextMonospace>
             <RegularTextMonospace selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
               {
