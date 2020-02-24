@@ -16,17 +16,18 @@ export const getFeedForChannel = (channelId) =>
 export const getMoreFeedForChannel = (channelId, publishedBefore) =>
   API.get('/api/feed/channel/' + channelId + '/?publishedBefore=' + publishedBefore + '&limit=' + Settings.Home_PostsPerPage).then(response => response.data);
 
-export const createPost = (post, token) =>
-  API.post(
-    '/api/feed',
-    post,
-    {
-      headers: {
-        'Authorization': "Bearer " + token
-      }
+export const createPost = async (post, token) => {
+  await API.post('/api/feed', post, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
     }
-  )
-    .then(response => response.data);
+  }).then((response) => {
+    return response.data;
+  }).catch(err => {
+    console.error(err)
+    debugger;
+  });
+}
 
 export const hidePost = (postId, token) =>
   API.delete(

@@ -7,15 +7,17 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { DefaultColors } from '../config/Settings';
+import { RegularText } from './StyledText';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import PostAttachmentGkNickname from './PostAttachmentGkNickname';
+import PostAttachmentJuanstagram from './PostAttachmentJuanstagram';
 import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
 import i18n from "../../i18n";
 
-class PostAttachmentDeleteWrapper extends React.Component {
+class PostCreateAttachmentWrapper extends React.Component {
     render() {
         let attachment = this.props.attachment;
         let attachmentDisplay;
@@ -49,6 +51,11 @@ class PostAttachmentDeleteWrapper extends React.Component {
                     onPress={() => { this.props.navigation.navigate("TwitterList", { roster }) }} />
                 attachmentDisplay = massTweetDisplay;
                 break;
+            case "juanstagram":
+                let juanstagramPost = attachment.data.juanstagramPost;
+                let juanstagramDisplay = <PostAttachmentJuanstagram juanstagramPost={juanstagramPost} />
+                attachmentDisplay = juanstagramDisplay;
+                break;
             default:
                 attachmentDisplay = <RegularText>Can't render attachment {JSON.stringify(attachment)}</RegularText>;
         }
@@ -60,14 +67,15 @@ class PostAttachmentDeleteWrapper extends React.Component {
                     {attachmentDisplay}
                 </View>
                 <TouchableOpacity
+                    style={styles.delete}
                     onPress={() => {
                         if (this.props.onPressDelete)
                             this.props.onPressDelete(this.props.attachment)
                     }}>
                     <Ionicons
                         name="md-close"
-                        size={50}
-                        style={{ color: DefaultColors.Primary, backgroundColor: 'transparent', margin: 5 }}
+                        size={25}
+                        style={{ color: DefaultColors.Primary, backgroundColor: 'transparent' }}
                     />
                 </TouchableOpacity>
             </View>
@@ -75,4 +83,20 @@ class PostAttachmentDeleteWrapper extends React.Component {
     }
 }
 
-export default withUnstated(PostAttachmentDeleteWrapper, { globalData: GlobalDataContainer });
+const styles = StyleSheet.create({
+    delete: {
+        position: "absolute",
+        top: 2,
+        right: 2,
+        backgroundColor: DefaultColors.Secondary,
+        width: 25,
+        height: 25,
+        borderColor: DefaultColors.Primary,
+        borderWidth: 1,
+        borderRadius: 50,
+        alignItems: "center",
+        justifyContent: "center"
+    }
+});
+
+export default withUnstated(PostCreateAttachmentWrapper, { globalData: GlobalDataContainer });

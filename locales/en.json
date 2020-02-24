@@ -89,10 +89,17 @@
         },
         "postcreate": {
             "title": "Create Post",
+            "linkimage": "Link Remote Image",
+            "uploadimage": "Upload Image",
+            "nopermission": "Permissions failed",
             "addattachment": "Add Attachment",
             "push": "Bother people with a push notification? Seriously?",
             "cancel": "Cancel",
-            "continue": "Continue"
+            "continue": "Continue",
+            "linkimageinstructions": "Paste the exact web address of an image which ends in jpg or png",
+            "pasteuri": "Paste URI",
+            "pastethumbnailuri": "Paste Thumbnail URI",
+            "link": "Link Image"
         },
         "postpreview": {
             "title": "Preview Post",
@@ -192,6 +199,14 @@
         "gkNickname": {
             "gonnascore": "We're gonna score on you, "
         },
+        "imageviewer": {
+            "savetolocal": "Save to Device",
+            "cancel": "Cancel"
+        },
+        "imageviewerfooter": {
+            "captionprefix": "",
+            "creditprefix": "📷: "
+        },
         "post": {
             "copied": "Copied",
             "hidealerttitle": "Hide Post",
@@ -204,6 +219,14 @@
         },
         "postattachmentmasstweet": {
             "tweettheplayers": "Tweet the Players"
+        },
+        "postcreateimagewrapper": {
+            "metadatatitle": "Image Metadata",
+            "credit": "Image Credit",
+            "caption": "Caption",
+            "save": "Save Metadata",
+            "clear": "Clear Metadata",
+            "cancel": "Cancel"
         },
         "postattachmentmultitweet": {
             "tweettheplayers": "Tweet them all!"

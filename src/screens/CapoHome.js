@@ -33,12 +33,9 @@ class CapoHome extends React.Component {
       )
     }
 
-    console.log("Logged in as " + JSON.stringify(this.props.globalData.state.currentUser))
     let permissions = []
     Object.keys(this.props.globalData.state.currentUser.user).forEach((key) => {
-      console.log("key " + key)
       if (key.toLowerCase().includes("allowed")) {
-        console.log("pushing")
         permissions.push(key + ":" + this.props.globalData.state.currentUser.user[key])
       }
     })

@@ -55,6 +55,14 @@ class PostAttach extends React.Component {
                             })
                         }} />
                 }
+                {Settings.Juanstagram &&
+                    <BigButton label={"Juanstagram"} iconName="md-heart-empty" inModal={true}
+                        onPress={() => {
+                            this.props.navigation.navigate("PostAttachmentSelectJuanstagram", {
+                                onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                            })
+                        }} />
+                }
 
                 <BigButton
                     disabled={true}

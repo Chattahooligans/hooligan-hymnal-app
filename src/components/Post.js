@@ -2,9 +2,12 @@ import React from 'react';
 import {
     Alert,
     Clipboard,
+    Dimensions,
     Image,
     Linking,
+    Modal,
     Platform,
+    ScrollView,
     StyleSheet,
     TouchableOpacity,
     View
@@ -23,13 +26,17 @@ import ParsedText from 'react-native-parsed-text';
 import { Ionicons } from '@expo/vector-icons';
 // import Toast from 'react-native-simple-toast';
 import Toast from "react-native-tiny-toast";
-import { Skin, Palette,Settings } from '../config/Settings';
+import { Skin, Palette, Settings } from '../config/Settings';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import PostAttachmentGkNickname from './PostAttachmentGkNickname';
+import PostAttachmentJuanstagram from './PostAttachmentJuanstagram';
 import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
+import PostImageWrapper from './PostImageWrapper';
+import ImageViewer from 'react-native-image-zoom-viewer';
+import ImageViewerFooter from './ImageViewerFooter';
 import moment from 'moment';
 import i18n from "../../i18n";
 import PostAttachmentMultiTweet from './PostAttachmentMultiTweet';
@@ -44,7 +51,10 @@ class Post extends React.Component {
             text: "",
             images: [],
             attachments: []
-        }
+        },
+        imageViewerVisible: false,
+        imageViewerIndex: 0,
+        imageViewerFooterVisible: true
     }
 
     componentDidMount = () => this.setData();
@@ -66,11 +76,39 @@ class Post extends React.Component {
             this.props.globalData.hidePost(this.props.post._id)
     }
 
+    getScaledUri = (uri) => {
+        let host = "cloudinary.com"
+        //let containerWidth = Dimensions.get("window").width - (2 * styles.container.marginHorizontal)
+        //let transform = "c_scale,w_" + Math.round(containerWidth) + "/"
+        let transformPrefix = "c_scale,"
+        let transform = transformPrefix + "w_500/"
+        let spliceAfter = "/upload/"
+
+        // check both, in case of weirdness
+        if (uri.includes(host) && uri.includes(spliceAfter)) {
+            console.l
+            let scaledUri = uri
+            let position = scaledUri.indexOf(spliceAfter) + spliceAfter.length
+
+            // weird thing where these chained together, not sure why, but this will avoid it
+            if (!scaledUri.includes(transformPrefix)) {
+                scaledUri = [
+                    scaledUri.slice(0, position),
+                    transform,
+                    scaledUri.slice(position)
+                ].join("")
+            }
+
+            return scaledUri
+        }
+        else
+            return uri
+    }
+
     render() {
         let post = this.state.post;
-        // turn back on when learning 2 Images
-        //console.log("Rendering Post:\n" + JSON.stringify(post));
         let nav = this.props.navigation;
+        //console.log("Rendering Post:\n" + JSON.stringify(post));
 
         let channelImage = Skin.Post_DefaultChannelThumbnail;
         if (post.channelData.avatarUrl)
@@ -112,6 +150,103 @@ class Post extends React.Component {
                 </ParsedText>
         }
 
+        let containerWidth = Dimensions.get("window").width - (2 * styles.container.marginHorizontal)
+        let imageDisplay = [];
+        let imageViewerData = [];
+        post.images.forEach((image, index) => {
+            imageViewerData.push({ url: image.uri })
+        })
+        if (post.images.length == 1) {
+            // flow the entire image in the feed if there's only one
+            post.images.forEach((image, index) => {
+
+                // large images slow performance
+                let thumbnail = { ...image }
+                if (thumbnail.hasOwnProperty("thumbnailUri") && (thumbnail.thumbnailUri != "")) {
+                    // remotely linked images may explicitly contain a thumbnail
+                    thumbnail.uri = thumbnail.thumbnailUri
+                }
+                else {
+                    // use cloudinary transforms to only load/render a thumbnail
+                    thumbnail.uri = this.getScaledUri(image.uri)
+                }
+
+                imageDisplay.push(
+                    <TouchableOpacity
+                        key={post._id + "-touchable-image-" + index}
+                        activeOpacity={1}
+                        onPress={() => { this.setState({ imageViewerVisible: true, imageViewerFooterVisible: true, imageViewerIndex: index }) }}>
+                        <PostImageWrapper containerWidth={containerWidth}
+                            key={post._id + "-image-" + index}
+                            source={thumbnail} />
+                    </TouchableOpacity>
+                )
+            })
+        }
+        else if (post.images.length == 2) {
+            // just thumbnails if more than one
+            post.images.forEach((image, index) => {
+                // large images slow performance
+                let thumbnail = { ...image }
+                if (thumbnail.hasOwnProperty("thumbnailUri") && (thumbnail.thumbnailUri != "")) {
+                    // remotely linked images may explicitly contain a thumbnail
+                    thumbnail.uri = thumbnail.thumbnailUri
+                }
+                else {
+                    // use cloudinary transforms to only load/render a thumbnail
+                    thumbnail.uri = this.getScaledUri(image.uri)
+                }
+
+                imageDisplay.push(
+                    <TouchableOpacity
+                        key={post._id + "-touchable-image-" + index}
+                        activeOpacity={1}
+                        onPress={() => { this.setState({ imageViewerVisible: true, imageViewerFooterVisible: true, imageViewerIndex: index }) }}>
+                        <Image
+                            key={post._id + "-image-" + index}
+                            style={{
+                                width: containerWidth / 2, height: containerWidth / 2,
+                                borderWidth: 2, borderRadius: 10, borderColor: 'white',
+                                overflow: "hidden"
+                            }}
+                            source={thumbnail}
+                            resizeMode="cover" />
+                    </TouchableOpacity>
+                )
+            })
+        }
+        else {
+            post.images.forEach((image, index) => {
+                // large images slow performance
+                let thumbnail = { ...image }
+                if (thumbnail.hasOwnProperty("thumbnailUri") && (thumbnail.thumbnailUri != "")) {
+                    // remotely linked images may explicitly contain a thumbnail
+                    thumbnail.uri = thumbnail.thumbnailUri
+                }
+                else {
+                    // use cloudinary transforms to only load/render a thumbnail
+                    thumbnail.uri = this.getScaledUri(image.uri)
+                }
+
+                imageDisplay.push(
+                    <TouchableOpacity
+                        key={post._id + "-touchable-image-" + index}
+                        activeOpacity={1}
+                        onPress={() => { this.setState({ imageViewerVisible: true, imageViewerFooterVisible: true, imageViewerIndex: index }) }}>
+                        <Image
+                            key={post._id + "-image-" + index}
+                            style={{
+                                width: containerWidth / 2.5, height: containerWidth / 2.5,
+                                borderWidth: 2, borderRadius: 10, borderColor: 'white',
+                                overflow: "hidden"
+                            }}
+                            source={thumbnail}
+                            resizeMode="cover" />
+                    </TouchableOpacity>
+                )
+            })
+        }
+
         let attachmentDisplay = [];
         let tweetablePlayers = [];
         post.attachments.forEach((attachment, index) => {
@@ -147,6 +282,11 @@ class Post extends React.Component {
                         onPress={() => { this.props.navigation.navigate("TwitterList", { roster }) }} />
                     attachmentDisplay.push(massTweetDisplay);
                     break;
+                case "juanstagram":
+                    let juanstagramPost = attachment.data.juanstagramPost;
+                    let juanstagramDisplay = <PostAttachmentJuanstagram juanstagramPost={juanstagramPost} />
+                    attachmentDisplay.push(juanstagramDisplay);
+                    break;
                 default:
                     attachmentDisplay.push(<RegularText key={index}>Can't render attachment {JSON.stringify(attachment)}</RegularText>);
             }
@@ -168,7 +308,7 @@ class Post extends React.Component {
                 /*
                 if (channelPermissions.canEdit)
                     menuOptions.push(<MenuOption value={"edit"} text="Edit Post" />)
-                if (channelPermissions.canDelete) 
+                if (channelPermissions.canDelete)
                     menuOptions.push(<MenuOption value={"delete"} text="Hide Post" />)
                 */
                 if (channelPermissions.canDelete) {
@@ -266,13 +406,50 @@ class Post extends React.Component {
                 </View>
                 {textDisplay}
 
-                {/*
-                <RegularText>Images {JSON.stringify(post.images)}</RegularText>
-                */}
+                {imageDisplay.length === 1 &&
+                    <View style={styles.imagesContainer}>
+                        {imageDisplay}
+                    </View>
+                }
+                {imageDisplay.length === 2 &&
+                    <View style={[{ flexDirection: i18n.getFlexDirection() }, styles.imagesContainer]}>
+                        {imageDisplay}
+                    </View>
+                }
+                {imageDisplay.length > 2 &&
+                    <ScrollView style={[{ flexDirection: i18n.getFlexDirection() }, styles.imagesContainer]} horizontal={true}>
+                        {imageDisplay}
+                    </ScrollView>
+                }
+
                 {attachmentDisplay.length > 0 &&
                     <View style={styles.attachmentsContainer}>
                         {attachmentDisplay}
                     </View>
+                }
+
+                {imageViewerData.length > 0 &&
+                    <Modal
+                        visible={this.state.imageViewerVisible}
+                        transparent={true}
+                        onRequestClose={() => this.setState({ imageViewerVisible: false })}>
+                        <ImageViewer
+                            doubleClickInterval={500}
+                            renderIndicator={() => { }}
+                            enablePreload={true}
+                            imageUrls={imageViewerData}
+                            index={this.state.imageViewerIndex}
+                            enableSwipeDown={true}
+                            onSwipeDown={() => { this.setState({ imageViewerVisible: false }) }}
+                            menuContext={{ saveToLocal: i18n.t('components.imageviewer.savetolocal'), cancel: i18n.t('components.imageviewer.cancel') }}
+                            onClick={() => {
+                                let imageViewerFooterVisible = this.state.imageViewerFooterVisible
+                                imageViewerFooterVisible = !imageViewerFooterVisible
+                                this.setState({ imageViewerFooterVisible })
+                            }}
+                            renderFooter={(index) => (<ImageViewerFooter images={post.images} index={index} visible={this.state.imageViewerFooterVisible} />)}
+                        />
+                    </Modal>
                 }
             </View>
         )
@@ -338,7 +515,7 @@ const styles = StyleSheet.create({
         writingDirection: i18n.getWritingDirection()
     },
     imagesContainer: {
-
+        backgroundColor: '#fff'
     },
     attachmentsContainer: {
 

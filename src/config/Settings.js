@@ -7,11 +7,11 @@
 
 // TODO: Build home screen dynamically based on this websites object
 
-// HEY! Don't include a trailing slash / on this url. 
+// HEY! Don't include a trailing slash / on this url.
 // If you do, you're gonna have a bad time because your serer calls will not work
-export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
+// export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
 // dev branch
-//export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-dev.herokuapp.com'
+export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-dev.herokuapp.com'
 
 // URLs
 export const TWITTER_URL = 'https://twitter.com/chattahooligan';
@@ -80,11 +80,11 @@ export const DefaultColors = {
   Secondary: Palette.Sky
 }
 
-// NOTE: Heebo is a Chattahooligan-brand font. 
-/* 
-  You can use your own fonts in Hooligan Hymnal by including files in /assets/ 
+// NOTE: Heebo is a Chattahooligan-brand font.
+/*
+  You can use your own fonts in Hooligan Hymnal by including files in /assets/
   and editing App.js. Look for Font.loadAsync() to see how fonts are loaded and registered as strings
- 
+
   Default fonts are included in /assets/ and the proper config values are...
   Font_Regular: 'open-sans',
   Font_Medium: 'open-sans-semibold',
@@ -209,6 +209,8 @@ export const banners = [
 // Player_ShowSongs: true, false
 //      Some SGs write songs for each player
 //      Toggle a related UI element in the Roster/Player screen
+// PostCreate_UploadImageEnabled: true, false
+//      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
 // RefereeCards_Show: true, false
 //      Show yellow/red card icons in the nav drawer
 // Roster_SortPlayersBy: "default", "number", "name"
@@ -220,8 +222,12 @@ export const banners = [
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
   ChannelUI_Enabled: false,
-  Home_PostsPerPage: 20,
+  Home_PostsPerPage: 5,
+  ImageResizeQuality: 1,
+  ImageResizeDimensions: { larger: 1216, smaller: 912 },
+  Juanstagram: true,
   Player_ShowSongs: true,
+  PostCreate_UploadImageEnabled: true,
   RefereeCards_Show: true,
   Roster_SortPlayersBy: "number",
   RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"
