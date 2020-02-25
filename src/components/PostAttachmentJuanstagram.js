@@ -4,6 +4,7 @@ import {
     View
 } from 'react-native';
 import ParsedText from 'react-native-parsed-text';
+import { parsePatterns, parsedStyles, renderBoldItalic } from './ParsedTextHelper';
 import { Ionicons } from '@expo/vector-icons';
 import { DefaultColors, Skin } from '../config/Settings';
 import containerStyle from './PostAttachmentContainerStyle';
@@ -42,9 +43,9 @@ export default class PostAttachmentJuanstagram extends React.Component {
                     key={this.props.juanstagramPost + "-commment-" + index}
                     parse={
                         [
-                            { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
-                            { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted },
-                            { pattern: /\B#(\w*[A-Za-z_\d]+\w*)\b/, style: styles.bold, renderText: this._renderHashtag }
+                            { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                            { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic },
+                            { pattern: parsePatterns.hashtag, style: parsedStyles.hashtag }
                         ]
                     }
                     style={styles.caption}>
@@ -129,11 +130,5 @@ const styles = StyleSheet.create({
     },
     commentsContainer: {
         marginTop: 5
-    },
-    bold: {
-        fontWeight: 'bold'
-    },
-    italic: {
-        fontStyle: 'italic'
-    },
+    }
 });

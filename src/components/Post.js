@@ -23,6 +23,7 @@ import {
 import FadeIn from 'react-native-fade-in-image';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
+import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from './ParsedTextHelper';
 import { Ionicons } from '@expo/vector-icons';
 // import Toast from 'react-native-simple-toast';
 import Toast from "react-native-tiny-toast";
@@ -138,10 +139,10 @@ class Post extends React.Component {
                 <ParsedText
                     parse={
                         [
-                            { type: 'url', style: styles.url, onPress: this._urlPress },
-                            { type: 'email', style: styles.url, onPress: this._emailPress },
-                            { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
-                            { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted }
+                            { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
+                            { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+                            { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                            { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
                         ]
                     }
                     style={styles.text}
@@ -459,13 +460,6 @@ class Post extends React.Component {
         Toast.show(i18n.t('components.post.copied'));
         Clipboard.setString(this.props.post.text);
     };
-
-    _urlPress = (url) => Linking.openURL(url);
-    _emailPress = (email) => Linking.openURL('mailto:' + email);
-    _renderFormatted = (matchingString) => {
-        return matchingString.slice(1, matchingString.length - 1)
-    }
-
 }
 
 const styles = StyleSheet.create({
@@ -519,16 +513,6 @@ const styles = StyleSheet.create({
     },
     attachmentsContainer: {
 
-    },
-    bold: {
-        fontWeight: 'bold'
-    },
-    italic: {
-        fontStyle: 'italic'
-    },
-    url: {
-        color: Skin.Post_LinkColor,
-        textDecorationLine: 'underline'
     }
 })
 

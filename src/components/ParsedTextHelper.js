@@ -1,4 +1,5 @@
 import { Linking, StyleSheet } from 'react-native'
+import { Skin } from '../config/Settings'
 
 /* sample import */
 // import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress, parsedStyles } from
@@ -11,6 +12,9 @@ export const parsePatterns = {
 
 export const parsedStyles = StyleSheet.create({
     bold: {
+        fontWeight: 'bold'
+    },
+    hashtag: {
         fontWeight: 'bold'
     },
     italic: {

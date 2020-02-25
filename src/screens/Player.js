@@ -12,15 +12,13 @@ import {
   View
 } from 'react-native';
 
-import SongView from '../components/SongView';
-import * as WebBrowser from 'expo-web-browser';
 import Constants from 'expo-constants';
 import FadeIn from 'react-native-fade-in-image';
 import ReadMore from 'react-native-read-more-text';
-import { BorderlessButton } from 'react-native-gesture-handler';
 import { HeaderBackButton } from 'react-navigation';
 import { View as AnimatableView } from 'react-native-animatable';
 import ParsedText from 'react-native-parsed-text';
+import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from '../components/ParsedTextHelper';
 import _ from 'lodash';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -260,9 +258,10 @@ class Player extends React.Component {
               <ParsedText
                 parse={
                   [
-                    { type: 'url', style: styles.url, onPress: this._urlPress },
-                    { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
-                    { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted }
+                    { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
+                    { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+                    { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                    { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
                   ]
                 }
                 style={styles.bodyText}
@@ -340,10 +339,6 @@ class Player extends React.Component {
       </TouchableOpacity>
     );
   };
-
-  _renderFormatted = (matchingString) => {
-    return matchingString.slice(1, matchingString.length - 1)
-  }
 }
 
 const styles = StyleSheet.create({
@@ -381,16 +376,6 @@ const styles = StyleSheet.create({
     marginBottom: 3,
     textAlign: i18n.getRTLTextAlign(),
     writingDirection: i18n.getWritingDirection()
-  },
-  bold: {
-    fontWeight: 'bold'
-  },
-  italic: {
-    fontStyle: 'italic'
-  },
-  url: {
-    color: 'blue',
-    textDecorationLine: 'underline'
   }
 });
 
