@@ -11,6 +11,7 @@ import { Skin, DefaultColors, Palette } from '../config/Settings';
 import { FontSizes } from '../constants';
 import { BoldText, MediumText, RegularTextMonospace } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
+import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from '../components/ParsedTextHelper';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import i18n from "../../i18n";
@@ -50,34 +51,20 @@ class About extends React.Component {
     this.setState({ pushToken, response })
   }
 
-  _urlPress = (url) => {
-    WebBrowser.openBrowserAsync(url);
-  }
-
-  _emailPress = (email) => {
-    Linking.openURL('mailto:' + email);
-  }
-
-  _renderFormatted = (matchingString) => {
-    return matchingString.slice(1, matchingString.length - 1)
-  }
-
   render() {
     let creditsTexts = []
     let creditsItems = i18n.t('screens.about.credits')
+    let parsedTextOptions = [
+      { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
+      { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+      { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+      { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
+    ]
     creditsItems.forEach(element => {
       creditsTexts.push(
         <ParsedText
-          parse={
-            [
-              { type: 'url', style: styles.url, onPress: this._urlPress },
-              { type: 'email', style: styles.url, onPress: this._emailPress },
-              { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
-              { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted }
-            ]
-          }
-          style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
-        >
+          parse={parsedTextOptions}
+          style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
           {element}
         </ParsedText>
       )
@@ -88,30 +75,15 @@ class About extends React.Component {
         <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
           <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
           <ParsedText
-            parse={
-              [
-                { type: 'url', style: styles.url, onPress: this._urlPress },
-                { type: 'email', style: styles.url, onPress: this._emailPress },
-                { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
-                { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted }
-              ]
-            }
+            parse={parsedTextOptions}
             style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
           >
             {i18n.t('screens.about.why')}
           </ParsedText>
           <View style={{ height: 10 }} />
           <ParsedText
-            parse={
-              [
-                { type: 'url', style: styles.url, onPress: this._urlPress },
-                { type: 'email', style: styles.url, onPress: this._emailPress },
-                { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
-                { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted }
-              ]
-            }
-            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
-          >
+            parse={parsedTextOptions}
+            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
             {i18n.t('screens.about.feedback')}
           </ParsedText>
           <View style={{ height: 20 }} />
@@ -119,16 +91,8 @@ class About extends React.Component {
           {creditsTexts}
           <View style={{ height: 20 }} />
           <ParsedText
-            parse={
-              [
-                { type: 'url', style: styles.url, onPress: this._urlPress },
-                { type: 'email', style: styles.url, onPress: this._emailPress },
-                { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
-                { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted }
-              ]
-            }
-            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
-          >
+            parse={parsedTextOptions}
+            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
             {i18n.t('screens.about.contribute')}
           </ParsedText>
           <View style={{ height: 20 }} />
@@ -153,16 +117,6 @@ const styles = StyleSheet.create({
   credits: {
     fontFamily: Skin.Font_ParsedText,
   },
-  bold: {
-    fontWeight: 'bold'
-  },
-  italic: {
-    fontStyle: 'italic'
-  },
-  url: {
-    color: 'blue',
-    textDecorationLine: 'underline'
-  }
 });
 
 export default withUnstated(About, { globalData: GlobalDataContainer });

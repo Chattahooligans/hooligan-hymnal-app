@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
+import { parsePatterns, parsedStyles, renderBoldItalic } from '../components/ParsedTextHelper';
 import { Ionicons } from '@expo/vector-icons';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
 import containerStyle from './PostAttachmentContainerStyle';
@@ -43,8 +44,8 @@ export default class PostAttachmentSong extends React.Component {
                             <ParsedText
                                 parse={
                                     [
-                                        { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
-                                        { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted }
+                                        { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                                        { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
                                     ]
                                 }
                                 style={styles.lyrics}>
@@ -55,10 +56,6 @@ export default class PostAttachmentSong extends React.Component {
                 </TouchableOpacity>
             </View>
         );
-    }
-
-    _renderFormatted = (matchingString) => {
-        return matchingString.slice(1, matchingString.length - 1)
     }
 
     _handlePress = () => {
