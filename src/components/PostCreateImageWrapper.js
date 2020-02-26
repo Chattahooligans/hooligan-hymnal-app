@@ -29,7 +29,15 @@ export default class PostCreateImageWrapper extends React.Component {
     }
 
     renderCommonCreditItem = (item) => {
-        return (<RegularText onPress={() => this.handlePressCommonCreditItem(item.item)} numberOfLines={1}>{item.item}</RegularText>)
+        return (
+            <View style={{borderBottomColor: "#eee", borderBottomWidth: 1}}>
+                <RegularText
+                    style={{ fontSize: 16 }}
+                    onPress={() => this.handlePressCommonCreditItem(item.item)} numberOfLines={1}>
+                    {item.item}
+                </RegularText>
+            </View>
+        )
     }
 
     handlePressCommonCreditItem = (item) => {
@@ -177,7 +185,8 @@ const styles = StyleSheet.create({
 
     },
     commonCreditContainer: {
-        height: 50
+        height: 85,
+        marginBottom: 5
     },
     metadataLabel: {
 
