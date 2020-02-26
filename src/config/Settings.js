@@ -205,9 +205,14 @@ export const banners = [
 */
 export const commonImageCredit = [
   "Ray Soldano | https://www.facebook.com/RaySoldanoPhotography/",
+  "Galen Riley | https://twitter.com/thatgalen",
+  "Jeff Underwood | https://www.facebook.com/jeff.underwood.359",
+  "Kayja Swanson | https://www.facebook.com/kajsaphotog/",
+  "Madonna Fajardo Kemp | https://www.facebook.com/madonna.kemp",
   "Matt Reiter | https://www.facebook.com/mreiterphoto/",
   "Phil Thach | https://www.facebook.com/philthachphoto",
-  "Galen Riley | https://twitter.com/thatgalen",
+  "Shannon Millsaps | https://www.facebook.com/smillsapsphoto/",
+  "Chattanooga Football Club"
 ]
 
 /*
