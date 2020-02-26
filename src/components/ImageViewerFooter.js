@@ -35,7 +35,8 @@ export default class ImageViewerFooter extends React.Component {
                     forClipboard += i18n.t('components.imageviewerfooter.creditprefix') + credit
             }
         }
-        console.log(forClipboard)
+        
+        // TODO: This Toast appears under the modal image viewer. Figure out a way around that.
         Toast.show(i18n.t('components.imageviewerfooter.copied'))
         Clipboard.setString(forClipboard)
     }
@@ -57,7 +58,7 @@ export default class ImageViewerFooter extends React.Component {
             visible = false
 
         if (!visible)
-            return <View />;
+            return <View />
         else {
             return (
                 <TouchableWithoutFeedback
