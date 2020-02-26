@@ -206,7 +206,8 @@
         },
         "imageviewerfooter": {
             "captionprefix": "",
-            "creditprefix": "📷: "
+            "creditprefix": "📷: ",
+            "copied": "Copied"
         },
         "post": {
             "copied": "Copied",

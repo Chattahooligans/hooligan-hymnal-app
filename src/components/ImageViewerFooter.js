@@ -1,13 +1,45 @@
 import React from 'react';
 import {
+    Clipboard,
     Dimensions,
     StyleSheet,
+    TouchableWithoutFeedback,
     View
 } from 'react-native';
 import { RegularText } from '../components/StyledText';
+import ParsedText from 'react-native-parsed-text';
+import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from './ParsedTextHelper';
+import Toast from "react-native-tiny-toast";
 import i18n from "../../i18n";
 
 export default class ImageViewerFooter extends React.Component {
+    setClipboard = () => {
+        let forClipboard = ""
+
+        if (this.props.images[this.props.index].hasOwnProperty("metadata")) {
+            if (this.props.images[this.props.index].metadata.hasOwnProperty("caption")) {
+                let caption = this.props.images[this.props.index].metadata.caption
+
+                if (caption.length > 0)
+                    forClipboard += i18n.t('components.imageviewerfooter.captionprefix') + caption
+            }
+        }
+
+        if (this.props.images[this.props.index].hasOwnProperty("metadata")) {
+            if (this.props.images[this.props.index].metadata.hasOwnProperty("credit")) {
+                let credit = this.props.images[this.props.index].metadata.credit
+
+                if (forClipboard.length > 0)
+                    forClipboard += "\n"
+                if (credit.length > 0)
+                    forClipboard += i18n.t('components.imageviewerfooter.creditprefix') + credit
+            }
+        }
+        console.log(forClipboard)
+        Toast.show(i18n.t('components.imageviewerfooter.copied'))
+        Clipboard.setString(forClipboard)
+    }
+
     render() {
         let visible = this.props.visible
         let caption = ""
@@ -28,14 +60,31 @@ export default class ImageViewerFooter extends React.Component {
             return <View />;
         else {
             return (
+                <TouchableWithoutFeedback
+                underlayColor={'#fff'}
+                onLongPress={this.setClipboard}>
                 <View style={styles.container}>
                     {caption.length > 0 &&
-                        <RegularText style={styles.caption}>{i18n.t('components.imageviewerfooter.captionprefix')}{caption}</RegularText>
+                        <ParsedText
+                            style={styles.caption}
+                            parse={
+                                [
+                                    { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
+                                    { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+                                    { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                                    { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
+                                ]
+                            }>
+                            {i18n.t('components.imageviewerfooter.captionprefix')}{caption}
+                        </ParsedText>
                     }
                     {credit.length > 0 &&
-                        <RegularText style={styles.credit}>{i18n.t('components.imageviewerfooter.creditprefix')}{credit}</RegularText>
+                        <RegularText style={styles.credit}>
+                            {i18n.t('components.imageviewerfooter.creditprefix')}{credit}
+                        </RegularText>
                     }
                 </View>
+                </TouchableWithoutFeedback>
             )
         }
     }
