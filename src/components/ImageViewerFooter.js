@@ -61,29 +61,38 @@ export default class ImageViewerFooter extends React.Component {
         else {
             return (
                 <TouchableWithoutFeedback
-                underlayColor={'#fff'}
-                onLongPress={this.setClipboard}>
-                <View style={styles.container}>
-                    {caption.length > 0 &&
-                        <ParsedText
-                            style={styles.caption}
-                            parse={
-                                [
-                                    { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
-                                    { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
-                                    { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
-                                    { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
-                                ]
-                            }>
-                            {i18n.t('components.imageviewerfooter.captionprefix')}{caption}
-                        </ParsedText>
-                    }
-                    {credit.length > 0 &&
-                        <RegularText style={styles.credit}>
-                            {i18n.t('components.imageviewerfooter.creditprefix')}{credit}
-                        </RegularText>
-                    }
-                </View>
+                    underlayColor={'#fff'}
+                    onLongPress={this.setClipboard}>
+                    <View style={styles.container}>
+                        {caption.length > 0 &&
+                            <ParsedText
+                                style={styles.caption}
+                                parse={
+                                    [
+                                        { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
+                                        { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+                                        { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                                        { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
+                                    ]
+                                }>
+                                {i18n.t('components.imageviewerfooter.captionprefix')}{caption}
+                            </ParsedText>
+                        }
+                        {credit.length > 0 &&
+                            <ParsedText
+                                style={styles.credit}
+                                parse={
+                                    [
+                                        { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
+                                        { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+                                        { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                                        { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
+                                    ]
+                                }>
+                                {i18n.t('components.imageviewerfooter.creditprefix')}{credit}
+                            </ParsedText>
+                        }
+                    </View>
                 </TouchableWithoutFeedback>
             )
         }
