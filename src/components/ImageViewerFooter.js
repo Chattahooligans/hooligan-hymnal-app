@@ -84,8 +84,8 @@ export default class ImageViewerFooter extends React.Component {
                                 style={styles.credit}
                                 parse={
                                     [
-                                        { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
-                                        { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+                                        { type: 'url', style: styles.url, onPress: onUrlPress },
+                                        { type: 'email', style: styles.url, onPress: onEmailPress },
                                         { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
                                         { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
                                     ]
@@ -111,5 +111,8 @@ const styles = StyleSheet.create({
     },
     credit: {
         color: "white"
+    },
+    url: {
+        textDecorationLine: 'underline'
     }
 });

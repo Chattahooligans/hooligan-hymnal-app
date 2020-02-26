@@ -162,7 +162,7 @@ export const socialButtons = [
       { icon: 'logo-instagram', url: INSTAGRAM_URL },
       { icon: 'md-cart', url: SHOP_URL },
       { image: PRIDERAISER_ICON, url: PRIDERAISER_URL, tintToSkin: false },
-      
+
     ]
   },
   {
@@ -197,6 +197,23 @@ export const banners = [
 //{ backgroundColor: Palette.Prideraiser, image: PRIDERAISER_ICON, url: PRIDERAISER_URL, text: "Pledge to Chattanooga Prideraiser", textColor: Palette.White },
 // { backgroundColor: Palette.Sky, image: GOFUNDME_BW_ICON, tintColor: Skin.Home_SocialButtons, url: GOFUNDME_URL, text: "Youth Soccer Investment Crowdfunding", textColor: Palette.Black }
 
+/*
+  Common Image Credit
+
+  It's likely that photos will come from a select few SG or club photographers. 
+  Let's make it easy to credit those people for letting us use their work.
+*/
+export const commonImageCredit = [
+  "Ray Soldano | https://www.facebook.com/RaySoldanoPhotography/",
+  "Galen Riley | https://twitter.com/thatgalen",
+  "Jeff Underwood | https://www.facebook.com/jeff.underwood.359",
+  "Kayja Swanson | https://www.facebook.com/kajsaphotog/",
+  "Madonna Fajardo Kemp | https://www.facebook.com/madonna.kemp",
+  "Matt Reiter | https://www.facebook.com/mreiterphoto/",
+  "Phil Thach | https://www.facebook.com/philthachphoto",
+  "Shannon Millsaps | https://www.facebook.com/smillsapsphoto/",
+  "Chattanooga Football Club"
+]
 
 /*
   App Feature Flags

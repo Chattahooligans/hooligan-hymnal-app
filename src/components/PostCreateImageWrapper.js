@@ -1,16 +1,18 @@
 import React from 'react';
 import {
+    FlatList,
     Image,
     Modal,
+    ScrollView,
     StyleSheet,
     TextInput,
     TouchableOpacity,
     View
 } from 'react-native';
 import { BigButton } from './BigButton';
-import { BoldText } from './StyledText';
+import { RegularText, BoldText } from './StyledText';
 import { Ionicons } from '@expo/vector-icons';
-import { DefaultColors } from '../config/Settings';
+import { DefaultColors, commonImageCredit } from '../config/Settings';
 import i18n from "../../i18n";
 
 export default class PostCreateImageWrapper extends React.Component {
@@ -24,6 +26,24 @@ export default class PostCreateImageWrapper extends React.Component {
 
     componentDidMount = () => {
         this.setState({ metadata: this.props.metadata })
+    }
+
+    renderCommonCreditItem = (item) => {
+        return (
+            <View style={{borderBottomColor: "#eee", borderBottomWidth: 1}}>
+                <RegularText
+                    style={{ fontSize: 16 }}
+                    onPress={() => this.handlePressCommonCreditItem(item.item)} numberOfLines={1}>
+                    {item.item}
+                </RegularText>
+            </View>
+        )
+    }
+
+    handlePressCommonCreditItem = (item) => {
+        let metadata = this.state.metadata
+        metadata.credit = item
+        this.setState({ metadata })
     }
 
     onPressMetadata = () => {
@@ -62,6 +82,14 @@ export default class PostCreateImageWrapper extends React.Component {
                     visible={this.state.metadataModalVisible}>
                     <View style={{ padding: 10 }}>
                         <BoldText style={styles.metadataTitle}>{i18n.t('components.postcreateimagewrapper.metadatatitle')}</BoldText>
+                        <BoldText style={styles.commonCreditLabel}>{i18n.t('components.postcreateimagewrapper.common')}</BoldText>
+                        <View style={styles.commonCreditContainer}>
+                            <FlatList
+                                renderScrollComponent={props => <ScrollView {...props} />}
+                                data={commonImageCredit}
+                                renderItem={this.renderCommonCreditItem}
+                                keyExtractor={(item, index) => index.toString()} />
+                        </View>
                         <BoldText style={styles.metadataLabel}>{i18n.t('components.postcreateimagewrapper.credit')}</BoldText>
                         <TextInput
                             style={styles.metadataTextInput}
@@ -153,6 +181,13 @@ const styles = StyleSheet.create({
         fontSize: 18,
         textAlign: "center"
     },
+    commonCreditLabel: {
+
+    },
+    commonCreditContainer: {
+        height: 85,
+        marginBottom: 5
+    },
     metadataLabel: {
 
     },
@@ -164,5 +199,5 @@ const styles = StyleSheet.create({
         fontSize: 18,
         height: 100,
         textAlignVertical: 'top'
-    }
+    },
 });

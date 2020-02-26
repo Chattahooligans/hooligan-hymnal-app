@@ -226,6 +226,7 @@
             "metadatatitle": "Image Metadata",
             "credit": "Image Credit",
             "caption": "Caption",
+            "common": "Frequently-credited Photographers",
             "save": "Save Metadata",
             "clear": "Clear Metadata",
             "cancel": "Cancel"
