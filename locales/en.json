@@ -61,7 +61,8 @@
             "selectsong": "Select Song",
             "composesong": "Compose Song",
             "masstweet": "Tweet the Players",
-            "gknickname": "GK Nickname"
+            "gknickname": "GK Nickname",
+            "prideraiser": "Prideraiser"
         },
         "postattachmentcomposegknickname": {
             "gknickname": "GK Nickname",
