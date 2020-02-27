@@ -54,6 +54,7 @@ export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
 export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
 export const PRIDERAISER_LOGO = require('../../assets/prideraiser-logo.png');
 export const PRIDERAISER_ICON = require('../../assets/prideraiser-icon.png');
+export const PRIDERAISER_CAMPAIGN_ID = '03BpKNg';
 
 import i18n from "../../i18n"
 
