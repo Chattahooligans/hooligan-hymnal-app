@@ -36,6 +36,7 @@ import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
+import PostAttachmentComposePrideraiser from './PostAttachmentComposePrideraiser';
 import PostAttachmentSelectJuanstagram from './PostAttachmentSelectJuanstagram';
 import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
 import PostCreateAttachmentWrapper from '../components/PostCreateAttachmentWrapper';
@@ -49,7 +50,8 @@ const AttachmentTypesNavigator = StackNavigator(
         PostAttachmentComposeSong: { screen: PostAttachmentComposeSong },
         PostAttachmentComposeGkNickname: { screen: PostAttachmentComposeGkNickname },
         PostAttachmentSelectMassTweet: { screen: PostAttachmentSelectMassTweet },
-        PostAttachmentSelectJuanstagram: { screen: PostAttachmentSelectJuanstagram }
+        PostAttachmentSelectJuanstagram: { screen: PostAttachmentSelectJuanstagram },
+        PostAttachmentComposePrideraiser: { screen: PostAttachmentComposePrideraiser }
     }
 )
 

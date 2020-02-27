@@ -63,6 +63,12 @@ class PostAttach extends React.Component {
                             })
                         }} />
                 }
+                <BigButton label={i18n.t('screens.postattach.prideraiser')} iconName="md-analytics"
+                    onPress={() => {
+                        this.props.navigation.navigate("PostAttachmentComposePrideraiser", {
+                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                        })
+                    }} />
 
                 <BigButton
                     disabled={true}
