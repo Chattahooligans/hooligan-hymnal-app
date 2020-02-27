@@ -18,22 +18,36 @@ export default class PostAttachmentComposeSong extends React.Component {
     };
 
     state = {
+        loadedCampaign: false,
+        campaign: "",
         goalCount: 0
     }
 
+    componentWillMount = async () => {
+        try {
+            const campaign = await getCampaign(PRIDERAISER_CAMPAIGN_ID)
+            this.setState({ loadedCampaign: true, campaign })
+        }
+        catch (e) {
+            alert("could not load campaign (" + PRIDERAISER_CAMPAIGN_ID + "): " + e.toString());
+        }
+    }
+
     render() {
-        console.log("PRIDERAISER CAMPAIGN")
-        console.log(getCampaign(PRIDERAISER_CAMPAIGN_ID))
+        if (this.state.loadedCampaign) {
+            console.log("PRIDERAISER CAMPAIGN")
+            console.log(this.state.campaign)
+        }
 
         return (
             <View style={styles.container}>
-                <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattchmentcomposeprideraiser.prideraiser')}</BoldText>
+                <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattachmentcomposeprideraiser.prideraiser')}</BoldText>
                 <TextInput
                     style={styles.goalCountInput}
-                    placeholder={i18n.t('screens.postattchmentcomposeprideraiser.howmanygoals')}
+                    placeholder={i18n.t('screens.postattachmentcomposeprideraiser.howmanygoals')}
                     onChangeText={(text) => this.setState({ goalCount: parseInt(text, 10) })} />
                 <BigButton
-                    label={i18n.t('screens.postattchmentcomposeprideraiser.attach')}
+                    label={i18n.t('screens.postattachmentcomposeprideraiser.attach')}
                     iconName="md-add" iconPosition="right"
                     onPress={() => {
                         if (this.props.screenProps.onAttachmentComplete)
