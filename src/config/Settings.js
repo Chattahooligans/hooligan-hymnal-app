@@ -20,7 +20,7 @@ export const INSTAGRAM_URL = 'https://instagram.com/thechattahooligans';
 export const WEBSITE_URL = 'http://comeandjoin.us';
 export const YOUTUBE_URL = '';
 export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
-export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
+// PRIDERAISER_URL moved to a different section
 export const GOFUNDME_URL = 'https://www.gofundme.com/chattahooligan-youth-soccer-investment';
 export const ESP_TWITTER_URL = 'https://twitter.com/LosCFCHooligans';
 export const ESP_INSTAGRAM_URL = 'https://instagram.com/loschattahooligans';
@@ -35,11 +35,9 @@ export const HOME_VIDEO = require('../../assets/5MB_video.mp4');
 export const HOME_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
 export const DRAWER_HERO_BACKGROUND = require('../../assets/drawer-hero-background.png');
 export const DRAWER_HERO_OVERLAY = require('../../assets/drawer-hero-logo.png');
-export const PRIDERAISER_LOGO = require('../../assets/prideraiser-logo.png');
 export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
 export const CLUB_NAME = "Chattanooga FC";
 // social media icons
-export const PRIDERAISER_ICON = require('../../assets/prideraiser-icon.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
 export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
 // used in SongView to link to sheet music
@@ -52,6 +50,10 @@ export const BAD_PODCAST_109_URL = 'https://podcasts.apple.com/us/podcast/the-se
 export const BAD_PODCAST_109_ICON = require('../../assets/section109pod.png');
 export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
 
+// Prideraiser
+export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
+export const PRIDERAISER_LOGO = require('../../assets/prideraiser-logo.png');
+export const PRIDERAISER_ICON = require('../../assets/prideraiser-icon.png');
 
 import i18n from "../../i18n"
 
