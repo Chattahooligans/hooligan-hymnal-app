@@ -40,6 +40,7 @@ export const PRIDERAISER_ICON = require('../../assets/prideraiser-icon.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
 export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
 export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
+export const CLUB_NAME = "Chattanooga FC";
 // used in SongView to link to sheet music
 export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
 
