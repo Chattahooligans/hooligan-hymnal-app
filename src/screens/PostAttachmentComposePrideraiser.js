@@ -3,13 +3,13 @@ import {
     Button,
     StyleSheet,
     TextInput,
-    TouchableOpacity,
     View
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Ionicons } from '@expo/vector-icons';
-import { Skin, } from '../config/Settings';
+import { PRIDERAISER_CAMPAIGN_ID } from '../config/Settings';
+import { getCampaign } from '../services/prideraiserService';
 import i18n from "../../i18n";
 
 export default class PostAttachmentComposeSong extends React.Component {
@@ -22,6 +22,9 @@ export default class PostAttachmentComposeSong extends React.Component {
     }
 
     render() {
+        console.log("PRIDERAISER CAMPAIGN")
+        console.log(getCampaign(PRIDERAISER_CAMPAIGN_ID))
+
         return (
             <View style={styles.container}>
                 <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattchmentcomposeprideraiser.prideraiser')}</BoldText>
