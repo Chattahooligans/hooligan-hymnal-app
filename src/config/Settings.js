@@ -36,7 +36,7 @@ export const HOME_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
 export const DRAWER_HERO_BACKGROUND = require('../../assets/drawer-hero-background.png');
 export const DRAWER_HERO_OVERLAY = require('../../assets/drawer-hero-logo.png');
 // like social media icons
-export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
+export const PRIDERAISER_ICON = require('../../assets/prideraiser-icon.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
 export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
 export const CLUB_LOGO = require('../../assets/chattfc_logo.png');

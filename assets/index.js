@@ -12,7 +12,7 @@ export default [
   require('./icon-ios.png'),
   require('./icon.png'),
   require('./musical-score.png'),
-  require('./prideraiser.png'),
+  require('./prideraiser-icon.png'),
   require('./section109pod.png'),
   require('./songbook-front-cover.png'),
   require('./speakerphone.png'),
