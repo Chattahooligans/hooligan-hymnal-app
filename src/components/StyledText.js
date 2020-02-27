@@ -77,6 +77,21 @@ export class BoldText extends React.Component {
   }
 }
 
+export class ItalicText extends React.Component {
+  render() {
+    return (
+      <Text
+        {...this.props}
+        style={[
+          { backgroundColor: 'transparent' },
+          this.props.style,
+          { fontFamily: Skin.Font_Italic },
+        ]}
+      />
+    );
+  }
+}
+
 export class RegularTextMonospace extends React.Component {
   render() {
     const fontFamily = Platform.OS === 'ios' ? 'Courier' : 'monospace'

@@ -1,7 +1,16 @@
 import React from 'react';
-import { ScrollView, View, Image, StyleSheet, NativeModules, Clipboard, TouchableOpacity, Linking } from 'react-native';
+import {
+  Clipboard, 
+  Image, 
+  Linking,
+  Platform,
+  ScrollView, 
+  StyleSheet, 
+  TouchableOpacity, 
+  View,
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { BoldText, RegularText } from './StyledText';
+import { BoldText, ItalicText, RegularText } from './StyledText';
 import * as WebBrowser from 'expo-web-browser';
 import ParsedText from 'react-native-parsed-text';
 import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from './ParsedTextHelper';
@@ -22,7 +31,7 @@ export default class SongView extends React.Component {
     let playButtonDisplay;
     let sheetMusicDisplay;
     if (song.referenceTitle)
-      referenceDisplay = <RegularText style={styles.reference} onLongPress={this._onLongPressReference}>{song.referenceTitle}</RegularText>
+      referenceDisplay = <ItalicText style={styles.reference} onLongPress={this._onLongPressReference}>{song.referenceTitle}</ItalicText>
     if (song.referenceLink)
       playButtonDisplay = <TouchableOpacity style={{
         top: 0, bottom: 0, paddingHorizontal: 6,
@@ -69,7 +78,7 @@ export default class SongView extends React.Component {
         </View>
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
           <View style={{ flex: 1 }}>
-            <RegularText style={styles.instructions}>{song.instructions}</RegularText>
+            <ItalicText style={styles.instructions}>{song.instructions}</ItalicText>
             <ParsedText
               parse={
                 [
@@ -140,7 +149,6 @@ const styles = StyleSheet.create({
     paddingLeft: 4,
   },
   reference: {
-    fontStyle: 'italic',
     color: Palette.Navy,
     backgroundColor: Palette.White,
     paddingLeft: 12,
@@ -155,8 +163,7 @@ const styles = StyleSheet.create({
     padding: 8,
     paddingBottom: 0
   },
-  instructions: {
-    fontStyle: 'italic',
+  instructions: {      
     color: '#AAAAAA',
     backgroundColor: Palette.White,
     paddingLeft: 12,
