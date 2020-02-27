@@ -4,20 +4,20 @@
             "title": "Über",
             "appTitle": "Chattahooligan Hymnal",
             "why": "Das Chattahooligan Hymnal wurde erstellt, um Dir zu helfen, den Chattanooga FC zu unterstützen..",
-            "feedback": "Bitte Feedback an _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder email an thechattahooligans@gmail.com",
+            "feedback": "Bitte sende Feedback an _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email an thechattahooligans@gmail.com",
             "creditsheading": "Danksagung",
             "credits": [
                 "- Video auf dem Startbildschirm von Jay Kaley",
                 "- Photo im Menü von Phil Thach photography",
                 "- Einige Spielerfotos mit Genehmigung von Madonna Kemp und Ray Soldano",
-                "- Spieler Potraitfotos mit Genehmigung zur Nutzer zur Verfügung gestellt durch Chattanooga FC",
-                "- Teil des Codes basiert auf der Open Source @nodevember conference schedule app"
+                "- Spieler Potraitfotos mit Genehmigung zur Nutzung zur Verfügung gestellt durch Chattanooga FC",
+                "- Ein Teil des Codes basiert auf der Open Source @nodevember conference schedule app"
             ],
             "debug": "Debug",
-            "contribute": "Interesse an einer Mitarbeit? Wenn Du progammieren, gestalten, schreiben oder in anderer Weise helfen kannst, würden wir uns freuen mit Dir zu arbeiten! Bitte melde Dich bei _@chattahooligan_ oder _@hooliganhymnal_ oder Twitter, oder email thechattahooligans@gmail.com",
+            "contribute": "Interesse an einer Mitarbeit? Wenn Du progammieren, gestalten, schreiben oder in anderer Weise helfen kannst, würden wir uns freuen mit Dir zu arbeiten! Bitte melde Dich bei _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email thechattahooligans@gmail.com"
         },
         "capocompose": {
-            "title": "Compose Song",
+            "title": "Komponiere Lied",
             "songtitle": "Titel",
             "songlyrics": "Liedtext",
             "continue": "Weiter"
@@ -103,7 +103,7 @@
             "fallback": "Ereignisse öffnen im WebBrowser"
         },
         "home": {
-            "findthemenu": "Entdecke weitere großartige Funktionen %menuicon% menu, top left",
+            "findthemenu": "Entdecke weitere großartige Funktionen %menuicon% Menü, oben links",
             "visit": "Besuche:",
             "songbook": "Gesangsbuch",
             "roster": "Spielerliste"
@@ -113,7 +113,7 @@
             "fallback": "Instrumentierung öffnet im WebBrowser"
         },
         "player": {
-            "playersongs": "Spieler-Lider",
+            "playersongs": "Spieler-Lieder",
             "stilllooking": "Wir suchen noch nach einem geeigneten Lied. Wer möchte helfen? Schlage Deine Idee vor!",
             "bio": "Bio",
             "playerheadersong": "Spieler-Lied",
@@ -135,13 +135,13 @@
             "fallback": "Fanartikel-Shop öffnet im WebBrowser."
         },
         "singlesong": {
-            "title": "Hoch Nächster"
+            "title": "Demnächst"
         },
         "songbook": {
             "defaultchaptertitle": "Cover",
             "title": "Gesangsbuch",
             "tableofcontents": "Inhaltsverzeichnis",
-            "swipetoview": "Nach links und rechts wischen um Lied anzuzeigen."
+            "swipetoview": "Nach links und rechts wischen um Lieder anzuzeigen."
         },
         "songs": {
             "title": "Lieder",
@@ -159,19 +159,19 @@
         "twitterlist": {
             "headertitle": "Twitter Liste",
             "calltoaction": "Alle zusammen, jetzt!",
-            "instructions": "Die Verbindung zwischen CFC-Fans und dem Team ist einzigartig, besonders und greifbar. Botschaften der Ermutigung, Liebe, was auch immer, bedeuten den Spielern wirklich viel.\n\n\nIhr könnt mehrere Twitter-Handles aus dem Feld unten kopieren und sie in einen längeren Twitter-Thread einfügen.",
+            "instructions": "Die Verbindung zwischen den CFC-Fans und dem Team ist einzigartig, besonders und greifbar. Botschaften der Ermutigung, Liebe, was auch immer, bedeuten den Spielern wirklich viel.\n\n\nIhr könnt mehrere Twitter-Handles aus dem Feld unten kopieren und sie in einen längeren Twitter-Thread einfügen.",
             "opentwitter": "Öffne Twitter App"
         },
         "volunteer": {
             "title": "Freiwillige",
-            "fallback": "Chattahooligan Freiwilligenformular öffnet im WebBrowser-"
+            "fallback": "Chattahooligan Freiwilligenformular öffnet im WebBrowser"
         }
     },
     "navigation": {
         "home": "HOME",
         "songbook": "GESANGSBUCH",
         "roster": "SPIELERLISTE",
-        "events": "EREIGNISS ↗️",
+        "events": "EREIGNIS ↗️",
         "standings": "TABELLE ↗️",
         "shop": "FANARTIKEL SHOP ↗️",
         "volunteer": "FREIWILLIGE ↗️",
@@ -202,10 +202,10 @@
         "songview": {
             "copiedtitle": "Titel in die Zwischenablage kopiert",
             "copiedreference": "Referenz in die Zwischenablage kopiert",
-            "copiedlyrics": "Text in Zwischenablage kopiiert"
+            "copiedlyrics": "Liedtext in die Zwischenablage kopiiert"
         },
         "upnext": {
-            "upnext": "Hoch nächste"
+            "upnext": "Demnächst"
         },
         "songcard": {
             "seemore": "Mehr anzeigen..."
