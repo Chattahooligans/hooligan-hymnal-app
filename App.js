@@ -36,17 +36,19 @@ class App extends React.Component {
   };
 
   /*
-        'open-sans-bold': require('./assets/OpenSans-Bold.ttf'),
-        'open-sans': require('./assets/OpenSans-Regular.ttf'),
-        'open-sans-semibold': require('./assets/OpenSans-SemiBold.ttf'),
+  'open-sans': require('./assets/OpenSans-Regular.ttf'),
+  'open-sans-semibold': require('./assets/OpenSans-SemiBold.ttf'),
+  'open-sans-bold': require('./assets/OpenSans-Bold.ttf'),
+  'open-sans-italic': require('./assets/OpenSans-Italic.ttf'),
   */
   _loadAssetsAsync = async () => {
     return Promise.all([
-      Font.loadAsync({        
-        'heebo-light': require('./assets/Heebo-Light.ttf'),
-        'heebo': require('./assets/Heebo-Regular.ttf'),
-        'heebo-medium': require('./assets/Heebo-Medium.ttf'),
-        'heebo-bold': require('./assets/Heebo-Bold.ttf'),
+      Font.loadAsync({
+        'roboto-light': require('./assets/Roboto-Light.ttf'),
+        'roboto': require('./assets/Roboto-Regular.ttf'),
+        'roboto-medium': require('./assets/Roboto-Medium.ttf'),
+        'roboto-bold': require('./assets/Roboto-Bold.ttf'),
+        'roboto-italic': require('./assets/Roboto-Italic.ttf'),
         ...Ionicons.font
       }),
       Asset.loadAsync(imagesArray),
