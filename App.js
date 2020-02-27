@@ -10,7 +10,6 @@ import Navigation from './src/Navigation';
 import Home from './src/screens/Home';
 import imagesArray from './assets';
 
-
 YellowBox.ignoreWarnings(['Warning: bind()']);
 
 const theme = {
@@ -37,14 +36,13 @@ class App extends React.Component {
   };
 
   /*
-  'open-sans-bold': require('./assets/OpenSans-Bold.ttf'),
+        'open-sans-bold': require('./assets/OpenSans-Bold.ttf'),
         'open-sans': require('./assets/OpenSans-Regular.ttf'),
         'open-sans-semibold': require('./assets/OpenSans-SemiBold.ttf'),
   */
   _loadAssetsAsync = async () => {
     return Promise.all([
-      Font.loadAsync({
-        
+      Font.loadAsync({        
         'heebo-light': require('./assets/Heebo-Light.ttf'),
         'heebo': require('./assets/Heebo-Regular.ttf'),
         'heebo-medium': require('./assets/Heebo-Medium.ttf'),

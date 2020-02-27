@@ -121,9 +121,9 @@ class CapoConfirmSendSong extends React.Component {
   };
 
   _sendMessage = pushFlag => {
-    const { currentSong, location, token } = this.props.globalData.state;
+    const { currentSong, location, pushToken } = this.props.globalData.state;
 
-    CapoMessageSchema.sender = token;
+    CapoMessageSchema.sender = pushToken;
     CapoMessageSchema.send_time = new Date();
     if (null == location) {
       CapoMessageSchema.sender_latitude = '';

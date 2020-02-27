@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Image,
+  Keyboard,
   Platform,
   StyleSheet,
   View,
@@ -40,6 +41,18 @@ class CapoComposeSong extends React.Component {
     ...NavigationOptions,
     headerLeft: (
       <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+    ),
+    headerRight: (
+        <Ionicons
+            name="md-code-download"
+            size={23}
+            style={{
+                color: '#fff',
+                backgroundColor: 'transparent',
+                marginRight: 16
+            }}
+            onPress={() => Keyboard.dismiss()}
+        />
     )
   });
 

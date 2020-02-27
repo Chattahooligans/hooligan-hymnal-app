@@ -122,13 +122,13 @@ class CapoConfirmSendGoalkeeperNickname extends React.Component {
   };
 
   _postGoalkeeperNickname = pushFlag => {
-    const { goalkeeperNickname, token } = this.props.globalData.state;
+    const { goalkeeperNickname, pushToken } = this.props.globalData.state;
 
     let nickname = new RemoteGoalkeeperNickname();
     let bearerToken = "Bearer " + this.props.globalData.getBearerToken();
     nickname
       .create({
-        sender: token,
+        sender: pushToken,
         push: pushFlag,
         nickname: goalkeeperNickname.nickname,
         backgroundColor: goalkeeperNickname.backgroundColor,

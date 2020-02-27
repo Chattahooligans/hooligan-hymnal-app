@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, Platform } from 'react-native';
+import { Skin } from '../config/Settings';
 
 export class LightText extends React.Component {
   render() {
@@ -9,7 +10,7 @@ export class LightText extends React.Component {
         style={[
           { backgroundColor: 'transparent' },
           this.props.style,
-          { fontFamily: 'heebo-light' },
+          { fontFamily: Skin.Font_Light },
         ]}
       />
     );
@@ -24,7 +25,7 @@ export class RegularText extends React.Component {
         style={[
           { backgroundColor: 'transparent' },
           this.props.style,
-          { fontFamily: 'heebo' },
+          { fontFamily: Skin.Font_Regular },
         ]}
       />
     );
@@ -39,7 +40,7 @@ export class UnderlineText extends React.Component {
         style={[
           { backgroundColor: 'transparent' },
           this.props.style,
-          { fontFamily: 'heebo', textDecorationLine: 'underline' },
+          { fontFamily: Skin.Font_Regular, textDecorationLine: 'underline' },
         ]}
       />
     );
@@ -54,7 +55,7 @@ export class MediumText extends React.Component {
         style={[
           { backgroundColor: 'transparent' },
           this.props.style,
-          { fontFamily: 'heebo-medium' },
+          { fontFamily: Skin.Font_Medium },
         ]}
       />
     );
@@ -69,9 +70,25 @@ export class BoldText extends React.Component {
         style={[
           { backgroundColor: 'transparent' },
           this.props.style,
-          { fontFamily: 'heebo-bold' },
+          { fontFamily: Skin.Font_Bold },
         ]}
       />
     );
+  }
+}
+
+export class RegularTextMonospace extends React.Component {
+  render() {
+    const fontFamily = Platform.OS === 'ios' ? 'Courier' : 'monospace'
+    return (
+      <Text
+        {...this.props}
+        style={[
+          { backgroundColor: 'transparent' },
+          this.props.style,
+          { fontFamily: fontFamily },
+        ]}
+      />
+    )
   }
 }

@@ -36,7 +36,8 @@
             "title": "Capo Dashboard",
             "selectsong": "Lied auswählen",
             "composesong": "Lied komponieren",
-            "gknickname": "GK Spitzname"
+            "gknickname": "GK Spitzname",
+            "logout": "Logout"
         },
         "capologin": {
             "title": "Capo Dashboard",
@@ -52,6 +53,50 @@
             "instructions1": "1. We're gonna score on you...",
             "instructions2": "2. Wähle eine beliebige Farbe",
             "instructions3": "3. Welches ist besser lesbar?"
+        },
+        "postattach": {
+            "attachmenttypes": "Attachment Types",
+            "selectplayer": "Select Player",
+            "selectsong": "Select Song",
+            "composesong": "Compose Song",
+            "masstweet": "Tweet the Players",
+            "gknickname": "GK Nickname"
+        },
+        "postattachmentcomposegknickname": {
+            "gknickname": "GK Nickname",
+            "instructions1": "1. We're gonna score on you...",
+            "instructions2": "2. Pick a color, any color",
+            "instructions3": "3. Which is more readable?"
+        },
+        "postattchmentcomposesong": {
+            "composesong": "Compose Song",
+            "title": "Title",
+            "lyrics": "Lyrics",
+            "attach": "Attach"
+        },
+        "postattachmentselectmasstweet": {
+            "selectroster": "Select Roster",
+            "search": "Search"
+        },
+        "postattachmentselectplayer": {
+            "selectplayer": "Select Player",
+            "search": "Search"
+        },
+        "postattachmentselectsong": {
+            "selectsong": "Select Song",
+            "search": "Search"
+        },
+        "postcreate": {
+            "title": "Create Post",
+            "addattachment": "Add Attachment",
+            "push": "Bother people with a push notification? Seriously?",
+            "cancel": "Cancel",
+            "continue": "Continue"
+        },
+        "postpreview": {
+            "title": "Preview Post",
+            "submit": "Submit Post",
+            "schedule": "Schedule Post"
         },
         "events": {
             "title": "Ereignisse",
@@ -127,7 +172,7 @@
         "songbook": "GESANGSBUCH",
         "roster": "SPIELERLISTE",
         "events": "EREIGNIS ↗️",
-        "standings": "NPSL-MC TABELLE ↗️",
+        "standings": "TABELLE ↗️",
         "shop": "FANARTIKEL SHOP ↗️",
         "volunteer": "FREIWILLIGE ↗️",
         "instrumentation": "INTRUMENTIERUNG ↗️",
@@ -137,6 +182,22 @@
     "components": {
         "gkNickname": {
             "gonnascore": "We're gonna score on you, "
+        },
+        "post": {
+            "copied": "Copied",
+            "hidealerttitle": "Hide Post",
+            "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
+            "hidealertcancel": "Cancel",
+            "hidealertconfirm": "Hide"
+        },
+        "postattachmentgknickname": {
+            "gonnascore": "We're gonna score on you, "
+        },
+        "postattachmentmasstweet": {
+            "tweettheplayers": "Tweet the Players"
+        },
+        "postattachmentmultitweet": {
+            "tweettheplayers": "Tweet them all!"
         },
         "songview": {
             "copiedtitle": "Titel in die Zwischenablage kopiert",

@@ -24,15 +24,16 @@ export default class NavigationBar extends React.Component {
               backgroundColor: DefaultColors.NavigationBarBackground,
               opacity: this.props.animatedBackgroundOpacity,
             },
-          ]}
-        />
+          ]}>
+          <View style={[styles.navigationBarTitleContainer]}>
+            {this.props.renderTitle && this.props.renderTitle()}
+          </View>
+        </Animated.View>
+
         <View style={styles.navigationBarLeftButton}>
           {this.props.renderLeftButton && this.props.renderLeftButton()}
         </View>
 
-        <View style={styles.navigationBarTitleContainer}>
-          {this.props.renderTitle && this.props.renderTitle()}
-        </View>
 
         <View style={styles.navigationBarRightButton}>
           {this.props.renderRightButton && this.props.renderRightButton()}
@@ -69,7 +70,7 @@ const PADDING_TOP =
 const styles = StyleSheet.create({
   navigationBarContainer: {
     backgroundColor: 'transparent',
-    height: Layout.headerHeight,
+    height: Layout.headerHeight + Constants.statusBarHeight,
     position: 'absolute',
     paddingTop: PADDING_TOP,
     top: 0,
@@ -77,14 +78,13 @@ const styles = StyleSheet.create({
     right: 0,
   },
   navigationBarTitleContainer: {
-    flex: 1,
-    flexDirection: i18n.getFlexDirection(),
-    paddingHorizontal: 0,
-    alignItems: 'center',
-    justifyContent: Platform.OS === 'ios' ? 'center' : 'flex-start',
+    marginTop: Constants.statusBarHeight+4
   },
   navigationBarLeftButton: {
+    marginTop: 4,
     width: 80,
+    alignItems: 'flex-start',
+    justifyContent: 'center'
   },
   navigationBarRightButton: {
     top: PADDING_TOP,

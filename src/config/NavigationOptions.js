@@ -8,6 +8,6 @@ export default {
   headerTintColor: 'white',
   headerLeft: <MenuButton />,
   headerTitleStyle: {
-    fontFamily: 'heebo-bold'
+    fontFamily: Skin.Font_Bold
   }
 };

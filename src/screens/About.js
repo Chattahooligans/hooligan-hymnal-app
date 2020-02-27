@@ -1,10 +1,17 @@
 import React from 'react';
-import { View, Linking, Text, StyleSheet, ScrollView } from 'react-native';
+import {
+  Dimensions,
+  Linking,
+  ScrollView,
+  StyleSheet,
+  View
+} from 'react-native';
 import NavigationOptions from '../config/NavigationOptions';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
 import { FontSizes } from '../constants';
-import { BoldText, RegularText, MediumText } from '../components/StyledText';
+import { BoldText, MediumText, RegularTextMonospace } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
+import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from '../components/ParsedTextHelper';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import i18n from "../../i18n";
@@ -20,7 +27,7 @@ class About extends React.Component {
   };
 
   state = {
-    token: "",
+    pushToken: "",
     response: null
   }
 
@@ -30,8 +37,8 @@ class About extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (
-      (!prevProps.globalData.state.token &&
-      this.props.globalData.state.token) ||
+      (!prevProps.globalData.state.pushToken &&
+        this.props.globalData.state.pushToken) ||
       (!prevProps.globalData.state.response &&
         this.props.globalData.state.response)
     ) {
@@ -40,101 +47,65 @@ class About extends React.Component {
   }
 
   setData = () => {
-    let { token, response } = this.props.globalData.state
-    this.setState({token, response})
-  }
-
-  _urlPress = (url) => {
-    WebBrowser.openBrowserAsync(url);
-  }
-
-  _emailPress = (email) => {
-    Linking.openURL('mailto:' + email);
-  }
-
-  _renderFormatted = (matchingString) => {
-    return matchingString.slice(1, matchingString.length-1)
+    let { pushToken, response } = this.props.globalData.state
+    this.setState({ pushToken, response })
   }
 
   render() {
     let creditsTexts = []
     let creditsItems = i18n.t('screens.about.credits')
+    let parsedTextOptions = [
+      { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
+      { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+      { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+      { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
+    ]
     creditsItems.forEach(element => {
       creditsTexts.push(
-        <ParsedText 
-          parse={
-            [
-              {type: 'url', style: styles.url, onPress: this._urlPress}, 
-              {type: 'email', style: styles.url, onPress: this._emailPress},
-              {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
-              {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
-            ]
-          }
-          style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
-          >
+        <ParsedText
+          parse={parsedTextOptions}
+          style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
           {element}
         </ParsedText>
       )
     });
 
     return (
-      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
+      <View style={{ flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
         <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
           <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
-          <ParsedText 
-            parse={
-              [
-                {type: 'url', style: styles.url, onPress: this._urlPress}, 
-                {type: 'email', style: styles.url, onPress: this._emailPress},
-                {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
-                {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
-              ]
-            }
+          <ParsedText
+            parse={parsedTextOptions}
             style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
-            >
+          >
             {i18n.t('screens.about.why')}
           </ParsedText>
           <View style={{ height: 10 }} />
-          <ParsedText 
-            parse={
-              [
-                {type: 'url', style: styles.url, onPress: this._urlPress}, 
-                {type: 'email', style: styles.url, onPress: this._emailPress},
-                {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
-                {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
-              ]
-            }
-            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
-            >
+          <ParsedText
+            parse={parsedTextOptions}
+            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
             {i18n.t('screens.about.feedback')}
           </ParsedText>
           <View style={{ height: 20 }} />
           <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.creditsheading')}</MediumText>
           {creditsTexts}
           <View style={{ height: 20 }} />
-          <ParsedText 
-            parse={
-              [
-                {type: 'url', style: styles.url, onPress: this._urlPress}, 
-                {type: 'email', style: styles.url, onPress: this._emailPress},
-                {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
-                {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
-              ]
-            }
-            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
-            >
+          <ParsedText
+            parse={parsedTextOptions}
+            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
             {i18n.t('screens.about.contribute')}
           </ParsedText>
           <View style={{ height: 20 }} />
-          <ScrollView style={{flex: 1}}>
+          <ScrollView style={{ flex: 1 }}>
             <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.debug')}</MediumText>
-            <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{this.state.token}</RegularText>
-            <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
+            <RegularTextMonospace selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>width: {Dimensions.get("screen").width}, height: {Dimensions.get("screen").height}</RegularTextMonospace>
+            <RegularTextMonospace selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{this.state.pushToken}</RegularTextMonospace>
+            <RegularTextMonospace selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
               {
-                this.state.response ? 
+                this.state.response ?
                   JSON.stringify(this.state.response) : ''
               }
-            </RegularText>
+            </RegularTextMonospace>
           </ScrollView>
         </ScrollView>
       </View>
@@ -144,18 +115,8 @@ class About extends React.Component {
 
 const styles = StyleSheet.create({
   credits: {
-    fontFamily: 'heebo',
+    fontFamily: Skin.Font_ParsedText,
   },
-  bold: {
-    fontWeight: 'bold'
-  },
-  italic: {
-    fontStyle: 'italic'
-  },
-  url: {
-    color: 'blue',
-    textDecorationLine: 'underline'
-  }
 });
 
 export default withUnstated(About, { globalData: GlobalDataContainer });

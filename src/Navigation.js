@@ -1,8 +1,10 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, View } from 'react-native';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import Screens from './screens';
 import CustomDrawer from './components/CustomDrawer';
+import NavigationOptions from './config/NavigationOptions';
+import { Palette } from './config/Settings';
 import i18n from "../i18n";
 
 const { width: deviceWidth } = Dimensions.get('window');
@@ -25,7 +27,11 @@ const SongsNavigation = StackNavigator(
 const HomeNavigation = StackNavigator(
   {
     Home: { screen: Screens.Home },
-    SingleSong: { screen: Screens.SingleSong }
+    SinglePost: { screen: Screens.SinglePost },
+    SingleSong: { screen: Screens.SingleSong },
+    Player: { screen: Screens.Player },
+    TwitterList: { screen: Screens.TwitterList },
+    Channel: { screen: Screens.Channel }
   },
   {
     ...DefaultStackConfig,
@@ -135,14 +141,14 @@ const InstrumentationNavigation = StackNavigator(
 const CapoHomeNavigation = StackNavigator(
   {
     CapoLogin: { screen: Screens.CapoLogin },
-    CapoHome: {
-      screen: Screens.CapoHome
-    },
+    CapoHome: { screen: Screens.CapoHome },
     CapoSelectSong: { screen: Screens.CapoSelectSong },
     CapoComposeSong: { screen: Screens.CapoComposeSong },
     CapoConfirmSendSong: { screen: Screens.CapoConfirmSendSong },
     CapoSetGoalkeeperNickname: { screen: Screens.CapoSetGoalkeeperNickname },
-    CapoConfirmSendGoalkeeperNickname: { screen: Screens.CapoConfirmSendGoalkeeperNickname }
+    CapoConfirmSendGoalkeeperNickname: { screen: Screens.CapoConfirmSendGoalkeeperNickname },
+    PostCreate: { screen: Screens.PostCreate },
+    PostPreview: { screen: Screens.PostPreview }
   },
   {
     ...DefaultStackConfig,
@@ -166,6 +172,35 @@ const AboutNavigation = StackNavigator(
   }
 );
 
+const RedCard = () => (<Screens.RefereeCard name="RedCard" color={Palette.RedCard} />)
+const YellowCard = () => (<Screens.RefereeCard name="YellowCard" color={Palette.YellowCard} />)
+const RedCardNavigation = StackNavigator(
+  {
+    RedCard
+  },
+  {
+    navigationOptions: {
+      ...NavigationOptions,
+      title: i18n.t('screens.refereecard.titlered'),
+      headerStyle: { backgroundColor: Palette.RedCard },
+      drawerLabel: () => null
+    }
+  }
+);
+const YellowCardNavigation = StackNavigator(
+  {
+    YellowCard
+  },
+  {
+    navigationOptions: {
+      ...NavigationOptions,
+      title: i18n.t('screens.refereecard.titleyellow'),
+      headerStyle: { backgroundColor: Palette.YellowCard },
+      drawerLabel: () => null
+    }
+  }
+);
+
 const Drawer = DrawerNavigator(
   {
     Home: { screen: HomeNavigation },
@@ -175,9 +210,11 @@ const Drawer = DrawerNavigator(
     Standings: { screen: StandingsNavigation },
     Shop: { screen: ShopNavigation },
     Volunteer: { screen: VolunteerNavigation },
-    Instrumentation: {screen: InstrumentationNavigation },
+    Instrumentation: { screen: InstrumentationNavigation },
     CapoHome: { screen: CapoHomeNavigation },
-    About: { screen: AboutNavigation }
+    About: { screen: AboutNavigation },
+    RedCard: { screen: RedCardNavigation },
+    YellowCard: { screen: YellowCardNavigation },
   },
   {
     contentComponent: props => <CustomDrawer {...props} />,

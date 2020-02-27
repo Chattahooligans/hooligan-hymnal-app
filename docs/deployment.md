@@ -2,6 +2,21 @@
 
 This guide focuses on the non-coding aspects of deploying the Hooligan Hymnal platform. Much of the advice is technically optional depending on your SG's resources and time investment, but beware of the future impact of cutting corners. This document is based on the successes and failures of previous deployments and the pitfalls discovered in doing so.
 
+# Budget
+
+Before going further, make sure you're aware of the costs involved. At an absolute minimum, you will need:
+
+* $99/year for an Apple developer account to publish to iOS
+* $25 one-time fee to register for Google Play
+* $7/month for Heroku's basic tier (or equivalent hosting)
+* (Varies by state, but ~$50-$500) LLC registration fee for your SG
+
+You will also need access to a Mac to publish your iOS builds, since only their developer tools can handle the upload. Your SG may already have access to some of these things before you've started the project.
+
+# Assets
+
+See [our assets guide](assets.md) for a guide to images and photos you should customize for your implementation
+
 # GET STARTED ON THIS NOW
 
 Don't wait on following this guide until after you've customized Hooligan Hymnal for your SG! All of these steps take time- some of them a surprising amount of it. You don't want to miss your original launch target because of long delays with the App Store, for instance. Start the process immediately and customize the code while you wait on bureaucracies to email you back.
@@ -46,7 +61,7 @@ Neither Apple nor Google are friendly towards in-app uses of the term "donate". 
 
 Using a push notification or news feed item to suggest that people go to your website or social media feed for a new campaign is OK, and you may ask users from that secondary location to donate. Directly incorporating "donate" into the messaging or trying to create an in-app payment mechanism for it that doesn't go to a browser is the biggest concern.
 
-### Make sure "TestFlight" isn't visible in iOS photos
+### Make sure "TestFlight" isn't visible in iOS screenshots
 
 Using TestFlight makes it easy to beta test your new .ipa file. If it's present in a screenshot, however, Apple may reject your app. Edit the screenshot if needed.
 

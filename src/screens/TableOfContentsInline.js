@@ -34,7 +34,7 @@ class SongRow extends React.Component {
     
     let playDisplay;
     let sheetMusicDisplay;
-    if (song.reference_link)
+    if (song.referenceLink)
       playDisplay = <View style={{ justifyContent: 'center', alignItems: 'center', marginLeft: 3 }}>
                       <Ionicons
                         name={'md-play-circle'}
@@ -145,7 +145,7 @@ export default class TableOfContentsInline extends React.Component {
   _renderSectionHeader = ({ section }) => {
     return (
       <View style={styles.sectionHeader}>
-        <RegularText>{section.title}</RegularText>
+        <RegularText style={{textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>{section.title}</RegularText>
       </View>
     );
   };

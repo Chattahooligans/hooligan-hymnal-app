@@ -21,3 +21,6 @@ yarn-error.log*
 
 # Firebase
 google-services.json
+
+# Git orig files
+*.orig

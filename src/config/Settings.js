@@ -7,11 +7,17 @@
 
 // TODO: Build home screen dynamically based on this websites object
 
+// HEY! Don't include a trailing slash / on this url.
+// If you do, you're gonna have a bad time because your serer calls will not work
+export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
+// dev branch
+//export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-dev.herokuapp.com'
+
 // URLs
 export const TWITTER_URL = 'https://twitter.com/chattahooligan';
 export const FACEBOOK_URL = 'https://www.facebook.com/TheChattahooligans';
 export const INSTAGRAM_URL = 'https://instagram.com/thechattahooligans';
-export const WEBSITE_URL = 'http://chattahooligan.com';
+export const WEBSITE_URL = 'http://comeandjoin.us';
 export const YOUTUBE_URL = '';
 export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
 export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
@@ -20,9 +26,15 @@ export const ESP_TWITTER_URL = 'https://twitter.com/LosCFCHooligans';
 export const ESP_INSTAGRAM_URL = 'https://instagram.com/loschattahooligans';
 export const ESP_WEBSITE_URL = 'http://chattahooligan.com/es';
 export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
-export const INSTRUMENTATION_URL ='https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
+export const INSTRUMENTATION_URL = 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 
 // Common Images
+export const HOME_NAVBAR_LOGO = require('../../assets/home-logo.png');
+//export const HOME_NAVBAR_LOGO = require('../../assets/home-big-c-logo.png');
+export const HOME_VIDEO = require('../../assets/5MB_video.mp4');
+export const HOME_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
+export const DRAWER_HERO_BACKGROUND = require('../../assets/drawer-hero-background.png');
+export const DRAWER_HERO_OVERLAY = require('../../assets/drawer-hero-logo.png');
 // like social media icons
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
@@ -30,6 +42,15 @@ export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
 export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
 // used in SongView to link to sheet music
 export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
+
+// Other link
+export const BAD_PODCAST_423_URL = 'https://anchor.fm/423soccerpod';
+export const BAD_PODCAST_423_ICON = require('../../assets/423Soccer.png');
+export const BAD_PODCAST_109_URL = 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964';
+export const BAD_PODCAST_109_ICON = require('../../assets/section109pod.png');
+export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
+
+
 import i18n from "../../i18n"
 
 /*
@@ -42,7 +63,9 @@ export const Palette = {
   Sky: '#A3D8F7',
   White: '#FFFFFF',
   Black: '#000000',
-  Prideraiser: '#a55eea'
+  Prideraiser: '#a55eea',
+  YellowCard: '#ffcc00',
+  RedCard: '#ff0000'
 };
 
 export const DefaultColors = {
@@ -54,24 +77,75 @@ export const DefaultColors = {
   HeaderText: Palette.White,
   Text: Palette.Black,
   ColorText: Palette.Navy,
+  Primary: Palette.Navy,
   Secondary: Palette.Sky
 }
 
+// NOTE: Heebo is a Chattahooligan-brand font.
+/*
+  You can use your own fonts in Hooligan Hymnal by including files in /assets/
+  and editing App.js. Look for Font.loadAsync() to see how fonts are loaded and registered as strings
+
+  Default fonts are included in /assets/ and the proper config values are...
+  Font_Regular: 'open-sans',
+  Font_Medium: 'open-sans-semibold',
+  Font_Bold: 'open-sans-bold',
+  Font_ParsedText: 'open-sans',
+
+  Font_Light is currently unused in the app.
+*/
 export const Skin = {
-  Home_SocialButtons: DefaultColors.ButtonBackground,
+  Font_Light: 'heebo-light',
+  Font_Regular: 'heebo',
+  Font_Medium: 'heebo-medium',
+  Font_Bold: 'heebo-bold',
+  Font_ParsedText: 'heebo',
+  Channel_Background: DefaultColors.Secondary,
+  Channel_DescriptionLabel: DefaultColors.Primary,
+  Channel_LoadMoreActivityIndicator_Android: DefaultColors.Primary,
+  Channel_LoadMoreActivityIndicator_iOS: DefaultColors.Primary,
+  Channel_NameLabel: DefaultColors.Primary,
+  Channel_Refresh_Android: DefaultColors.Secondary,
+  Channel_RefreshBackground_Android: DefaultColors.Primary,
+  Drawer_HeroBackground: DRAWER_HERO_BACKGROUND,
+  Drawer_HeroOverlay: DRAWER_HERO_OVERLAY,
+  Home_BackgroundColor: DefaultColors.Primary,
+  Home_BigButtonsBackground: DefaultColors.ButtonBackground,
+  Home_BigButtonsLabel: DefaultColors.ButtonText,
+  Home_FindTheMenuLabel: DefaultColors.Primary,
+  Home_LoadMoreActivityIndicator_Android: DefaultColors.Secondary,
+  Home_LoadMoreActivityIndicator_iOS: Palette.White,
+  Home_NavbarLogo: HOME_NAVBAR_LOGO,
+  Home_PostMarginVertical: 6,
+  Home_Refresh_Android: DefaultColors.Primary,
+  Home_RefreshBackground_Android: DefaultColors.Secondary,
+  Home_SocialButtons: DefaultColors.Primary,
+  Home_Video: HOME_VIDEO,
+  Home_VideoOverlay: HOME_VIDEO_OVERLAY,
+  Home_Website: Palette.Black,
+  ModalLoader_ActivityIndicator: DefaultColors.Primary,
+  ModalLoader_Background: DefaultColors.Secondary,
+  ModalLoader_Container: "#00000040",
   Songbook_Background: Palette.Sky,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Navy,
-  Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
   Player_Background: Palette.Sky,
+  Player_DefaultImage: CLUB_LOGO,
+  Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
+  Post_DefaultChannelThumbnail: require('../../assets/big-c-icon-android.png'),
+  Post_ChannelLabel: DefaultColors.ColorText,
+  Post_FontSize: 17,
+  Post_LineHeight: 22,
+  Post_LinkColor: "blue",
+  Post_TextColor: DefaultColors.Text,
+  Post_TimestampLabel: DefaultColors.ColorText,
   Roster_DefaultThumbnail: CLUB_LOGO,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
   Roster_ActiveTabLabel: DefaultColors.ButtonText,
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'md-heart',
-  Roster_FoesTabIcon: 'md-thumbs-down',
-  Player_DefaultImage: CLUB_LOGO,
+  Roster_FoesTabIcon: 'md-thumbs-down'
 };
 
 /*
@@ -85,10 +159,10 @@ export const socialButtons = [
     items: [
       { icon: 'logo-twitter', url: TWITTER_URL },
       { icon: 'logo-facebook', url: FACEBOOK_URL },
-      { icon: 'logo-instagram', url: INSTAGRAM_URL },  
+      { icon: 'logo-instagram', url: INSTAGRAM_URL },
       { icon: 'md-cart', url: SHOP_URL },
       { image: PRIDERAISER_ICON, url: PRIDERAISER_URL, tintToSkin: false },
-      { image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tintToSkin: true }
+
     ]
   },
   {
@@ -99,12 +173,21 @@ export const socialButtons = [
       { icon: 'logo-instagram', url: ESP_INSTAGRAM_URL },
       { icon: 'md-browsers', url: ESP_WEBSITE_URL }
     ]
+  },
+  {
+    header: i18n.t('settings.other'),
+    headerColor: DefaultColors.ColorText,
+    items: [
+      { image: BAD_PODCAST_423_ICON, url: BAD_PODCAST_423_URL, tintToSkin: false },
+      { image: BAD_PODCAST_109_ICON, url: BAD_PODCAST_109_URL, tintToSkin: false },
+      { icon: 'logo-reddit', url: REDDIT_CHATTANOOGAFC_URL },
+    ]
   }
 ]
 // Other/Seasonal
 // { icon: 'md-browsers', url: WEBSITE_URL },
 // { image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
-// { image: GOFUNDME_ICON, url: GOFUNDME_URL }
+// { image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tintToSkin: true }
 
 /*
   "Headline" banners on home screen
@@ -114,11 +197,57 @@ export const banners = [
 //{ backgroundColor: Palette.Prideraiser, image: PRIDERAISER_ICON, url: PRIDERAISER_URL, text: "Pledge to Chattanooga Prideraiser", textColor: Palette.White },
 // { backgroundColor: Palette.Sky, image: GOFUNDME_BW_ICON, tintColor: Skin.Home_SocialButtons, url: GOFUNDME_URL, text: "Youth Soccer Investment Crowdfunding", textColor: Palette.Black }
 
+/*
+  Common Image Credit
+
+  It's likely that photos will come from a select few SG or club photographers. 
+  Let's make it easy to credit those people for letting us use their work.
+*/
+export const commonImageCredit = [
+  "Ray Soldano | https://www.facebook.com/RaySoldanoPhotography/",
+  "Galen Riley | https://twitter.com/thatgalen",
+  "Jeff Underwood | https://www.facebook.com/jeff.underwood.359",
+  "Kayja Swanson | https://www.facebook.com/kajsaphotog/",
+  "Madonna Fajardo Kemp | https://www.facebook.com/madonna.kemp",
+  "Matt Reiter | https://www.facebook.com/mreiterphoto/",
+  "Phil Thach | https://www.facebook.com/philthachphoto",
+  "Shannon Millsaps | https://www.facebook.com/smillsapsphoto/",
+  "Chattanooga Football Club"
+]
 
 /*
   App Feature Flags
 */
+// CapoHome_GKNicknameEnabled: true, false
+//      This is a longrunning inside joke in Chattanooga
+// Channels_Enabled: true, false
+//      Some SGs will only ever have one channel
+//      and tapping into a whole hunk of UI will be jarring and confusing to users
+// Home_PostsPerPage: number
+//      Load this many news feed items, then load this many more if the user scrolls to the bottom
+// Player_ShowSongs: true, false
+//      Some SGs write songs for each player
+//      Toggle a related UI element in the Roster/Player screen
+// PostCreate_UploadImageEnabled: true, false
+//      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
+// RefereeCards_Show: true, false
+//      Show yellow/red card icons in the nav drawer
+// Roster_SortPlayersBy: "default", "number", "name"
+//      later- "position" with priority
+//      (hopefully this gets deprecated and replaced with something in the UI later)
+// RosterFoes_DefaultCompetition: string
+//      Matches .competition field of objects from the database foes collection
+//      This field is case sensitive and must match exactly
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
-  Player_ShowSongs: true
+  ChannelUI_Enabled: false,
+  Home_PostsPerPage: 5,
+  ImageResizeQuality: 1,
+  ImageResizeDimensions: { larger: 1216, smaller: 912 },
+  Juanstagram: true,
+  Player_ShowSongs: true,
+  PostCreate_UploadImageEnabled: true,
+  RefereeCards_Show: true,
+  Roster_SortPlayersBy: "number",
+  RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"
 }

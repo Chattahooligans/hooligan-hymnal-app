@@ -12,15 +12,13 @@ import {
   View
 } from 'react-native';
 
-import SongView from '../components/SongView';
-import * as WebBrowser from 'expo-web-browser';
 import Constants from 'expo-constants';
 import FadeIn from 'react-native-fade-in-image';
 import ReadMore from 'react-native-read-more-text';
-import { BorderlessButton } from 'react-native-gesture-handler';
 import { HeaderBackButton } from 'react-navigation';
 import { View as AnimatableView } from 'react-native-animatable';
 import ParsedText from 'react-native-parsed-text';
+import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from '../components/ParsedTextHelper';
 import _ from 'lodash';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -62,7 +60,7 @@ class Player extends React.Component {
   setData = () => {
     let player = this.props.navigation.state.params.player;
     let playerSongs = [];
-    playerSongs = this.props.globalData.state.songs.filter(song => song.player_id === player._id)
+    playerSongs = this.props.globalData.state.songs.filter(song => song.playerId === player._id)
 
     this.setState({ playerSongs });
   }
@@ -73,6 +71,12 @@ class Player extends React.Component {
 
     let playerSocialDisplay;
     let playerSocialIcons = [];
+
+    let showPlayerSongs = true;
+    if (Settings.hasOwnProperty('Player_ShowSongs'))
+      showPlayerSongs = Settings.Player_ShowSongs;
+    if (player.hasOwnProperty('showPlayerSongs') && player.showPlayerSongs == false)
+      showPlayerSongs = false;
 
     if (player.twitter) {
       playerSocialIcons.push(
@@ -130,15 +134,17 @@ class Player extends React.Component {
     let playerSongDisplay;
 
     let playerImage = Skin.Player_DefaultImage;
-    if (player.image)
-      playerImage = {uri: player.image};
+    if (player.defaultImage)
+      playerImage = { uri: player.defaultImage };
+    if (player.images && player.images.length > 0)
+      playerImage = { uri: player.images[0] };
 
     if (this.state.playerSongs.length === 0) {
       playerSongDisplay = (
         <View>
           <MediumText style={styles.sectionHeader}>{i18n.t('screens.player.playersongs')}</MediumText>
           <RegularText style={styles.bodyText}>
-          {i18n.t('screens.player.stilllooking')}
+            {i18n.t('screens.player.stilllooking')}
           </RegularText>
         </View>
       );
@@ -231,7 +237,7 @@ class Player extends React.Component {
               <RegularText> {player.flag}</RegularText>
             </View>
             <RegularText style={styles.headerText}>
-              {player.position}
+              {i18n.t('positions.' + player.position)}
             </RegularText>
             {playerSocialDisplay}
           </View>
@@ -244,43 +250,43 @@ class Player extends React.Component {
           >
             <MediumText style={styles.sectionHeader}>{i18n.t('screens.player.bio')}</MediumText>
             <ReadMore
-              numberOfLines={Settings.Player_ShowSongs ? 3 : 9999}
+              numberOfLines={showPlayerSongs ? 3 : 9999}
               renderTruncatedFooter={this._renderTruncatedFooter}
               renderRevealedFooter={this._renderRevealedFooter}
               onReady={this._handleTextReady}
             >
-              <ParsedText 
+              <ParsedText
                 parse={
                   [
-                    {type: 'url', style: styles.url, onPress: this._urlPress},
-                    {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
-                    {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
+                    { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
+                    { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+                    { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                    { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
                   ]
                 }
                 style={styles.bodyText}
                 childrenProps
-                >
+              >
                 {i18n.getLocalizedBio(player.bio)}
               </ParsedText>
               <RegularText style={styles.bodyText}></RegularText>
             </ReadMore>
-            {Settings.Player_ShowSongs && playerSongDisplay}
+            {showPlayerSongs && playerSongDisplay}
           </AnimatableView>
         </AnimatedScrollView>
 
         <NavigationBar
           animatedBackgroundOpacity={headerOpacity}
           paddingTop={0}
-          style={[{paddingTop: 0},
-            Platform.OS === 'android'
-              ? { height: Layout.headerHeight + Constants.statusBarHeight }
-              : null
+          style={[{ paddingTop: 0 },
+          Platform.OS === 'android'
+            ? { height: Layout.headerHeight + Constants.statusBarHeight }
+            : null
           ]}
           renderLeftButton={() => (
             <View
               style={{
-                // gross dumb things
-                paddingTop: Platform.OS === 'android' ? 10 : 0,
+                paddingTop: 10,
                 marginTop: Layout.notchHeight > 0 ? -5 : 0
               }}
             >
@@ -300,7 +306,7 @@ class Player extends React.Component {
     return (
       <SongCard
         headerTitle={i18n.t('screens.player.playersongheader')}
-        navigationToScreen="RosterSingleSong"
+        navigationToScreen="SingleSong"
         key={item._id}
         song={item}
         style={{ borderBottomWidth: 1, borderColor: '#eee' }}
@@ -333,10 +339,6 @@ class Player extends React.Component {
       </TouchableOpacity>
     );
   };
-
-  _renderFormatted = (matchingString) => {
-    return matchingString.slice(1, matchingString.length-1)
-  }
 }
 
 const styles = StyleSheet.create({
@@ -365,25 +367,15 @@ const styles = StyleSheet.create({
     fontSize: FontSizes.subtitle
   },
   bodyText: {
-    textAlign: i18n.getRTLTextAlign(), 
+    textAlign: i18n.getRTLTextAlign(),
     writingDirection: i18n.getWritingDirection()
   },
   sectionHeader: {
     fontSize: FontSizes.bodyTitle,
     marginTop: 15,
     marginBottom: 3,
-    textAlign: i18n.getRTLTextAlign(), 
+    textAlign: i18n.getRTLTextAlign(),
     writingDirection: i18n.getWritingDirection()
-  },
-  bold: {
-    fontWeight: 'bold'
-  },
-  italic: {
-    fontStyle: 'italic'
-  },
-  url: {
-    color: 'blue',
-    textDecorationLine: 'underline'
   }
 });
 

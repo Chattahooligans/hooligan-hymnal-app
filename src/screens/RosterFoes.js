@@ -1,13 +1,21 @@
 import React from 'react';
-import { FlatList, ScrollView, SectionList, StyleSheet, View} from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
+import {
+    FlatList,
+    Picker,
+    Platform,
+    ScrollView,
+    StyleSheet,
+    Text,
+    View,
+} from 'react-native';
+import { BigButton } from '../components/BigButton';
+import ModalSelector from 'react-native-modal-selector';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import NavigationOptions from '../config/NavigationOptions';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import { BoldText, MediumText, RegularText } from '../components/StyledText';
-import { FontSizes } from '../constants';
-import { Palette, Skin, DefaultColors } from '../config/Settings';
+import { Ionicons } from '@expo/vector-icons';
+import { Settings } from '../config/Settings';
+import i18n from "../../i18n";
 
 class FoeRow extends React.Component {
     render() {
@@ -21,17 +29,11 @@ class FoeRow extends React.Component {
             foe.textColor = styles.bigButtonText.color;
 
         return (
-            <ClipBorderRadius>
-                <RectButton
-                    style={[styles.bigButton, {backgroundColor: foe.backgroundColor}]}
-                    onPress={this._handlePress}
-                    underlayColor="#fff"
-                >
-                    <MediumText style={[styles.bigButtonText, {color: foe.textColor}]}>
-                        {foe.opponent}
-                    </MediumText>
-                </RectButton>
-            </ClipBorderRadius>
+            <BigButton
+                buttonStyle={{ backgroundColor: foe.backgroundColor, borderWidth: 3, borderColor: foe.accentColor }}
+                tintColor={foe.textColor}
+                label={foe.opponent}
+                onPress={this._handlePress} />
         )
     }
 
@@ -42,7 +44,8 @@ class FoeRow extends React.Component {
 
 class RosterFoes extends React.Component {
     state = {
-        foes: []
+        foes: {},
+        selectedCompetition: ""
     }
 
     componentDidMount() {
@@ -54,30 +57,32 @@ class RosterFoes extends React.Component {
     }
 
     setData = () => {
-        let foes = [];
-        this.props.globalData.state.foes.forEach(foeChild => {
-            foes.push(foeChild);            
-        });
+        let foes = {}
+        let competitions = []
 
-        foes.sort(this.compareFoes);
+        // bucket by competition
+        this.props.globalData.state.foes.forEach(foe => {
+            if (!competitions.includes(foe.competition))
+                competitions.push(foe.competition)
+        })
+        competitions.sort((a, b) => a > b)
+        competitions.forEach(competition => foes[competition] = [])
 
-        this.setState({foes});
+        // sort foes into buckets
+        this.props.globalData.state.foes.forEach(foe => (foes[foe.competition]).push(foe))
+        competitions.forEach(competition => foes[competition].sort((a, b) => a.opponent > b.opponent))
+
+        let selectedCompetition = ""
+        if (competitions.length > 0)
+            selectedCompetition = competitions[0]
+        if (competitions.includes(Settings.RosterFoes_DefaultCompetition))
+            selectedCompetition = Settings.RosterFoes_DefaultCompetition
+
+        this.setState({ foes, selectedCompetition });
     }
 
-    compareFoes = (a, b) => {
-        const opponentA = a.opponent;
-        const opponentB = b.opponent;
-    
-        if (opponentA > opponentB)
-          return 1;
-        else if (opponentB > opponentA)
-          return -1;
-    
-        return 0;
-      };
-
     _renderItem = item => {
-        return ( <FoeRow item={item} onPress={this._handlePressFoeButton} /> )
+        return (<FoeRow item={item} onPress={this._handlePressFoeButton} />)
     }
 
     _handlePressFoeButton = foe => {
@@ -85,11 +90,62 @@ class RosterFoes extends React.Component {
     }
 
     render() {
+        let header = null;
+        if (Object.keys(this.state.foes).length > 0) {
+            let pickerItems = [];
+
+            if (Platform.OS === "ios") {
+                Object.keys(this.state.foes).forEach(competition => {
+                    pickerItems.push({ key: competition, label: competition });
+                });
+                header =
+                    <ModalSelector
+                        data={pickerItems}
+                        selectedKey={this.state.selectedCompetition}
+                        onChange={(item) => this.setState({ selectedCompetition: item.key })}>
+                        <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
+                            <Text style={{ flex: 1 }}>{this.state.selectedCompetition}</Text>
+                            <Ionicons name={'md-arrow-dropdown'} />
+                        </View>
+                    </ModalSelector>
+            }
+            else {
+                let pickerItems = [];
+                Object.keys(this.state.foes).forEach(competition => {
+                    pickerItems.push(<Picker.Item label={competition} value={competition} key={competition} />);
+                });
+                header =
+                    <Picker
+                        mode='dropdown'
+                        enabled={pickerItems.length > 1}
+                        selectedValue={this.state.selectedCompetition}
+                        onValueChange={(itemValue) => this.setState({ selectedCompetition: itemValue })} >
+                        {pickerItems}
+                    </Picker>
+            }
+        }
+        else {
+            if (Platform.OS === "ios") {
+                header =
+                    <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
+                        <Text style={{ flex: 1 }}>{i18n.t('screens.rosterfoes.nonefound')}</Text>
+                        <Ionicons name={'md-arrow-dropdown'} />
+                    </View>
+            }
+            else {
+                header =
+                    <Picker>
+                        <Picker.Item label={i18n.t('screens.rosterfoes.nonefound')} />
+                    </Picker>
+            }
+        }
+
         return (
             <LoadingPlaceholder>
+                {header}
                 <FlatList
                     renderScrollComponent={props => <ScrollView {...props} />}
-                    data={this.state.foes}
+                    data={this.state.foes[this.state.selectedCompetition]}
                     renderItem={this._renderItem}
                     keyExtractor={(item, index) => index.toString()}
                 />
@@ -98,46 +154,8 @@ class RosterFoes extends React.Component {
     }
 }
 
-const ClipBorderRadius = ({ children, style }) => {
-    return (
-        <View
-        style={[
-            { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
-            style
-        ]}
-        >
-        {children}
-        </View>
-    );
-};
-
-  const BORDER_RADIUS = 3;
-
 const styles = StyleSheet.create({
-    bigButton: {
-        backgroundColor: DefaultColors.ButtonBackground,
-        paddingHorizontal: 15,
-        height: 50,
-        marginHorizontal: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: BORDER_RADIUS,
-        overflow: 'hidden',
-        flexDirection: 'row'
-      },
-      bigButtonText: {
-        fontSize: FontSizes.normalButton,
-        color: DefaultColors.ButtonText,
-        textAlign: 'center'
-      },
-      row: {
-        flex: 1,
-        paddingTop: 10,
-        padding: 10,
-        borderBottomWidth: 1,
-        borderColor: '#eee',
-        flexDirection: 'row'
-    }
+
 });
 
 export default withUnstated(RosterFoes, { globalData: GlobalDataContainer });
