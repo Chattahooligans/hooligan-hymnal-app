@@ -18,12 +18,10 @@ export class ModalLoader extends React.Component {
                 visible={loading}>
                 <View style={styles.modal}>
                     <View style={styles.activityIndicatorWrapper}>
-                        <BoldText style={{ marginBottom: 20, color: DefaultColors.ColorText }}>Here, Dion.</BoldText>
                         <ActivityIndicator
                             animating={loading}
                             size="large"
                             color={Skin.ModalLoader_ActivityIndicator} />
-                        <BoldText style={{ marginTop: 20, color: DefaultColors.ColorText }}>I hope you're happy. -G</BoldText>
                     </View>
                 </View>
             </Modal>
