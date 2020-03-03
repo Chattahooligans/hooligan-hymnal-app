@@ -252,6 +252,8 @@ class PostPreview extends React.Component {
             console.log("SEND THIS TO SERVER")
             console.log(formData)
             const response = await createPost(formData, token)
+            console.log("RESPONSE")
+            console.log(response)
             this.setState({
                 loading: false
             });

@@ -22,6 +22,11 @@ export const createPost = async (post, token) => {
       'Authorization': `Bearer ${token}`,
     }
   }).then((response) => {
+    console.log("feedService.createPost RESPONSE")
+    // this works
+    console.log(response.data)
+
+    // for some reason, we're getting undefined after return
     return response.data;
   }).catch(err => {
     console.error(err)
