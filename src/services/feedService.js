@@ -26,6 +26,9 @@ export const createPost = async (post, token) => {
     // this works
     console.log(response.data)
 
+    // TODO: response.data is of type ReadableNativeMap, which doesn't convert to a string nicely
+    // don't have a solution, but at least this is a clue
+
     // for some reason, we're getting undefined after return
     return response.data;
   }).catch(err => {
