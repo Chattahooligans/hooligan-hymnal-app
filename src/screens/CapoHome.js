@@ -41,76 +41,13 @@ class CapoHome extends React.Component {
     })
     return (
       <View style={{ flex: 1 }}>
-        <ScrollView style={{ flex: 1 }}>
-          <BigButton
-            label={i18n.t('screens.capohome.postcreate')}
-            iconName="md-paper"
-            onPress={this._handlePressPostCreateButton} />
-          <View style={{ marginVertical: 10 }} />
-          <BoldText style={{ paddingHorizontal: 10 }}>Legacy Features - soon to be deprecated</BoldText>
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressSelectSongButton}
-              underlayColor="#fff"
-            >
-              <Ionicons
-                name="md-musical-notes"
-                size={23}
-                style={{
-                  color: '#fff',
-                  backgroundColor: 'transparent',
-                  marginRight: 5
-                }}
-              />
-              <MediumText style={styles.bigButtonText}>
-                {i18n.t('screens.capohome.selectsong')}
-              </MediumText>
-            </RectButton>
-          </ClipBorderRadius>
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressComposeSongButton}
-              underlayColor="#fff"
-            >
-              <Ionicons
-                name="md-add"
-                size={23}
-                style={{
-                  color: '#fff',
-                  backgroundColor: 'transparent',
-                  marginRight: 5
-                }}
-              />
-              <MediumText style={styles.bigButtonText}>
-                {i18n.t('screens.capohome.composesong')}
-              </MediumText>
-            </RectButton>
-          </ClipBorderRadius>
-          {Settings.CapoHome_GKNicknameEnabled &&
-            <ClipBorderRadius>
-              <RectButton
-                style={styles.bigButton}
-                onPress={this._handlePressGoalkeeperNicknameButton}
-                underlayColor="#fff"
-              >
-                <Ionicons
-                  name="md-hand"
-                  size={23}
-                  style={{
-                    color: '#fff',
-                    backgroundColor: 'transparent',
-                    marginRight: 5
-                  }}
-                />
-                <MediumText style={styles.bigButtonText}>
-                  {i18n.t('screens.capohome.gknickname')}
-                </MediumText>
-              </RectButton>
-            </ClipBorderRadius>
-          }
-          <View style={{ flex: 1 }} />
+        <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flex: 1, justifyContent: "space-between" }}>
+          <View>
+            <BigButton
+              label={i18n.t('screens.capohome.postcreate')}
+              iconName="md-paper"
+              onPress={this._handlePressPostCreateButton} />
+          </View>
           <View style={{ padding: 10 }}>
             <BoldText>DEBUG</BoldText>
             <MediumText>Connected to:</MediumText>
@@ -127,21 +64,6 @@ class CapoHome extends React.Component {
       </View>
     );
   }
-
-  _handlePressSelectSongButton = () => {
-    Keyboard.dismiss();
-    this.props.navigation.navigate('CapoSelectSong');
-  };
-
-  _handlePressComposeSongButton = () => {
-    this.props.navigation.navigate('CapoComposeSong');
-  };
-
-  _handlePressGoalkeeperNicknameButton = () => {
-    Keyboard.dismiss();
-    this.props.navigation.navigate('CapoSetGoalkeeperNickname');
-  };
-
 
   _handlePressPostCreateButton = () => {
     // later, we'll check for existing drafts and prompt the user on what to do
