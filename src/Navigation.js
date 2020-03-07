@@ -15,15 +15,6 @@ const DefaultStackConfig = {
   }
 };
 
-const SongsNavigation = StackNavigator(
-  {
-    SpeakerList: {
-      screen: Screens.Songs
-    }
-  },
-  DefaultStackConfig
-);
-
 const HomeNavigation = StackNavigator(
   {
     Home: { screen: Screens.Home },
@@ -142,11 +133,6 @@ const CapoHomeNavigation = StackNavigator(
   {
     CapoLogin: { screen: Screens.CapoLogin },
     CapoHome: { screen: Screens.CapoHome },
-    CapoSelectSong: { screen: Screens.CapoSelectSong },
-    CapoComposeSong: { screen: Screens.CapoComposeSong },
-    CapoConfirmSendSong: { screen: Screens.CapoConfirmSendSong },
-    CapoSetGoalkeeperNickname: { screen: Screens.CapoSetGoalkeeperNickname },
-    CapoConfirmSendGoalkeeperNickname: { screen: Screens.CapoConfirmSendGoalkeeperNickname },
     PostCreate: { screen: Screens.PostCreate },
     PostPreview: { screen: Screens.PostPreview }
   },
