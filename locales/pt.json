@@ -16,27 +16,8 @@
             "debug": "Debug",
             "contribute": "Interessado em contribuir? Se você e capaz de escrever código, conteúdo, ou design, ou quer ajudar de outra maneira, nós gostaríamos de conectar com você. Por favor entre em contato com _@chattahooligan_ ou _@hooliganhymnal_ no Twitter, ou mande email para thechattahooligans@gmail.com"
         },
-        "capocompose": {
-            "title": "Compor hino",
-            "songtitle": "Titulo",
-            "songlyrics": "Letra",
-            "continue": "Continuar"
-        },
-        "capoconfirmGK": {
-            "title": "Confirmar o apelido do goleiro?",
-            "sendonly": "Enviar somente",
-            "sendnotify": "Enviar e notificar"
-        },
-        "capoconfirmsong": {
-            "title": "Confirmar hino?",
-            "sendonly": "Enviar somente",
-            "sendnotify": "Enviar e notificar"
-        },
         "capohome": {
             "title": "Menu",
-            "selectsong": "Selecionar hino",
-            "composesong": "Compor hino",
-            "gknickname": "Apelido do goleiro",
             "logout": "Logout"
         },
         "capologin": {
@@ -45,33 +26,24 @@
             "password": "Password",
             "unlock": "Unlock"
         },
-        "caposelectsong": {
-            "title": "Selecionar hino"
-        },
-        "caposetGKnickname": {
-            "title": "Apelido do goleiro",
-            "instructions1": "1. Nós vamos marcar gol em você...",
-            "instructions2": "2. Escolha uma cor, qualquer cor",
-            "instructions3": "3. Qual é mais fácil de ler?"
-        },
         "postattach": {
             "attachmenttypes": "Attachment Types",
             "selectplayer": "Select Player",
-            "selectsong": "Select Song",
-            "composesong": "Compose Song",
+            "selectsong": "Selecionar Hino",
+            "composesong": "Compor Hino",
             "masstweet": "Tweet the Players",
             "gknickname": "GK Nickname"
         },
         "postattachmentcomposegknickname": {
             "gknickname": "GK Nickname",
             "instructions1": "1. We're gonna score on you...",
-            "instructions2": "2. Pick a color, any color",
-            "instructions3": "3. Which is more readable?"
+            "instructions2": "2. Escolha uma cor, qualquer cor",
+            "instructions3": "3. Qual é mais fácil de ler?"
         },
         "postattchmentcomposesong": {
-            "composesong": "Compose Song",
-            "title": "Title",
-            "lyrics": "Lyrics",
+            "composesong": "Compor Hino",
+            "title": "Titulo",
+            "lyrics": "Letra",
             "attach": "Attach"
         },
         "postattachmentselectmasstweet": {
@@ -83,7 +55,7 @@
             "search": "Search"
         },
         "postattachmentselectsong": {
-            "selectsong": "Select Song",
+            "selectsong": "Selecionar Hino",
             "search": "Search"
         },
         "postcreate": {
