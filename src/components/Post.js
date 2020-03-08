@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import {
     Alert,
     Clipboard,
@@ -31,6 +31,7 @@ import PostAttachmentSong from './PostAttachmentSong';
 import PostImageWrapper from './PostImageWrapper';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import ImageViewerFooter from './ImageViewerFooter';
+import NotificationEngagementsModal from './NotificationEngagementsModal';
 import moment from 'moment';
 import i18n from "../../i18n";
 import PostAttachmentMultiTweet from './PostAttachmentMultiTweet';
@@ -46,7 +47,8 @@ class Post extends React.Component {
         },
         imageViewerVisible: false,
         imageViewerIndex: 0,
-        imageViewerFooterVisible: true
+        imageViewerFooterVisible: true,
+        statsModalVisible: true
     }
 
     componentDidMount = () => this.setData();
@@ -75,7 +77,8 @@ class Post extends React.Component {
     showMenu = () => { this.menu.show() }
     showStatsModal = () => {
         this.hideMenu()
-        alert("stats")
+
+        this.setState({ statsModalVisible: true })
     }
     showHidePostAlert = () => {
         this.hideMenu()
@@ -444,6 +447,10 @@ class Post extends React.Component {
                         />
                     </Modal>
                 }
+                <NotificationEngagementsModal
+                    visible={this.state.statsModalVisible}
+                    feeditemId={post._id} 
+                    onRequestClose={() => this.setState({ statsModalVisible: false })} />
             </View>
         )
     }
