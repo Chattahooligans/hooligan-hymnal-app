@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
     Alert,
     Clipboard,
@@ -12,14 +12,7 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import {
-    Menu,
-    MenuProvider,
-    MenuOptions,
-    MenuOption,
-    MenuTrigger,
-    renderers
-} from 'react-native-popup-menu';
+import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 import FadeIn from 'react-native-fade-in-image';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
@@ -41,8 +34,6 @@ import ImageViewerFooter from './ImageViewerFooter';
 import moment from 'moment';
 import i18n from "../../i18n";
 import PostAttachmentMultiTweet from './PostAttachmentMultiTweet';
-
-const { SlideInMenu } = renderers;
 
 class Post extends React.Component {
     state = {
@@ -76,6 +67,35 @@ class Post extends React.Component {
         if (this.props.post)
             this.props.globalData.hidePost(this.props.post._id)
     }
+
+    // new admin menu
+    menu = null
+    setMenuRef = (ref) => { this.menu = ref }
+    hideMenu = () => { this.menu.hide() }
+    showMenu = () => { this.menu.show() }
+    showStatsModal = () => {
+        this.hideMenu()
+        alert("stats")
+    }
+    showHidePostAlert = () => {
+        this.hideMenu()
+
+        Alert.alert(
+            i18n.t('components.post.hidealerttitle'),
+            i18n.t('components.post.hidealertmessage'),
+            [
+                {
+                    text: i18n.t('components.post.hidealertcancel'),
+                    style: "cancel"
+                },
+                {
+                    text: i18n.t('components.post.hidealertconfirm'),
+                    onPress: () => { this.hidePost() }
+                }
+            ]
+        )
+    }
+
 
     getScaledUri = (uri) => {
         let host = "cloudinary.com"
@@ -257,7 +277,7 @@ class Post extends React.Component {
                     let playerDisplay = <PostAttachmentPlayer key={index} player={player}
                         onPress={() => { this.props.navigation.navigate("Player", { player }) }} />
                     attachmentDisplay.push(playerDisplay);
-                    if(player.hasOwnProperty("twitter") && player.twitter != "") {
+                    if (player.hasOwnProperty("twitter") && player.twitter != "") {
                         tweetablePlayers.push(player);
                     }
                     break;
@@ -293,7 +313,7 @@ class Post extends React.Component {
             }
         });
 
-        if(tweetablePlayers.length > 1) {
+        if (tweetablePlayers.length > 1) {
             attachmentDisplay.push(<PostAttachmentMultiTweet key={post.attachments.length} players={tweetablePlayers} />)
         }
 
@@ -306,57 +326,29 @@ class Post extends React.Component {
             const channelPermissions = this.props.globalData.getChannelPermissions(channelId, currentUserId);
 
             if (currentUserFeedAllowed) {
-                /*
+                if (post.push)
+                    menuOptions.push(<MenuItem onPress={this.showStatsModal}>Stats</MenuItem>)
                 if (channelPermissions.canEdit)
-                    menuOptions.push(<MenuOption value={"edit"} text="Edit Post" />)
-                if (channelPermissions.canDelete)
-                    menuOptions.push(<MenuOption value={"delete"} text="Hide Post" />)
-                */
+                    menuOptions.push(<MenuItem disabled>Edit Post</MenuItem>)
                 if (channelPermissions.canDelete) {
-                    menuDisplay =
-                        <TouchableOpacity
-                            onPress={() => {
-                                Alert.alert(
-                                    i18n.t('components.post.hidealerttitle'),
-                                    i18n.t('components.post.hidealertmessage'),
-                                    [
-                                        {
-                                            text: i18n.t('components.post.hidealertcancel'),
-                                            style: "cancel"
-                                        },
-                                        {
-                                            text: i18n.t('components.post.hidealertconfirm'),
-                                            onPress: () => { this.hidePost() }
-                                        }
-                                    ]
-                                )
-                            }}>
+                    menuOptions.push(<MenuDivider />)
+                    menuOptions.push(<MenuItem onPress={this.showHidePostAlert}>Hide Post</MenuItem>)
+                }
+
+                menuDisplay = <Menu
+                    ref={this.setMenuRef}
+                    button={
+                        <TouchableOpacity>
                             <Ionicons
                                 name="md-arrow-dropdown"
-                                size={18}
-                                style={styles.menu} />
+                                size={30}
+                                style={styles.menu}
+                                onPress={this.showMenu} />
                         </TouchableOpacity>
-                }
+                    }>
+                    {menuOptions}
+                </Menu>
             }
-
-            /*
-            if (menuOptions.length > 0) {
-                menuDisplay =
-                    <MenuProvider>
-                        <Menu renderer={SlideInMenu} onSelect={value => alert(`Selected number: ${value}`)}>
-                            <MenuTrigger>
-                                    <Ionicons
-                                        name="md-arrow-dropdown"
-                                        size={18}
-                                        style={styles.menu} />
-                            </MenuTrigger>
-                            <MenuOptions>
-                                {menuOptions}
-                            </MenuOptions>
-                        </Menu>
-                    </MenuProvider>
-                }
-                   */
         }
 
         return (
@@ -495,7 +487,9 @@ const styles = StyleSheet.create({
     menu: {
         color: Skin.Post_ChannelLabel,
         marginLeft: 5,
-        marginRight: 3
+        marginRight: 3,
+        marginTop: -6,
+        backgroundColor: 'transparent'
     },
     text: {
         paddingVertical: 3,
