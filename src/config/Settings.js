@@ -132,6 +132,7 @@ export const Skin = {
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Secondary,
   ModalLoader_Container: "#00000040",
+  NotificationEngagementsModal_Container: "#00000040",
   Songbook_Background: Palette.Sky,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Navy,

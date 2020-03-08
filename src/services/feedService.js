@@ -57,3 +57,6 @@ export const engageNotification = (postId, pushToken) =>
     }
   )
     .then(response => response.data)
+
+export const getEngagementSummary = (postId) =>
+  API.get('/api/notifications/' + postId).then(response => response.data)
