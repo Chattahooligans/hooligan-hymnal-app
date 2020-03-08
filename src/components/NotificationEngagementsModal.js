@@ -19,7 +19,7 @@ export default class NotificationEngagementsModal extends React.Component {
                 <View style={styles.modal}>
                     <View style={styles.container}>
                         <BoldText>Notification Engagements</BoldText>
-                        <RegularText>{this.props.feeditemId}</RegularText>
+                        <RegularText>{this.props.post._id}</RegularText>
                     </View>
                 </View>
             </Modal>

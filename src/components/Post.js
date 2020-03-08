@@ -449,7 +449,7 @@ class Post extends React.Component {
                 }
                 <NotificationEngagementsModal
                     visible={this.state.statsModalVisible}
-                    feeditemId={post._id} 
+                    post={post} 
                     onRequestClose={() => this.setState({ statsModalVisible: false })} />
             </View>
         )
