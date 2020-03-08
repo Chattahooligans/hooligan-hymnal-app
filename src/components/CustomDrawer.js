@@ -28,7 +28,7 @@ const CustomDrawer = props => (
         />
       </View>
     </View>
-    <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flex: 1, justifyContent: "space-between" }}>
+    <ScrollView style={{ flex: 1 }}>
       <DrawerItems
         {...props}
         activeBackgroundColor="rgba(255,255,255,0.1)"
