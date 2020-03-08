@@ -45,6 +45,7 @@ const CustomDrawer = props => (
           }
         }}
       />
+      <View style={{ flex: 1 }} />
       {Settings.RefereeCards_Show &&
         <View style={{ flex: 1, justifyContent: "flex-end" }}>
           <View style={styles.cardContainer}>
