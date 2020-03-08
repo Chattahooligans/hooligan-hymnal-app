@@ -48,7 +48,7 @@ class Post extends React.Component {
         imageViewerVisible: false,
         imageViewerIndex: 0,
         imageViewerFooterVisible: true,
-        statsModalVisible: true
+        statsModalVisible: false
     }
 
     componentDidMount = () => this.setData();
