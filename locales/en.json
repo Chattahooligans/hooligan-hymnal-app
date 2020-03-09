@@ -185,6 +185,7 @@
             "copied": "Copied",
             "hidealerttitle": "Hide Post",
             "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
+            "hidealertmessageios": "Are you sure you want to hide this post from the Feed?\n\nYou can also view notification engagement stats.",
             "hidealertcancel": "Cancel",
             "hidealertconfirm": "Hide"
         },

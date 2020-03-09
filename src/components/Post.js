@@ -322,6 +322,7 @@ class Post extends React.Component {
 
         let menuOptions = [];
         let menuDisplay;
+        let menuDisplayIOS;
         if (this.props.globalData.getCurrentUser()) {
             const channelId = post.channelData._id;
             const currentUserId = this.props.globalData.getCurrentUser().user.id;
@@ -330,12 +331,39 @@ class Post extends React.Component {
 
             if (currentUserFeedAllowed) {
                 if (post.push)
-                    menuOptions.push(<MenuItem onPress={this.showStatsModal}>Stats</MenuItem>)
+                    menuOptions.push(<MenuItem onPress={this.showStatsModal} key={post._id + "-menu-stats"}>Stats</MenuItem>)
                 if (channelPermissions.canEdit)
-                    menuOptions.push(<MenuItem disabled>Edit Post</MenuItem>)
+                    menuOptions.push(<MenuItem key={post._id + "-menu-edit"} disabled>Edit Post</MenuItem>)
                 if (channelPermissions.canDelete) {
-                    menuOptions.push(<MenuDivider />)
-                    menuOptions.push(<MenuItem onPress={this.showHidePostAlert}>Hide Post</MenuItem>)
+                    menuOptions.push(<MenuDivider key={post._id + "-menu-divider"} />)
+                    menuOptions.push(<MenuItem onPress={this.showHidePostAlert} key={post._id + "-menu-hide"}>Hide Post</MenuItem>)
+
+                    menuDisplayIOS = <TouchableOpacity
+                        onPress={() => {
+                            Alert.alert(
+                                i18n.t('components.post.hidealerttitle'),
+                                i18n.t('components.post.hidealertmessageios'),
+                                [
+                                    {
+                                        text: i18n.t('components.post.hidealertcancel'),
+                                        style: "cancel"
+                                    },
+                                    {
+                                        text: i18n.t('components.post.hidealertconfirm'),
+                                        onPress: () => { this.hidePost() }
+                                    },
+                                    {
+                                        text: "Stats",
+                                        onPress: () => { this.setState({ statsModalVisible: true }) }
+                                    }
+                                ]
+                            )
+                        }}>
+                        <Ionicons
+                            name="md-arrow-dropdown"
+                            size={30}
+                            style={styles.menu} />
+                    </TouchableOpacity>
                 }
 
                 menuDisplay = <Menu
@@ -398,7 +426,8 @@ class Post extends React.Component {
                             size={18}
                             style={styles.notificationSymbol} />
                     }
-                    {menuDisplay}
+                    {Platform.OS === "android" && menuDisplay}
+                    {Platform.OS === "ios" && menuDisplayIOS}
                 </View>
                 {textDisplay}
 
@@ -449,7 +478,7 @@ class Post extends React.Component {
                 }
                 <NotificationEngagementsModal
                     visible={this.state.statsModalVisible}
-                    post={post} 
+                    post={post}
                     onRequestClose={() => this.setState({ statsModalVisible: false })} />
             </View>
         )
