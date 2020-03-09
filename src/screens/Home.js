@@ -30,6 +30,7 @@ import VideoBackground from '../components/VideoBackground';
 import SocialButtonPanel from '../components/SocialButtonPanel';
 import HomeBannersPanel from '../components/HomeBannersPanel';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
+import { ModalLoader } from '../components/ModalLoader';
 import Post from '../components/Post';
 import { FontSizes, Layout, Colors } from '../constants';
 import Constants from 'expo-constants';
@@ -228,6 +229,7 @@ class Home extends React.Component {
             }
           </View>
           <OverscrollView />
+          <ModalLoader loading={!this.props.globalData.state.loadDataComplete} />
         </AnimatedScrollView>
 
         <NavigationBar

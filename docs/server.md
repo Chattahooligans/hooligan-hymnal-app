@@ -1,8 +1,17 @@
 # Server Settings
 
-## Required Env Variables
+## MongoDB Atlas settings
+
+You will need to configure an IP whitelist in Atlas for your cluster. If you are using Heroku private spaces or another add-on to control
+your Heroku cluster's public IP address, you may configure that IP for added security. Otherwise, you will need to choose a VERY strong
+password and whitelist 0.0.0.0/0 to allow traffic to reach MongoDB.
+
+The Hymnal's version of Mongoose currently requires the >=2.2.12 MongoDB connection string; 3.0 compatibility will be released at a later date.
+
+## Heroku: Required Env Variables
 ### Development
   ```
+  EXPO_EXPERIENCE=
   ENV=development
   PORT=3000
   MONGO_URI=mongodb://localhost/<db_name_here>
@@ -19,6 +28,7 @@
 
 ### Production
   ```
+  EXPO_EXPERIENCE=
   MONGO_URI=mongodb://localhost/<db_name_here>
   SECRET_KEY=
   INPUT_LANGUAGE=["en", "es", "de"]
@@ -32,6 +42,9 @@
   ```
 
 ## Settings requirements
+  ### EXPO_EXPERIENCE
+  `EXPO=EXPERIENCE=@<owner>/<slug>` should match related .expo fields in app.json
+
   ### PORT (DEV)
   `PORT=5000` uses to run both dev node server along with vue-cli
 

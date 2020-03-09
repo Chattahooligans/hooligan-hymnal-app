@@ -16,42 +16,16 @@
             "debug": "Debug",
             "contribute": "Interested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email thechattahooligans@gmail.com"
         },
-        "capocompose": {
-            "title": "Compose Song",
-            "songtitle": "Title",
-            "songlyrics": "Lyrics",
-            "continue": "Continue"
-        },
-        "capoconfirmGK": {
-            "title": "Confirm GK Nickname?",
-            "sendonly": "Send Only",
-            "sendnotify": "Send &amp; Notify"
-        },
-        "capoconfirmsong": {
-            "title": "Confirm Song?",
-            "sendonly": "Send Only",
-            "sendnotify": "Send &amp; Notify"
-        },
         "capohome": {
             "title": "Capo Dashboard",
-            "selectsong": "Select Song",
-            "composesong": "Compose Song",
-            "gknickname": "GK Nickname"
+            "postcreate": "Create Post",
+            "logout": "Logout"
         },
         "capologin": {
             "title": "Capo Dashboard",
             "username": "Username/Email",
             "password": "Password",
             "unlock": "Unlock"
-        },
-        "caposelectsong": {
-            "title": "Select Song"
-        },
-        "caposetGKnickname": {
-            "title": "GK Nickname",
-            "instructions1": "1. We're gonna score on you...",
-            "instructions2": "2. Pick a color, any color",
-            "instructions3": "3. Which is more readable?"
         },
         "postattach": {
             "attachmenttypes": "Attachment Types",

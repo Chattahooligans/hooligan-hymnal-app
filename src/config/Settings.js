@@ -86,7 +86,7 @@ export const DefaultColors = {
   Secondary: Palette.Sky
 }
 
-// NOTE: Heebo is a Chattahooligan-brand font.
+// NOTE: Roboto is a Chattahooligan-brand font.
 /*
   You can use your own fonts in Hooligan Hymnal by including files in /assets/
   and editing App.js. Look for Font.loadAsync() to see how fonts are loaded and registered as strings
@@ -95,16 +95,18 @@ export const DefaultColors = {
   Font_Regular: 'open-sans',
   Font_Medium: 'open-sans-semibold',
   Font_Bold: 'open-sans-bold',
+  Font_Italic: 'open-sans-italic',
   Font_ParsedText: 'open-sans',
 
   Font_Light is currently unused in the app.
 */
 export const Skin = {
-  Font_Light: 'heebo-light',
-  Font_Regular: 'heebo',
-  Font_Medium: 'heebo-medium',
-  Font_Bold: 'heebo-bold',
-  Font_ParsedText: 'heebo',
+  Font_Light: 'roboto-light',
+  Font_Regular: 'roboto',
+  Font_Medium: 'roboto-medium',
+  Font_Bold: 'roboto-bold',
+  Font_Italic: 'roboto-italic',
+  Font_ParsedText: 'roboto',
   Channel_Background: DefaultColors.Secondary,
   Channel_DescriptionLabel: DefaultColors.Primary,
   Channel_LoadMoreActivityIndicator_Android: DefaultColors.Primary,
@@ -131,6 +133,7 @@ export const Skin = {
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Secondary,
   ModalLoader_Container: "#00000040",
+  NotificationEngagementsModal_Container: "#00000040",
   Songbook_Background: Palette.Sky,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Navy,

@@ -110,18 +110,20 @@ class RosterFoePlayers extends React.Component {
             <LoadingPlaceholder>
                 <ScrollView>
                     <View style={styles.imageContainer}>{foeImage}</View>
-                    {(foe.players && (foe.players.length > 0)) &&
-                        <View style={{ flex: 1, flexDirection: "row", height: 3, backgroundColor: foe.accentColor }} />
-                    }
-                    <FlatList
-                        renderScrollComponent={props => <ScrollView {...props} />}
-                        data={foe.players}
-                        renderItem={this._renderItem}
-                        keyExtractor={(item, index) => index.toString()}
-                    />
-                    {(foe.players && (foe.players.length > 0)) &&
-                        <View style={{ flex: 1, flexDirection: "row", height: 3, backgroundColor: foe.accentColor }} />
-                    }
+                    <View style={{ backgroundColor: foe.backgroundColor }}>
+                        {(foe.players && (foe.players.length > 0)) &&
+                            <View style={{ flex: 1, flexDirection: "row", height: 3, backgroundColor: foe.accentColor, marginBottom: 5 }} />
+                        }
+                        <FlatList
+                            renderScrollComponent={props => <ScrollView {...props} />}
+                            data={foe.players}
+                            renderItem={this._renderItem}
+                            keyExtractor={(item, index) => index.toString()}
+                        />
+                        {(foe.players && (foe.players.length > 0)) &&
+                            <View style={{ flex: 1, flexDirection: "row", height: 3, backgroundColor: foe.accentColor, marginTop: 5 }} />
+                        }
+                    </View>
                 </ScrollView>
                 <NavigationBar
                     animatedBackgroundOpacity={headerOpacity}
@@ -155,13 +157,13 @@ class RosterFoePlayers extends React.Component {
 const styles = StyleSheet.create({
     imageContainer: {
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     logo: {
         width: 175,
         height: 175,
         borderRadius: 0,
-        marginBottom: 10
+        marginVertical: 10
     },
     playerRow: {
         flex: 1,

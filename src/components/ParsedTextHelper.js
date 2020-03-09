@@ -1,4 +1,4 @@
-import { Linking, StyleSheet } from 'react-native'
+import { Linking, Platform, StyleSheet } from 'react-native'
 import { Skin } from '../config/Settings'
 
 /* sample import */
@@ -12,13 +12,13 @@ export const parsePatterns = {
 
 export const parsedStyles = StyleSheet.create({
     bold: {
-        fontWeight: 'bold'
+        fontFamily: Skin.Font_Bold
     },
     hashtag: {
-        fontWeight: 'bold'
+        fontFamily: Skin.Font_Bold
     },
     italic: {
-        fontStyle: 'italic'
+        fontFamily: Skin.Font_Italic
     },
     url: {
         color: Skin.Post_LinkColor,

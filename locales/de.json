@@ -16,27 +16,8 @@
             "debug": "Debug",
             "contribute": "Interesse an einer Mitarbeit? Wenn Du progammieren, gestalten, schreiben oder in anderer Weise helfen kannst, würden wir uns freuen mit Dir zu arbeiten! Bitte melde Dich bei _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email thechattahooligans@gmail.com"
         },
-        "capocompose": {
-            "title": "Komponiere Lied",
-            "songtitle": "Titel",
-            "songlyrics": "Liedtext",
-            "continue": "Weiter"
-        },
-        "capoconfirmGK": {
-            "title": "GK Spitzname bestätigen?",
-            "sendonly": "Nur senden",
-            "sendnotify": "Senden &amp; benachrichtigen"
-        },
-        "capoconfirmsong": {
-            "title": "Lied bestätigen?",
-            "sendonly": "Nur senden",
-            "sendnotify": "Senden &amp; benachrichtigen"
-        },
         "capohome": {
             "title": "Capo Dashboard",
-            "selectsong": "Lied auswählen",
-            "composesong": "Lied komponieren",
-            "gknickname": "GK Spitzname",
             "logout": "Logout"
         },
         "capologin": {
@@ -45,33 +26,24 @@
             "password": "Passwort",
             "unlock": "Entsperren"
         },
-        "caposelectsong": {
-            "title": "Lied auswählen"
-        },
-        "caposetGKnickname": {
-            "title": "GK Spitzname",
-            "instructions1": "1. We're gonna score on you...",
-            "instructions2": "2. Wähle eine beliebige Farbe",
-            "instructions3": "3. Welches ist besser lesbar?"
-        },
         "postattach": {
             "attachmenttypes": "Attachment Types",
             "selectplayer": "Select Player",
-            "selectsong": "Select Song",
-            "composesong": "Compose Song",
+            "selectsong": "Lied Auswählen",
+            "composesong": "Komponiere Lied",
             "masstweet": "Tweet the Players",
             "gknickname": "GK Nickname"
         },
         "postattachmentcomposegknickname": {
             "gknickname": "GK Nickname",
             "instructions1": "1. We're gonna score on you...",
-            "instructions2": "2. Pick a color, any color",
-            "instructions3": "3. Which is more readable?"
+            "instructions2": "2. Wähle eine beliebige Farbe",
+            "instructions3": "3. Welches ist besser lesbar?"
         },
         "postattchmentcomposesong": {
-            "composesong": "Compose Song",
-            "title": "Title",
-            "lyrics": "Lyrics",
+            "composesong": "Komponiere Lied",
+            "title": "Titel",
+            "lyrics": "Liedtext",
             "attach": "Attach"
         },
         "postattachmentselectmasstweet": {
@@ -83,7 +55,7 @@
             "search": "Search"
         },
         "postattachmentselectsong": {
-            "selectsong": "Select Song",
+            "selectsong": "Lied auswählen",
             "search": "Search"
         },
         "postcreate": {
