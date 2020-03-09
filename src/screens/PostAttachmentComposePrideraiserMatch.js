@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
+import PrideraiserCampaignSummary from '../components/PrideraiserCampaignSummary';
 import { Ionicons } from '@expo/vector-icons';
 import { PRIDERAISER_CAMPAIGN_ID, DefaultColors, Skin } from '../config/Settings';
 import { getCampaign } from '../services/prideraiserService';
@@ -19,7 +20,7 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
 
     state = {
         loadedCampaign: false,
-        campaign: "",
+        campaign: null,
         goalCount: 0,
         error: false,
         errorDetail: null
@@ -46,7 +47,6 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
             alert("Problem loading Prideraiser campaign\n " + (this.state.errorDetail || ""))
 
         let loader = []
-        let campaignSummary = []
         if (!this.state.loadedCampaign && !this.state.error) {
             loader = <View style={{ flexDirection: i18n.getFlexDirection(), width: "100%" }}>
                 <ActivityIndicator
@@ -55,14 +55,13 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                 <RegularText style={{ color: DefaultColors.ColorText }}>Loading</RegularText>
             </View>
         }
-        else if (this.state.loadedCampaign && !this.state.error) {
-            loader = <RegularText style={{ color: DefaultColors.ColorText }}>Loaded: {this.state.campaign.name}</RegularText>
-            campaignSummary = <RegularText>some campaign details</RegularText>
-        }
         else if (this.state.error) {
             loader = <RegularText style={{ color: DefaultColors.ColorText }}>
                 {"Problem loading Prideraiser campaign\n " + (this.state.errorDetail || "")}
             </RegularText>
+        }
+        else {
+            loader = []
         }
 
         return (
@@ -70,7 +69,9 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                 <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattachmentcomposeprideraisermatch.prideraiser')}</BoldText>
                 {loader}
                 {this.state.loadedCampaign &&
-                    campaignSummary}
+                    <PrideraiserCampaignSummary
+                        campaign={this.state.campaign}
+                        paddingHorizontal={styles.container.padding} />}
                 <TextInput
                     style={styles.goalCountInput}
                     placeholder={i18n.t('screens.postattachmentcomposeprideraisermatch.howmanygoals')}
