@@ -1,6 +1,7 @@
 import React from 'react';
 import {
     ActivityIndicator,
+    ScrollView,
     StyleSheet,
     TextInput,
     View
@@ -11,6 +12,7 @@ import PrideraiserCampaignSummary from '../components/PrideraiserCampaignSummary
 import { Ionicons } from '@expo/vector-icons';
 import { PRIDERAISER_CAMPAIGN_ID, DefaultColors, Skin } from '../config/Settings';
 import { getCampaign } from '../services/prideraiserService';
+import moment from 'moment';
 import i18n from "../../i18n";
 
 export default class PostAttachmentComposePrideraiserMatch extends React.Component {
@@ -24,7 +26,7 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
         goalCount: 0,
         error: false,
         errorDetail: null,
-        source: ""
+        source: "hooliganhymnal-" + moment(new Date()).format("YYYY-MM-DD")
     }
 
     componentWillMount = async () => {
@@ -66,7 +68,7 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
         }
 
         return (
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
                 <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattachmentcomposeprideraisermatch.prideraisermatch')}</BoldText>
                 {loader}
                 {this.state.loadedCampaign &&
@@ -75,17 +77,18 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                         paddingHorizontal={styles.container.padding} />}
                 <BoldText>{i18n.t('screens.postattachmentcomposeprideraisermatch.howmanygoals')}</BoldText>
                 <TextInput
-                    style={styles.textInput}
+                    style={styles.goalCountInput}
                     placeholder={i18n.t('screens.postattachmentcomposeprideraisermatch.goals')}
                     onChangeText={(text) => this.setState({ goalCount: parseInt(text, 10) })} />
                 <BoldText>{i18n.t('screens.postattachmentcomposeprideraisermatch.analytics')}</BoldText>
                 <TextInput
-                    style={styles.textInput}
+                    style={styles.sourceInput}
+                    value={this.state.source}
                     placeholder={i18n.t('screens.postattachmentcomposeprideraisermatch.source')}
                     onChangeText={(text) => this.setState({ source: text })} />
                 <BigButton
                     disabled={!this.state.loadedCampaign}
-                    buttonStyle={!this.state.loadedCampaign ? { backgroundColor: "gray" } : {}}
+                    buttonStyle={!this.state.loadedCampaign ? { backgroundColor: "gray", marginBottom: 15 } : { marginBottom: 15 }}
                     label={i18n.t('screens.postattachmentcomposeprideraisermatch.attach')}
                     iconName="md-add" iconPosition="right"
                     onPress={() => {
@@ -102,7 +105,7 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                                 }
                             );
                     }} />
-            </View>
+            </ScrollView>
         )
     }
 }
@@ -112,9 +115,12 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 10
     },
-    textInput: {
+    goalCountInput: {
         fontSize: 24,
         fontWeight: 'bold',
         height: 50
+    },
+    sourceInput: {
+
     }
 });
