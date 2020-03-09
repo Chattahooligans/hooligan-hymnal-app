@@ -66,7 +66,7 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
 
         return (
             <View style={styles.container}>
-                <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattachmentcomposeprideraisermatch.prideraiser')}</BoldText>
+                <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattachmentcomposeprideraisermatch.prideraisermatch')}</BoldText>
                 {loader}
                 {this.state.loadedCampaign &&
                     <PrideraiserCampaignSummary
