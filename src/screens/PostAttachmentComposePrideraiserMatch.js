@@ -23,7 +23,8 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
         campaign: null,
         goalCount: 0,
         error: false,
-        errorDetail: null
+        errorDetail: null,
+        source: ""
     }
 
     componentWillMount = async () => {
@@ -72,10 +73,16 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                     <PrideraiserCampaignSummary
                         campaign={this.state.campaign}
                         paddingHorizontal={styles.container.padding} />}
+                <BoldText>{i18n.t('screens.postattachmentcomposeprideraisermatch.howmanygoals')}</BoldText>
                 <TextInput
-                    style={styles.goalCountInput}
-                    placeholder={i18n.t('screens.postattachmentcomposeprideraisermatch.howmanygoals')}
+                    style={styles.textInput}
+                    placeholder={i18n.t('screens.postattachmentcomposeprideraisermatch.goals')}
                     onChangeText={(text) => this.setState({ goalCount: parseInt(text, 10) })} />
+                <BoldText>{i18n.t('screens.postattachmentcomposeprideraisermatch.analytics')}</BoldText>
+                <TextInput
+                    style={styles.textInput}
+                    placeholder={i18n.t('screens.postattachmentcomposeprideraisermatch.source')}
+                    onChangeText={(text) => this.setState({ source: text })} />
                 <BigButton
                     disabled={!this.state.loadedCampaign}
                     buttonStyle={!this.state.loadedCampaign ? { backgroundColor: "gray" } : {}}
@@ -89,7 +96,8 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                                     data: {
                                         campaignId: PRIDERAISER_CAMPAIGN_ID,
                                         goalCount: this.state.goalCount,
-                                        pledgeLevel: 420.69
+                                        pledgeLevel: 420.69,
+                                        source: this.state.source
                                     }
                                 }
                             );
@@ -104,7 +112,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 10
     },
-    goalCountInput: {
+    textInput: {
         fontSize: 24,
         fontWeight: 'bold',
         height: 50
