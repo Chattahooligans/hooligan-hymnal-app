@@ -34,7 +34,7 @@
             "composesong": "Compose Song",
             "masstweet": "Tweet the Players",
             "gknickname": "GK Nickname",
-            "prideraiser": "Prideraiser"
+            "prideraisermatch": "Prideraiser Match Update"
         },
         "postattachmentcomposegknickname": {
             "gknickname": "GK Nickname",
@@ -42,7 +42,7 @@
             "instructions2": "2. Pick a color, any color",
             "instructions3": "3. Which is more readable?"
         },
-        "postattachmentcomposeprideraiser": {
+        "postattachmentcomposeprideraisermatch": {
             "prideraiser": "Prideraiser",
             "howmanygoals": "How many goals for this match?",
             "attach": "Attach"

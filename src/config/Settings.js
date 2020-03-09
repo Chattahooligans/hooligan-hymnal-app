@@ -55,6 +55,7 @@ export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
 export const PRIDERAISER_LOGO = require('../../assets/prideraiser-logo.png');
 export const PRIDERAISER_ICON = require('../../assets/prideraiser-icon.png');
 export const PRIDERAISER_CAMPAIGN_ID = '03BpKNg';
+//export const PRIDERAISER_CAMPAIGN_ID = 'invalid_id_for_testing';
 
 import i18n from "../../i18n"
 
@@ -147,6 +148,7 @@ export const Skin = {
   Post_LinkColor: "blue",
   Post_TextColor: DefaultColors.Text,
   Post_TimestampLabel: DefaultColors.ColorText,
+  PostAttachmentComposePrideraiserMatch_ActivityIndicator: DefaultColors.Primary,
   Roster_DefaultThumbnail: CLUB_LOGO,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
