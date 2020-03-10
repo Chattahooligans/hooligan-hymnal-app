@@ -10,6 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { DefaultColors, Skin } from '../config/Settings';
 import i18n from '../../i18n';
 
+// This is only used in the post creation admin, not stuff that is user-facing
 export default class PostAttachmentComposePrideraiserMatch extends React.Component {
     render() {
         let campaign = this.props.campaign || {
