@@ -41,12 +41,12 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                 // populate analytics source from Skin
                 let source = ""
                 if (Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix)
-                    source =+ Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix + "-"
+                    source += Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix + "-"
                 source += moment(new Date()).format(Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat)
                 if (Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix)
                     source += "-" + Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix
 
-                this.setState({ loadedCampaign: true, campaign })
+                this.setState({ loadedCampaign: true, campaign, source })
             }
             else
                 this.setState({ loadedCampaign: false, error: true, errorDetail: "Not found." })
@@ -86,11 +86,12 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                     <PrideraiserCampaignSummary
                         campaign={this.state.campaign}
                         paddingHorizontal={styles.container.padding} />}
-                <BoldText>{i18n.t('screens.postattachmentcomposeprideraisermatch.howmanygoals')}</BoldText>
+                <BoldText>{i18n.t('screens.postattachmentcomposeprideraisermatch.howmanygoals').replace("%goal_name_plural%", this.state.campaign.goal_name_plural)}</BoldText>
                 <TextInput
                     style={styles.goalCountInput}
                     placeholder={this.state.campaign.goal_name_plural}
-                    onChangeText={(text) => this.setState({ goalCount: parseInt(text, 10) })} />
+                    onChangeText={(text) => this.setState({ goalCount: parseInt(text, 10) })}
+                    keyboardType={'numeric'} />
                 <BoldText>{i18n.t('screens.postattachmentcomposeprideraisermatch.analytics')}</BoldText>
                 <TextInput
                     style={styles.sourceInput}
@@ -108,10 +109,11 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                                 {
                                     attachmentType: "prideraisermatch",
                                     data: {
+                                        name: this.state.campaign.name,
                                         campaignId: PRIDERAISER_CAMPAIGN_ID,
                                         goal_name: this.state.campaign.goal_name,
                                         goal_name_plural: this.state.campaign.goal_name_plural,
-                                        goals_made: this.state.goals_made,
+                                        goals_made: this.state.goalCount,
                                         pledged_total: this.state.campaign.goal_name_plural,
                                         source: this.state.source
                                     }

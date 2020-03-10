@@ -44,7 +44,7 @@
         },
         "postattachmentcomposeprideraisermatch": {
             "prideraisermatch": "Prideraiser Match Update",
-            "howmanygoals": "How many goals for this match?",
+            "howmanygoals": "How many %goal_name_plural% for this match?",
             "analytics": "Analytics (source)",
             "source": "source",
             "attach": "Attach"
