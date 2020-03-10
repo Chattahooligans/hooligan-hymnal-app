@@ -22,11 +22,13 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
 
     state = {
         loadedCampaign: false,
-        campaign: null,
+        campaign: {
+            goal_name_plural: "Goals"
+        },
         goalCount: 0,
         error: false,
         errorDetail: null,
-        source: "hooliganhymnal-" + moment(new Date()).format("YYYY-MM-DD")
+        source: ""
     }
 
     componentWillMount = async () => {
@@ -35,8 +37,17 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
 
             // sanity check to confirm the campaign ID is right
             // campaigns that don't exist look like { "detail": "Not found." }
-            if (campaign.hasOwnProperty("id"))
+            if (campaign.hasOwnProperty("id")) {
+                // populate analytics source from Skin
+                let source = ""
+                if (Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix)
+                    source =+ Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix + "-"
+                source += moment(new Date()).format(Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat)
+                if (Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix)
+                    source += "-" + Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix
+
                 this.setState({ loadedCampaign: true, campaign })
+            }
             else
                 this.setState({ loadedCampaign: false, error: true, errorDetail: "Not found." })
         }
@@ -78,7 +89,7 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                 <BoldText>{i18n.t('screens.postattachmentcomposeprideraisermatch.howmanygoals')}</BoldText>
                 <TextInput
                     style={styles.goalCountInput}
-                    placeholder={i18n.t('screens.postattachmentcomposeprideraisermatch.goals')}
+                    placeholder={this.state.campaign.goal_name_plural}
                     onChangeText={(text) => this.setState({ goalCount: parseInt(text, 10) })} />
                 <BoldText>{i18n.t('screens.postattachmentcomposeprideraisermatch.analytics')}</BoldText>
                 <TextInput
@@ -98,8 +109,10 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                                     attachmentType: "prideraisermatch",
                                     data: {
                                         campaignId: PRIDERAISER_CAMPAIGN_ID,
-                                        goalCount: this.state.goalCount,
-                                        pledgeLevel: 420.69,
+                                        goal_name: this.state.campaign.goal_name,
+                                        goal_name_plural: this.state.campaign.goal_name_plural,
+                                        goals_made: this.state.goals_made,
+                                        pledged_total: this.state.campaign.goal_name_plural,
                                         source: this.state.source
                                     }
                                 }

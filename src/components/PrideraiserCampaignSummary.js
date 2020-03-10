@@ -13,16 +13,14 @@ import i18n from '../../i18n';
 export default class PostAttachmentComposePrideraiserMatch extends React.Component {
     render() {
         let campaign = this.props.campaign || {
-            name: "name",
-            charity_name: "charity",
-            pledge_level: "pledge_level",
-            goal_count: "goal_count",
+            name: "",
+            charity_name: "",
+            goals_made: 0,
+            pledged_total: 0,
             cover_photo: {
-                phone: ""
+                tablet: ""
             }
         }
-        let pledgeLevel = 420
-        let goalCount = 69
 
         let imageWidth = Dimensions.get("window").width - (this.props.paddingHorizontal * 2)
 
@@ -31,7 +29,7 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                 {campaign.cover_photo.phone &&
                     <Image
                         style={{ width: imageWidth, height: (.56 * imageWidth) }}
-                        source={{ uri: campaign.cover_photo.phone }} />
+                        source={{ uri: campaign.cover_photo.tablet + "&wm=pr&wmp=br" }} />
                 }
                 <View style={{ flexDirection: i18n.getFlexDirection() }}>
                     <MediumText>Name: </MediumText>
@@ -43,11 +41,11 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                 </View>
                 <View style={{ flexDirection: i18n.getFlexDirection() }}>
                     <MediumText>Goals Recorded: </MediumText>
-                    <RegularText>{goalCount}</RegularText>
+                    <RegularText>{campaign.goals_made}</RegularText>
                 </View>
                 <View style={{ flexDirection: i18n.getFlexDirection() }}>
                     <MediumText>Pledge per Goal: </MediumText>
-                    <RegularText>{pledgeLevel}</RegularText>
+                    <RegularText>{campaign.pledged_total}</RegularText>
                 </View>
             </View>
         )

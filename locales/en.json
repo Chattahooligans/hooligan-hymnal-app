@@ -45,7 +45,6 @@
         "postattachmentcomposeprideraisermatch": {
             "prideraisermatch": "Prideraiser Match Update",
             "howmanygoals": "How many goals for this match?",
-            "goals": "Goals",
             "analytics": "Analytics (source)",
             "source": "source",
             "attach": "Attach"

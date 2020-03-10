@@ -1,3 +1,5 @@
+import appParams from '../../app.json';
+
 /*
     Supporter Group Info
 */
@@ -149,6 +151,9 @@ export const Skin = {
   Post_TextColor: DefaultColors.Text,
   Post_TimestampLabel: DefaultColors.ColorText,
   PostAttachmentComposePrideraiserMatch_ActivityIndicator: DefaultColors.Primary,
+  PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix: appParams.expo.slug,
+  PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat: "YYYY-MM-DD",
+  PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix: "",
   Roster_DefaultThumbnail: CLUB_LOGO,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
