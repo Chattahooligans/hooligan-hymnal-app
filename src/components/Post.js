@@ -27,6 +27,7 @@ import PostAttachmentGkNickname from './PostAttachmentGkNickname';
 import PostAttachmentJuanstagram from './PostAttachmentJuanstagram';
 import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
+import PostAttachmentPrideraiserMatch from './PostAttachmentPrideraiserMatch';
 import PostAttachmentSong from './PostAttachmentSong';
 import PostImageWrapper from './PostImageWrapper';
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -306,6 +307,11 @@ class Post extends React.Component {
                         onPress={() => { this.props.navigation.navigate("TwitterList", { roster }) }} />
                     attachmentDisplay.push(massTweetDisplay);
                     break;
+                case "prideraisermatch":
+                    let match = attachment.data;
+                    let prideraiserMatchDisplay = <PostAttachmentPrideraiserMatch match={match} />;
+                    attachmentDisplay.push(prideraiserMatchDisplay);
+                    break;
                 case "juanstagram":
                     let juanstagramPost = attachment.data.juanstagramPost;
                     let juanstagramDisplay = <PostAttachmentJuanstagram juanstagramPost={juanstagramPost} />
@@ -449,7 +455,7 @@ class Post extends React.Component {
                 }
                 <NotificationEngagementsModal
                     visible={this.state.statsModalVisible}
-                    post={post} 
+                    post={post}
                     onRequestClose={() => this.setState({ statsModalVisible: false })} />
             </View>
         )
