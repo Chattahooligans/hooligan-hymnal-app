@@ -76,8 +76,7 @@ class About extends React.Component {
           <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
           <ParsedText
             parse={parsedTextOptions}
-            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
-          >
+            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
             {i18n.t('screens.about.why')}
           </ParsedText>
           <View style={{ height: 10 }} />
