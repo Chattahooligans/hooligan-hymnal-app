@@ -209,9 +209,7 @@ class Home extends React.Component {
             </View>
             <Image
               source={Skin.Home_VideoOverlay}
-              style={{ height: 100, resizeMode: 'contain', marginTop: 20 }}
-              tintColor={DefaultColors.HeaderText}
-            />
+              style={{ height: 100, resizeMode: 'contain', marginTop: 20 }} />
             <View style={styles.headerContent}>
               <RegularText style={styles.headerText}>
                 {appParams.expo.version}
@@ -237,8 +235,7 @@ class Home extends React.Component {
           renderTitle={() =>
             <Image
               source={Skin.Home_NavbarLogo}
-              style={{ height: Layout.headerHeight - (Constants.statusBarHeight / 2), width: Layout.window.width, resizeMode: 'contain' }}
-              tintColor={DefaultColors.HeaderText} />
+              style={{ height: Layout.headerHeight - (Constants.statusBarHeight / 2), width: Layout.window.width, resizeMode: 'contain' }} />
           }
           animatedBackgroundOpacity={headerOpacity}
         />
