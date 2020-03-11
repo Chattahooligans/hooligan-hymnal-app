@@ -86,3 +86,8 @@ Expectations set? Here's what to do first:
   * Work-in-progress
 * Get in touch. Reach out using your SG account to [@hooliganhymnal](https://twitter.com/hooliganhymnal) or email hooliganhymnal@gmail.com to introduce yourself and request an invite to the project Slack channel.
   * The core team and various SG stakeholders are active on Slack. The conversations there will determine the future of the project and asking for help is welcome, so we encourage every SG who uses Hooligan Hymnal to engage in that community.
+  
+
+#### Acknowledgements
+
+* Originally forked from https://github.com/nodevember
