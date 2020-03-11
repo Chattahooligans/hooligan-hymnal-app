@@ -9,7 +9,7 @@ import {
 import NavigationOptions from '../config/NavigationOptions';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
 import { FontSizes } from '../constants';
-import { BoldText, MediumText, RegularTextMonospace, RegularText } from '../components/StyledText';
+import { BoldText, MediumText, RegularTextMonospace, RegularText, LightText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
 import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from '../components/ParsedTextHelper';
 import withUnstated from '@airship/with-unstated';
@@ -74,8 +74,10 @@ class About extends React.Component {
     return (
       <View style={{ flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
         <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
-          <BoldText style={{ fontSize: FontSizes.title, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
-          <RegularText style={{ marginBottom: 10 }}>{i18n.t('screens.about.version')}{appParams.expo.version}</RegularText>
+          <View style={{ flexDirection: i18n.getFlexDirection(), marginBottom: 10 }}>
+            <BoldText style={{ fontSize: FontSizes.title, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
+            <LightText style={{ fontSize: FontSizes.title, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}> {i18n.t('screens.about.version')}{appParams.expo.version}</LightText>
+          </View>
           <ParsedText
             parse={parsedTextOptions}
             style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
