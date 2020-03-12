@@ -12,6 +12,10 @@ import { PRIDERAISER_LOGO } from '../config/Settings';
 import i18n from "../../i18n";
 
 export default class PostAttachmentPrideraiserMatch extends React.Component {
+
+    // TODO: document find/replace strings in Settings.PostAttachmentPrideraiserMatch_Message and PostAttachmentPrideraiserMatch_MessageZeroGoals
+    // actually put this stuff in locale
+
     render() {
         let match = this.props.match
         let message = ""
@@ -21,10 +25,10 @@ export default class PostAttachmentPrideraiserMatch extends React.Component {
             if (match.goalCount > 0) {
                 const matchRaise = match.goalCount * match.pledged_total
                 const goal_name = match.goalCount > 0 ? match.goal_name_plural : match.goal_name
-                message = `Because of ${match.goalCount} ${goal_name}, we raised $${matchRaise} to benefit ${match.charity_name}! Make your pledge now`
+                message = `Because of ${match.goalCount} ${goal_name}, we raised $${matchRaise} to benefit ${match.charity_name}! Make your pledge now.`
             }
             else {
-                message = `No ${match.goal_name_plural} from this match, but we can raise ${match.pledged_total} to benefit ${match.charity_name} with each one. Make your pledge now`
+                message = `No ${match.goal_name_plural} from this match, but we can raise ${match.pledged_total} to benefit ${match.charity_name} with each one. Make your pledge now.`
             }
         }
 
