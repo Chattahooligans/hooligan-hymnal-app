@@ -3,6 +3,7 @@
         "about": {
             "title": "About",
             "appTitle": "Chattahooligan Hymnal",
+            "version": "v",
             "why": "The Chattahooligan Hymnal is built to help you support Chattanooga FC.",
             "feedback": "Please send feedback to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email thechattahooligans@gmail.com",
             "creditsheading": "Credits",
@@ -10,11 +11,10 @@
                 "- Home screen video created by Jay Kaley",
                 "- Menu photo from Phil Thach photography",
                 "- Some player photos from Madonna Kemp and Ray Soldano, used with permission",
-                "- Player headshots provided by Chattanooga FC, used with permission",
-                "- Some code based on open source @nodevember conference schedule app"
+                "- Player headshots provided by Chattanooga FC, used with permission"
             ],
             "debug": "Debug",
-            "contribute": "Interested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email thechattahooligans@gmail.com"
+            "contribute": " is built using the open-source *Hooligan Hymnal* platform.\n\nInterested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to _@hooliganhymnal_ on Twitter or visit the project repository at https://github.com/Chattahooligans"
         },
         "capohome": {
             "title": "Capo Dashboard",
@@ -193,6 +193,8 @@
             "copied": "Copied",
             "hidealerttitle": "Hide Post",
             "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
+            "postadminalertitleios": "Post Admin Menu",
+            "postadminalerthidemessageios": "Are you sure you want to hide this post from the Feed?\n\nWarning: There is no second confirmation step.",
             "hidealertcancel": "Cancel",
             "hidealertconfirm": "Hide"
         },

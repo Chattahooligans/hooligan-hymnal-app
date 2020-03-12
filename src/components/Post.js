@@ -326,8 +326,18 @@ class Post extends React.Component {
             attachmentDisplay.push(<PostAttachmentMultiTweet key={post.attachments.length} players={tweetablePlayers} />)
         }
 
-        let menuOptions = [];
-        let menuDisplay;
+        let menuDisplayAndroid
+        let menuOptionsAndroid = []
+
+        let menuDisplayIOS
+        let iosMenuOptions = []
+        iosMenuOptions.push(
+            {
+                text: i18n.t('components.post.hidealertcancel'),
+                style: "cancel"
+            }
+        )
+
         if (this.props.globalData.getCurrentUser()) {
             const channelId = post.channelData._id;
             const currentUserId = this.props.globalData.getCurrentUser().user.id;
@@ -335,28 +345,67 @@ class Post extends React.Component {
             const channelPermissions = this.props.globalData.getChannelPermissions(channelId, currentUserId);
 
             if (currentUserFeedAllowed) {
-                if (post.push)
-                    menuOptions.push(<MenuItem onPress={this.showStatsModal}>Stats</MenuItem>)
-                if (channelPermissions.canEdit)
-                    menuOptions.push(<MenuItem disabled>Edit Post</MenuItem>)
+                if (post.push) {
+                    menuOptionsAndroid.push(<MenuItem onPress={this.showStatsModal} key={post._id + "-menu-stats"}>Stats</MenuItem>)
+
+                    iosMenuOptions.push(
+                        {
+                            text: "Stats",
+                            onPress: () => { this.setState({ statsModalVisible: true }) }
+                        }
+                    )
+                }
+                if (channelPermissions.canEdit) {
+                    menuOptionsAndroid.push(<MenuItem key={post._id + "-menu-edit"} disabled>Edit Post</MenuItem>)
+                }
                 if (channelPermissions.canDelete) {
-                    menuOptions.push(<MenuDivider />)
-                    menuOptions.push(<MenuItem onPress={this.showHidePostAlert}>Hide Post</MenuItem>)
+                    menuOptionsAndroid.push(<MenuDivider key={post._id + "-menu-divider"} />)
+                    menuOptionsAndroid.push(<MenuItem onPress={this.showHidePostAlert} key={post._id + "-menu-hide"}>Hide Post</MenuItem>)
+
+                    iosMenuOptions.push(
+                        {
+                            text: i18n.t('components.post.hidealertconfirm'),
+                            onPress: () => { this.hidePost() },
+                            style: "destructive"
+                        }
+                    )
                 }
 
-                menuDisplay = <Menu
-                    ref={this.setMenuRef}
-                    button={
-                        <TouchableOpacity>
-                            <Ionicons
-                                name="md-arrow-dropdown"
-                                size={30}
-                                style={styles.menu}
-                                onPress={this.showMenu} />
-                        </TouchableOpacity>
-                    }>
-                    {menuOptions}
-                </Menu>
+                if (menuOptionsAndroid.length > 0) {
+                    menuDisplayAndroid = <Menu
+                        ref={this.setMenuRef}
+                        button={
+                            <TouchableOpacity>
+                                <Ionicons
+                                    name="md-arrow-dropdown"
+                                    size={30}
+                                    style={styles.menu}
+                                    onPress={this.showMenu} />
+                            </TouchableOpacity>
+                        }>
+                        {menuOptionsAndroid}
+                    </Menu>
+                }
+
+                if (iosMenuOptions.length > 1) {
+                    let message = ""
+                    if (channelPermissions.canDelete)
+                        message = i18n.t('components.post.postadminalerthidemessageios')
+
+                    menuDisplayIOS = <TouchableOpacity
+                        onPress={() => {
+                            Alert.alert(
+                                i18n.t('components.post.postadminalertitleios'),
+                                message,
+                                iosMenuOptions
+                            )
+                        }}>
+                        <Ionicons
+                            name="md-arrow-dropdown"
+                            size={30}
+                            style={styles.menu} />
+                    </TouchableOpacity>
+                }
             }
         }
 
@@ -404,7 +453,8 @@ class Post extends React.Component {
                             size={18}
                             style={styles.notificationSymbol} />
                     }
-                    {menuDisplay}
+                    {Platform.OS === "android" && menuDisplayAndroid}
+                    {Platform.OS === "ios" && menuDisplayIOS}
                 </View>
                 {textDisplay}
 

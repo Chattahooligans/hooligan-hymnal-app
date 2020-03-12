@@ -9,12 +9,13 @@ import {
 import NavigationOptions from '../config/NavigationOptions';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
 import { FontSizes } from '../constants';
-import { BoldText, MediumText, RegularTextMonospace } from '../components/StyledText';
+import { BoldText, MediumText, RegularTextMonospace, RegularText, LightText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
 import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from '../components/ParsedTextHelper';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import i18n from "../../i18n";
+import appParams from '../../app.json';
 
 // About info, link to website/fb/twitter
 // maybe a url for the /songs page on website (where App Store/Google Play icons will be found)
@@ -73,11 +74,13 @@ class About extends React.Component {
     return (
       <View style={{ flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
         <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
-          <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
+          <View style={{ flexDirection: i18n.getFlexDirection(), marginBottom: 10 }}>
+            <BoldText style={{ fontSize: FontSizes.title, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
+            <LightText style={{ fontSize: FontSizes.title, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}> {i18n.t('screens.about.version')}{appParams.expo.version}</LightText>
+          </View>
           <ParsedText
             parse={parsedTextOptions}
-            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
-          >
+            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
             {i18n.t('screens.about.why')}
           </ParsedText>
           <View style={{ height: 10 }} />
@@ -93,7 +96,7 @@ class About extends React.Component {
           <ParsedText
             parse={parsedTextOptions}
             style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
-            {i18n.t('screens.about.contribute')}
+            {i18n.t('screens.about.appTitle') + i18n.t('screens.about.contribute')}
           </ParsedText>
           <View style={{ height: 20 }} />
           <ScrollView style={{ flex: 1 }}>
