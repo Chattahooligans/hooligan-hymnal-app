@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import PrideraiserCampaignSummary from '../components/PrideraiserCampaignSummary';
+import PrideraiserCampaignSummaryAdmin from '../components/PrideraiserCampaignSummaryAdmin';
 import { Ionicons } from '@expo/vector-icons';
 import { PRIDERAISER_CAMPAIGN_ID, DefaultColors, Skin } from '../config/Settings';
 import { getCampaign } from '../services/prideraiserService';
@@ -83,7 +83,7 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                 <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattachmentcomposeprideraisermatch.prideraisermatch')}</BoldText>
                 {loader}
                 {this.state.loadedCampaign &&
-                    <PrideraiserCampaignSummary
+                    <PrideraiserCampaignSummaryAdmin
                         campaign={this.state.campaign}
                         paddingHorizontal={styles.container.padding} />}
                 <BoldText>{i18n.t('screens.postattachmentcomposeprideraisermatch.howmanygoals').replace("%goal_name_plural%", this.state.campaign.goal_name_plural)}</BoldText>

@@ -5,7 +5,7 @@ import {
     StyleSheet,
     View
 } from 'react-native';
-import { BoldText, RegularText, MediumText } from '../components/StyledText';
+import { BoldText, RegularText, MediumText } from './StyledText';
 import { Ionicons } from '@expo/vector-icons';
 import { DefaultColors, Skin } from '../config/Settings';
 import i18n from '../../i18n';
