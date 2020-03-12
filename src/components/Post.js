@@ -308,8 +308,8 @@ class Post extends React.Component {
                     attachmentDisplay.push(massTweetDisplay);
                     break;
                 case "prideraisermatch":
-                    let match = attachment.data;
-                    let prideraiserMatchDisplay = <PostAttachmentPrideraiserMatch match={match} />;
+                    let data = attachment.data;
+                    let prideraiserMatchDisplay = <PostAttachmentPrideraiserMatch data={data} />;
                     attachmentDisplay.push(prideraiserMatchDisplay);
                     break;
                 case "juanstagram":

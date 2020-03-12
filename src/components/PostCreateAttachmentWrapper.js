@@ -53,8 +53,8 @@ class PostCreateAttachmentWrapper extends React.Component {
                 attachmentDisplay = massTweetDisplay;
                 break;
             case "prideraisermatch":
-                let match = attachment.data;
-                let prideraiserMatchDisplay = <PostAttachmentPrideraiserMatch match={match} />;
+                let data = attachment.data;
+                let prideraiserMatchDisplay = <PostAttachmentPrideraiserMatch data={data} />;
                 attachmentDisplay = prideraiserMatchDisplay
                 break;
             case "juanstagram":
