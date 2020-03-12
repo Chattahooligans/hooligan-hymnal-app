@@ -213,6 +213,12 @@
             "clear": "Clear Metadata",
             "cancel": "Cancel"
         },
+        "postattachmentprideraisermatch": {
+            "heading": "%name% Update",
+            "message": "",
+            "messagezerogoals": "",
+            "pledge": "Pledge"
+        },
         "postattachmentmultitweet": {
             "tweettheplayers": "Tweet them all!"
         },
