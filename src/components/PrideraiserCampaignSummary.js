@@ -33,15 +33,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
                 // sanity check to confirm the campaign ID is right
                 // campaigns that don't exist look like { "detail": "Not found." }
                 if (campaign.hasOwnProperty("id")) {
-                    // populate analytics source from Skin
-                    let source = ""
-                    if (Settings.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix)
-                        source += Settings.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix + "-"
-                    source += moment(new Date()).format(Settings.PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat)
-                    if (Settings.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix)
-                        source += "-" + Settings.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix
-
-                    this.setState({ loadedCampaign: true, campaign, source })
+                    this.setState({ loadedCampaign: true, campaign, source: Settings.PrideraiserCampaignSummary_AnalyticsSource || "" })
                 }
                 else
                     this.setState({ loadedCampaign: false, error: true, errorDetail: "Not found." })
@@ -53,7 +45,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
     }
 
     render() {
-        const coverPhotoParams = Settings.Prideraiser_CampaignCoverParams
+        const coverPhotoParams = Settings.PrideraiserCampaignSummary_CampaignCoverParams
 
         if (this.state.error)
             console.log("PrideraiserCampaignsummary error: " + this.state.errorDetail)

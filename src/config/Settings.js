@@ -271,7 +271,8 @@ export const Settings = {
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix: "",
   PostCreate_UploadImageEnabled: true,
   Prideraiser_CampaignId: PRIDERAISER_CAMPAIGN_ID,
-  Prideraiser_CampaignCoverParams: "?w=768&h=200&wm=pr&wmp=br",
+  PrideraiserCampaignSummary_CampaignCoverParams: "?w=768&h=200&wm=pr&wmp=br",
+  PrideraiserCampaignSummary_AnalyticsSource: appParams.expo.slug + "-home",
   RefereeCards_Show: true,
   Roster_SortPlayersBy: "number",
   RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"
