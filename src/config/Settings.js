@@ -240,6 +240,8 @@ export const commonImageCredit = [
 //      and tapping into a whole hunk of UI will be jarring and confusing to users
 // Home_PostsPerPage: number
 //      Load this many news feed items, then load this many more if the user scrolls to the bottom
+// Home_ShowPrideraiser: true, false
+//      Show Prideraiser campaign summary in News Feed
 // Player_ShowSongs: true, false
 //      Some SGs write songs for each player
 //      Toggle a related UI element in the Roster/Player screen
@@ -262,6 +264,7 @@ export const Settings = {
   CapoHome_GKNicknameEnabled: true,
   ChannelUI_Enabled: false,
   Home_PostsPerPage: 5,
+  Home_ShowPrideraiser: false,
   ImageResizeQuality: 1,
   ImageResizeDimensions: { larger: 1216, smaller: 912 },
   Juanstagram: true,

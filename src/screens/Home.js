@@ -29,6 +29,7 @@ import MenuButton from '../components/MenuButton';
 import VideoBackground from '../components/VideoBackground';
 import SocialButtonPanel from '../components/SocialButtonPanel';
 import HomeBannersPanel from '../components/HomeBannersPanel';
+import PrideraiserCampaignSummary from '../components/PrideraiserCampaignSummary';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { ModalLoader } from '../components/ModalLoader';
 import Post from '../components/Post';
@@ -40,6 +41,7 @@ import appParams from '../../app.json';
 import {
   Palette,
   DefaultColors,
+  Settings,
   Skin,
   banners,
   socialButtons,
@@ -335,11 +337,16 @@ class DeferredHomeContent extends React.Component {
     })
 
     // for some reason this doesn't blow up when scrollItems.length is small or zero
+    let buttonsIndex = 2
+    let linksIndex = 4
     scrollItems.splice(0, 0, <HomeBannersPanel key={"homeBanners"} config={banners} />)
-    scrollItems.splice(2, 0, <StaticHomeContent_Buttons key={"homeButtons"} navigation={this.props.navigation} />)
-    scrollItems.splice(4, 0, <StaticHomeContent_Links key={"homeLinks"} />)
-
-    //scrollItems.splice(2, 0, <StaticHomeContent />)
+    if (Settings.Home_ShowPrideraiser) {
+      scrollItems.splice(1, 0, <PrideraiserCampaignSummary key={"prideraiserCampaignSummary"} />)
+      buttonsIndex++
+      linksIndex++
+    }
+    scrollItems.splice(buttonsIndex, 0, <StaticHomeContent_Buttons key={"homeButtons"} navigation={this.props.navigation} />)
+    scrollItems.splice(linksIndex, 0, <StaticHomeContent_Links key={"homeLinks"} />)
 
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>

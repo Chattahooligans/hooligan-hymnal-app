@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     Dimensions,
-    Image,
     Linking,
     StyleSheet,
     TouchableHighlight,
@@ -12,51 +11,52 @@ import { BoldText, RegularText, RegularTextMonospace } from './StyledText';
 import { formatStringWithCampaignProps, PrideraiserPalette } from './PrideraiserHelper';
 import PrideraiserRainbowBar from './PrideraiserRainbowBar';
 import PostImageWrapper from './PostImageWrapper';
-import { PRIDERAISER_LOGO, Skin, Settings } from '../config/Settings';
+import { PRIDERAISER_LOGO, Skin, Settings, Palette } from '../config/Settings';
 import { getCampaign } from '../services/prideraiserService';
+import moment from 'moment';
 import i18n from "../../i18n";
 
 export default class PrideraiserCampaignSummary extends React.Component {
-
-    // TODO: Move a bunch of shit to settings
-
-
     state = {
         loadedCampaign: false,
-        campaign: {},
+        campaign: null,
         error: false,
         errorDetail: null,
         source: ""
     }
 
     componentWillMount = async () => {
-        try {
-            const campaign = await getCampaign(Settings.Prideraiser_CampaignId)
+        if (!this.state.campaign) {
+            try {
+                const campaign = await getCampaign(Settings.Prideraiser_CampaignId)
 
-            // sanity check to confirm the campaign ID is right
-            // campaigns that don't exist look like { "detail": "Not found." }
-            if (campaign.hasOwnProperty("id")) {
-                // populate analytics source from Skin
-                let source = ""
-                if (Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix)
-                    source += Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix + "-"
-                source += moment(new Date()).format(Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat)
-                if (Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix)
-                    source += "-" + Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix
+                // sanity check to confirm the campaign ID is right
+                // campaigns that don't exist look like { "detail": "Not found." }
+                if (campaign.hasOwnProperty("id")) {
+                    // populate analytics source from Skin
+                    let source = ""
+                    if (Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix)
+                        source += Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix + "-"
+                    source += moment(new Date()).format(Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat)
+                    if (Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix)
+                        source += "-" + Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix
 
-                this.setState({ loadedCampaign: true, campaign, source })
+                    this.setState({ loadedCampaign: true, campaign, source })
+                }
+                else
+                    this.setState({ loadedCampaign: false, error: true, errorDetail: "Not found." })
             }
-            else
-                this.setState({ loadedCampaign: false, error: true, errorDetail: "Not found." })
-        }
-        catch (error) {
-            this.setState({ loadedCampaign: false, error: true, errorDetail: error })
+            catch (error) {
+                this.setState({ loadedCampaign: false, error: true, errorDetail: error })
+            }
         }
     }
 
     render() {
-        // move this to settings
         const coverPhotoParams = Settings.Prideraiser_CampaignCoverParams
+
+        if (this.state.error)
+            console.log("PrideraiserCampaignsummary error: " + this.state.errorDetail)
 
         if (!this.state.loadedCampaign)
             return <View />
@@ -64,12 +64,24 @@ export default class PrideraiserCampaignSummary extends React.Component {
             return (
                 <TouchableHighlight
                     style={styles.container}
-                    underlayColor={'#fff'}>
-                    <PrideraiserRainbowBar />
-                    <RegularText>text</RegularText>
-                    <PostImageWrapper
-                        containerWidth={Dimensions.get("window").width}
-                        source={{ uri: this.state.campaign.cover_photo.original + coverPhotoParams }} />
+                    underlayColor={'#fff'}
+                    onPress={() => {
+                        let source = ""
+                        if (this.state.source)
+                            source = "?source=" + data.source
+
+                        Linking.openURL(data.campaign.public_url + source)
+                    }}>
+                    <View style={styles.container}>
+                        <PrideraiserRainbowBar />
+                        <PostImageWrapper
+                            containerWidth={Dimensions.get("window").width}
+                            source={{ uri: this.state.campaign.cover_photo.original + coverPhotoParams }} />
+                        <View style={styles.contentContainer}>
+                            <RegularText>text</RegularText>
+                        </View>
+                        <PrideraiserRainbowBar />
+                    </View>
                 </TouchableHighlight>
             )
     }
@@ -78,5 +90,8 @@ export default class PrideraiserCampaignSummary extends React.Component {
 const styles = StyleSheet.create({
     container: {
 
+    },
+    contentContainer: {
+        backgroundColor: Palette.White
     }
 });
