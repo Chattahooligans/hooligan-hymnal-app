@@ -215,8 +215,8 @@
         },
         "postattachmentprideraisermatch": {
             "heading": "%name% Update",
-            "message": "",
-            "messagezerogoals": "",
+            "message": "Because of %goalCount% %goal_name_computed%, we raised $%raised% to benefit %charity_name%! Make your pledge now",
+            "messagezerogoals": "No %goal_name_computed% from this match, but we can raise %pledged_total% to benefit %charity_name% with each one. Make your pledge now",
             "pledge": "Pledge"
         },
         "postattachmentmultitweet": {

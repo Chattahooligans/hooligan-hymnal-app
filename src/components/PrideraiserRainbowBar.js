@@ -2,6 +2,7 @@ import React from 'react';
 import {
     View
 } from 'react-native';
+import { formatStringWithCampaignProps, PrideraiserPalette } from './PrideraiserHelper';
 
 export default class PrideraiserRainbowBar extends React.Component {
     render() {
@@ -9,14 +10,14 @@ export default class PrideraiserRainbowBar extends React.Component {
 
         return (
             <View style={{ flexDirection: "row" }}>
-                <View style={{ backgroundColor: "rgb(0, 0, 0)", flex: 1, height: barHeight }} />
-                <View style={{ backgroundColor: "rgb(120, 79, 23)", flex: 1, height: barHeight }} />
-                <View style={{ backgroundColor: "rgb(237, 38, 26)", flex: 1, height: barHeight }} />
-                <View style={{ backgroundColor: "rgb(247, 148, 29)", flex: 1, height: barHeight }} />
-                <View style={{ backgroundColor: "rgb(255, 242, 0)", flex: 1, height: barHeight }} />
-                <View style={{ backgroundColor: "rgb(0, 166, 81)", flex: 1, height: barHeight }} />
-                <View style={{ backgroundColor: "rgb(46, 49, 146)", flex: 1, height: barHeight }} />
-                <View style={{ backgroundColor: "rgb(102, 45, 145)", flex: 1, height: barHeight }} />
+                <View style={{ backgroundColor: PrideraiserPalette.black, flex: 1, height: barHeight }} />
+                <View style={{ backgroundColor: PrideraiserPalette.brown, flex: 1, height: barHeight }} />
+                <View style={{ backgroundColor: PrideraiserPalette.red, flex: 1, height: barHeight }} />
+                <View style={{ backgroundColor: PrideraiserPalette.orange, flex: 1, height: barHeight }} />
+                <View style={{ backgroundColor: PrideraiserPalette.yellow, flex: 1, height: barHeight }} />
+                <View style={{ backgroundColor: PrideraiserPalette.green, flex: 1, height: barHeight }} />
+                <View style={{ backgroundColor: PrideraiserPalette.blue, flex: 1, height: barHeight }} />
+                <View style={{ backgroundColor: PrideraiserPalette.violet, flex: 1, height: barHeight }} />
             </View>
         )
     }

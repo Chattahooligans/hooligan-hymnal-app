@@ -109,22 +109,22 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                                 {
                                     attachmentType: "prideraisermatch",
                                     data: {
-                                        // values from API
-                                        name: this.state.campaign.name,
+                                        // our own values
                                         campaignId: PRIDERAISER_CAMPAIGN_ID,
-                                        team_name: this.state.campaign.team_name,
-                                        charity_name: this.state.campaign.charity_name,
-                                        goal_name: this.state.campaign.goal_name,
-                                        goal_name_plural: this.state.campaign.goal_name_plural,
-                                            // we can use these two to calculate number of pledges 
-                                            // (pledges_made? maybe this will get added to the API)
-                                            // NOTE: goals_made will be wrong unless the campaign has been updated before the app news feed post is made. 
-                                            // This is FAR from a guarantee
-                                        goals_made: this.state.campaign.goals_made,
-                                        pledged_total: this.state.campaign.pledged_total,
-                                        // and our own values
                                         goalCount: this.state.goalCount,
-                                        source: this.state.source
+                                        source: this.state.source,
+                                        // and select values from the campaign API
+                                        campaign: {
+                                            public_url: this.state.campaign.public_url,
+                                            name: this.state.campaign.name,
+                                            team_name: this.state.campaign.team_name,
+                                            charity_name: this.state.campaign.charity_name,
+                                            goal_name: this.state.campaign.goal_name,
+                                            goal_name_plural: this.state.campaign.goal_name_plural,
+                                            goals_made: this.state.campaign.goals_made,
+                                            pledge_count: this.state.campaign.pledge_count,
+                                            pledged_total: this.state.campaign.pledged_total,
+                                        }
                                     }
                                 }
                             );
