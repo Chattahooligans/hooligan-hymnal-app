@@ -9,9 +9,10 @@ import {
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, RegularTextMonospace } from './StyledText';
+import { formatStringWithCampaignProps, PrideraiserPalette } from './PrideraiserHelper';
 import PrideraiserRainbowBar from './PrideraiserRainbowBar';
 import PostImageWrapper from './PostImageWrapper';
-import { PRIDERAISER_LOGO } from '../config/Settings';
+import { PRIDERAISER_LOGO, Skin, Settings } from '../config/Settings';
 import { getCampaign } from '../services/prideraiserService';
 import i18n from "../../i18n";
 
@@ -30,7 +31,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
 
     componentWillMount = async () => {
         try {
-            const campaign = await getCampaign(PRIDERAISER_CAMPAIGN_ID)
+            const campaign = await getCampaign(Settings.Prideraiser_CampaignId)
 
             // sanity check to confirm the campaign ID is right
             // campaigns that don't exist look like { "detail": "Not found." }

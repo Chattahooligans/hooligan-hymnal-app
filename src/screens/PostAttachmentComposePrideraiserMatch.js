@@ -10,7 +10,7 @@ import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import PrideraiserCampaignSummaryAdmin from '../components/PrideraiserCampaignSummaryAdmin';
 import { Ionicons } from '@expo/vector-icons';
-import { PRIDERAISER_CAMPAIGN_ID, DefaultColors, Skin } from '../config/Settings';
+import { DefaultColors, Skin, Settings } from '../config/Settings';
 import { getCampaign } from '../services/prideraiserService';
 import moment from 'moment';
 import i18n from "../../i18n";
@@ -33,7 +33,7 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
 
     componentWillMount = async () => {
         try {
-            const campaign = await getCampaign(PRIDERAISER_CAMPAIGN_ID)
+            const campaign = await getCampaign(Settings.Prideraiser_CampaignId)
 
             // sanity check to confirm the campaign ID is right
             // campaigns that don't exist look like { "detail": "Not found." }
@@ -110,7 +110,6 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                                     attachmentType: "prideraisermatch",
                                     data: {
                                         // our own values
-                                        campaignId: PRIDERAISER_CAMPAIGN_ID,
                                         goalCount: this.state.goalCount,
                                         source: this.state.source,
                                         // and select values from the campaign API

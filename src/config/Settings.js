@@ -262,6 +262,7 @@ export const Settings = {
   Juanstagram: true,
   Player_ShowSongs: true,
   PostCreate_UploadImageEnabled: true,
+  Prideraiser_CampaignId: PRIDERAISER_CAMPAIGN_ID,
   RefereeCards_Show: true,
   Roster_SortPlayersBy: "number",
   RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"
