@@ -35,11 +35,11 @@ export default class PrideraiserCampaignSummary extends React.Component {
                 if (campaign.hasOwnProperty("id")) {
                     // populate analytics source from Skin
                     let source = ""
-                    if (Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix)
-                        source += Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix + "-"
-                    source += moment(new Date()).format(Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat)
-                    if (Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix)
-                        source += "-" + Skin.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix
+                    if (Settings.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix)
+                        source += Settings.PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix + "-"
+                    source += moment(new Date()).format(Settings.PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat)
+                    if (Settings.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix)
+                        source += "-" + Settings.PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix
 
                     this.setState({ loadedCampaign: true, campaign, source })
                 }
