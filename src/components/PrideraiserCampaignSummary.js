@@ -56,7 +56,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
 
     render() {
         // move this to settings
-        const coverPhotoParams = "?w=768&h=200&wm=pr&wmp=br"
+        const coverPhotoParams = Settings.Prideraiser_CampaignCoverParams
 
         if (!this.state.loadedCampaign)
             return <View />

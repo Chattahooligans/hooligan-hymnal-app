@@ -245,6 +245,11 @@ export const commonImageCredit = [
 //      Toggle a related UI element in the Roster/Player screen
 // PostCreate_UploadImageEnabled: true, false
 //      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
+// Prideraiser_CampaignCoverParams: string
+//      default: "?w=768&h=200&wm=pr&wmp=br"
+//      Check how this renders on your deployment with your Prideraiser campaign cover photo
+//      You may want to adjust the height param and/or design the cover photo with Hooligan Hymnal in mind
+//      wm=pr&wmp=br add the Prideraiser Logo watermark onto the image. We recommend leaving this alone
 // RefereeCards_Show: true, false
 //      Show yellow/red card icons in the nav drawer
 // Roster_SortPlayersBy: "default", "number", "name"
@@ -263,6 +268,7 @@ export const Settings = {
   Player_ShowSongs: true,
   PostCreate_UploadImageEnabled: true,
   Prideraiser_CampaignId: PRIDERAISER_CAMPAIGN_ID,
+  Prideraiser_CampaignCoverParams: "?w=768&h=200&wm=pr&wmp=br",
   RefereeCards_Show: true,
   Roster_SortPlayersBy: "number",
   RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"
