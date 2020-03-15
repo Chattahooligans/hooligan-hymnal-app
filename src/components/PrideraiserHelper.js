@@ -26,5 +26,7 @@ export function formatStringWithCampaignProps(input, campaign, goalCount) {
     output = output.replace("%goals_made%", campaign.goals_made)
     output = output.replace("%pledged_total%", campaign.pledged_total)
 
+    output = output.replace("%supporter_group.name%", campaign.supporter_group.name)
+
     return output
 }

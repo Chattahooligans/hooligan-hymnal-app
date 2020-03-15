@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, RegularTextMonospace } from './StyledText';
+import ParsedText from 'react-native-parsed-text';
+import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from '../components/ParsedTextHelper';
 import { formatStringWithCampaignProps, PrideraiserPalette } from './PrideraiserHelper';
 import PrideraiserRainbowBar from './PrideraiserRainbowBar';
 import PostImageWrapper from './PostImageWrapper';
@@ -45,14 +47,26 @@ export default class PrideraiserCampaignSummary extends React.Component {
     }
 
     render() {
-        const coverPhotoParams = Settings.PrideraiserCampaignSummary_CampaignCoverParams
-
         if (this.state.error)
             console.log("PrideraiserCampaignsummary error: " + this.state.errorDetail)
 
         if (!this.state.loadedCampaign)
             return <View />
-        else
+        else {
+            const coverPhotoParams = Settings.PrideraiserCampaignSummary_CampaignCoverParams
+            let parsedTextOptions = [
+                { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
+                { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+                { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
+            ]
+            const campaign = this.state.campaign
+
+            let title = formatStringWithCampaignProps(i18n.t('components.prideraisercampaignsummary.title'), campaign, campaign.goals_made)
+            let benefitting = formatStringWithCampaignProps(i18n.t('components.prideraisercampaignsummary.benefitting'), campaign, campaign.goals_made)
+            let pledged = formatStringWithCampaignProps(i18n.t('components.prideraisercampaignsummary.pledged'), campaign, campaign.goals_made)
+            let pledge = formatStringWithCampaignProps(i18n.t('components.prideraisercampaignsummary.pledge'), campaign, campaign.goals_made)
+
             return (
                 <TouchableHighlight
                     style={styles.container}
@@ -68,14 +82,29 @@ export default class PrideraiserCampaignSummary extends React.Component {
                         <PrideraiserRainbowBar />
                         <PostImageWrapper
                             containerWidth={Dimensions.get("window").width}
-                            source={{ uri: this.state.campaign.cover_photo.original + coverPhotoParams }} />
+                            source={{ uri: campaign.cover_photo.original + coverPhotoParams }} />
                         <View style={styles.contentContainer}>
-                            <RegularText>text</RegularText>
+                            <ParsedText
+                                parse={parsedTextOptions}
+                                style={[styles.title, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
+                                {title}
+                            </ParsedText>
+                            <ParsedText
+                                parse={parsedTextOptions}
+                                style={[styles.benefitting, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
+                                {benefitting}
+                            </ParsedText>
+                            <ParsedText
+                                parse={parsedTextOptions}
+                                style={[styles.pledged, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
+                                {pledged}
+                            </ParsedText>
                         </View>
                         <PrideraiserRainbowBar />
                     </View>
                 </TouchableHighlight>
             )
+        }
     }
 }
 
@@ -85,5 +114,8 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         backgroundColor: Palette.White
+    },
+    title: {
+
     }
 });

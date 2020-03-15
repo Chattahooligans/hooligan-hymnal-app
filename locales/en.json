@@ -222,6 +222,12 @@
         "postattachmentmultitweet": {
             "tweettheplayers": "Tweet them all!"
         },
+        "prideraisercampaignsummary": {
+            "title": "%supporter_group.name% present *%name%*",
+            "benefitting": "Benefitting %charity_name%",
+            "pledged": "$%pledged_total% pledged per %goal_name%",
+            "pledge": "Pledge"
+        },
         "songview": {
             "copiedtitle": "Copied title to clipboard",
             "copiedreference": "Copied reference to clipboard",
