@@ -245,6 +245,9 @@ export const commonImageCredit = [
 // RosterFoes_DefaultCompetition: string
 //      Matches .competition field of objects from the database foes collection
 //      This field is case sensitive and must match exactly
+// TwitterList_ExtraHandles: string
+//      Extra Twitter handles concatenated after the players on the TwitterList screen
+//      In Chattanooga, we add the club and our SG accounts
 export const Settings = {
   CapoHome_GKNicknameEnabled: true,
   ChannelUI_Enabled: false,
