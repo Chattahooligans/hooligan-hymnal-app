@@ -230,50 +230,65 @@ export const commonImageCredit = [
 /*
   App Feature Flags
 */
-// CapoHome_GKNicknameEnabled: true, false
-//      This is a longrunning inside joke in Chattanooga
-// Channels_Enabled: true, false
-//      Some SGs will only ever have one channel
-//      and tapping into a whole hunk of UI will be jarring and confusing to users
-// Home_PostsPerPage: number
-//      Load this many news feed items, then load this many more if the user scrolls to the bottom
-// Home_ShowPrideraiser: true, false
-//      Show Prideraiser campaign summary in News Feed
-// Player_ShowSongs: true, false
-//      Some SGs write songs for each player
-//      Toggle a related UI element in the Roster/Player screen
-// PostCreate_UploadImageEnabled: true, false
-//      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
-// Prideraiser_CampaignCoverParams: string
-//      default: "?w=768&h=200&wm=pr&wmp=br"
-//      Check how this renders on your deployment with your Prideraiser campaign cover photo
-//      You may want to adjust the height param and/or design the cover photo with Hooligan Hymnal in mind
-//      wm=pr&wmp=br add the Prideraiser Logo watermark onto the image. We recommend leaving this alone
-// RefereeCards_Show: true, false
-//      Show yellow/red card icons in the nav drawer
-// Roster_SortPlayersBy: "default", "number", "name"
-//      later- "position" with priority
-//      (hopefully this gets deprecated and replaced with something in the UI later)
-// RosterFoes_DefaultCompetition: string
-//      Matches .competition field of objects from the database foes collection
-//      This field is case sensitive and must match exactly
 export const Settings = {
+  // CapoHome_GKNicknameEnabled: true, false
+  //      This is a longrunning inside joke in Chattanooga
   CapoHome_GKNicknameEnabled: true,
+
+  // Channels_Enabled: true, false
+  //      Some SGs will only ever have one channel
+  //      and tapping into a whole hunk of UI will be jarring and confusing to users
   ChannelUI_Enabled: false,
+
+  // Home_PostsPerPage: number
+  //      Load this many news feed items, then load this many more if the user scrolls to the bottom
   Home_PostsPerPage: 5,
+  
+  // Home_ShowPrideraiser: true, false
+  //      Show Prideraiser campaign summary in News Feed
   Home_ShowPrideraiser: true,
+
   ImageResizeQuality: 1,
   ImageResizeDimensions: { larger: 1216, smaller: 912 },
+
+  // Juanstagram: true, false
+  //      This is a longrunning inside joke in Chattanooga
   Juanstagram: true,
+
+  // Player_ShowSongs: true, false
+  //      Some SGs write songs for each player
+  //      Toggle a related UI element in the Roster/Player screen
   Player_ShowSongs: true,
+
   PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix: appParams.expo.slug,
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat: "YYYY-MM-DD",
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix: "",
+  // PostCreate_UploadImageEnabled: true, false
+  //      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
   PostCreate_UploadImageEnabled: true,
+
   Prideraiser_CampaignId: PRIDERAISER_CAMPAIGN_ID,
+
+  // Prideraiser_CampaignCoverParams: string
+  //      default: "?w=768&h=200&wm=pr&wmp=br"
+  //      Check how this renders on your deployment with your Prideraiser campaign cover photo
+  //      You may want to adjust the height param and/or design the cover photo with Hooligan Hymnal in mind
+  //      wm=pr&wmp=br add the Prideraiser Logo watermark onto the image. We recommend leaving this alone
   PrideraiserCampaignSummary_CampaignCoverParams: "?w=768&h=432&wm=pr&wmp=br",
+
   PrideraiserCampaignSummary_AnalyticsSource: appParams.expo.slug + "-home",
+
+  // RefereeCards_Show: true, false
+  //      Show yellow/red card icons in the nav drawer
   RefereeCards_Show: true,
+
+  // Roster_SortPlayersBy: "default", "number", "name"
+  //      later- "position" with priority
+  //      (hopefully this gets deprecated and replaced with something in the UI later)
   Roster_SortPlayersBy: "number",
+
+  // RosterFoes_DefaultCompetition: string
+  //      Matches .competition field of objects from the database foes collection
+  //      This field is case sensitive and must match exactly
   RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"
 }
