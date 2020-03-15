@@ -231,10 +231,6 @@ export const commonImageCredit = [
   App Feature Flags
 */
 export const Settings = {
-  // CapoHome_GKNicknameEnabled: true, false
-  //      This is a longrunning inside joke in Chattanooga
-  CapoHome_GKNicknameEnabled: true,
-
   // Channels_Enabled: true, false
   //      Some SGs will only ever have one channel
   //      and tapping into a whole hunk of UI will be jarring and confusing to users
@@ -243,7 +239,7 @@ export const Settings = {
   // Home_PostsPerPage: number
   //      Load this many news feed items, then load this many more if the user scrolls to the bottom
   Home_PostsPerPage: 5,
-  
+
   // Home_ShowPrideraiser: true, false
   //      Show Prideraiser campaign summary in News Feed
   Home_ShowPrideraiser: true,
@@ -251,14 +247,18 @@ export const Settings = {
   ImageResizeQuality: 1,
   ImageResizeDimensions: { larger: 1216, smaller: 912 },
 
-  // Juanstagram: true, false
-  //      This is a longrunning inside joke in Chattanooga
-  Juanstagram: true,
-
   // Player_ShowSongs: true, false
   //      Some SGs write songs for each player
   //      Toggle a related UI element in the Roster/Player screen
   Player_ShowSongs: true,
+
+  // PostAttach_ShowGKNickname: true, false
+  //      This is a longrunning inside joke in Chattanooga
+  PostAttach_ShowGKNickname: true,
+
+  // PostAttach_ShowJuanstagram: true, false
+  //      This is a longrunning inside joke in Chattanooga
+  PostAttach_ShowJuanstagram: true,
 
   PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix: appParams.expo.slug,
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat: "YYYY-MM-DD",

@@ -47,7 +47,7 @@ class PostAttach extends React.Component {
                             onAttachmentComplete: this.props.screenProps.onAttachmentComplete
                         })
                     }} />
-                {Settings.CapoHome_GKNicknameEnabled &&
+                {Settings.PostAttach_ShowGKNickname &&
                     <BigButton label={i18n.t('screens.postattach.gknickname')} iconName="md-hand"
                         onPress={() => {
                             this.props.navigation.navigate("PostAttachmentComposeGkNickname", {
@@ -55,7 +55,7 @@ class PostAttach extends React.Component {
                             })
                         }} />
                 }
-                {Settings.Juanstagram &&
+                {Settings.PostAttach_ShowJuanstagram &&
                     <BigButton label={"Juanstagram"} iconName="md-heart-empty" inModal={true}
                         onPress={() => {
                             this.props.navigation.navigate("PostAttachmentSelectJuanstagram", {
