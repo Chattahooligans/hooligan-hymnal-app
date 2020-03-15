@@ -256,5 +256,6 @@ export const Settings = {
   PostCreate_UploadImageEnabled: true,
   RefereeCards_Show: true,
   Roster_SortPlayersBy: "number",
-  RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"
+  RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase",
+  TwitterList_ExtraHandles: "@ChattanoogaFC @chattahooligan @LosCFCHooligans"
 }
