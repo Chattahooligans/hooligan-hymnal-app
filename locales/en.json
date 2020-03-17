@@ -226,7 +226,7 @@
             "title": "%supporter_group.name% present *%name%*",
             "benefitting": "Benefitting %charity_name%",
             "pledged": "$%pledged_total% pledged per %goal_name%",
-            "pledge": "Pledge"
+            "learnmore": "Tap to learn more about Prideraiser"
         },
         "songview": {
             "copiedtitle": "Copied title to clipboard",

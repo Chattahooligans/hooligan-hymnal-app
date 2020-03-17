@@ -12,7 +12,7 @@ import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress
 import { formatStringWithCampaignProps } from './PrideraiserHelper';
 import PrideraiserRainbowBar from './PrideraiserRainbowBar';
 import PostImageWrapper from './PostImageWrapper';
-import { PRIDERAISER_LOGO, Skin, Settings, Palette } from '../config/Settings';
+import { PRIDERAISER_LOGO, DefaultColors, Skin, Settings, Palette } from '../config/Settings';
 import { getCampaign } from '../services/prideraiserService';
 import moment from 'moment';
 import i18n from "../../i18n";
@@ -66,7 +66,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
             let title = formatStringWithCampaignProps(i18n.t('components.prideraisercampaignsummary.title'), campaign, campaign.goals_made)
             let benefitting = formatStringWithCampaignProps(i18n.t('components.prideraisercampaignsummary.benefitting'), campaign, campaign.goals_made)
             let pledged = formatStringWithCampaignProps(i18n.t('components.prideraisercampaignsummary.pledged'), campaign, campaign.goals_made)
-            let pledge = formatStringWithCampaignProps(i18n.t('components.prideraisercampaignsummary.pledge'), campaign, campaign.goals_made)
+            let learnmore = formatStringWithCampaignProps(i18n.t('components.prideraisercampaignsummary.learnmore'), campaign, campaign.goals_made)
 
             return (
                 <TouchableHighlight
@@ -75,9 +75,9 @@ export default class PrideraiserCampaignSummary extends React.Component {
                     onPress={() => {
                         let source = ""
                         if (this.state.source)
-                            source = "?source=" + data.source
+                            source = "?source=" + this.state.source
 
-                        Linking.openURL(data.campaign.public_url + source)
+                        Linking.openURL(campaign.public_url + source)
                     }}>
                     <View style={styles.container}>
                         <View>
@@ -104,6 +104,11 @@ export default class PrideraiserCampaignSummary extends React.Component {
                                 style={[styles.pledged, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
                                 {pledged}
                             </ParsedText>
+                            <ParsedText
+                                parse={parsedTextOptions}
+                                style={[styles.learnmore, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
+                                {learnmore}
+                            </ParsedText>
                         </View>
                         <PrideraiserRainbowBar />
                     </View>
@@ -119,7 +124,8 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         backgroundColor: Palette.White,
-        alignItems: "center"
+        alignItems: "center",
+        padding: 5
     },
     versionText: {
         position: "absolute",
@@ -129,6 +135,17 @@ const styles = StyleSheet.create({
         fontSize: 14
     },
     title: {
-        fontSize: 15
+        fontSize: 15,
+        color: DefaultColors.ColorText
     },
+    benefitting: {
+        color: DefaultColors.ColorText
+    },
+    pledged: {
+        color: DefaultColors.ColorText
+    },
+    learnmore: {
+        marginTop: 5,
+        color: DefaultColors.ColorText
+    }
 });
