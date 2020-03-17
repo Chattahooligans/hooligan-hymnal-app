@@ -6,17 +6,18 @@ import {
     TouchableHighlight,
     View
 } from 'react-native';
-import { BigButton } from '../components/BigButton';
-import { BoldText, RegularText, RegularTextMonospace } from './StyledText';
 import ParsedText from 'react-native-parsed-text';
+import { RegularText } from '../components/StyledText';
 import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from '../components/ParsedTextHelper';
-import { formatStringWithCampaignProps, PrideraiserPalette } from './PrideraiserHelper';
+import { formatStringWithCampaignProps } from './PrideraiserHelper';
 import PrideraiserRainbowBar from './PrideraiserRainbowBar';
 import PostImageWrapper from './PostImageWrapper';
 import { PRIDERAISER_LOGO, Skin, Settings, Palette } from '../config/Settings';
 import { getCampaign } from '../services/prideraiserService';
 import moment from 'moment';
 import i18n from "../../i18n";
+
+import appParams from '../../app.json';
 
 export default class PrideraiserCampaignSummary extends React.Component {
     state = {
@@ -79,10 +80,14 @@ export default class PrideraiserCampaignSummary extends React.Component {
                         Linking.openURL(data.campaign.public_url + source)
                     }}>
                     <View style={styles.container}>
-                        <PrideraiserRainbowBar />
-                        <PostImageWrapper
-                            containerWidth={Dimensions.get("window").width}
-                            source={{ uri: campaign.cover_photo.original + coverPhotoParams }} />
+                        <View>
+                            <PostImageWrapper
+                                containerWidth={Dimensions.get("window").width}
+                                source={{ uri: campaign.cover_photo.original + coverPhotoParams }} />
+                            <RegularText style={styles.versionText}>
+                                {appParams.expo.version}
+                            </RegularText>
+                        </View>
                         <View style={styles.contentContainer}>
                             <ParsedText
                                 parse={parsedTextOptions}
@@ -117,5 +122,12 @@ const styles = StyleSheet.create({
     },
     title: {
 
+    },
+    versionText: {
+        position: "absolute",
+        bottom: 8,
+        right: 8,
+        color: Skin.PrideraiserCampaignSummary_AnalyticsSource,
+        fontSize: 14
     }
 });

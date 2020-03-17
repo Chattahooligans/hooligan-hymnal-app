@@ -154,6 +154,7 @@ export const Skin = {
   Post_TextColor: DefaultColors.Text,
   Post_TimestampLabel: DefaultColors.ColorText,
   PostAttachmentComposePrideraiserMatch_ActivityIndicator: DefaultColors.Primary,
+  PrideraiserCampaignSummary_AnalyticsSource: DefaultColors.HeaderText,
   Roster_DefaultThumbnail: CLUB_LOGO,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
@@ -282,7 +283,7 @@ export const Settings = {
   //      Check how this renders on your deployment with your Prideraiser campaign cover photo
   //      You may want to adjust the height param and/or design the cover photo with Hooligan Hymnal in mind
   //      wm=pr&wmp=br add the Prideraiser Logo watermark onto the image. We recommend leaving this alone
-  PrideraiserCampaignSummary_CampaignCoverParams: "?w=768&h=432&wm=pr&wmp=br",
+  PrideraiserCampaignSummary_CampaignCoverParams: "?w=768&h=432&wm=pr&wmp=bl",
 
   PrideraiserCampaignSummary_AnalyticsSource: appParams.expo.slug + "-home",
 
