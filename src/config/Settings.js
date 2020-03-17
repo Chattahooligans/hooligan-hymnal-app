@@ -244,9 +244,6 @@ export const Settings = {
   //      Show Prideraiser campaign summary in News Feed
   Home_ShowPrideraiser: true,
 
-  ImageResizeQuality: 1,
-  ImageResizeDimensions: { larger: 1216, smaller: 912 },
-
   // Player_ShowSongs: true, false
   //      Some SGs write songs for each player
   //      Toggle a related UI element in the Roster/Player screen
@@ -263,9 +260,17 @@ export const Settings = {
   PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix: appParams.expo.slug,
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat: "YYYY-MM-DD",
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix: "",
+
   // PostCreate_UploadImageEnabled: true, false
   //      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
   PostCreate_UploadImageEnabled: true,
+
+  // PostCreate_UploadImageResizeQuality and PostCreate_UploadImageResizeDimensions
+  //      These two values determine sizing and JPG compression of images before they are uploaded
+  //      This is done client side to save data (and time in a stadium environment)
+  //      These values have NOT been optimized yet, so fiddle with them and report your thoughts back to the core team
+  PostCreate_UploadImageResizeQuality: 1,
+  PostCreate_UploadImageResizeDimensions: { larger: 1216, smaller: 912 },
 
   Prideraiser_CampaignId: PRIDERAISER_CAMPAIGN_ID,
 
