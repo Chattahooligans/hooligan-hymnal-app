@@ -7,7 +7,7 @@ import {
 import { Layout } from '../constants';
 import VideoBackground from '../components/VideoBackground';
 import { RegularText } from '../components/StyledText';
-import { DefaultColors, Skin } from '../config/Settings';
+import { Skin } from '../config/Settings';
 import appParams from '../../app.json';
 
 export default class HomeVideoPanel extends React.Component {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         opacity: Skin.HomeVideoPanel_TintOpacity
     },
     versionText: {
-        color: DefaultColors.HeaderText,
+        color: Skin.HomeVideoPanel_VersionLabel,
         fontSize: 14
     }
 });
