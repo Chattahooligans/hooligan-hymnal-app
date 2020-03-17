@@ -118,10 +118,8 @@ const styles = StyleSheet.create({
 
     },
     contentContainer: {
-        backgroundColor: Palette.White
-    },
-    title: {
-
+        backgroundColor: Palette.White,
+        alignItems: "center"
     },
     versionText: {
         position: "absolute",
@@ -129,5 +127,8 @@ const styles = StyleSheet.create({
         right: 8,
         color: Skin.PrideraiserCampaignSummary_AnalyticsSource,
         fontSize: 14
-    }
+    },
+    title: {
+        fontSize: 15
+    },
 });
