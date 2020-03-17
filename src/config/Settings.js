@@ -241,15 +241,11 @@ export const Settings = {
 
   // Home_HeroContent: "video", "prideraiser", ("image" coming soon)
   //      Hero content on the home screen
-  Home_HeroContent: "video",
+  Home_HeroContent: "prideraiser",
 
   // Home_PostsPerPage: number
   //      Load this many news feed items, then load this many more if the user scrolls to the bottom
   Home_PostsPerPage: 5,
-
-  // Home_ShowPrideraiser: true, false
-  //      Show Prideraiser campaign summary in News Feed
-  Home_ShowPrideraiser: false,
 
   // Player_ShowSongs: true, false
   //      Some SGs write songs for each player

@@ -147,7 +147,10 @@ class Home extends React.Component {
     let heroComponent;
     switch (Settings.Home_HeroContent) {
       case "video":
-        heroComponent = <HomeVideoPanel />;
+        heroComponent = <HomeVideoPanel />
+        break;
+      case "prideraiser":
+        heroComponent = <PrideraiserCampaignSummary key={"prideraiserCampaignSummary"} />
         break;
       default:
         heroComponent = null
@@ -203,7 +206,7 @@ class Home extends React.Component {
                 color={Skin.Home_LoadMoreActivityIndicator_iOS} />
             </View>
           }
-          
+
           {heroComponent}
 
           <DeferredHomeContent globalData={this.props.globalData} />
@@ -327,11 +330,6 @@ class DeferredHomeContent extends React.Component {
     let buttonsIndex = 2
     let linksIndex = 4
     scrollItems.splice(0, 0, <HomeBannersPanel key={"homeBanners"} config={banners} />)
-    if (Settings.Home_ShowPrideraiser) {
-      scrollItems.splice(1, 0, <PrideraiserCampaignSummary key={"prideraiserCampaignSummary"} />)
-      buttonsIndex++
-      linksIndex++
-    }
     scrollItems.splice(buttonsIndex, 0, <StaticHomeContent_Buttons key={"homeButtons"} navigation={this.props.navigation} />)
     scrollItems.splice(linksIndex, 0, <StaticHomeContent_Links key={"homeLinks"} />)
 
