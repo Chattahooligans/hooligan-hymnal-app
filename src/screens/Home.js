@@ -26,7 +26,7 @@ import { getPost, engageNotification } from '../services/feedService';
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
 import MenuButton from '../components/MenuButton';
-import VideoBackground from '../components/VideoBackground';
+import HomeVideoPanel from '../components/HomeVideoPanel';
 import SocialButtonPanel from '../components/SocialButtonPanel';
 import HomeBannersPanel from '../components/HomeBannersPanel';
 import PrideraiserCampaignSummary from '../components/PrideraiserCampaignSummary';
@@ -35,8 +35,6 @@ import { ModalLoader } from '../components/ModalLoader';
 import Post from '../components/Post';
 import { FontSizes, Layout, Colors } from '../constants';
 import Constants from 'expo-constants';
-
-import appParams from '../../app.json';
 
 import {
   Palette,
@@ -146,6 +144,15 @@ class Home extends React.Component {
       extrapolate: 'clamp'
     });
 
+    let heroComponent;
+    switch (Settings.Home_HeroContent) {
+      case "video":
+        heroComponent = <HomeVideoPanel />;
+        break;
+      default:
+        heroComponent = null
+    }
+
     return (
       <View style={{ flex: 1, backgroundColor: Skin.Home_BackgroundColor }}>
         <AnimatedScrollView
@@ -196,28 +203,8 @@ class Home extends React.Component {
                 color={Skin.Home_LoadMoreActivityIndicator_iOS} />
             </View>
           }
-          <View
-            style={{
-              backgroundColor: Palette.Navy,
-              padding: 8,
-              paddingTop: Layout.headerHeight - 10,
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-          >
-            <View style={styles.headerVideoLayer}>
-              <VideoBackground />
-              <View style={styles.headerVideoOverlay} />
-            </View>
-            <Image
-              source={Skin.Home_VideoOverlay}
-              style={{ height: 100, resizeMode: 'contain', marginTop: 20 }} />
-            <View style={styles.headerContent}>
-              <RegularText style={styles.headerText}>
-                {appParams.expo.version}
-              </RegularText>
-            </View>
-          </View>
+          
+          {heroComponent}
 
           <DeferredHomeContent globalData={this.props.globalData} />
           <View style={{ flex: 1, flexDirection: "row", justifyContent: "center", paddingVertical: 10 }}>

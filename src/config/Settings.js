@@ -132,6 +132,9 @@ export const Skin = {
   Home_SocialButtons: DefaultColors.Primary,
   Home_Video: HOME_VIDEO,
   Home_VideoOverlay: HOME_VIDEO_OVERLAY,
+  HomeVideoPanel_TintColor: DefaultColors.NavigationBarBackground,
+  HomeVideoPanel_TintOpacity: 0.8,
+  HomeVideoPanel_VersionLabel: DefaultColors.HeaderText,
   Home_Website: Palette.Black,
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Secondary,
@@ -236,13 +239,17 @@ export const Settings = {
   //      and tapping into a whole hunk of UI will be jarring and confusing to users
   ChannelUI_Enabled: false,
 
+  // Home_HeroContent: "video", "prideraiser", ("image" coming soon)
+  //      Hero content on the home screen
+  Home_HeroContent: "video",
+
   // Home_PostsPerPage: number
   //      Load this many news feed items, then load this many more if the user scrolls to the bottom
   Home_PostsPerPage: 5,
 
   // Home_ShowPrideraiser: true, false
   //      Show Prideraiser campaign summary in News Feed
-  Home_ShowPrideraiser: true,
+  Home_ShowPrideraiser: false,
 
   // Player_ShowSongs: true, false
   //      Some SGs write songs for each player
