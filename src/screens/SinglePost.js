@@ -33,8 +33,6 @@ export default class SinglePost extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        borderColor: DefaultColors.Primary,
-        borderWidth: 5
+        flex: 1
     }
 });
