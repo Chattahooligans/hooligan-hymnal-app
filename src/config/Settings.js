@@ -32,7 +32,8 @@ export const INSTRUMENTATION_URL = 'https://drive.google.com/open?id=1dW9z4lh592
 export const HOME_NAVBAR_LOGO = require('../../assets/home-logo.png');
 //export const HOME_NAVBAR_LOGO = require('../../assets/home-big-c-logo.png');
 export const HOME_VIDEO = require('../../assets/5MB_video.mp4');
-export const HOME_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
+//export const HOME_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
+export const HOME_VIDEO_OVERLAY = require('../../assets/juanstagram-mono-logotype.png');
 export const DRAWER_HERO_BACKGROUND = require('../../assets/drawer-hero-background.png');
 export const DRAWER_HERO_OVERLAY = require('../../assets/drawer-hero-logo.png');
 export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
