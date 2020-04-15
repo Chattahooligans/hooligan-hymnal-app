@@ -308,7 +308,7 @@ class Post extends React.Component {
                     break;
                 case "juanstagram":
                     let juanstagramPost = attachment.data.juanstagramPost;
-                    let juanstagramDisplay = <PostAttachmentJuanstagram juanstagramPost={juanstagramPost} />
+                    let juanstagramDisplay = <PostAttachmentJuanstagram key={index} juanstagramPost={juanstagramPost} />
                     attachmentDisplay.push(juanstagramDisplay);
                     break;
                 default:
