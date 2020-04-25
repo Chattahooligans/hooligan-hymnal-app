@@ -243,7 +243,7 @@ export const Settings = {
 
   // Home_HeroContent: "video", "prideraiser", ("image" coming soon)
   //      Hero content on the home screen
-  Home_HeroContent: "prideraiser",
+  Home_HeroContent: "video",
 
   // Home_PostsPerPage: number
   //      Load this many news feed items, then load this many more if the user scrolls to the bottom
