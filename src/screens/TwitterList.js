@@ -5,7 +5,7 @@ import { RectButton } from 'react-native-gesture-handler';
 import NavigationOptions from '../config/NavigationOptions';
 import { HeaderBackButton } from 'react-navigation';
 import { FontSizes } from '../constants';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette, Settings } from '../config/Settings';
 import { Ionicons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -27,7 +27,7 @@ class TwitterList extends React.Component {
         handles += '@' + player.twitter + ' ';
     });
       
-    handles += '@ChattanoogaFC @chattahooligan @LosCFCHooligans';
+    handles += Settings.TwitterList_ExtraHandles;
 
     return (
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>

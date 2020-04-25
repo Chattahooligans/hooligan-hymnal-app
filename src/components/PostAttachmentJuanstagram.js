@@ -1,6 +1,7 @@
 import React from 'react';
 import {
     StyleSheet,
+    TouchableHighlight,
     View
 } from 'react-native';
 import ParsedText from 'react-native-parsed-text';
@@ -58,30 +59,42 @@ export default class PostAttachmentJuanstagram extends React.Component {
         return (
             <View style={styles.container}>
                 <View style={styles.buttonsContainer}>
-                    <Ionicons
-                        size={buttonSize}
-                        name="md-heart"
-                        style={[styles.button, { marginLeft: 0 }]} />
-                    <Ionicons
-                        size={buttonSize}
-                        name="ios-chatbubbles"
-                        style={[styles.button]} />
-                    <Ionicons
-                        size={buttonSize}
-                        name="ios-send"
-                        style={[styles.button]} />
+                    <TouchableHighlight
+                        underlayColor={'#fff'}>
+                        <Ionicons
+                            size={buttonSize}
+                            name="md-heart"
+                            style={[styles.button, { marginLeft: 0 }]} />
+                    </TouchableHighlight>
+                    <TouchableHighlight
+                        underlayColor={'#fff'}>
+                        <Ionicons
+                            size={buttonSize}
+                            name="ios-chatbubbles"
+                            style={[styles.button]} />
+                    </TouchableHighlight>
+                    <TouchableHighlight
+                        underlayColor={'#fff'}>
+                        <Ionicons
+                            size={buttonSize}
+                            name="ios-send"
+                            style={[styles.button]} />
+                    </TouchableHighlight>
                     <View style={{ flex: 1 }} />
-                    <Ionicons
-                        size={buttonSize}
-                        name="ios-bookmark"
-                        style={[styles.button, { marginRight: 0 }]} />
+                    <TouchableHighlight
+                        underlayColor={'#fff'}>
+                        <Ionicons
+                            size={buttonSize}
+                            name="ios-bookmark"
+                            style={[styles.button, { marginRight: 0 }]} />
+                    </TouchableHighlight>
                 </View>
                 <ParsedText
                     parse={
                         [
-                            { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
-                            { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted },
-                            { pattern: /\B#(\w*[A-Za-z_\d]+\w*)\b/, style: styles.bold, renderText: this._renderHashtag }
+                            { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                            { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic },
+                            { pattern: parsePatterns.hashtag, style: parsedStyles.hashtag }
                         ]
                     }
                     style={styles.caption}>
@@ -90,9 +103,9 @@ export default class PostAttachmentJuanstagram extends React.Component {
                 <ParsedText
                     parse={
                         [
-                            { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
-                            { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted },
-                            { pattern: /\B#(\w*[A-Za-z_\d]+\w*)\b/, style: styles.bold, renderText: this._renderHashtag }
+                            { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                            { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic },
+                            { pattern: parsePatterns.hashtag, style: parsedStyles.hashtag }
                         ]
                     }
                     style={styles.caption}>

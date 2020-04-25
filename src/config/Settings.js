@@ -35,6 +35,7 @@ export const HOME_NAVBAR_LOGO = require('../../assets/home-logo.png');
 //export const HOME_NAVBAR_LOGO = require('../../assets/home-big-c-logo.png');
 export const HOME_VIDEO = require('../../assets/5MB_video.mp4');
 export const HOME_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
+//export const HOME_VIDEO_OVERLAY = require('../../assets/juanstagram-mono-logotype.png');
 export const DRAWER_HERO_BACKGROUND = require('../../assets/drawer-hero-background.png');
 export const DRAWER_HERO_OVERLAY = require('../../assets/drawer-hero-logo.png');
 export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
@@ -299,5 +300,10 @@ export const Settings = {
   // RosterFoes_DefaultCompetition: string
   //      Matches .competition field of objects from the database foes collection
   //      This field is case sensitive and must match exactly
-  RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"
+  RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase",
+
+  // TwitterList_ExtraHandles: string
+  //      Extra Twitter handles concatenated after the players on the TwitterList screen
+  //      In Chattanooga, we add the club and our SG accounts
+  TwitterList_ExtraHandles: "@ChattanoogaFC @chattahooligan @LosCFCHooligans"
 }
