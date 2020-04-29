@@ -33,13 +33,21 @@
             "selectsong": "Select Song",
             "composesong": "Compose Song",
             "masstweet": "Tweet the Players",
-            "gknickname": "GK Nickname"
+            "gknickname": "GK Nickname",
+            "prideraisermatch": "Prideraiser Match Update"
         },
         "postattachmentcomposegknickname": {
             "gknickname": "GK Nickname",
             "instructions1": "1. We're gonna score on you...",
             "instructions2": "2. Pick a color, any color",
             "instructions3": "3. Which is more readable?"
+        },
+        "postattachmentcomposeprideraisermatch": {
+            "prideraisermatch": "Prideraiser Match Update",
+            "howmanygoals": "How many %goal_name_plural% for this match?",
+            "analytics": "Analytics (source)",
+            "source": "source",
+            "attach": "Attach"
         },
         "postattchmentcomposesong": {
             "composesong": "Compose Song",
@@ -205,8 +213,20 @@
             "clear": "Clear Metadata",
             "cancel": "Cancel"
         },
+        "postattachmentprideraisermatch": {
+            "heading": "%name% Update",
+            "message": "Because of %goalCount% %goal_name_computed%, we raised $%raised% to benefit %charity_name%! Make your pledge now",
+            "messagezerogoals": "No %goal_name_computed% from this match, but we can raise %pledged_total% to benefit %charity_name% with each one. Make your pledge now",
+            "pledge": "Pledge"
+        },
         "postattachmentmultitweet": {
             "tweettheplayers": "Tweet them all!"
+        },
+        "prideraisercampaignsummary": {
+            "title": "%supporter_group.name% present *%name%*",
+            "benefitting": "Benefitting %charity_name%",
+            "pledged": "$%pledged_total% pledged per %goal_name%",
+            "learnmore": "Tap to learn more about Prideraiser"
         },
         "songview": {
             "copiedtitle": "Copied title to clipboard",

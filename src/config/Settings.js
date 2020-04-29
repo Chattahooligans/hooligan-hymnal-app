@@ -1,3 +1,5 @@
+import appParams from '../../app.json';
+
 /*
     Supporter Group Info
 */
@@ -55,6 +57,8 @@ export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
 export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
 export const PRIDERAISER_LOGO = require('../../assets/prideraiser-logo.png');
 export const PRIDERAISER_ICON = require('../../assets/prideraiser-icon.png');
+export const PRIDERAISER_CAMPAIGN_ID = '03BpKNg';
+//export const PRIDERAISER_CAMPAIGN_ID = 'invalid_id_for_testing';
 
 import i18n from "../../i18n"
 
@@ -129,6 +133,9 @@ export const Skin = {
   Home_SocialButtons: DefaultColors.Primary,
   Home_Video: HOME_VIDEO,
   Home_VideoOverlay: HOME_VIDEO_OVERLAY,
+  HomeVideoPanel_TintColor: DefaultColors.NavigationBarBackground,
+  HomeVideoPanel_TintOpacity: 0.8,
+  HomeVideoPanel_VersionLabel: DefaultColors.HeaderText,
   Home_Website: Palette.Black,
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Secondary,
@@ -147,6 +154,8 @@ export const Skin = {
   Post_LinkColor: "blue",
   Post_TextColor: DefaultColors.Text,
   Post_TimestampLabel: DefaultColors.ColorText,
+  PostAttachmentComposePrideraiserMatch_ActivityIndicator: DefaultColors.Primary,
+  PrideraiserCampaignSummary_AnalyticsSource: DefaultColors.HeaderText,
   Roster_DefaultThumbnail: CLUB_LOGO,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
@@ -226,40 +235,75 @@ export const commonImageCredit = [
 /*
   App Feature Flags
 */
-// CapoHome_GKNicknameEnabled: true, false
-//      This is a longrunning inside joke in Chattanooga
-// Channels_Enabled: true, false
-//      Some SGs will only ever have one channel
-//      and tapping into a whole hunk of UI will be jarring and confusing to users
-// Home_PostsPerPage: number
-//      Load this many news feed items, then load this many more if the user scrolls to the bottom
-// Player_ShowSongs: true, false
-//      Some SGs write songs for each player
-//      Toggle a related UI element in the Roster/Player screen
-// PostCreate_UploadImageEnabled: true, false
-//      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
-// RefereeCards_Show: true, false
-//      Show yellow/red card icons in the nav drawer
-// Roster_SortPlayersBy: "default", "number", "name"
-//      later- "position" with priority
-//      (hopefully this gets deprecated and replaced with something in the UI later)
-// RosterFoes_DefaultCompetition: string
-//      Matches .competition field of objects from the database foes collection
-//      This field is case sensitive and must match exactly
-// TwitterList_ExtraHandles: string
-//      Extra Twitter handles concatenated after the players on the TwitterList screen
-//      In Chattanooga, we add the club and our SG accounts
 export const Settings = {
-  CapoHome_GKNicknameEnabled: true,
+  // Channels_Enabled: true, false
+  //      Some SGs will only ever have one channel
+  //      and tapping into a whole hunk of UI will be jarring and confusing to users
   ChannelUI_Enabled: false,
+
+  // Home_HeroContent: "video", "prideraiser", ("image" coming soon)
+  //      Hero content on the home screen
+  Home_HeroContent: "video",
+
+  // Home_PostsPerPage: number
+  //      Load this many news feed items, then load this many more if the user scrolls to the bottom
   Home_PostsPerPage: 5,
-  ImageResizeQuality: 1,
-  ImageResizeDimensions: { larger: 1216, smaller: 912 },
-  Juanstagram: false,
+
+  // Player_ShowSongs: true, false
+  //      Some SGs write songs for each player
+  //      Toggle a related UI element in the Roster/Player screen
   Player_ShowSongs: true,
+
+  // PostAttach_ShowGKNickname: true, false
+  //      This is a longrunning inside joke in Chattanooga
+  PostAttach_ShowGKNickname: true,
+
+  // PostAttach_ShowJuanstagram: true, false
+  //      This is a longrunning inside joke in Chattanooga
+  PostAttach_ShowJuanstagram: true,
+
+  PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix: appParams.expo.slug,
+  PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat: "YYYY-MM-DD",
+  PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix: "",
+
+  // PostCreate_UploadImageEnabled: true, false
+  //      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
   PostCreate_UploadImageEnabled: true,
+
+  // PostCreate_UploadImageResizeQuality and PostCreate_UploadImageResizeDimensions
+  //      These two values determine sizing and JPG compression of images before they are uploaded
+  //      This is done client side to save data (and time in a stadium environment)
+  //      These values have NOT been optimized yet, so fiddle with them and report your thoughts back to the core team
+  PostCreate_UploadImageResizeQuality: 1,
+  PostCreate_UploadImageResizeDimensions: { larger: 1216, smaller: 912 },
+
+  Prideraiser_CampaignId: PRIDERAISER_CAMPAIGN_ID,
+
+  // Prideraiser_CampaignCoverParams: string
+  //      default: "?w=768&h=200&wm=pr&wmp=br"
+  //      Check how this renders on your deployment with your Prideraiser campaign cover photo
+  //      You may want to adjust the height param and/or design the cover photo with Hooligan Hymnal in mind
+  //      wm=pr&wmp=br add the Prideraiser Logo watermark onto the image. We recommend leaving this alone
+  PrideraiserCampaignSummary_CampaignCoverParams: "?w=768&h=432&wm=pr&wmp=bl",
+
+  PrideraiserCampaignSummary_AnalyticsSource: appParams.expo.slug + "-home",
+
+  // RefereeCards_Show: true, false
+  //      Show yellow/red card icons in the nav drawer
   RefereeCards_Show: true,
+
+  // Roster_SortPlayersBy: "default", "number", "name"
+  //      later- "position" with priority
+  //      (hopefully this gets deprecated and replaced with something in the UI later)
   Roster_SortPlayersBy: "number",
+
+  // RosterFoes_DefaultCompetition: string
+  //      Matches .competition field of objects from the database foes collection
+  //      This field is case sensitive and must match exactly
   RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase",
+
+  // TwitterList_ExtraHandles: string
+  //      Extra Twitter handles concatenated after the players on the TwitterList screen
+  //      In Chattanooga, we add the club and our SG accounts
   TwitterList_ExtraHandles: "@ChattanoogaFC @chattahooligan @LosCFCHooligans"
 }

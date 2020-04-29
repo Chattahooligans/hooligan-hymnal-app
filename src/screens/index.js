@@ -9,6 +9,7 @@ import Player from './Player';
 import PostAttach from './PostAttach';
 import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
+import PostAttachmentComposePrideraiserMatch from './PostAttachmentComposePrideraiserMatch';
 import PostAttachmentSelectJuanstagram from './PostAttachmentSelectJuanstagram';
 import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
 import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
@@ -42,6 +43,7 @@ export default {
   PostAttach,
   PostAttachmentComposeSong,
   PostAttachmentComposeGkNickname,
+  PostAttachmentComposePrideraiserMatch,
   PostAttachmentSelectJuanstagram,
   PostAttachmentSelectMassTweet,
   PostAttachmentSelectPlayer,

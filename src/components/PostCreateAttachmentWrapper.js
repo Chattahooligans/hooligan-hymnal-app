@@ -14,6 +14,7 @@ import PostAttachmentGkNickname from './PostAttachmentGkNickname';
 import PostAttachmentJuanstagram from './PostAttachmentJuanstagram';
 import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
+import PostAttachmentPrideraiserMatch from './PostAttachmentPrideraiserMatch';
 import PostAttachmentSong from './PostAttachmentSong';
 import i18n from "../../i18n";
 
@@ -50,6 +51,11 @@ class PostCreateAttachmentWrapper extends React.Component {
                 let massTweetDisplay = <PostAttachmentMassTweet roster={roster}
                     onPress={() => { this.props.navigation.navigate("TwitterList", { roster }) }} />
                 attachmentDisplay = massTweetDisplay;
+                break;
+            case "prideraisermatch":
+                let data = attachment.data;
+                let prideraiserMatchDisplay = <PostAttachmentPrideraiserMatch data={data} />;
+                attachmentDisplay = prideraiserMatchDisplay
                 break;
             case "juanstagram":
                 let juanstagramPost = attachment.data.juanstagramPost;

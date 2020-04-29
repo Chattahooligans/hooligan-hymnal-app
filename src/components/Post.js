@@ -27,6 +27,7 @@ import PostAttachmentGkNickname from './PostAttachmentGkNickname';
 import PostAttachmentJuanstagram from './PostAttachmentJuanstagram';
 import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
+import PostAttachmentPrideraiserMatch from './PostAttachmentPrideraiserMatch';
 import PostAttachmentSong from './PostAttachmentSong';
 import PostImageWrapper from './PostImageWrapper';
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -305,6 +306,11 @@ class Post extends React.Component {
                     let massTweetDisplay = <PostAttachmentMassTweet key={index} roster={roster}
                         onPress={() => { this.props.navigation.navigate("TwitterList", { roster }) }} />
                     attachmentDisplay.push(massTweetDisplay);
+                    break;
+                case "prideraisermatch":
+                    let data = attachment.data;
+                    let prideraiserMatchDisplay = <PostAttachmentPrideraiserMatch data={data} />;
+                    attachmentDisplay.push(prideraiserMatchDisplay);
                     break;
                 case "juanstagram":
                     let juanstagramPost = attachment.data.juanstagramPost;

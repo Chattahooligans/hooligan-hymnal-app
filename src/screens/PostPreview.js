@@ -100,11 +100,11 @@ class PostPreview extends React.Component {
 
         if (image.height > image.width) {
             // portrait orientation, but maybe not 3:4 or 9:16 (we don't care)
-            if (image.height > Settings.ImageResizeDimensions.larger || image.width > Settings.ImageResizeDimensions.smaller) {
+            if (image.height > Settings.PostCreate_UploadImageResizeDimensions.larger || image.width > Settings.PostCreate_UploadImageResizeDimensions.smaller) {
                 let manipResult = await ImageManipulator.manipulateAsync(
                     image.uri,
-                    [{ resize: { height: Settings.ImageResizeDimensions.larger } }],
-                    { compress: Settings.ImageResizeQuality, format: ImageManipulator.SaveFormat.JPEG })
+                    [{ resize: { height: Settings.PostCreate_UploadImageResizeDimensions.larger } }],
+                    { compress: Settings.PostCreate_UploadImageResizeQuality, format: ImageManipulator.SaveFormat.JPEG })
 
                 return manipResult.uri
             }
@@ -113,11 +113,11 @@ class PostPreview extends React.Component {
         }
         else if (image.width > image.height) {
             // landscape orientation, but maybe not 3:4 or 16:9 (we don't care)
-            if (image.width > Settings.ImageResizeDimensions.larger || image.height > Settings.ImageResizeDimensions.smaller) {
+            if (image.width > Settings.PostCreate_UploadImageResizeDimensions.larger || image.height > Settings.PostCreate_UploadImageResizeDimensions.smaller) {
                 let manipResult = await ImageManipulator.manipulateAsync(
                     image.uri,
-                    [{ resize: { width: Settings.ImageResizeDimensions.larger } }],
-                    { compress: Settings.ImageResizeQuality, format: ImageManipulator.SaveFormat.JPEG })
+                    [{ resize: { width: Settings.PostCreate_UploadImageResizeDimensions.larger } }],
+                    { compress: Settings.PostCreate_UploadImageResizeQuality, format: ImageManipulator.SaveFormat.JPEG })
 
                 return manipResult.uri
             }
@@ -126,11 +126,11 @@ class PostPreview extends React.Component {
         }
         else {
             // must be a square
-            if (image.width > Settings.ImageResizeDimensions.smaller) {
+            if (image.width > Settings.PostCreate_UploadImageResizeDimensions.smaller) {
                 let manipResult = await ImageManipulator.manipulateAsync(
                     image.uri,
-                    [{ resize: { width: Settings.ImageResizeDimensions.smaller } }],
-                    { compress: Settings.ImageResizeQuality, format: ImageManipulator.SaveFormat.JPEG })
+                    [{ resize: { width: Settings.PostCreate_UploadImageResizeDimensions.smaller } }],
+                    { compress: Settings.PostCreate_UploadImageResizeQuality, format: ImageManipulator.SaveFormat.JPEG })
 
                 return manipResult.uri
             }
