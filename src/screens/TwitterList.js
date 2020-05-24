@@ -22,7 +22,7 @@ class TwitterList extends React.Component {
 
   render() {
     let handles = '';
-    this.props.navigation.state.params.roster.players.forEach(player => {
+    this.props.route.params.roster.players.forEach(player => {
       if (player.twitter)
         handles += '@' + player.twitter + ' ';
     });

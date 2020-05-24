@@ -48,7 +48,7 @@ class RosterFoePlayers extends React.Component {
     }
 
     componentDidMount = () => {
-        let foe = this.props.navigation.state.params.foe.item;
+        let foe = this.props.route.params.foe.item;
         let backgroundColor = DefaultColors.ButtonBackground;
         let accentColor = DefaultColors.ButtonText;
         let textColor = DefaultColors.ButtonText;

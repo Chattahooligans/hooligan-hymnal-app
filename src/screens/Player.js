@@ -58,7 +58,7 @@ class Player extends React.Component {
   }
 
   setData = () => {
-    let player = this.props.navigation.state.params.player;
+    let player = this.props.route.params.player;
     let playerSongs = [];
     playerSongs = this.props.globalData.state.songs.filter(song => song.playerId === player._id)
 
@@ -66,7 +66,7 @@ class Player extends React.Component {
   }
 
   render() {
-    let player = this.props.navigation.state.params.player;
+    let player = this.props.route.params.player;
     // console.log('player details window for ', player);
 
     let playerSocialDisplay;

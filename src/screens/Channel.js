@@ -48,7 +48,7 @@ class Channel extends React.Component {
     onRefresh = async () => {
         this.setState({ refreshing: true })
 
-        let feed = await getFeedForChannel(this.props.navigation.state.params.channelData._id)
+        let feed = await getFeedForChannel(this.props.route.params.channelData._id)
         const feedAtEnd = feed.length < Settings.Home_PostsPerPage
 
         this.setState({ feed, refreshing: false, feedAtEnd })
@@ -59,7 +59,7 @@ class Channel extends React.Component {
         if (this.state.loadingMore === false && !this.state.feedAtEnd) {
             this.setState({ loadingMore: true })
 
-            let moreFeed = await getMoreFeedForChannel(this.props.navigation.state.params.channelData._id, this.state.feed[this.state.feed.length - 1].publishedAt)
+            let moreFeed = await getMoreFeedForChannel(this.props.route.params.channelData._id, this.state.feed[this.state.feed.length - 1].publishedAt)
             const feedAtEnd = moreFeed.length < Settings.Home_PostsPerPage
             const prevFeed = this.state.feed
             const feed = prevFeed.concat(moreFeed)
@@ -69,7 +69,7 @@ class Channel extends React.Component {
     }
 
     render() {
-        let channelData = this.props.navigation.state.params.channelData
+        let channelData = this.props.route.params.channelData
         let channelPostsDisplay = []
 
         this.state.feed.forEach((post) => {

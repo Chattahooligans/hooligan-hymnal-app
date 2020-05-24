@@ -30,13 +30,13 @@ export default class SingleSong extends React.Component {
   });
 
   componentDidMount() {
-    const { song } = this.props.navigation.state.params;
+    const { song } = this.props.route.params;
     // const headerTitle = song && song.title ? song.title : 'Up Next';
     // this.props.navigation.setParams({ headerTitle });
   }
 
   render() {
-    let song = this.props.navigation.state.params.song;
+    let song = this.props.route.params.song;
 
     return (
       <View style={styles.container}>
