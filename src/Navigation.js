@@ -208,6 +208,7 @@ const Drawer = DrawerNavigator(
   }
 );
 
+/*
 export default StackNavigator(
   {
     Drawer: { screen: Drawer }
@@ -217,3 +218,12 @@ export default StackNavigator(
     headerMode: 'none'
   }
 );
+*/
+
+import DefaultRootDrawerNavigation from './navigation/DefaultRootDrawerNavigation';
+import NewHomeNavigation from './navigation/HomeNavigation';
+export default function NewAppNavigator() {
+  return (
+    <DefaultRootDrawerNavigation />
+  )
+}

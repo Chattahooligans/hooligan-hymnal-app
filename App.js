@@ -1,4 +1,5 @@
-import React from 'react';
+import 'react-native-gesture-handler';
+import * as React from 'react';
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
@@ -6,8 +7,8 @@ import { Platform, View, StatusBar, YellowBox } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Provider } from 'unstated';
 import { loadSavedTalksAsync } from './src/utils/storage';
+import { NavigationContainer } from '@react-navigation/native';
 import Navigation from './src/Navigation';
-import Home from './src/screens/Home';
 import imagesArray from './assets';
 
 YellowBox.ignoreWarnings(['Warning: bind()']);
@@ -74,10 +75,10 @@ class App extends React.Component {
 
     return (
       <Provider>
-        <View style={{ flex: 1 }}>
-          <Navigation />
-          <StatusBar barStyle="light-content" />
-        </View>
+        <StatusBar barStyle="light-content" />
+        <NavigationContainer>
+            <Navigation />
+        </NavigationContainer>
       </Provider>
     );
   }
