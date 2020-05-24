@@ -17,7 +17,7 @@ import { BigButton } from '../components/BigButton';
 import { NavigationActions } from 'react-navigation';
 import { View as AnimatableView } from 'react-native-animatable';
 import { Ionicons } from '@expo/vector-icons';
-import { withNavigation } from 'react-navigation';
+import { useNavigation } from '@react-navigation/native';
 
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -209,7 +209,7 @@ class Home extends React.Component {
 
           {heroComponent}
 
-          <DeferredHomeContent globalData={this.props.globalData} />
+          <DeferredHomeContent globalData={this.props.globalData} navigation={this.props.navigation} />
           <View style={{ flex: 1, flexDirection: "row", justifyContent: "center", paddingVertical: 10 }}>
             {this.state.loadingMore &&
               <ActivityIndicator
@@ -298,13 +298,14 @@ class StaticHomeContent extends React.Component {
   }
 }
 
-@withNavigation
 class DeferredHomeContent extends React.Component {
   state = {
     ready: Platform.OS === 'android' ? false : true
   };
 
   componentDidMount() {
+    console.log("DeferredHomeContent")
+    console.log(this.props.navigation)
     if (this.state.ready) {
       return;
     }
