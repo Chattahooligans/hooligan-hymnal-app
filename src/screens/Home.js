@@ -304,8 +304,6 @@ class DeferredHomeContent extends React.Component {
   };
 
   componentDidMount() {
-    console.log("DeferredHomeContent")
-    console.log(this.props.navigation)
     if (this.state.ready) {
       return;
     }
