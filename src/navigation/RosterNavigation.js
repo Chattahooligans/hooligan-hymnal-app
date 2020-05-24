@@ -18,7 +18,7 @@ const FoesStack = createStackNavigator();
 
 const TeamNavigation = () => {
     return (
-        <TeamStack.Navigator>
+        <TeamStack.Navigator screenOptions={DefaultStackScreenOptions}>
             <TeamStack.Screen name="Roster" component={Screens.Roster} />
             <TeamStack.Screen name="Player" component={Screens.Player}
                 options={{ headerShown: false }} />
@@ -81,7 +81,7 @@ export const RosterTabsNavigation = () => {
 export default RosterNavigation = () => {
     return (
         // <RosterTabsNavigation screenOptions={DefaultStackScreenOptions} />
-        <TeamNavigation screenOptions={DefaultStackScreenOptions} />
+        <TeamNavigation />
     )
 }
 
