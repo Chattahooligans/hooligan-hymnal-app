@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import DefaultStackScreenOptions from './DefaultStackScreenOptions';
 import Screens from '../screens';
+import i18n from '../../i18n';
 
 const SongbookStack = createStackNavigator();
 
@@ -12,8 +13,7 @@ export default SongbookNavigation = () => {
             screenOptions={DefaultStackScreenOptions}>
             <SongbookStack.Screen
                 name="Songbook"
-                component={Screens.Songbook}
-                options={{ headerTitle: i18n.t('navigation.songbook') }} />
+                component={Screens.Songbook} />
         </SongbookStack.Navigator>
     )
 }

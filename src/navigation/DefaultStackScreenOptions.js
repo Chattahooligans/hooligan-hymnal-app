@@ -1,4 +1,6 @@
+import React from 'react';
 import { DefaultColors, Skin } from '../config/Settings';
+import MenuButton from '../components/MenuButton';
 
 export default DefaultStackScreenOptions = {
     cardStyle: {
@@ -10,5 +12,6 @@ export default DefaultStackScreenOptions = {
     headerTintColor: DefaultColors.HeaderText,
     headerTitleStyle: {
         fontFamily: Skin.Font_Bold
-    }
+    },
+    headerLeft: () => <MenuButton />
 }
