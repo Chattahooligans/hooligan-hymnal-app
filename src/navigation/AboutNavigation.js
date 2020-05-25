@@ -14,7 +14,8 @@ export default SongbookNavigation = () => {
             screenOptions={DefaultStackScreenOptions}>
             <AboutStack.Screen
                 name="About"
-                component={Screens.About} />
+                component={Screens.About}
+                options={{ headerTitle: i18n.t('navigation.about') }} />
         </AboutStack.Navigator>
     )
 }
