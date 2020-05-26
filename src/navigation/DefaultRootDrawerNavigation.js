@@ -2,6 +2,7 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import i18n from '../../i18n';
 
+import CustomDrawer from '../components/CustomDrawer';
 import Screens from '../screens';
 import HomeNavigation from './HomeNavigation';
 import SongbookNavigation from './SongbookNavigation';
@@ -13,7 +14,8 @@ const RootDrawer = createDrawerNavigator();
 export default DefaultRootDrawerNavigation = () => {
     return (
         <RootDrawer.Navigator
-            initialRouteName="Home">
+            initialRouteName="Home"
+            drawerContent={(props) => <CustomDrawer {...props} />}>
             <RootDrawer.Screen
                 name="Home"
                 component={HomeNavigation}

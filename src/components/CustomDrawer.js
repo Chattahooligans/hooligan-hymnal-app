@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
-import { DrawerItems, NavigationActions, SafeAreaView, StackNavigator } from 'react-navigation';
+import { DrawerItemList } from '@react-navigation/drawer';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
@@ -29,7 +29,7 @@ const CustomDrawer = props => (
       </View>
     </View>
     <ScrollView style={{ flex: 1 }}>
-      <DrawerItems
+      <DrawerItemList
         {...props}
         activeBackgroundColor="rgba(255,255,255,0.1)"
         labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
