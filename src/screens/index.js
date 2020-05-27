@@ -30,6 +30,7 @@ import Standings from './Standings';
 import TableOfContentsInline from './TableOfContentsInline';
 import TwitterList from './TwitterList';
 import Volunteer from './Volunteer';
+import WebView from './WebView';
 
 export default {
   About,
@@ -63,5 +64,6 @@ export default {
   Standings,
   TableOfContentsInline,
   TwitterList,
-  Volunteer
+  Volunteer,
+  WebView
 };
