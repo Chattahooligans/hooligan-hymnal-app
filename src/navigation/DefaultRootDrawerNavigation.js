@@ -10,7 +10,7 @@ import RosterNavigation from './RosterNavigation';
 import AboutNavigation from './AboutNavigation';
 import AdminNavigation from './AdminNavigation';
 import YellowCardNavigation from './YellowCardNavigation';
-import RedCardNavigation  from './RedCardNavigation';
+import RedCardNavigation from './RedCardNavigation';
 
 const RootDrawer = createDrawerNavigator();
 
@@ -32,13 +32,13 @@ export default DefaultRootDrawerNavigation = () => {
                 component={RosterNavigation}
                 options={{ drawerLabel: i18n.t('navigation.roster') }} />
             <RootDrawer.Screen
+                name="AdminHome"
+                component={AdminNavigation} 
+                options={{ drawerLabel: i18n.t('navigation.capo') }}/>
+            <RootDrawer.Screen
                 name="About"
                 component={AboutNavigation}
                 options={{ drawerLabel: i18n.t('navigation.about') }} />
-            <RootDrawer.Screen
-                name="AdminHome"
-                component={AdminNavigation}
-                options={{ drawerLabel: () => null }} />
         </RootDrawer.Navigator>
     )
 }
