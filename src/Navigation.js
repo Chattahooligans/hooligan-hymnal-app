@@ -230,6 +230,7 @@ import RedCardNavigation from './navigation/RedCardNavigation';
 const AppStack = createStackNavigator();
 export default function NewAppNavigator() {
   return (
+    /*
     <AppStack.Navigator
       initialRouteName="Root"
       screenOptions={{ headerShown: false }}>
@@ -237,5 +238,7 @@ export default function NewAppNavigator() {
       <AppStack.Screen name="YellowCard" component={YellowCardNavigation} />
       <AppStack.Screen name="RedCard" component={RedCardNavigation} />
     </AppStack.Navigator>
+    */
+   <DefaultRootDrawerNavigation />
   )
 }

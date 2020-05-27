@@ -33,12 +33,19 @@ export default DefaultRootDrawerNavigation = () => {
                 options={{ drawerLabel: i18n.t('navigation.roster') }} />
             <RootDrawer.Screen
                 name="AdminHome"
-                component={AdminNavigation} 
-                options={{ drawerLabel: i18n.t('navigation.capo') }}/>
+                component={AdminNavigation}
+                options={{ drawerLabel: i18n.t('navigation.capo') }} />
             <RootDrawer.Screen
                 name="About"
                 component={AboutNavigation}
                 options={{ drawerLabel: i18n.t('navigation.about') }} />
+                
+            <RootDrawer.Screen
+                name="YellowCard"
+                component={YellowCardNavigation} />
+            <RootDrawer.Screen
+                name="RedCard"
+                component={RedCardNavigation} />
         </RootDrawer.Navigator>
     )
 }

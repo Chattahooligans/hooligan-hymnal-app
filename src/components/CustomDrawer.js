@@ -13,7 +13,20 @@ import { Layout } from '../constants';
 import { Palette, Settings, Skin } from '../config/Settings';
 import i18n from '../../i18n';
 
+
 const CustomDrawer = props => {
+  const hideRoutes = ["YellowCard", "RedCard"];
+  const filteredProps = {
+    ...props,
+    state: {
+      ...props.state,
+      routeNames: props.state.routeNames.filter(routeName => !hideRoutes.includes(routeName)),
+      routes: props.state.routes.filter(route => !hideRoutes.includes(route.name))
+    }
+  }
+
+  console.log(filteredProps.state)
+
   return (
     <View style={styles.container}>
       <View style={styles.drawerHeader}>
@@ -31,7 +44,7 @@ const CustomDrawer = props => {
       </View>
       <ScrollView style={{ flex: 1 }}>
         <DrawerItemList
-          {...props}
+          {...filteredProps}
           activeBackgroundColor="rgba(255,255,255,0.1)"
           labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
           onItemPress={({ route, focused }) => {

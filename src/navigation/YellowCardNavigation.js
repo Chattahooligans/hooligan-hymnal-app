@@ -13,7 +13,7 @@ const CardStack = createStackNavigator();
 export default YellowCardNavigation = () => {
     return (
         <CardStack.Navigator
-            screenOptions={{ ...DefaultStackScreenOptions, headerLeft: () => null }}>
+            screenOptions={DefaultStackScreenOptions}>
             <CardStack.Screen
                 name="YellowCard"
                 options={{
