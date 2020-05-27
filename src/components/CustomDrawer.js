@@ -13,39 +13,40 @@ import { Layout } from '../constants';
 import { Palette, Settings, Skin } from '../config/Settings';
 import i18n from '../../i18n';
 
-const CustomDrawer = props => (
-  <View style={styles.container}>
-    <View style={styles.drawerHeader}>
-      <Image
-        source={Skin.Drawer_HeroBackground}
-        style={styles.backgroundImage}
-      />
-      <View style={[StyleSheet.absoluteFill, styles.imageOverlay]} />
-      <View style={[StyleSheet.absoluteFill, styles.logoContainer]}>
+const CustomDrawer = props => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.drawerHeader}>
         <Image
-          source={Skin.Drawer_HeroOverlay}
-          style={styles.logoImage}
+          source={Skin.Drawer_HeroBackground}
+          style={styles.backgroundImage}
         />
+        <View style={[StyleSheet.absoluteFill, styles.imageOverlay]} />
+        <View style={[StyleSheet.absoluteFill, styles.logoContainer]}>
+          <Image
+            source={Skin.Drawer_HeroOverlay}
+            style={styles.logoImage}
+          />
+        </View>
       </View>
-    </View>
-    <ScrollView style={{ flex: 1 }}>
-      <DrawerItemList
-        {...props}
-        activeBackgroundColor="rgba(255,255,255,0.1)"
-        labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
-        onItemPress={({ route, focused }) => {
-          if (route.routeName === 'CapoHome') {
-            if (props.globalData.state.unlocked === true) {
-              props.navigation.navigate('CapoHome');
+      <ScrollView style={{ flex: 1 }}>
+        <DrawerItemList
+          {...props}
+          activeBackgroundColor="rgba(255,255,255,0.1)"
+          labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
+          onItemPress={({ route, focused }) => {
+            if (route.routeName === 'CapoHome') {
+              if (props.globalData.state.unlocked === true) {
+                props.navigation.navigate('CapoHome');
+              } else {
+                props.navigation.navigate('CapoLogin');
+              }
             } else {
-              props.navigation.navigate('CapoLogin');
+              props.onItemPress({ route });
             }
-          } else {
-            props.onItemPress({ route });
-          }
-        }}
-      />
-    </ScrollView>
+          }}
+        />
+      </ScrollView>
       {Settings.RefereeCards_Show &&
         <View style={{ borderTopColor: '#222', borderTopWidth: 1 }}>
           <View style={styles.cardContainer}>
@@ -60,8 +61,9 @@ const CustomDrawer = props => (
           </View>
         </View>
       }
-  </View>
-);
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
   backgroundImage: {

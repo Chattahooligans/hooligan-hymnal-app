@@ -39,14 +39,6 @@ export default DefaultRootDrawerNavigation = () => {
                 name="AdminHome"
                 component={AdminNavigation}
                 options={{ drawerLabel: () => null }} />
-            <RootDrawer.Screen
-                name="YellowCard"
-                component={YellowCardNavigation}
-                options={{ drawerLabel: () => null }} />
-            <RootDrawer.Screen
-                name="RedCard"
-                component={RedCardNavigation}
-                options={{ drawerLabel: () => null }} />
         </RootDrawer.Navigator>
     )
 }

@@ -158,6 +158,7 @@ const AboutNavigation = StackNavigator(
   }
 );
 
+/*
 const RedCard = () => (<Screens.RefereeCard name="RedCard" color={Palette.RedCard} />)
 const YellowCard = () => (<Screens.RefereeCard name="YellowCard" color={Palette.YellowCard} />)
 const RedCardNavigation = StackNavigator(
@@ -207,6 +208,7 @@ const Drawer = DrawerNavigator(
     drawerWidth: deviceWidth - 80
   }
 );
+*/
 
 /*
 export default StackNavigator(
@@ -222,8 +224,18 @@ export default StackNavigator(
 
 import DefaultRootDrawerNavigation from './navigation/DefaultRootDrawerNavigation';
 import NewHomeNavigation from './navigation/HomeNavigation';
+import { createStackNavigator } from '@react-navigation/stack';
+import YellowCardNavigation from './navigation/YellowCardNavigation';
+import RedCardNavigation from './navigation/RedCardNavigation';
+const AppStack = createStackNavigator();
 export default function NewAppNavigator() {
   return (
-    <DefaultRootDrawerNavigation />
+    <AppStack.Navigator
+      initialRouteName="Root"
+      screenOptions={{ headerShown: false }}>
+      <AppStack.Screen name="Root" component={DefaultRootDrawerNavigation} />
+      <AppStack.Screen name="YellowCard" component={YellowCardNavigation} />
+      <AppStack.Screen name="RedCard" component={RedCardNavigation} />
+    </AppStack.Navigator>
   )
 }
