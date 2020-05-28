@@ -8,19 +8,8 @@ import i18n from '../../i18n';
 
 const WebStack = createStackNavigator();
 
-// use a flag from Settings to load child components of this navigator- foes or no foes?
-
-export function createWebItem(drawerLabel, screenTitle, url, routeName) {
-    return {
-        drawerLabel: drawerLabel,
-        screenTitle: screenTitle,
-        url: url,
-        routeName: routeName
-    }
-}
-
 export function createWebNavigatorScreens(DrawerNavigator, items) {
-    let navigators = [];;
+    let navigators = [];
 
     items.forEach(element => {
         navigators.push(createWebNavigator(DrawerNavigator, element.drawerLabel, element.screenTitle, element.url, element.routeName))
@@ -33,6 +22,7 @@ function createWebNavigator(DrawerNavigator, drawerLabel, screenTitle, url, rout
     return (
         <DrawerNavigator.Screen
             name={routeName}
+            key={routeName}
             options={{
                 title: screenTitle,
                 drawerLabel: drawerLabel

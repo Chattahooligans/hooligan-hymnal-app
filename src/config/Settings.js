@@ -1,4 +1,5 @@
 import appParams from '../../app.json';
+import i18n from "../../i18n";
 
 /*
     Supporter Group Info
@@ -28,7 +29,9 @@ export const ESP_TWITTER_URL = 'https://twitter.com/LosCFCHooligans';
 export const ESP_INSTAGRAM_URL = 'https://instagram.com/loschattahooligans';
 export const ESP_WEBSITE_URL = 'http://chattahooligan.com/es';
 export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
+export const STANDINGS_URL = 'https://www.nisaofficial.com/standings';
 export const INSTRUMENTATION_URL = 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
+export const VOLUNTEER_URL = 'http://chattahooligan.com/join/';
 
 // Common Images
 export const HOME_NAVBAR_LOGO = require('../../assets/home-logo.png');
@@ -59,8 +62,6 @@ export const PRIDERAISER_LOGO = require('../../assets/prideraiser-logo.png');
 export const PRIDERAISER_ICON = require('../../assets/prideraiser-icon.png');
 export const PRIDERAISER_CAMPAIGN_ID = '03BpKNg';
 //export const PRIDERAISER_CAMPAIGN_ID = 'invalid_id_for_testing';
-
-import i18n from "../../i18n"
 
 /*
     App Skin
@@ -164,6 +165,42 @@ export const Skin = {
   Roster_FriendsTabIcon: 'md-heart',
   Roster_FoesTabIcon: 'md-thumbs-down'
 };
+
+/*
+  This structure is used for web links in the main navigation drawer
+*/
+export const drawerLinks = [
+  {
+    drawerLabel: i18n.t('navigation.events'),
+    screenTitle: i18n.t('screens.events.title'),
+    url: EVENTS_URL,
+    routeName: "EventsWebView"
+  },
+  {
+    drawerLabel: i18n.t('navigation.standings'),
+    screenTitle: i18n.t('screens.standings.title'),
+    url: STANDINGS_URL,
+    routeName: "StandingsWebView"
+  },
+  {
+    drawerLabel: i18n.t('navigation.shop'),
+    screenTitle: i18n.t('screens.shop.title'),
+    url: SHOP_URL,
+    routeName: "ShopWebView"
+  },
+  {
+    drawerLabel: i18n.t('navigation.volunteer'),
+    screenTitle: i18n.t('screens.volunteer.title'),
+    url: VOLUNTEER_URL,
+    routeName: "VolunteerWebView"
+  },
+  {
+    drawerLabel: i18n.t('navigation.instrumentation'),
+    screenTitle: i18n.t('screens.instrumentation.title'),
+    url: INSTRUMENTATION_URL,
+    routeName: "InstrumentationWebView"
+  }
+]
 
 /*
   Pass this structure to the config property of components/SocialButtonPanel

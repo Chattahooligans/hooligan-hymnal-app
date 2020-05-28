@@ -11,14 +11,10 @@ import AboutNavigation from './AboutNavigation';
 import AdminNavigation from './AdminNavigation';
 import YellowCardNavigation from './YellowCardNavigation';
 import RedCardNavigation from './RedCardNavigation';
-import { createWebItem, createWebNavigatorScreens } from './WebNavigation';
-import { EVENTS_URL, SHOP_URL } from '../config/Settings';
+import { createWebNavigatorScreens } from './WebNavigation';
+import { drawerLinks } from '../config/Settings';
 
 const RootDrawer = createDrawerNavigator();
-
-let drawerLinks = [];
-drawerLinks.push(createWebItem("Events", "Events", EVENTS_URL, "EventsWebView"))
-drawerLinks.push(createWebItem("Merch Shop", "Merch Shop", SHOP_URL, "MerchShopWebView"))
 const drawerLinksNavigators = createWebNavigatorScreens(RootDrawer, drawerLinks);
 
 
@@ -27,11 +23,13 @@ export default DefaultRootDrawerNavigation = () => {
     cards.push(
         <RootDrawer.Screen
             name="YellowCard"
+            key="YellowCard"
             component={YellowCardNavigation} />
     )
     cards.push(
         <RootDrawer.Screen
             name="RedCard"
+            key="RedCard"
             component={RedCardNavigation} />
     )
 
@@ -51,6 +49,9 @@ export default DefaultRootDrawerNavigation = () => {
                 name="Roster"
                 component={RosterNavigation}
                 options={{ drawerLabel: i18n.t('navigation.roster') }} />
+
+            {drawerLinksNavigators}
+
             <RootDrawer.Screen
                 name="AdminHome"
                 component={AdminNavigation}
@@ -59,8 +60,6 @@ export default DefaultRootDrawerNavigation = () => {
                 name="About"
                 component={AboutNavigation}
                 options={{ drawerLabel: i18n.t('navigation.about') }} />
-            
-            {drawerLinksNavigators}
 
             {cards}
         </RootDrawer.Navigator>
