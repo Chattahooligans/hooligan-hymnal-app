@@ -15,7 +15,7 @@ export default class WebView extends React.Component {
 
   render() {
     return (
-      <Text>{i18n.t('screens.events.fallback')}</Text>
+      <Text>{i18n.t('screens.webview.fallback')}</Text>
     );
   }
 }
