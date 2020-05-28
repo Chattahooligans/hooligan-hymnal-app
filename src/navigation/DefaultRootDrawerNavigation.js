@@ -1,4 +1,5 @@
 import React from 'react';
+import { Dimensions } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import i18n from '../../i18n';
 
@@ -17,6 +18,8 @@ import { drawerLinks } from '../config/Settings';
 const RootDrawer = createDrawerNavigator();
 const drawerLinksNavigators = createWebNavigatorScreens(RootDrawer, drawerLinks);
 
+const { width: deviceWidth } = Dimensions.get('window');
+
 
 export default DefaultRootDrawerNavigation = () => {
     let cards = []
@@ -34,6 +37,8 @@ export default DefaultRootDrawerNavigation = () => {
     )
 
     return (
+        // drawerStyle={{ width: Dimensions.get('window').deviceWidth - 80 }}
+
         <RootDrawer.Navigator
             initialRouteName="Home"
             drawerContent={(props) => <CustomDrawer {...props} />}>
