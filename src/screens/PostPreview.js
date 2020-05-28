@@ -258,7 +258,6 @@ class PostPreview extends React.Component {
                 loading: false
             });
             this.props.globalData.setResponse(response)
-            this.props.navigation.popToTop()
             this.props.navigation.navigate('Home')
         } catch (ex) {
             console.log(ex)

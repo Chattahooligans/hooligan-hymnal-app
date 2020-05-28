@@ -9,7 +9,6 @@ import {
   TextInput
 } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
-import { withNavigation } from 'react-navigation';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import NavigationOptions from '../config/NavigationOptions';
@@ -28,7 +27,6 @@ import {AsyncStorage} from 'react-native';
 // If password is correct, enable capo mode (using AsyncStorage?) and go back to CapoHome.js
 // If password is incorrect, show invalid password message
 
-@withNavigation
 class CapoLogin extends React.Component {
   static navigationOptions = {
     headerTitle: i18n.t('screens.capologin.title'),

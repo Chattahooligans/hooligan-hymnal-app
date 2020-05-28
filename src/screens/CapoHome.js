@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Keyboard, Image, Platform, ScrollView, StyleSheet, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
-import { withNavigation } from 'react-navigation';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { NavigationActions } from 'react-navigation';
@@ -18,7 +17,6 @@ import i18n from "../../i18n";
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 
-@withNavigation
 class CapoHome extends React.Component {
   static navigationOptions = {
     title: i18n.t('screens.capohome.title'),
@@ -27,7 +25,7 @@ class CapoHome extends React.Component {
 
   render() {
     if (null == this.props.globalData.state.currentUser) {
-      this.props.navigation.popToTop();
+      this.props.navigation.navigate("Home");
       return (
         <RegularText>Not logged in</RegularText>
       )
