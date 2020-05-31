@@ -15,6 +15,7 @@ import i18n from '../../i18n';
 
 
 const CustomDrawer = props => {
+  // we want to hide certain routes from showing up in the drawer, because they are accessed through custom buttons
   const hideRoutes = ["YellowCard", "RedCard"];
   const filteredProps = {
     ...props,
@@ -24,8 +25,6 @@ const CustomDrawer = props => {
       routes: props.state.routes.filter(route => !hideRoutes.includes(route.name))
     }
   }
-
-  console.log(filteredProps.state)
 
   return (
     <View style={styles.container}>
