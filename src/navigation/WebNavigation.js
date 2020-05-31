@@ -11,8 +11,8 @@ const WebStack = createStackNavigator();
 export function createWebNavigatorScreens(DrawerNavigator, items) {
     let navigators = [];
 
-    items.forEach(element => {
-        navigators.push(createWebNavigator(DrawerNavigator, element.drawerLabel, element.screenTitle, element.url, element.routeName))
+    items.forEach((element, index) => {
+        navigators.push(createWebNavigator(DrawerNavigator, element.drawerLabel, element.screenTitle || element.drawerLabel, element.url, element.routeName || element.drawerLabel + index.toString()))
     });
 
     return navigators;

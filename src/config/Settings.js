@@ -170,36 +170,11 @@ export const Skin = {
   This structure is used for web links in the main navigation drawer
 */
 export const drawerLinks = [
-  {
-    drawerLabel: i18n.t('navigation.events'),
-    screenTitle: i18n.t('screens.events.title'),
-    url: EVENTS_URL,
-    routeName: "EventsWebView"
-  },
-  {
-    drawerLabel: i18n.t('navigation.standings'),
-    screenTitle: i18n.t('screens.standings.title'),
-    url: STANDINGS_URL,
-    routeName: "StandingsWebView"
-  },
-  {
-    drawerLabel: i18n.t('navigation.shop'),
-    screenTitle: i18n.t('screens.shop.title'),
-    url: SHOP_URL,
-    routeName: "ShopWebView"
-  },
-  {
-    drawerLabel: i18n.t('navigation.volunteer'),
-    screenTitle: i18n.t('screens.volunteer.title'),
-    url: VOLUNTEER_URL,
-    routeName: "VolunteerWebView"
-  },
-  {
-    drawerLabel: i18n.t('navigation.instrumentation'),
-    screenTitle: i18n.t('screens.instrumentation.title'),
-    url: INSTRUMENTATION_URL,
-    routeName: "InstrumentationWebView"
-  }
+  { drawerLabel: i18n.t('navigation.events'), url: EVENTS_URL },
+  { drawerLabel: i18n.t('navigation.standings'), url: STANDINGS_URL },
+  { drawerLabel: i18n.t('navigation.shop'), url: SHOP_URL },
+  { drawerLabel: i18n.t('navigation.volunteer'), url: VOLUNTEER_URL },
+  { drawerLabel: i18n.t('navigation.instrumentation'), url: INSTRUMENTATION_URL }
 ]
 
 /*
