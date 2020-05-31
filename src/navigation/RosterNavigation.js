@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-//import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import { FontSizes } from '../constants';
 import { MediumText } from '../components/StyledText';
@@ -11,7 +11,7 @@ import DefaultStackScreenOptions from './DefaultStackScreenOptions';
 import { Skin } from '../config/Settings';
 import i18n from "../../i18n";
 
-//const RosterTabs = createMaterialTopTabNavigator();
+const RosterTabs = createMaterialTopTabNavigator();
 
 const TeamStack = createStackNavigator();
 const FoesStack = createStackNavigator();
@@ -37,7 +37,6 @@ const FoesNavigation = () => {
     )
 }
 
-/*
 export const RosterTabsNavigation = () => {
     return (
         <RosterTabs.Navigator
@@ -76,12 +75,12 @@ export const RosterTabsNavigation = () => {
         </RosterTabs.Navigator>
     )
 }
-*/
 
+// check settings for something like FoesEnabled idk
 export default RosterNavigation = () => {
     return (
-        // <RosterTabsNavigation screenOptions={DefaultStackScreenOptions} />
-        <TeamNavigation />
+        <RosterTabsNavigation screenOptions={DefaultStackScreenOptions} />
+        // <TeamNavigation />
     )
 }
 
