@@ -8,17 +8,18 @@ import { MediumText } from '../components/StyledText';
 
 import Screens from '../screens';
 import DefaultStackScreenOptions from './DefaultStackScreenOptions';
-import { Skin } from '../config/Settings';
+import { Settings, Skin } from '../config/Settings';
 import i18n from "../../i18n";
 
 const RosterTabs = createMaterialTopTabNavigator();
 
 const TeamStack = createStackNavigator();
 const FoesStack = createStackNavigator();
+const CombinedStack = createStackNavigator();
 
-const TeamNavigation = () => {
+const TeamNavigation = (props) => {
     return (
-        <TeamStack.Navigator screenOptions={DefaultStackScreenOptions}>
+        <TeamStack.Navigator {...props}>
             <TeamStack.Screen name="Roster" component={Screens.Roster} />
             <TeamStack.Screen name="Player" component={Screens.Player}
                 options={{ headerShown: false }} />
@@ -28,11 +29,11 @@ const TeamNavigation = () => {
     )
 }
 
-const FoesNavigation = () => {
+const FoesNavigation = (props) => {
     return (
-        <FoesStack.Navigator>
+        <FoesStack.Navigator screenOptions={{ headerShown: false }}>
             <FoesStack.Screen name="Foes" component={Screens.RosterFoes} />
-            <FoesStack.Screen name="FoePlayer" component={Screens.RosterFoePlayers} />
+            <FoesStack.Screen name="FoePlayers" component={Screens.RosterFoePlayers} />
         </FoesStack.Navigator>
     )
 }
@@ -49,7 +50,7 @@ export const RosterTabsNavigation = () => {
                 inactiveTintColor: Skin.Roster_InactiveTabLabel
             }}>
             <RosterTabs.Screen
-                name="Team" component={TeamNavigation}
+                name="Team"
                 options={{
                     tabBarLabel: ({ focused, color }) => {
                         return (
@@ -59,7 +60,9 @@ export const RosterTabsNavigation = () => {
                             </View>
                         )
                     }
-                }} />
+                }}>
+                {() => <TeamNavigation screenOptions={{ headerShown: false }} />}
+            </RosterTabs.Screen>
             <RosterTabs.Screen
                 name="Foes" component={FoesNavigation}
                 options={{
@@ -78,10 +81,19 @@ export const RosterTabsNavigation = () => {
 
 // check settings for something like FoesEnabled idk
 export default RosterNavigation = () => {
-    return (
-        <RosterTabsNavigation screenOptions={DefaultStackScreenOptions} />
-        // <TeamNavigation />
-    )
+    if (Settings.Roster_FoesEnabled) {
+        return (
+            <CombinedStack.Navigator screenOptions={DefaultStackScreenOptions}>
+                <CombinedStack.Screen
+                    name="Roster"
+                    component={RosterTabsNavigation}
+                    options={{ headerTitle: i18n.t('screens.rosterhome.title') }} />
+            </CombinedStack.Navigator>
+        )
+    }
+    else {
+        return <TeamNavigation screenOptions={DefaultStackScreenOptions} />
+    }
 }
 
 const styles = StyleSheet.create({

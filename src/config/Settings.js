@@ -304,6 +304,10 @@ export const Settings = {
   //      Show yellow/red card icons in the nav drawer
   RefereeCards_Show: true,
 
+  // Roster_FoesEnabled: true, false
+  //      enables tabs in the roster screen to display opponent rosters
+  Roster_FoesEnabled: true,
+
   // Roster_SortPlayersBy: "default", "number", "name"
   //      later- "position" with priority
   //      (hopefully this gets deprecated and replaced with something in the UI later)
