@@ -305,6 +305,7 @@ class Player extends React.Component {
   _renderSongCard = ({ item }) => {
     return (
       <SongCard
+        navigation={this.props.navigation}
         headerTitle={i18n.t('screens.player.playersongheader')}
         navigationToScreen="SingleSong"
         key={item._id}
