@@ -9,7 +9,6 @@
     "primaryColor": "#A3D8F7",
     "icon": "./assets/big-c-icon-ios.png",
     "orientation": "portrait",
-    "sdkVersion": "35.0.0",
     "splash": {
       "backgroundColor": "#A3D8F7",
       "resizeMode": "contain",
