@@ -45,7 +45,7 @@ const CustomDrawer = props => {
         <DrawerItemList
           {...filteredProps}
           activeBackgroundColor="rgba(255,255,255,0.1)"
-          labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
+          labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection(), fontFamily: Skin.Font_Regular }}
           onItemPress={({ route, focused }) => {
             if (route.routeName === 'CapoHome') {
               if (props.globalData.state.unlocked === true) {
