@@ -12,7 +12,7 @@ export function createWebNavigatorScreens(DrawerNavigator, items) {
     let navigators = [];
 
     items.forEach((element, index) => {
-        navigators.push(createWebNavigator(DrawerNavigator, element.drawerLabel, element.screenTitle || element.drawerLabel, element.url, element.routeName || element.drawerLabel + index.toString()))
+        navigators.push(createWebNavigator(DrawerNavigator, element.drawerLabel, element.screenTitle || "Web: " + element.drawerLabel, element.url, element.routeName || "WebLink" + index.toString()))
     });
 
     return navigators;
