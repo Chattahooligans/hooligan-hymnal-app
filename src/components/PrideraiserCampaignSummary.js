@@ -99,11 +99,15 @@ export default class PrideraiserCampaignSummary extends React.Component {
                                 style={[styles.benefitting, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
                                 {benefitting}
                             </ParsedText>
-                            <ParsedText
-                                parse={parsedTextOptions}
-                                style={[styles.pledged, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
-                                {pledged}
-                            </ParsedText>
+                            {
+                                // disabled for pandemic
+                                false &&
+                                <ParsedText
+                                    parse={parsedTextOptions}
+                                    style={[styles.pledged, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
+                                    {pledged}
+                                </ParsedText>
+                            }
                             <ParsedText
                                 parse={parsedTextOptions}
                                 style={[styles.learnmore, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
