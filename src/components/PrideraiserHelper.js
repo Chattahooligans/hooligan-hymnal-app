@@ -1,12 +1,15 @@
 export const PrideraiserPalette = {
-    black: "rgb(0, 0, 0)",
-    brown: "rgb(120, 79, 23)",
-    red: "rgb(237, 38, 26)",
-    orange: "rgb(247, 148, 29)",
-    yellow: "rgb(255, 242, 0)",
-    green: "rgb(0, 166, 81)",
-    blue: "rgb(46, 49, 146)",
-    violet: "rgb(102, 45, 145)"
+    red: "#ED1C24",
+    orange: "#F7941D",
+    yellow: "#FFF200",
+    green: "#00A651",
+    blue: "#2E3192",
+    violet: "#662D91",
+    brown: "#784F17",
+    black: "#000000",
+    paleBlue: "#55CDFC",
+    white: "#FFFFFF",
+    palePink: "#F7A8B8"
 }
 
 export function formatStringWithCampaignProps(input, campaign, goalCount) {
