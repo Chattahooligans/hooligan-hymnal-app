@@ -62,15 +62,12 @@ export default class NavigationBar extends React.Component {
 }
 
 // Didn't want to investigate why I needed to offset this a bit, surely there is a good reason
-const PADDING_TOP =
-  Platform.OS === 'ios'
-    ? Constants.statusBarHeight
-    : Constants.statusBarHeight + 10;
+const PADDING_TOP = Platform.OS === 'ios' ? Constants.statusBarHeight : 10;
 
 const styles = StyleSheet.create({
   navigationBarContainer: {
     backgroundColor: 'transparent',
-    height: Layout.headerHeight + Constants.statusBarHeight,
+    height: Platform.OS === 'ios' ? Layout.headerHeight + Constants.statusBarHeight : Layout.headerHeight,
     position: 'absolute',
     paddingTop: PADDING_TOP,
     top: 0,
@@ -78,7 +75,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   navigationBarTitleContainer: {
-    marginTop: Constants.statusBarHeight+4
+    paddingTop: PADDING_TOP
   },
   navigationBarLeftButton: {
     marginTop: 4,

@@ -77,9 +77,9 @@ class App extends React.Component {
     return (
       <Provider>
         <SafeAreaProvider>
-          <StatusBar barStyle="light-content" />
           <NavigationContainer>
             <Navigation />
+            <StatusBar barStyle="light-content" />
           </NavigationContainer>
         </SafeAreaProvider>
       </Provider>
