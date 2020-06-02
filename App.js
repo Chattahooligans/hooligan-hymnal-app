@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
@@ -75,10 +76,12 @@ class App extends React.Component {
 
     return (
       <Provider>
-        <StatusBar barStyle="light-content" />
-        <NavigationContainer>
+        <SafeAreaProvider>
+          <StatusBar barStyle="light-content" />
+          <NavigationContainer>
             <Navigation />
-        </NavigationContainer>
+          </NavigationContainer>
+        </SafeAreaProvider>
       </Provider>
     );
   }
