@@ -14,10 +14,6 @@ import i18n from "../../i18n";
 
 class PostAttach extends React.Component {
     render() {
-        this.props.navigation.setOptions({
-            header: null
-        })
-
         return (
             <ScrollView style={{ flex: 1 }}>
                 <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattach.attachmenttypes')}</BoldText>

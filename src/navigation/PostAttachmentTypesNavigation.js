@@ -10,10 +10,14 @@ export default PostAttachmentTypesNavigation = (props) => {
     return (
         <AttachmentTypesStack.Navigator
             initialRouteName="PostAttach"
-            screenOptions={{ ...DefaultStackScreenOptions, onAttachmentComplete: props.onAttachmentComplete }}>
+            screenOptions={{
+                ...DefaultStackScreenOptions,
+                onAttachmentComplete: props.onAttachmentComplete,
+                headerShown: false
+            }}>
             <AttachmentTypesStack.Screen
                 name="PostAttach"
-                component={Screens.PostCreate} />
+                component={Screens.PostAttach} />
             <AttachmentTypesStack.Screen
                 name="PostAttachmentSelectPlayer"
                 component={Screens.PostAttachmentSelectPlayer} />
@@ -35,6 +39,6 @@ export default PostAttachmentTypesNavigation = (props) => {
             <AttachmentTypesStack.Screen
                 name="PostAttachmentComposePrideraiserMatch"
                 component={Screens.PostAttachmentComposePrideraiserMatch} />
-        </AttachmentTypesStack.Navigator>
+        </ AttachmentTypesStack.Navigator>
     )
 }
