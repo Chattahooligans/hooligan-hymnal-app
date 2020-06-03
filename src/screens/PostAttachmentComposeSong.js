@@ -14,16 +14,16 @@ import { Skin, DefaultColors, Palette } from '../config/Settings';
 import i18n from "../../i18n";
 
 export default class PostAttachmentComposeSong extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
-    
     state = {
         title: "",
         lyrics: ""
     }
 
     render() {
+        this.props.navigation.setOptions({
+            header: null
+        })
+
         return (
             <View style={{ flex: 1 }}>
                 <KeyboardAvoidingView behavior="height" style={styles.container}>

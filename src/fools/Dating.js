@@ -16,11 +16,6 @@ import images from './images'
 
 @withNavigation
 export default class Dating extends React.Component {
-  static navigationOptions = {
-    title: 'Supportr Dating',
-    ...NavigationOptions
-  };
-
   constructor (props) {
     super(props)
     this.state = {
@@ -73,6 +68,10 @@ export default class Dating extends React.Component {
   };
 
   render () {
+    this.props.navigation.setOptions({
+      headerTitle: 'Supportr Dating'
+    })
+
     return (
       <View style={styles.container}>
         <Swiper

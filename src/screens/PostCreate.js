@@ -31,51 +31,9 @@ import { HeaderBackButton } from 'react-navigation';
 import i18n from "../../i18n";
 import * as mime from 'react-native-mime-types';
 
-import PostAttach from './PostAttach';
-import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
-import PostAttachmentSelectSong from './PostAttachmentSelectSong';
-import PostAttachmentComposeSong from './PostAttachmentComposeSong';
-import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
-import PostAttachmentComposePrideraiserMatch from './PostAttachmentComposePrideraiserMatch';
-import PostAttachmentSelectJuanstagram from './PostAttachmentSelectJuanstagram';
-import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
-import PostCreateAttachmentWrapper from '../components/PostCreateAttachmentWrapper';
-import PostCreateImageWrapper from '../components/PostCreateImageWrapper';
-
-const AttachmentTypesNavigator = StackNavigator(
-    {
-        PostAttach: { screen: PostAttach },
-        PostAttachmentSelectPlayer: { screen: PostAttachmentSelectPlayer },
-        PostAttachmentSelectSong: { screen: PostAttachmentSelectSong },
-        PostAttachmentComposeSong: { screen: PostAttachmentComposeSong },
-        PostAttachmentComposeGkNickname: { screen: PostAttachmentComposeGkNickname },
-        PostAttachmentSelectMassTweet: { screen: PostAttachmentSelectMassTweet },
-        PostAttachmentSelectJuanstagram: { screen: PostAttachmentSelectJuanstagram },
-        PostAttachmentComposePrideraiserMatch: { screen: PostAttachmentComposePrideraiserMatch }
-    }
-)
+import PostAttachmentTypesNavigation from '../navigation/PostAttachmentTypesNavigation';
 
 class PostCreate extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: i18n.t('screens.postcreate.title'),
-        ...NavigationOptions,
-        headerLeft: (
-            <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-        ),
-        headerRight: (
-            <Ionicons
-                name="md-code-download"
-                size={23}
-                style={{
-                    color: '#fff',
-                    backgroundColor: 'transparent',
-                    marginRight: 16
-                }}
-                onPress={() => Keyboard.dismiss()}
-            />
-        )
-    });
-
     // TODO: get locales from server
     // We put some dummy data in here for the initial render
     state = {
@@ -169,6 +127,22 @@ class PostCreate extends React.Component {
     };
 
     componentDidMount() {
+        this.props.navigation.setOptions({
+            headerTitle: i18n.t('screens.postcreate.title'),
+            headerLeft: () => <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />,
+            headerRight: () => (
+                <Ionicons
+                    name="md-code-download"
+                    size={23}
+                    style={{
+                        color: '#fff',
+                        backgroundColor: 'transparent',
+                        marginRight: 16
+                    }}
+                    onPress={() => Keyboard.dismiss()} />
+            )
+        })
+
         this.setData();
     }
 
@@ -456,9 +430,7 @@ class PostCreate extends React.Component {
                     transparent={false}
                     visible={this.state.attachmentModalVisible}>
                     <View style={{ flex: 1 }}>
-                        <AttachmentTypesNavigator screenProps={{
-                            onAttachmentComplete: this.onAttachmentComplete
-                        }} />
+                        <PostAttachmentTypesNavigation onAttachmentComplete={this.onAttachmentComplete} />
 
                         <Button
                             title={i18n.t('screens.postcreate.cancel')}

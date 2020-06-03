@@ -66,16 +66,13 @@ class PlayerRow extends React.Component {
 }
 
 class PostAttachmentSelectPlayer extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
-
     state = {
         search: "",
         players: []
     }
 
     componentDidMount() {
+        this.props.navigation.setOptions({header: null})
         this.setData();
     }
 

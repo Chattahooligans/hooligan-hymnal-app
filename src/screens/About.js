@@ -22,17 +22,16 @@ import appParams from '../../app.json';
 // Email to send feedback?
 
 class About extends React.Component {
-  static navigationOptions = {
-    title: i18n.t('screens.about.title'),
-    ...NavigationOptions
-  };
-
   state = {
     pushToken: "",
     response: null
   }
 
   componentDidMount() {
+    this.props.navigation.setOptions({
+      headerTitle: i18n.t('screens.about.title')
+    })
+
     this.setData();
   }
 

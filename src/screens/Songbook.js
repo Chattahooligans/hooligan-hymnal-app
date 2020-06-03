@@ -22,7 +22,7 @@ import MenuButton from '../components/MenuButton';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import TableOfContentsInline from './TableOfContentsInline';
-import { Skin, DefaultColors} from '../config/Settings';
+import { Skin, DefaultColors } from '../config/Settings';
 import i18n from "../../i18n";
 
 const screenWidth = Dimensions.get('window').width;
@@ -71,11 +71,6 @@ let defaultChapterTitle = i18n.t('screens.songbook.defaultchaptertitle');
 // Android uses ViewPagerAndroid
 // iOS uses ScrollView with pagingEnabled and horizontal properties
 class Songbook extends React.Component {
-  static navigationOptions = {
-    title: i18n.t('screens.songbook.title'),
-    ...NavigationOptions
-  };
-
   state = {
     chapter_title: defaultChapterTitle,
     tocButtonDisplay: true,
@@ -85,6 +80,10 @@ class Songbook extends React.Component {
   };
 
   componentDidMount() {
+    this.props.navigation.setOptions({
+      headerTitle: i18n.t('screens.songbook.title')
+    })
+
     this.setData();
   }
 

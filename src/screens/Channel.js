@@ -19,14 +19,6 @@ import { DefaultColors, Palette, Skin, Settings } from '../config/Settings';
 import { getFeedForChannel, getMoreFeedForChannel } from '../services/feedService';
 
 class Channel extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: "Channel: " + navigation.state.params.channelData.name,
-        ...NavigationOptions,
-        headerLeft: (
-            <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-        )
-    });
-
     state = {
         channelData: { _id: "", name: "init name", description: "", avatarUrl: "", headerUrl: "" },
         feed: [],
@@ -37,6 +29,12 @@ class Channel extends React.Component {
     }
 
     componentDidMount = async () => {
+        this.props.navigation.setOptions({
+            headerTitle: "Channel: " + route.params.channelData.name,
+            headerLeft: (
+                <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+            )
+        })
 
         if (!this.state.loadDataComplete) {
             await this.onRefresh()

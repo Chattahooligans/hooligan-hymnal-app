@@ -62,16 +62,13 @@ class SongRow extends React.Component {
 }
 
 class PostAttachmentSelectSong extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
-    
     state = {
         search: "",
         songs: []
     }
 
     componentDidMount() {
+        this.props.navigation.setOptions({ header: null })
         this.setData();
     }
 

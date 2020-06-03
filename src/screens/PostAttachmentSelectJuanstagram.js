@@ -12,11 +12,9 @@ import i18n from "../../i18n";
 import juanstagramPosts from '../data/juanstagram';
 
 export default class PostAttachmentSelectJuanstagram extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
-
     render() {
+        this.props.navigation.setOptions({header: null})
+
         let juanstagramButtons = [];
         console.log(juanstagramPosts);
         for (const key in juanstagramPosts) {

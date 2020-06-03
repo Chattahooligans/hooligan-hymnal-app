@@ -20,12 +20,11 @@ import i18n from "../../i18n";
 const screenWidth = Dimensions.get('window').width;
 
 class SongRow extends React.Component {
-  static navigationOptions = {
-    title: i18n.t('screens.tocinline.title'),
-    ...NavigationOptions
-  };
-
   render() {
+    this.props.navigation.setOptions({ 
+      headerTitle: i18n.t('screens.tocinline.title') 
+    })
+
     const { item: song } = this.props;
 
     let capoSignal;

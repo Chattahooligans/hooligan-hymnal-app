@@ -21,15 +21,12 @@ const styles = StyleSheet.create({
 // We'll use this when entering App from the notifcation or from the "Capo Callout" screen
 // add a unique header that includes a megaphone icon somewhere?
 export default class SingleSong extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: i18n.t('screens.singlesong.title'),
-    ...NavigationOptions,
-    headerLeft: (
-      <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-    )
-  });
-
   componentDidMount() {
+    this.props.navigation.setOptions({ 
+      headerTitle: i18n.t('screens.singlesong.title'),
+      headerLeft: () => <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+    })
+
     const { song } = this.props.route.params;
     // const headerTitle = song && song.title ? song.title : 'Up Next';
     // this.props.navigation.setParams({ headerTitle });

@@ -3,7 +3,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import DefaultStackScreenOptions from './DefaultStackScreenOptions';
 import Screens from '../screens';
-import i18n from '../../i18n';
 
 const HomeStack = createStackNavigator();
 

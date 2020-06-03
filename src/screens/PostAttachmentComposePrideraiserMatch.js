@@ -16,10 +16,6 @@ import moment from 'moment';
 import i18n from "../../i18n";
 
 export default class PostAttachmentComposePrideraiserMatch extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
-
     state = {
         loadedCampaign: false,
         campaign: {
@@ -32,6 +28,10 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
     }
 
     componentWillMount = async () => {
+        this.props.navigation.setOptions({
+            header: null
+        })
+
         try {
             const campaign = await getCampaign(Settings.Prideraiser_CampaignId)
 

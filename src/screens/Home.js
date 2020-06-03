@@ -55,12 +55,11 @@ class Home extends React.Component {
     loadingMore: false
   };
 
-  static navigationOptions = {
-    drawerLabel: i18n.t('navigation.home'),
-    header: null
-  };
-
   async componentDidMount() {
+    this.props.navigation.setOptions({
+      header: null
+    })
+
     if (this.props.globalData.state.pushToken == null)
       await this.props.globalData.registerForPushNotificationsAsync();
 

@@ -108,11 +108,6 @@ class PlayerRow extends React.Component {
 }
 
 class Roster extends React.Component {
-  static navigationOptions = {
-    headerTitle: i18n.t('screens.roster.title'),
-    ...NavigationOptions
-  };
-
   state = {
     rosterTitle: i18n.t('screens.roster.title'),
     rosters: [],
@@ -120,6 +115,9 @@ class Roster extends React.Component {
   }
 
   componentDidMount() {
+    this.props.navigation.setOptions({
+      headerTitle: i18n.t('screens.roster.title')
+    })
     this.setData();
   }
 

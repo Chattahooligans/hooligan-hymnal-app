@@ -33,16 +33,16 @@ import { Skin, DefaultColors, Palette, Settings } from '../config/Settings';
 import i18n from "../../i18n";
 
 class Player extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
-
   state = {
     scrollY: new Animated.Value(0),
     playerSongs: []
   };
 
   componentDidMount() {
+    this.props.navigation.setOptions({
+      header: null
+    })
+
     this.setData();
   }
 

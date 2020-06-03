@@ -82,13 +82,12 @@ const RosterTabs = TabNavigator(
           }
     }
 );
-export default class RosterHome extends React.Component {
-    static navigationOptions = {
-      title: i18n.t('screens.rosterhome.title'),
-      ...NavigationOptions
-    };
-  
+export default class RosterHome extends React.Component {  
     render() {
+      this.props.navigation.setOptions({ 
+        headerTitle: i18n.t('screens.rosterhome.title') 
+      })
+
       return (
         <LoadingPlaceholder>
             <RosterTabs></RosterTabs>

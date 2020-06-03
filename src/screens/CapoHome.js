@@ -18,12 +18,11 @@ import i18n from "../../i18n";
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 
 class CapoHome extends React.Component {
-  static navigationOptions = {
-    title: i18n.t('screens.capohome.title'),
-    ...NavigationOptions
-  };
-
   render() {
+    this.props.navigation.setOptions({
+      headerTitle: i18n.t('screens.capohome.title')
+    })
+
     if (null == this.props.globalData.state.currentUser) {
       this.props.navigation.navigate("Home");
       return (

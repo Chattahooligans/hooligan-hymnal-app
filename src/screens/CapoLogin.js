@@ -28,17 +28,16 @@ import {AsyncStorage} from 'react-native';
 // If password is incorrect, show invalid password message
 
 class CapoLogin extends React.Component {
-  static navigationOptions = {
-    headerTitle: i18n.t('screens.capologin.title'),
-    ...NavigationOptions
-  };
-
   state = {
     password: '',
     username: ''
   };
 
   componentDidMount() {
+    this.props.navigation.setOptions({
+      headerTitle: i18n.t('screens.capologin.title')
+    })
+
     this.setData();
   }
 

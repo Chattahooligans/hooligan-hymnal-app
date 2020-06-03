@@ -10,15 +10,12 @@ import appParams from '../../app.json';
 import { DefaultColors, Palette, Skin } from '../config/Settings';
 
 export default class SinglePost extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: appParams.expo.name + ": View Post",
-        ...NavigationOptions,
-        headerLeft: (
-            <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-        )
-    });
-
     render() {
+        this.props.navigation.setOptions({ 
+            headerTitle: appParams.expo.name + ": View Post",
+            headerLeft: () => <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+        })
+
         return (
             <ScrollView style={styles.container}>
                 <Post

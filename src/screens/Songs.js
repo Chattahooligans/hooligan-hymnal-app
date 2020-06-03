@@ -49,12 +49,11 @@ class SpeakerRow extends React.Component {
 }
 
 export default class Songs extends React.Component {
-  static navigationOptions = {
-    title: i18n.t('screens.songs.title'),
-    ...NavigationOptions
-  };
-
   render() {
+    this.props.navigation.setOptions({
+      headerTitle: i18n.t('screens.songs.title')
+    })
+
     return (
       <LoadingPlaceholder>
         <SectionList

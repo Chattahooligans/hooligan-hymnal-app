@@ -12,15 +12,12 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 import i18n from "../../i18n";
 
 class TwitterList extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-      headerTitle: i18n.t('screens.twitterlist.headertitle'),
-      ...NavigationOptions,
-      headerLeft: (
-          <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-      )
-  });
-
   render() {
+    this.props.navigation.setOptions({ 
+      headerTitle: i18n.t('screens.twitterlist.headertitle'),
+      headerLeft: () => <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+    })
+
     let handles = '';
     this.props.route.params.roster.players.forEach(player => {
       if (player.twitter)

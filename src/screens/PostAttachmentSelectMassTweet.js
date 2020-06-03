@@ -54,17 +54,15 @@ class RosterRow extends React.Component {
     };
 }
 
-class PostAttachmentSelectMassTweet extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
-    
+class PostAttachmentSelectMassTweet extends React.Component {    
     state = {
         search: "",
         rosters: []
     }
 
     componentDidMount() {
+        this.props.navigation.setOptions({header: null})
+        
         this.setData();
     }
 

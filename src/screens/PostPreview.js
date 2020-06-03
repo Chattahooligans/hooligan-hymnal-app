@@ -24,14 +24,6 @@ import i18n from "../../i18n";
 import { createPost } from '../services/feedService';
 
 class PostPreview extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: i18n.t('screens.postpreview.title'),
-        ...NavigationOptions,
-        headerLeft: (
-            <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-        )
-    });
-
     state = {
         post: null,
         loading: false,
@@ -40,6 +32,11 @@ class PostPreview extends React.Component {
     }
 
     componentDidMount() {
+        this.props.navigation.setOptions({
+            headerTitle: i18n.t('screens.postpreview.title'),
+            headerLeft: () => <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+        })
+
         this.setData();
     }
 
