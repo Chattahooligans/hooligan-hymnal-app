@@ -1,6 +1,5 @@
 import appParams from './app.json';
 import i18n from "./i18n";
-import Songs from './src/screens/Songs';
 
 /*
     Supporter Group Info
