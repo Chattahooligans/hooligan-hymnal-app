@@ -60,7 +60,7 @@ export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
 export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
 export const PRIDERAISER_LOGO = require('./assets/prideraiser-logo.png');
 export const PRIDERAISER_ICON = require('./assets/prideraiser-icon.png');
-export const PRIDERAISER_CAMPAIGN_ID = '03BpKNg';
+export const PRIDERAISER_CAMPAIGN_ID = 'aw43AmO';
 //export const PRIDERAISER_CAMPAIGN_ID = 'invalid_id_for_testing';
 
 /*
@@ -255,7 +255,7 @@ export const Settings = {
 
   // Home_HeroContent: "video", "prideraiser", ("image" coming soon)
   //      Hero content on the home screen
-  Home_HeroContent: "video",
+  Home_HeroContent: "prideraiser",
 
   // Home_PostsPerPage: number
   //      Load this many news feed items, then load this many more if the user scrolls to the bottom
@@ -296,7 +296,7 @@ export const Settings = {
   //      Check how this renders on your deployment with your Prideraiser campaign cover photo
   //      You may want to adjust the height param and/or design the cover photo with Hooligan Hymnal in mind
   //      wm=pr&wmp=br add the Prideraiser Logo watermark onto the image. We recommend leaving this alone
-  PrideraiserCampaignSummary_CampaignCoverParams: "?w=768&h=432&wm=pr&wmp=bl",
+  PrideraiserCampaignSummary_CampaignCoverParams: "?w=768&h=300", //432&wm=pr&wmp=bl",
 
   PrideraiserCampaignSummary_AnalyticsSource: appParams.expo.slug + "-home",
 
