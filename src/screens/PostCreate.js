@@ -32,6 +32,8 @@ import i18n from "../../i18n";
 import * as mime from 'react-native-mime-types';
 
 import PostAttachmentTypesNavigation from '../navigation/PostAttachmentTypesNavigation';
+import PostCreateAttachmentWrapper from '../components/PostCreateAttachmentWrapper';
+import PostCreateImageWrapper from '../components/PostCreateImageWrapper';
 
 class PostCreate extends React.Component {
     // TODO: get locales from server
