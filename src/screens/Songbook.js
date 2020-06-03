@@ -19,7 +19,7 @@ import { FontSizes, Layout } from '../constants';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import TableOfContentsInline from './TableOfContentsInline';
-import { Skin, DefaultColors } from '../config/Settings';
+import { Skin, DefaultColors } from '../../config';
 import i18n from "../../i18n";
 
 const screenWidth = Dimensions.get('window').width;

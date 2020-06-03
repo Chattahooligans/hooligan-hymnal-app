@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Video } from 'expo-av';
 import { Asset } from 'expo-asset';
 import { View as AnimatableView } from 'react-native-animatable';
-import { Skin } from '../config/Settings';
+import { Skin } from '../../config';
 
 export default class VideoBackground extends React.Component {
   state = {

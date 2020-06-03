@@ -1,5 +1,5 @@
 import React from 'react';
-import { DefaultColors, Skin } from '../config/Settings';
+import { DefaultColors, Skin } from '../../config';
 import MenuButton from '../components/MenuButton';
 
 export default DefaultStackScreenOptions = {

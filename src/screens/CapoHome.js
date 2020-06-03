@@ -10,7 +10,7 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
-import { Skin, DefaultColors, Settings, HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../config/Settings';
+import { Skin, DefaultColors, Settings, HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../../config';
 import i18n from "../../i18n";
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin

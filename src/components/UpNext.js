@@ -8,7 +8,7 @@ import { Colors, FontSizes } from '../constants';
 import { getFeaturedSong } from '../data';
 import { RectButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
-import { DefaultColors, HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../config/Settings';
+import { DefaultColors, HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../../config';
 import i18n from '../../i18n';
 
 const CAPO_MESSAGE_ENDPOINT = HOOLIGAN_HYMNAL_SERVER_ADDRESS + '/api/notifications/last';

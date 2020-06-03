@@ -13,7 +13,7 @@ import AdminNavigation from './AdminNavigation';
 import YellowCardNavigation from './YellowCardNavigation';
 import RedCardNavigation from './RedCardNavigation';
 import { createWebNavigatorScreens } from './WebNavigation';
-import { drawerLinks } from '../config/Settings';
+import { drawerLinks } from '../../config';
 
 const RootDrawer = createDrawerNavigator();
 const drawerLinksNavigators = createWebNavigatorScreens(RootDrawer, drawerLinks);

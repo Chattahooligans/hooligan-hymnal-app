@@ -12,7 +12,7 @@ import { find } from 'lodash';
 import { BoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Colors, FontSizes } from '../constants';
-import { Skin, DefaultColors, MUSICAL_SCORE_ICON } from '../config/Settings';
+import { Skin, DefaultColors, MUSICAL_SCORE_ICON } from '../../config';
 import { Ionicons } from '@expo/vector-icons';
 import i18n from "../../i18n";
 

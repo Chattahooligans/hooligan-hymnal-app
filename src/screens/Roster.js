@@ -26,7 +26,7 @@ import { Colors, FontSizes, Layout } from '../constants';
 import Constants from 'expo-constants';
 
 import { find, propEq } from 'ramda';
-import { Palette, Skin, Settings } from '../config/Settings';
+import { Palette, Skin, Settings } from '../../config';
 import i18n from "../../i18n";
 
 

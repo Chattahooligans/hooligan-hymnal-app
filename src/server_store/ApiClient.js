@@ -1,4 +1,4 @@
-import { HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../config/Settings';
+import { HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../../config';
 import ApiError from './ApiError';
 import React from 'react';
 

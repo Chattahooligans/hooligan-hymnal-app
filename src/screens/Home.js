@@ -42,7 +42,7 @@ import {
   banners,
   socialButtons,
   WEBSITE_URL,
-} from '../config/Settings';
+} from '../../config';
 import i18n from "../../i18n";
 import { watchPositionAsync } from 'expo-location';
 

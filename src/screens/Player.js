@@ -29,7 +29,7 @@ import { FontSizes, Icons, Layout } from '../constants';
 import { RegularText, BoldText, MediumText } from '../components/StyledText';
 import { Ionicons } from '@expo/vector-icons';
 import SongCard from '../components/SongCard';
-import { Skin, DefaultColors, Palette, Settings } from '../config/Settings';
+import { Skin, DefaultColors, Palette, Settings } from '../../config';
 import i18n from "../../i18n";
 
 class Player extends React.Component {

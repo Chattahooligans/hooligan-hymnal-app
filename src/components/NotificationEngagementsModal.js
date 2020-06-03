@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { BoldText, RegularText, MediumText, RegularTextMonospace } from './StyledText';
 import { Ionicons } from '@expo/vector-icons';
-import { DefaultColors, Skin, Palette, Settings } from '../config/Settings';
+import { DefaultColors, Skin, Palette, Settings } from '../../config';
 import { getEngagementSummary } from '../services/feedService';
 import moment from 'moment';
 import i18n from "../../i18n";

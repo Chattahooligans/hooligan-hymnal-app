@@ -12,7 +12,7 @@ import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
 import { parsePatterns, parsedStyles, renderBoldItalic } from '../components/ParsedTextHelper';
 import { Ionicons } from '@expo/vector-icons';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette } from '../../config';
 import containerStyle from './PostAttachmentContainerStyle';
 import i18n from "../../i18n";
 

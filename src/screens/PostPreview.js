@@ -15,7 +15,7 @@ import { ModalLoader } from '../components/ModalLoader';
 import Post from '../components/Post';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { Skin, DefaultColors, Settings } from '../config/Settings';
+import { Skin, DefaultColors, Settings } from '../../config';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
 import * as mime from 'react-native-mime-types';

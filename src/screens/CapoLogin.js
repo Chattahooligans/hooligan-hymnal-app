@@ -13,7 +13,7 @@ import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
-import { Skin, DefaultColors } from '../config/Settings';
+import { Skin, DefaultColors } from '../../config';
 import AuthCheck from '../server_store/AuthCheck';
 import i18n from "../../i18n";
 import {AsyncStorage} from 'react-native';

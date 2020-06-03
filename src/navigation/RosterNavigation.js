@@ -8,7 +8,7 @@ import { MediumText } from '../components/StyledText';
 
 import Screens from '../screens';
 import DefaultStackScreenOptions from './DefaultStackScreenOptions';
-import { Settings, Skin } from '../config/Settings';
+import { Settings, Skin } from '../../config';
 import i18n from "../../i18n";
 
 const RosterTabs = createMaterialTopTabNavigator();

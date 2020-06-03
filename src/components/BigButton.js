@@ -10,7 +10,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { MediumText } from './StyledText';
 import { FontSizes } from '../constants';
-import { DefaultColors } from '../config/Settings';
+import { DefaultColors } from '../../config';
 
 export class BigButton extends React.Component {
     render() {

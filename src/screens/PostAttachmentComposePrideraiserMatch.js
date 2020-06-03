@@ -10,7 +10,7 @@ import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import PrideraiserCampaignSummaryAdmin from '../components/PrideraiserCampaignSummaryAdmin';
 import { Ionicons } from '@expo/vector-icons';
-import { DefaultColors, Skin, Settings } from '../config/Settings';
+import { DefaultColors, Skin, Settings } from '../../config';
 import { getCampaign } from '../services/prideraiserService';
 import moment from 'moment';
 import i18n from "../../i18n";

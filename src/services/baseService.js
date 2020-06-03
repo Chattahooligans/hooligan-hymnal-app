@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../config/Settings';
+import { HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../../config';
 
 let API = axios.create({
   baseURL: HOOLIGAN_HYMNAL_SERVER_ADDRESS.replace(/\/$/, ""),

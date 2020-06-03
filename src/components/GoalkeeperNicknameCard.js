@@ -6,7 +6,7 @@ import { withNavigation } from 'react-navigation';
 import { BoldText, RegularText, MediumText } from './StyledText';
 import { Colors, FontSizes } from '../constants';
 import { Ionicons } from '@expo/vector-icons';
-import { Skin, DefaultColors } from '../config/Settings';
+import { Skin, DefaultColors } from '../../config';
 import i18n from "../../i18n"
 
 @withNavigation

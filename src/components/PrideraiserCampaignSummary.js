@@ -12,7 +12,7 @@ import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress
 import { formatStringWithCampaignProps } from './PrideraiserHelper';
 import PrideraiserRainbowBar from './PrideraiserRainbowBar';
 import PostImageWrapper from './PostImageWrapper';
-import { PRIDERAISER_LOGO, DefaultColors, Skin, Settings, Palette } from '../config/Settings';
+import { PRIDERAISER_LOGO, DefaultColors, Skin, Settings, Palette } from '../../config';
 import { getCampaign } from '../services/prideraiserService';
 import moment from 'moment';
 import i18n from "../../i18n";

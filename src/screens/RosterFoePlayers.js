@@ -11,7 +11,7 @@ import NavigationBar from '../components/NavigationBar';
 import { RegularText, BoldText, MediumText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { FontSizes, Icons, Layout } from '../constants';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette } from '../../config';
 import { defaultFormatUtc } from 'moment';
 import i18n from '../../i18n';
 

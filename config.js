@@ -1,5 +1,5 @@
-import appParams from '../../app.json';
-import i18n from "../../i18n";
+import appParams from './app.json';
+import i18n from "./i18n";
 
 /*
     Supporter Group Info
@@ -18,7 +18,7 @@ export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.her
 
 // URLs
 export const TWITTER_URL = 'https://twitter.com/chattahooligan';
-export const FACEBOOK_URL = 'https://www.facebook.com/TheChattahooligans';
+export const FACEBOOK_URL = 'https://facebook.com/TheChattahooligans';
 export const INSTAGRAM_URL = 'https://instagram.com/thechattahooligans';
 export const WEBSITE_URL = 'http://comeandjoin.us';
 export const YOUTUBE_URL = '';
@@ -28,38 +28,38 @@ export const GOFUNDME_URL = 'https://www.gofundme.com/chattahooligan-youth-socce
 export const ESP_TWITTER_URL = 'https://twitter.com/LosCFCHooligans';
 export const ESP_INSTAGRAM_URL = 'https://instagram.com/loschattahooligans';
 export const ESP_WEBSITE_URL = 'http://chattahooligan.com/es';
-export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
+export const EVENTS_URL = 'https://facebook.com/TheChattahooligans/events/';
 export const STANDINGS_URL = 'https://www.nisaofficial.com/standings';
 export const INSTRUMENTATION_URL = 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 export const VOLUNTEER_URL = 'http://chattahooligan.com/join/';
 
 // Common Images
-export const HOME_NAVBAR_LOGO = require('../../assets/home-logo.png');
-//export const HOME_NAVBAR_LOGO = require('../../assets/home-big-c-logo.png');
-export const HOME_VIDEO = require('../../assets/5MB_video.mp4');
-export const HOME_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
-//export const HOME_VIDEO_OVERLAY = require('../../assets/juanstagram-mono-logotype.png');
-export const DRAWER_HERO_BACKGROUND = require('../../assets/drawer-hero-background.png');
-export const DRAWER_HERO_OVERLAY = require('../../assets/drawer-hero-logo.png');
-export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
+export const HOME_NAVBAR_LOGO = require('./assets/home-logo.png');
+//export const HOME_NAVBAR_LOGO = require('./assets/home-big-c-logo.png');
+export const HOME_VIDEO = require('./assets/5MB_video.mp4');
+export const HOME_VIDEO_OVERLAY = require('./assets/home-big-c-logo.png');
+//export const HOME_VIDEO_OVERLAY = require('./assets/juanstagram-mono-logotype.png');
+export const DRAWER_HERO_BACKGROUND = require('./assets/drawer-hero-background.png');
+export const DRAWER_HERO_OVERLAY = require('./assets/drawer-hero-logo.png');
+export const CLUB_LOGO = require('./assets/chattfc_logo.png');
 export const CLUB_NAME = "Chattanooga FC";
 // social media icons
-export const GOFUNDME_ICON = require('../../assets/gofundme.png');
-export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
+export const GOFUNDME_ICON = require('./assets/gofundme.png');
+export const GOFUNDME_BW_ICON = require('./assets/gofundme_bw.png');
 // used in SongView to link to sheet music
-export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
+export const MUSICAL_SCORE_ICON = require('./assets/musical-score.png');
 
 // Other link
 export const BAD_PODCAST_423_URL = 'https://anchor.fm/423soccerpod';
-export const BAD_PODCAST_423_ICON = require('../../assets/423Soccer.png');
+export const BAD_PODCAST_423_ICON = require('./assets/423Soccer.png');
 export const BAD_PODCAST_109_URL = 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964';
-export const BAD_PODCAST_109_ICON = require('../../assets/section109pod.png');
+export const BAD_PODCAST_109_ICON = require('./assets/section109pod.png');
 export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
 
 // Prideraiser
 export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
-export const PRIDERAISER_LOGO = require('../../assets/prideraiser-logo.png');
-export const PRIDERAISER_ICON = require('../../assets/prideraiser-icon.png');
+export const PRIDERAISER_LOGO = require('./assets/prideraiser-logo.png');
+export const PRIDERAISER_ICON = require('./assets/prideraiser-icon.png');
 export const PRIDERAISER_CAMPAIGN_ID = '03BpKNg';
 //export const PRIDERAISER_CAMPAIGN_ID = 'invalid_id_for_testing';
 
@@ -93,10 +93,10 @@ export const DefaultColors = {
 
 // NOTE: Roboto is a Chattahooligan-brand font.
 /*
-  You can use your own fonts in Hooligan Hymnal by including files in /assets/
+  You can use your own fonts in Hooligan Hymnal by including files in ./assets/
   and editing App.js. Look for Font.loadAsync() to see how fonts are loaded and registered as strings
 
-  Default fonts are included in /assets/ and the proper config values are...
+  Default fonts are included in ./assets/ and the proper config values are...
   Font_Regular: 'open-sans',
   Font_Medium: 'open-sans-semibold',
   Font_Bold: 'open-sans-bold',
@@ -148,7 +148,7 @@ export const Skin = {
   Player_Background: Palette.Sky,
   Player_DefaultImage: CLUB_LOGO,
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
-  Post_DefaultChannelThumbnail: require('../../assets/big-c-icon-android.png'),
+  Post_DefaultChannelThumbnail: require('./assets/big-c-icon-android.png'),
   Post_ChannelLabel: DefaultColors.ColorText,
   Post_FontSize: 17,
   Post_LineHeight: 22,

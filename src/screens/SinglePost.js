@@ -6,7 +6,7 @@ import {
 import Post from '../components/Post';
 import { HeaderBackButton } from 'react-navigation';
 import appParams from '../../app.json';
-import { DefaultColors, Palette, Skin } from '../config/Settings';
+import { DefaultColors, Palette, Skin } from '../../config';
 
 export default class SinglePost extends React.Component {
     render() {

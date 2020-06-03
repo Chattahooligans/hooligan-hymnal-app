@@ -6,7 +6,7 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette } from '../../config';
 import { FontSizes } from '../constants';
 import { BoldText, MediumText, RegularTextMonospace, RegularText, LightText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';

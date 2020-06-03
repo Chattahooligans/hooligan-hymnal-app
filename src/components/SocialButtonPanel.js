@@ -8,7 +8,7 @@ import {
   } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { MediumText } from '../components/StyledText';
-import { DefaultColors, Skin } from '../config/Settings';
+import { DefaultColors, Skin } from '../../config';
 import i18n from '../../i18n';
 
 export default class SocialButtonPanel extends React.Component {

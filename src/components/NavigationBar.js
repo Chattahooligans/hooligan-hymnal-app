@@ -2,7 +2,7 @@ import React from 'react';
 import { Animated, Platform, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 import { Layout } from '../constants';
-import { Skin, DefaultColors } from '../config/Settings';
+import { Skin, DefaultColors } from '../../config';
 import i18n from '../../i18n';
 
 export default class NavigationBar extends React.Component {

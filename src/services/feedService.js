@@ -1,5 +1,5 @@
 import API from './baseService';
-import { Settings } from '../config/Settings';
+import { Settings } from '../../config';
 
 export const getPost = (postId) =>
   API.get('/api/feed/' + postId).then(response => response.data);

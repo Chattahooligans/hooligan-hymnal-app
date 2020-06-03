@@ -4,7 +4,7 @@ import { BoldText, MediumText, RegularText, UnderlineText } from '../components/
 import { RectButton } from 'react-native-gesture-handler';
 import { HeaderBackButton } from 'react-navigation';
 import { FontSizes } from '../constants';
-import { Skin, DefaultColors, Palette, Settings } from '../config/Settings';
+import { Skin, DefaultColors, Palette, Settings } from '../../config';
 import { Ionicons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
