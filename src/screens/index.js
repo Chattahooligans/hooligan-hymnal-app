@@ -18,7 +18,6 @@ import RefereeCard from './RefereeCard';
 import Roster from './Roster';
 import RosterFoePlayers from './RosterFoePlayers';
 import RosterFoes from './RosterFoes';
-import RosterHome from './RosterHome';
 import SinglePost from './SinglePost';
 import SingleSong from './SingleSong';
 import Songbook from './Songbook';
@@ -48,7 +47,6 @@ export default {
   Roster,
   RosterFoePlayers,
   RosterFoes,
-  RosterHome,
   SinglePost,
   SingleSong,
   Songbook,
