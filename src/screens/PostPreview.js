@@ -13,7 +13,6 @@ import { BigButton } from '../components/BigButton';
 import { ModalLoader } from '../components/ModalLoader';
 //import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Post from '../components/Post';
-import NavigationOptions from '../config/NavigationOptions';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Skin, DefaultColors, Settings } from '../config/Settings';

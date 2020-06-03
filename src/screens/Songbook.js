@@ -11,14 +11,11 @@ import {
   Dimensions
 } from 'react-native';
 import SongView from '../components/SongView';
-import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
-import { NavigationActions } from 'react-navigation';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { FontSizes, Layout } from '../constants';
-import MenuButton from '../components/MenuButton';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import TableOfContentsInline from './TableOfContentsInline';

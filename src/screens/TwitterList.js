@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking } from 'react-native';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { RectButton } from 'react-native-gesture-handler';
-import NavigationOptions from '../config/NavigationOptions';
 import { HeaderBackButton } from 'react-navigation';
 import { FontSizes } from '../constants';
 import { Skin, DefaultColors, Palette, Settings } from '../config/Settings';

@@ -8,7 +8,6 @@ import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import NavigationOptions from '../config/NavigationOptions';
 import { Settings } from '../config/Settings';
 import i18n from "../../i18n";
 

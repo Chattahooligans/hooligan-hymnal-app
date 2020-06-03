@@ -6,7 +6,6 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import NavigationOptions from '../config/NavigationOptions';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
 import { FontSizes } from '../constants';
 import { BoldText, MediumText, RegularTextMonospace, RegularText, LightText } from '../components/StyledText';

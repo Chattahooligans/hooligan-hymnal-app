@@ -19,9 +19,6 @@ import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import ModalSelector from 'react-native-modal-selector';
 
-import NavigationOptions from '../config/NavigationOptions';
-import { NavigationActions } from 'react-navigation';
-
 import { BoldText, MediumText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 

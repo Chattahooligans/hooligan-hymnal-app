@@ -5,7 +5,6 @@ import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
 import { BoldText, MediumText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import NavigationOptions from '../config/NavigationOptions';
 
 import songs from '../data/songs.json';
 import i18n from "../../i18n";

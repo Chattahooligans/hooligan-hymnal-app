@@ -11,7 +11,6 @@ import {
 import { RectButton } from 'react-native-gesture-handler';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import NavigationOptions from '../config/NavigationOptions';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors } from '../config/Settings';

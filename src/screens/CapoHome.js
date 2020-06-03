@@ -4,8 +4,6 @@ import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { NavigationActions } from 'react-navigation';
-import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
 
 import LoadingPlaceholder from '../components/LoadingPlaceholder';

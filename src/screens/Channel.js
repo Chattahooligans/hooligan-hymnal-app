@@ -11,7 +11,6 @@ import {
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 // TODO: import PostImageWrapper after create-post-images is merged
 import Post from '../components/Post';
-import NavigationOptions from '../config/NavigationOptions';
 import { HeaderBackButton } from 'react-navigation';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';

@@ -4,7 +4,6 @@ import {
     StyleSheet
 } from 'react-native';
 import Post from '../components/Post';
-import NavigationOptions from '../config/NavigationOptions';
 import { HeaderBackButton } from 'react-navigation';
 import appParams from '../../app.json';
 import { DefaultColors, Palette, Skin } from '../config/Settings';

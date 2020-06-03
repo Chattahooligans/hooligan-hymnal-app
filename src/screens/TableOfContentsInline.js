@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import { find } from 'lodash';
-import NavigationOptions from '../config/NavigationOptions';
 import { BoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Colors, FontSizes } from '../constants';

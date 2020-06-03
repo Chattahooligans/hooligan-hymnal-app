@@ -2,9 +2,6 @@ import React from 'react';
 import { Button, Image, Platform, StyleSheet, Text, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
-import { withNavigation } from 'react-navigation';
-import { NavigationActions } from 'react-navigation';
-import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
 
 import Swiper from 'react-native-deck-swiper'
@@ -14,7 +11,6 @@ import { Colors, FontSizes, Layout } from '../constants';
 
 import images from './images'
 
-@withNavigation
 export default class Dating extends React.Component {
   constructor (props) {
     super(props)

@@ -14,10 +14,8 @@ import {
 } from 'react-native';
 import { Asset, LinearGradient, Notifications, WebBrowser, Video } from 'expo';
 import { BigButton } from '../components/BigButton';
-import { NavigationActions } from 'react-navigation';
 import { View as AnimatableView } from 'react-native-animatable';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
 
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
