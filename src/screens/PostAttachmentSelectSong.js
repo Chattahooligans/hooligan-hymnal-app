@@ -99,8 +99,8 @@ class PostAttachmentSelectSong extends React.Component {
     }
 
     _handlePressSong = (song) => {
-        if (this.props.screenProps.onAttachmentComplete)
-            this.props.screenProps.onAttachmentComplete({ attachmentType: "song", relatedId: song._id });
+        if (this.props.route.params.onAttachmentComplete)
+            this.props.route.params.onAttachmentComplete({ attachmentType: "song", relatedId: song._id });
     }
 
     render() {

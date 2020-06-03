@@ -26,8 +26,8 @@ export default class PostAttachmentSelectJuanstagram extends React.Component {
                     label={key}
                     inModal={true}
                     onPress={() => {
-                        if (this.props.screenProps.onAttachmentComplete)
-                            this.props.screenProps.onAttachmentComplete(
+                        if (this.props.route.params.onAttachmentComplete)
+                            this.props.route.params.onAttachmentComplete(
                                 {
                                     attachmentType: "juanstagram",
                                     data: {

@@ -104,8 +104,8 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                     label={i18n.t('screens.postattachmentcomposeprideraisermatch.attach')}
                     iconName="md-add" iconPosition="right"
                     onPress={() => {
-                        if (this.props.screenProps.onAttachmentComplete)
-                            this.props.screenProps.onAttachmentComplete(
+                        if (this.props.route.params.onAttachmentComplete)
+                            this.props.route.params.onAttachmentComplete(
                                 {
                                     attachmentType: "prideraisermatch",
                                     data: {

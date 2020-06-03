@@ -22,32 +22,32 @@ class PostAttach extends React.Component {
                     label={i18n.t('screens.postattach.selectplayer')} iconName="md-person"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectPlayer", {
-                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                            onAttachmentComplete: this.props.onAttachmentComplete
                         })
                     }} />
                 <BigButton label={i18n.t('screens.postattach.selectsong')} iconName="md-musical-notes"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectSong", {
-                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                            onAttachmentComplete: this.props.onAttachmentComplete
                         })
                     }} />
                 <BigButton label={i18n.t('screens.postattach.composesong')} iconName="md-microphone"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentComposeSong", {
-                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                            onAttachmentComplete: this.props.onAttachmentComplete
                         })
                     }} />
                 <BigButton label={i18n.t('screens.postattach.masstweet')} iconName="logo-twitter"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectMassTweet", {
-                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                            onAttachmentComplete: this.props.onAttachmentComplete
                         })
                     }} />
                 {Settings.PostAttach_ShowGKNickname &&
                     <BigButton label={i18n.t('screens.postattach.gknickname')} iconName="md-hand"
                         onPress={() => {
                             this.props.navigation.navigate("PostAttachmentComposeGkNickname", {
-                                onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                                onAttachmentComplete: this.props.onAttachmentComplete
                             })
                         }} />
                 }
@@ -55,14 +55,14 @@ class PostAttach extends React.Component {
                     <BigButton label={"Juanstagram"} iconName="md-heart-empty" inModal={true}
                         onPress={() => {
                             this.props.navigation.navigate("PostAttachmentSelectJuanstagram", {
-                                onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                                onAttachmentComplete: this.props.onAttachmentComplete
                             })
                         }} />
                 }
                 <BigButton label={i18n.t('screens.postattach.prideraisermatch')} iconName="md-analytics"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentComposePrideraiserMatch", {
-                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                            onAttachmentComplete: this.props.onAttachmentComplete
                         })
                     }} />
 

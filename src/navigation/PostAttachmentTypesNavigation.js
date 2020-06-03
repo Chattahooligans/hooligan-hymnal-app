@@ -7,17 +7,18 @@ import Screens from '../screens';
 const AttachmentTypesStack = createStackNavigator();
 
 export default PostAttachmentTypesNavigation = (props) => {
+    let onAttachmentCompleteCallback = props.onAttachmentComplete
     return (
         <AttachmentTypesStack.Navigator
             initialRouteName="PostAttach"
             screenOptions={{
                 ...DefaultStackScreenOptions,
-                onAttachmentComplete: props.onAttachmentComplete,
                 headerShown: false
             }}>
             <AttachmentTypesStack.Screen
-                name="PostAttach"
-                component={Screens.PostAttach} />
+                name="PostAttach">
+                {(props) => <Screens.PostAttach {...props} onAttachmentComplete={onAttachmentCompleteCallback} />}
+            </AttachmentTypesStack.Screen>
             <AttachmentTypesStack.Screen
                 name="PostAttachmentSelectPlayer"
                 component={Screens.PostAttachmentSelectPlayer} />
