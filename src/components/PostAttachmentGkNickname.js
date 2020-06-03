@@ -3,7 +3,6 @@ import {
     StyleSheet,
     View
 } from 'react-native';
-import { withNavigation } from 'react-navigation';
 import { BoldText, RegularText } from './StyledText';
 import { FontSizes } from '../constants';
 import { Ionicons } from '@expo/vector-icons';
