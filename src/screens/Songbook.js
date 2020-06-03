@@ -178,7 +178,7 @@ class Songbook extends React.Component {
               <View style={{ flex: 1 }} />
               <Image
                 style={{ width: screenWidth, height: screenWidth }}
-                source={require('../../assets/songbook-front-cover-heebo.png')}
+                source={Skin.Songbook_Cover}
               />
               <View style={{ flex: 1 }} />
               <RegularText style={{ textAlign: 'center', writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.songbook.swipetoview')}</RegularText>

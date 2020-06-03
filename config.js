@@ -1,5 +1,6 @@
 import appParams from './app.json';
 import i18n from "./i18n";
+import Songs from './src/screens/Songs';
 
 /*
     Supporter Group Info
@@ -47,6 +48,7 @@ export const CLUB_NAME = "Chattanooga FC";
 export const GOFUNDME_ICON = require('./assets/gofundme.png');
 export const GOFUNDME_BW_ICON = require('./assets/gofundme_bw.png');
 // used in SongView to link to sheet music
+export const SONGBOOK_COVER = require('./assets/songbook-front-cover-heebo.png');
 export const MUSICAL_SCORE_ICON = require('./assets/musical-score.png');
 
 // Other link
@@ -143,6 +145,7 @@ export const Skin = {
   ModalLoader_Container: "#00000040",
   NotificationEngagementsModal_Container: "#00000040",
   Songbook_Background: Palette.Sky,
+  Songbook_Cover: SONGBOOK_COVER,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Navy,
   Player_Background: Palette.Sky,
