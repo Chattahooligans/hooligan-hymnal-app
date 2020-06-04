@@ -16,6 +16,8 @@ import htmlColors from '../data/htmlColors.json';
 import { objectTypeAnnotation } from '@babel/types';
 import i18n from "../../i18n";
 
+const PUSH_ENDPOINT = Urls.HooliganHymnalServer + '/api/pushToken';
+
 export default class GlobalDataContainer extends Container {
   state = {
     currentSong: {},
@@ -222,7 +224,7 @@ export default class GlobalDataContainer extends Container {
       this.setState({ pushToken });
 
       // POST the pushToken to your backend server from where you can retrieve it to send push notifications.
-      return fetch(Urls.HooliganHymnalServer + '/api/pushToken', {
+      return fetch(PUSH_ENDPOINT, {
         method: 'POST',
         headers: {
           Accept: 'application/json',

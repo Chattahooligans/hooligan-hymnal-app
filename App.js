@@ -9,7 +9,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { Provider } from 'unstated';
 import { loadSavedTalksAsync } from './src/utils/storage';
 import { NavigationContainer } from '@react-navigation/native';
-import { Fonts, Images, RootNavigator } from './config';
+import Navigation from './src/Navigation';
+import { Fonts, Images } from './config';
 
 YellowBox.ignoreWarnings(['Warning: bind()']);
 
@@ -68,7 +69,7 @@ class App extends React.Component {
       <Provider>
         <SafeAreaProvider>
           <NavigationContainer>
-            <RootNavigator />
+            <Navigation />
             <StatusBar barStyle="light-content" />
           </NavigationContainer>
         </SafeAreaProvider>
