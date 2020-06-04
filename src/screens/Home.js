@@ -331,15 +331,6 @@ class DeferredHomeContent extends React.Component {
 
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
-        {/*
-        <HomeBannersPanel config={banners} />
-        <UpNext
-          songs={this.props.globalData.state.songs}
-          songbook={this.props.globalData.state.songbook}
-          style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
-        />
-        <StaticHomeContent />
-        */}
         {scrollItems}
       </AnimatableView>
     );
