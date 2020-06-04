@@ -1,15 +1,6 @@
 import appParams from './app.json';
 import i18n from "./i18n";
 
-/*
-    Supporter Group Info
-*/
-
-// Web presence config
-// "Follow Us" on Home screen
-
-// TODO: Build home screen dynamically based on this websites object
-
 // HEY! Don't include a trailing slash / on this url.
 // If you do, you're gonna have a bad time because your serer calls will not work
 export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
@@ -32,6 +23,17 @@ export const EVENTS_URL = 'https://facebook.com/TheChattahooligans/events/';
 export const STANDINGS_URL = 'https://www.nisaofficial.com/standings';
 export const INSTRUMENTATION_URL = 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 export const VOLUNTEER_URL = 'http://chattahooligan.com/join/';
+
+// Other links
+export const BAD_PODCAST_423_URL = 'https://anchor.fm/423soccerpod';
+export const BAD_PODCAST_423_ICON = require('./assets/423Soccer.png');
+export const BAD_PODCAST_109_URL = 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964';
+export const BAD_PODCAST_109_ICON = require('./assets/section109pod.png');
+export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
+
+// Prideraiser stuff
+export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
+export const PRIDERAISER_CAMPAIGN_ID = 'aw43AmO';
 
 // Common Images/Video
 export const Images = {
@@ -65,18 +67,6 @@ export const Images = {
   BadPostcast423: require('./assets/423Soccer.png'),
   BadPostcast109: require('./assets/section109pod.png')
 }
-
-// Other link
-export const BAD_PODCAST_423_URL = 'https://anchor.fm/423soccerpod';
-export const BAD_PODCAST_423_ICON = require('./assets/423Soccer.png');
-export const BAD_PODCAST_109_URL = 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964';
-export const BAD_PODCAST_109_ICON = require('./assets/section109pod.png');
-export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
-
-// Prideraiser
-export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
-export const PRIDERAISER_CAMPAIGN_ID = 'aw43AmO';
-//export const PRIDERAISER_CAMPAIGN_ID = 'invalid_id_for_testing';
 
 /*
     App Skin
