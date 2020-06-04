@@ -36,8 +36,6 @@ class App extends React.Component {
 
     let fonts= {};
     Object.keys(Fonts).forEach((key) => {
-      console.log(key)
-      console.log(Fonts[key])
       fonts[Fonts[key].family] = Fonts[key].file
     });
 
