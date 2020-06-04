@@ -10,18 +10,9 @@ import { Provider } from 'unstated';
 import { loadSavedTalksAsync } from './src/utils/storage';
 import { NavigationContainer } from '@react-navigation/native';
 import Navigation from './src/Navigation';
-import { Images } from './config';
+import { Fonts, Images } from './config';
 
 YellowBox.ignoreWarnings(['Warning: bind()']);
-
-const theme = {
-  font: {
-    primary: 'open-sans-bold'
-  },
-  colors: {
-    main: '#A3D8F7'
-  }
-};
 
 class App extends React.Component {
   state = {
@@ -37,26 +28,22 @@ class App extends React.Component {
     return loadSavedTalksAsync();
   };
 
-  /*
-  'open-sans': require('./assets/OpenSans-Regular.ttf'),
-  'open-sans-semibold': require('./assets/OpenSans-SemiBold.ttf'),
-  'open-sans-bold': require('./assets/OpenSans-Bold.ttf'),
-  'open-sans-italic': require('./assets/OpenSans-Italic.ttf'),
-  */
   _loadAssetsAsync = async () => {
     let imagesArray = [];
     Object.values(Images).forEach((value) => {
       imagesArray.push(value);
     });
 
+    let fonts= {};
+    Object.keys(Fonts).forEach((key) => {
+      console.log(key)
+      console.log(Fonts[key])
+      fonts[Fonts[key].family] = Fonts[key].file
+    });
 
     return Promise.all([
       Font.loadAsync({
-        'roboto-light': require('./assets/Roboto-Light.ttf'),
-        'roboto': require('./assets/Roboto-Regular.ttf'),
-        'roboto-medium': require('./assets/Roboto-Medium.ttf'),
-        'roboto-bold': require('./assets/Roboto-Bold.ttf'),
-        'roboto-italic': require('./assets/Roboto-Italic.ttf'),
+        ...fonts,
         ...Ionicons.font
       }),
       Asset.loadAsync(imagesArray),

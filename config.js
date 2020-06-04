@@ -106,6 +106,24 @@ export const DefaultColors = {
   Secondary: Palette.Sky
 }
 
+export const Fonts = {
+  Light: { family: 'roboto-light', file: require('./assets/Roboto-Light.ttf') },
+  Regular: { family: 'roboto', file: require('./assets/Roboto-Regular.ttf') },
+  Medium: { family: 'roboto-medium', file: require('./assets/Roboto-Medium.ttf') },
+  Bold: { family: 'roboto-bold', file: require('./assets/Roboto-Bold.ttf') },
+  Italic: { family: 'roboto-italic', file: require('./assets/Roboto-Italic.ttf') },
+}
+
+/*
+export const Fonts = {
+  Light: { family: 'open-sans-light', file: require('./assets/OpenSans-Light.ttf') },
+  Regular: { family: 'open-sans', file: require('./assets/OpenSans-Regular.ttf') },
+  Medium: { family: 'open-sans-semibold', file: require('./assets/OpenSans-SemiBold.ttf') },
+  Bold: { family: 'open-sans-bold', file: require('./assets/OpenSans-Bold.ttf') },
+  Italic: { family: 'open-sans-italic', file: require('./assets/OpenSans-Italic.ttf') },
+}
+*/
+
 // NOTE: Roboto is a Chattahooligan-brand font.
 /*
   You can use your own fonts in Hooligan Hymnal by including files in ./assets/
@@ -121,12 +139,12 @@ export const DefaultColors = {
   Font_Light is currently unused in the app.
 */
 export const Skin = {
-  Font_Light: 'roboto-light',
-  Font_Regular: 'roboto',
-  Font_Medium: 'roboto-medium',
-  Font_Bold: 'roboto-bold',
-  Font_Italic: 'roboto-italic',
-  Font_ParsedText: 'roboto',
+  Font_Light: Fonts.Light.family,
+  Font_Regular: Fonts.Regular.family,
+  Font_Medium: Fonts.Medium.family,
+  Font_Bold: Fonts.Bold.family,
+  Font_Italic: Fonts.Italic.family,
+  Font_ParsedText: Fonts.Regular.family,
   Channel_Background: DefaultColors.Secondary,
   Channel_DescriptionLabel: DefaultColors.Primary,
   Channel_LoadMoreActivityIndicator_Android: DefaultColors.Primary,
@@ -206,7 +224,7 @@ export const socialButtons = [
       { icon: 'logo-facebook', url: FACEBOOK_URL },
       { icon: 'logo-instagram', url: INSTAGRAM_URL },
       { icon: 'md-cart', url: SHOP_URL },
-      { image: PRIDERAISER_ICON, url: PRIDERAISER_URL, tintToSkin: false },
+      { image: Images.PrideraiserIcon, url: PRIDERAISER_URL, tintToSkin: false },
 
     ]
   },
