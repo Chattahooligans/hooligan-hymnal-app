@@ -41,7 +41,7 @@ import {
   Skin,
   Banners,
   SocialButtons,
-  WEBSITE_URL,
+  Urls,
 } from '../../config';
 import i18n from "../../i18n";
 import { watchPositionAsync } from 'expo-location';
@@ -276,7 +276,7 @@ class StaticHomeContent_Links extends React.Component {
       <View style={styles.staticLinksContainer}>
         <TouchableOpacity style={{ flexDirection: i18n.getFlexDirection(), marginHorizontal: 15, marginBottom: 10 }} onPress={() => { Linking.openURL(WEBSITE_URL) }}>
           <MediumText style={{ color: Skin.Home_SocialButtons }}>{i18n.t('screens.home.visit')} </MediumText>
-          <UnderlineText style={{ color: Skin.Home_Website }}>{WEBSITE_URL}</UnderlineText>
+          <UnderlineText style={{ color: Skin.Home_Website }}>{Urls.Website}</UnderlineText>
         </TouchableOpacity>
         <SocialButtonPanel style={{ paddingHorizontal: 15 }} config={SocialButtons} />
       </View>

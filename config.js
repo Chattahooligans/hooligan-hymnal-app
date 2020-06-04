@@ -58,37 +58,6 @@ export const Urls = {
   Postcast109: 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964',
   RedditClub: 'https://www.reddit.com/r/ChattanoogaFC'
 }
-// HEY! Don't include a trailing slash / on this url.
-// If you do, you're gonna have a bad time because your serer calls will not work
-export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
-// dev branch
-//export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-dev.herokuapp.com'
-
-// URLs
-export const TWITTER_URL = 'https://twitter.com/chattahooligan';
-export const FACEBOOK_URL = 'https://facebook.com/TheChattahooligans';
-export const INSTAGRAM_URL = 'https://instagram.com/thechattahooligans';
-export const WEBSITE_URL = 'http://comeandjoin.us';
-export const YOUTUBE_URL = '';
-export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
-// PRIDERAISER_URL moved to a different section
-export const GOFUNDME_URL = 'https://www.gofundme.com/chattahooligan-youth-soccer-investment';
-export const ESP_TWITTER_URL = 'https://twitter.com/LosCFCHooligans';
-export const ESP_INSTAGRAM_URL = 'https://instagram.com/loschattahooligans';
-export const ESP_WEBSITE_URL = 'http://chattahooligan.com/es';
-export const EVENTS_URL = 'https://facebook.com/TheChattahooligans/events/';
-export const STANDINGS_URL = 'https://www.nisaofficial.com/standings';
-export const INSTRUMENTATION_URL = 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
-export const VOLUNTEER_URL = 'http://chattahooligan.com/join/';
-
-// Other links
-export const BAD_PODCAST_423_URL = 'https://anchor.fm/423soccerpod';
-export const BAD_PODCAST_109_URL = 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964';
-export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
-
-// Prideraiser stuff
-export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
-export const PRIDERAISER_CAMPAIGN_ID = 'aw43AmO';
 
 /*
   Images
@@ -348,8 +317,8 @@ export const DrawerLinks = [
 */
 export const Banners = [
 ]
-//{ backgroundColor: Palette.Prideraiser, image: PRIDERAISER_ICON, url: PRIDERAISER_URL, text: "Pledge to Chattanooga Prideraiser", textColor: Palette.White },
-// { backgroundColor: Palette.Sky, image: GOFUNDME_BW_ICON, tintColor: Skin.Home_SocialButtons, url: GOFUNDME_URL, text: "Youth Soccer Investment Crowdfunding", textColor: Palette.Black }
+//{ backgroundColor: Palette.Prideraiser, image: PRIDERAISER_ICON, url: Urls.Prideraiser, text: "Pledge to Chattanooga Prideraiser", textColor: Palette.White },
+// { backgroundColor: Palette.Sky, image: GOFUNDME_BW_ICON, tintColor: Skin.Home_SocialButtons, url: Urls.GoFundMe, text: "Youth Soccer Investment Crowdfunding", textColor: Palette.Black }
 
 
 /*
