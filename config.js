@@ -106,6 +106,21 @@ export const DefaultColors = {
   Secondary: Palette.Sky
 }
 
+// NOTE: Roboto is a Chattahooligan-brand font.
+/*
+  You can use your own fonts in Hooligan Hymnal by including files in ./assets/
+
+  Default fonts are included in ./assets/ and the proper config values are...
+export const Fonts = {
+  Light: { family: 'open-sans-light', file: require('./assets/OpenSans-Light.ttf') },
+  Regular: { family: 'open-sans', file: require('./assets/OpenSans-Regular.ttf') },
+  Medium: { family: 'open-sans-semibold', file: require('./assets/OpenSans-SemiBold.ttf') },
+  Bold: { family: 'open-sans-bold', file: require('./assets/OpenSans-Bold.ttf') },
+  Italic: { family: 'open-sans-italic', file: require('./assets/OpenSans-Italic.ttf') },
+}
+
+  Font_Light is currently unused in the app.
+*/
 export const Fonts = {
   Light: { family: 'roboto-light', file: require('./assets/Roboto-Light.ttf') },
   Regular: { family: 'roboto', file: require('./assets/Roboto-Regular.ttf') },
@@ -114,30 +129,6 @@ export const Fonts = {
   Italic: { family: 'roboto-italic', file: require('./assets/Roboto-Italic.ttf') },
 }
 
-/*
-export const Fonts = {
-  Light: { family: 'open-sans-light', file: require('./assets/OpenSans-Light.ttf') },
-  Regular: { family: 'open-sans', file: require('./assets/OpenSans-Regular.ttf') },
-  Medium: { family: 'open-sans-semibold', file: require('./assets/OpenSans-SemiBold.ttf') },
-  Bold: { family: 'open-sans-bold', file: require('./assets/OpenSans-Bold.ttf') },
-  Italic: { family: 'open-sans-italic', file: require('./assets/OpenSans-Italic.ttf') },
-}
-*/
-
-// NOTE: Roboto is a Chattahooligan-brand font.
-/*
-  You can use your own fonts in Hooligan Hymnal by including files in ./assets/
-  and editing App.js. Look for Font.loadAsync() to see how fonts are loaded and registered as strings
-
-  Default fonts are included in ./assets/ and the proper config values are...
-  Font_Regular: 'open-sans',
-  Font_Medium: 'open-sans-semibold',
-  Font_Bold: 'open-sans-bold',
-  Font_Italic: 'open-sans-italic',
-  Font_ParsedText: 'open-sans',
-
-  Font_Light is currently unused in the app.
-*/
 export const Skin = {
   Font_Light: Fonts.Light.family,
   Font_Regular: Fonts.Regular.family,
