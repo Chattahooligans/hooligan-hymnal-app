@@ -47,9 +47,10 @@ export const Urls = {
   // Look for random characters at the end of your current campaign url (must update each campaign)
   PrideraiserCampaignId: 'aw43AmO',
   GoFundMe: 'https://www.gofundme.com/chattahooligan-youth-soccer-investment',
-  EspTwitter: 'https://twitter.com/LosCFCHooligans',
-  EspInstagram: 'https://instagram.com/loschattahooligans',
-  EspWebsite: 'http://chattahooligan.com/es',
+  EsTwitter: 'https://twitter.com/LosCFCHooligans',
+  EsFacebook: '',
+  EsInstagram: 'https://instagram.com/loschattahooligans',
+  EsWebsite: 'http://chattahooligan.com/es',
   Events: 'https://facebook.com/TheChattahooligans/events/',
   Standings: 'https://www.nisaofficial.com/standings',
   Instrumentation: 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr',
@@ -348,9 +349,9 @@ export const SocialButtons = [
     header: i18n.t('settings.socialES'),
     headerColor: DefaultColors.ColorText,
     items: [
-      { icon: 'logo-twitter', url: Urls.EspTwitter },
-      { icon: 'logo-instagram', url: Urls.EspInstagram },
-      { icon: 'md-browsers', url: Urls.EspWebsite }
+      { icon: 'logo-twitter', url: Urls.EsTwitter },
+      { icon: 'logo-instagram', url: Urls.EsInstagram },
+      { icon: 'md-browsers', url: Urls.EsWebsite }
     ]
   },
   {
