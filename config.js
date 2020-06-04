@@ -1,6 +1,8 @@
 // Do not edit these import lines
+import React from 'react';
 import appParams from './app.json';
 import i18n from "./i18n";
+import DefaultRootDrawerNavigation from './src/navigation/DefaultRootDrawerNavigation';
 
 /*
   Hooligan Hymnal
@@ -447,4 +449,18 @@ export const Settings = {
   //      Extra Twitter handles concatenated after the players on the TwitterList screen
   //      In Chattanooga, we add the club and our SG accounts
   TwitterList_ExtraHandles: "@ChattanoogaFC @chattahooligan @LosCFCHooligans"
+}
+
+/*
+  DrawerNavigator
+
+  This function returns a Navigator used for the root nav for the 
+  application.
+
+  It lives in config.js to reduce the diff between deployments.
+  Advanced users can override it, but we sure hope you know what you're
+  doing.
+*/
+export function RootNavigator() {
+  return <DefaultRootDrawerNavigation />
 }
