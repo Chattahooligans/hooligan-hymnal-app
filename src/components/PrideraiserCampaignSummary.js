@@ -136,20 +136,25 @@ const styles = StyleSheet.create({
         bottom: 8,
         right: 8,
         color: Skin.PrideraiserCampaignSummary_AnalyticsSource,
-        fontSize: 14
+        fontSize: 14,
+        fontFamily: Skin.Font_Regular
     },
     title: {
         fontSize: 15,
-        color: DefaultColors.ColorText
+        color: DefaultColors.ColorText,
+        fontFamily: Skin.Font_ParsedText
     },
     benefitting: {
-        color: DefaultColors.ColorText
+        color: DefaultColors.ColorText,
+        fontFamily: Skin.Font_ParsedText
     },
     pledged: {
-        color: DefaultColors.ColorText
+        color: DefaultColors.ColorText,
+        fontFamily: Skin.Font_ParsedText
     },
     learnmore: {
         marginTop: 5,
-        color: DefaultColors.ColorText
+        color: DefaultColors.ColorText,
+        fontFamily: Skin.Font_ParsedText
     }
 });
