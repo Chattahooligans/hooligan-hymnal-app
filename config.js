@@ -26,9 +26,7 @@ export const VOLUNTEER_URL = 'http://chattahooligan.com/join/';
 
 // Other links
 export const BAD_PODCAST_423_URL = 'https://anchor.fm/423soccerpod';
-export const BAD_PODCAST_423_ICON = require('./assets/423Soccer.png');
 export const BAD_PODCAST_109_URL = 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964';
-export const BAD_PODCAST_109_ICON = require('./assets/section109pod.png');
 export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
 
 // Prideraiser stuff
@@ -222,8 +220,8 @@ export const socialButtons = [
     header: i18n.t('settings.other'),
     headerColor: DefaultColors.ColorText,
     items: [
-      { image: BAD_PODCAST_423_ICON, url: BAD_PODCAST_423_URL, tintToSkin: false },
-      { image: BAD_PODCAST_109_ICON, url: BAD_PODCAST_109_URL, tintToSkin: false },
+      { image: Images.BadPostcast423, url: BAD_PODCAST_423_URL, tintToSkin: false },
+      { image: Images.BadPostcast109, url: BAD_PODCAST_109_URL, tintToSkin: false },
       { icon: 'logo-reddit', url: REDDIT_CHATTANOOGAFC_URL },
     ]
   }
