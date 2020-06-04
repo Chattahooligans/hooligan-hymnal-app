@@ -39,8 +39,8 @@ import {
   DefaultColors,
   Settings,
   Skin,
-  banners,
-  socialButtons,
+  Banners,
+  SocialButtons,
   WEBSITE_URL,
 } from '../../config';
 import i18n from "../../i18n";
@@ -278,7 +278,7 @@ class StaticHomeContent_Links extends React.Component {
           <MediumText style={{ color: Skin.Home_SocialButtons }}>{i18n.t('screens.home.visit')} </MediumText>
           <UnderlineText style={{ color: Skin.Home_Website }}>{WEBSITE_URL}</UnderlineText>
         </TouchableOpacity>
-        <SocialButtonPanel style={{ paddingHorizontal: 15 }} config={socialButtons} />
+        <SocialButtonPanel style={{ paddingHorizontal: 15 }} config={SocialButtons} />
       </View>
     )
   }
@@ -325,7 +325,7 @@ class DeferredHomeContent extends React.Component {
     // for some reason this doesn't blow up when scrollItems.length is small or zero
     let buttonsIndex = 2
     let linksIndex = 4
-    scrollItems.splice(0, 0, <HomeBannersPanel key={"homeBanners"} config={banners} />)
+    scrollItems.splice(0, 0, <HomeBannersPanel key={"homeBanners"} config={Banners} />)
     scrollItems.splice(buttonsIndex, 0, <StaticHomeContent_Buttons key={"homeButtons"} navigation={this.props.navigation} />)
     scrollItems.splice(linksIndex, 0, <StaticHomeContent_Links key={"homeLinks"} />)
 

@@ -1,6 +1,63 @@
+// Do not edit these import lines
 import appParams from './app.json';
 import i18n from "./i18n";
 
+/*
+  Hooligan Hymnal
+
+  Copyright 2018-2020 The Chattahooligans, released open source under MIT license
+
+  The latest source code and documentation for this project are located at:
+  https://github.com/Chattahooligans/hooligan-hymnal-app
+*/
+
+/*
+  About this Configuration File
+
+  TODO philosophy/introduction
+*/
+
+/*
+  URLs
+  
+  This structure contains a set of key:value pairs for URLs and links used
+  elsewhere in this config file and in the app.
+
+  Excepting Urls.HooliganHymnalServer, they're mostly optional, but you may 
+  need to remove lines from the config that reference these links, like in 
+  the SocialButtons or Banners structure. You can also add other URLs as 
+  necessary.
+*/
+export const Urls = {
+  // production server
+  // HEY! Don't include a trailing slash / on this url.
+  // If you do, you're gonna have a bad time because your serer calls will not work 
+  HooliganHymnalServer: 'https://chattahooligan-hymnal.herokuapp.com',
+  // dev/beta server
+  //HooliganHymnalServer: 'https://chattahooligan-dev.herokuapp.com',
+
+  // Social media and websites
+  Twitter: 'https://twitter.com/chattahooligan',
+  Facebook: 'https://facebook.com/TheChattahooligans',
+  Instagram: 'https://instagram.com/thechattahooligans',
+  Website: 'http://comeandjoin.us',
+  YouTube: '',
+  Shop: 'https://squareup.com/store/the-chattahooligans',
+  Prideraiser: 'https://chatt.prideraiser.org/',
+  // Look for random characters at the end of your current campaign url (must update each campaign)
+  PrideraiserCampaignId: 'aw43AmO',
+  GoFundMe: 'https://www.gofundme.com/chattahooligan-youth-soccer-investment',
+  EspTwitter: 'https://twitter.com/LosCFCHooligans',
+  EspInstagram: 'https://instagram.com/loschattahooligans',
+  EspWebsite: 'http://chattahooligan.com/es',
+  Events: 'https://facebook.com/TheChattahooligans/events/',
+  Standings: 'https://www.nisaofficial.com/standings',
+  Instrumentation: 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr',
+  Volunteer: 'http://chattahooligan.com/join/',
+  Postcast423: 'https://anchor.fm/423soccerpod',
+  Postcast109: 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964',
+  RedditClub: 'https://www.reddit.com/r/ChattanoogaFC'
+}
 // HEY! Don't include a trailing slash / on this url.
 // If you do, you're gonna have a bad time because your serer calls will not work
 export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
@@ -33,7 +90,20 @@ export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
 export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
 export const PRIDERAISER_CAMPAIGN_ID = 'aw43AmO';
 
-// Common Images/Video
+/*
+  Images
+  
+  This structure contains a set of key:value pairs for images used 
+  elsewhere in the app. Some are used in multiple places.
+
+  These images are preloaded during app startup, so they don't pop in.
+
+  Feel free to add Images as necessary. Just maintain the require() syntax
+  and make sure the file names here match what they're called in ./assets/
+
+  The good news is that the build will crash immediately if there is an
+  issue with anything in this block.
+*/
 export const Images = {
   // Used as a default Channel thumbnail
   LogoAvatar: require('./assets/big-c-icon-android.png'),
@@ -47,205 +117,45 @@ export const Images = {
   Home_VideoOverlay: require('./assets/home-big-c-logo.png'),
   // Home_VideoOverlay: require('./assets/juanstagram-mono-logotype.png'),
 
+  // Background image that appears at the top of the navigation drawer menu
   Drawer_HeroBackground: require('./assets/drawer-hero-background.png'),
+  // Overlay image over the drawer hero background image
   Drawer_HeroOverlay: require('./assets/drawer-hero-logo.png'),
 
+  // Songbook cover image
   Songbook_Cover: require('./assets/songbook-front-cover-heebo.png'),
+  // Musical score graphic used in the songbook
   Songbook_MusicalScore: require('./assets/musical-score.png'),
 
-  // Used as a default Player/Roster thumbnail
+  // Used as a default thumbnail for Players and Rosters
   ClubLogo: require('./assets/chattfc_logo.png'),
 
-  GoFundMeColor: require('./assets/gofundme.png'),
-  GoFundMeBw: require('./assets/gofundme_bw.png'),
-
+  // Used for Prideraiser integration
   PrideraiserLogo: require('./assets/prideraiser-logo.png'),
   PrideraiserIcon: require('./assets/prideraiser-icon.png'),
 
-  BadPostcast423: require('./assets/423Soccer.png'),
-  BadPostcast109: require('./assets/section109pod.png')
+  // Add optional images
+  GoFundMeColor: require('./assets/gofundme.png'),
+  GoFundMeBw: require('./assets/gofundme_bw.png'),
+  Postcast423: require('./assets/423Soccer.png'),
+  Postcast109: require('./assets/section109pod.png')
 }
-
-/*
-    App Skin
-*/
-
-// Chattahooligans palette
-export const Palette = {
-  Navy: '#002D56',
-  Sky: '#A3D8F7',
-  White: '#FFFFFF',
-  Black: '#000000',
-  Prideraiser: '#a55eea',
-  YellowCard: '#ffcc00',
-  RedCard: '#ff0000'
-};
-
-export const DefaultColors = {
-  NavigationBarBackground: Palette.Navy,
-  Background: Palette.White,
-  ButtonBackground: Palette.Navy,
-  ButtonText: Palette.White,
-  HeaderBackground: Palette.Navy,
-  HeaderText: Palette.White,
-  Text: Palette.Black,
-  ColorText: Palette.Navy,
-  Primary: Palette.Navy,
-  Secondary: Palette.Sky
-}
-
-// NOTE: Roboto is a Chattahooligan-brand font.
-/*
-  You can use your own fonts in Hooligan Hymnal by including files in ./assets/
-
-  Default fonts are included in ./assets/ and the proper config values are...
-export const Fonts = {
-  Light: { family: 'open-sans-light', file: require('./assets/OpenSans-Light.ttf') },
-  Regular: { family: 'open-sans', file: require('./assets/OpenSans-Regular.ttf') },
-  Medium: { family: 'open-sans-semibold', file: require('./assets/OpenSans-SemiBold.ttf') },
-  Bold: { family: 'open-sans-bold', file: require('./assets/OpenSans-Bold.ttf') },
-  Italic: { family: 'open-sans-italic', file: require('./assets/OpenSans-Italic.ttf') },
-}
-
-  Font_Light is currently unused in the app.
-*/
-export const Fonts = {
-  Light: { family: 'roboto-light', file: require('./assets/Roboto-Light.ttf') },
-  Regular: { family: 'roboto', file: require('./assets/Roboto-Regular.ttf') },
-  Medium: { family: 'roboto-medium', file: require('./assets/Roboto-Medium.ttf') },
-  Bold: { family: 'roboto-bold', file: require('./assets/Roboto-Bold.ttf') },
-  Italic: { family: 'roboto-italic', file: require('./assets/Roboto-Italic.ttf') },
-}
-
-export const Skin = {
-  Font_Light: Fonts.Light.family,
-  Font_Regular: Fonts.Regular.family,
-  Font_Medium: Fonts.Medium.family,
-  Font_Bold: Fonts.Bold.family,
-  Font_Italic: Fonts.Italic.family,
-  Font_ParsedText: Fonts.Regular.family,
-  Channel_Background: DefaultColors.Secondary,
-  Channel_DescriptionLabel: DefaultColors.Primary,
-  Channel_LoadMoreActivityIndicator_Android: DefaultColors.Primary,
-  Channel_LoadMoreActivityIndicator_iOS: DefaultColors.Primary,
-  Channel_NameLabel: DefaultColors.Primary,
-  Channel_Refresh_Android: DefaultColors.Secondary,
-  Channel_RefreshBackground_Android: DefaultColors.Primary,
-  Drawer_HeroBackground: Images.Drawer_HeroBackground,
-  Drawer_HeroOverlay: Images.Drawer_HeroOverlay,
-  Home_BackgroundColor: DefaultColors.Primary,
-  Home_BigButtonsBackground: DefaultColors.ButtonBackground,
-  Home_BigButtonsLabel: DefaultColors.ButtonText,
-  Home_FindTheMenuLabel: DefaultColors.Primary,
-  Home_LoadMoreActivityIndicator_Android: DefaultColors.Secondary,
-  Home_LoadMoreActivityIndicator_iOS: Palette.White,
-  Home_NavbarLogo: Images.Home_NavbarLogo,
-  Home_PostMarginVertical: 6,
-  Home_Refresh_Android: DefaultColors.Primary,
-  Home_RefreshBackground_Android: DefaultColors.Secondary,
-  Home_SocialButtons: DefaultColors.Primary,
-  Home_Video: Images.Home_Video,
-  Home_VideoOverlay: Images.Home_VideoOverlay,
-  HomeVideoPanel_TintColor: DefaultColors.NavigationBarBackground,
-  HomeVideoPanel_TintOpacity: 0.8,
-  HomeVideoPanel_VersionLabel: DefaultColors.HeaderText,
-  Home_Website: Palette.Black,
-  ModalLoader_ActivityIndicator: DefaultColors.Primary,
-  ModalLoader_Background: DefaultColors.Secondary,
-  ModalLoader_Container: "#00000040",
-  NotificationEngagementsModal_Container: "#00000040",
-  Songbook_Background: DefaultColors.Secondary,
-  Songbook_Cover: Images.Songbook_Cover,
-  Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
-  SingleSong_Background: DefaultColors.Primary,
-  Player_Background: DefaultColors.Secondary,
-  Player_DefaultImage: Images.ClubLogo,
-  Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
-  Post_DefaultChannelThumbnail: Images.LogoAvatar,
-  Post_ChannelLabel: DefaultColors.ColorText,
-  Post_FontSize: 17,
-  Post_LineHeight: 22,
-  Post_LinkColor: "blue",
-  Post_TextColor: DefaultColors.Text,
-  Post_TimestampLabel: DefaultColors.ColorText,
-  PostAttachmentComposePrideraiserMatch_ActivityIndicator: DefaultColors.Primary,
-  PrideraiserCampaignSummary_AnalyticsSource: DefaultColors.HeaderText,
-  Roster_DefaultThumbnail: Images.ClubLogo,
-  Roster_TabBackground: DefaultColors.ButtonBackground,
-  Roster_ActiveTabIndicator: DefaultColors.ButtonText,
-  Roster_ActiveTabLabel: DefaultColors.ButtonText,
-  Roster_InactiveTabLabel: DefaultColors.Secondary,
-  Roster_FriendsTabIcon: 'md-heart',
-  Roster_FoesTabIcon: 'md-thumbs-down'
-};
-
-/*
-  This structure is used for web links in the main navigation drawer
-*/
-export const drawerLinks = [
-  { drawerLabel: i18n.t('navigation.events'), url: EVENTS_URL },
-  { drawerLabel: i18n.t('navigation.standings'), url: STANDINGS_URL },
-  { drawerLabel: i18n.t('navigation.shop'), url: SHOP_URL },
-  { drawerLabel: i18n.t('navigation.volunteer'), url: VOLUNTEER_URL },
-  { drawerLabel: i18n.t('navigation.instrumentation'), url: INSTRUMENTATION_URL }
-]
-
-/*
-  Pass this structure to the config property of components/SocialButtonPanel
-*/
-// icon: Iconicons name
-export const socialButtons = [
-  {
-    header: i18n.t('settings.socialEN'),
-    headerColor: DefaultColors.ColorText,
-    items: [
-      { icon: 'logo-twitter', url: TWITTER_URL },
-      { icon: 'logo-facebook', url: FACEBOOK_URL },
-      { icon: 'logo-instagram', url: INSTAGRAM_URL },
-      { icon: 'md-cart', url: SHOP_URL },
-      { image: Images.PrideraiserIcon, url: PRIDERAISER_URL, tintToSkin: false },
-
-    ]
-  },
-  {
-    header: i18n.t('settings.socialES'),
-    headerColor: DefaultColors.ColorText,
-    items: [
-      { icon: 'logo-twitter', url: ESP_TWITTER_URL },
-      { icon: 'logo-instagram', url: ESP_INSTAGRAM_URL },
-      { icon: 'md-browsers', url: ESP_WEBSITE_URL }
-    ]
-  },
-  {
-    header: i18n.t('settings.other'),
-    headerColor: DefaultColors.ColorText,
-    items: [
-      { image: Images.BadPostcast423, url: BAD_PODCAST_423_URL, tintToSkin: false },
-      { image: Images.BadPostcast109, url: BAD_PODCAST_109_URL, tintToSkin: false },
-      { icon: 'logo-reddit', url: REDDIT_CHATTANOOGAFC_URL },
-    ]
-  }
-]
-// Other/Seasonal
-// { icon: 'md-browsers', url: WEBSITE_URL },
-// { image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
-// { image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tintToSkin: true }
-
-/*
-  "Headline" banners on home screen
-*/
-export const banners = [
-]
-//{ backgroundColor: Palette.Prideraiser, image: PRIDERAISER_ICON, url: PRIDERAISER_URL, text: "Pledge to Chattanooga Prideraiser", textColor: Palette.White },
-// { backgroundColor: Palette.Sky, image: GOFUNDME_BW_ICON, tintColor: Skin.Home_SocialButtons, url: GOFUNDME_URL, text: "Youth Soccer Investment Crowdfunding", textColor: Palette.Black }
 
 /*
   Common Image Credit
+  
+  It's likely that photos will come from a select few SG or club 
+  photographers. We make it easy to credit those people for letting us use
+  their work.
 
-  It's likely that photos will come from a select few SG or club photographers. 
-  Let's make it easy to credit those people for letting us use their work.
+  This structure contains an array of strings used for this feature. The 
+  structure is required, but does not need to be populated. Here is what
+  it looks like empty.
+  export const CommonImageCredit = []
+
+  Feel free to add or remove lines as necessary
 */
-export const commonImageCredit = [
+export const CommonImageCredit = [
   "Ray Soldano | https://www.facebook.com/RaySoldanoPhotography/",
   "Galen Riley | https://twitter.com/thatgalen",
   "Jeff Underwood | https://www.facebook.com/jeff.underwood.359",
@@ -256,6 +166,238 @@ export const commonImageCredit = [
   "Shannon Millsaps | https://www.facebook.com/smillsapsphoto/",
   "Chattanooga Football Club"
 ]
+
+/*
+    App Skin
+*/
+
+/*
+  Palette
+
+  This structure contains a set of key:value pairs for colors used across
+  the app. It feeds into the DefaultColors/Skin structures below, and is 
+  occasionally referenced directly.
+  (We'll eventually clean up most direct Palette references.)
+
+  Feel free to add or remove lines as necessary to suit your needs.
+*/
+export const Palette = {
+  Navy: '#002D56',
+  Sky: '#A3D8F7',
+  White: '#FFFFFF',
+  Black: '#000000',
+  Prideraiser: '#a55eea',
+  YellowCard: '#ffcc00',
+  RedCard: '#ff0000'
+};
+
+/*
+  DefaultColors
+
+  This structure contains a set of key:value pairs for colors used across
+  the app. It feeds into the Skin structure below, and is occasionally 
+  referenced directly.
+  (We'll eventually clean up most direct DefaultColors references.)
+
+  You can use color data here, or reference the Palette structure, above.
+
+  Feel free to add or remove lines as necessary to suit your needs.
+*/
+export const DefaultColors = {
+  Background: Palette.White,
+  ButtonBackground: Palette.Navy,
+  ButtonText: Palette.White,
+  HeaderBackground: Palette.Navy,
+  HeaderText: Palette.White,
+  BlackText: Palette.Black,
+  ColorText: Palette.Navy,
+  Primary: Palette.Navy,
+  Accent: Palette.Sky
+}
+
+/*
+  Fonts
+
+  This structure contains a set of key:value pairs for fonts used across
+  the app. You can use your own brand fonts in Hooligan Hymnal by 
+  including the files in ./assets/ and creating the appropriate font map.
+  The value here is an object with properties .family and .file
+
+  .family is TODO
+
+  Default fonts are included in ./assets/ and the proper config values are...
+export const Fonts = {
+  Light: { family: 'open-sans-light', file: require('./assets/OpenSans-Light.ttf') },
+  Regular: { family: 'open-sans', file: require('./assets/OpenSans-Regular.ttf') },
+  Medium: { family: 'open-sans-semibold', file: require('./assets/OpenSans-SemiBold.ttf') },
+  Bold: { family: 'open-sans-bold', file: require('./assets/OpenSans-Bold.ttf') },
+  Italic: { family: 'open-sans-italic', file: require('./assets/OpenSans-Italic.ttf') },
+}
+
+  Font_Light is currently unused in the app, but is included for coverage
+*/
+export const Fonts = {
+  Light: { family: 'roboto-light', file: require('./assets/Roboto-Light.ttf') },
+  Regular: { family: 'roboto', file: require('./assets/Roboto-Regular.ttf') },
+  Medium: { family: 'roboto-medium', file: require('./assets/Roboto-Medium.ttf') },
+  Bold: { family: 'roboto-bold', file: require('./assets/Roboto-Bold.ttf') },
+  Italic: { family: 'roboto-italic', file: require('./assets/Roboto-Italic.ttf') },
+}
+
+/*
+  Skin
+
+  This structure contains a set of key:value pairs which alter the 
+  appearance of the app. It's always in flux.
+
+  There are other complex structures in addition to the Skin.
+*/
+export const Skin = {
+  Font_Light: Fonts.Light.family,
+  Font_Regular: Fonts.Regular.family,
+  Font_Medium: Fonts.Medium.family,
+  Font_Bold: Fonts.Bold.family,
+  Font_Italic: Fonts.Italic.family,
+  Font_ParsedText: Fonts.Regular.family,
+  Channel_Background: DefaultColors.Accent,
+  Channel_DescriptionLabel: DefaultColors.Primary,
+  Channel_LoadMoreActivityIndicator_Android: DefaultColors.Primary,
+  Channel_LoadMoreActivityIndicator_iOS: DefaultColors.Primary,
+  Channel_NameLabel: DefaultColors.Primary,
+  Channel_Refresh_Android: DefaultColors.Accent,
+  Channel_RefreshBackground_Android: DefaultColors.Primary,
+  Drawer_HeroBackground: Images.Drawer_HeroBackground,
+  Drawer_HeroOverlay: Images.Drawer_HeroOverlay,
+  Home_BackgroundColor: DefaultColors.Primary,
+  Home_BigButtonsBackground: DefaultColors.ButtonBackground,
+  Home_BigButtonsLabel: DefaultColors.ButtonText,
+  Home_FindTheMenuLabel: DefaultColors.Primary,
+  Home_LoadMoreActivityIndicator_Android: DefaultColors.Accent,
+  Home_LoadMoreActivityIndicator_iOS: Palette.White,
+  Home_NavbarLogo: Images.Home_NavbarLogo,
+  Home_PostMarginVertical: 6,
+  Home_Refresh_Android: DefaultColors.Primary,
+  Home_RefreshBackground_Android: DefaultColors.Accent,
+  Home_SocialButtons: DefaultColors.Primary,
+  Home_Video: Images.Home_Video,
+  Home_VideoOverlay: Images.Home_VideoOverlay,
+  HomeVideoPanel_TintColor: DefaultColors.HeaderBackground,
+  HomeVideoPanel_TintOpacity: 0.8,
+  HomeVideoPanel_VersionLabel: DefaultColors.HeaderText,
+  Home_Website: Palette.Black,
+  ModalLoader_ActivityIndicator: DefaultColors.Primary,
+  ModalLoader_Background: DefaultColors.Accent,
+  ModalLoader_Container: "#00000040",
+  NotificationEngagementsModal_Container: "#00000040",
+  Songbook_Background: DefaultColors.Accent,
+  Songbook_Cover: Images.Songbook_Cover,
+  Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
+  SingleSong_Background: DefaultColors.Primary,
+  Player_Background: DefaultColors.Accent,
+  Player_DefaultImage: Images.ClubLogo,
+  Player_TopContainerBackground: DefaultColors.HeaderBackground,
+  Post_DefaultChannelThumbnail: Images.LogoAvatar,
+  Post_ChannelLabel: DefaultColors.ColorText,
+  Post_FontSize: 17,
+  Post_LineHeight: 22,
+  Post_LinkColor: "blue",
+  Post_TextColor: DefaultColors.BlackText,
+  Post_TimestampLabel: DefaultColors.ColorText,
+  PostAttachmentComposePrideraiserMatch_ActivityIndicator: DefaultColors.Primary,
+  PrideraiserCampaignSummary_AnalyticsSource: DefaultColors.HeaderText,
+  Roster_DefaultThumbnail: Images.ClubLogo,
+  Roster_TabBackground: DefaultColors.ButtonBackground,
+  Roster_ActiveTabIndicator: DefaultColors.ButtonText,
+  Roster_ActiveTabLabel: DefaultColors.ButtonText,
+  Roster_InactiveTabLabel: DefaultColors.Accent,
+  Roster_FriendsTabIcon: 'md-heart',
+  Roster_FoesTabIcon: 'md-thumbs-down'
+};
+
+/*
+  DrawerLinks
+
+  This structure contains an array of objects used for the main navigation
+  drawer menu. Each object has a .drawerLabel and .url property.
+
+  The structure is required, but does not need to be populated, unless you
+  use a custom Drawer. Here is what it looks like empty.
+  export const DrawerLinks = []
+
+  Feel free to add or remove lines as necessary.
+*/
+export const DrawerLinks = [
+  { drawerLabel: i18n.t('navigation.events'), url: Urls.Events },
+  { drawerLabel: i18n.t('navigation.standings'), url: Urls.Standings },
+  { drawerLabel: i18n.t('navigation.shop'), url: Urls.Shop },
+  { drawerLabel: i18n.t('navigation.volunteer'), url: Urls.Volunteer },
+  { drawerLabel: i18n.t('navigation.instrumentation'), url: Urls.Instrumentation }
+]
+
+/*
+  Banners
+
+  This structure contains an array of objects used for "Headline"
+  banners pinned to the top of the Home screen.
+
+  The structure is required, but does not need to be populated. Here is
+  what it looks like empty.
+  export const Banners = []
+
+  Feel free to add or remove lines as necessary.
+*/
+export const Banners = [
+]
+//{ backgroundColor: Palette.Prideraiser, image: PRIDERAISER_ICON, url: PRIDERAISER_URL, text: "Pledge to Chattanooga Prideraiser", textColor: Palette.White },
+// { backgroundColor: Palette.Sky, image: GOFUNDME_BW_ICON, tintColor: Skin.Home_SocialButtons, url: GOFUNDME_URL, text: "Youth Soccer Investment Crowdfunding", textColor: Palette.Black }
+
+
+/*
+  SocialButtons
+
+  This structure contains an array of objects used for social media and
+  web links on the Home screen.
+
+  The structure is required, but does not need to be populated. Here is
+  what it looks like empty.
+  export const SocialButtons = []
+*/
+// icon: Iconicons name
+export const SocialButtons = [
+  {
+    header: i18n.t('settings.socialEN'),
+    headerColor: DefaultColors.ColorText,
+    items: [
+      { icon: 'logo-twitter', url: Urls.Twitter },
+      { icon: 'logo-facebook', url: Urls.Facebook },
+      { icon: 'logo-instagram', url: Urls.Instagram },
+      { icon: 'md-cart', url: Urls.Shop },
+      { image: Images.PrideraiserIcon, url: Urls.Prideraiser, tintToSkin: false },
+    ]
+  },
+  {
+    header: i18n.t('settings.socialES'),
+    headerColor: DefaultColors.ColorText,
+    items: [
+      { icon: 'logo-twitter', url: Urls.EspTwitter },
+      { icon: 'logo-instagram', url: Urls.EspInstagram },
+      { icon: 'md-browsers', url: Urls.EspWebsite }
+    ]
+  },
+  {
+    header: i18n.t('settings.other'),
+    headerColor: DefaultColors.ColorText,
+    items: [
+      { image: Images.Postcast423, url: Urls.Postcast423, tintToSkin: false },
+      { image: Images.Postcast109, url: Urls.Postcast109, tintToSkin: false },
+      { icon: 'logo-reddit', url: Urls.RedditClub },
+    ]
+  }
+]
+// Other/Seasonal
+// { icon: 'md-browsers', url: Urls.Website },
+// { image: Images.PrideraiserIcon, url: Urls.Prideraiser },
+// { image: Images.GoFundMeBw, url: Urls.GoFundMe, tintToSkin: true }
 
 /*
   App Feature Flags

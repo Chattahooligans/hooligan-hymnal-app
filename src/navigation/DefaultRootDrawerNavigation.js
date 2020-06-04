@@ -13,10 +13,10 @@ import AdminNavigation from './AdminNavigation';
 import YellowCardNavigation from './YellowCardNavigation';
 import RedCardNavigation from './RedCardNavigation';
 import { createWebNavigatorScreens } from './WebNavigation';
-import { drawerLinks } from '../../config';
+import { DrawerLinks } from '../../config';
 
 const RootDrawer = createDrawerNavigator();
-const drawerLinksNavigators = createWebNavigatorScreens(RootDrawer, drawerLinks);
+const drawerLinksNavigators = createWebNavigatorScreens(RootDrawer, DrawerLinks);
 
 const { width: deviceWidth } = Dimensions.get('window');
 

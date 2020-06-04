@@ -12,7 +12,7 @@ import {
 import { BigButton } from './BigButton';
 import { RegularText, BoldText } from './StyledText';
 import { Ionicons } from '@expo/vector-icons';
-import { DefaultColors, commonImageCredit } from '../../config';
+import { DefaultColors, CommonImageCredit } from '../../config';
 import i18n from "../../i18n";
 
 export default class PostCreateImageWrapper extends React.Component {
@@ -86,7 +86,7 @@ export default class PostCreateImageWrapper extends React.Component {
                         <View style={styles.commonCreditContainer}>
                             <FlatList
                                 renderScrollComponent={props => <ScrollView {...props} />}
-                                data={commonImageCredit}
+                                data={CommonImageCredit}
                                 renderItem={this.renderCommonCreditItem}
                                 keyExtractor={(item, index) => index.toString()} />
                         </View>
