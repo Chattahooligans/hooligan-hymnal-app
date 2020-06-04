@@ -416,7 +416,7 @@ export const Settings = {
   PostCreate_UploadImageResizeQuality: 1,
   PostCreate_UploadImageResizeDimensions: { larger: 1216, smaller: 912 },
 
-  Prideraiser_CampaignId: PRIDERAISER_CAMPAIGN_ID,
+  Prideraiser_CampaignId: Urls.PrideraiserCampaignId,
 
   // Prideraiser_CampaignCoverParams: string
   //      default: "?w=768&h=200&wm=pr&wmp=br"
