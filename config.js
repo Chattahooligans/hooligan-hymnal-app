@@ -33,22 +33,38 @@ export const STANDINGS_URL = 'https://www.nisaofficial.com/standings';
 export const INSTRUMENTATION_URL = 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 export const VOLUNTEER_URL = 'http://chattahooligan.com/join/';
 
-// Common Images
-export const HOME_NAVBAR_LOGO = require('./assets/home-logo.png');
-//export const HOME_NAVBAR_LOGO = require('./assets/home-big-c-logo.png');
-export const HOME_VIDEO = require('./assets/5MB_video.mp4');
-export const HOME_VIDEO_OVERLAY = require('./assets/home-big-c-logo.png');
-//export const HOME_VIDEO_OVERLAY = require('./assets/juanstagram-mono-logotype.png');
-export const DRAWER_HERO_BACKGROUND = require('./assets/drawer-hero-background.png');
-export const DRAWER_HERO_OVERLAY = require('./assets/drawer-hero-logo.png');
-export const CLUB_LOGO = require('./assets/chattfc_logo.png');
-export const CLUB_NAME = "Chattanooga FC";
-// social media icons
-export const GOFUNDME_ICON = require('./assets/gofundme.png');
-export const GOFUNDME_BW_ICON = require('./assets/gofundme_bw.png');
-// used in SongView to link to sheet music
-export const SONGBOOK_COVER = require('./assets/songbook-front-cover-heebo.png');
-export const MUSICAL_SCORE_ICON = require('./assets/musical-score.png');
+// Common Images/Video
+export const Images = {
+  // Used as a default Channel thumbnail
+  LogoAvatar: require('./assets/big-c-icon-android.png'),
+
+  // Appears in the navigation bar when the user scrolls down the feed on Home screen
+  Home_NavbarLogo: require('./assets/home-logo.png'),
+
+  // Hero video file that plays on the Home screen
+  Home_Video: require('./assets/5MB_video.mp4'),
+  // Overlay image over the hero video
+  Home_VideoOverlay: require('./assets/home-big-c-logo.png'),
+  // Home_VideoOverlay: require('./assets/juanstagram-mono-logotype.png'),
+
+  Drawer_HeroBackground: require('./assets/drawer-hero-background.png'),
+  Drawer_HeroOverlay: require('./assets/drawer-hero-logo.png'),
+
+  Songbook_Cover: require('./assets/songbook-front-cover-heebo.png'),
+  Songbook_MusicalScore: require('./assets/musical-score.png'),
+
+  // Used as a default Player/Roster thumbnail
+  ClubLogo: require('./assets/chattfc_logo.png'),
+
+  GoFundMeColor: require('./assets/gofundme.png'),
+  GoFundMeBw: require('./assets/gofundme_bw.png'),
+
+  PrideraiserLogo: require('./assets/prideraiser-logo.png'),
+  PrideraiserIcon: require('./assets/prideraiser-icon.png'),
+
+  BadPostcast423: require('./assets/423Soccer.png'),
+  BadPostcast109: require('./assets/section109pod.png')
+}
 
 // Other link
 export const BAD_PODCAST_423_URL = 'https://anchor.fm/423soccerpod';
@@ -59,8 +75,6 @@ export const REDDIT_CHATTANOOGAFC_URL = 'https://www.reddit.com/r/ChattanoogaFC'
 
 // Prideraiser
 export const PRIDERAISER_URL = 'https://chatt.prideraiser.org/';
-export const PRIDERAISER_LOGO = require('./assets/prideraiser-logo.png');
-export const PRIDERAISER_ICON = require('./assets/prideraiser-icon.png');
 export const PRIDERAISER_CAMPAIGN_ID = 'aw43AmO';
 //export const PRIDERAISER_CAMPAIGN_ID = 'invalid_id_for_testing';
 
@@ -120,21 +134,21 @@ export const Skin = {
   Channel_NameLabel: DefaultColors.Primary,
   Channel_Refresh_Android: DefaultColors.Secondary,
   Channel_RefreshBackground_Android: DefaultColors.Primary,
-  Drawer_HeroBackground: DRAWER_HERO_BACKGROUND,
-  Drawer_HeroOverlay: DRAWER_HERO_OVERLAY,
+  Drawer_HeroBackground: Images.Drawer_HeroBackground,
+  Drawer_HeroOverlay: Images.Drawer_HeroOverlay,
   Home_BackgroundColor: DefaultColors.Primary,
   Home_BigButtonsBackground: DefaultColors.ButtonBackground,
   Home_BigButtonsLabel: DefaultColors.ButtonText,
   Home_FindTheMenuLabel: DefaultColors.Primary,
   Home_LoadMoreActivityIndicator_Android: DefaultColors.Secondary,
   Home_LoadMoreActivityIndicator_iOS: Palette.White,
-  Home_NavbarLogo: HOME_NAVBAR_LOGO,
+  Home_NavbarLogo: Images.Home_NavbarLogo,
   Home_PostMarginVertical: 6,
   Home_Refresh_Android: DefaultColors.Primary,
   Home_RefreshBackground_Android: DefaultColors.Secondary,
   Home_SocialButtons: DefaultColors.Primary,
-  Home_Video: HOME_VIDEO,
-  Home_VideoOverlay: HOME_VIDEO_OVERLAY,
+  Home_Video: Images.Home_Video,
+  Home_VideoOverlay: Images.Home_VideoOverlay,
   HomeVideoPanel_TintColor: DefaultColors.NavigationBarBackground,
   HomeVideoPanel_TintOpacity: 0.8,
   HomeVideoPanel_VersionLabel: DefaultColors.HeaderText,
@@ -144,13 +158,13 @@ export const Skin = {
   ModalLoader_Container: "#00000040",
   NotificationEngagementsModal_Container: "#00000040",
   Songbook_Background: Palette.Sky,
-  Songbook_Cover: SONGBOOK_COVER,
+  Songbook_Cover: Images.Songbook_Cover,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Navy,
   Player_Background: Palette.Sky,
-  Player_DefaultImage: CLUB_LOGO,
+  Player_DefaultImage: Images.ClubLogo,
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
-  Post_DefaultChannelThumbnail: require('./assets/big-c-icon-android.png'),
+  Post_DefaultChannelThumbnail: Images.LogoAvatar,
   Post_ChannelLabel: DefaultColors.ColorText,
   Post_FontSize: 17,
   Post_LineHeight: 22,
@@ -159,7 +173,7 @@ export const Skin = {
   Post_TimestampLabel: DefaultColors.ColorText,
   PostAttachmentComposePrideraiserMatch_ActivityIndicator: DefaultColors.Primary,
   PrideraiserCampaignSummary_AnalyticsSource: DefaultColors.HeaderText,
-  Roster_DefaultThumbnail: CLUB_LOGO,
+  Roster_DefaultThumbnail: Images.ClubLogo,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
   Roster_ActiveTabLabel: DefaultColors.ButtonText,

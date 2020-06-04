@@ -10,7 +10,7 @@ import { Provider } from 'unstated';
 import { loadSavedTalksAsync } from './src/utils/storage';
 import { NavigationContainer } from '@react-navigation/native';
 import Navigation from './src/Navigation';
-import imagesArray from './assets';
+import { Images } from './config';
 
 YellowBox.ignoreWarnings(['Warning: bind()']);
 
@@ -44,6 +44,12 @@ class App extends React.Component {
   'open-sans-italic': require('./assets/OpenSans-Italic.ttf'),
   */
   _loadAssetsAsync = async () => {
+    let imagesArray = [];
+    Object.values(Images).forEach((value) => {
+      imagesArray.push(value);
+    });
+
+
     return Promise.all([
       Font.loadAsync({
         'roboto-light': require('./assets/Roboto-Light.ttf'),
