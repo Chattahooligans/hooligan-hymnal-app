@@ -87,6 +87,11 @@ export const Images = {
   Home_VideoOverlay: require('./assets/home-big-c-logo.png'),
   // Home_VideoOverlay: require('./assets/juanstagram-mono-logotype.png'),
 
+  // Home screen hero image. Loads in directly, no fancy tinting or layers
+  //    scaled to fit screen width
+  // Note: Set Skin.Home_HeroImage_VersionColor to a contrasting color
+  Home_HeroImage: require('./assets/big-c-icon-android.png'),
+
   // Background image that appears at the top of the navigation drawer menu
   Drawer_HeroBackground: require('./assets/drawer-hero-background.png'),
   // Overlay image over the drawer hero background image
@@ -242,6 +247,8 @@ export const Skin = {
   Home_BigButtonsBackground: DefaultColors.ButtonBackground,
   Home_BigButtonsLabel: DefaultColors.ButtonText,
   Home_FindTheMenuLabel: DefaultColors.Primary,
+  Home_HeroImage: Images.Home_HeroImage,
+  Home_HeroImage_VersionColor: DefaultColors.HeaderText,
   Home_LoadMoreActivityIndicator_Android: DefaultColors.Accent,
   Home_LoadMoreActivityIndicator_iOS: Palette.White,
   Home_NavbarLogo: Images.Home_NavbarLogo,
@@ -274,7 +281,7 @@ export const Skin = {
   Post_TextColor: DefaultColors.BlackText,
   Post_TimestampLabel: DefaultColors.ColorText,
   PostAttachmentComposePrideraiserMatch_ActivityIndicator: DefaultColors.Primary,
-  PrideraiserCampaignSummary_AnalyticsSource: DefaultColors.HeaderText,
+  PrideraiserCampaignSummary_VersionColor: DefaultColors.HeaderText,
   Roster_DefaultThumbnail: Images.ClubLogo,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,

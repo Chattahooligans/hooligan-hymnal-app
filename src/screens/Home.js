@@ -24,6 +24,7 @@ import { getPost, engageNotification } from '../services/feedService';
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
 import MenuButton from '../components/MenuButton';
+import HomeHeroImage from '../components/HomeHeroImage';
 import HomeVideoPanel from '../components/HomeVideoPanel';
 import SocialButtonPanel from '../components/SocialButtonPanel';
 import HomeBannersPanel from '../components/HomeBannersPanel';
@@ -148,6 +149,9 @@ class Home extends React.Component {
         break;
       case "prideraiser":
         heroComponent = <PrideraiserCampaignSummary key={"prideraiserCampaignSummary"} />
+        break;
+      case "image":
+        heroComponent = <HomeHeroImage />
         break;
       default:
         heroComponent = null
