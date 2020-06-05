@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
         position: "absolute",
         bottom: 8,
         right: 8,
-        color: Skin.PrideraiserCampaignSummary_AnalyticsSource,
+        color: Skin.PrideraiserCampaignSummary_VersionColor,
         fontSize: 14,
         fontFamily: Skin.Font_Regular
     },
