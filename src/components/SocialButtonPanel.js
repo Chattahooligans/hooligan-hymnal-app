@@ -9,7 +9,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { MediumText } from '../components/StyledText';
 import { DefaultColors, Skin } from '../../config';
-import i18n from '../../i18n';
+import i18n from '../i18n';
 
 export default class SocialButtonPanel extends React.Component {
     render() {

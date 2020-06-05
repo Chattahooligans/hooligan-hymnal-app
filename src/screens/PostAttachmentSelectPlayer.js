@@ -15,7 +15,7 @@ import FadeIn from 'react-native-fade-in-image';
 import { Skin, DefaultColors, Palette } from '../../config';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 class PlayerRow extends React.Component {
     render() {

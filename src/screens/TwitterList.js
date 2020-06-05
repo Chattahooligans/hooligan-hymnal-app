@@ -8,7 +8,7 @@ import { Skin, DefaultColors, Palette, Settings } from '../../config';
 import { Ionicons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 class TwitterList extends React.Component {
   render() {

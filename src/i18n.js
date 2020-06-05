@@ -2,10 +2,10 @@
 import i18n from 'i18n-js';
 import * as Localization from 'expo-localization';
 //import files
-import de from './locales/de.json';
-import en from './locales/en.json';
-import es from './locales/es.json';
-import pt from './locales/pt.json';
+import de from '../locales/de.json';
+import en from '../locales/en.json';
+import es from '../locales/es.json';
+import pt from '../locales/pt.json';
 //default to English
 i18n.defaultLocale = 'en';
 //get user's current locale

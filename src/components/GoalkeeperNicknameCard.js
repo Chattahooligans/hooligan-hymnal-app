@@ -7,7 +7,7 @@ import { BoldText, RegularText, MediumText } from './StyledText';
 import { Colors, FontSizes } from '../constants';
 import { Ionicons } from '@expo/vector-icons';
 import { Skin, DefaultColors } from '../../config';
-import i18n from "../../i18n"
+import i18n from '../i18n'
 
 @withNavigation
 export default class GoalkeeperNicknameCard extends React.Component {

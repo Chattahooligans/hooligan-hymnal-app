@@ -14,7 +14,7 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors, MUSICAL_SCORE_ICON } from '../../config';
 import { Ionicons } from '@expo/vector-icons';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 const screenWidth = Dimensions.get('window').width;
 

@@ -13,7 +13,7 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { FontSizes, Icons, Layout } from '../constants';
 import { Skin, DefaultColors, Palette } from '../../config';
 import { defaultFormatUtc } from 'moment';
-import i18n from '../../i18n';
+import i18n from '../i18n';
 
 class FoePlayerRow extends React.Component {
     render() {

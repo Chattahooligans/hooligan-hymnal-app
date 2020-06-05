@@ -14,7 +14,7 @@ import { parsePatterns, parsedStyles, renderBoldItalic } from '../components/Par
 import { Ionicons } from '@expo/vector-icons';
 import { Skin, DefaultColors, Palette } from '../../config';
 import containerStyle from './PostAttachmentContainerStyle';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class PostAttachmentSong extends React.Component {
     render() {

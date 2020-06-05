@@ -7,7 +7,7 @@ import { BoldText, MediumText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
 import songs from '../data/songs.json';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 const gameSongs = songs.filter(song => song.category === 'game');
 const playerSongs = songs.filter(song => song.category === 'player');

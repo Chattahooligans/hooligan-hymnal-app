@@ -13,7 +13,7 @@ import { BigButton } from './BigButton';
 import { RegularText, BoldText } from './StyledText';
 import { Ionicons } from '@expo/vector-icons';
 import { DefaultColors, CommonImageCredit } from '../../config';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class PostCreateImageWrapper extends React.Component {
     state = {

@@ -27,7 +27,7 @@ import Constants from 'expo-constants';
 
 import { find, propEq } from 'ramda';
 import { Palette, Skin, Settings } from '../../config';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 
 class PlayerRow extends React.Component {

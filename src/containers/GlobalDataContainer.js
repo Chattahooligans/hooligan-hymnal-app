@@ -14,7 +14,7 @@ import { Urls, Settings } from '../../config';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
 import { objectTypeAnnotation } from '@babel/types';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 const PUSH_ENDPOINT = Urls.HooliganHymnalServer + '/api/pushToken';
 

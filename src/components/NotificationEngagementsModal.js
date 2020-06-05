@@ -11,7 +11,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { DefaultColors, Skin, Palette, Settings } from '../../config';
 import { getEngagementSummary } from '../services/feedService';
 import moment from 'moment';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class NotificationEngagementsModal extends React.Component {
     state = {

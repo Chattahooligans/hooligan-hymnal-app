@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class WebView extends React.Component {
   componentDidMount() {

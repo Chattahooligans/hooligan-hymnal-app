@@ -10,7 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { RegularText } from '../components/StyledText';
 import { FontSizes } from '../constants';
 import { DefaultColors, Skin } from '../../config';
-import i18n from '../../i18n';
+import i18n from '../i18n';
 
 export default class HomeBannersPanel extends React.Component {
     render() {

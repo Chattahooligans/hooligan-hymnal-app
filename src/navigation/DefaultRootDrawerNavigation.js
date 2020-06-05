@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import i18n from '../../i18n';
+import i18n from '../i18n';
 
 import CustomDrawer from '../components/CustomDrawer';
 import Screens from '../screens';

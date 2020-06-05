@@ -11,7 +11,7 @@ import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors, Settings, Urls } from '../../config';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 

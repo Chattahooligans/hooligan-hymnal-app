@@ -9,7 +9,7 @@ import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Settings } from '../../config';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 class PostAttach extends React.Component {
     render() {

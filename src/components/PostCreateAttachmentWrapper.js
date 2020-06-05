@@ -16,7 +16,7 @@ import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentPrideraiserMatch from './PostAttachmentPrideraiserMatch';
 import PostAttachmentSong from './PostAttachmentSong';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 class PostCreateAttachmentWrapper extends React.Component {
     render() {

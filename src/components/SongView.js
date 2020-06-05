@@ -18,7 +18,7 @@ import Toast from "react-native-tiny-toast";
 // import Toast from 'react-native-simple-toast';
 import { FontSizes, Layout } from '../constants';
 import { Skin, Palette, MUSICAL_SCORE_ICON } from '../../config';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 // TODO: platform select
 // on android, longpress event with clipboard setting

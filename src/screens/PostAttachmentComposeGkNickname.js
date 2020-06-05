@@ -14,7 +14,7 @@ import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Skin, DefaultColors, Palette } from '../../config';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 class ColorRow extends React.Component {
     render() {

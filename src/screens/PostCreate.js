@@ -26,7 +26,7 @@ import { Colors, FontSizes, Layout } from '../constants';
 import { Skin, DefaultColors, Settings } from '../../config';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 import * as mime from 'react-native-mime-types';
 
 import PostAttachmentTypesNavigation from '../navigation/PostAttachmentTypesNavigation';

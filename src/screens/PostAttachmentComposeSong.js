@@ -11,7 +11,7 @@ import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Ionicons } from '@expo/vector-icons';
 import { Skin, DefaultColors, Palette } from '../../config';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class PostAttachmentComposeSong extends React.Component {
     state = {

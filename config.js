@@ -1,6 +1,6 @@
 // Do not edit these import lines
 import appParams from './app.json';
-import i18n from "./i18n";
+import i18n from "./src/i18n";
 
 /*
   Hooligan Hymnal

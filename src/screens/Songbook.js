@@ -20,7 +20,7 @@ import { BoldText, MediumText, RegularText, UnderlineText } from '../components/
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import TableOfContentsInline from './TableOfContentsInline';
 import { Skin, DefaultColors } from '../../config';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 const screenWidth = Dimensions.get('window').width;
 const firstValidPageIndex = 1;

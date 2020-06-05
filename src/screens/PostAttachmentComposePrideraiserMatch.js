@@ -13,7 +13,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { DefaultColors, Skin, Settings } from '../../config';
 import { getCampaign } from '../services/prideraiserService';
 import moment from 'moment';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class PostAttachmentComposePrideraiserMatch extends React.Component {
     state = {

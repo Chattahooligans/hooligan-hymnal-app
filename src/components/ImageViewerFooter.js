@@ -10,7 +10,7 @@ import { RegularText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
 import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from './ParsedTextHelper';
 import Toast from "react-native-tiny-toast";
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class ImageViewerFooter extends React.Component {
     setClipboard = () => {

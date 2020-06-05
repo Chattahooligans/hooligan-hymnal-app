@@ -15,7 +15,7 @@ import { BoldText, MediumText, RegularText, UnderlineText } from '../components/
 import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors } from '../../config';
 import AuthCheck from '../server_store/AuthCheck';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 import {AsyncStorage} from 'react-native';
 
 // TODO: Hard code password for now

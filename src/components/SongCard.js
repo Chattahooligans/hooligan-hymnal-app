@@ -5,7 +5,7 @@ import FadeIn from 'react-native-fade-in-image';
 import { BoldText, RegularText, MediumText } from './StyledText';
 import { conferenceHasEnded, getSpeakerAvatarURL } from '../utils';
 import { Colors, FontSizes } from '../constants';
-import i18n from "../../i18n"
+import i18n from '../i18n'
 
 export default class SongCard extends React.Component {
   render() {

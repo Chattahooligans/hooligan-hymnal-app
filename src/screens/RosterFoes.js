@@ -15,7 +15,7 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Ionicons } from '@expo/vector-icons';
 import { Settings } from '../../config';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 class FoeRow extends React.Component {
     render() {

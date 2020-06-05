@@ -7,7 +7,7 @@ import { BoldText, RegularText } from './StyledText';
 import { FontSizes } from '../constants';
 import { Ionicons } from '@expo/vector-icons';
 import containerStyle from './PostAttachmentContainerStyle';
-import i18n from "../../i18n"
+import i18n from '../i18n'
 
 export default class PostAttachmentGkNickname extends React.Component {
     render() {

@@ -10,7 +10,7 @@ import { BoldText, RegularText, RegularTextMonospace } from './StyledText';
 import { formatStringWithCampaignProps, PrideraiserPalette } from './PrideraiserHelper';
 import PrideraiserRainbowBar from './PrideraiserRainbowBar';
 import { PRIDERAISER_LOGO } from '../../config';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class PostAttachmentPrideraiserMatch extends React.Component {
     render() {

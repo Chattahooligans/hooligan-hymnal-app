@@ -34,7 +34,7 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 import ImageViewerFooter from './ImageViewerFooter';
 import NotificationEngagementsModal from './NotificationEngagementsModal';
 import moment from 'moment';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 import PostAttachmentMultiTweet from './PostAttachmentMultiTweet';
 
 class Post extends React.Component {

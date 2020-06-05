@@ -3,7 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import SongView from '../components/SongView';
 import { HeaderBackButton } from 'react-navigation';
 import { Skin, DefaultColors } from '../../config';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 const styles = StyleSheet.create({
   container: {

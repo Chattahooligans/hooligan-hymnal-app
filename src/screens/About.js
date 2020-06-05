@@ -13,7 +13,7 @@ import ParsedText from 'react-native-parsed-text';
 import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from '../components/ParsedTextHelper';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 import appParams from '../../app.json';
 
 // About info, link to website/fb/twitter

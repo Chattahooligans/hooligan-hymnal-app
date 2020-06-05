@@ -10,7 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
 import { Skin, DefaultColors, Palette } from '../../config';
 import containerStyle from './PostAttachmentContainerStyle';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class PostAttachmentMultiTweet extends React.Component {
     render() {

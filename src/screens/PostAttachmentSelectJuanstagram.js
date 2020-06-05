@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 import juanstagramPosts from '../data/juanstagram';
 

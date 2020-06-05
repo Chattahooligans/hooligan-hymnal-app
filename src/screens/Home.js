@@ -43,7 +43,7 @@ import {
   SocialButtons,
   Urls,
 } from '../../config';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 import { watchPositionAsync } from 'expo-location';
 
 class Home extends React.Component {

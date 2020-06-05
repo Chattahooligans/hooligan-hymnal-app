@@ -11,7 +11,7 @@ import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
 import { Palette, Settings, Skin } from '../../config';
-import i18n from '../../i18n';
+import i18n from '../i18n';
 
 
 const CustomDrawer = props => {
