@@ -90,7 +90,7 @@ export const Images = {
   // Home screen hero image. Loads in directly, no fancy tinting or layers
   //    scaled to fit screen width
   // Note: Set Skin.Home_HeroImage_VersionColor to a contrasting color
-  Home_HeroImage: require('./assets/big-c-icon-android.png'),
+  Home_HeroImage: require('./assets/home-hero.png'),
 
   // Background image that appears at the top of the navigation drawer menu
   Drawer_HeroBackground: require('./assets/drawer-hero-background.png'),
@@ -385,7 +385,7 @@ export const Settings = {
   //      and tapping into a whole hunk of UI will be jarring and confusing to users
   ChannelUI_Enabled: false,
 
-  // Home_HeroContent: "video", "prideraiser", ("image" coming soon)
+  // Home_HeroContent: "video", "image", "prideraiser"
   //      Hero content on the home screen
   Home_HeroContent: "prideraiser",
 
