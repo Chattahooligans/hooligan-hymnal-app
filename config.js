@@ -285,6 +285,16 @@ export const Skin = {
 };
 
 /*
+  Translations
+*/
+import de from './locales/de.json';
+import en from './locales/en.json';
+import es from './locales/es.json';
+import pt from './locales/pt.json';
+export const Translations = { de, en, es, pt }
+export const DefaultLocale = 'en';
+
+/*
   DrawerLinks
 
   This structure contains an array of objects used for the main navigation

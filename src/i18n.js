@@ -1,3 +1,4 @@
+//import { DefaultLocale, Translations } from '../config';
 //configure internationalization
 import i18n from 'i18n-js';
 import * as Localization from 'expo-localization';
