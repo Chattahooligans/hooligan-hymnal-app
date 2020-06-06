@@ -7,6 +7,7 @@ import {
   View
 } from 'react-native';
 import { DrawerItemList } from '@react-navigation/drawer';
+import { Ionicons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
@@ -15,8 +16,9 @@ import i18n from '../i18n';
 
 
 const CustomDrawer = props => {
+  let loggedIn = props.globalData.state.unlocked
   // we want to hide certain routes from showing up in the drawer, because they are accessed through custom buttons
-  const hideRoutes = ["YellowCard", "RedCard"];
+  const hideRoutes = ["About", "Admin", "YellowCard", "RedCard"];
   const filteredProps = {
     ...props,
     state: {
@@ -42,7 +44,7 @@ const CustomDrawer = props => {
         </View>
       </View>
       <ScrollView style={{ flex: 1 }}>
-        <DrawerItemList 
+        <DrawerItemList
           {...filteredProps}
           activeBackgroundColor="rgba(255,255,255,0.1)"
           activeTintColor='white' inactiveTintColor='white'
@@ -60,8 +62,27 @@ const CustomDrawer = props => {
           }}
         />
       </ScrollView>
-      {Settings.RefereeCards_Show &&
-        <View style={{ borderTopColor: '#222', borderTopWidth: 1 }}>
+      <View style={styles.bottomContainer}>
+        <TouchableOpacity
+          onPress={() => { props.navigation.navigate("About") }}>
+          <Ionicons name={"md-information-circle"} size={24} color={'white'} />
+        </TouchableOpacity>
+        {/*}
+        <TouchableOpacity
+          onPress={() => {
+            console.log(props.state.routeNames)
+            if (props.globalData.state.unlocked === true)
+              props.navigation.navigate('CapoHome');
+            else
+              props.navigation.navigate('Admin');
+          }}>
+          {console.log("unlocked? " + props.globalData.state)}
+          {console.log("logged in? " + loggedIn)}
+          {props.globalData.state.unlocked === true && <Ionicons name={"md-apps"} size={24} color={'white'} />}
+          {props.globalData.state.unlocked !== true && <Ionicons name={"md-log-in"} size={24} color={'white'} />}
+        </TouchableOpacity>
+        */}
+        {Settings.RefereeCards_Show &&
           <View style={styles.cardContainer}>
             <TouchableOpacity
               onPress={() => { props.navigation.navigate("YellowCard") }}>
@@ -72,8 +93,8 @@ const CustomDrawer = props => {
               <View style={[styles.card, { backgroundColor: Palette.RedCard }]}></View>
             </TouchableOpacity>
           </View>
-        </View>
-      }
+        }
+      </View>
     </View>
   )
 }
@@ -84,6 +105,14 @@ const styles = StyleSheet.create({
     width: '100%',
     resizeMode: 'cover'
   },
+  bottomContainer: {
+    flexDirection: i18n.getFlexDirection(),
+    borderTopColor: '#222',
+    borderTopWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    alignItems: "center"
+  },
   card: {
     margin: 5,
     width: 20,
@@ -91,10 +120,9 @@ const styles = StyleSheet.create({
     borderRadius: 5
   },
   cardContainer: {
+    flex: 1,
     flexDirection: i18n.getFlexDirection(),
     justifyContent: "flex-end",
-    marginRight: 5,
-    marginVertical: 5
   },
   container: {
     flex: 1,

@@ -67,7 +67,7 @@ export default DefaultRootDrawerNavigation = () => {
             {drawerLinksNavigators}
 
             <RootDrawer.Screen
-                name="AdminHome"
+                name="Admin"
                 component={AdminNavigation}
                 options={{
                     drawerLabel: i18n.t('navigation.capo'),
