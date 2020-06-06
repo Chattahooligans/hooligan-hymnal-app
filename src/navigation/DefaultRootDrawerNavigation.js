@@ -71,7 +71,7 @@ export default DefaultRootDrawerNavigation = () => {
                 component={AdminNavigation}
                 options={{
                     drawerLabel: i18n.t('navigation.capo'),
-                    drawerIcon: ({color, size}) => <Ionicons name={"md-apps"} size={size} color={color} />
+                    drawerIcon: ({color, size}) => <Ionicons name={"md-construct"} size={size} color={color} />
                 }} />
             <RootDrawer.Screen
                 name="About"

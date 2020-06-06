@@ -16,7 +16,6 @@ import i18n from '../i18n';
 
 
 const CustomDrawer = props => {
-  let loggedIn = props.globalData.state.unlocked
   // we want to hide certain routes from showing up in the drawer, because they are accessed through custom buttons
   const hideRoutes = ["About", "Admin", "YellowCard", "RedCard"];
   const filteredProps = {
@@ -65,23 +64,18 @@ const CustomDrawer = props => {
       <View style={styles.bottomContainer}>
         <TouchableOpacity
           onPress={() => { props.navigation.navigate("About") }}>
-          <Ionicons name={"md-information-circle"} size={24} color={'white'} />
+          <Ionicons name={"md-information-circle"} size={30} color={'white'} style={{ marginRight: 10 }} />
         </TouchableOpacity>
-        {/*}
         <TouchableOpacity
           onPress={() => {
             console.log(props.state.routeNames)
-            if (props.globalData.state.unlocked === true)
+            if (props.globalData.state.currentUser)
               props.navigation.navigate('CapoHome');
             else
               props.navigation.navigate('Admin');
           }}>
-          {console.log("unlocked? " + props.globalData.state)}
-          {console.log("logged in? " + loggedIn)}
-          {props.globalData.state.unlocked === true && <Ionicons name={"md-apps"} size={24} color={'white'} />}
-          {props.globalData.state.unlocked !== true && <Ionicons name={"md-log-in"} size={24} color={'white'} />}
+          <Ionicons name={props.globalData.state.currentUser ? "md-construct" : "md-log-in"} size={30} color={'white'} style={{ marginRight: 10 }} />
         </TouchableOpacity>
-        */}
         {Settings.RefereeCards_Show &&
           <View style={styles.cardContainer}>
             <TouchableOpacity
