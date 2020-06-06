@@ -16,11 +16,11 @@
             "debug": "Debug",
             "contribute": "Interesse an einer Mitarbeit? Wenn Du progammieren, gestalten, schreiben oder in anderer Weise helfen kannst, würden wir uns freuen mit Dir zu arbeiten! Bitte melde Dich bei _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email thechattahooligans@gmail.com"
         },
-        "capohome": {
+        "adminhome": {
             "title": "Capo Dashboard",
             "logout": "Logout"
         },
-        "capologin": {
+        "adminlogin": {
             "title": "Capo Dashboard",
             "username": "Benutzername/Email",
             "password": "Passwort",

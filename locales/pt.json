@@ -16,11 +16,11 @@
             "debug": "Debug",
             "contribute": "Interessado em contribuir? Se você e capaz de escrever código, conteúdo, ou design, ou quer ajudar de outra maneira, nós gostaríamos de conectar com você. Por favor entre em contato com _@chattahooligan_ ou _@hooliganhymnal_ no Twitter, ou mande email para thechattahooligans@gmail.com"
         },
-        "capohome": {
+        "adminhome": {
             "title": "Menu",
             "logout": "Logout"
         },
-        "capologin": {
+        "adminlogin": {
             "title": "Menu",
             "username": "Username/Email",
             "password": "Password",

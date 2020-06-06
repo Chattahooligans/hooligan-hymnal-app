@@ -16,12 +16,12 @@
             "debug": "Debug",
             "contribute": " is built using the open-source *Hooligan Hymnal* platform.\n\nInterested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to _@hooliganhymnal_ on Twitter or visit the project repository at https://github.com/Chattahooligans"
         },
-        "capohome": {
+        "adminhome": {
             "title": "Capo Dashboard",
             "postcreate": "Create Post",
             "logout": "Logout"
         },
-        "capologin": {
+        "adminlogin": {
             "title": "Capo Dashboard",
             "username": "Username/Email",
             "password": "Password",

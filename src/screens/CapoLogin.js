@@ -34,7 +34,7 @@ class CapoLogin extends React.Component {
 
   componentDidMount() {
     this.props.navigation.setOptions({
-      headerTitle: i18n.t('screens.capologin.title')
+      headerTitle: i18n.t('screens.adminlogin.title')
     })
 
     this.setData();
@@ -78,14 +78,14 @@ class CapoLogin extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <RegularText style={styles.instructions}>{i18n.t('screens.capologin.username')}</RegularText>
+        <RegularText style={styles.instructions}>{i18n.t('screens.adminlogin.username')}</RegularText>
         <TextInput
           style={styles.textInput}
           autoFocus={true}
           onChangeText={this._setUsername}
           value={this.state.username}
         />
-        <RegularText style={styles.instructions}>{i18n.t('screens.capologin.password')}</RegularText>
+        <RegularText style={styles.instructions}>{i18n.t('screens.adminlogin.password')}</RegularText>
         <TextInput
           style={styles.textInput}
           autoFocus={true}
@@ -99,7 +99,7 @@ class CapoLogin extends React.Component {
             onPress={this._handlePressSubmitButton}
             underlayColor="#fff"
           >
-            <MediumText style={styles.bigButtonText}>{i18n.t('screens.capologin.unlock')}</MediumText>
+            <MediumText style={styles.bigButtonText}>{i18n.t('screens.adminlogin.unlock')}</MediumText>
           </RectButton>
         </ClipBorderRadius>
       </View>
