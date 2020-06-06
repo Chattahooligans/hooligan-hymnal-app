@@ -70,19 +70,11 @@
             "submit": "Submit Post",
             "schedule": "Schedule Post"
         },
-        "events": {
-            "title": "Ereignisse",
-            "fallback": "Ereignisse öffnen im WebBrowser"
-        },
         "home": {
             "findthemenu": "Entdecke weitere großartige Funktionen %menuicon% Menü, oben links",
             "visit": "Besuche:",
             "songbook": "Gesangsbuch",
             "roster": "Spielerliste"
-        },
-        "instrumentation": {
-            "title": "Instrumentierung",
-            "fallback": "Instrumentierung öffnet im WebBrowser"
         },
         "player": {
             "playersongs": "Spieler-Lieder",
@@ -102,10 +94,6 @@
             "friends": "Freunde",
             "foes": "Feinde"
         },
-        "shop": {
-            "title": "Fanartikel-Shop",
-            "fallback": "Fanartikel-Shop öffnet im WebBrowser."
-        },
         "singlesong": {
             "title": "Demnächst"
         },
@@ -121,10 +109,6 @@
             "playersongs": "Spieler-Lieder",
             "teamsongs": "Team-Lieder"
         },
-        "standings": {
-            "title": "Tabelle",
-            "fallback": "Tabelle öffnet im WebBrowser."
-        },
         "tocinline": {
             "title": "Inhaltsverzeichnis"
         },
@@ -134,9 +118,8 @@
             "instructions": "Die Verbindung zwischen den CFC-Fans und dem Team ist einzigartig, besonders und greifbar. Botschaften der Ermutigung, Liebe, was auch immer, bedeuten den Spielern wirklich viel.\n\n\nIhr könnt mehrere Twitter-Handles aus dem Feld unten kopieren und sie in einen längeren Twitter-Thread einfügen.",
             "opentwitter": "Öffne Twitter App"
         },
-        "volunteer": {
-            "title": "Freiwillige",
-            "fallback": "Chattahooligan Freiwilligenformular öffnet im WebBrowser"
+        "webview": {
+            "fallback": "Web links open in a WebBrowser component. If you see this message, use the menu to get back to the app."
         }
     },
     "navigation": {

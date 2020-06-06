@@ -70,19 +70,11 @@
             "submit": "Submit Post",
             "schedule": "Schedule Post"
         },
-        "events": {
-            "title": "Eventos",
-            "fallback": "Events opens in WebBrowser component"
-        },
         "home": {
             "findthemenu": "Encuentre más funciones en el menú %menuicon%, arriba a la izquierda",
             "visit": "Visita:",
             "songbook": "Libro de Cantos",
             "roster": "Lista de Equipo"
-        },
-        "instrumentation": {
-            "title": "Instrumentación",
-            "fallback": "Instrumentation opens in WebBrowser component"
         },
         "player": {
             "playersongs": "Canciones de Jugadores",
@@ -102,10 +94,6 @@
             "friends": "Amigos",
             "foes": "Rivales"
         },
-        "shop": {
-            "title": "Compra de Merch",
-            "fallback": "Merch shop opens in WebBrowser component"
-        },
         "singlesong": {
             "title": "A Continuación"
         },
@@ -121,10 +109,6 @@
             "playersongs": "Canciones de jugadores",
             "teamsongs": "Canciones del equipo"
         },
-        "standings": {
-            "title": "Tabla de Liga",
-            "fallback": "Standings open in WebBrowser component"
-        },
         "tocinline": {
             "title": "Tabla de Contenidos"
         },
@@ -134,9 +118,8 @@
             "instructions": "La conexión entre los fans de cfc y el equipo es única, especial y tangible. Mensajes de estímulo, amor, lo que sea, realmente significan mucho para la players.\n\nYou puede copiar múltiples mangas de twitter desde la caja y pegarlas a un hilo de twitter más largo.",
             "opentwitter": "Open Twitter App"
         },
-        "volunteer": {
-            "title": "Sé voluntario",
-            "fallback": "Chattahooligan volunteer form opens in WebBrowser component"
+        "webview": {
+            "fallback": "Web links open in a WebBrowser component. If you see this message, use the menu to get back to the app."
         }
     },
     "navigation": {
