@@ -42,9 +42,10 @@ const CustomDrawer = props => {
         </View>
       </View>
       <ScrollView style={{ flex: 1 }}>
-        <DrawerItemList
+        <DrawerItemList 
           {...filteredProps}
           activeBackgroundColor="rgba(255,255,255,0.1)"
+          activeTintColor='white' inactiveTintColor='white'
           labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection(), fontFamily: Skin.NavigationDrawer_FontFamily }}
           onItemPress={({ route, focused }) => {
             if (route.routeName === 'CapoHome') {
