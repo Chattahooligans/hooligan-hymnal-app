@@ -14,7 +14,7 @@
                 "- Algunos códigos basados en la apllicación de la conferencia software libre @nodevember"
             ],
             "debug": "Debug",
-            "contribute": "¿Interesado en contribuir? Si puedes codificar, diseñar, escribir o ayudar de cualquier manera, ¡ nos encantaría trabajar contigo! Por favor contacte con nosotros en_ @chattahooligan o @hooliganhymnal _ en twitter, o por correo electrónico thechattahooligans @gmail. com",
+            "contribute": "¿Interesado en contribuir? Si puedes codificar, diseñar, escribir o ayudar de cualquier manera, ¡ nos encantaría trabajar contigo! Por favor contacte con nosotros en_ @chattahooligan o @hooliganhymnal _ en twitter, o por correo electrónico thechattahooligans @gmail. com"
         },
         "capohome": {
             "title": "Tablero de Capo",
@@ -143,13 +143,15 @@
         "home": "CASA",
         "songbook": "LIBRO DE CANCIONES",
         "roster": "LISTA DE EQUIPO",
-        "events": "EVENTOS ↗️",
-        "standings": "TABLA DE LIGA ↗️",
-        "shop": "TIENDA DE MERCANCÍAS ↗️",
-        "volunteer": "SÈ VOLUNTARIO ↗️",
-        "instrumentation": "INSTRUMENTACIÓN ↗️",
-        "capo": "TABLERO DE CAPO",
-        "about": "ACERCA DE"
+        "admin": "TABLERO DE CAPO",
+        "about": "ACERCA DE",
+        "links": {
+            "events": "EVENTOS ↗️",
+            "standings": "TABLA DE LIGA ↗️",
+            "shop": "TIENDA DE MERCANCÍAS ↗️",
+            "volunteer": "SÈ VOLUNTARIO ↗️",
+            "instrumentation": "INSTRUMENTACIÓN ↗️"
+        }
     },
     "components": {
         "gkNickname": {

@@ -304,11 +304,11 @@ export const Skin = {
   Feel free to add or remove lines as necessary.
 */
 export const DrawerLinks = [
-  { drawerLabel: i18n.t('navigation.events'), url: Urls.Events },
-  { drawerLabel: i18n.t('navigation.standings'), url: Urls.Standings },
-  { drawerLabel: i18n.t('navigation.shop'), url: Urls.Shop },
-  { drawerLabel: i18n.t('navigation.volunteer'), url: Urls.Volunteer },
-  { drawerLabel: i18n.t('navigation.instrumentation'), url: Urls.Instrumentation }
+  { drawerLabel: i18n.t('navigation.links.events'), url: Urls.Events },
+  { drawerLabel: i18n.t('navigation.links.standings'), url: Urls.Standings },
+  { drawerLabel: i18n.t('navigation.links.shop'), url: Urls.Shop },
+  { drawerLabel: i18n.t('navigation.links.volunteer'), url: Urls.Volunteer },
+  { drawerLabel: i18n.t('navigation.links.instrumentation'), url: Urls.Instrumentation }
 ]
 
 /*

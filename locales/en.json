@@ -171,13 +171,15 @@
         "home": "HOME",
         "songbook": "SONGBOOK",
         "roster": "ROSTER",
-        "events": "EVENTS ↗️",
-        "standings": "STANDINGS ↗️",
-        "shop": "MERCH SHOP ↗️",
-        "volunteer": "VOLUNTEER ↗️",
-        "instrumentation": "INSTRUMENTATION ↗️",
-        "capo": "CAPO DASHBOARD",
-        "about": "ABOUT"
+        "admin": "CAPO DASHBOARD",
+        "about": "ABOUT",
+        "links": {
+            "events": "EVENTS ↗️",
+            "standings": "STANDINGS ↗️",
+            "shop": "MERCH SHOP ↗️",
+            "volunteer": "VOLUNTEER ↗️",
+            "instrumentation": "INSTRUMENTATION ↗️"
+        }
     },
     "components": {
         "gkNickname": {

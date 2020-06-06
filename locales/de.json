@@ -143,13 +143,15 @@
         "home": "HOME",
         "songbook": "GESANGSBUCH",
         "roster": "SPIELERLISTE",
-        "events": "EREIGNIS ↗️",
-        "standings": "TABELLE ↗️",
-        "shop": "FANARTIKEL SHOP ↗️",
-        "volunteer": "FREIWILLIGE ↗️",
-        "instrumentation": "INTRUMENTIERUNG ↗️",
-        "capo": "CAPO DASHBOARD",
-        "about": "ÜBER"
+        "admin": "CAPO DASHBOARD",
+        "about": "ÜBER",
+        "links": {
+            "events": "EREIGNIS ↗️",
+            "standings": "TABELLE ↗️",
+            "shop": "FANARTIKEL SHOP ↗️",
+            "volunteer": "FREIWILLIGE ↗️",
+            "instrumentation": "INTRUMENTIERUNG ↗️"
+        }
     },
     "components": {
         "gkNickname": {

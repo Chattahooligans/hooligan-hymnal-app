@@ -143,13 +143,15 @@
         "home": "HOME",
         "songbook": "REPERTORIO",
         "roster": "ELENCO",
-        "events": "EVENTOS ↗️",
-        "standings": "TABELA DE CLASSIFICACAO ↗️",
-        "shop": "LOJA DO TIME ↗️",
-        "volunteer": "SE INSCREVA COMO VOLUNTARIO ↗️",
-        "instrumentation": "MELODIAS ↗️",
-        "capo": "MENU",
-        "about": "MAIS INFORMACOES"
+        "admin": "MENU",
+        "about": "MAIS INFORMACOES",
+        "links": {
+            "events": "EVENTOS ↗️",
+            "standings": "TABELA DE CLASSIFICACAO ↗️",
+            "shop": "LOJA DO TIME ↗️",
+            "volunteer": "SE INSCREVA COMO VOLUNTARIO ↗️",
+            "instrumentation": "MELODIAS ↗️"
+        }
     },
     "components": {
         "gkNickname": {
