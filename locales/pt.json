@@ -24,7 +24,7 @@
             "title": "Menu",
             "username": "Username/Email",
             "password": "Password",
-            "unlock": "Unlock"
+            "login": "Log In"
         },
         "postattach": {
             "attachmenttypes": "Attachment Types",

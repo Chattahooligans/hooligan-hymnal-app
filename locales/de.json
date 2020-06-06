@@ -24,7 +24,7 @@
             "title": "Capo Dashboard",
             "username": "Benutzername/Email",
             "password": "Passwort",
-            "unlock": "Entsperren"
+            "login": "Einloggen"
         },
         "postattach": {
             "attachmenttypes": "Attachment Types",

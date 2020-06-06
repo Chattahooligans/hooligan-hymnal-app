@@ -24,7 +24,7 @@
             "title": "Tablero de Capo",
             "username": "Nombre de usuario/Correo Electrónico",
             "password": "Contraseña",
-            "unlock": "Abrir"
+            "login": "Acceder"
         },
         "postattach": {
             "attachmenttypes": "Attachment Types",

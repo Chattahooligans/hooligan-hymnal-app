@@ -99,7 +99,7 @@ class CapoLogin extends React.Component {
             onPress={this._handlePressSubmitButton}
             underlayColor="#fff"
           >
-            <MediumText style={styles.bigButtonText}>{i18n.t('screens.adminlogin.unlock')}</MediumText>
+            <MediumText style={styles.bigButtonText}>{i18n.t('screens.adminlogin.login')}</MediumText>
           </RectButton>
         </ClipBorderRadius>
       </View>
