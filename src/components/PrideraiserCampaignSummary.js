@@ -28,7 +28,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
         source: ""
     }
 
-    componentWillMount = async () => {
+    componentDidMount = async () => {
         if (!this.state.campaign) {
             try {
                 const campaign = await getCampaign(Settings.Prideraiser_CampaignId)

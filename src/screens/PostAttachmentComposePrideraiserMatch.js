@@ -27,7 +27,7 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
         source: ""
     }
 
-    componentWillMount = async () => {
+    componentDidMount = async () => {
         this.props.navigation.setOptions({
             header: null
         })
