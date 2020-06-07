@@ -16,9 +16,10 @@ import { Layout } from '../constants';
 import { Palette, Settings, Skin, NavigationDrawerItems } from '../../config';
 import i18n from '../i18n';
 
-function createRouteDrawerItem(item, navigation) {
+function createRouteDrawerItem(item, navigation, index) {
   return (
     <DrawerItem
+      key={item.drawerLabel + '-' + index}
       activeTintColor={Skin.NavigationDrawer_LabelActiveTintColor}
       activeBackgroundColor={Skin.NavigationDrawer_LabelActiveBackgroundColor}
       inactiveTintColor={Skin.NavigationDrawer_LabelInactiveTintColor}
@@ -29,9 +30,10 @@ function createRouteDrawerItem(item, navigation) {
       onPress={() => navigation.navigate(item.routeName)} />
   )
 }
-function createLinkDrawerItem(item, navigation) {
+function createLinkDrawerItem(item, navigation, index) {
   return (
     <DrawerItem
+      key={item.drawerLabel + '-' + index}
       activeTintColor={Skin.NavigationDrawer_LabelActiveTintColor}
       activeBackgroundColor={Skin.NavigationDrawer_LabelActiveBackgroundColor}
       inactiveTintColor={Skin.NavigationDrawer_LabelInactiveTintColor}
@@ -52,11 +54,11 @@ function createLinkDrawerItem(item, navigation) {
 function createNavDrawerItems(items, navigation) {
   let drawerItems = []
 
-  items.forEach(element => {
+  items.forEach((element, index) => {
     if (element.routeName)
-      drawerItems.push(createRouteDrawerItem(element, navigation))
+      drawerItems.push(createRouteDrawerItem(element, navigation, index))
     if (element.url)
-      drawerItems.push(createLinkDrawerItem(element, navigation))
+      drawerItems.push(createLinkDrawerItem(element, navigation, index))
   })
 
   return drawerItems
