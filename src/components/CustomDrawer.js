@@ -29,7 +29,7 @@ function createRouteDrawerItem(item, navigation) {
       onPress={() => navigation.navigate(item.routeName)} />
   )
 }
-function createLinkDrawerItem(item) {
+function createLinkDrawerItem(item, navigation) {
   return (
     <DrawerItem
       activeTintColor={Skin.NavigationDrawer_LabelActiveTintColor}
@@ -56,7 +56,7 @@ function createNavDrawerItems(items, navigation) {
     if (element.routeName)
       drawerItems.push(createRouteDrawerItem(element, navigation))
     if (element.url)
-      drawerItems.push(createLinkDrawerItem(element))
+      drawerItems.push(createLinkDrawerItem(element, navigation))
   })
 
   return drawerItems
