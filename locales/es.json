@@ -129,11 +129,11 @@
         "admin": "TABLERO DE CAPO",
         "about": "ACERCA DE",
         "links": {
-            "events": "EVENTOS ↗️",
-            "standings": "TABLA DE LIGA ↗️",
-            "shop": "TIENDA DE MERCANCÍAS ↗️",
-            "volunteer": "SÈ VOLUNTARIO ↗️",
-            "instrumentation": "INSTRUMENTACIÓN ↗️"
+            "events": "EVENTOS",
+            "standings": "TABLA DE LIGA",
+            "shop": "TIENDA DE MERCANCÍAS",
+            "volunteer": "SÈ VOLUNTARIO",
+            "instrumentation": "INSTRUMENTACIÓN"
         }
     },
     "components": {

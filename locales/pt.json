@@ -129,11 +129,11 @@
         "admin": "MENU",
         "about": "MAIS INFORMACOES",
         "links": {
-            "events": "EVENTOS ↗️",
-            "standings": "TABELA DE CLASSIFICACAO ↗️",
-            "shop": "LOJA DO TIME ↗️",
-            "volunteer": "SE INSCREVA COMO VOLUNTARIO ↗️",
-            "instrumentation": "MELODIAS ↗️"
+            "events": "EVENTOS",
+            "standings": "TABELA DE CLASSIFICACAO",
+            "shop": "LOJA DO TIME",
+            "volunteer": "SE INSCREVA COMO VOLUNTARIO",
+            "instrumentation": "MELODIAS"
         }
     },
     "components": {

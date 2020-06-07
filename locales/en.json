@@ -148,17 +148,17 @@
         }
     },
     "navigation": {
-        "home": "HOME",
-        "songbook": "SONGBOOK",
-        "roster": "ROSTER",
-        "admin": "CAPO DASHBOARD",
-        "about": "ABOUT",
+        "home": "Home",
+        "songbook": "Songbook",
+        "roster": "Roster",
+        "admin": "Admin Dashboard",
+        "about": "About",
         "links": {
-            "events": "EVENTS ↗️",
-            "standings": "STANDINGS ↗️",
-            "shop": "MERCH SHOP ↗️",
-            "volunteer": "VOLUNTEER ↗️",
-            "instrumentation": "INSTRUMENTATION ↗️"
+            "events": "Events",
+            "standings": "Standings",
+            "shop": "Merch Shop",
+            "volunteer": "Volunteer",
+            "instrumentation": "Instrumentation"
         }
     },
     "components": {

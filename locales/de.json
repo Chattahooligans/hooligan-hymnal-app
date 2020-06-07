@@ -129,11 +129,11 @@
         "admin": "CAPO DASHBOARD",
         "about": "ÜBER",
         "links": {
-            "events": "EREIGNIS ↗️",
-            "standings": "TABELLE ↗️",
-            "shop": "FANARTIKEL SHOP ↗️",
-            "volunteer": "FREIWILLIGE ↗️",
-            "instrumentation": "INTRUMENTIERUNG ↗️"
+            "events": "EREIGNIS",
+            "standings": "TABELLE",
+            "shop": "FANARTIKEL SHOP",
+            "volunteer": "FREIWILLIGE",
+            "instrumentation": "INTRUMENTIERUNG"
         }
     },
     "components": {
