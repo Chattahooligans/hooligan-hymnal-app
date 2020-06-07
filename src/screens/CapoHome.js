@@ -4,7 +4,7 @@ import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BigButton } from '../components/BigButton';
@@ -40,7 +40,7 @@ class CapoHome extends React.Component {
           <View>
             <BigButton
               label={i18n.t('screens.adminhome.postcreate')}
-              iconName="md-paper"
+              iconName="newspaper-plus"
               onPress={this._handlePressPostCreateButton} />
           </View>
           <View style={{ padding: 10 }}>

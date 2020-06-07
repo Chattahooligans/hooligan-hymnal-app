@@ -56,7 +56,7 @@ export default class PostAttachmentPrideraiserMatch extends React.Component {
                 </View>
                 <BigButton
                     buttonStyle={{ backgroundColor: PrideraiserPalette.green, marginTop: 0, marginHorizontal: 0 }}
-                    iconName="md-heart-empty" iconPosition="right"
+                    iconName="heart-outline" iconPosition="right"
                     label={"Pledge"}
                     onPress={() => {
                         let source = ""

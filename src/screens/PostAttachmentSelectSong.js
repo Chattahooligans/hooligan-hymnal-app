@@ -11,7 +11,7 @@ import {
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
 import { Skin, DefaultColors, Palette } from '../../config';
 import withUnstated from '@airship/with-unstated';
@@ -122,8 +122,8 @@ class PostAttachmentSelectSong extends React.Component {
                         onChangeText={this._onSearchChange} />
                     <TouchableOpacity
                         onPress={() => this.setState({ search: "" })}>
-                        <Ionicons
-                            name={"md-close"}
+                        <MaterialCommunityIcons
+                            name={"close"}
                             size={23}
                             style={{
                                 color: DefaultColors.ButtonBackground,

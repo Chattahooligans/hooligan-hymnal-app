@@ -262,6 +262,8 @@ export const Skin = {
   HomeVideoPanel_TintOpacity: 0.8,
   HomeVideoPanel_VersionLabel: DefaultColors.HeaderText,
   Home_Website: Palette.Black,
+  Icon_Roster: "account-group",
+  Icon_Songbook: "book-open-variant",
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Accent,
   ModalLoader_Container: "#00000040",
@@ -288,8 +290,8 @@ export const Skin = {
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
   Roster_ActiveTabLabel: DefaultColors.ButtonText,
   Roster_InactiveTabLabel: DefaultColors.Accent,
-  Roster_FriendsTabIcon: 'md-heart',
-  Roster_FoesTabIcon: 'md-thumbs-down'
+  Roster_FriendsTabIcon: 'heart',
+  Roster_FoesTabIcon: 'thumb-down'
 };
 
 /*
@@ -346,10 +348,10 @@ export const SocialButtons = [
     header: i18n.t('settings.socialEN'),
     headerColor: DefaultColors.ColorText,
     items: [
-      { icon: 'logo-twitter', url: Urls.Twitter },
-      { icon: 'logo-facebook', url: Urls.Facebook },
-      { icon: 'logo-instagram', url: Urls.Instagram },
-      { icon: 'md-cart', url: Urls.Shop },
+      { icon: 'twitter', url: Urls.Twitter },
+      { icon: 'facebook', url: Urls.Facebook },
+      { icon: 'instagram', url: Urls.Instagram },
+      { icon: 'cart', url: Urls.Shop },
       { image: Images.PrideraiserIcon, url: Urls.Prideraiser, tintToSkin: false },
     ]
   },
@@ -357,9 +359,9 @@ export const SocialButtons = [
     header: i18n.t('settings.socialES'),
     headerColor: DefaultColors.ColorText,
     items: [
-      { icon: 'logo-twitter', url: Urls.EsTwitter },
-      { icon: 'logo-instagram', url: Urls.EsInstagram },
-      { icon: 'md-browsers', url: Urls.EsWebsite }
+      { icon: 'twitter', url: Urls.EsTwitter },
+      { icon: 'instagram', url: Urls.EsInstagram },
+      { icon: 'link', url: Urls.EsWebsite }
     ]
   },
   {
@@ -368,12 +370,12 @@ export const SocialButtons = [
     items: [
       { image: Images.Postcast423, url: Urls.Postcast423, tintToSkin: false },
       { image: Images.Postcast109, url: Urls.Postcast109, tintToSkin: false },
-      { icon: 'logo-reddit', url: Urls.RedditClub },
+      { icon: 'reddit', url: Urls.RedditClub },
     ]
   }
 ]
 // Other/Seasonal
-// { icon: 'md-browsers', url: Urls.Website },
+// { icon: 'link', url: Urls.Website },
 // { image: Images.PrideraiserIcon, url: Urls.Prideraiser },
 // { image: Images.GoFundMeBw, url: Urls.GoFundMe, tintToSkin: true }
 

@@ -7,6 +7,7 @@ import {
   View
 } from 'react-native';
 import { DrawerItemList } from '@react-navigation/drawer';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
@@ -16,7 +17,7 @@ import i18n from '../i18n';
 
 const CustomDrawer = props => {
   // we want to hide certain routes from showing up in the drawer, because they are accessed through custom buttons
-  const hideRoutes = ["YellowCard", "RedCard"];
+  const hideRoutes = ["About", "Admin", "YellowCard", "RedCard"];
   const filteredProps = {
     ...props,
     state: {
@@ -45,10 +46,11 @@ const CustomDrawer = props => {
         <DrawerItemList
           {...filteredProps}
           activeBackgroundColor="rgba(255,255,255,0.1)"
+          activeTintColor='white' inactiveTintColor='white'
           labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection(), fontFamily: Skin.NavigationDrawer_FontFamily }}
           onItemPress={({ route, focused }) => {
             if (route.routeName === 'CapoHome') {
-              if (props.globalData.state.unlocked === true) {
+              if (props.globalData.state.currentUser) {
                 props.navigation.navigate('CapoHome');
               } else {
                 props.navigation.navigate('CapoLogin');
@@ -59,8 +61,22 @@ const CustomDrawer = props => {
           }}
         />
       </ScrollView>
-      {Settings.RefereeCards_Show &&
-        <View style={{ borderTopColor: '#222', borderTopWidth: 1 }}>
+      <View style={styles.bottomContainer}>
+        <TouchableOpacity
+          onPress={() => { props.navigation.navigate("About") }}>
+          <MaterialCommunityIcons name={"information"} size={30} color={'white'} style={{ marginRight: 10 }} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            console.log(props.state.routeNames)
+            if (props.globalData.state.currentUser)
+              props.navigation.navigate('CapoHome');
+            else
+              props.navigation.navigate('Admin');
+          }}>
+          <MaterialCommunityIcons name={props.globalData.state.currentUser ? "toolbox" : "login"} size={30} color={'white'} style={{ marginRight: 10 }} />
+        </TouchableOpacity>
+        {Settings.RefereeCards_Show &&
           <View style={styles.cardContainer}>
             <TouchableOpacity
               onPress={() => { props.navigation.navigate("YellowCard") }}>
@@ -71,8 +87,8 @@ const CustomDrawer = props => {
               <View style={[styles.card, { backgroundColor: Palette.RedCard }]}></View>
             </TouchableOpacity>
           </View>
-        </View>
-      }
+        }
+      </View>
     </View>
   )
 }
@@ -83,6 +99,14 @@ const styles = StyleSheet.create({
     width: '100%',
     resizeMode: 'cover'
   },
+  bottomContainer: {
+    flexDirection: i18n.getFlexDirection(),
+    borderTopColor: '#222',
+    borderTopWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    alignItems: "center"
+  },
   card: {
     margin: 5,
     width: 20,
@@ -90,10 +114,9 @@ const styles = StyleSheet.create({
     borderRadius: 5
   },
   cardContainer: {
+    flex: 1,
     flexDirection: i18n.getFlexDirection(),
     justifyContent: "flex-end",
-    marginRight: 5,
-    marginVertical: 5
   },
   container: {
     flex: 1,

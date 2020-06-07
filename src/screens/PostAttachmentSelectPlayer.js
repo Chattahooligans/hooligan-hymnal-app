@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
 import { Skin, DefaultColors, Palette } from '../../config';
 import withUnstated from '@airship/with-unstated';
@@ -126,8 +126,8 @@ class PostAttachmentSelectPlayer extends React.Component {
                         onChangeText={this._onSearchChange} />
                     <TouchableOpacity
                         onPress={() => this.setState({ search: "" })}>
-                        <Ionicons
-                            name={"md-close"}
+                        <MaterialCommunityIcons
+                            name={"close"}
                             size={23}
                             style={{
                                 color: DefaultColors.ButtonBackground,

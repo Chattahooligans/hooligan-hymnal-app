@@ -1,5 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import DefaultStackScreenOptions from './DefaultStackScreenOptions';
 import Screens from '../screens';
@@ -25,7 +26,9 @@ function createWebNavigator(DrawerNavigator, drawerLabel, screenTitle, url, rout
             key={routeName}
             options={{
                 title: screenTitle,
-                drawerLabel: drawerLabel
+                drawerLabel: drawerLabel,
+                drawerIcon: ({color, size}) => <MaterialCommunityIcons name={"link"} size={size} color={color} />
+
             }}>
             {props => <Screens.WebView url={url} {...props} />}
         </DrawerNavigator.Screen>

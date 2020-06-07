@@ -6,7 +6,7 @@ import {
     View
 } from 'react-native';
 import { BoldText, RegularText, MediumText } from './StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
 import { Skin, DefaultColors, Palette } from '../../config';
 import containerStyle from './PostAttachmentContainerStyle';
@@ -24,8 +24,8 @@ export default class PostAttachmentMultiTweet extends React.Component {
                     <View style={{ flex: 1, flexDirection: i18n.getFlexDirection() }}>
                         <View style={{ flex: 1 }}>
                             <View style={styles.tweetAllContainer}>
-                                <Ionicons
-                                    name={'logo-twitter'}
+                                <MaterialCommunityIcons
+                                    name={'twitter'}
                                     size={16}
                                     style={{
                                         color: Palette.Navy,

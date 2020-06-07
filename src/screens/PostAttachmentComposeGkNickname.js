@@ -94,7 +94,7 @@ class PostAttachmentComposeGkNickname extends React.Component {
                     buttonStyle={{ backgroundColor: this.state.color, marginTop: 0, paddingTop: 2 }}
                     label={this.state.nickname}
                     tintColor="white"
-                    iconName="md-hand"
+                    iconName="hand"
                     onPress={() => {
                         if (this.props.route.params.onAttachmentComplete)
                             this.props.route.params.onAttachmentComplete(
@@ -112,7 +112,7 @@ class PostAttachmentComposeGkNickname extends React.Component {
                     buttonStyle={{ backgroundColor: this.state.color }}
                     label={this.state.nickname}
                     tintColor="black"
-                    iconName="md-hand"
+                    iconName="hand"
                     onPress={() => {
                         if (this.props.route.params.onAttachmentComplete)
                             this.props.route.params.onAttachmentComplete(

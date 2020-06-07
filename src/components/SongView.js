@@ -9,7 +9,7 @@ import {
   TouchableOpacity, 
   View,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { BoldText, ItalicText, RegularText } from './StyledText';
 import * as WebBrowser from 'expo-web-browser';
 import ParsedText from 'react-native-parsed-text';
@@ -38,8 +38,8 @@ export default class SongView extends React.Component {
         backgroundColor: Palette.White
       }}
         onPress={() => { WebBrowser.openBrowserAsync(song.referenceLink) }}>
-        <Ionicons
-          name={'md-play-circle'}
+        <MaterialCommunityIcons
+          name={'play-circle'}
           size={50}
           style={{
             color: Skin.Home_SocialButtons,
