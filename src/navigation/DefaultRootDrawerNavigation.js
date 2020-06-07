@@ -13,7 +13,7 @@ import AdminNavigation from './AdminNavigation';
 import YellowCardNavigation from './YellowCardNavigation';
 import RedCardNavigation from './RedCardNavigation';
 import { createWebNavigatorScreens } from './WebNavigation';
-import { DrawerLinks } from '../../config';
+import { DrawerLinks, Skin } from '../../config';
 
 const RootDrawer = createDrawerNavigator();
 const drawerLinksNavigators = createWebNavigatorScreens(RootDrawer, DrawerLinks);
@@ -54,14 +54,14 @@ export default DefaultRootDrawerNavigation = () => {
                 component={SongbookNavigation}
                 options={{
                     drawerLabel: i18n.t('navigation.songbook'),
-                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={"book-open-variant"} size={size} color={color} />
+                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={Skin.Icon_Songbook} size={size} color={color} />
                 }} />
             <RootDrawer.Screen
                 name="Roster"
                 component={RosterNavigation}
                 options={{
                     drawerLabel: i18n.t('navigation.roster'),
-                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={"account-group"} size={size} color={color} />
+                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={Skin.Icon_Roster} size={size} color={color} />
                 }} />
 
             {drawerLinksNavigators}

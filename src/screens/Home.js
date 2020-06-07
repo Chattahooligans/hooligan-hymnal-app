@@ -260,11 +260,11 @@ class StaticHomeContent_Buttons extends React.Component {
       <View style={styles.staticButtonsContainer}>
         <BigButton
           buttonStyle={{ backgroundColor: Skin.Home_BigButtonsBackground }} tintColor={Skin.Home_BigButtonsLabel}
-          label={i18n.t('screens.home.songbook')} iconName="book-open-variant"
+          label={i18n.t('screens.home.songbook')} iconName={Skin.Icon_Songbook}
           onPress={this._handlePressSongbook} />
         <BigButton
           buttonStyle={{ backgroundColor: Skin.Home_BigButtonsBackground }} tintColor={Skin.Home_BigButtonsLabel}
-          label={i18n.t('screens.home.roster')} iconName="account-group"
+          label={i18n.t('screens.home.roster')} iconName={Skin.Icon_Roster}
           onPress={this._handlePressRoster} />
         <View style={{ marginHorizontal: 15, flexDirection: i18n.getFlexDirection() }}>
           {findTheMenuText}

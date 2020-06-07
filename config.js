@@ -262,6 +262,8 @@ export const Skin = {
   HomeVideoPanel_TintOpacity: 0.8,
   HomeVideoPanel_VersionLabel: DefaultColors.HeaderText,
   Home_Website: Palette.Black,
+  Icon_Roster: "account-group",
+  Icon_Songbook: "book-open-variant",
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Accent,
   ModalLoader_Container: "#00000040",

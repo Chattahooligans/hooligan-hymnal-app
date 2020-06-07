@@ -8,7 +8,7 @@ import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { Settings } from '../../config';
+import { Settings, Skin } from '../../config';
 import i18n from '../i18n';
 
 class PostAttach extends React.Component {
@@ -67,11 +67,11 @@ class PostAttach extends React.Component {
 
                 <BigButton
                     disabled={true}
-                    label="Link to App Songbook" iconName="book-open-variant"
+                    label="Link to App Songbook" iconName={Skin.Icon_Songbook}
                     buttonStyle={{ backgroundColor: "gray" }} />
                 <BigButton
                     disabled={true}
-                    label="Link to App Roster" iconName="account-group"
+                    label="Link to App Roster" iconName={Skin.Icon_Roster}
                     buttonStyle={{ backgroundColor: "gray" }} />
             </ScrollView>
         )
