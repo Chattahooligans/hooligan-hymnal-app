@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Skin, DefaultColors, Palette } from '../../config';
 import i18n from '../i18n';
 
@@ -39,7 +39,7 @@ export default class PostAttachmentComposeSong extends React.Component {
                         onChangeText={(text) => this.setState({ lyrics: text })} />
                     <BigButton
                         label={i18n.t('screens.postattchmentcomposesong.attach')}
-                        iconName="md-add" iconPosition="right"
+                        iconName="plus" iconPosition="right"
                         onPress={() => {
                             if (this.props.route.params.onAttachmentComplete)
                                 this.props.route.params.onAttachmentComplete(

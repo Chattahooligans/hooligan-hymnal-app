@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontSizes } from '../constants';
 import { MediumText } from '../components/StyledText';
 
@@ -55,7 +55,7 @@ export const RosterTabsNavigation = () => {
                     tabBarLabel: ({ focused, color }) => {
                         return (
                             <View style={styles.tabContainer}>
-                                <Ionicons name={Skin.Roster_FriendsTabIcon} color={color} size={23} style={styles.tabIcon} />
+                                <MaterialCommunityIcons name={Skin.Roster_FriendsTabIcon} color={color} size={23} style={styles.tabIcon} />
                                 <MediumText style={{ color: color, fontSize: FontSizes.normalButton }}>{i18n.t('screens.rosterhome.friends')}</MediumText>
                             </View>
                         )
@@ -69,7 +69,7 @@ export const RosterTabsNavigation = () => {
                     tabBarLabel: ({ focused, color }) => {
                         return (
                             <View style={styles.tabContainer}>
-                                <Ionicons name={Skin.Roster_FoesTabIcon} color={color} size={23} style={styles.tabIcon} />
+                                <MaterialCommunityIcons name={Skin.Roster_FoesTabIcon} color={color} size={23} style={styles.tabIcon} />
                                 <MediumText style={{ color: color, fontSize: FontSizes.normalButton }}>{i18n.t('screens.rosterhome.foes')}</MediumText>
                             </View>
                         )

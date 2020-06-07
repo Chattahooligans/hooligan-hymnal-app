@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { withSaveState } from '../utils/storage';
 import { Icons, Colors } from '../constants';
 
@@ -12,7 +12,7 @@ export default class SaveIconWhenSaved extends React.Component {
     }
 
     const icon = (
-      <Ionicons
+      <MaterialCommunityIcons
         name={Icons.favoriteActive}
         color={Colors.green}
         style={[{ backgroundColor: 'transparent' }, this.props.style]}

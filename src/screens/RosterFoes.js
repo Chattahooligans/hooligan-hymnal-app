@@ -13,7 +13,7 @@ import ModalSelector from 'react-native-modal-selector';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Settings } from '../../config';
 import i18n from '../i18n';
 
@@ -105,7 +105,7 @@ class RosterFoes extends React.Component {
                         onChange={(item) => this.setState({ selectedCompetition: item.key })}>
                         <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
                             <Text style={{ flex: 1 }}>{this.state.selectedCompetition}</Text>
-                            <Ionicons name={'md-arrow-dropdown'} />
+                            <MaterialCommunityIcons name={'menu-down'} />
                         </View>
                     </ModalSelector>
             }
@@ -129,7 +129,7 @@ class RosterFoes extends React.Component {
                 header =
                     <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
                         <Text style={{ flex: 1 }}>{i18n.t('screens.rosterfoes.nonefound')}</Text>
-                        <Ionicons name={'md-arrow-dropdown'} />
+                        <MaterialCommunityIcons name={'menu-down'} />
                     </View>
             }
             else {

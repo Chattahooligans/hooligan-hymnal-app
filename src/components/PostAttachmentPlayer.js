@@ -7,7 +7,7 @@ import {
     View
 } from 'react-native';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
 import { Skin, DefaultColors, Palette } from '../../config';
 import containerStyle from './PostAttachmentContainerStyle';
@@ -30,8 +30,8 @@ export default class PostAttachmentPlayer extends React.Component {
                     style={{ alignContent: 'center' }}
                     key={"IG: " + player.instagram}
                     onPress={() => { Linking.openURL('https://instagram.com/' + player.instagram) }}>
-                    <Ionicons
-                        name={'logo-instagram'}
+                    <MaterialCommunityIcons
+                        name={'instagram'}
                         size={30}
                         style={{
                             color: Palette.Sky,
@@ -49,8 +49,8 @@ export default class PostAttachmentPlayer extends React.Component {
                     style={{ alignContent: 'center' }}
                     key={"Twitter: " + player.twitter}
                     onPress={() => { Linking.openURL('https://twitter.com/intent/tweet?text=@' + player.twitter + '+') }}>
-                    <Ionicons
-                        name={'logo-twitter'}
+                    <MaterialCommunityIcons
+                        name={'twitter'}
                         size={30}
                         style={{
                             color: Palette.Sky,

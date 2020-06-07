@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 import { BorderlessButton } from 'react-native-gesture-handler';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Layout } from '../constants';
 
 export default MenuButton = () => {
@@ -18,8 +18,8 @@ export default MenuButton = () => {
         alignItems: 'center'
       }}
       hitSlop={{ left: 30, top: 30, right: 30, bottom: 30 }}>
-      <Ionicons
-        name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'}
+      <MaterialCommunityIcons
+        name={'menu'}
         size={28}
         color="#fff" />
     </BorderlessButton>

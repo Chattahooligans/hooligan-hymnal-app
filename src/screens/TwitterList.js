@@ -5,7 +5,7 @@ import { RectButton } from 'react-native-gesture-handler';
 import { HeaderBackButton } from 'react-navigation';
 import { FontSizes } from '../constants';
 import { Skin, DefaultColors, Palette, Settings } from '../../config';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import i18n from '../i18n';
@@ -43,8 +43,8 @@ class TwitterList extends React.Component {
                     onPress={() => {Linking.openURL('https://twitter.com/intent/tweet?text=');}}
                     underlayColor="#fff"
                 >
-                    <Ionicons
-                        name="logo-twitter"
+                    <MaterialCommunityIcons
+                        name="twitter"
                         size={23}
                         style={{
                             color: '#fff',

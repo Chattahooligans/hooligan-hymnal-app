@@ -27,7 +27,7 @@ import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
 import { FontSizes, Icons, Layout } from '../constants';
 import { RegularText, BoldText, MediumText } from '../components/StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import SongCard from '../components/SongCard';
 import { Skin, DefaultColors, Palette, Settings } from '../../config';
 import i18n from '../i18n';
@@ -87,8 +87,8 @@ class Player extends React.Component {
             Linking.openURL('http://twitter.com/' + player.twitter);
           }}
         >
-          <Ionicons
-            name={'logo-twitter'}
+          <MaterialCommunityIcons
+            name={'twitter'}
             size={30}
             style={{
               color: 'white',
@@ -111,8 +111,8 @@ class Player extends React.Component {
             Linking.openURL('http://instagram.com/' + player.instagram);
           }}
         >
-          <Ionicons
-            name={'logo-instagram'}
+          <MaterialCommunityIcons
+            name={'instagram'}
             size={30}
             style={{
               color: 'white',

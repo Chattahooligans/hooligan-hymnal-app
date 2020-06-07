@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { BigButton } from './BigButton';
 import { RegularText, BoldText } from './StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { DefaultColors, CommonImageCredit } from '../../config';
 import i18n from '../i18n';
 
@@ -61,8 +61,8 @@ export default class PostCreateImageWrapper extends React.Component {
                         if (this.props.onPressDelete)
                             this.props.onPressDelete(this.props.uri)
                     }}>
-                    <Ionicons
-                        name="md-close"
+                    <MaterialCommunityIcons
+                        name="close"
                         size={22}
                         style={{ color: DefaultColors.Primary, backgroundColor: 'transparent' }}
                     />
@@ -70,8 +70,8 @@ export default class PostCreateImageWrapper extends React.Component {
                 <TouchableOpacity
                     style={styles.metadata}
                     onPress={this.onPressMetadata}>
-                    <Ionicons
-                        name="md-code"
+                    <MaterialCommunityIcons
+                        name="code-tags"
                         size={22}
                         style={{ color: DefaultColors.Primary, backgroundColor: 'transparent' }}
                     />
@@ -116,7 +116,7 @@ export default class PostCreateImageWrapper extends React.Component {
                     </View>
                     <BigButton
                         label={i18n.t('components.postcreateimagewrapper.save')}
-                        iconName="md-save" iconPosition="right"
+                        iconName="content-save" iconPosition="right"
                         inModal={true}
                         onPress={() => {
                             this.setState({ metadataModalVisible: false }, () => {

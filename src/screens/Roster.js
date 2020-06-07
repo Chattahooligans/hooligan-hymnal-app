@@ -14,7 +14,7 @@ import {
 
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import ModalSelector from 'react-native-modal-selector';
@@ -50,8 +50,8 @@ class PlayerRow extends React.Component {
           Linking.openURL('https://twitter.com/intent/tweet?text=@' + player.twitter + '+');
         }}
       >
-        <Ionicons
-          name={'logo-twitter'}
+        <MaterialCommunityIcons
+          name={'twitter'}
           size={30}
           style={{
             color: Palette.Sky,
@@ -183,7 +183,7 @@ class Roster extends React.Component {
             onChange={(item) => this.setState({ currentRosterID: item.key })}>
             <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
               <Text style={{ flex: 1 }}>{this.state.rosters.find(roster => roster._id == this.state.currentRosterID).rosterTitle}</Text>
-              <Ionicons name={'md-arrow-dropdown'} />
+              <MaterialCommunityIcons name={'menu-down'} />
             </View>
           </ModalSelector>
       }
@@ -238,7 +238,7 @@ class Roster extends React.Component {
         header =
           <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
             <Text style={{ flex: 1 }}>{i18n.t('screens.roster.nosquadsfound')}</Text>
-            <Ionicons name={'md-arrow-dropdown'} />
+            <MaterialCommunityIcons name={'menu-down'} />
           </View>
       }
       else {
@@ -263,8 +263,8 @@ class Roster extends React.Component {
             onPress={this._handlePressTwitterListButton}
             underlayColor="#fff"
           >
-            <Ionicons
-              name="md-list"
+            <MaterialCommunityIcons
+              name="playlist-star"
               size={23}
               style={{
                 color: '#fff',
