@@ -5,7 +5,7 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { DefaultColors } from '../../config';
 import { RegularText } from './StyledText';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -78,8 +78,8 @@ class PostCreateAttachmentWrapper extends React.Component {
                         if (this.props.onPressDelete)
                             this.props.onPressDelete(this.props.attachment)
                     }}>
-                    <Ionicons
-                        name="md-close"
+                    <MaterialCommunityIcons
+                        name="close"
                         size={25}
                         style={{ color: DefaultColors.Primary, backgroundColor: 'transparent' }}
                     />

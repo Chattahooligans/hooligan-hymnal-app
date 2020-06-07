@@ -7,7 +7,7 @@ import {
   View
 } from 'react-native';
 import { DrawerItemList } from '@react-navigation/drawer';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
@@ -64,7 +64,7 @@ const CustomDrawer = props => {
       <View style={styles.bottomContainer}>
         <TouchableOpacity
           onPress={() => { props.navigation.navigate("About") }}>
-          <Ionicons name={"md-information-circle"} size={30} color={'white'} style={{ marginRight: 10 }} />
+          <MaterialCommunityIcons name={"information"} size={30} color={'white'} style={{ marginRight: 10 }} />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
@@ -74,7 +74,7 @@ const CustomDrawer = props => {
             else
               props.navigation.navigate('Admin');
           }}>
-          <Ionicons name={props.globalData.state.currentUser ? "md-construct" : "md-log-in"} size={30} color={'white'} style={{ marginRight: 10 }} />
+          <MaterialCommunityIcons name={props.globalData.state.currentUser ? "toolbox" : "login"} size={30} color={'white'} style={{ marginRight: 10 }} />
         </TouchableOpacity>
         {Settings.RefereeCards_Show &&
           <View style={styles.cardContainer}>

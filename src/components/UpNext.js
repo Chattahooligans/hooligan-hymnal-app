@@ -7,7 +7,7 @@ import GoalkeeperNicknameCard from './GoalkeeperNicknameCard';
 import { Colors, FontSizes } from '../constants';
 import { getFeaturedSong } from '../data';
 import { RectButton } from 'react-native-gesture-handler';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { DefaultColors, Urls } from '../../config';
 import i18n from '../i18n';
 
@@ -51,8 +51,8 @@ class UpNext extends React.Component {
             onPress={this._handlePressRefreshButton}
             underlayColor="#fff"
           >
-            <Ionicons
-              name="md-refresh"
+            <MaterialCommunityIcons
+              name="refresh"
               size={23}
               style={{
                 color: DefaultColors.ColorText,

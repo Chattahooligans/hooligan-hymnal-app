@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import DefaultStackScreenOptions from './DefaultStackScreenOptions';
 import Screens from '../screens';
@@ -27,7 +27,7 @@ function createWebNavigator(DrawerNavigator, drawerLabel, screenTitle, url, rout
             options={{
                 title: screenTitle,
                 drawerLabel: drawerLabel,
-                drawerIcon: ({color, size}) => <Ionicons name={"md-link"} size={size} color={color} />
+                drawerIcon: ({color, size}) => <MaterialCommunityIcons name={"link"} size={size} color={color} />
 
             }}>
             {props => <Screens.WebView url={url} {...props} />}

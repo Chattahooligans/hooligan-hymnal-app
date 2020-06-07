@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dimensions } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import i18n from '../i18n';
 
 import CustomDrawer from '../components/CustomDrawer';
@@ -47,21 +47,21 @@ export default DefaultRootDrawerNavigation = () => {
                 component={HomeNavigation}
                 options={{
                     drawerLabel: i18n.t('navigation.home'),
-                    drawerIcon: ({color, size}) => <Ionicons name={"md-paper"} size={size} color={color} />
+                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={"home"} size={size} color={color} />
                 }} />
             <RootDrawer.Screen
                 name="Songbook"
                 component={SongbookNavigation}
                 options={{
                     drawerLabel: i18n.t('navigation.songbook'),
-                    drawerIcon: ({color, size}) => <Ionicons name={"md-book"} size={size} color={color} />
+                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={"book-open-variant"} size={size} color={color} />
                 }} />
             <RootDrawer.Screen
                 name="Roster"
                 component={RosterNavigation}
                 options={{
                     drawerLabel: i18n.t('navigation.roster'),
-                    drawerIcon: ({color, size}) => <Ionicons name={"md-people"} size={size} color={color} />
+                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={"account-group"} size={size} color={color} />
                 }} />
 
             {drawerLinksNavigators}
@@ -71,14 +71,14 @@ export default DefaultRootDrawerNavigation = () => {
                 component={AdminNavigation}
                 options={{
                     drawerLabel: i18n.t('navigation.capo'),
-                    drawerIcon: ({color, size}) => <Ionicons name={"md-construct"} size={size} color={color} />
+                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={"toolbox"} size={size} color={color} />
                 }} />
             <RootDrawer.Screen
                 name="About"
                 component={AboutNavigation}
                 options={{
                     drawerLabel: i18n.t('navigation.about'),
-                    drawerIcon: ({color, size}) => <Ionicons name={"md-information-circle"} size={size} color={color} />
+                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={"information"} size={size} color={color} />
                 }} />
 
             {cards}

@@ -15,7 +15,7 @@ import {
 import { Asset, LinearGradient, Notifications, WebBrowser, Video } from 'expo';
 import { BigButton } from '../components/BigButton';
 import { View as AnimatableView } from 'react-native-animatable';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -249,8 +249,8 @@ class StaticHomeContent_Buttons extends React.Component {
     let secondPart = findTheMenu.substring(findTheMenu.indexOf('%menuicon%') + '%menuicon%'.length)
     let findTheMenuText = <MediumText style={{ color: Skin.Home_FindTheMenuLabel, fontSize: FontSizes.bodyLarge, marginTop: 5 }}>
       {firstPart}
-      <Ionicons
-        name="md-menu"
+      <MaterialCommunityIcons
+        name="menu"
         size={FontSizes.bodyLarge}
         style={{ backgroundColor: 'transparent', marginRight: 5 }} />
       {secondPart}
@@ -260,11 +260,11 @@ class StaticHomeContent_Buttons extends React.Component {
       <View style={styles.staticButtonsContainer}>
         <BigButton
           buttonStyle={{ backgroundColor: Skin.Home_BigButtonsBackground }} tintColor={Skin.Home_BigButtonsLabel}
-          label={i18n.t('screens.home.songbook')} iconName="md-book"
+          label={i18n.t('screens.home.songbook')} iconName="book-open-variant"
           onPress={this._handlePressSongbook} />
         <BigButton
           buttonStyle={{ backgroundColor: Skin.Home_BigButtonsBackground }} tintColor={Skin.Home_BigButtonsLabel}
-          label={i18n.t('screens.home.roster')} iconName="md-people"
+          label={i18n.t('screens.home.roster')} iconName="account-group"
           onPress={this._handlePressRoster} />
         <View style={{ marginHorizontal: 15, flexDirection: i18n.getFlexDirection() }}>
           {findTheMenuText}

@@ -11,7 +11,7 @@ import {
   Dimensions
 } from 'react-native';
 import SongView from '../components/SongView';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -138,8 +138,8 @@ class Songbook extends React.Component {
           onPress={this._handlePressTOCButton}
           underlayColor="#fff"
         >
-          <Ionicons
-            name="md-list"
+          <MaterialCommunityIcons
+            name="table-of-contents"
             size={23}
             style={{
               color: '#fff',

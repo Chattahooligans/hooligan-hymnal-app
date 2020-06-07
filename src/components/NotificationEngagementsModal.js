@@ -7,7 +7,7 @@ import {
     View
 } from 'react-native';
 import { BoldText, RegularText, MediumText, RegularTextMonospace } from './StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { DefaultColors, Skin, Palette, Settings } from '../../config';
 import { getEngagementSummary } from '../services/feedService';
 import moment from 'moment';
@@ -50,10 +50,10 @@ export default class NotificationEngagementsModal extends React.Component {
                             <TouchableOpacity
                                 style={styles.close}
                                 onPress={this.props.onRequestClose}>
-                                <Ionicons
-                                    name="md-close"
+                                <MaterialCommunityIcons
+                                    name="close"
                                     size={25}
-                                    style={{ color: DefaultColors.Primary, backgroundColor: 'transparent' }}
+                                    style={{ color: DefaultColors.Secondary, backgroundColor: 'transparent' }}
                                 />
                             </TouchableOpacity>
                         </View>

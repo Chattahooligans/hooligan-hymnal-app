@@ -9,7 +9,7 @@ import {
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import PrideraiserCampaignSummaryAdmin from '../components/PrideraiserCampaignSummaryAdmin';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { DefaultColors, Skin, Settings } from '../../config';
 import { getCampaign } from '../services/prideraiserService';
 import moment from 'moment';
@@ -102,7 +102,7 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                     disabled={!this.state.loadedCampaign}
                     buttonStyle={!this.state.loadedCampaign ? { backgroundColor: "gray", marginBottom: 15 } : { marginBottom: 15 }}
                     label={i18n.t('screens.postattachmentcomposeprideraisermatch.attach')}
-                    iconName="md-add" iconPosition="right"
+                    iconName="plus" iconPosition="right"
                     onPress={() => {
                         if (this.props.route.params.onAttachmentComplete)
                             this.props.route.params.onAttachmentComplete(

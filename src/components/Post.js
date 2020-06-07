@@ -17,7 +17,7 @@ import FadeIn from 'react-native-fade-in-image';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
 import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from './ParsedTextHelper';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 // import Toast from 'react-native-simple-toast';
 import Toast from "react-native-tiny-toast";
 import { Skin, Palette, Settings } from '../../config';
@@ -376,8 +376,8 @@ class Post extends React.Component {
                         ref={this.setMenuRef}
                         button={
                             <TouchableOpacity>
-                                <Ionicons
-                                    name="md-arrow-dropdown"
+                                <MaterialCommunityIcons
+                                    name="menu-down"
                                     size={30}
                                     style={styles.menu}
                                     onPress={this.showMenu} />
@@ -400,8 +400,8 @@ class Post extends React.Component {
                                 iosMenuOptions
                             )
                         }}>
-                        <Ionicons
-                            name="md-arrow-dropdown"
+                        <MaterialCommunityIcons
+                            name="menu-down"
                             size={30}
                             style={styles.menu} />
                     </TouchableOpacity>
@@ -448,8 +448,8 @@ class Post extends React.Component {
                         }
                     </View>
                     {post.push &&
-                        <Ionicons
-                            name="md-notifications"
+                        <MaterialCommunityIcons
+                            name="bell"
                             size={18}
                             style={styles.notificationSymbol} />
                     }

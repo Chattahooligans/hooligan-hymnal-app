@@ -5,7 +5,7 @@ import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import { Platform, View, StatusBar, YellowBox } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Provider } from 'unstated';
 import { loadSavedTalksAsync } from './src/utils/storage';
 import { NavigationContainer } from '@react-navigation/native';
@@ -42,7 +42,7 @@ class App extends React.Component {
     return Promise.all([
       Font.loadAsync({
         ...fonts,
-        ...Ionicons.font
+        ...MaterialCommunityIcons.font
       }),
       Asset.loadAsync(imagesArray),
       Asset.fromModule(

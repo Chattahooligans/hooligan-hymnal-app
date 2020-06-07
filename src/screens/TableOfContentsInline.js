@@ -13,7 +13,7 @@ import { BoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors, MUSICAL_SCORE_ICON } from '../../config';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import i18n from '../i18n';
 
 const screenWidth = Dimensions.get('window').width;
@@ -34,8 +34,8 @@ class SongRow extends React.Component {
     let sheetMusicDisplay;
     if (song.referenceLink)
       playDisplay = <View style={{ justifyContent: 'center', alignItems: 'center', marginLeft: 3 }}>
-                      <Ionicons
-                        name={'md-play-circle'}
+                      <MaterialCommunityIcons
+                        name={'play-circle'}
                         style={{
                           color: Skin.Home_SocialButtons
                         }}

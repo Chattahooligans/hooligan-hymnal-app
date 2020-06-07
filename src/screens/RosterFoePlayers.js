@@ -2,7 +2,7 @@ import React from 'react';
 import { Animated, Image, FlatList, Platform, ScrollView, SectionList, StyleSheet, View } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
 import Constants from 'expo-constants';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { HeaderBackButton } from 'react-navigation';
 import { RectButton } from 'react-native-gesture-handler';
 import withUnstated from '@airship/with-unstated';
@@ -86,7 +86,7 @@ class RosterFoePlayers extends React.Component {
 
         let foeImage =
             <View>
-                <Ionicons name={Skin.Roster_FoesTabIcon} color={DefaultColors.ButtonBackground} size={150} />
+                <MaterialCommunityIcons name={Skin.Roster_FoesTabIcon} color={DefaultColors.ButtonBackground} size={150} />
                 <BoldText style={{ color: DefaultColors.ColorText, marginBottom: 10 }}>{foe.opponent}</BoldText>
             </View>
         if (foe.logo) {

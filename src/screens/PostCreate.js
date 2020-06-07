@@ -19,7 +19,7 @@ import * as Permissions from 'expo-permissions';
 import ModalSelector from 'react-native-modal-selector';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Colors, FontSizes, Layout } from '../constants';
@@ -131,8 +131,8 @@ class PostCreate extends React.Component {
             headerTitle: i18n.t('screens.postcreate.title'),
             headerLeft: () => <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />,
             headerRight: () => (
-                <Ionicons
-                    name="md-code-download"
+                <MaterialCommunityIcons
+                    name="keyboard-close"
                     size={23}
                     style={{
                         color: '#fff',
@@ -250,7 +250,7 @@ class PostCreate extends React.Component {
                     }}>
                     <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
                         <Text style={{ flex: 1 }}>{this.state.selectedChannel.name}</Text>
-                        <Ionicons name={'md-arrow-dropdown'} />
+                        <MaterialCommunityIcons name={'menu-down'} />
                     </View>
                 </ModalSelector>
 
@@ -267,7 +267,7 @@ class PostCreate extends React.Component {
                     }}>
                     <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
                         <Text style={{ flex: 1 }}>{this.state.post.locale}</Text>
-                        <Ionicons name={'md-arrow-dropdown'} />
+                        <MaterialCommunityIcons name={'menu-down'} />
                     </View>
                 </ModalSelector>
         }
@@ -400,7 +400,7 @@ class PostCreate extends React.Component {
 
                             <BigButton
                                 label={i18n.t('screens.postcreate.link')}
-                                iconName="md-link" iconPosition="right"
+                                iconName="link" iconPosition="right"
                                 inModal={true}
                                 onPress={() => {
                                     let post = this.state.post
