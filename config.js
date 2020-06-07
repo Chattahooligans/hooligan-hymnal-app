@@ -301,25 +301,20 @@ export const Skin = {
 };
 
 /*
-  DrawerLinks
+  NavigationDrawerItems
 
   This structure contains an array of objects used for the main navigation
-  drawer menu. Each object has a .drawerLabel and .url property.
+  drawer menu. Each object has a .drawerLabel, .drawerIcon, and EITHER a
+  .routeName or .url property.
 
-  The structure is required, but does not need to be populated, unless you
-  use a custom Drawer. Here is what it looks like empty.
-  export const DrawerLinks = []
+  Valid routeName values are: Home, Songbook, Roster, About, Admin,
+    YellowCard, RedCard.
+  These will be added as major features are added to the app.
+
+  .url can be used to open external links from the drawer
 
   Feel free to add or remove lines as necessary.
 */
-export const DrawerLinks = [
-  { drawerLabel: i18n.t('navigation.events'), url: Urls.Events },
-  { drawerLabel: i18n.t('navigation.standings'), url: Urls.Standings },
-  { drawerLabel: i18n.t('navigation.shop'), url: Urls.Shop },
-  { drawerLabel: i18n.t('navigation.volunteer'), url: Urls.Volunteer },
-  { drawerLabel: i18n.t('navigation.instrumentation'), url: Urls.Instrumentation }
-]
-
 export const NavigationDrawerItems = [
   { drawerLabel: i18n.t('navigation.home'), drawerIcon: 'home', routeName: 'Home'},
   { drawerLabel: i18n.t('navigation.songbook'), drawerIcon: Skin.Icon_Songbook, routeName: 'Songbook'},
