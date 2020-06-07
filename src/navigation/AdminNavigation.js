@@ -9,14 +9,14 @@ const AdminStack = createStackNavigator();
 export default AdminNavigation = () => {
     return (
         <AdminStack.Navigator
-            initialRouteName="CapoLogin"
+            initialRouteName="AdminLogin"
             screenOptions={DefaultStackScreenOptions}>
             <AdminStack.Screen
-                name="adminlogin"
-                component={Screens.CapoLogin} />
+                name="AdminLogin"
+                component={Screens.AdminLogin} />
             <AdminStack.Screen
-                name="adminhome"
-                component={Screens.CapoHome} />
+                name="AdminHome"
+                component={Screens.AdminHome} />
             <AdminStack.Screen
                 name="PostCreate"
                 component={Screens.PostCreate} />

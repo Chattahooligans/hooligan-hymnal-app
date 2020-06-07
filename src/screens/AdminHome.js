@@ -15,7 +15,7 @@ import i18n from '../i18n';
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 
-class CapoHome extends React.Component {
+class AdminHome extends React.Component {
   render() {
     this.props.navigation.setOptions({
       headerTitle: i18n.t('screens.adminhome.title')
@@ -114,4 +114,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withUnstated(CapoHome, { globalData: GlobalDataContainer });
+export default withUnstated(AdminHome, { globalData: GlobalDataContainer });

@@ -1,6 +1,6 @@
 import About from './About';
-import CapoHome from './CapoHome';
-import CapoLogin from './CapoLogin';
+import AdminHome from './AdminHome';
+import AdminLogin from './AdminLogin';
 import Channel from './Channel';
 import Home from './Home';
 import Player from './Player';
@@ -28,8 +28,8 @@ import WebView from './WebView';
 
 export default {
   About,
-  CapoHome,
-  CapoLogin,
+  AdminHome,
+  AdminLogin,
   Channel,
   Home,
   Player,

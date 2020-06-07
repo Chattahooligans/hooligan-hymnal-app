@@ -26,7 +26,7 @@ import {AsyncStorage} from 'react-native';
 // If password is correct, enable capo mode (using AsyncStorage?) and go back to CapoHome.js
 // If password is incorrect, show invalid password message
 
-class CapoLogin extends React.Component {
+class AdminLogin extends React.Component {
   state = {
     password: '',
     username: ''
@@ -50,7 +50,7 @@ class CapoLogin extends React.Component {
       .then(responseJson => {
         //bearerToken is valid, skip login
         Keyboard.dismiss();
-        this.props.navigation.navigate('CapoHome');
+        this.props.navigation.navigate('AdminHome');
       }).catch(reason => {
         //we don't really care about the reason. just try to get
         //username and password and show it
@@ -122,20 +122,20 @@ class CapoLogin extends React.Component {
         //this.props.globalData.setCurrentUser(responseJson);
         storeData = async () => {
           try {
-            await AsyncStorage.setItem('@capousername', this.state.username);
-            await AsyncStorage.setItem('@capopassword', this.state.password);
+            await AsyncStorage.setItem('@adminusername', this.state.username);
+            await AsyncStorage.setItem('@adminpassword', this.state.password);
           } catch (e) {
             console.log(e);
           }
         };
         storeData();
-        //this.props.navigation.navigate('CapoHome');
+        //this.props.navigation.navigate('AdminHome');
 
         let nav = this.props.navigation
-        function navToCapoHome() {
-            nav.navigate('CapoHome')
+        function navToAdminHome() {
+            nav.navigate('AdminHome')
         }
-        this.props.globalData.setCurrentUser(responseJson, navToCapoHome);
+        this.props.globalData.setCurrentUser(responseJson, navToAdminHome);
       })
       .catch(
         //if I was a good person I'd give you an error message but I'm tired
@@ -193,4 +193,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withUnstated(CapoLogin, { globalData: GlobalDataContainer });
+export default withUnstated(AdminLogin, { globalData: GlobalDataContainer });

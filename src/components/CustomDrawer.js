@@ -105,11 +105,11 @@ const CustomDrawer = props => {
             activeTintColor='white' inactiveTintColor='white'
             labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection(), fontFamily: Skin.NavigationDrawer_FontFamily }}
             onItemPress={({ route, focused }) => {
-              if (route.routeName === 'CapoHome') {
+              if (route.routeName === 'AdminHome') {
                 if (props.globalData.state.currentUser) {
-                  props.navigation.navigate('CapoHome');
+                  props.navigation.navigate('AdminHome');
                 } else {
-                  props.navigation.navigate('CapoLogin');
+                  props.navigation.navigate('AdminLogin');
                 }
               } else {
                 props.onItemPress({ route });
@@ -128,7 +128,7 @@ const CustomDrawer = props => {
           onPress={() => {
             console.log(props.state.routeNames)
             if (props.globalData.state.currentUser)
-              props.navigation.navigate('CapoHome');
+              props.navigation.navigate('AdminHome');
             else
               props.navigation.navigate('Admin');
           }}>
