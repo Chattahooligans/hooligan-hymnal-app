@@ -15,13 +15,15 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
 import { Palette, Settings, Skin, NavigationDrawerItems } from '../../config';
 import i18n from '../i18n';
-import { dropWhile } from 'ramda';
 
 function createRouteDrawerItem(item, navigation) {
+  console.log("SKIN VALUES: " + Skin.NavigationDrawer_LabelActiveBackgroundColor)
   return (
     <DrawerItem
-      activeTintColor='white' inactiveTintColor='white'
-      activeBackgroundColor="rgba(255,255,255,0.1)" inactiveBackgroundColor='transparent'
+      activeTintColor={Skin.NavigationDrawer_LabelActiveTintColor}
+      activeBackgroundColor={Skin.NavigationDrawer_LabelActiveBackgroundColor}
+      inactiveTintColor={Skin.NavigationDrawer_LabelInactiveTintColor}
+      inactiveBackgroundColor={Skin.NavigationDrawer_LabelInactiveBackgroundColor}
       icon={({ focused, color, size }) => (<MaterialCommunityIcons name={item.drawerIcon} color={color} size={size} />)}
       label={item.drawerLabel}
       labelStyle={{ fontFamily: Skin.NavigationDrawer_FontFamily }}
@@ -31,8 +33,10 @@ function createRouteDrawerItem(item, navigation) {
 function createLinkDrawerItem(item) {
   return (
     <DrawerItem
-      activeTintColor='white' inactiveTintColor='white'
-      activeBackgroundColor="rgba(255,255,255,0.1)" inactiveBackgroundColor='transparent'
+      activeTintColor={Skin.NavigationDrawer_LabelActiveTintColor}
+      activeBackgroundColor={Skin.NavigationDrawer_LabelActiveBackgroundColor}
+      inactiveTintColor={Skin.NavigationDrawer_LabelInactiveTintColor}
+      inactiveBackgroundColor={Skin.NavigationDrawer_LabelInactiveBackgroundColor}
       icon={({ focused, color, size }) => (<MaterialCommunityIcons name={item.drawerIcon} color={color} size={size} />)}
       label={({ focused, color }) => (
         <View style={{ flexDirection: i18n.getFlexDirection(), alignItems: 'center' }}>
@@ -198,10 +202,10 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#333333',
+    backgroundColor: Skin.NavigationDrawer_BackgroundColor,
   },
   imageOverlay: {
-    backgroundColor: 'rgba(3, 46, 85, 0.57)'
+    backgroundColor: Skin.NavigationDrawer_HeroImageOverlayColor
   },
   logoContainer: {
     alignItems: 'center',
