@@ -50,7 +50,7 @@ const CustomDrawer = props => {
           labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection(), fontFamily: Skin.NavigationDrawer_FontFamily }}
           onItemPress={({ route, focused }) => {
             if (route.routeName === 'CapoHome') {
-              if (props.globalData.state.unlocked === true) {
+              if (props.globalData.state.currentUser) {
                 props.navigation.navigate('CapoHome');
               } else {
                 props.navigation.navigate('CapoLogin');
