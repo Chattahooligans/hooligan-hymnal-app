@@ -322,7 +322,7 @@ export const NavigationDrawerItems = [
   { drawerLabel: i18n.t('navigation.links.events'), drawerIcon: 'calendar', url: Urls.Events },
   { drawerLabel: i18n.t('navigation.links.standings'), drawerIcon: 'menu-swap', url: Urls.Standings },
   { drawerLabel: i18n.t('navigation.links.shop'), drawerIcon: 'shopping', url: Urls.Shop },
-  { drawerLabel: i18n.t('navigation.links.volunteer'), drawerIcon: 'grill', url: Urls.Volunteer },
+  { drawerLabel: i18n.t('navigation.links.volunteer'), drawerIcon: 'human-greeting', url: Urls.Volunteer },
   { drawerLabel: i18n.t('navigation.links.instrumentation'), drawerIcon: 'music-clef-treble', url: Urls.Instrumentation },
 ]
 
