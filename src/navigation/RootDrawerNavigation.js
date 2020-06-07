@@ -12,16 +12,17 @@ import AboutNavigation from './AboutNavigation';
 import AdminNavigation from './AdminNavigation';
 import YellowCardNavigation from './YellowCardNavigation';
 import RedCardNavigation from './RedCardNavigation';
-import { createWebNavigatorScreens } from './WebNavigation';
-import { DrawerLinks, Skin } from '../../config';
 
 const RootDrawer = createDrawerNavigator();
-const drawerLinksNavigators = createWebNavigatorScreens(RootDrawer, DrawerLinks);
 
 const { width: deviceWidth } = Dimensions.get('window');
 
+/*
+    After config.NavigationDrawerItems refactor, this file gets slimmed way down.
+    We only need the main app features to get registered in the navigation
+*/
 
-export default DefaultRootDrawerNavigation = () => {
+export default RootDrawerNavigation = () => {
     let cards = []
     cards.push(
         <RootDrawer.Screen
@@ -44,41 +45,20 @@ export default DefaultRootDrawerNavigation = () => {
             drawerContent={(props) => <CustomDrawer {...props} />}>
             <RootDrawer.Screen
                 name="Home"
-                component={HomeNavigation}
-                options={{
-                    drawerLabel: i18n.t('navigation.home'),
-                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={"home"} size={size} color={color} />
-                }} />
+                component={HomeNavigation} />
             <RootDrawer.Screen
                 name="Songbook"
-                component={SongbookNavigation}
-                options={{
-                    drawerLabel: i18n.t('navigation.songbook'),
-                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={Skin.Icon_Songbook} size={size} color={color} />
-                }} />
+                component={SongbookNavigation} />
             <RootDrawer.Screen
                 name="Roster"
-                component={RosterNavigation}
-                options={{
-                    drawerLabel: i18n.t('navigation.roster'),
-                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={Skin.Icon_Roster} size={size} color={color} />
-                }} />
-
-            {drawerLinksNavigators}
+                component={RosterNavigation} />
 
             <RootDrawer.Screen
                 name="Admin"
-                component={AdminNavigation}
-                options={{ drawerLabel: i18n.t('navigation.admin'),
-                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={"toolbox"} size={size} color={color} />
-                }} />
+                component={AdminNavigation} />
             <RootDrawer.Screen
                 name="About"
-                component={AboutNavigation}
-                options={{
-                    drawerLabel: i18n.t('navigation.about'),
-                    drawerIcon: ({color, size}) => <MaterialCommunityIcons name={"information"} size={size} color={color} />
-                }} />
+                component={AboutNavigation} />
 
             {cards}
         </RootDrawer.Navigator>
