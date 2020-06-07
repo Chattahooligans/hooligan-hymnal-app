@@ -25,12 +25,12 @@ export default class GlobalDataContainer extends Container {
     pushToken: null,
     currentUser: null,
     songbook: {
-      songbook_title: '',
+      songbookTitle: '',
       organization: '',
       description: '',
-      front_cover: '',
-      back_cover: '',
-      some_publish_or_expiration_dates: '',
+      frontCover: '',
+      backCover: '',
+      somePublishOrExpirationDates: '',
       chapters: []
     },
     songs: null,
