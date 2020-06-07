@@ -364,7 +364,7 @@ export const SocialButtons = [
       { icon: 'twitter', url: Urls.Twitter },
       { icon: 'facebook', url: Urls.Facebook },
       { icon: 'instagram', url: Urls.Instagram },
-      { icon: 'cart', url: Urls.Shop },
+      { icon: 'shopping', url: Urls.Shop },
       { image: Images.PrideraiserIcon, url: Urls.Prideraiser, tintToSkin: false },
     ]
   },
