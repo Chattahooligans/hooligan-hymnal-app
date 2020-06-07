@@ -64,6 +64,8 @@ function createNavDrawerItems(items, navigation) {
 
 
 const CustomDrawer = props => {
+  // This was some super clever stuff. Leave the code snippet in case we need to revive it later
+  /*
   // we want to hide certain routes from showing up in the drawer, because they are accessed through custom buttons
   const hideRoutes = ["About", "Admin", "YellowCard", "RedCard"];
   const filteredProps = {
@@ -74,6 +76,7 @@ const CustomDrawer = props => {
       routes: props.state.routes.filter(route => !hideRoutes.includes(route.name))
     }
   }
+  */
 
   let drawerItems = createNavDrawerItems(NavigationDrawerItems, props.navigation)
 
@@ -112,34 +115,6 @@ const CustomDrawer = props => {
             }}
           />
         */}
-        {/*<View>
-          <DrawerItem
-            activeTintColor='white' inactiveTintColor='white'
-            activeBackgroundColor="rgba(255,255,255)"
-            icon={({ color, size }) => (<MaterialCommunityIcons name='home' color={color} size={size} />)}
-            label="Feed"
-            onPress={() => props.navigation.navigate("Home")} />
-          <DrawerItem
-            activeTintColor='white' inactiveTintColor='white'
-            activeBackgroundColor="rgba(255,255,255)"
-            icon={({ color, size }) => (<MaterialCommunityIcons name='music' color={color} size={size} />)}
-            label="Songs"
-            onPress={() => props.navigation.navigate("Songbook")} />
-          <DrawerItem
-            activeTintColor='white' inactiveTintColor='white'
-            activeBackgroundColor="rgba(255,255,255)"
-            icon={({ color, size }) => (<MaterialCommunityIcons name='account-group' color={color} size={size} />)}
-            label="Roster"
-            focused={true}
-            onPress={() => props.navigation.navigate("Roster")} />
-          <DrawerItem
-            activeTintColor='white' inactiveTintColor='white'
-            activeBackgroundColor="rgba(255,255,255)"
-            icon={({ color, size }) => (<MaterialCommunityIcons name='web' color={color} size={size} />)}
-            label="Web"
-            focused={true}
-            onPress={() => Linking.openURL('https://google.com')} />
-        </View>*/}
         {drawerItems}
       </ScrollView>
       <View style={styles.bottomContainer}>
