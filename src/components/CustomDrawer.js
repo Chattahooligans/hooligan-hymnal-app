@@ -17,7 +17,6 @@ import { Palette, Settings, Skin, NavigationDrawerItems } from '../../config';
 import i18n from '../i18n';
 
 function createRouteDrawerItem(item, navigation) {
-  console.log("SKIN VALUES: " + Skin.NavigationDrawer_LabelActiveBackgroundColor)
   return (
     <DrawerItem
       activeTintColor={Skin.NavigationDrawer_LabelActiveTintColor}
