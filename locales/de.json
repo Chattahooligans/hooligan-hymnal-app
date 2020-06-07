@@ -16,15 +16,15 @@
             "debug": "Debug",
             "contribute": "Interesse an einer Mitarbeit? Wenn Du progammieren, gestalten, schreiben oder in anderer Weise helfen kannst, würden wir uns freuen mit Dir zu arbeiten! Bitte melde Dich bei _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email thechattahooligans@gmail.com"
         },
-        "capohome": {
+        "adminhome": {
             "title": "Capo Dashboard",
             "logout": "Logout"
         },
-        "capologin": {
+        "adminlogin": {
             "title": "Capo Dashboard",
             "username": "Benutzername/Email",
             "password": "Passwort",
-            "unlock": "Entsperren"
+            "login": "Einloggen"
         },
         "postattach": {
             "attachmenttypes": "Attachment Types",
@@ -40,7 +40,7 @@
             "instructions2": "2. Wähle eine beliebige Farbe",
             "instructions3": "3. Welches ist besser lesbar?"
         },
-        "postattchmentcomposesong": {
+        "postattachmentcomposesong": {
             "composesong": "Komponiere Lied",
             "title": "Titel",
             "lyrics": "Liedtext",
@@ -70,19 +70,11 @@
             "submit": "Submit Post",
             "schedule": "Schedule Post"
         },
-        "events": {
-            "title": "Ereignisse",
-            "fallback": "Ereignisse öffnen im WebBrowser"
-        },
         "home": {
             "findthemenu": "Entdecke weitere großartige Funktionen %menuicon% Menü, oben links",
             "visit": "Besuche:",
             "songbook": "Gesangsbuch",
             "roster": "Spielerliste"
-        },
-        "instrumentation": {
-            "title": "Instrumentierung",
-            "fallback": "Instrumentierung öffnet im WebBrowser"
         },
         "player": {
             "playersongs": "Spieler-Lieder",
@@ -102,10 +94,6 @@
             "friends": "Freunde",
             "foes": "Feinde"
         },
-        "shop": {
-            "title": "Fanartikel-Shop",
-            "fallback": "Fanartikel-Shop öffnet im WebBrowser."
-        },
         "singlesong": {
             "title": "Demnächst"
         },
@@ -121,10 +109,6 @@
             "playersongs": "Spieler-Lieder",
             "teamsongs": "Team-Lieder"
         },
-        "standings": {
-            "title": "Tabelle",
-            "fallback": "Tabelle öffnet im WebBrowser."
-        },
         "tocinline": {
             "title": "Inhaltsverzeichnis"
         },
@@ -134,22 +118,23 @@
             "instructions": "Die Verbindung zwischen den CFC-Fans und dem Team ist einzigartig, besonders und greifbar. Botschaften der Ermutigung, Liebe, was auch immer, bedeuten den Spielern wirklich viel.\n\n\nIhr könnt mehrere Twitter-Handles aus dem Feld unten kopieren und sie in einen längeren Twitter-Thread einfügen.",
             "opentwitter": "Öffne Twitter App"
         },
-        "volunteer": {
-            "title": "Freiwillige",
-            "fallback": "Chattahooligan Freiwilligenformular öffnet im WebBrowser"
+        "webview": {
+            "fallback": "Web links open in a WebBrowser component. If you see this message, use the menu to get back to the app."
         }
     },
     "navigation": {
         "home": "HOME",
         "songbook": "GESANGSBUCH",
         "roster": "SPIELERLISTE",
-        "events": "EREIGNIS ↗️",
-        "standings": "TABELLE ↗️",
-        "shop": "FANARTIKEL SHOP ↗️",
-        "volunteer": "FREIWILLIGE ↗️",
-        "instrumentation": "INTRUMENTIERUNG ↗️",
-        "capo": "CAPO DASHBOARD",
-        "about": "ÜBER"
+        "admin": "CAPO DASHBOARD",
+        "about": "ÜBER",
+        "links": {
+            "events": "EREIGNIS",
+            "standings": "TABELLE",
+            "shop": "FANARTIKEL SHOP",
+            "volunteer": "FREIWILLIGE",
+            "instrumentation": "INTRUMENTIERUNG"
+        }
     },
     "components": {
         "gkNickname": {

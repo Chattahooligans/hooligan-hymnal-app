@@ -14,17 +14,17 @@
                 "- Algunos códigos basados en la apllicación de la conferencia software libre @nodevember"
             ],
             "debug": "Debug",
-            "contribute": "¿Interesado en contribuir? Si puedes codificar, diseñar, escribir o ayudar de cualquier manera, ¡ nos encantaría trabajar contigo! Por favor contacte con nosotros en_ @chattahooligan o @hooliganhymnal _ en twitter, o por correo electrónico thechattahooligans @gmail. com",
+            "contribute": "¿Interesado en contribuir? Si puedes codificar, diseñar, escribir o ayudar de cualquier manera, ¡ nos encantaría trabajar contigo! Por favor contacte con nosotros en_ @chattahooligan o @hooliganhymnal _ en twitter, o por correo electrónico thechattahooligans @gmail. com"
         },
-        "capohome": {
+        "adminhome": {
             "title": "Tablero de Capo",
             "logout": "Logout"
         },
-        "capologin": {
+        "adminlogin": {
             "title": "Tablero de Capo",
             "username": "Nombre de usuario/Correo Electrónico",
             "password": "Contraseña",
-            "unlock": "Abrir"
+            "login": "Acceder"
         },
         "postattach": {
             "attachmenttypes": "Attachment Types",
@@ -40,7 +40,7 @@
             "instructions2": "2. Elige un color, cualquier color",
             "instructions3": "3. ¿Cual es más legible?"
         },
-        "postattchmentcomposesong": {
+        "postattachmentcomposesong": {
             "composesong": "Compone Una Canción",
             "title": "Título",
             "lyrics": "Letra",
@@ -70,19 +70,11 @@
             "submit": "Submit Post",
             "schedule": "Schedule Post"
         },
-        "events": {
-            "title": "Eventos",
-            "fallback": "Events opens in WebBrowser component"
-        },
         "home": {
             "findthemenu": "Encuentre más funciones en el menú %menuicon%, arriba a la izquierda",
             "visit": "Visita:",
             "songbook": "Libro de Cantos",
             "roster": "Lista de Equipo"
-        },
-        "instrumentation": {
-            "title": "Instrumentación",
-            "fallback": "Instrumentation opens in WebBrowser component"
         },
         "player": {
             "playersongs": "Canciones de Jugadores",
@@ -102,10 +94,6 @@
             "friends": "Amigos",
             "foes": "Rivales"
         },
-        "shop": {
-            "title": "Compra de Merch",
-            "fallback": "Merch shop opens in WebBrowser component"
-        },
         "singlesong": {
             "title": "A Continuación"
         },
@@ -121,10 +109,6 @@
             "playersongs": "Canciones de jugadores",
             "teamsongs": "Canciones del equipo"
         },
-        "standings": {
-            "title": "Tabla de Liga",
-            "fallback": "Standings open in WebBrowser component"
-        },
         "tocinline": {
             "title": "Tabla de Contenidos"
         },
@@ -134,22 +118,23 @@
             "instructions": "La conexión entre los fans de cfc y el equipo es única, especial y tangible. Mensajes de estímulo, amor, lo que sea, realmente significan mucho para la players.\n\nYou puede copiar múltiples mangas de twitter desde la caja y pegarlas a un hilo de twitter más largo.",
             "opentwitter": "Open Twitter App"
         },
-        "volunteer": {
-            "title": "Sé voluntario",
-            "fallback": "Chattahooligan volunteer form opens in WebBrowser component"
+        "webview": {
+            "fallback": "Web links open in a WebBrowser component. If you see this message, use the menu to get back to the app."
         }
     },
     "navigation": {
         "home": "CASA",
         "songbook": "LIBRO DE CANCIONES",
         "roster": "LISTA DE EQUIPO",
-        "events": "EVENTOS ↗️",
-        "standings": "TABLA DE LIGA ↗️",
-        "shop": "TIENDA DE MERCANCÍAS ↗️",
-        "volunteer": "SÈ VOLUNTARIO ↗️",
-        "instrumentation": "INSTRUMENTACIÓN ↗️",
-        "capo": "TABLERO DE CAPO",
-        "about": "ACERCA DE"
+        "admin": "TABLERO DE CAPO",
+        "about": "ACERCA DE",
+        "links": {
+            "events": "EVENTOS",
+            "standings": "TABLA DE LIGA",
+            "shop": "TIENDA DE MERCANCÍAS",
+            "volunteer": "SÈ VOLUNTARIO",
+            "instrumentation": "INSTRUMENTACIÓN"
+        }
     },
     "components": {
         "gkNickname": {

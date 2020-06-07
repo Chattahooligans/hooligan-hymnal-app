@@ -319,11 +319,11 @@ export const NavigationDrawerItems = [
   { drawerLabel: i18n.t('navigation.home'), drawerIcon: 'home', routeName: 'Home'},
   { drawerLabel: i18n.t('navigation.songbook'), drawerIcon: Skin.Icon_Songbook, routeName: 'Songbook'},
   { drawerLabel: i18n.t('navigation.roster'), drawerIcon: Skin.Icon_Roster, routeName: 'Roster'},
-  { drawerLabel: i18n.t('navigation.events'), drawerIcon: 'calendar', url: Urls.Events },
-  { drawerLabel: i18n.t('navigation.standings'), drawerIcon: 'menu-swap', url: Urls.Standings },
-  { drawerLabel: i18n.t('navigation.shop'), drawerIcon: 'shopping', url: Urls.Shop },
-  { drawerLabel: i18n.t('navigation.volunteer'), drawerIcon: 'grill', url: Urls.Volunteer },
-  { drawerLabel: i18n.t('navigation.instrumentation'), drawerIcon: 'music-clef-treble', url: Urls.Instrumentation },
+  { drawerLabel: i18n.t('navigation.links.events'), drawerIcon: 'calendar', url: Urls.Events },
+  { drawerLabel: i18n.t('navigation.links.standings'), drawerIcon: 'menu-swap', url: Urls.Standings },
+  { drawerLabel: i18n.t('navigation.links.shop'), drawerIcon: 'shopping', url: Urls.Shop },
+  { drawerLabel: i18n.t('navigation.links.volunteer'), drawerIcon: 'grill', url: Urls.Volunteer },
+  { drawerLabel: i18n.t('navigation.links.instrumentation'), drawerIcon: 'music-clef-treble', url: Urls.Instrumentation },
 ]
 
 
@@ -364,7 +364,7 @@ export const SocialButtons = [
       { icon: 'twitter', url: Urls.Twitter },
       { icon: 'facebook', url: Urls.Facebook },
       { icon: 'instagram', url: Urls.Instagram },
-      { icon: 'cart', url: Urls.Shop },
+      { icon: 'shopping', url: Urls.Shop },
       { image: Images.PrideraiserIcon, url: Urls.Prideraiser, tintToSkin: false },
     ]
   },

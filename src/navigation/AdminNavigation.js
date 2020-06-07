@@ -12,10 +12,10 @@ export default AdminNavigation = () => {
             initialRouteName="CapoLogin"
             screenOptions={DefaultStackScreenOptions}>
             <AdminStack.Screen
-                name="CapoLogin"
+                name="adminlogin"
                 component={Screens.CapoLogin} />
             <AdminStack.Screen
-                name="CapoHome"
+                name="adminhome"
                 component={Screens.CapoHome} />
             <AdminStack.Screen
                 name="PostCreate"
