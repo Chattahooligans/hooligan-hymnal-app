@@ -9,6 +9,7 @@ const AdminStack = createStackNavigator();
 export default AdminNavigation = () => {
     return (
         <AdminStack.Navigator
+            initialRouteName="CapoLogin"
             screenOptions={DefaultStackScreenOptions}>
             <AdminStack.Screen
                 name="CapoLogin"
