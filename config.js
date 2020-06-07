@@ -314,14 +314,14 @@ export const DrawerLinks = [
   { drawerLabel: i18n.t('navigation.instrumentation'), url: Urls.Instrumentation }
 ]
 
-export const DrawerItems = [
-  { drawerLabel: i18n.t('navigation.home'), drawerIcon: 'home', route: 'Home'},
-  { drawerLabel: i18n.t('navigation.songbook'), drawerIcon: Skin.Icon_Songbook, route: 'Songbook'},
-  { drawerLabel: i18n.t('navigation.roster'), drawerIcon: Skin.Icon_Roster, route: 'Roster'},
+export const NavigationDrawerItems = [
+  { drawerLabel: i18n.t('navigation.home'), drawerIcon: 'home', routeName: 'Home'},
+  { drawerLabel: i18n.t('navigation.songbook'), drawerIcon: Skin.Icon_Songbook, routeName: 'Songbook'},
+  { drawerLabel: i18n.t('navigation.roster'), drawerIcon: Skin.Icon_Roster, routeName: 'Roster'},
   { drawerLabel: i18n.t('navigation.events'), drawerIcon: 'calendar', url: Urls.Events },
   { drawerLabel: i18n.t('navigation.standings'), drawerIcon: 'menu-swap', url: Urls.Standings },
   { drawerLabel: i18n.t('navigation.shop'), drawerIcon: 'shopping', url: Urls.Shop },
-  { drawerLabel: i18n.t('navigation.volunteer'), drawerIcon: 'brush', url: Urls.Volunteer },
+  { drawerLabel: i18n.t('navigation.volunteer'), drawerIcon: 'grill', url: Urls.Volunteer },
   { drawerLabel: i18n.t('navigation.instrumentation'), drawerIcon: 'music-clef-treble', url: Urls.Instrumentation },
 ]
 

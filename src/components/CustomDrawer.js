@@ -1,18 +1,63 @@
 import React from 'react';
 import {
   Image,
+  Linking,
   ScrollView,
   StyleSheet,
+  Text,
   TouchableOpacity,
   View
 } from 'react-native';
-import { DrawerItemList } from '@react-navigation/drawer';
+import { DrawerItem, DrawerItemList } from '@react-navigation/drawer';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
-import { Palette, Settings, Skin } from '../../config';
+import { Palette, Settings, Skin, NavigationDrawerItems } from '../../config';
 import i18n from '../i18n';
+import { dropWhile } from 'ramda';
+
+function createRouteDrawerItem(item, navigation) {
+  return (
+    <DrawerItem
+      activeTintColor='white' inactiveTintColor='white'
+      activeBackgroundColor="rgba(255,255,255,0.1)" inactiveBackgroundColor='transparent'
+      icon={({ focused, color, size }) => (<MaterialCommunityIcons name={item.drawerIcon} color={color} size={size} />)}
+      label={item.drawerLabel}
+      labelStyle={{ fontFamily: Skin.NavigationDrawer_FontFamily }}
+      onPress={() => navigation.navigate(item.routeName)} />
+  )
+}
+function createLinkDrawerItem(item) {
+  return (
+    <DrawerItem
+      activeTintColor='white' inactiveTintColor='white'
+      activeBackgroundColor="rgba(255,255,255,0.1)" inactiveBackgroundColor='transparent'
+      icon={({ focused, color, size }) => (<MaterialCommunityIcons name={item.drawerIcon} color={color} size={size} />)}
+      label={({ focused, color }) => (
+        <View style={{ flexDirection: i18n.getFlexDirection(), alignItems: 'center' }}>
+          <Text style={{ color, fontFamily: Skin.NavigationDrawer_FontFamily, marginRight: 8 }}>{item.drawerLabel}</Text>
+          <MaterialCommunityIcons name={'open-in-new'} color={color} size={14} />
+        </View>
+      )}
+      onPress={() => {
+        Linking.openURL(item.url)
+        navigation.closeDrawer()
+      }} />
+  )
+}
+function createNavDrawerItems(items, navigation) {
+  let drawerItems = []
+
+  items.forEach(element => {
+    if (element.routeName)
+      drawerItems.push(createRouteDrawerItem(element, navigation))
+    if (element.url)
+      drawerItems.push(createLinkDrawerItem(element))
+  })
+
+  return drawerItems
+}
 
 
 const CustomDrawer = props => {
@@ -26,6 +71,8 @@ const CustomDrawer = props => {
       routes: props.state.routes.filter(route => !hideRoutes.includes(route.name))
     }
   }
+
+  let drawerItems = createNavDrawerItems(NavigationDrawerItems, props.navigation)
 
   return (
     <View style={styles.container}>
@@ -43,23 +90,54 @@ const CustomDrawer = props => {
         </View>
       </View>
       <ScrollView style={{ flex: 1 }}>
-        <DrawerItemList
-          {...filteredProps}
-          activeBackgroundColor="rgba(255,255,255,0.1)"
-          activeTintColor='white' inactiveTintColor='white'
-          labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection(), fontFamily: Skin.NavigationDrawer_FontFamily }}
-          onItemPress={({ route, focused }) => {
-            if (route.routeName === 'CapoHome') {
-              if (props.globalData.state.currentUser) {
-                props.navigation.navigate('CapoHome');
+        {/*
+          <DrawerItemList
+            {...filteredProps}
+            activeBackgroundColor="rgba(255,255,255,0.1)"
+            activeTintColor='white' inactiveTintColor='white'
+            labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection(), fontFamily: Skin.NavigationDrawer_FontFamily }}
+            onItemPress={({ route, focused }) => {
+              if (route.routeName === 'CapoHome') {
+                if (props.globalData.state.currentUser) {
+                  props.navigation.navigate('CapoHome');
+                } else {
+                  props.navigation.navigate('CapoLogin');
+                }
               } else {
-                props.navigation.navigate('CapoLogin');
+                props.onItemPress({ route });
               }
-            } else {
-              props.onItemPress({ route });
-            }
-          }}
-        />
+            }}
+          />
+        */}
+        {/*<View>
+          <DrawerItem
+            activeTintColor='white' inactiveTintColor='white'
+            activeBackgroundColor="rgba(255,255,255)"
+            icon={({ color, size }) => (<MaterialCommunityIcons name='home' color={color} size={size} />)}
+            label="Feed"
+            onPress={() => props.navigation.navigate("Home")} />
+          <DrawerItem
+            activeTintColor='white' inactiveTintColor='white'
+            activeBackgroundColor="rgba(255,255,255)"
+            icon={({ color, size }) => (<MaterialCommunityIcons name='music' color={color} size={size} />)}
+            label="Songs"
+            onPress={() => props.navigation.navigate("Songbook")} />
+          <DrawerItem
+            activeTintColor='white' inactiveTintColor='white'
+            activeBackgroundColor="rgba(255,255,255)"
+            icon={({ color, size }) => (<MaterialCommunityIcons name='account-group' color={color} size={size} />)}
+            label="Roster"
+            focused={true}
+            onPress={() => props.navigation.navigate("Roster")} />
+          <DrawerItem
+            activeTintColor='white' inactiveTintColor='white'
+            activeBackgroundColor="rgba(255,255,255)"
+            icon={({ color, size }) => (<MaterialCommunityIcons name='web' color={color} size={size} />)}
+            label="Web"
+            focused={true}
+            onPress={() => Linking.openURL('https://google.com')} />
+        </View>*/}
+        {drawerItems}
       </ScrollView>
       <View style={styles.bottomContainer}>
         <TouchableOpacity
