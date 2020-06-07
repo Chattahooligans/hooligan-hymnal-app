@@ -267,6 +267,12 @@ export const Skin = {
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Accent,
   ModalLoader_Container: "#00000040",
+  NavigationDrawer_BackgroundColor: "#333333",
+  NavigationDrawer_HeroImageOverlayColor: 'rgba(3, 46, 85, 0.57)',
+  NavigationDrawer_LabelActiveBackgroundColor: DefaultColors.Primary,
+  NavigationDrawer_LabelActiveTintColor: Palette.White,
+  NavigationDrawer_LabelActiveBackgroundColor: 'transparent',
+  NavigationDrawer_LabelInactiveTintColor: Palette.White,
   NavigationDrawer_FontFamily: Fonts.Bold.family,
   NotificationEngagementsModal_Container: "#00000040",
   Songbook_Background: DefaultColors.Accent,
@@ -295,24 +301,31 @@ export const Skin = {
 };
 
 /*
-  DrawerLinks
+  NavigationDrawerItems
 
   This structure contains an array of objects used for the main navigation
-  drawer menu. Each object has a .drawerLabel and .url property.
+  drawer menu. Each object has a .drawerLabel, .drawerIcon, and EITHER a
+  .routeName or .url property.
 
-  The structure is required, but does not need to be populated, unless you
-  use a custom Drawer. Here is what it looks like empty.
-  export const DrawerLinks = []
+  Valid routeName values are: Home, Songbook, Roster, About, Admin,
+    YellowCard, RedCard.
+  These will be added as major features are added to the app.
+
+  .url can be used to open external links from the drawer
 
   Feel free to add or remove lines as necessary.
 */
-export const DrawerLinks = [
-  { drawerLabel: i18n.t('navigation.events'), url: Urls.Events },
-  { drawerLabel: i18n.t('navigation.standings'), url: Urls.Standings },
-  { drawerLabel: i18n.t('navigation.shop'), url: Urls.Shop },
-  { drawerLabel: i18n.t('navigation.volunteer'), url: Urls.Volunteer },
-  { drawerLabel: i18n.t('navigation.instrumentation'), url: Urls.Instrumentation }
+export const NavigationDrawerItems = [
+  { drawerLabel: i18n.t('navigation.home'), drawerIcon: 'home', routeName: 'Home'},
+  { drawerLabel: i18n.t('navigation.songbook'), drawerIcon: Skin.Icon_Songbook, routeName: 'Songbook'},
+  { drawerLabel: i18n.t('navigation.roster'), drawerIcon: Skin.Icon_Roster, routeName: 'Roster'},
+  { drawerLabel: i18n.t('navigation.events'), drawerIcon: 'calendar', url: Urls.Events },
+  { drawerLabel: i18n.t('navigation.standings'), drawerIcon: 'menu-swap', url: Urls.Standings },
+  { drawerLabel: i18n.t('navigation.shop'), drawerIcon: 'shopping', url: Urls.Shop },
+  { drawerLabel: i18n.t('navigation.volunteer'), drawerIcon: 'grill', url: Urls.Volunteer },
+  { drawerLabel: i18n.t('navigation.instrumentation'), drawerIcon: 'music-clef-treble', url: Urls.Instrumentation },
 ]
+
 
 /*
   Banners

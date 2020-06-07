@@ -1,21 +1,73 @@
 import React from 'react';
 import {
   Image,
+  Linking,
   ScrollView,
   StyleSheet,
+  Text,
   TouchableOpacity,
   View
 } from 'react-native';
-import { DrawerItemList } from '@react-navigation/drawer';
+import { DrawerItem, DrawerItemList } from '@react-navigation/drawer';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
-import { Palette, Settings, Skin } from '../../config';
+import { Palette, Settings, Skin, NavigationDrawerItems } from '../../config';
 import i18n from '../i18n';
+
+function createRouteDrawerItem(item, navigation, index) {
+  return (
+    <DrawerItem
+      key={item.drawerLabel + '-' + index}
+      activeTintColor={Skin.NavigationDrawer_LabelActiveTintColor}
+      activeBackgroundColor={Skin.NavigationDrawer_LabelActiveBackgroundColor}
+      inactiveTintColor={Skin.NavigationDrawer_LabelInactiveTintColor}
+      inactiveBackgroundColor={Skin.NavigationDrawer_LabelInactiveBackgroundColor}
+      icon={({ focused, color, size }) => (<MaterialCommunityIcons name={item.drawerIcon} color={color} size={size} />)}
+      label={item.drawerLabel}
+      labelStyle={{ fontFamily: Skin.NavigationDrawer_FontFamily }}
+      onPress={() => navigation.navigate(item.routeName)} />
+  )
+}
+function createLinkDrawerItem(item, navigation, index) {
+  return (
+    <DrawerItem
+      key={item.drawerLabel + '-' + index}
+      activeTintColor={Skin.NavigationDrawer_LabelActiveTintColor}
+      activeBackgroundColor={Skin.NavigationDrawer_LabelActiveBackgroundColor}
+      inactiveTintColor={Skin.NavigationDrawer_LabelInactiveTintColor}
+      inactiveBackgroundColor={Skin.NavigationDrawer_LabelInactiveBackgroundColor}
+      icon={({ focused, color, size }) => (<MaterialCommunityIcons name={item.drawerIcon} color={color} size={size} />)}
+      label={({ focused, color }) => (
+        <View style={{ flexDirection: i18n.getFlexDirection(), alignItems: 'center' }}>
+          <Text style={{ color, fontFamily: Skin.NavigationDrawer_FontFamily, marginRight: 8 }}>{item.drawerLabel}</Text>
+          <MaterialCommunityIcons name={'open-in-new'} color={color} size={14} />
+        </View>
+      )}
+      onPress={() => {
+        Linking.openURL(item.url)
+        navigation.closeDrawer()
+      }} />
+  )
+}
+function createNavDrawerItems(items, navigation) {
+  let drawerItems = []
+
+  items.forEach((element, index) => {
+    if (element.routeName)
+      drawerItems.push(createRouteDrawerItem(element, navigation, index))
+    if (element.url)
+      drawerItems.push(createLinkDrawerItem(element, navigation, index))
+  })
+
+  return drawerItems
+}
 
 
 const CustomDrawer = props => {
+  // This was some super clever stuff. Leave the code snippet in case we need to revive it later
+  /*
   // we want to hide certain routes from showing up in the drawer, because they are accessed through custom buttons
   const hideRoutes = ["About", "Admin", "YellowCard", "RedCard"];
   const filteredProps = {
@@ -26,6 +78,9 @@ const CustomDrawer = props => {
       routes: props.state.routes.filter(route => !hideRoutes.includes(route.name))
     }
   }
+  */
+
+  let drawerItems = createNavDrawerItems(NavigationDrawerItems, props.navigation)
 
   return (
     <View style={styles.container}>
@@ -43,23 +98,26 @@ const CustomDrawer = props => {
         </View>
       </View>
       <ScrollView style={{ flex: 1 }}>
-        <DrawerItemList
-          {...filteredProps}
-          activeBackgroundColor="rgba(255,255,255,0.1)"
-          activeTintColor='white' inactiveTintColor='white'
-          labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection(), fontFamily: Skin.NavigationDrawer_FontFamily }}
-          onItemPress={({ route, focused }) => {
-            if (route.routeName === 'CapoHome') {
-              if (props.globalData.state.currentUser) {
-                props.navigation.navigate('CapoHome');
+        {/*
+          <DrawerItemList
+            {...filteredProps}
+            activeBackgroundColor="rgba(255,255,255,0.1)"
+            activeTintColor='white' inactiveTintColor='white'
+            labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection(), fontFamily: Skin.NavigationDrawer_FontFamily }}
+            onItemPress={({ route, focused }) => {
+              if (route.routeName === 'CapoHome') {
+                if (props.globalData.state.currentUser) {
+                  props.navigation.navigate('CapoHome');
+                } else {
+                  props.navigation.navigate('CapoLogin');
+                }
               } else {
-                props.navigation.navigate('CapoLogin');
+                props.onItemPress({ route });
               }
-            } else {
-              props.onItemPress({ route });
-            }
-          }}
-        />
+            }}
+          />
+        */}
+        {drawerItems}
       </ScrollView>
       <View style={styles.bottomContainer}>
         <TouchableOpacity
@@ -120,10 +178,10 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#333333',
+    backgroundColor: Skin.NavigationDrawer_BackgroundColor,
   },
   imageOverlay: {
-    backgroundColor: 'rgba(3, 46, 85, 0.57)'
+    backgroundColor: Skin.NavigationDrawer_HeroImageOverlayColor
   },
   logoContainer: {
     alignItems: 'center',
