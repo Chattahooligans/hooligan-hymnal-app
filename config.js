@@ -313,6 +313,9 @@ export const Skin = {
 
   .url can be used to open external links from the drawer
 
+  We currently use the MaterialCommunityIcons set, searchable at:
+  https://icons.expo.fyi/
+
   Feel free to add or remove lines as necessary.
 */
 export const NavigationDrawerItems = [
