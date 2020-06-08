@@ -117,9 +117,6 @@
             "calltoaction": "Alle zusammen, jetzt!",
             "instructions": "Die Verbindung zwischen den CFC-Fans und dem Team ist einzigartig, besonders und greifbar. Botschaften der Ermutigung, Liebe, was auch immer, bedeuten den Spielern wirklich viel.\n\n\nIhr könnt mehrere Twitter-Handles aus dem Feld unten kopieren und sie in einen längeren Twitter-Thread einfügen.",
             "opentwitter": "Öffne Twitter App"
-        },
-        "webview": {
-            "fallback": "Web links open in a WebBrowser component. If you see this message, use the menu to get back to the app."
         }
     },
     "navigation": {
