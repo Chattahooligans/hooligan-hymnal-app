@@ -319,7 +319,7 @@ export const Skin = {
   Feel free to add or remove lines as necessary.
 */
 export const NavigationDrawerItems = [
-  { drawerLabel: i18n.t('navigation.home'), drawerIcon: 'home', routeName: 'Home'},
+  { drawerLabel: i18n.t('navigation.home'), drawerIcon: 'newspaper', routeName: 'Home'},
   { drawerLabel: i18n.t('navigation.songbook'), drawerIcon: Skin.Icon_Songbook, routeName: 'Songbook'},
   { drawerLabel: i18n.t('navigation.roster'), drawerIcon: Skin.Icon_Roster, routeName: 'Roster'},
   { drawerLabel: i18n.t('navigation.links.events'), drawerIcon: 'calendar', url: Urls.Events },

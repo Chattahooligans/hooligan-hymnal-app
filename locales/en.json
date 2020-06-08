@@ -148,7 +148,7 @@
         }
     },
     "navigation": {
-        "home": "Home",
+        "home": "Feed",
         "songbook": "Songbook",
         "roster": "Roster",
         "admin": "Admin Dashboard",
