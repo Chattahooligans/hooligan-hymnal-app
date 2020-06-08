@@ -41,6 +41,10 @@ The Play store goes by relatively quickly once you pay your $25. Apple does more
 
 This person only needs to have Transporter installed on a Mac. They do not need to be a developer. They don't need to compile your code. If you have a developer with a Mac, have them do this. If not, you will need to send your Mac uploader the result of `expo build:ios` when you're publishing a new .ipa file, then have them upload it via Transporter to your project. [This guide](https://levelup.gitconnected.com/react-native-how-to-publish-an-expo-app-to-testflight-debug-common-errors-90e427b4b5ea) is very helpful when learning to upload to App Store Connect, including generation of an app-specific password.
 
+## Assets
+
+See our assets document, maintained separately, for a guide to images, photos, and fonts you can prepare for your implementation.
+
 ## Slack
 
 The Hooligan Hymnal core team (and, so far, reps for every SG who has a working deployment) use Slack regularly for communication on the future of the project and to answer setup questions. Come hang out with us! DM [@hooliganhymnal](https://twitter.com/hooliganhymnal) for an invitation.
