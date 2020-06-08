@@ -78,14 +78,20 @@ TODO instructions, refer to server docs
 
 ## Configure the Server
 
-(maybe covered in the section above)
+### Environment Variables
 
-## Initialize a Local Code Repository
+### Logging In
+
+### Initial Data
+
+This stuff may all be in server docs eventually. I just mainly don't want to forget that they need to create an admin account and a default Channel for the feed asap.
+
+## Initialize a Local Code Repository for the Moble App
 
 TODO instructions
 don't forget to backup google-services.json somewhere
 
-## Configure the App
+## Configure the Mobile App
 
 TODO preamble
 (Eventually, the master branch will be generic with generic assets and Chattahooligans will be on our own branch, but not today, suckers!)
@@ -106,6 +112,15 @@ prolly start out by deleting config.js and renaming something like config_exampl
 ### /locales/
 
 TODO instructions
+
+## Run and Test the Mobile App
+
+TODO instructions
+
+## Build the Mobile App (for testers? for the store?)
+
+
+
 
 
 
