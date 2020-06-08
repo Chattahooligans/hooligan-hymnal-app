@@ -90,6 +90,8 @@ This stuff may all be in server docs eventually. I just mainly don't want to for
 
 TODO instructions
 don't forget to backup google-services.json somewhere
+npm install lol
+oh and install npm and expo cli and so on
 
 ## Configure the Mobile App
 
