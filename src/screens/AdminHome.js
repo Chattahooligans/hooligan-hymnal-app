@@ -15,10 +15,10 @@ import i18n from '../i18n';
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 
-class CapoHome extends React.Component {
+class AdminHome extends React.Component {
   render() {
     this.props.navigation.setOptions({
-      headerTitle: i18n.t('screens.capohome.title')
+      headerTitle: i18n.t('screens.adminhome.title')
     })
 
     if (null == this.props.globalData.state.currentUser) {
@@ -39,7 +39,7 @@ class CapoHome extends React.Component {
         <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flex: 1, justifyContent: "space-between" }}>
           <View>
             <BigButton
-              label={i18n.t('screens.capohome.postcreate')}
+              label={i18n.t('screens.adminhome.postcreate')}
               iconName="newspaper-plus"
               onPress={this._handlePressPostCreateButton} />
           </View>
@@ -55,7 +55,7 @@ class CapoHome extends React.Component {
             <RegularText>{permissions.join()}</RegularText>
           </View>
         </ScrollView>
-        <Button title={i18n.t('screens.capohome.logout')} color={DefaultColors.ButtonBackground} onPress={this._handlePressLogoutButton} />
+        <Button title={i18n.t('screens.adminhome.logout')} color={DefaultColors.ButtonBackground} onPress={this._handlePressLogoutButton} />
       </View>
     );
   }
@@ -114,4 +114,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withUnstated(CapoHome, { globalData: GlobalDataContainer });
+export default withUnstated(AdminHome, { globalData: GlobalDataContainer });

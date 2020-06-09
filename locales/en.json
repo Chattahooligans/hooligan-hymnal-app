@@ -16,16 +16,16 @@
             "debug": "Debug",
             "contribute": " is built using the open-source *Hooligan Hymnal* platform.\n\nInterested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to _@hooliganhymnal_ on Twitter or visit the project repository at https://github.com/Chattahooligans"
         },
-        "capohome": {
-            "title": "Capo Dashboard",
+        "adminhome": {
+            "title": "Admin Dashboard",
             "postcreate": "Create Post",
             "logout": "Logout"
         },
-        "capologin": {
-            "title": "Capo Dashboard",
+        "adminlogin": {
+            "title": "Admin Dashboard",
             "username": "Username/Email",
             "password": "Password",
-            "unlock": "Unlock"
+            "login": "Log In"
         },
         "postattach": {
             "attachmenttypes": "Attachment Types",
@@ -49,7 +49,7 @@
             "source": "source",
             "attach": "Attach"
         },
-        "postattchmentcomposesong": {
+        "postattachmentcomposesong": {
             "composesong": "Compose Song",
             "title": "Title",
             "lyrics": "Lyrics",
@@ -91,19 +91,11 @@
             "titlered": "Flash 'Em a Card",
             "titleyellow": "Flash 'Em a Card"
         },
-        "events": {
-            "title": "Events",
-            "fallback": "Events open in WebBrowser component"
-        },
         "home": {
             "findthemenu": "Find more great features in the %menuicon% menu, top left",
             "visit": "Visit:",
             "songbook": "Songbook",
             "roster": "Roster"
-        },
-        "instrumentation": {
-            "title": "Instrumentation",
-            "fallback": "Instrumentation opens in WebBrowser component"
         },
         "player": {
             "playersongs": "Player Songs",
@@ -127,10 +119,6 @@
             "friends": "Friends",
             "foes": "Foes"
         },
-        "shop": {
-            "title": "Merch Shop",
-            "fallback": "Merch shop opens in WebBrowser component"
-        },
         "singlesong": {
             "title": "Up Next"
         },
@@ -146,10 +134,6 @@
             "playersongs": "Player Songs",
             "teamsongs": "Team Songs"
         },
-        "standings": {
-            "title": "Standings",
-            "fallback": "Standings open in WebBrowser component"
-        },
         "tocinline": {
             "title": "Table of Contents"
         },
@@ -158,26 +142,21 @@
             "calltoaction": "All Together, Now",
             "instructions": "The connection between CFC fans and the team is unique, special, and tangible. Messages of encouragement, love, whatever, truly mean a lot to the players.\n\nYou can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.",
             "opentwitter": "Open Twitter App"
-        },
-        "volunteer": {
-            "title": "Volunteer",
-            "fallback": "Chattahooligan volunteer form opens in WebBrowser component"
-        },
-        "webview": {
-            "fallback": "Web links open in a WebBrowser component. If you see this message, use the menu to get back to the app."
         }
     },
     "navigation": {
-        "home": "HOME",
-        "songbook": "SONGBOOK",
-        "roster": "ROSTER",
-        "events": "EVENTS ↗️",
-        "standings": "STANDINGS ↗️",
-        "shop": "MERCH SHOP ↗️",
-        "volunteer": "VOLUNTEER ↗️",
-        "instrumentation": "INSTRUMENTATION ↗️",
-        "capo": "CAPO DASHBOARD",
-        "about": "ABOUT"
+        "home": "Feed",
+        "songbook": "Songbook",
+        "roster": "Roster",
+        "admin": "Admin Dashboard",
+        "about": "About",
+        "links": {
+            "events": "Events",
+            "standings": "Standings",
+            "shop": "Merch Shop",
+            "volunteer": "Volunteer",
+            "instrumentation": "Instrumentation"
+        }
     },
     "components": {
         "gkNickname": {

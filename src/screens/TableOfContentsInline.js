@@ -20,10 +20,6 @@ const screenWidth = Dimensions.get('window').width;
 
 class SongRow extends React.Component {
   render() {
-    this.props.navigation.setOptions({ 
-      headerTitle: i18n.t('screens.tocinline.title') 
-    })
-
     const { item: song } = this.props;
 
     let capoSignal;

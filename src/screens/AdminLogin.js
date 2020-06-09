@@ -26,7 +26,7 @@ import {AsyncStorage} from 'react-native';
 // If password is correct, enable capo mode (using AsyncStorage?) and go back to CapoHome.js
 // If password is incorrect, show invalid password message
 
-class CapoLogin extends React.Component {
+class AdminLogin extends React.Component {
   state = {
     password: '',
     username: ''
@@ -34,7 +34,7 @@ class CapoLogin extends React.Component {
 
   componentDidMount() {
     this.props.navigation.setOptions({
-      headerTitle: i18n.t('screens.capologin.title')
+      headerTitle: i18n.t('screens.adminlogin.title')
     })
 
     this.setData();
@@ -50,7 +50,7 @@ class CapoLogin extends React.Component {
       .then(responseJson => {
         //bearerToken is valid, skip login
         Keyboard.dismiss();
-        this.props.navigation.navigate('CapoHome');
+        this.props.navigation.navigate('AdminHome');
       }).catch(reason => {
         //we don't really care about the reason. just try to get
         //username and password and show it
@@ -78,14 +78,14 @@ class CapoLogin extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <RegularText style={styles.instructions}>{i18n.t('screens.capologin.username')}</RegularText>
+        <RegularText style={styles.instructions}>{i18n.t('screens.adminlogin.username')}</RegularText>
         <TextInput
           style={styles.textInput}
           autoFocus={true}
           onChangeText={this._setUsername}
           value={this.state.username}
         />
-        <RegularText style={styles.instructions}>{i18n.t('screens.capologin.password')}</RegularText>
+        <RegularText style={styles.instructions}>{i18n.t('screens.adminlogin.password')}</RegularText>
         <TextInput
           style={styles.textInput}
           autoFocus={true}
@@ -99,7 +99,7 @@ class CapoLogin extends React.Component {
             onPress={this._handlePressSubmitButton}
             underlayColor="#fff"
           >
-            <MediumText style={styles.bigButtonText}>{i18n.t('screens.capologin.unlock')}</MediumText>
+            <MediumText style={styles.bigButtonText}>{i18n.t('screens.adminlogin.login')}</MediumText>
           </RectButton>
         </ClipBorderRadius>
       </View>
@@ -122,20 +122,20 @@ class CapoLogin extends React.Component {
         //this.props.globalData.setCurrentUser(responseJson);
         storeData = async () => {
           try {
-            await AsyncStorage.setItem('@capousername', this.state.username);
-            await AsyncStorage.setItem('@capopassword', this.state.password);
+            await AsyncStorage.setItem('@adminusername', this.state.username);
+            await AsyncStorage.setItem('@adminpassword', this.state.password);
           } catch (e) {
             console.log(e);
           }
         };
         storeData();
-        //this.props.navigation.navigate('CapoHome');
+        //this.props.navigation.navigate('AdminHome');
 
         let nav = this.props.navigation
-        function navToCapoHome() {
-            nav.navigate('CapoHome')
+        function navToAdminHome() {
+            nav.navigate('AdminHome')
         }
-        this.props.globalData.setCurrentUser(responseJson, navToCapoHome);
+        this.props.globalData.setCurrentUser(responseJson, navToAdminHome);
       })
       .catch(
         //if I was a good person I'd give you an error message but I'm tired
@@ -193,4 +193,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withUnstated(CapoLogin, { globalData: GlobalDataContainer });
+export default withUnstated(AdminLogin, { globalData: GlobalDataContainer });

@@ -98,7 +98,7 @@ class Songbook extends React.Component {
     let songs = [];
     let pageCount = 0;
     this.props.globalData.state.songbook.chapters.forEach(chapterChild => {
-      chapterChild.songs.forEach(songChild => {
+      chapterChild.songs.forEach((songChild, index) => {
         try {
           let item = this.props.globalData.state.songs.filter(
             song => song._id === songChild._id
@@ -108,7 +108,7 @@ class Songbook extends React.Component {
           songs.push({ index: pageCount, song: item });
           songViews.push(
             <View
-              key={item._id}
+            key={index + "-" + item._id}
               chapterTitle={chapterChild.chapterTitle}
               style={{ flex: 1, width: screenWidth, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
             >

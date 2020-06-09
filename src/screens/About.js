@@ -59,9 +59,10 @@ class About extends React.Component {
       { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
       { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
     ]
-    creditsItems.forEach(element => {
+    creditsItems.forEach((element, index) => {
       creditsTexts.push(
         <ParsedText
+          key={'about-credits-' + index}
           parse={parsedTextOptions}
           style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
           {element}

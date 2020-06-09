@@ -264,7 +264,7 @@ class Roster extends React.Component {
             underlayColor="#fff"
           >
             <MaterialCommunityIcons
-              name="playlist-star"
+              name="playlist-edit"
               size={23}
               style={{
                 color: '#fff',
