@@ -114,6 +114,7 @@ prolly start out by deleting config.js and renaming something like config_exampl
 ### /locales/
 
 TODO instructions
+don't forget to edit manifest.json
 
 ## Run and Test the Mobile App
 
