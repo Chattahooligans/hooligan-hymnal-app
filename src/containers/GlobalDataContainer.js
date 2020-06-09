@@ -24,6 +24,7 @@ export default class GlobalDataContainer extends Container {
     location: null,
     pushToken: null,
     currentUser: null,
+    showSongbookCover: true,
     songbook: {
       songbook_title: '',
       organization: '',
@@ -242,6 +243,8 @@ export default class GlobalDataContainer extends Container {
       //
     }
   };
+
+  setShowSongbookCover = (show) => this.setState({ showSongbookCover: show });
 
   setCurrentSong = (song, callback) =>
     this.setState({ currentSong: song }, () => {
