@@ -21,6 +21,8 @@ import RosterFoes from './RosterFoes';
 import SinglePost from './SinglePost';
 import SingleSong from './SingleSong';
 import Songbook from './Songbook';
+import SongbookContents from './SongbookContents';
+import SongbookPages from './SongbookPages';
 import Songs from './Songs';
 import TableOfContentsInline from './TableOfContentsInline';
 import TwitterList from './TwitterList';
@@ -50,6 +52,8 @@ export default {
   SinglePost,
   SingleSong,
   Songbook,
+  SongbookContents,
+  SongbookPages,
   Songs,
   TableOfContentsInline,
   TwitterList,

@@ -7,6 +7,7 @@ import i18n from '../i18n';
 import CustomDrawer from '../components/CustomDrawer';
 import HomeNavigation from './HomeNavigation';
 import SongbookNavigation from './SongbookNavigation';
+import NewSongbookNavigation from './NewSongbookNavigation';
 import RosterNavigation from './RosterNavigation';
 import AboutNavigation from './AboutNavigation';
 import AdminNavigation from './AdminNavigation';
@@ -46,6 +47,9 @@ export default RootDrawerNavigation = () => {
             <RootDrawer.Screen
                 name="Home"
                 component={HomeNavigation} />
+            <RootDrawer.Screen
+                name="NewSongbook"
+                component={NewSongbookNavigation} />
             <RootDrawer.Screen
                 name="Songbook"
                 component={SongbookNavigation} />
