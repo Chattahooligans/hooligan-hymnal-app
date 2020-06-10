@@ -129,6 +129,7 @@ class SongbookContents extends React.Component {
     _handlePressRow = item => {
         const song = find(this.props.globalData.state.songs, { _id: item._id });
 
+        /*
         // pass item page label to song to include in state
         song.page = item.toc_page_label;
 
@@ -138,6 +139,8 @@ class SongbookContents extends React.Component {
                 return { currentSong: song };
             });
         });
+        */
+       this.props.navigation.navigate('SongbookPages', { song, page: item.toc_page_label });
     };
 
     render() {
