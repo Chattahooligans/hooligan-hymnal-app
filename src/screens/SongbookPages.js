@@ -5,7 +5,8 @@ import {
   Text,
   View
 } from 'react-native';
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
+import { RectButton, ScrollView } from 'react-native-gesture-handler'
+import { HeaderBackButton } from 'react-navigation';;
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -30,7 +31,8 @@ class SongbookPages extends React.Component {
 
   componentDidMount() {
     this.props.navigation.setOptions({
-      headerTitle: i18n.t('screens.songbook.title')
+      headerTitle: i18n.t('screens.songbook.title'),
+      headerLeft: () => <HeaderBackButton onPress={() => navigation.goBack()} tintColor={DefaultColors.HeaderText} />
     })
 
     let songViews = [];
@@ -53,17 +55,13 @@ class SongbookPages extends React.Component {
             </View>
           );
         } catch (err) {
-          console.log(songChild._id + ' not found in songs database, ' + err);
+          console.log(songChild._id + ' not found in songs database');
         }
       });
     });
 
     this.setState({ songViews, songs, pageCount });
   }
-
-  _handlePressTOCButton = () => {
-    this.scrollToToC();
-  };
 
   _onSongbookMomentumScrollEnd = ({ nativeEvent }) => {
     const pageIndex = Math.round(nativeEvent.contentOffset.x / screenWidth);
