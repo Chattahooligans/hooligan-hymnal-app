@@ -17,7 +17,7 @@ import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress
 import Toast from "react-native-tiny-toast";
 // import Toast from 'react-native-simple-toast';
 import { FontSizes, Layout } from '../constants';
-import { Skin, Palette, MUSICAL_SCORE_ICON } from '../../config';
+import { Images, Palette, Skin } from '../../config';
 import i18n from '../i18n';
 
 // TODO: platform select
@@ -56,7 +56,7 @@ export default class SongView extends React.Component {
         <Image
           resizeMode='contain'
           tintColor={Skin.Home_SocialButtons}
-          source={MUSICAL_SCORE_ICON}
+          source={Images.Songbook_MusicalScore}
           style={{ height: 40, width: 40 }}
         />
       </TouchableOpacity>
