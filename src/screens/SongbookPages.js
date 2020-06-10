@@ -26,7 +26,8 @@ class SongbookPages extends React.Component {
     tocButtonDisplay: true,
     songViews: [],
     songs: [],
-    pageCount: 0
+    pageCount: 0,
+    xPosition: 0
   };
 
   componentDidMount() {
@@ -59,8 +60,9 @@ class SongbookPages extends React.Component {
       });
     });
 
-    console.log("componentDidMount, setState")
-    this.setState({ songViews, songs, pageCount }, () => this.scrollToSong);
+    this.setState({ songViews, songs, pageCount });
+    if (this.props.route.params.page)
+      setTimeout(() => this.scrollToSong(), 0);
   }
 
   _onSongbookMomentumScrollEnd = ({ nativeEvent }) => {
@@ -86,24 +88,21 @@ class SongbookPages extends React.Component {
   };
 
   scrollToSong = () => {
-    console.log("scrollToSong")
+    console.log("scrollToSong, page " + this.props.route.params.page)
     //const { currentSong } = this.props.globalData.state;
     const currentSong = this.props.route.params.song;
-    console.log(currentSong)
     this.setState({
       tocButtonDisplay: true,
       chapter_title: currentSong.chapter_title
     });
     this._scrollView.scrollTo({
-      x: (currentSong.page - 1 + firstValidPageIndex) * screenWidth,
+      x: (this.props.route.params.page - 1 + firstValidPageIndex) * screenWidth,
       y: 0,
       animated: false
     });
   };
 
   render() {
-    console.log("SongbookPages " + JSON.stringify(this.props.route.params))
-
     return (
       <View style={styles.container}>
         <View style={styles.sectionHeader}>
