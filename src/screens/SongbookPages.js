@@ -6,15 +6,16 @@ import {
   View
 } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler'
-import { HeaderBackButton } from 'react-navigation';;
+import { HeaderBackButton } from 'react-navigation';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Toast from "react-native-tiny-toast";
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { FontSizes } from '../constants';
 import { RegularText } from '../components/StyledText';
 import SongView from '../components/SongView';
-import i18n from '../i18n';
 import { DefaultColors, Skin } from '../../config';
+import i18n from '../i18n';
 
 let defaultChapterTitle = i18n.t('screens.songbook.defaultchaptertitle');
 const screenWidth = Dimensions.get('window').width;
@@ -63,6 +64,8 @@ class SongbookPages extends React.Component {
     this.setState({ songViews, songs, pageCount });
     if (this.props.route.params.page)
       setTimeout(() => this.scrollToSong(), 0);
+
+    Toast.show(i18n.t('screens.songbook.swipetoview'))
   }
 
   _onSongbookMomentumScrollEnd = ({ nativeEvent }) => {
