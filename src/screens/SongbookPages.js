@@ -7,6 +7,8 @@ import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import i18n from '../i18n';
 
+let defaultChapterTitle = i18n.t('screens.songbook.defaultchaptertitle');
+
 class SongbookPages extends React.Component {
   state = {
     chapter_title: defaultChapterTitle,
@@ -17,6 +19,10 @@ class SongbookPages extends React.Component {
   };
 
   componentDidMount() {
+    this.props.navigation.setOptions({
+      headerTitle: i18n.t('screens.songbook.title')
+    })
+
     let songViews = [];
     let songs = [];
     let pageCount = 0;
@@ -48,7 +54,7 @@ class SongbookPages extends React.Component {
     console.log("SongbookPages " + JSON.stringify(this.props.route.params))
 
     return (
-      <Text>Songbook Pages</Text>
+      <Text>{JSON.stringify(this.props.route.params.song)}</Text>
     );
   }
 }
