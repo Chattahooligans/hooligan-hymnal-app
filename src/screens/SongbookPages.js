@@ -32,7 +32,7 @@ class SongbookPages extends React.Component {
   componentDidMount() {
     this.props.navigation.setOptions({
       headerTitle: i18n.t('screens.songbook.title'),
-      headerLeft: () => <HeaderBackButton onPress={() => navigation.goBack()} tintColor={DefaultColors.HeaderText} />
+      headerLeft: () => <HeaderBackButton onPress={() => this.props.navigation.goBack()} tintColor={DefaultColors.HeaderText} />
     })
 
     let songViews = [];
@@ -42,7 +42,6 @@ class SongbookPages extends React.Component {
       chapterChild.songs.forEach((songChild, index) => {
         try {
           let item = this.props.globalData.state.songs.filter(song => song._id === songChild._id)[0];
-          console.log("found song: " + item)
           item.chapter_title = chapterChild.chapter_title;
           pageCount++;
           songs.push({ index: pageCount, song: item });
@@ -60,7 +59,8 @@ class SongbookPages extends React.Component {
       });
     });
 
-    this.setState({ songViews, songs, pageCount });
+    console.log("componentDidMount, setState")
+    this.setState({ songViews, songs, pageCount }, () => this.scrollToSong);
   }
 
   _onSongbookMomentumScrollEnd = ({ nativeEvent }) => {
@@ -86,7 +86,10 @@ class SongbookPages extends React.Component {
   };
 
   scrollToSong = () => {
-    const { currentSong } = this.props.globalData.state;
+    console.log("scrollToSong")
+    //const { currentSong } = this.props.globalData.state;
+    const currentSong = this.props.route.params.song;
+    console.log(currentSong)
     this.setState({
       tocButtonDisplay: true,
       chapter_title: currentSong.chapter_title
@@ -100,7 +103,6 @@ class SongbookPages extends React.Component {
 
   render() {
     console.log("SongbookPages " + JSON.stringify(this.props.route.params))
-    console.log(this.state.songViews.length)
 
     return (
       <View style={styles.container}>
