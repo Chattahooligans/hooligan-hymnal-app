@@ -30,15 +30,23 @@ class SongbookPages extends React.Component {
   };
 
   componentDidMount() {
+    /*
     this.props.navigation.setOptions({
       headerTitle: i18n.t('screens.songbook.title'),
       headerLeft: () => <HeaderBackButton onPress={() => this.props.navigation.goBack()} tintColor={DefaultColors.HeaderText} />
     })
+    */
 
-    if (this.props.route.params.page)
+    if (this.props.route.params && this.props.route.params.page)
       setTimeout(() => this.scrollToSong(), 0);
 
     Toast.show(i18n.t('screens.songbook.swipetoview'))
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.route.params && this.props.route.params.page)
+      if (this.props.route.params.page != prevProps.route.params.page)
+        setTimeout(() => this.scrollToSong(), 0);
   }
 
   _onSongbookMomentumScrollEnd = ({ nativeEvent }) => {
@@ -50,18 +58,20 @@ class SongbookPages extends React.Component {
   };
 
   scrollToSong = () => {
-    const offset = (this.props.route.params.page - 1 + firstValidPageIndex) * screenWidth;
-    this.setState({
-      tocButtonDisplay: true,
-      chapterTitle: this.props.route.params.song.chapterTitle
-    });
+    if (this.props.route.params && this.props.route.params.page) {
 
-    this._scrollView.scrollTo({
-      x: offset,
-      y: 0,
-      animated: false
-    });
+      const offset = (this.props.route.params.page - 1 + firstValidPageIndex) * screenWidth;
+      this.setState({
+        tocButtonDisplay: true,
+        chapterTitle: this.state.songList[this.props.route.params.page - 1].chapterTitle
+      });
 
+      this._scrollView.scrollTo({
+        x: offset,
+        y: 0,
+        animated: false
+      });
+    }
   };
 
   _renderItem = ({ item, index }) => {
