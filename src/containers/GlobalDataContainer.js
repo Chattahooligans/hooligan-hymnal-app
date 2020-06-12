@@ -35,6 +35,7 @@ export default class GlobalDataContainer extends Container {
       chapters: []
     },
     songs: null,
+    songbookContents: null,
     rosters: {
       rosterTitle: '',
       season: '',
@@ -245,6 +246,34 @@ export default class GlobalDataContainer extends Container {
   };
 
   setShowSongbookCover = (show) => this.setState({ showSongbookCover: show });
+  computeSongbook = (callback) => {
+    let songList = [];
+    let ToCData = [];
+    let tocPageLabel = 1;
+    this.state.songbook.chapters.forEach(chapterChild => {
+      let chapterSongList = [];
+
+      chapterChild.songs.forEach(songChild => {
+        try {
+          let song = this.state.songs.find(song => song._id === songChild._id);
+          song.chapterTitle = chapterChild.chapter_title;
+          song.pageLabel = tocPageLabel;
+          songList.push(song);
+          chapterSongList.push(song);
+          tocPageLabel++;
+        } catch (err) {
+          console.log(songChild._id + ' not found in songs database');
+        }
+      });
+
+      if (0 < chapterSongList.length)
+        ToCData.push({ title: chapterChild.chapter_title, data: chapterSongList });
+    });
+
+    this.setState({ songbookContents: ToCData, songList: songList }, () => {
+      if (callback) callback();
+    });
+  }
 
   setCurrentSong = (song, callback) =>
     this.setState({ currentSong: song }, () => {

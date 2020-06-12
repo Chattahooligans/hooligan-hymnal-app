@@ -72,7 +72,7 @@ class SongRow extends React.Component {
 class SongbookContents extends React.Component {
     state = {
         showSongbookCover: this.props.globalData.state.showSongbookCover,
-        ToCData: []
+        ToCData: this.props.globalData.state.songbookContents
     }
 
     componentDidMount() {
@@ -80,30 +80,18 @@ class SongbookContents extends React.Component {
             headerTitle: i18n.t('screens.songbook.title')
         })
 
-        let ToCData = [];
-        let tocPageLabel = 1;
-        this.props.globalData.state.songbook.chapters.forEach(chapterChild => {
-            let songList = [];
+        this.setData();
+    }
+    componentDidUpdate(prevProps) {
+        if (prevProps.globalData.state.songbookContents != this.props.globalData.state.songbookContents)
+            this.setData()
+    }
 
-            chapterChild.songs.forEach(songChild => {
-                try {
-                    let song = this.props.globalData.state.songs.filter(
-                        song => song._id === songChild._id
-                    )[0];
-                    // set page label
-                    song.toc_page_label = tocPageLabel;
-                    songList.push(song);
-                    tocPageLabel++;
-                } catch (err) {
-                    console.log(songChild._id + ' not found in songs database');
-                }
-            });
 
-            if (0 < songList.length)
-                ToCData.push({ title: chapterChild.chapter_title, data: songList });
-        });
-
-        this.setState({ ToCData });
+    setData() {
+        if (!this.state.ToCData) {
+            this.props.globalData.computeSongbook(() => this.setState({ToCData: this.props.globalData.state.songbookContents}))
+        }
 
         // simulate load
         if (this.state.showSongbookCover) {
@@ -140,7 +128,7 @@ class SongbookContents extends React.Component {
             });
         });
         */
-       this.props.navigation.navigate('SongbookPages', { song, page: item.toc_page_label });
+        this.props.navigation.navigate('SongbookPages', { song, page: item.tocPageLabel });
     };
 
     render() {
@@ -148,17 +136,7 @@ class SongbookContents extends React.Component {
         let ratio = width / height
         let scaledHeight = Dimensions.get("window").width / ratio
 
-        if (this.state.showSongbookCover) {
-            return (
-                <View style={styles.coverContainer}>
-                    <Image
-                        style={{ width: Dimensions.get("window").width, height: scaledHeight }}
-                        source={Skin.Songbook_Cover} />
-                    <ActivityIndicator size="large" animating={true} color={DefaultColors.Primary} />
-                </View>
-            )
-        }
-        else {
+        if (this.state.ToCData && !this.state.showSongbookCover) {
             return (
                 <View style={styles.contentsContainer}>
                     <SectionList
@@ -168,6 +146,16 @@ class SongbookContents extends React.Component {
                         renderSectionHeader={this._renderSectionHeader}
                         sections={this.state.ToCData}
                         keyExtractor={(item, index) => index} />
+                </View>
+            )
+        }
+        else {
+            return (
+                <View style={styles.coverContainer}>
+                    <Image
+                        style={{ width: Dimensions.get("window").width, height: scaledHeight }}
+                        source={Skin.Songbook_Cover} />
+                    <ActivityIndicator size="large" animating={true} color={DefaultColors.Primary} />
                 </View>
             )
         }
