@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Dimensions,
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler'
@@ -23,12 +22,11 @@ const firstValidPageIndex = 0;
 
 class SongbookPages extends React.Component {
   state = {
-    chapter_title: defaultChapterTitle,
+    chapterTitle: defaultChapterTitle,
     tocButtonDisplay: true,
-    songViews: [],
-    songs: [],
-    pageCount: 0,
-    xPosition: 0
+    songList: this.props.globalData.state.songList,
+    songViews: this.props.globalData.state.songViews,
+    pageCount: 0
   };
 
   componentDidMount() {
@@ -37,31 +35,6 @@ class SongbookPages extends React.Component {
       headerLeft: () => <HeaderBackButton onPress={() => this.props.navigation.goBack()} tintColor={DefaultColors.HeaderText} />
     })
 
-    let songViews = [];
-    let songs = [];
-    let pageCount = 0;
-    this.props.globalData.state.songbook.chapters.forEach(chapterChild => {
-      chapterChild.songs.forEach((songChild, index) => {
-        try {
-          let item = this.props.globalData.state.songs.filter(song => song._id === songChild._id)[0];
-          item.chapter_title = chapterChild.chapter_title;
-          pageCount++;
-          songs.push({ index: pageCount, song: item });
-          songViews.push(
-            <View
-              key={index + "-" + item._id}
-              chapter_title={chapterChild.chapter_title}
-              style={{ flex: 1, width: screenWidth, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
-              <SongView song={item} pageCount={pageCount} />
-            </View>
-          );
-        } catch (err) {
-          console.log(songChild._id + ' not found in songs database');
-        }
-      });
-    });
-
-    this.setState({ songViews, songs, pageCount });
     if (this.props.route.params.page)
       setTimeout(() => this.scrollToSong(), 0);
 
@@ -70,58 +43,53 @@ class SongbookPages extends React.Component {
 
   _onSongbookMomentumScrollEnd = ({ nativeEvent }) => {
     const pageIndex = Math.round(nativeEvent.contentOffset.x / screenWidth);
-
-    if (this.state.pageCount + 1 === pageIndex) {
-      this.setState({
-        tocButtonDisplay: false,
-        chapter_title: i18n.t('screens.songbook.tableofcontents')
-      });
-    } else if (firstValidPageIndex <= pageIndex) {
-      this.setState({
-        tocButtonDisplay: true,
-        chapter_title: this.state.songs[pageIndex - firstValidPageIndex].song
-          .chapter_title
-      });
-    } else {
-      this.setState({
-        tocButtonDisplay: true,
-        chapter_title: defaultChapterTitle
-      });
-    }
+    this.setState({
+      tocButtonDisplay: true,
+      chapterTitle: this.state.songList[pageIndex - firstValidPageIndex].chapterTitle
+    });
   };
 
   scrollToSong = () => {
-    console.log("scrollToSong, page " + this.props.route.params.page)
-    //const { currentSong } = this.props.globalData.state;
-    const currentSong = this.props.route.params.song;
+    const offset = (this.props.route.params.page - 1 + firstValidPageIndex) * screenWidth;
     this.setState({
       tocButtonDisplay: true,
-      chapter_title: currentSong.chapter_title
+      chapterTitle: this.props.route.params.song.chapterTitle
     });
+
     this._scrollView.scrollTo({
-      x: (this.props.route.params.page - 1 + firstValidPageIndex) * screenWidth,
+      x: offset,
       y: 0,
       animated: false
     });
+
   };
+
+  _renderItem = ({ item, index }) => {
+    // FlatList implementation
+    return item
+
+    // or use globalData.state.songList and return
+    /*
+    <View
+              style={{ flex: 1, width: screenWidth, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
+              <SongView song={song} pageCount={index + 1} />
+            </View>
+    */
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.sectionHeader}>
-          <RegularText style={styles.chapterText}>{this.state.chapter_title}</RegularText>
+          <RegularText style={styles.chapterText}>{this.state.chapterTitle}</RegularText>
         </View>
 
         <View style={{ flex: 1 }}>
-          <ScrollView key={'songbookScrollView'}
-            ref={view => (this._scrollView = view)}
-            contentContainerStyle={{
-              flexGrow: 1,
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
+          <ScrollView
+            ref={component => (this._scrollView = component)}
             horizontal={true}
             pagingEnabled={true}
+            keyExtractor={(item, index) => item._id + "-" + index}
             onMomentumScrollEnd={this._onSongbookMomentumScrollEnd}>
             {this.state.songViews}
           </ScrollView>
@@ -139,8 +107,7 @@ class SongbookPages extends React.Component {
               marginVertical: 3,
               marginHorizontal: 5,
               backgroundColor: 'transparent'
-            }}
-          />
+            }} />
           <RegularText style={styles.tocButtonText}>
             {i18n.t('screens.songbook.tableofcontents')}
           </RegularText>

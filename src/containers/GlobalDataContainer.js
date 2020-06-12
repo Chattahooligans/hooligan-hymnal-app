@@ -1,4 +1,5 @@
-import { Platform } from 'react-native';
+import React from 'react';
+import { Dimensions, Platform, View } from 'react-native';
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
@@ -15,6 +16,8 @@ import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
 import { objectTypeAnnotation } from '@babel/types';
 import i18n from '../i18n';
+
+import SongView from '../components/SongView';
 
 const PUSH_ENDPOINT = Urls.HooliganHymnalServer + '/api/pushToken';
 
@@ -36,6 +39,8 @@ export default class GlobalDataContainer extends Container {
     },
     songs: null,
     songbookContents: null,
+    songList: null,
+    songViews: null,
     rosters: {
       rosterTitle: '',
       season: '',
@@ -247,22 +252,33 @@ export default class GlobalDataContainer extends Container {
 
   setShowSongbookCover = (show) => this.setState({ showSongbookCover: show });
   computeSongbook = (callback) => {
-    let songList = [];
+    const screenWidth = Dimensions.get('window').width;
+
     let ToCData = [];
+    let songList = [];
+    let songViews = [];
     let tocPageLabel = 1;
     this.state.songbook.chapters.forEach(chapterChild => {
       let chapterSongList = [];
 
-      chapterChild.songs.forEach(songChild => {
+      chapterChild.songs.forEach((songChild, index) => {
         try {
-          let song = this.state.songs.find(song => song._id === songChild._id);
+          let songOriginal = this.state.songs.find(song => song._id === songChild._id);
+          let song = {};
+          Object.assign(song, songOriginal);
           song.chapterTitle = chapterChild.chapter_title;
           song.pageLabel = tocPageLabel;
           songList.push(song);
           chapterSongList.push(song);
+          songViews.push(
+            <View
+              style={{ flex: 1, width: screenWidth, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
+              <SongView song={song} pageCount={index + 1} />
+            </View>
+          );
           tocPageLabel++;
         } catch (err) {
-          console.log(songChild._id + ' not found in songs database');
+          console.log(songChild._id + ' not found in songs database ' + err);
         }
       });
 
@@ -270,7 +286,7 @@ export default class GlobalDataContainer extends Container {
         ToCData.push({ title: chapterChild.chapter_title, data: chapterSongList });
     });
 
-    this.setState({ songbookContents: ToCData, songList: songList }, () => {
+    this.setState({ songbookContents: ToCData, songList, songViews }, () => {
       if (callback) callback();
     });
   }

@@ -90,7 +90,7 @@ class SongbookContents extends React.Component {
 
     setData() {
         if (!this.state.ToCData) {
-            this.props.globalData.computeSongbook(() => this.setState({ToCData: this.props.globalData.state.songbookContents}))
+            this.props.globalData.computeSongbook(() => this.setState({ ToCData: this.props.globalData.state.songbookContents }))
         }
 
         // simulate load
@@ -116,19 +116,8 @@ class SongbookContents extends React.Component {
 
     _handlePressRow = item => {
         const song = find(this.props.globalData.state.songs, { _id: item._id });
-
-        /*
-        // pass item page label to song to include in state
-        song.page = item.toc_page_label;
-
-        this.props.setCurrentSong(song, () => {
-            this.props.scrollToSong();
-            this.setState(previousState => {
-                return { currentSong: song };
-            });
-        });
-        */
-        this.props.navigation.navigate('SongbookPages', { song, page: item.tocPageLabel });
+        
+        this.props.navigation.navigate('SongbookPages', { song, page: item.pageLabel });
     };
 
     render() {
