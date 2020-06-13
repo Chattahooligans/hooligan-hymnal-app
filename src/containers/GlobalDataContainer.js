@@ -1,5 +1,4 @@
-import React from 'react';
-import { Dimensions, Platform, View } from 'react-native';
+import { Platform } from 'react-native';
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
@@ -40,7 +39,6 @@ export default class GlobalDataContainer extends Container {
     songs: null,
     songbookContents: null,
     songList: null,
-    songViews: null,
     rosters: {
       rosterTitle: '',
       season: '',
@@ -252,8 +250,6 @@ export default class GlobalDataContainer extends Container {
 
   setShowSongbookCover = (show) => this.setState({ showSongbookCover: show });
   computeSongbook = (callback) => {
-    const screenWidth = Dimensions.get('window').width;
-
     let ToCData = [];
     let songList = [];
     let songViews = [];
@@ -270,12 +266,6 @@ export default class GlobalDataContainer extends Container {
           song.pageLabel = tocPageLabel;
           songList.push(song);
           chapterSongList.push(song);
-          songViews.push(
-            <View
-              style={{ flex: 1, width: screenWidth, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
-              <SongView song={song} pageCount={index + 1} />
-            </View>
-          );
           tocPageLabel++;
         } catch (err) {
           console.log(songChild._id + ' not found in songs database ' + err);
@@ -286,7 +276,7 @@ export default class GlobalDataContainer extends Container {
         ToCData.push({ title: chapterChild.chapter_title, data: chapterSongList });
     });
 
-    this.setState({ songbookContents: ToCData, songList, songViews }, () => {
+    this.setState({ songbookContents: ToCData, songList }, () => {
       if (callback) callback();
     });
   }
