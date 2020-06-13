@@ -103,12 +103,6 @@
             "tableofcontents": "Inhaltsverzeichnis",
             "swipetoview": "Nach links und rechts wischen um Lieder anzuzeigen."
         },
-        "songs": {
-            "title": "Lieder",
-            "gamesongs:": "Spiel-Lieder",
-            "playersongs": "Spieler-Lieder",
-            "teamsongs": "Team-Lieder"
-        },
         "tocinline": {
             "title": "Inhaltsverzeichnis"
         },

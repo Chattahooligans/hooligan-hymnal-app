@@ -5,7 +5,7 @@
             "appTitle": "Chattahooligan Hymnal",
             "version": "v",
             "why": "The Chattahooligan Hymnal is built to help you support Chattanooga FC.",
-            "feedback": "Please send feedback to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email thechattahooligans@gmail.com",
+            "feedback": "Please send feedback to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email hooliganhymnal@gmail.com",
             "creditsheading": "Credits",
             "credits": [
                 "- Home screen video created by Jay Kaley",
@@ -126,13 +126,7 @@
             "defaultchaptertitle": "Cover",
             "title": "Songbook",
             "tableofcontents": "Table of Contents",
-            "swipetoview": "Swipe Left/Right to View Songs"
-        },
-        "songs": {
-            "title": "Songs",
-            "gamesongs:": "Game Songs",
-            "playersongs": "Player Songs",
-            "teamsongs": "Team Songs"
+            "swipetoview": "Swipe Left/Right to view more songs"
         },
         "tocinline": {
             "title": "Table of Contents"

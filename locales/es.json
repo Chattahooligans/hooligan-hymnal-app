@@ -103,12 +103,6 @@
             "tableofcontents": "El índice de contenidos",
             "swipetoview": "desplácese hacia la izquierda\no hacia la derecha para ver canciones"
         },
-        "songs": {
-            "title": "Canciones",
-            "gamesongs:": "Canciones de juego",
-            "playersongs": "Canciones de jugadores",
-            "teamsongs": "Canciones del equipo"
-        },
         "tocinline": {
             "title": "Tabla de Contenidos"
         },

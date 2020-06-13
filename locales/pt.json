@@ -103,12 +103,6 @@
             "tableofcontents": "Indice",
             "swipetoview": "Swipe direita/esquerda para visualizar os hinos"
         },
-        "songs": {
-            "title": "Hinos",
-            "gamesongs:": "Hinos de jogo",
-            "playersongs": "Hinos de jogadores",
-            "teamsongs": "Hinos do time"
-        },
         "tocinline": {
             "title": "Indice"
         },
