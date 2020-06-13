@@ -55,7 +55,7 @@ class SongRow extends React.Component {
                                 {capoSignal}
                             </RegularText>
                             <RegularText style={styles.pageLabel}>
-                                {song.toc_page_label}
+                                {song.pageLabel}
                             </RegularText>
                         </View>
                     </View>
@@ -83,8 +83,10 @@ class SongbookContents extends React.Component {
         this.setData();
     }
     componentDidUpdate(prevProps) {
+        /*
         if (prevProps.globalData.state.songbookContents != this.props.globalData.state.songbookContents)
             this.setData()
+            */
     }
 
 
@@ -117,7 +119,7 @@ class SongbookContents extends React.Component {
     _handlePressRow = item => {
         const song = find(this.props.globalData.state.songs, { _id: item._id });
         
-        this.props.navigation.navigate('SongbookPages', { song, page: item.pageLabel });
+        this.props.navigation.navigate('SongbookPages', { page: item.pageLabel });
     };
 
     render() {
