@@ -1,11 +1,11 @@
 import React from 'react';
 import {
   Dimensions,
+  FlatList,
   StyleSheet,
   View
 } from 'react-native';
-import { RectButton, ScrollView } from 'react-native-gesture-handler'
-import { HeaderBackButton } from 'react-navigation';
+import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Toast from "react-native-tiny-toast";
 import withUnstated from '@airship/with-unstated';
@@ -24,42 +24,12 @@ class SongbookPages extends React.Component {
   state = {
     chapterTitle: defaultChapterTitle,
     songList: this.props.globalData.state.songList,
-    songViews: [],
     showToast: true
   };
 
-  componentDidMount() {
-    /*
-    this.props.navigation.setOptions({
-      headerTitle: i18n.t('screens.songbook.title'),
-      headerLeft: () => <HeaderBackButton onPress={() => this.props.navigation.goBack()} tintColor={DefaultColors.HeaderText} />
-    })
-    */
-
-    this.buildSongViews();
-  }
-
-  buildSongViews() {
-    if (this.state.songList) {
-      let views = []
-
-      this.state.songList.forEach((element, index) => {
-        views.push(
-          <View style={{ flex: 1, width: screenWidth }}
-            key={"SongbookPages-View-" + (index + 1)}>
-            <SongView song={element} pageCount={index + 1} />
-          </View>
-        )
-      });
-
-      this.setState({ songViews: views })
-    }
-  }
-
   componentDidUpdate(prevProps) {
-    if (this.state.songList != this.props.globalData.state.songList) {
-      this.setState({ songList: this.props.globalData.state.songList }, () => this.buildSongViews())
-    }
+    if (this.state.songList != this.props.globalData.state.songList)
+      this.setState({ songList: this.props.globalData.state.songList })
 
     if (this.props.route.params) {
       if (!prevProps.route.params)
@@ -88,13 +58,28 @@ class SongbookPages extends React.Component {
         chapterTitle: this.state.songList[this.props.route.params.page - 1].chapterTitle
       });
 
-      this._scrollView.scrollTo({
-        x: offset,
-        y: 0,
+      this._scrollView.scrollToOffset({
+        offset: offset,
         animated: false
       });
+
+     /*
+      this._scrollView.scrollToIndex({
+        index: this.props.route.params.page - 1,
+        animated: false
+      })
+      */
     }
   };
+
+  _renderItem({ item, index }) {
+    return (
+      <View style={{ flex: 1, width: screenWidth }}
+        key={"SongbookPages-View-" + (index + 1)}>
+        <SongView song={item} pageCount={index + 1} />
+      </View>
+    )
+  }
 
   render() {
     return (
@@ -104,14 +89,14 @@ class SongbookPages extends React.Component {
         </View>
 
         <View style={{ flex: 1 }}>
-          <ScrollView
+          <FlatList
             ref={component => (this._scrollView = component)}
             horizontal={true}
             pagingEnabled={true}
             keyExtractor={(item, index) => item._id + "-" + index}
-            onMomentumScrollEnd={this._onSongbookMomentumScrollEnd}>
-            {this.state.songViews}
-          </ScrollView>
+            renderItem={this._renderItem}
+            onMomentumScrollEnd={this._onSongbookMomentumScrollEnd}
+            data={this.state.songList} />
         </View>
 
         <RectButton
