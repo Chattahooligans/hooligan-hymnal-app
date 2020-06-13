@@ -23,7 +23,7 @@ import i18n from '../i18n';
 // TODO: platform select
 // on android, longpress event with clipboard setting
 // on iOS, selectable=true and make them copy it manually
-export default class SongView extends React.Component {
+export default class SongView extends React.PureComponent {
   render() {
     let song = this.props.song;
 
