@@ -22,6 +22,7 @@ import SinglePost from './SinglePost';
 import SingleSong from './SingleSong';
 import Songbook from './Songbook';
 import SongbookContents from './SongbookContents';
+import SongbookCover from './SongbookCover';
 import SongbookPages from './SongbookPages';
 import Songs from './Songs';
 import TableOfContentsInline from './TableOfContentsInline';
@@ -53,6 +54,7 @@ export default {
   SingleSong,
   Songbook,
   SongbookContents,
+  SongbookCover,
   SongbookPages,
   Songs,
   TableOfContentsInline,

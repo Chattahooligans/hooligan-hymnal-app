@@ -1,16 +1,12 @@
 import React from 'react';
 import {
-    ActivityIndicator,
-    Dimensions,
     Image,
     SectionList,
     StyleSheet,
-    Text,
     View
 } from 'react-native';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import { DefaultColors, Images, Skin } from '../../config';
-import { find } from 'lodash';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { RegularText } from '../components/StyledText';
@@ -71,7 +67,6 @@ class SongRow extends React.Component {
 
 class SongbookContents extends React.Component {
     state = {
-        showSongbookCover: this.props.globalData.state.showSongbookCover,
         ToCData: this.props.globalData.state.songbookContents
     }
 
@@ -83,25 +78,14 @@ class SongbookContents extends React.Component {
         this.setData();
     }
     componentDidUpdate(prevProps) {
-        /*
         if (prevProps.globalData.state.songbookContents != this.props.globalData.state.songbookContents)
             this.setData()
-            */
     }
 
 
     setData() {
-        if (!this.state.ToCData) {
+        if (!this.state.ToCData)
             this.props.globalData.computeSongbook(() => this.setState({ ToCData: this.props.globalData.state.songbookContents }))
-        }
-
-        // simulate load
-        if (this.state.showSongbookCover) {
-            setTimeout(() => {
-                this.setState({ showSongbookCover: false })
-                this.props.globalData.setShowSongbookCover(false)
-            }, 1000)
-        }
     }
 
     _renderSectionHeader = ({ section }) => {
@@ -117,51 +101,27 @@ class SongbookContents extends React.Component {
     };
 
     _handlePressRow = item => {
-        const song = find(this.props.globalData.state.songs, { _id: item._id });
-        
         this.props.navigation.navigate('SongbookPages', { page: item.pageLabel });
     };
 
     render() {
-        let { width, height } = Image.resolveAssetSource(Skin.Songbook_Cover)
-        let ratio = width / height
-        let scaledHeight = Dimensions.get("window").width / ratio
-
-        if (this.state.ToCData && !this.state.showSongbookCover) {
-            return (
-                <View style={styles.contentsContainer}>
-                    <SectionList
-                        renderScrollComponent={props => <ScrollView {...props} />}
-                        stickySectionHeadersEnabled={false}
-                        renderItem={this._renderItem}
-                        renderSectionHeader={this._renderSectionHeader}
-                        sections={this.state.ToCData}
-                        keyExtractor={(item, index) => index} />
-                </View>
-            )
-        }
-        else {
-            return (
-                <View style={styles.coverContainer}>
-                    <Image
-                        style={{ width: Dimensions.get("window").width, height: scaledHeight }}
-                        source={Skin.Songbook_Cover} />
-                    <ActivityIndicator size="large" animating={true} color={DefaultColors.Primary} />
-                </View>
-            )
-        }
+        return (
+            <View style={styles.contentsContainer}>
+                <SectionList
+                    renderScrollComponent={props => <ScrollView {...props} />}
+                    stickySectionHeadersEnabled={false}
+                    renderItem={this._renderItem}
+                    renderSectionHeader={this._renderSectionHeader}
+                    sections={this.state.ToCData}
+                    keyExtractor={(item, index) => index} />
+            </View>
+        )
     }
 }
 
 export default withUnstated(SongbookContents, { globalData: GlobalDataContainer });
 
 const styles = StyleSheet.create({
-    coverContainer: {
-        flex: 1,
-        backgroundColor: Skin.Songbook_Background,
-        alignItems: "center",
-        justifyContent: "space-around",
-    },
     contentsContainer: {
         flex: 1,
     },

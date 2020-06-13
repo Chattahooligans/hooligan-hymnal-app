@@ -33,6 +33,10 @@ export default NewSongbookNavigation = () => {
     return (
         <SongbookStackContainer.Navigator screenOptions={DefaultStackScreenOptions}>
             <SongbookStackContainer.Screen
+                name="SongbookCover"
+                component={Screens.SongbookCover}
+                options={{ headerTitle: i18n.t('screens.songbook.title') }} />
+            <SongbookStackContainer.Screen
                 name="Songbook"
                 component={SongbookTabsNavigation}
                 options={{ headerTitle: i18n.t('screens.songbook.title') }} />
