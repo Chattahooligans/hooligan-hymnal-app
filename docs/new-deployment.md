@@ -59,34 +59,35 @@ You should create several accounts in your SG's name to deploy your customized v
 * [Expo](https://expo.io/) is based on React Native, and we use Expo services in the application and server.
 * [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) is used for cloud data storage.
 * [Cloudinary](https://cloudinary.com/) is currently used to store images used in the Roster and News Feed.
-* [Heroku](https://www.heroku.com/ is currently the recommended host for the server.
-* TODO Firebase for android notifications
+* [Heroku](https://www.heroku.com/) is currently the recommended host for the server.
+* [Firebase](https://firebase.google.com/) is the service used to manage push notifications for Android devices. 
 
 ## Fork the Code
 
-TODO instructions, app and server
+In your SG's github account, fork the code for the [Hooligan Hymnal Server](https://github.com/Chattahooligans/hooligan-hymnal-server), and the [Hooligan Hymnal App](https://github.com/Chattahooligans/hooligan-hymnal-app). This is your starting point for building the app. 
 
 ## Create a MongoDB Cluster
 
-TODO instructions, also
-
-MongoDB will also require permission changes to allow access from everywhere. The free tier of cloudDb does not allow for specific IP whitelisting, so you will need to set a VERY strong DB password and set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
-
-## Deploy the Server
-
-TODO instructions, refer to server docs
+Create an account in MongoDB and create a free M0 sandbox cluster. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username and STRONG password. Once your URI has been generated, go to the "Network Access" tab in the cluster settings. Change the allowed IP Address to 0.0.0.0/0. MongoDB will also require permission changes to allow access from everywhere. The free tier of cloudDb does not allow for specific IP whitelisting, so you will need to set a VERY strong DB password and set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
 
 ## Configure the Server
 
 ### Environment Variables
 
+To configure environment variables, look at the [server guide](https://github.com/Chattahooligans/hooligan-hymnal-app/blob/master/docs/server.md). It is best to do this before deploying the server. 
+### Deploy the Server
+
+To deploy the server, log into Heroku and create a new app. For testing purposes, a free app is sufficient. After deployment, the $7 paid tier will suffice for production. In the "deploy tab" connect to your SG's GitHub accout and select the Hooligan Hymnal Server that you forked to your account. Make sure you do not enable automatic deploys, as breaking changes may be pushed to the master branch frequently. To deploy the server using the command line, please refer to the [Heroku documentation](https://devcenter.heroku.com/articles/heroku-cli).
+
 ### Logging In
+
+After configuring the environment variables, restart the dyno of your application in Heroku and wait for the app to reload. You will be able to navigate to the URL provided by Heroku. Generally, this is {your app name}.herokuapp.com. You'll be able to register a new user, who will be the adminstrative user for tthe app. DO THIS IMMEDIATELY, otherwise anyone that happens to find your app URL will be able to register an admin user.
 
 ### Initial Data
 
 This stuff may all be in server docs eventually. I just mainly don't want to forget that they need to create an admin account and a default Channel for the feed asap.
 
-## Initialize a Local Code Repository for the Moble App
+## Initialize a Local Code Repository for the Mobile App
 
 TODO instructions
 don't forget to backup google-services.json somewhere
@@ -128,12 +129,6 @@ TODO instructions
 
 
 
-
-
-
-## Set Up Environment
-Once your accounts are created, you will need to deploy a Heroku server. This includes forking the Hymnal Server repository to your GitHub account, and using your github link to deploy in Heroku. https://github.com/Chattahooligans/hooligan-hymnal-server. It is reccomended that you do not enable automatic deployments, since the master branch is being worked on and new features mught break your client if they havent been updated. Best practice is to create a `production` branch and deploy that at every stable release of the server. 
-Set up the environment variables in Heroku. Obtain the Cloudinary URL and MongoDB URI. Instructions for connecting them to the Heroku Server can be found here. https://github.com/Chattahooligans/hooligan-hymnal-app/blob/master/docs/server.md. Once your server is up and running, CREATE THE FIRST USER IMMEDIATELY. The first created user is the superuser in the application, and will have access to change any data in your database. 
 
 
 ## Customize the application
