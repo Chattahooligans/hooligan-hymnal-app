@@ -58,16 +58,17 @@ class SongbookPages extends React.Component {
         chapterTitle: this.state.songList[this.props.route.params.page - 1].chapterTitle
       });
 
-      /*
       this._scrollView.scrollToOffset({
         offset: offset,
         animated: false
       });
-      */
+
+     /*
       this._scrollView.scrollToIndex({
         index: this.props.route.params.page - 1,
         animated: false
       })
+      */
     }
   };
 
@@ -95,7 +96,6 @@ class SongbookPages extends React.Component {
             keyExtractor={(item, index) => item._id + "-" + index}
             renderItem={this._renderItem}
             onMomentumScrollEnd={this._onSongbookMomentumScrollEnd}
-            getItemLayout={(data, index) => ({ length: data.length, offset: screenWidth * index, index: index })}
             data={this.state.songList} />
         </View>
 

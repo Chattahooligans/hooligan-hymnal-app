@@ -40,7 +40,7 @@ class SongbookCover extends React.Component {
             setTimeout(() => {
                 this.props.globalData.setShowSongbookCover(false)
                 this.setState({ showSongbookCover: false })
-            }, 100)
+            }, 500)
         }
     }
 
