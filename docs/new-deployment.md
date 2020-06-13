@@ -60,11 +60,13 @@ You should create several accounts in your SG's name to deploy your customized v
 * [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) is used for cloud data storage.
 * [Cloudinary](https://cloudinary.com/) is currently used to store images used in the Roster and News Feed.
 * [Heroku](https://www.heroku.com/) is currently the recommended host for the server.
-* [Firebase](https://firebase.google.com/) is the service used to manage push notifications for Android devices. 
+* [Firebase](https://firebase.google.com/) is the service used to manage push notifications for Android devices. Firebase uses a Google account, so use the same one you use for Google Play.
 
 ## Fork the Code
 
 In your SG's github account, fork the code for the [Hooligan Hymnal Server](https://github.com/Chattahooligans/hooligan-hymnal-server), and the [Hooligan Hymnal App](https://github.com/Chattahooligans/hooligan-hymnal-app). This is your starting point for building the app. 
+
+TODO: instructions
 
 ## Create a MongoDB Cluster
 
@@ -75,9 +77,12 @@ Create an account in MongoDB and create a free M0 sandbox cluster. Once the clus
 ### Environment Variables
 
 To configure environment variables, look at the [server guide](https://github.com/Chattahooligans/hooligan-hymnal-app/blob/master/docs/server.md). It is best to do this before deploying the server. 
+
 ### Deploy the Server
 
-To deploy the server, log into Heroku and create a new app. For testing purposes, a free app is sufficient. After deployment, the $7 paid tier will suffice for production. In the "deploy tab" connect to your SG's GitHub accout and select the Hooligan Hymnal Server that you forked to your account. Make sure you do not enable automatic deploys, as breaking changes may be pushed to the master branch frequently. To deploy the server using the command line, please refer to the [Heroku documentation](https://devcenter.heroku.com/articles/heroku-cli).
+To deploy the server, log into Heroku and create a new app. For testing purposes, a free app is sufficient. After deployment, the $7 paid tier will suffice for production. In the "Deploy" tab connect to your SG's GitHub accout and select the Hooligan Hymnal Server that you forked to your account. Make sure you do not enable automatic deploys, as breaking changes may be pushed to the master branch frequently. To deploy the server using the command line, please refer to the [Heroku documentation](https://devcenter.heroku.com/articles/heroku-cli).
+
+TODO: This can be done through the browser, maybe give those instructions instead of CLI?
 
 ### Logging In
 
