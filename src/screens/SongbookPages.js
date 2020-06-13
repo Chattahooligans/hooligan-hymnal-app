@@ -23,10 +23,9 @@ const firstValidPageIndex = 0;
 class SongbookPages extends React.Component {
   state = {
     chapterTitle: defaultChapterTitle,
-    tocButtonDisplay: true,
     songList: this.props.globalData.state.songList,
-    songViews: this.props.globalData.state.songViews,
-    pageCount: 0
+    songViews: [],
+    showToast: true
   };
 
   componentDidMount() {
@@ -37,32 +36,55 @@ class SongbookPages extends React.Component {
     })
     */
 
-    if (this.props.route.params && this.props.route.params.page)
-      setTimeout(() => this.scrollToSong(), 0);
+    this.buildSongViews();
+  }
 
-    Toast.show(i18n.t('screens.songbook.swipetoview'))
+  buildSongViews() {
+    if (this.state.songList) {
+      let views = []
+
+      this.state.songList.forEach((element, index) => {
+        views.push(
+          <View style={{ flex: 1, width: screenWidth }}
+            key={"SongbookPages-View-" + (index + 1)}>
+            <SongView song={element} pageCount={index + 1} />
+          </View>
+        )
+      });
+
+      this.setState({ songViews: views })
+    }
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.route.params && this.props.route.params.page)
-      if (this.props.route.params.page != prevProps.route.params.page)
-        setTimeout(() => this.scrollToSong(), 0);
+    if (this.state.songList != this.props.globalData.state.songList) {
+      this.setState({ songList: this.props.globalData.state.songList }, () => this.buildSongViews())
+    }
+
+    if (this.props.route.params) {
+      if (!prevProps.route.params)
+        this.scrollToSong()
+      else if (prevProps.route.params.page != this.props.route.params.page)
+        this.scrollToSong()
+    }
   }
 
   _onSongbookMomentumScrollEnd = ({ nativeEvent }) => {
     const pageIndex = Math.round(nativeEvent.contentOffset.x / screenWidth);
     this.setState({
-      tocButtonDisplay: true,
       chapterTitle: this.state.songList[pageIndex - firstValidPageIndex].chapterTitle
     });
   };
 
   scrollToSong = () => {
     if (this.props.route.params && this.props.route.params.page) {
+      if (this.state.showToast) {
+        Toast.show(i18n.t('screens.songbook.swipetoview'))
+        this.setState({ showToast: false })
+      }
 
       const offset = (this.props.route.params.page - 1 + firstValidPageIndex) * screenWidth;
       this.setState({
-        tocButtonDisplay: true,
         chapterTitle: this.state.songList[this.props.route.params.page - 1].chapterTitle
       });
 
@@ -73,19 +95,6 @@ class SongbookPages extends React.Component {
       });
     }
   };
-
-  _renderItem = ({ item, index }) => {
-    // FlatList implementation
-    return item
-
-    // or use globalData.state.songList and return
-    /*
-    <View
-              style={{ flex: 1, width: screenWidth, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
-              <SongView song={song} pageCount={index + 1} />
-            </View>
-    */
-  }
 
   render() {
     return (

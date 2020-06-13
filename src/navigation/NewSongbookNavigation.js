@@ -13,6 +13,7 @@ function SongbookTabsNavigation() {
     return (
         <SongbookTabs.Navigator
             initialRouteName="SongbookContents"
+            lazy={false}
             swipeEnabled={true}
             backBehavior="initialRoute"
             tabBar={() => null}>
