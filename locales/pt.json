@@ -107,8 +107,8 @@
             "title": "Indice"
         },
         "twitterlist": {
-            "headertitle": "Lista do Twitter",
-            "calltoaction": "Agora todos juntos!",
+            "title": "Lista do Twitter",
+            "header": "Agora todos juntos!",
             "instructions": "A conexão entre torcedores do CFC com o time e única, especial, e palpavel. Mensagens encorajadoras, de amor ao time, e quaisquer outras mensagens são realmente muito significativas para os jogadores. \n\nVocê pode copiar o Twitter dos jogadores e staff, e criar uma mensagem de suporte.",
             "opentwitter": "Abrir Twitter"
         }
