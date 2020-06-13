@@ -306,7 +306,7 @@ export const Skin = {
   .routeName or .url property.
 
   Valid routeName values are: Home, Songbook, Roster, About, Admin,
-    YellowCard, RedCard.
+    YellowCard, RedCard, OldSongbook
   These will be added as major features are added to the app.
 
   .url can be used to open external links from the drawer
@@ -318,7 +318,6 @@ export const Skin = {
 */
 export const NavigationDrawerItems = [
   { drawerLabel: i18n.t('navigation.home'), drawerIcon: 'newspaper', routeName: 'Home'},
-  { drawerLabel: "New Songbook", drawerIcon: Skin.Icon_Songbook, routeName: 'NewSongbook'},
   { drawerLabel: i18n.t('navigation.songbook'), drawerIcon: Skin.Icon_Songbook, routeName: 'Songbook'},
   { drawerLabel: i18n.t('navigation.roster'), drawerIcon: Skin.Icon_Roster, routeName: 'Roster'},
   { drawerLabel: i18n.t('navigation.links.events'), drawerIcon: 'calendar', url: Urls.Events },

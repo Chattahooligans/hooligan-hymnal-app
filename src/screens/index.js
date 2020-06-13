@@ -24,7 +24,6 @@ import Songbook from './Songbook';
 import SongbookContents from './SongbookContents';
 import SongbookCover from './SongbookCover';
 import SongbookPages from './SongbookPages';
-import Songs from './Songs';
 import TableOfContentsInline from './TableOfContentsInline';
 import TwitterList from './TwitterList';
 import WebView from './WebView';
@@ -56,7 +55,6 @@ export default {
   SongbookContents,
   SongbookCover,
   SongbookPages,
-  Songs,
   TableOfContentsInline,
   TwitterList,
   WebView
