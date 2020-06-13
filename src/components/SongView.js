@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  Clipboard, 
-  Image, 
+  Clipboard,
+  Image,
   Linking,
   Platform,
-  ScrollView, 
-  StyleSheet, 
-  TouchableOpacity, 
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -17,7 +17,7 @@ import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress
 import Toast from "react-native-tiny-toast";
 // import Toast from 'react-native-simple-toast';
 import { FontSizes, Layout } from '../constants';
-import { Images, Palette, Skin } from '../../config';
+import { Palette, Skin } from '../../config';
 import i18n from '../i18n';
 
 // TODO: platform select
@@ -37,15 +37,14 @@ export default class SongView extends React.PureComponent {
         top: 0, bottom: 0, paddingHorizontal: 6,
         backgroundColor: Palette.White
       }}
-        onPress={() => { WebBrowser.openBrowserAsync(song.referenceLink) }}>
+        onPress={() => { Linking.openURL(song.referenceLink) }}>
         <MaterialCommunityIcons
           name={'play-circle'}
           size={50}
           style={{
             color: Skin.Home_SocialButtons,
             backgroundColor: 'transparent'
-          }}
-        />
+          }} />
       </TouchableOpacity>
     if (song.sheetMusicLink)
       sheetMusicDisplay = <TouchableOpacity style={{
@@ -53,12 +52,13 @@ export default class SongView extends React.PureComponent {
         backgroundColor: Palette.White
       }}
         onPress={() => { Linking.openURL(song.sheetMusicLink) }}>
-        <Image
-          resizeMode='contain'
-          tintColor={Skin.Home_SocialButtons}
-          source={Images.Songbook_MusicalScore}
-          style={{ height: 40, width: 40 }}
-        />
+        <MaterialCommunityIcons
+          name={'music-clef-treble'}
+          size={41}
+          style={{
+            color: Skin.Home_SocialButtons,
+            backgroundColor: 'transparent'
+          }} />
       </TouchableOpacity>
     let capoSignal;
     if (song.capoSignal)
@@ -89,8 +89,7 @@ export default class SongView extends React.PureComponent {
                 ]
               }
               style={styles.lyrics}
-              onLongPress={this._onLongPressLyrics}
-            >
+              onLongPress={this._onLongPressLyrics}>
               {song.lyrics}
             </ParsedText>
           </View>
@@ -163,7 +162,7 @@ const styles = StyleSheet.create({
     padding: 8,
     paddingBottom: 0
   },
-  instructions: {      
+  instructions: {
     color: '#AAAAAA',
     backgroundColor: Palette.White,
     paddingLeft: 12,

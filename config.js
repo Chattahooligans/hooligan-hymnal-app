@@ -99,8 +99,6 @@ export const Images = {
 
   // Songbook cover image
   Songbook_Cover: require('./assets/songbook-front-cover-heebo.png'),
-  // Musical score graphic used in the songbook
-  Songbook_MusicalScore: require('./assets/musical-score.png'),
 
   // Used as a default thumbnail for Players and Rosters
   ClubLogo: require('./assets/chattfc_logo.png'),

@@ -6,7 +6,7 @@ import {
     View
 } from 'react-native';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
-import { DefaultColors, Images, Skin } from '../../config';
+import { DefaultColors, Skin } from '../../config';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { RegularText } from '../components/StyledText';
@@ -29,11 +29,7 @@ class SongRow extends React.Component {
             </View>
         if (song.sheetMusicLink)
             sheetMusicDisplay = <View style={{ justifyContent: 'center', alignItems: 'center', marginLeft: 3 }}>
-                <Image
-                    resizeMode='contain'
-                    tintColor={Skin.Home_SocialButtons}
-                    source={Images.Songbook_MusicalScore}
-                    style={{ height: 12, width: 12 }} />
+                <MaterialCommunityIcons name={'music-clef-treble'} style={{ color: Skin.Home_SocialButtons }} />
             </View>
 
         return (
