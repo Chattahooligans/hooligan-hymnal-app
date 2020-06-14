@@ -1,6 +1,26 @@
 {
+    "_comment": [
+        "This is an English language locale file for Hooligan Hymnal and has been updated as of version 2.0.0.",
+        "",
+        "Each section of the file contains a _comment field which describes the section.",
+        "The _comment for most sections includes a recommendation that implementing SGs should change the text or to leave the defaults."
+    ],
+
     "screens": {
+        "_comment": [
+            "The locale.screens section contains text for each Screen in the mobile app.",
+            "",
+            "Your fork of the app may have additional screens. We recommend continuing the same patterns outlined in this file (as well as sharing your work back to the main project)."
+        ],
+
         "about": {
+            "_comment": [
+                "/src/screens/About.js",
+                "The About screen contains a short description for the application and provides an place to give credit to those who provided photos or other contributors. It also contains a link at the bottom for the Hooligan Hymnal platform.",
+                "",
+                "You WILL need to change these values."
+            ],
+
             "title": "About",
             "appTitle": "Chattahooligan Hymnal",
             "version": "v",
@@ -17,17 +37,38 @@
             "contribute": " is built using the open-source *Hooligan Hymnal* platform.\n\nInterested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to _@hooliganhymnal_ on Twitter or visit the project repository at https://github.com/Chattahooligans"
         },
         "adminhome": {
+            "_comment": [
+                "/src/screens/AdminHome.js",
+                "The AdminHome screen contains options and features for Admin-level users.",
+                "",
+                "You probably don't need to change these values in your English translation."
+            ],
+
             "title": "Admin Dashboard",
             "postcreate": "Create Post",
             "logout": "Logout"
         },
         "adminlogin": {
+            "_comment": [
+                "/src/screens/AdminLogin.js",
+                "The AdminLogin screen is as advertised.",
+                "",
+                "You probably don't need to change these values in your English translation."
+            ],
+
             "title": "Admin Dashboard",
             "username": "Username/Email",
             "password": "Password",
             "login": "Log In"
         },
         "postattach": {
+            "_comment": [
+                "/src/screens/PostAttach.js",
+                "The Post Attach screen contains buttons for each custom Post Attachment.",
+                "",
+                "You probably don't need to change these values in your English translation."
+            ],
+
             "attachmenttypes": "Attachment Types",
             "selectplayer": "Select Player",
             "selectsong": "Select Song",
@@ -37,12 +78,29 @@
             "prideraisermatch": "Prideraiser Match Update"
         },
         "postattachmentcomposegknickname": {
+            "_comment": [
+                "/src/screens/PostAttachmentComposeGkNickname.js",
+                "This screen contains prompts to compose a Post Attachment of the GK Nickname type. This attachment type is a gimmick thing we do in Chattanooga, and it can be disabled entirely by setting config.js:Settings.PostAttach_ShowGKNickname to false.",
+                "",
+                "You probably don't need to change these values in your English translation."
+            ],
+
             "gknickname": "GK Nickname",
             "instructions1": "1. We're gonna score on you...",
             "instructions2": "2. Pick a color, any color",
             "instructions3": "3. Which is more readable?"
         },
         "postattachmentcomposeprideraisermatch": {
+            "_comment": [
+                "/src/screens/PostAttachmentComposePrideraiserMatch.js",
+                "This screen contains labels and prompts to compose a Post Attachment of the Prideraiser Match Update type",
+                "",
+                "Prideraiser-related text can include %macros% that use live campaign data.",
+                "See /src/components/PrideraiserHelper.js for more information.",
+                "",
+                "You probably don't need to change these values in your English translation."
+            ],
+
             "prideraisermatch": "Prideraiser Match Update",
             "howmanygoals": "How many %goal_name_plural% for this match?",
             "analytics": "Analytics (source)",
@@ -50,24 +108,59 @@
             "attach": "Attach"
         },
         "postattachmentcomposesong": {
+            "_comment": [
+                "/src/screens/PostAttachmentComposeSong.js",
+                "This screen contains labels to compose a Post Attachment of the Song type",
+                "",
+                "You probably don't need to change these values in your English translation."
+            ],
+
             "composesong": "Compose Song",
             "title": "Title",
             "lyrics": "Lyrics",
             "attach": "Attach"
         },
         "postattachmentselectmasstweet": {
+            "_comment": [
+                "/src/screens/PostAttachmentSelectMassTweet.js",
+                "This screen contains labels to select a Roster for a Post Attachment of the Mass Tweet type",
+                "",
+                "You probably don't need to change these values in your English translation."
+            ],
+
             "selectroster": "Select Roster",
             "search": "Search"
         },
         "postattachmentselectplayer": {
+            "_comment": [
+                "/src/screens/PostAttachmentPlayer.js",
+                "This screen contains labels to select a Player for a Post Attachment of the Player type",
+                "",
+                "You probably don't need to change these values in your English translation."
+            ],
+
             "selectplayer": "Select Player",
             "search": "Search"
         },
         "postattachmentselectsong": {
+            "_comment": [
+                "/src/screens/PostAttachmentSong.js",
+                "This screen contains labels to select a Song for a Post Attachment of the Song type",
+                "",
+                "You probably don't need to change these values in your English translation."
+            ],
+
             "selectsong": "Select Song",
             "search": "Search"
         },
         "postcreate": {
+            "_comment": [
+                "/src/screens/PostCreate.js",
+                "This screen contains labels, prompts, and instructions for Admins to create a Post for the News Feed feature.",
+                "",
+                "You probably don't need to change these values in your English translation."
+            ],
+
             "title": "Create Post",
             "linkimage": "Link Remote Image",
             "uploadimage": "Upload Image",
@@ -83,11 +176,25 @@
             "link": "Link Image"
         },
         "postpreview": {
+            "_comment": [
+                "/src/screens/PostPreview.js",
+                "This screen contains labels for Admins to preview and Submit or Schedule (coming eventually) a Post for the News Feed feature.",
+                "",
+                "You probably don't need to change these values in your English translation."
+            ],
+
             "title": "Preview Post",
             "submit": "Submit Post",
             "schedule": "Schedule Post"
         },
         "refereecard": {
+            "_comment": [
+                "/src/screens/RefereeCard.js",
+                "This screen contains labels for the Referee Card feature. This feature is a gimmick we do in Chattanooga, though it may have some use in other deployments. It can be disabled entirely by setting config.js:Settings.RefereeCards_Show to false.",
+                "",
+                "You WILL need to change these values."
+            ],
+
             "titlered": "Flash 'Em a Card",
             "titleyellow": "Flash 'Em a Card"
         },
