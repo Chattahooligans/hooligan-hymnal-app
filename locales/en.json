@@ -356,7 +356,7 @@
                 "/src/components/Post.js",
                 "This section contains labels for the full screen Image Viewer modal used inside Post.js",
                 "Wow! I should really refactor this, huh?",
-                "TODO: Refactor this section as tracked inhttps://github.com/Chattahooligans/hooligan-hymnal-app/issues/116",
+                "TODO: Refactor this section as tracked in https://github.com/Chattahooligans/hooligan-hymnal-app/issues/116",
                 "",
                 "You probably don't need to change these values in your default translation."
             ],
@@ -506,7 +506,7 @@
     "positions": {
         "_comment": [
             "This section contains translations for player/staff positions used in the Player screen. This feature is due for a revisit in the not too distant future.",
-            "The keys/values should match for your default translation, and the values should be changed for alternate translations. Add/remove/edit this object as you see fit.",
+            "The keys/values should match for your default translation, and the values should be changed for alternate translations. Add/remove/edit fields in this object as you see fit.",
             "",
             "You WILL need to change these values in your default translation."
         ],
@@ -532,7 +532,8 @@
     },
     "settings": {
         "_comment": [
-            "This section contains labels for each heading on the SocialButtons panel on the Home / News Feed screen. Please see documentation for config.js:SocialButtons for additional information.",
+            "This section contains labels for each heading on the SocialButtons panel on the Home / News Feed screen. Please see documentation for config.js:SocialButtons for additional information. Add/remove/edit fields in this object as you see fit.",
+            "TODO: Refactor this section as tracked in https://github.com/Chattahooligans/hooligan-hymnal-app/issues/117",
             "",
             "You WILL need to change these values in your default translation."
         ],
