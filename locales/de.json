@@ -3,7 +3,7 @@
         "about": {
             "title": "Über",
             "appTitle": "Chattahooligan Hymnal",
-            "why": "Das Chattahooligan Hymnal wurde erstellt, um Dir zu helfen, den Chattanooga FC zu unterstützen..",
+            "description": "Das Chattahooligan Hymnal wurde erstellt, um Dir zu helfen, den Chattanooga FC zu unterstützen..",
             "feedback": "Bitte sende Feedback an _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email an thechattahooligans@gmail.com",
             "creditsheading": "Danksagung",
             "credits": [
@@ -84,12 +84,12 @@
             "readmore": "Mehr lesen",
             "showless": "Zeige weniger"
         },
-        "roster": {
+        "rosterteam": {
             "title": "Spielerliste",
             "nosquadsfound": "keine Aufstellung gefunden",
             "twitterlist": "Twitter Liste"
         },
-        "rosterhome": {
+        "rostertabs": {
             "title": "Spielerliste",
             "friends": "Freunde",
             "foes": "Feinde"
@@ -103,18 +103,12 @@
             "tableofcontents": "Inhaltsverzeichnis",
             "swipetoview": "Nach links und rechts wischen um Lieder anzuzeigen."
         },
-        "songs": {
-            "title": "Lieder",
-            "gamesongs:": "Spiel-Lieder",
-            "playersongs": "Spieler-Lieder",
-            "teamsongs": "Team-Lieder"
-        },
         "tocinline": {
             "title": "Inhaltsverzeichnis"
         },
         "twitterlist": {
-            "headertitle": "Twitter Liste",
-            "calltoaction": "Alle zusammen, jetzt!",
+            "title": "Twitter Liste",
+            "heading": "Alle zusammen, jetzt!",
             "instructions": "Die Verbindung zwischen den CFC-Fans und dem Team ist einzigartig, besonders und greifbar. Botschaften der Ermutigung, Liebe, was auch immer, bedeuten den Spielern wirklich viel.\n\n\nIhr könnt mehrere Twitter-Handles aus dem Feld unten kopieren und sie in einen längeren Twitter-Thread einfügen.",
             "opentwitter": "Öffne Twitter App"
         }

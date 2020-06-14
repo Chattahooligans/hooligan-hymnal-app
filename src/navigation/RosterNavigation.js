@@ -20,7 +20,7 @@ const CombinedStack = createStackNavigator();
 const TeamNavigation = (props) => {
     return (
         <TeamStack.Navigator {...props}>
-            <TeamStack.Screen name="Roster" component={Screens.Roster} />
+            <TeamStack.Screen name="Roster" component={Screens.RosterTeam} />
             <TeamStack.Screen name="Player" component={Screens.Player}
                 options={{ headerShown: false }} />
             <TeamStack.Screen name="SingleSong" component={Screens.SingleSong} />
@@ -56,7 +56,7 @@ export const RosterTabsNavigation = () => {
                         return (
                             <View style={styles.tabContainer}>
                                 <MaterialCommunityIcons name={Skin.Roster_FriendsTabIcon} color={color} size={23} style={styles.tabIcon} />
-                                <MediumText style={{ color: color, fontSize: FontSizes.normalButton }}>{i18n.t('screens.rosterhome.friends')}</MediumText>
+                                <MediumText style={{ color: color, fontSize: FontSizes.normalButton }}>{i18n.t('screens.rostertabs.friends')}</MediumText>
                             </View>
                         )
                     }
@@ -70,7 +70,7 @@ export const RosterTabsNavigation = () => {
                         return (
                             <View style={styles.tabContainer}>
                                 <MaterialCommunityIcons name={Skin.Roster_FoesTabIcon} color={color} size={23} style={styles.tabIcon} />
-                                <MediumText style={{ color: color, fontSize: FontSizes.normalButton }}>{i18n.t('screens.rosterhome.foes')}</MediumText>
+                                <MediumText style={{ color: color, fontSize: FontSizes.normalButton }}>{i18n.t('screens.rostertabs.foes')}</MediumText>
                             </View>
                         )
                     }
@@ -87,7 +87,7 @@ export default RosterNavigation = () => {
                 <CombinedStack.Screen
                     name="Roster"
                     component={RosterTabsNavigation}
-                    options={{ headerTitle: i18n.t('screens.rosterhome.title') }} />
+                    options={{ headerTitle: i18n.t('screens.rostertabs.title') }} />
             </CombinedStack.Navigator>
         )
     }

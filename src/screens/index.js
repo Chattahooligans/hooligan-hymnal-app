@@ -15,13 +15,12 @@ import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostCreate from './PostCreate';
 import PostPreview from  './PostPreview';
 import RefereeCard from './RefereeCard';
-import Roster from './Roster';
 import RosterFoePlayers from './RosterFoePlayers';
 import RosterFoes from './RosterFoes';
+import RosterTeam from './RosterTeam';
 import SinglePost from './SinglePost';
 import SingleSong from './SingleSong';
 import Songbook from './Songbook';
-import Songs from './Songs';
 import TableOfContentsInline from './TableOfContentsInline';
 import TwitterList from './TwitterList';
 import WebView from './WebView';
@@ -44,13 +43,12 @@ export default {
   PostCreate,
   PostPreview,
   RefereeCard,
-  Roster,
   RosterFoePlayers,
   RosterFoes,
+  RosterTeam,
   SinglePost,
   SingleSong,
   Songbook,
-  Songs,
   TableOfContentsInline,
   TwitterList,
   WebView

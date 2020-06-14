@@ -30,6 +30,8 @@ Send a reference to tricky song lyrics to every phone in the section, right befo
 
 Optional _Push Notifications_ deliver posts to fans as soon as they are made.
 
+_Image_ support in News Feed lets admins include photos or graphics that are remotely linked or uploaded to your own hosting service to in posts. Images can have captions and photo credits, and can be displayed in a full screen photo gallery.
+
 The flexible and powerful _Post Attachments_ framework lets you reference a song or player below your post, and it's easy to write custom types. (We will consider PRs of novel post attachment types.)
 
 _Channels_ let admins post with the voice and tone of different functions in your SG. Set up distinct channels for your merch team, your community service program, chapters in other cities, and so on.
@@ -40,9 +42,13 @@ We are committed to outreach to non-English-speaking communities to bring new fa
 
 All UI text lives in a locale file, making it easy for you to adjust the feel of your app deployment.
 
+### [New!] Prideraiser.org Integration
+
+Boost your SG's Prideraiser campaign with a hero banner at the top of the News Feed and a Post Attachment. These are customizable and use live data from the Prideraiser.org API.
+
 ### And More
 
-We include links to social media accounts, league standings, fundraising initiatives, and your SG's Prideraiser campaign (you _do_ have a Prideraiser campaign, don't you?) on the home screen and/or menu. Customize it to fit your needs.
+We include links to social media accounts, league standings, fundraising initiatives, and your SG's Prideraiser campaign on the home screen and/or menu. Customize it to fit your needs.
 
 ## Roadmap
 
