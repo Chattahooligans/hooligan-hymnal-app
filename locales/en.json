@@ -105,7 +105,7 @@
             "readmore": "Read more",
             "showless": "Show less"
         },
-        "roster": {
+        "rosterteam": {
             "title": "Roster",
             "nosquadsfound": "No squads found",
             "twitterlist": "Twitter List"
@@ -114,7 +114,7 @@
             "title": "Roster",
             "nonefound": "None found"
         },
-        "rosterhome": {
+        "rostertabs": {
             "title": "Roster",
             "friends": "Friends",
             "foes": "Foes"
@@ -133,7 +133,7 @@
         },
         "twitterlist": {
             "title": "Twitter List",
-            "header": "All Together, Now",
+            "heading": "All Together, Now",
             "instructions": "The connection between CFC fans and the team is unique, special, and tangible. Messages of encouragement, love, whatever, truly mean a lot to the players.\n\nYou can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.",
             "opentwitter": "Open Twitter App"
         }

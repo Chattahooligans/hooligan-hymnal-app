@@ -84,12 +84,12 @@
             "readmore": "Mehr lesen",
             "showless": "Zeige weniger"
         },
-        "roster": {
+        "rosterteam": {
             "title": "Spielerliste",
             "nosquadsfound": "keine Aufstellung gefunden",
             "twitterlist": "Twitter Liste"
         },
-        "rosterhome": {
+        "rostertabs": {
             "title": "Spielerliste",
             "friends": "Freunde",
             "foes": "Feinde"
@@ -108,7 +108,7 @@
         },
         "twitterlist": {
             "title": "Twitter Liste",
-            "header": "Alle zusammen, jetzt!",
+            "heading": "Alle zusammen, jetzt!",
             "instructions": "Die Verbindung zwischen den CFC-Fans und dem Team ist einzigartig, besonders und greifbar. Botschaften der Ermutigung, Liebe, was auch immer, bedeuten den Spielern wirklich viel.\n\n\nIhr könnt mehrere Twitter-Handles aus dem Feld unten kopieren und sie in einen längeren Twitter-Thread einfügen.",
             "opentwitter": "Öffne Twitter App"
         }

@@ -104,16 +104,16 @@ class PlayerRow extends React.Component {
   };
 }
 
-class Roster extends React.Component {
+class RosterTeam extends React.Component {
   state = {
-    rosterTitle: i18n.t('screens.roster.title'),
+    rosterTitle: i18n.t('screens.rosterteam.title'),
     rosters: [],
     currentRosterID: null
   }
 
   componentDidMount() {
     this.props.navigation.setOptions({
-      headerTitle: i18n.t('screens.roster.title')
+      headerTitle: i18n.t('screens.rosterteam.title')
     })
     this.setData();
   }
@@ -237,14 +237,14 @@ class Roster extends React.Component {
       if (Platform.OS === "ios") {
         header =
           <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
-            <Text style={{ flex: 1 }}>{i18n.t('screens.roster.nosquadsfound')}</Text>
+            <Text style={{ flex: 1 }}>{i18n.t('screens.rosterteam.nosquadsfound')}</Text>
             <MaterialCommunityIcons name={'menu-down'} />
           </View>
       }
       else {
         header =
           <Picker>
-            <Picker.Item label={i18n.t('screens.roster.nosquadsfound')} />
+            <Picker.Item label={i18n.t('screens.rosterteam.nosquadsfound')} />
           </Picker>
       }
 
@@ -276,7 +276,7 @@ class Roster extends React.Component {
               }}
             />
             <RegularText style={styles.twitterListButtonText}>
-              {i18n.t('screens.roster.twitterlist')}
+              {i18n.t('screens.rosterteam.twitterlist')}
             </RegularText>
           </RectButton>
         </View>
@@ -354,4 +354,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default withUnstated(Roster, { globalData: GlobalDataContainer });
+export default withUnstated(RosterTeam, { globalData: GlobalDataContainer });

@@ -29,7 +29,7 @@ class TwitterList extends React.Component {
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
         <View style={{ flex: 1, padding: 5 }}>
           <MediumText style={{backgroundColor: Palette.White, paddingHorizontal: 5, fontSize: 18, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>
-            { i18n.t('screens.twitterlist.header')}
+            { i18n.t('screens.twitterlist.heading')}
           </MediumText>
           <RegularText style={{backgroundColor: Palette.White, padding: 5, marginBottom: 1, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>          
             { i18n.t('screens.twitterlist.instructions')}
