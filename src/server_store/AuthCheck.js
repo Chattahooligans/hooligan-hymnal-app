@@ -18,7 +18,7 @@ export default class AuthCheck extends ApiClient {
       return await response.json();
     }
     catch (error) {
-      throw new ApiError('Error creating new notification on server', error);
+      throw new ApiError('Error logging in', error);
     }
   }
   
@@ -28,7 +28,7 @@ export default class AuthCheck extends ApiClient {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': token
+          'Authorization': "Bearer" + token
         }
       });
       return await response.json();
