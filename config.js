@@ -14,11 +14,22 @@ import i18n from "./src/i18n";
 /*
   About this Configuration File
 
-  TODO philosophy/introduction
+  This configuration file contains several JavaScript objects that alter 
+  the appearance of behavior of the Hooligan Hymnal mobile application. 
+
+  Preceeding each object, you'll find documentation with a description of 
+  what the object does and guidance on how to configure it.
+  
+  SGs with non- or novice developers will need patience and dedication to 
+  get used to the key:value format and adjust the configuration, but we 
+  believe in you! Ask for help on the Hooligan Hymnal Slack channel if 
+  you get confused or if something breaks.
 */
 
+
+
 /*
-  URLs
+  Urls
   
   This structure contains a set of key:value pairs for URLs and links used
   elsewhere in this config file and in the app.
@@ -44,7 +55,7 @@ export const Urls = {
   YouTube: '',
   Shop: 'https://squareup.com/store/the-chattahooligans',
   Prideraiser: 'https://chatt.prideraiser.org/',
-  // Look for random characters at the end of your current campaign url (must update each campaign)
+  // Look for random characters at the end of your current campaign url (must update for each campaign season)
   PrideraiserCampaignId: 'aw43AmO',
   GoFundMe: 'https://www.gofundme.com/chattahooligan-youth-soccer-investment',
   EsTwitter: 'https://twitter.com/LosCFCHooligans',
@@ -59,6 +70,7 @@ export const Urls = {
   Postcast109: 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964',
   RedditClub: 'https://www.reddit.com/r/ChattanoogaFC'
 }
+
 
 /*
   Images
@@ -116,6 +128,7 @@ export const Images = {
   Postcast109: require('./assets/section109pod.png')
 }
 
+
 /*
   Common Image Credit
   
@@ -142,6 +155,7 @@ export const CommonImageCredit = [
   "Chattanooga Football Club"
 ]
 
+
 /*
     App Skin
 */
@@ -166,6 +180,7 @@ export const Palette = {
   RedCard: '#ff0000'
 };
 
+
 /*
   DefaultColors
 
@@ -189,6 +204,7 @@ export const DefaultColors = {
   Primary: Palette.Navy,
   Accent: Palette.Sky
 }
+
 
 /*
   Fonts
@@ -218,6 +234,7 @@ export const Fonts = {
   Bold: { family: 'roboto-bold', file: require('./assets/Roboto-Bold.ttf') },
   Italic: { family: 'roboto-italic', file: require('./assets/Roboto-Italic.ttf') },
 }
+
 
 /*
   Skin
@@ -300,6 +317,7 @@ export const Skin = {
   Roster_FoesTabIcon: 'thumb-down'
 };
 
+
 /*
   NavigationDrawerItems
 
@@ -335,6 +353,9 @@ export const NavigationDrawerItems = [
 
   This structure contains an array of objects used for "Headline"
   banners pinned to the top of the Home screen.
+
+  Banners live in the config file, not the server (yet). So, changes to 
+  this structrure need to be rolled out with application updates.
 
   The structure is required, but does not need to be populated. Here is
   what it looks like empty.
@@ -394,6 +415,7 @@ export const SocialButtons = [
 // { icon: 'link', url: Urls.Website },
 // { image: Images.PrideraiserIcon, url: Urls.Prideraiser },
 // { image: Images.GoFundMeBw, url: Urls.GoFundMe, tintToSkin: true }
+
 
 /*
   App Feature Flags
