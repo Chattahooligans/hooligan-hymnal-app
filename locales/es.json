@@ -84,12 +84,12 @@
             "readmore": "Lee mas",
             "showless": "muestra menos"
         },
-        "roster": {
+        "rosterteam": {
             "title": "Roster",
             "nosquadsfound": "No se encontraron escuadrones",
             "twitterlist": "Lista de cuentas de Twitter"
         },
-        "rosterhome": {
+        "rostertabs": {
             "title": "Lista",
             "friends": "Amigos",
             "foes": "Rivales"
@@ -103,18 +103,12 @@
             "tableofcontents": "El índice de contenidos",
             "swipetoview": "desplácese hacia la izquierda\no hacia la derecha para ver canciones"
         },
-        "songs": {
-            "title": "Canciones",
-            "gamesongs:": "Canciones de juego",
-            "playersongs": "Canciones de jugadores",
-            "teamsongs": "Canciones del equipo"
-        },
         "tocinline": {
             "title": "Tabla de Contenidos"
         },
         "twitterlist": {
-            "headertitle": "Lista de redes Twitter",
-            "calltoaction": "Todos juntos ahora",
+            "title": "Lista de redes Twitter",
+            "heading": "Todos juntos ahora",
             "instructions": "La conexión entre los fans de cfc y el equipo es única, especial y tangible. Mensajes de estímulo, amor, lo que sea, realmente significan mucho para la players.\n\nYou puede copiar múltiples mangas de twitter desde la caja y pegarlas a un hilo de twitter más largo.",
             "opentwitter": "Open Twitter App"
         }

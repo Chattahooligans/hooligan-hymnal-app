@@ -5,7 +5,7 @@
             "appTitle": "Chattahooligan Hymnal",
             "version": "v",
             "why": "The Chattahooligan Hymnal is built to help you support Chattanooga FC.",
-            "feedback": "Please send feedback to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email thechattahooligans@gmail.com",
+            "feedback": "Please send feedback to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email hooliganhymnal@gmail.com",
             "creditsheading": "Credits",
             "credits": [
                 "- Home screen video created by Jay Kaley",
@@ -105,7 +105,7 @@
             "readmore": "Read more",
             "showless": "Show less"
         },
-        "roster": {
+        "rosterteam": {
             "title": "Roster",
             "nosquadsfound": "No squads found",
             "twitterlist": "Twitter List"
@@ -114,7 +114,7 @@
             "title": "Roster",
             "nonefound": "None found"
         },
-        "rosterhome": {
+        "rostertabs": {
             "title": "Roster",
             "friends": "Friends",
             "foes": "Foes"
@@ -126,20 +126,14 @@
             "defaultchaptertitle": "Cover",
             "title": "Songbook",
             "tableofcontents": "Table of Contents",
-            "swipetoview": "Swipe Left/Right to View Songs"
-        },
-        "songs": {
-            "title": "Songs",
-            "gamesongs:": "Game Songs",
-            "playersongs": "Player Songs",
-            "teamsongs": "Team Songs"
+            "swipetoview": "Swipe Left/Right to view more songs"
         },
         "tocinline": {
             "title": "Table of Contents"
         },
         "twitterlist": {
-            "headertitle": "Twitter List",
-            "calltoaction": "All Together, Now",
+            "title": "Twitter List",
+            "heading": "All Together, Now",
             "instructions": "The connection between CFC fans and the team is unique, special, and tangible. Messages of encouragement, love, whatever, truly mean a lot to the players.\n\nYou can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.",
             "opentwitter": "Open Twitter App"
         }

@@ -84,12 +84,12 @@
             "readmore": "Leia mais",
             "showless": "Menos conteudo"
         },
-        "roster": {
+        "rosterteam": {
             "title": "Elenco",
             "nosquadsfound": "Nao encontrado",
             "twitterlist": "Lista do Twitter"
         },
-        "rosterhome": {
+        "rostertabs": {
             "title": "Elenco",
             "friends": "Amigos",
             "foes": "Inimigos"
@@ -103,18 +103,12 @@
             "tableofcontents": "Indice",
             "swipetoview": "Swipe direita/esquerda para visualizar os hinos"
         },
-        "songs": {
-            "title": "Hinos",
-            "gamesongs:": "Hinos de jogo",
-            "playersongs": "Hinos de jogadores",
-            "teamsongs": "Hinos do time"
-        },
         "tocinline": {
             "title": "Indice"
         },
         "twitterlist": {
-            "headertitle": "Lista do Twitter",
-            "calltoaction": "Agora todos juntos!",
+            "title": "Lista do Twitter",
+            "heading": "Agora todos juntos!",
             "instructions": "A conexão entre torcedores do CFC com o time e única, especial, e palpavel. Mensagens encorajadoras, de amor ao time, e quaisquer outras mensagens são realmente muito significativas para os jogadores. \n\nVocê pode copiar o Twitter dos jogadores e staff, e criar uma mensagem de suporte.",
             "opentwitter": "Abrir Twitter"
         }
