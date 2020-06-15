@@ -16,10 +16,12 @@ Most files are named for a generic purpose. `/assets/icon-ios.png` is the app ic
 The `config.js` file declares a `Skin` that is used throughout the code, and it refers to several other structures, which are outlined in this overly-simplified illustration. (Though Skin is further customizable if our example config doesn't meet the needs of your SG. Just ask in Slack.)
 
 Skin
-├── Fonts
 ├── Images
+├── Fonts
 └── DefaultColors
     └── Palette
+
+We recommend opening `config-example.js` and reviewing it as a companion to this guide. The file contains additional documentation, descriptions, and examples that should make life easier overall.
 
 ## Notes on file resolution, and a plea for help
 
@@ -29,13 +31,31 @@ Open source is about sharing, and if you can find or help write a guide, we woul
 
 # Colors
 
-TODO preamble
+Your SG's app should reflect your SG's brand, and the first step to that is color choice. Though not related to assets, this document is targetted at design-minded individuals, so this section briefly describes configuration of the Palette and using DefaultColors and Skin.
+
+Note: The Hooligan Hymnal core team welcomes contributions and feedback on improving how colors are used in the app.
 
 ## Palette
 
 `config.js` defines a Palette that is used to color backgrounds, text, and other UI elements throughout the app. It uses color names as keys and RGB, hex codes, or names as values.
 https://www.w3schools.com/colors/default.asp
 
-Populate this object with colors used by your SG and club. Without making modifications to the source code, the app is designed to look nice when using two colors- a Primary and a Secondary/Accent, plus or including black and white.
+Populate this object with colors used by your SG and club. Without making modifications to the source code, the app is designed to look nice when using two colors- a Primary and a Secondary, plus or including black and white.
+(TODO: rename Secondary to Accent, tracked at https://github.com/Chattahooligans/hooligan-hymnal-app/issues/121)
 
 ## DefaultColors
+
+The config object DefaultColors sets a baseline of how colors will be used in the app. Text colors should contrast with backgrounds, and so on.
+
+The Skin tends to refer to both Palette and DefaultColors.
+
+# Fonts
+
+If your SG uses a particular font in its branding, that can be easily dropped into Hooligan Hymnal and configured for use across the app. If not, Open Sans is provided as a default, and the internet is full of free and commercial typefaces. Check out the Google Fonts library as one place to get started-
+https://fonts.google.com/
+
+Whatever your choice, please consider including a reference to the license in the credits section of the About screen. (Instruct your developer to do this)
+
+Once you select a typeface (or accept the default), it will be referenced in the config file for your app.
+
+# Images
