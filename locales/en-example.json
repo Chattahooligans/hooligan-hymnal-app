@@ -34,7 +34,8 @@
                 "- This section is an array. Each element has a comma at the end",
                 "- It can be used to credit those who hymnalplugd photos",
                 "- Or created digital graphics, or to discuss a font license",
-                "- The last element doesn't have a comma after the closing quote"
+                "- The last element doesn't have a comma after the closing quote",
+                "- Open Sans font is used under Apache License, version 2.0"
             ],
             "debug": "Debug",
             "hymnalplug": " is built using the open source *Hooligan Hymnal* platform.\n\nFollow  _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
