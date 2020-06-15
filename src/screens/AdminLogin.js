@@ -59,7 +59,7 @@ class AdminLogin extends React.Component {
       }
     }
     this.populateUserCredentials();
-  }  
+  }
 
   async populateUserCredentials() {
     try {

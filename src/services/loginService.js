@@ -2,18 +2,12 @@ import API from './baseService';
 import { Settings } from '../../config';
 
 export const login = async (credentials) => {
-    await API.post('/users/login', JSON.stringify(credentials), {
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    }).then((response) => {
-      console.log(response)
-      return response;
-    });
+    const response = await API.post('/api/users/login', credentials);
+    return response.data;
 }
 
 export const checkToken = async (token) => {
-    await API.get('/users/me', null, {
+    await API.get('/api/users/me', null, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': "Bearer " + token
