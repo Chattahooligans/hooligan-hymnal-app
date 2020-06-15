@@ -23,7 +23,7 @@ class TwitterList extends React.Component {
         handles += '@' + player.twitter + ' ';
     });
       
-    handles += Settings.TwitterList_ExtraHandles;
+    handles += Settings.TwitterList_AppendHandles;
 
     return (
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
