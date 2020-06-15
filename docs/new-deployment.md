@@ -128,7 +128,19 @@ TODO instructions
 
 ## Build the Mobile App (for testers? for the store?)
 
+TODO instructions
 
+## Publish the Mobile App
+
+TODO instructions
+
+### Publish to Google Play
+
+TODO instructions
+
+### Publish to Apple App Store
+
+TODO instructions
 
 
 
