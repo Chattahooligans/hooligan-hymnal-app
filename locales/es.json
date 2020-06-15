@@ -3,7 +3,7 @@
         "about": {
             "title": "Acerca de",
             "appTitle": "Chattahooligan Hymnal",
-            "why": "El Chattahooligan Hymnal está hecho para ayudar todos ustedes para seguir y apoyar el Chattanooga FC.",
+            "description": "El Chattahooligan Hymnal está hecho para ayudar todos ustedes para seguir y apoyar el Chattanooga FC.",
             "feedback": "Para mejorar la experiencia de usuario de esta aplicación, por favor envíenos sus reacciones a @chattahooligan o @hooliganhymnal en Twitter, o por correo electrónico thechattahooligans@gmail.com",
             "creditsheading": "Créditos",
             "credits": [
@@ -14,7 +14,7 @@
                 "- Algunos códigos basados en la apllicación de la conferencia software libre @nodevember"
             ],
             "debug": "Debug",
-            "contribute": "¿Interesado en contribuir? Si puedes codificar, diseñar, escribir o ayudar de cualquier manera, ¡ nos encantaría trabajar contigo! Por favor contacte con nosotros en_ @chattahooligan o @hooliganhymnal _ en twitter, o por correo electrónico thechattahooligans @gmail. com"
+            "hymnalplug": "¿Interesado en contribuir? Si puedes codificar, diseñar, escribir o ayudar de cualquier manera, ¡ nos encantaría trabajar contigo! Por favor contacte con nosotros en_ @chattahooligan o @hooliganhymnal _ en twitter, o por correo electrónico thechattahooligans @gmail. com"
         },
         "adminhome": {
             "title": "Tablero de Capo",

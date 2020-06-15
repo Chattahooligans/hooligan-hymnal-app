@@ -3,7 +3,7 @@
         "about": {
             "title": "Sobre",
             "appTitle": "Chattahooligan Hymnal",
-            "why": "Os Hinos dos Chattahooligans foram criados para ajudar a você suportar o Chattanooga FC.",
+            "description": "Os Hinos dos Chattahooligans foram criados para ajudar a você suportar o Chattanooga FC.",
             "feedback": "Envie seus comentarios para _@chattahooligan_ ou _@hooliganhymnal_ no Twitter, ou para o email thechattahooligans@gmail.com",
             "creditsheading": "Creditos",
             "credits": [
@@ -14,7 +14,7 @@
                 "- Linguagem de computador ocasionalmente obtida do código aberto @nodevember conference aplicativo de cronogramas"
             ],
             "debug": "Debug",
-            "contribute": "Interessado em contribuir? Se você e capaz de escrever código, conteúdo, ou design, ou quer ajudar de outra maneira, nós gostaríamos de conectar com você. Por favor entre em contato com _@chattahooligan_ ou _@hooliganhymnal_ no Twitter, ou mande email para thechattahooligans@gmail.com"
+            "hymnalplug": "Interessado em contribuir? Se você e capaz de escrever código, conteúdo, ou design, ou quer ajudar de outra maneira, nós gostaríamos de conectar com você. Por favor entre em contato com _@chattahooligan_ ou _@hooliganhymnal_ no Twitter, ou mande email para thechattahooligans@gmail.com"
         },
         "adminhome": {
             "title": "Menu",

@@ -80,7 +80,7 @@ class About extends React.Component {
           <ParsedText
             parse={parsedTextOptions}
             style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
-            {i18n.t('screens.about.why')}
+            {i18n.t('screens.about.description')}
           </ParsedText>
           <View style={{ height: 10 }} />
           <ParsedText
@@ -95,7 +95,7 @@ class About extends React.Component {
           <ParsedText
             parse={parsedTextOptions}
             style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
-            {i18n.t('screens.about.appTitle') + i18n.t('screens.about.contribute')}
+            {i18n.t('screens.about.appTitle') + i18n.t('screens.about.hymnalplug')}
           </ParsedText>
           <View style={{ height: 20 }} />
           <ScrollView style={{ flex: 1 }}>

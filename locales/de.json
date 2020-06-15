@@ -3,7 +3,7 @@
         "about": {
             "title": "Über",
             "appTitle": "Chattahooligan Hymnal",
-            "why": "Das Chattahooligan Hymnal wurde erstellt, um Dir zu helfen, den Chattanooga FC zu unterstützen..",
+            "description": "Das Chattahooligan Hymnal wurde erstellt, um Dir zu helfen, den Chattanooga FC zu unterstützen..",
             "feedback": "Bitte sende Feedback an _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email an thechattahooligans@gmail.com",
             "creditsheading": "Danksagung",
             "credits": [
@@ -14,7 +14,7 @@
                 "- Ein Teil des Codes basiert auf der Open Source @nodevember conference schedule app"
             ],
             "debug": "Debug",
-            "contribute": "Interesse an einer Mitarbeit? Wenn Du progammieren, gestalten, schreiben oder in anderer Weise helfen kannst, würden wir uns freuen mit Dir zu arbeiten! Bitte melde Dich bei _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email thechattahooligans@gmail.com"
+            "hymnalplug": "Interesse an einer Mitarbeit? Wenn Du progammieren, gestalten, schreiben oder in anderer Weise helfen kannst, würden wir uns freuen mit Dir zu arbeiten! Bitte melde Dich bei _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email thechattahooligans@gmail.com"
         },
         "adminhome": {
             "title": "Capo Dashboard",

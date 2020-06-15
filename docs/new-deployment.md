@@ -107,6 +107,7 @@ TODO preamble
 ### app.json
 
 TODO instructions
+app-example.json exists as a base
 
 ### /assets/
 
@@ -116,11 +117,13 @@ refer to assets guide again
 
 TODO instructions (pretty well self-documented)
 prolly start out by deleting config.js and renaming something like config_example.js
+Yes, config-example.js exists as a base
 
 ### /locales/
 
 TODO instructions
 don't forget to edit manifest.json
+en-example.json exists as a base
 
 ## Run and Test the Mobile App
 
@@ -128,7 +131,19 @@ TODO instructions
 
 ## Build the Mobile App (for testers? for the store?)
 
+TODO instructions
 
+## Publish the Mobile App
+
+TODO instructions
+
+### Publish to Google Play
+
+TODO instructions
+
+### Publish to Apple App Store
+
+TODO instructions
 
 
 
