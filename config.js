@@ -172,6 +172,8 @@ export const Palette = {
   Sky: '#A3D8F7',
   White: '#FFFFFF',
   Black: '#000000',
+
+  // Leave these three alone unless you know you want to change them/don't need them
   Prideraiser: '#a55eea',
   YellowCard: '#ffcc00',
   RedCard: '#ff0000'
