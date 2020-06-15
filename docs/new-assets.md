@@ -59,3 +59,41 @@ Whatever your choice, please consider including a reference to the license in th
 Once you select a typeface (or accept the default), it will be referenced in the config file for your app.
 
 # Images
+
+Hooligan Hymnal uses a number of photos, logos, and custom images. This section discusses the base set used in the mobile app, in order of appearance.
+
+## Icons
+
+Additional information can be found at https://docs.expo.io/guides/app-icons/
+
+## Splash Screen
+
+Additional information can be found at https://docs.expo.io/guides/splash-screens/
+
+## Home Hero
+
+### Video
+
+### Image
+
+## Menu Drawer
+
+## Songbook Cover
+
+## Club and SG Logos
+
+Avatar usage
+
+## Notification Icon
+
+## Other Images
+
+(prideraiser, gofundme, etc)
+
+## Adding your own
+
+(podcast links etc)
+
+# Creator Credits
+
+# About News Feed
