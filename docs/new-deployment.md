@@ -3,6 +3,7 @@
 This document describes deploying the Hooligan Hymnal server and a customized version of the mobile app for your supporters group.
 
 Please review the project README for a description of the platform and the philosophy behind it.
+https://github.com/Chattahooligans/hooligan-hymnal-app/blob/master/README.md
 
 # Precursor Considerations and Tasks
 
