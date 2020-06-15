@@ -88,7 +88,7 @@ export const Images = {
   Home_NavbarLogo: require('./assets/home-navbar-logo.png'),
 
   // Hero video file that plays on the Home screen
-  Home_Video: require('./assets/5MB_video.mp4'),
+  Home_Video: require('./assets/hero-video.mp4'),
   // Overlay image over the hero video
   Home_VideoOverlay: require('./assets/home-video-overlay.png'),
   // Home_VideoOverlay: require('./assets/juanstagram-mono-logotype.png'),
@@ -104,7 +104,7 @@ export const Images = {
   Drawer_HeroOverlay: require('./assets/drawer-hero-logo.png'),
 
   // Songbook cover image
-  Songbook_Cover: require('./assets/songbook-front-cover-heebo.png'),
+  Songbook_Cover: require('./assets/songbook-cover.png'),
 
   // Used as a default thumbnail for Players and Rosters
   ClubLogo: require('./assets/logo-club.png'),
