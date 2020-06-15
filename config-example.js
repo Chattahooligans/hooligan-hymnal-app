@@ -114,7 +114,7 @@ export const Images = {
   PrideraiserIcon: require('./assets/prideraiser-icon.png'),
 
   // Add optional images
-  GoFundMe: require('./assets/gofundme_bw.png'),
+  GoFundMe: require('./assets/gofundme.png'),
   Postcast423: require('./assets/logo-podcast-423.png'),
   Postcast109: require('./assets/logo-podcast-109.png')
 }

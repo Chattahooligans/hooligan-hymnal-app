@@ -88,7 +88,7 @@ export const Urls = {
 */
 export const Images = {
   // Used as a default Channel thumbnail
-  LogoAvatar: require('./assets/big-c-icon-android.png'),
+  LogoAvatar: require('./assets/icon-android.png'),
 
   // Appears in the navigation bar when the user scrolls down the feed on Home screen
   Home_NavbarLogo: require('./assets/home-navbar-logo.png'),
@@ -120,7 +120,7 @@ export const Images = {
   PrideraiserIcon: require('./assets/prideraiser-icon.png'),
 
   // Add optional images
-  GoFundMe: require('./assets/gofundme_bw.png'),
+  GoFundMe: require('./assets/gofundme.png'),
   Postcast423: require('./assets/logo-podcast-423.png'),
   Postcast109: require('./assets/logo-podcast-109.png')
 }
