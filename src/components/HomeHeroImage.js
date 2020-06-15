@@ -13,7 +13,6 @@ import appParams from '../../app.json';
 
 export default class HomeHeroImage extends React.Component {
     render() {
-        console.log("hello HomeHeroImage")
         let { width, height } = Image.resolveAssetSource(Skin.Home_HeroImage)
         let ratio = width / height
         let scaledHeight = Dimensions.get("window").width / ratio;
