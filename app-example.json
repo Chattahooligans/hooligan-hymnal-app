@@ -7,22 +7,23 @@
     "privacy": "public",
     "version": "1.16.1",
     "primaryColor": "#A3D8F7",
-    "icon": "./assets/big-c-icon-ios.png",
+    "icon": "./assets/icon-ios.png",
     "orientation": "portrait",
     "splash": {
       "backgroundColor": "#A3D8F7",
       "resizeMode": "contain",
-      "image": "./assets/big-c-splash-heebo.png"
+      "image": "./assets/splash.png"
     },
     "android": {
       "package": "YOU MUST SET THIS FIRST AND CAN'T CHANGE IT",
-      "icon": "./assets/big-c-icon-android.png",
+      "icon": "./assets/icon-android.png",
       "versionCode": 1,
       "permissions": [],
       "googleServicesFile": "./google-services.json"
     },
     "ios": {
       "bundleIdentifier": "YOU MUST SET THIS FIRST AND CAN'T CHANGE IT",
+      "icon": "./assets/icon-ios.png",
       "supportsTablet": true,
       "loadJSInBackgroundExperimental": true
     },

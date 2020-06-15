@@ -91,12 +91,12 @@ export const Images = {
   LogoAvatar: require('./assets/big-c-icon-android.png'),
 
   // Appears in the navigation bar when the user scrolls down the feed on Home screen
-  Home_NavbarLogo: require('./assets/home-logo.png'),
+  Home_NavbarLogo: require('./assets/home-navbar-logo.png'),
 
   // Hero video file that plays on the Home screen
   Home_Video: require('./assets/5MB_video.mp4'),
   // Overlay image over the hero video
-  Home_VideoOverlay: require('./assets/home-big-c-logo.png'),
+  Home_VideoOverlay: require('./assets/home-video-overlay.png'),
   // Home_VideoOverlay: require('./assets/juanstagram-mono-logotype.png'),
 
   // Home screen hero image. Loads in directly, no fancy tinting or layers
@@ -111,21 +111,18 @@ export const Images = {
 
   // Songbook cover image
   Songbook_Cover: require('./assets/songbook-front-cover-heebo.png'),
-  // Musical score graphic used in the songbook
-  Songbook_MusicalScore: require('./assets/musical-score.png'),
 
   // Used as a default thumbnail for Players and Rosters
-  ClubLogo: require('./assets/chattfc_logo.png'),
+  ClubLogo: require('./assets/logo-club.png'),
 
   // Used for Prideraiser integration
   PrideraiserLogo: require('./assets/prideraiser-logo.png'),
   PrideraiserIcon: require('./assets/prideraiser-icon.png'),
 
   // Add optional images
-  GoFundMeColor: require('./assets/gofundme.png'),
-  GoFundMeBw: require('./assets/gofundme_bw.png'),
-  Postcast423: require('./assets/423Soccer.png'),
-  Postcast109: require('./assets/section109pod.png')
+  GoFundMe: require('./assets/gofundme_bw.png'),
+  Postcast423: require('./assets/logo-podcast-423.png'),
+  Postcast109: require('./assets/logo-podcast-109.png')
 }
 
 
@@ -365,8 +362,8 @@ export const NavigationDrawerItems = [
 */
 export const Banners = [
 ]
-//{ backgroundColor: Palette.Prideraiser, image: PRIDERAISER_ICON, url: Urls.Prideraiser, text: "Pledge to Chattanooga Prideraiser", textColor: Palette.White },
-// { backgroundColor: Palette.Sky, image: GOFUNDME_BW_ICON, tintColor: Skin.Home_SocialButtons, url: Urls.GoFundMe, text: "Youth Soccer Investment Crowdfunding", textColor: Palette.Black }
+// { backgroundColor: Palette.Prideraiser, image: Images.PrideraiserIcon, url: Urls.Prideraiser, text: "Pledge to Chattanooga Prideraiser", textColor: Palette.White },
+// { backgroundColor: Palette.Sky, image: Images.GoFundMe, tintColor: Skin.Home_SocialButtons, url: Urls.GoFundMe, text: "Youth Soccer Investment Crowdfunding", textColor: Palette.Black }
 
 
 /*
@@ -414,7 +411,7 @@ export const SocialButtons = [
 // Other/Seasonal
 // { icon: 'link', url: Urls.Website },
 // { image: Images.PrideraiserIcon, url: Urls.Prideraiser },
-// { image: Images.GoFundMeBw, url: Urls.GoFundMe, tintToSkin: true }
+// { image: Images.GoFundMe, url: Urls.GoFundMe, tintToSkin: true }
 
 
 /*
