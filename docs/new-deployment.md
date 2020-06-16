@@ -63,6 +63,8 @@ You should create several accounts in your SG's name to deploy your customized v
 * [Heroku](https://www.heroku.com/) is currently the recommended host for the server.
 * [Firebase](https://firebase.google.com/) is the service used to manage push notifications for Android devices. Firebase uses a Google account, so use the same one you use for Google Play.
 
+TODO: More detail here. Also, do the tasks to get more Cloudinary credits.
+
 ## Fork the Code
 
 In your SG's github account, fork the code for the [Hooligan Hymnal Server](https://github.com/Chattahooligans/hooligan-hymnal-server), and the [Hooligan Hymnal App](https://github.com/Chattahooligans/hooligan-hymnal-app). This is your starting point for building the app. 
