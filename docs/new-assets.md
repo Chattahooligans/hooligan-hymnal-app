@@ -1,11 +1,13 @@
 # Hooligan Hymnal Assets Guide
 
-This document describes the photos, graphics, and fonts that may be used by your supporter group's customized version of the open source Hooligan Hymnal mobile app. It is intended to supplement the deployment instructions found in `deployment.md`, and is spefically targetted to graphic designers or others who are tasked to help creating or collecting these assets, to avoid overwhelming them with instructions on server setup and so on.
+This document describes the photos, graphics, and fonts that may be used by your supporter group's customized version of the open source Hooligan Hymnal mobile app. It is intended to supplement the deployment instructions found in `deployment.md`, and is spefically targeted to graphic designers or others who are tasked to create or collect these assets, in an effort to avoid overwhelming them with instructions on server setup and app publishing and so on.
 
 We also recommend opening `config-example.js` as a companion to this guide. The file contains additional documentation, descriptions, and examples that aim to make life easier overall.
 
 Please review the project README for a description of the platform and the philosophy behind it.
 https://github.com/Chattahooligans/hooligan-hymnal-app/blob/master/README.md
+
+tl;dr - You need make some icons and backgrounds and stuff. This guide lists all of them.
 
 # Introduction
 
@@ -26,13 +28,13 @@ Skin
 
 ## Notes on file resolution, and a plea for help
 
-With the advent of high pixel density phone displays, determining the target image height and width is tricky. You want to go big enough to look great on any phone screen, but not so large as to overly-inflate your app download size. And, of course, Apple and Google Play have their own ever-changing standards on icon sizes and formats. Our core team is all developer/no designer, so- in general, we've found icons should be 1024x1024px, and logos and graphics should target at least/about 600px wide.
+With the advent of high pixel density phone displays, determining the target image height and width is tricky. You want to go big enough to look great on any phone screen, but not so large as to overly-inflate your app download size. And, of course, Apple and Google have their own ever-changing requirements for icon sizes and formats. Our core team is all developer/no designer, so- in general, we've found icons should be 1024x1024px, and logos and graphics should target at least/about 600px wide.
 
 Open source is about sharing, and if you can find or help write a guide, we would very much welcome and be grateful for your contribution.
 
 # Colors
 
-Your SG's app should reflect your SG's brand, and the first step to that is color choice. Though not related to assets, this document is targetted at design-minded individuals, so this section briefly describes configuration of the Palette and using DefaultColors and Skin.
+Your SG's app should reflect your SG's brand, and the first step to that is color choice. Though not related to assets, this document is targeted at design-minded individuals, so this section briefly describes configuration of the Palette and using DefaultColors and Skin.
 
 Note: The Hooligan Hymnal core team welcomes contributions and feedback on improving how colors are used in the app.
 
@@ -52,12 +54,12 @@ The Skin tends to refer to both Palette and DefaultColors.
 
 # Fonts
 
-If your SG uses a particular font in its branding, that can be easily dropped into Hooligan Hymnal and configured for use across the app. If not, Open Sans is provided as a default, and the internet is full of free and commercial typefaces. Check out the Google Fonts library as one place to get started-
+If your SG uses a particular typeface in its branding, that can be easily dropped into Hooligan Hymnal and configured for use across the app. If not, the Open Sans typeface is provided as a default, and the internet is full of free and commercial fonts. Check out the Google Fonts library as one place to get started-
 https://fonts.google.com/
 
 Whatever your choice, please consider including a reference to the license in the credits section of the About screen. (Instruct your developer to do this)
 
-Once you select a typeface (or accept the default), it will be referenced in the config file for your app.
+Once you select a typeface (or accept the default), it will be referenced in the config file for your app by the Fonts config object.
 
 # Images
 
@@ -154,8 +156,8 @@ The SocialButtons panel on the Home / News Feed screen can use icon-sized images
 
 Make sure to get permission from photographers and attribute their photos to them! Currently, player bios are a great spot to give credit to an individual player image (Note: the Roster/Player screens are due for a revisit in the not-too-distant future). And the About screen can be used for catch-all attributions for hero images and fonts.
 
-Note: Images uploaded to Posts in the News Feed include credits alongside each image.
+Note: Images uploaded to Posts in the News Feed support credits with each image, and a quick selection of common photographers is available in the config file, with the CommonImageCredits object.
 
-# On Icons
+# UI Icons
 
-Hooligan Hymnal uses icons across the app from the MaterialCommunityIcons set, which is included in the expo-vector-icons package. While some of the icons in the admin-only screens are not exposed in the config file, all of the public-facing ones should be. If you want to change an icon away from the default, browse at https://icons.expo.fyi/
+Hooligan Hymnal uses icons across the app from the MaterialCommunityIcons set, which is included in the expo-vector-icons package. While some of the icons in the admin-only screens are not exposed in the config file, all of the public-facing ones should be. If you want to change an icon away from the default, browse the options at https://icons.expo.fyi/
