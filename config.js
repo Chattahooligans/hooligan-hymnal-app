@@ -127,7 +127,7 @@ export const Images = {
 
 
 /*
-  Common Image Credit
+  Common Image Credits
   
   It's likely that photos will come from a select few SG or club 
   photographers. We make it easy to credit those people for letting us use
@@ -136,11 +136,11 @@ export const Images = {
   This structure contains an array of strings used for this feature. The 
   structure is required, but does not need to be populated. Here is what
   it looks like empty.
-  export const CommonImageCredit = []
+  export const CommonImageCredits = []
 
   Feel free to add or remove lines as necessary
 */
-export const CommonImageCredit = [
+export const CommonImageCredits = [
   "Ray Soldano | https://www.facebook.com/RaySoldanoPhotography/",
   "Galen Riley | https://twitter.com/thatgalen",
   "Jeff Underwood | https://www.facebook.com/jeff.underwood.359",
