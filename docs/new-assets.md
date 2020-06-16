@@ -96,6 +96,8 @@ The default implementation of the hero component is an incredibly low-resolution
 
 ### Image
 
+Default file name(s): `home-hero-image.png`
+
 The home hero component can also be a single image. No tints, no overlays, no complications. You can use a photo, digital graphic, or solid color image, and we suggest a horizontal banner at 768-1024px wide (and as tall as you prefer).
 
 ### Prideraiser
@@ -103,6 +105,12 @@ The home hero component can also be a single image. No tints, no overlays, no co
 The third mode of the Hero component is a panel that requests from the API at https://prideraiser.org and loads the campaign cover image. It is configured with an ID in the config file and some URL parameters. You will not be creating a file to package with Hooligan Hymnal, but the third mode is discussed here for complete coverage of the Home Hero component.
 
 Fun fact: Hooligan Hymnal and Prideraiser have the same origin, and the projects now have some integration.
+
+## Home Navigation Bar
+
+Default file name(s): `home-navbar-logo.png`
+
+The Home Hero component fades into a standard looking header/navigation bar as the user scrolls. You can specify a logo that is displayed in that bar.
 
 ## Menu Drawer
 
@@ -120,18 +128,34 @@ The songbook cover image is displayed on top of a solid color background. We sug
 
 ## Club and SG Logos
 
-Avatar usage
+Default file name(s): `logo-club.png` and `icon-android.png`
+
+The app uses a fallback image on the Player screen for players without photos available, as well as a logo for the Mass Tweet Post Attachment. We use the club logo for these purposes, but not for branding elsewhere in the app.
+
+News Feed supports a feature called Channels for different SG communication functions. Each has an avatar image, displayed in a circle like popular social media platforms. The app requires a backup image, if a Channel avatar is not specified. Fortunately, you just created an Android launcher icon that would work nicely for such a purpose.
 
 ## Notification Icon
 
-## Other Images
+Default file name(s): `notification.png`
 
-(prideraiser, gofundme, etc)
+Hooligan Hymnal supports push notifications. The icon that appears in the tray is 96x96 grayscale with transparency. (The default file doesn't meet this specification, but is used in all Hooligan Hymnal deployments as of June 2020. For shame.)
 
-## Adding your own
+Additional information can be found at https://docs.expo.io/workflow/configuration/
 
-(podcast links etc)
+## Other Included Images
+
+The default asset library includes a Prideraiser logo, used in the related features, as well as Prideraiser and GoFundMe icons that can be used in the configurable SocialButtons or Banners panels on the Home / News Feed screen.
+
+## Adding Your Own
+
+The SocialButtons panel on the Home / News Feed screen can use icon-sized images that link to other web resources. (As an example, the Chattahooligans' deployment links to a couple of fan podcasts.) Add more as necessary.
 
 # Creator Credits
 
-# About News Feed
+Make sure to get permission from photographers and attribute their photos to them! Currently, player bios are a great spot to give credit to an individual player image (Note: the Roster/Player screens are due for a revisit in the not-too-distant future). And the About screen can be used for catch-all attributions for hero images and fonts.
+
+Note: Images uploaded to Posts in the News Feed include credits alongside each image.
+
+# On Icons
+
+Hooligan Hymnal uses icons across the app from the MaterialCommunityIcons set, which is included in the expo-vector-icons package. While some of the icons in the admin-only screens are not exposed in the config file, all of the public-facing ones should be. If you want to change an icon away from the default, browse at https://icons.expo.fyi/
