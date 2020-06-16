@@ -88,15 +88,15 @@ export const Images = {
   Home_NavbarLogo: require('./assets/home-navbar-logo.png'),
 
   // Hero video file that plays on the Home screen
-  Home_Video: require('./assets/hero-video.mp4'),
+  Home_Video: require('./assets/home-hero-video.mp4'),
   // Overlay image over the hero video
-  Home_VideoOverlay: require('./assets/home-video-overlay.png'),
+  Home_VideoOverlay: require('./assets/home-hero-video-overlay.png'),
   // Home_VideoOverlay: require('./assets/juanstagram-mono-logotype.png'),
 
   // Home screen hero image. Loads in directly, no fancy tinting or layers
   //    scaled to fit screen width
   // Note: Set Skin.Home_HeroImage_VersionColor to a contrasting color
-  Home_HeroImage: require('./assets/home-hero.png'),
+  Home_HeroImage: require('./assets/home-hero-image.png'),
 
   // Background image that appears at the top of the navigation drawer menu
   Drawer_HeroBackground: require('./assets/drawer-hero-background.png'),
