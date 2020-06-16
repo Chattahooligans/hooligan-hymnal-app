@@ -88,10 +88,10 @@ export const Images = {
   Home_NavbarLogo: require('./assets/home-navbar-logo.png'),
 
   // Hero video file that plays on the Home screen
-  Home_Video: require('./assets/home-hero-video.mp4'),
+  Home_HeroVideo: require('./assets/home-hero-video.mp4'),
   // Overlay image over the hero video
-  Home_VideoOverlay: require('./assets/home-hero-video-overlay.png'),
-  // Home_VideoOverlay: require('./assets/juanstagram-mono-logotype.png'),
+  Home_HeroVideoOverlay: require('./assets/home-hero-video-overlay.png'),
+  // Home_HeroVideoOverlay: require('./assets/juanstagram-mono-logotype.png'),
 
   // Home screen hero image. Loads in directly, no fancy tinting or layers
   //    scaled to fit screen width
@@ -266,8 +266,8 @@ export const Skin = {
   Home_Refresh_Android: DefaultColors.Primary,
   Home_RefreshBackground_Android: DefaultColors.Accent,
   Home_SocialButtons: DefaultColors.Primary,
-  Home_Video: Images.Home_Video,
-  Home_VideoOverlay: Images.Home_VideoOverlay,
+  Home_HeroVideo: Images.Home_HeroVideo,
+  Home_HeroVideoOverlay: Images.Home_HeroVideoOverlay,
   HomeVideoPanel_TintColor: DefaultColors.HeaderBackground,
   HomeVideoPanel_TintOpacity: 0.8,
   HomeVideoPanel_VersionLabel: DefaultColors.HeaderText,
