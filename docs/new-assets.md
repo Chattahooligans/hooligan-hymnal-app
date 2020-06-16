@@ -14,12 +14,13 @@ Hooligan Hymnal is an open source project, and your developers may have grander 
 Most files are named for a generic purpose. `/assets/icon-ios.png` is the app icon used on iOS, `/assets/splash.png` is the splash screen displayed on the initial application load, and so on. These files are referenced in the `config.js` file. You can use these same file names without needing to change the config, or you can set your own file names, and easily edit the config file to match. There may (will) be cases where you need to add files that aren't part of the basic set.
 
 The `config.js` file declares a `Skin` that is used throughout the code, and it refers to several other structures, which are outlined in this overly-simplified illustration. (Though Skin is further customizable if our example config doesn't meet the needs of your SG. Just ask in Slack.)
-
+```
 Skin
 ├── Images
 ├── Fonts
 └── DefaultColors
     └── Palette
+```
 
 We recommend opening `config-example.js` and reviewing it as a companion to this guide. The file contains additional documentation, descriptions, and examples that should make life easier overall.
 
