@@ -25,7 +25,7 @@ We recommend opening `config-example.js` and reviewing it as a companion to this
 
 ## Notes on file resolution, and a plea for help
 
-With the advent of high pixel density phone displays, determining the target image height and width is tricky. You want to go big enough to look great on any phone screen, but not so large as to overly-inflate your app download size. And, of course, Apple and Google Play have their own ever-changing standards on icon sizes and formats. Our core team is all developer/no designer, so- in general, we've found icons should be 1024x2014, and logos and graphics should target at least/about 600px wide.
+With the advent of high pixel density phone displays, determining the target image height and width is tricky. You want to go big enough to look great on any phone screen, but not so large as to overly-inflate your app download size. And, of course, Apple and Google Play have their own ever-changing standards on icon sizes and formats. Our core team is all developer/no designer, so- in general, we've found icons should be 1024x1024px, and logos and graphics should target at least/about 600px wide.
 
 Open source is about sharing, and if you can find or help write a guide, we would very much welcome and be grateful for your contribution.
 
@@ -64,21 +64,58 @@ Hooligan Hymnal uses a number of photos, logos, and custom images. This section 
 
 ## Icons
 
+Default file name(s): `icon-android.png` and  `icon-ios.png`
+
+The iOS launcher icon should be a png file sized to exactly 1024x1024 and fill the entire square, with no transparent pixels.
+The Android launcher supports adaptive icons, but that effort was not spent in the initial deployment of Hooligan Hymnal. We used a 1024x1024px png, balanced to fit in a circle, with a transparent background.
+
+Note that icons are configured in the file `app.json`, NOT `config.js`
+
 Additional information can be found at https://docs.expo.io/guides/app-icons/
 
 ## Splash Screen
+
+Default file name(s): `splash.png`
+
+The splash screen is the first thing your users see when launching the app, and is displayed while the app updates and loads.
+
+Note that the splash screen is configured in the file `app.json`, NOT `config.js`
 
 Additional information can be found at https://docs.expo.io/guides/splash-screens/
 
 ## Home Hero
 
+The Hero component is displayed at the top of the Home / News Feed screen. The component works in three modes, set in the config file.
+
 ### Video
+
+Default file name(s): `home-hero-video.mp4` and `home-hero-video-overlay.png`
+
+The default implementation of the hero component is an incredibly low-resolution video with no sound. Target 1-5MB. (Yes, that small and shitty, because it's going to be covered up.) The hero video is displayed under a semitransparent tint and an overlay logo image with transparent background.
 
 ### Image
 
+The home hero component can also be a single image. No tints, no overlays, no complications. You can use a photo, digital graphic, or solid color image, and we suggest a horizontal banner at 768-1024px wide (and as tall as you prefer).
+
+### Prideraiser
+
+The third mode of the Hero component is a panel that requests from the API at https://prideraiser.org and loads the campaign cover image. It is configured with an ID in the config file and some URL parameters. You will not be creating a file to package with Hooligan Hymnal, but the third mode is discussed here for complete coverage of the Home Hero component.
+
+Fun fact: Hooligan Hymnal and Prideraiser have the same origin, and the projects now have some integration.
+
 ## Menu Drawer
 
+Default file name(s): `drawer-hero-background.png` and `drawer-hero-overlay.png`
+
+The menu drawer contains an image at the top. Like the Home Hero Video, this image is displayed under semitransparent tint and an overlay logo image with transparent background. You can use a photo, digital graphic, or solid color image.
+
 ## Songbook Cover
+
+Default file name(s): `songbook-cover.png`
+
+Hooligan Hymnal began life as a digital replacement for paper chant booklets passed out to supporters. As a nod to this history (and because it takes a couple of seconds to render the songs), the Songbook feature in the mobile app displays a book-like cover image while the songbook is rendered for the first time.
+
+The songbook cover image is displayed on top of a solid color background. We suggest an image at 768-1024px wide (and as tall as you prefer, though the image will be scaled to fit on the screen).
 
 ## Club and SG Logos
 
