@@ -132,7 +132,7 @@ Default file name(s): `logo-club.png` and `icon-android.png`
 
 The app uses a fallback image on the Player screen for players without photos available, as well as a logo for the Mass Tweet Post Attachment. We use the club logo for these purposes, but not for branding elsewhere in the app.
 
-News Feed supports a feature called Channels for different SG communication functions. Each has an avatar image, displayed in a circle like popular social media platforms. The app requires a backup image, if a Channel avatar is not specified. Fortunately, you just created an Android launcher icon that would work nicely for such a purpose.
+News Feed supports a feature called Channels for different SG communication functions. Each has an avatar image, displayed in a circle like popular social media platforms. The app requires a fallback image, if a Channel avatar is not specified. Fortunately, you just created an Android launcher icon that would work nicely for such a purpose.
 
 ## Notification Icon
 
