@@ -1,6 +1,8 @@
 # Hooligan Hymnal Assets Guide
 
-This document describes the photos, graphics, and fonts that may be used by your supporter group's customized version of the open source Hooligan Hymnal mobile app. It is intended to supplement the deployment instructions found in `deployment.md`, and is targetted at a graphic designers or other people who may help with creating or collecting these assets.
+This document describes the photos, graphics, and fonts that may be used by your supporter group's customized version of the open source Hooligan Hymnal mobile app. It is intended to supplement the deployment instructions found in `deployment.md`, and is spefically targetted to graphic designers or others who are tasked to help creating or collecting these assets, to avoid overwhelming them with instructions on server setup and so on.
+
+We also recommend opening `config-example.js` as a companion to this guide. The file contains additional documentation, descriptions, and examples that aim to make life easier overall.
 
 Please review the project README for a description of the platform and the philosophy behind it.
 https://github.com/Chattahooligans/hooligan-hymnal-app/blob/master/README.md
@@ -21,8 +23,6 @@ Skin
 └── DefaultColors
     └── Palette
 ```
-
-We recommend opening `config-example.js` and reviewing it as a companion to this guide. The file contains additional documentation, descriptions, and examples that should make life easier overall.
 
 ## Notes on file resolution, and a plea for help
 
