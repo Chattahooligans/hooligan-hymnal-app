@@ -86,13 +86,13 @@ const CustomDrawer = props => {
     <View style={styles.container}>
       <View style={styles.drawerHeader}>
         <Image
-          source={Skin.Drawer_HeroBackground}
+          source={Skin.NavigationDrawer_HeroBackground}
           style={styles.backgroundImage}
         />
         <View style={[StyleSheet.absoluteFill, styles.imageOverlay]} />
         <View style={[StyleSheet.absoluteFill, styles.logoContainer]}>
           <Image
-            source={Skin.Drawer_HeroOverlay}
+            source={Skin.NavigationDrawer_HeroOverlay}
             style={styles.logoImage}
           />
         </View>
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     backgroundColor: Skin.NavigationDrawer_BackgroundColor,
   },
   imageOverlay: {
-    backgroundColor: Skin.NavigationDrawer_HeroImageOverlayColor
+    backgroundColor: Skin.NavigationDrawer_HeroOverlayColor
   },
   logoContainer: {
     alignItems: 'center',

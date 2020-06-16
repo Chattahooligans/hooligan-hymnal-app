@@ -99,9 +99,9 @@ export const Images = {
   Home_HeroImage: require('./assets/home-hero-image.png'),
 
   // Background image that appears at the top of the navigation drawer menu
-  Drawer_HeroBackground: require('./assets/drawer-hero-background.png'),
+  NavigationDrawer_HeroBackground: require('./assets/drawer-hero-background.png'),
   // Overlay image over the drawer hero background image
-  Drawer_HeroOverlay: require('./assets/drawer-hero-logo.png'),
+  NavigationDrawer_HeroOverlay: require('./assets/drawer-hero-logo.png'),
 
   // Songbook cover image
   Songbook_Cover: require('./assets/songbook-cover.png'),
@@ -251,8 +251,6 @@ export const Skin = {
   Channel_NameLabel: DefaultColors.Primary,
   Channel_Refresh_Android: DefaultColors.Accent,
   Channel_RefreshBackground_Android: DefaultColors.Primary,
-  Drawer_HeroBackground: Images.Drawer_HeroBackground,
-  Drawer_HeroOverlay: Images.Drawer_HeroOverlay,
   Home_BackgroundColor: DefaultColors.Primary,
   Home_BigButtonsBackground: DefaultColors.ButtonBackground,
   Home_BigButtonsLabel: DefaultColors.ButtonText,
@@ -278,7 +276,9 @@ export const Skin = {
   ModalLoader_Background: DefaultColors.Accent,
   ModalLoader_Container: "#00000040",
   NavigationDrawer_BackgroundColor: "#333333",
-  NavigationDrawer_HeroImageOverlayColor: 'rgba(3, 46, 85, 0.57)',
+  NavigationDrawer_HeroBackground: Images.Drawer_HeroBackground,
+  NavigationDrawer_HeroOverlay: Images.Drawer_HeroOverlay,
+  NavigationDrawer_HeroOverlayColor: 'rgba(3, 46, 85, 0.57)',
   NavigationDrawer_LabelActiveBackgroundColor: DefaultColors.Primary,
   NavigationDrawer_LabelActiveTintColor: Palette.White,
   NavigationDrawer_LabelActiveBackgroundColor: 'transparent',
