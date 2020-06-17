@@ -520,7 +520,7 @@ class Post extends React.Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: Palette.White,
-        marginTop: Skin.Home_PostMarginVertical,
+        marginBottom: Skin.Home_PostMarginVertical,
         marginHorizontal: Skin.Post_ContainerMarginHorizontal
     },
     headerContainer: {
