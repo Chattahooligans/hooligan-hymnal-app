@@ -410,15 +410,15 @@ export const Settings = {
   // Player_ShowSongs: true, false
   //      Some SGs write songs for each player
   //      Toggle a related UI element in the Roster/Player screen
-  Player_ShowSongs: true,
+  Player_ShowSongs: false,
 
   // PostAttach_ShowGKNickname: true, false
   //      This is a longrunning inside joke in Chattanooga
-  PostAttach_ShowGKNickname: true,
+  PostAttach_ShowGKNickname: false,
 
   // PostAttach_ShowJuanstagram: true, false
   //      This is a longrunning inside joke in Chattanooga
-  PostAttach_ShowJuanstagram: true,
+  PostAttach_ShowJuanstagram: false,
 
   PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix: appParams.expo.slug,
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat: "YYYY-MM-DD",
