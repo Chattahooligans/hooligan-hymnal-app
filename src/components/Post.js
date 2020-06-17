@@ -136,8 +136,8 @@ class Post extends React.Component {
         //console.log("Rendering Post:\n" + JSON.stringify(post));
 
         let channelImage = Skin.Post_DefaultChannelThumbnail;
-        //if (post.channelData.avatarUrl)
-        //    channelImage = { uri: post.channelData.avatarUrl }
+        if (post.channelData.avatarUrl)
+            channelImage = { uri: post.channelData.avatarUrl }
 
         // display relative time only if a post is from today, else just a regular timestamp
         let publishedAtDisplay = "";
