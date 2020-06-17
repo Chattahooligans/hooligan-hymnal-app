@@ -79,7 +79,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
 
                         Linking.openURL(campaign.public_url + source)
                     }}>
-                    <View style={styles.container}>
+                    <View>
                         <View>
                             <PostImageWrapper
                                 containerWidth={Dimensions.get("window").width}
@@ -124,7 +124,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-
+        marginBottom: Skin.Home_PostMarginVertical
     },
     contentContainer: {
         backgroundColor: Palette.White,

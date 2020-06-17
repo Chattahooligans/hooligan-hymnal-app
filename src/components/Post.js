@@ -20,7 +20,7 @@ import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 // import Toast from 'react-native-simple-toast';
 import Toast from "react-native-tiny-toast";
-import { Skin, Palette, Settings } from '../../config';
+import { Skin, Palette, Settings, DefaultColors } from '../../config';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import PostAttachmentGkNickname from './PostAttachmentGkNickname';
@@ -520,12 +520,13 @@ class Post extends React.Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: Palette.White,
-        marginTop: Skin.Home_PostMarginVertical,
-        marginHorizontal: 5
+        marginBottom: Skin.Home_PostMarginVertical,
+        marginHorizontal: Skin.Post_ContainerMarginHorizontal
     },
     headerContainer: {
         flexDirection: i18n.getFlexDirection(),
-        padding: 4
+        paddingTop: Skin.Post_HeaderContainerPaddingTop,
+        paddingHorizontal: Skin.Post_HeaderContainerPaddingHorizontal
     },
     channelImage: {
         width: 50,
@@ -544,8 +545,7 @@ const styles = StyleSheet.create({
         color: Skin.Post_TimestampLabel
     },
     notificationSymbol: {
-        color: Palette.Sky,
-        marginRight: 3
+        color: DefaultColors.Secondary
     },
     menu: {
         color: Skin.Post_ChannelLabel,
@@ -555,8 +555,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent'
     },
     text: {
-        paddingVertical: 3,
-        paddingHorizontal: 8,
+        paddingTop: Skin.Post_TextPaddingTop,
+        paddingBottom: Skin.Post_TextPaddingBottom,
+        paddingHorizontal: Skin.Post_TextPaddingHorizontal,
         fontFamily: Skin.Font_ParsedText,
         fontSize: Skin.Post_FontSize,
         lineHeight: Skin.Post_LineHeight,

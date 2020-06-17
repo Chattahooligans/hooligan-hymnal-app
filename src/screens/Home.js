@@ -375,18 +375,18 @@ const styles = StyleSheet.create({
   },
   staticButtonsContainer: {
     backgroundColor: Palette.White,
-    marginTop: Skin.Home_PostMarginVertical,
+    marginBottom: Skin.Home_PostMarginVertical,
     paddingBottom: 5,
-    marginHorizontal: 5,
+    marginHorizontal: Skin.Post_ContainerMarginHorizontal,
     borderWidth: 1,
     borderBottomWidth: 3,
     borderColor: "#eee"
   },
   staticLinksContainer: {
     backgroundColor: Palette.White,
-    marginTop: Skin.Home_PostMarginVertical,
+    marginBottom: Skin.Home_PostMarginVertical,
     paddingVertical: 5,
-    marginHorizontal: 5,
+    marginHorizontal: Skin.Post_ContainerMarginHorizontal,
     borderWidth: 1,
     borderBottomWidth: 3,
     borderColor: "#eee"
