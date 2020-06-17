@@ -20,7 +20,7 @@ import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 // import Toast from 'react-native-simple-toast';
 import Toast from "react-native-tiny-toast";
-import { Skin, Palette, Settings } from '../../config';
+import { Skin, Palette, Settings, DefaultColors } from '../../config';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import PostAttachmentGkNickname from './PostAttachmentGkNickname';
@@ -525,7 +525,8 @@ const styles = StyleSheet.create({
     },
     headerContainer: {
         flexDirection: i18n.getFlexDirection(),
-        padding: 4
+        paddingTop: Skin.Post_HeaderContainerPaddingTop,
+        paddingHorizontal: Skin.Post_HeaderContainerPaddingHorizontal
     },
     channelImage: {
         width: 50,
@@ -544,8 +545,7 @@ const styles = StyleSheet.create({
         color: Skin.Post_TimestampLabel
     },
     notificationSymbol: {
-        color: Palette.Sky,
-        marginRight: 3
+        color: DefaultColors.Secondary
     },
     menu: {
         color: Skin.Post_ChannelLabel,
