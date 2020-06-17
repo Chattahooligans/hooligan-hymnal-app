@@ -22,14 +22,17 @@ const firstValidPageIndex = 0;
 
 class SongbookPages extends React.Component {
   state = {
-    chapterTitle: defaultChapterTitle,
+    chapterTitle: this.props.globalData.state.songList[0].chapterTitle || defaultChapterTitle,
     songList: this.props.globalData.state.songList,
     showToast: true
   };
 
   componentDidUpdate(prevProps) {
     if (this.state.songList != this.props.globalData.state.songList)
-      this.setState({ songList: this.props.globalData.state.songList })
+      this.setState({ 
+        chapterTitle: this.props.globalData.state.songList[0].chapterTitle || defaultChapterTitle,
+        songList: this.props.globalData.state.songList
+       })
 
     if (this.props.route.params) {
       if (!prevProps.route.params)
