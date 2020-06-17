@@ -126,7 +126,6 @@ const CustomDrawer = props => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            console.log(props.state.routeNames)
             if (props.globalData.state.currentUser)
               props.navigation.navigate('AdminHome');
             else
