@@ -87,7 +87,7 @@ class SongbookContents extends React.Component {
     _renderSectionHeader = ({ section }) => {
         return (
             <View style={styles.sectionHeader}>
-                <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{section.title}</RegularText>
+                <RegularText style={{ textAlign: 'center', writingDirection: i18n.getWritingDirection() }}>{section.title}</RegularText>
             </View>
         );
     };
