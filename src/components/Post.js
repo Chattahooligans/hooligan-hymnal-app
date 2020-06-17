@@ -136,8 +136,8 @@ class Post extends React.Component {
         //console.log("Rendering Post:\n" + JSON.stringify(post));
 
         let channelImage = Skin.Post_DefaultChannelThumbnail;
-        if (post.channelData.avatarUrl)
-            channelImage = { uri: post.channelData.avatarUrl }
+        //if (post.channelData.avatarUrl)
+        //    channelImage = { uri: post.channelData.avatarUrl }
 
         // display relative time only if a post is from today, else just a regular timestamp
         let publishedAtDisplay = "";
@@ -521,7 +521,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: Palette.White,
         marginTop: Skin.Home_PostMarginVertical,
-        marginHorizontal: 5
+        marginHorizontal: Skin.Post_ContainerMarginHorizontal
     },
     headerContainer: {
         flexDirection: i18n.getFlexDirection(),
@@ -555,8 +555,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent'
     },
     text: {
-        paddingVertical: 3,
-        paddingHorizontal: 8,
+        paddingTop: Skin.Post_TextPaddingTop,
+        paddingBottom: Skin.Post_TextPaddingBottom,
+        paddingHorizontal: Skin.Post_TextPaddingHorizontal,
         fontFamily: Skin.Font_ParsedText,
         fontSize: Skin.Post_FontSize,
         lineHeight: Skin.Post_LineHeight,
