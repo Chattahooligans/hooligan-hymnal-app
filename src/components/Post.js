@@ -151,10 +151,10 @@ class Post extends React.Component {
             if (false == this.props.navToChannel)
                 navToChannel = false;
 
-        let navToFullScreen = true;
-        if (this.props.hasOwnProperty("navToFullScreen"))
-            if (false == this.props.navToFullScreen)
-                navToFullScreen = false;
+        let fullscreen = false;
+        if (this.props.hasOwnProperty("fullScreen"))
+            if (true == this.props.fullScreen)
+                fullscreen = true;
 
 
         let textDisplay;
@@ -438,12 +438,12 @@ class Post extends React.Component {
                         {!navToChannel &&
                             <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
                         }
-                        {navToFullScreen &&
+                        {!fullscreen &&
                             <TouchableOpacity onPress={() => { this.props.navigation.navigate("SinglePost", { post }) }}>
                                 <RegularText style={styles.timestampText}>{publishedAtDisplay}</RegularText>
                             </TouchableOpacity>
                         }
-                        {!navToFullScreen &&
+                        {fullscreen &&
                             <RegularText style={styles.timestampText}>{publishedAtDisplay}</RegularText>
                         }
                     </View>
