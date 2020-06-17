@@ -43,7 +43,7 @@ Note: The Hooligan Hymnal core team welcomes contributions and feedback on impro
 `config.js` defines a Palette that is used to color backgrounds, text, and other UI elements throughout the app. It uses color names as keys and RGB, hex codes, or names as values.
 https://www.w3schools.com/colors/default.asp
 
-Populate this object with colors used by your SG and club. Without making modifications to the source code, the app is designed to look nice when using two colors- a Primary and a Secondary, plus or including black and white.
+Populate this object with colors used by your SG and club, or complementary shades. Without making modifications to the source code, the app is designed to look nice when using two colors- a Primary and a Secondary, plus or including black and white.
 (TODO: rename Secondary to Accent, tracked at https://github.com/Chattahooligans/hooligan-hymnal-app/issues/121)
 
 ## DefaultColors
@@ -94,7 +94,7 @@ The Hero component is displayed at the top of the Home / News Feed screen. The c
 
 Default file name(s): `home-hero-video.mp4` and `home-hero-video-overlay.png`
 
-The default implementation of the hero component is an incredibly low-resolution video with no sound. Target 1-5MB. (Yes, that small and shitty, because it's going to be covered up.) The hero video is displayed under a semitransparent tint and an overlay logo image with transparent background.
+The default implementation of the hero component is an incredibly low-resolution video with no sound. Target 1-5MB. (Yes, that small and shitty, because it's going to be covered up.) The hero video is displayed under a semitransparent tint and an overlay image- we recommend your SG logo with a transparent background.
 
 ### Image
 
