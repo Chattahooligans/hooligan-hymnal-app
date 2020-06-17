@@ -1,13 +1,14 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import DefaultStackScreenOptions from './DefaultStackScreenOptions';
 import Screens from '../screens';
 import i18n from '../i18n';
 
 const SongbookStackContainer = createStackNavigator();
-const SongbookTabs = createBottomTabNavigator();
+const SongbookTabs = createMaterialTopTabNavigator();
 
 function SongbookTabsNavigation() {
     return (
