@@ -181,7 +181,8 @@ const styles = StyleSheet.create({
     backgroundColor: Skin.NavigationDrawer_BackgroundColor,
   },
   imageOverlay: {
-    backgroundColor: Skin.NavigationDrawer_HeroOverlayColor
+    backgroundColor: Skin.NavigationDrawer_HeroOverlayTintColor,
+    opacity: Skin.NavigationDrawer_HeroOverlayTintOpacity
   },
   logoContainer: {
     alignItems: 'center',

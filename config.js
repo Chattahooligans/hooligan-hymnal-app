@@ -198,7 +198,7 @@ export const DefaultColors = {
   ButtonText: Palette.White,
   HeaderBackground: Palette.Navy,
   HeaderText: Palette.White,
-  BlackText: Palette.Black,
+  BlackText: "#222222",
   ColorText: Palette.Navy,
   Primary: Palette.Navy,
   Secondary: Palette.Sky
@@ -273,9 +273,9 @@ export const Skin = {
   Home_HeroVideo: Images.Home_HeroVideo,
   Home_HeroVideoOverlay: Images.Home_HeroVideoOverlay,
   HomeVideoPanel_TintColor: DefaultColors.HeaderBackground,
-  HomeVideoPanel_TintOpacity: 0.8,
+  HomeVideoPanel_TintOpacity: 0.75,
   HomeVideoPanel_VersionLabel: DefaultColors.HeaderText,
-  Home_Website: Palette.Black,
+  Home_Website: DefaultColors.BlackText,
   Icon_Roster: "account-group",
   Icon_Songbook: "book-open-variant",
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
@@ -284,7 +284,8 @@ export const Skin = {
   NavigationDrawer_BackgroundColor: "#333333",
   NavigationDrawer_HeroBackground: Images.NavigationDrawer_HeroBackground,
   NavigationDrawer_HeroOverlay: Images.NavigationDrawer_HeroOverlay,
-  NavigationDrawer_HeroOverlayColor: 'rgba(3, 46, 85, 0.57)',
+  NavigationDrawer_HeroOverlayTintColor: DefaultColors.HeaderBackground,
+  NavigationDrawer_HeroOverlayTintOpacity: 0.5,
   NavigationDrawer_LabelActiveBackgroundColor: DefaultColors.Primary,
   NavigationDrawer_LabelActiveTintColor: Palette.White,
   NavigationDrawer_LabelActiveBackgroundColor: 'transparent',
@@ -433,7 +434,7 @@ export const Settings = {
 
   // Home_HeroContent: "video", "image", "prideraiser"
   //      Hero content on the home screen
-  Home_HeroContent: "prideraiser",
+  Home_HeroContent: "video",
 
   // Home_PostsPerPage: number
   //      Load this many news feed items, then load this many more if the user scrolls to the bottom
