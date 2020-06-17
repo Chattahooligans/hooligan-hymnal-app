@@ -17,7 +17,7 @@ import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress
 import Toast from "react-native-tiny-toast";
 // import Toast from 'react-native-simple-toast';
 import { FontSizes, Layout } from '../constants';
-import { Palette, Skin } from '../../config';
+import { Palette, Skin, DefaultColors } from '../../config';
 import i18n from '../i18n';
 
 // TODO: platform select
@@ -143,12 +143,12 @@ export default class SongView extends React.PureComponent {
 const styles = StyleSheet.create({
   title: {
     fontSize: 24,
-    color: Palette.Black,
+    color: Skin.SongView_TitleColor,
     backgroundColor: Palette.White,
     paddingLeft: 4,
   },
   reference: {
-    color: Palette.Navy,
+    color: Skin.SongView_ReferenceColor,
     backgroundColor: Palette.White,
     paddingLeft: 12,
     paddingBottom: 3
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     paddingBottom: 0
   },
   instructions: {
-    color: '#AAAAAA',
+    color: Skin.SongView_InstructionsColor,
     backgroundColor: Palette.White,
     paddingLeft: 12,
     textAlign: i18n.getRTLTextAlign(),
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
     flex: 1,
-    color: Palette.Navy,
+    color: Skin.SongView_LyricsColor,
     backgroundColor: Palette.White,
     paddingLeft: 8,
     textAlign: i18n.getRTLTextAlign(),

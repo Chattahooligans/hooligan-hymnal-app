@@ -306,7 +306,11 @@ export const Skin = {
   Roster_ActiveTabLabel: DefaultColors.ButtonText,
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'heart',
-  Roster_FoesTabIcon: 'thumb-down'
+  Roster_FoesTabIcon: 'thumb-down',
+  SongView_TitleColor: DefaultColors.Primary,
+  SongView_ReferenceColor: DefaultColors.Primary,
+  SongView_InstructionsColor: '#AAAAAA',
+  SongView_LyricsColor: DefaultColors.Primary
 };
 
 
