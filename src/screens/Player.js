@@ -29,7 +29,7 @@ import { FontSizes, Icons, Layout } from '../constants';
 import { RegularText, BoldText, MediumText } from '../components/StyledText';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import SongCard from '../components/SongCard';
-import { Skin, DefaultColors, Palette, Settings } from '../../config';
+import { Skin, DefaultColors, Settings } from '../../config';
 import i18n from '../i18n';
 
 class Player extends React.Component {
@@ -321,7 +321,7 @@ class Player extends React.Component {
         hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
         onPress={handlePress}
       >
-        <MediumText style={{ color: Palette.Navy, marginTop: 5 }}>
+        <MediumText style={{ color: DefaultColors.Primary, marginTop: 5 }}>
           {i18n.t('screens.player.readmore')}
         </MediumText>
       </TouchableOpacity>
@@ -334,7 +334,7 @@ class Player extends React.Component {
         hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
         onPress={handlePress}
       >
-        <MediumText style={{ color: Palette.Navy, marginTop: 5 }}>
+        <MediumText style={{ color: DefaultColors.Primary, marginTop: 5 }}>
           {i18n.t('screens.player.showless')}
         </MediumText>
       </TouchableOpacity>
