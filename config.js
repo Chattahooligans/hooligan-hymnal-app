@@ -239,8 +239,6 @@ export const Fonts = {
 
   This structure contains a set of key:value pairs which alter the 
   appearance of the app. It's always in flux.
-
-  There are other complex structures in addition to the Skin.
 */
 export const Skin = {
   Font_Light: Fonts.Light.family,
@@ -307,7 +305,7 @@ export const Skin = {
   Post_LineHeight: 22,
   Post_LinkColor: "blue",
   Post_TextColor: DefaultColors.BlackText,
-  Post_TextNumberOfLines: 10,
+  Post_TextNumberOfLines: Number.MAX_SAFE_INTEGER,
   Post_TextPaddingTop: 6,
   Post_TextPaddingBottom: 12,
   Post_TextPaddingHorizontal: 16,
@@ -435,6 +433,8 @@ export const Settings = {
   // Channels_Enabled: true, false
   //      Some SGs will only ever have one channel
   //      and tapping into a whole hunk of UI will be jarring and confusing to users
+  //      
+  //      This feature isn't fully implemented yet, so leave it set to false
   ChannelUI_Enabled: false,
 
   // Home_HeroContent: "video", "image", "prideraiser"
