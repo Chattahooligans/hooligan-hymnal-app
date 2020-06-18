@@ -82,7 +82,7 @@
             "bio": "Biografia",
             "playerheadersong": "Hino do jogador",
             "readmore": "Leia mais",
-            "showless": "Menos conteudo"
+            "hide": "Menos conteudo"
         },
         "rosterteam": {
             "title": "Elenco",
@@ -136,7 +136,9 @@
             "hidealerttitle": "Hide Post",
             "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
             "hidealertcancel": "Cancel",
-            "hidealertconfirm": "Hide"
+            "hidealertconfirm": "Hide",
+            "readmore": "Read more",
+            "hide": "Hide"
         },
         "postattachmentgknickname": {
             "gonnascore": "We're gonna score on you, "

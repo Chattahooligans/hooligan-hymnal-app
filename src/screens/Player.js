@@ -246,15 +246,8 @@ class Player extends React.Component {
             useNativeDriver
             delay={Platform.OS === 'ios' ? 50 : 150}
             duration={500}
-            style={styles.content}
-          >
+            style={styles.content}>
             <MediumText style={styles.sectionHeader}>{i18n.t('screens.player.bio')}</MediumText>
-            <ReadMore
-              numberOfLines={showPlayerSongs ? 3 : 9999}
-              renderTruncatedFooter={this._renderTruncatedFooter}
-              renderRevealedFooter={this._renderRevealedFooter}
-              onReady={this._handleTextReady}
-            >
               <ParsedText
                 parse={
                   [
@@ -264,13 +257,9 @@ class Player extends React.Component {
                     { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
                   ]
                 }
-                style={styles.bodyText}
-                childrenProps
-              >
+                style={styles.bodyText}>
                 {i18n.getLocalizedBio(player.bio)}
               </ParsedText>
-              <RegularText style={styles.bodyText}></RegularText>
-            </ReadMore>
             {showPlayerSongs && playerSongDisplay}
           </AnimatableView>
         </AnimatedScrollView>
@@ -312,32 +301,6 @@ class Player extends React.Component {
         song={item}
         style={{ borderBottomWidth: 1, borderColor: '#eee' }}
       />
-    );
-  };
-
-  _renderTruncatedFooter = handlePress => {
-    return (
-      <TouchableOpacity
-        hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
-        onPress={handlePress}
-      >
-        <MediumText style={{ color: DefaultColors.Primary, marginTop: 5 }}>
-          {i18n.t('screens.player.readmore')}
-        </MediumText>
-      </TouchableOpacity>
-    );
-  };
-
-  _renderRevealedFooter = handlePress => {
-    return (
-      <TouchableOpacity
-        hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
-        onPress={handlePress}
-      >
-        <MediumText style={{ color: DefaultColors.Primary, marginTop: 5 }}>
-          {i18n.t('screens.player.showless')}
-        </MediumText>
-      </TouchableOpacity>
     );
   };
 }

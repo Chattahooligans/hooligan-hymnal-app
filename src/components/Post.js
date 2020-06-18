@@ -14,7 +14,8 @@ import {
 } from 'react-native';
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 import FadeIn from 'react-native-fade-in-image';
-import { BoldText, RegularText, MediumText } from '../components/StyledText';
+import ReadMore from 'react-native-read-more-text';
+import { BoldText, RegularText, MediumText, LightText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
 import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from './ParsedTextHelper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -152,27 +153,50 @@ class Post extends React.Component {
                 navToChannel = false;
 
         let fullscreen = false;
-        if (this.props.hasOwnProperty("fullScreen"))
-            if (true == this.props.fullScreen)
-                fullscreen = true;
-
+        if (this.props.hasOwnProperty("fullscreen"))
+            fullscreen = this.props.fullscreen;
 
         let textDisplay;
         if (post.text) {
             textDisplay =
-                <ParsedText
-                    parse={
-                        [
-                            { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
-                            { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
-                            { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
-                            { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
-                        ]
-                    }
-                    style={styles.text}
-                    onLongPress={this._onLongPressText}>
-                    {post.text}
-                </ParsedText>
+                <View style={styles.textContainer}>
+                    <ReadMore
+                        numberOfLines={fullscreen ? Number.MAX_SAFE_INTEGER : Skin.Post_TextNumberOfLines}
+                        renderTruncatedFooter={(handlePress) =>
+                            <LightText
+                                style={{ color: DefaultColors.Primary, marginTop: 5, fontSize: Skin.Post_FontSize - 4 }}
+                                onPress={handlePress}>
+                                {i18n.t('components.post.readmore')}
+                            </LightText>}
+                        renderRevealedFooter={(handlePress) => {
+                            if (Skin.Post_TextShowHide) {
+                                return (
+                                    <LightText
+                                        style={{ color: DefaultColors.Primary, marginTop: 5, fontSize: Skin.Post_FontSize - 4 }}
+                                        onPress={handlePress}>
+                                        {i18n.t('components.post.hide')}
+                                    </LightText>
+                                )
+                            }
+                            else {
+                                return null
+                            }
+                        }}>
+                        <ParsedText
+                            parse={
+                                [
+                                    { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
+                                    { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+                                    { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                                    { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
+                                ]
+                            }
+                            style={styles.text}
+                            onLongPress={this._onLongPressText}>
+                            {post.text}
+                        </ParsedText>
+                    </ReadMore>
+                </View >
         }
 
         let containerWidth = Dimensions.get("window").width - (2 * styles.container.marginHorizontal)
@@ -554,14 +578,16 @@ const styles = StyleSheet.create({
         marginTop: -6,
         backgroundColor: 'transparent'
     },
-    text: {
+    textContainer: {
+        flex: 1,
         paddingTop: Skin.Post_TextPaddingTop,
         paddingBottom: Skin.Post_TextPaddingBottom,
-        paddingHorizontal: Skin.Post_TextPaddingHorizontal,
+        paddingHorizontal: Skin.Post_TextPaddingHorizontal
+    },
+    text: {
         fontFamily: Skin.Font_ParsedText,
         fontSize: Skin.Post_FontSize,
         lineHeight: Skin.Post_LineHeight,
-        flex: 1,
         color: Skin.Post_TextColor,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()

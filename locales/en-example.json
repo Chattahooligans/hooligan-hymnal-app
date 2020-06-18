@@ -226,9 +226,7 @@
             "playersongs": "Player Songs",
             "stilllooking": "We are still working on a song for this player. Want to help? Submit an idea!",
             "bio": "Bio",
-            "playerheadersong": "Player Song",
-            "readmore": "Read more",
-            "showless": "Show less"
+            "playerheadersong": "Player Song"
         },
         "rosterteam": {
             "_comment": [
@@ -390,7 +388,9 @@
             "postadminalertitleios": "Post Admin Menu",
             "postadminalerthidemessageios": "Are you sure you want to hide this post from the Feed?\n\nWarning: There is no second confirmation step.",
             "hidealertcancel": "Cancel",
-            "hidealertconfirm": "Hide"
+            "hidealertconfirm": "Hide",
+            "readmore": "Read more",
+            "hide": "Hide"
         },
         "postattachmentgknickname": {
             "_comment": [
