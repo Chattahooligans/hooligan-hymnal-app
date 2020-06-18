@@ -148,8 +148,7 @@ export const CommonImageCredits = [
 
   This structure contains a set of key:value pairs for colors used across
   the app. It feeds into the DefaultColors/Skin structures below, and is 
-  occasionally referenced directly.
-  (We'll eventually clean up most direct Palette references.)
+  rarely referenced directly.
 
   Feel free to add or remove lines as necessary to suit your needs.
 */
