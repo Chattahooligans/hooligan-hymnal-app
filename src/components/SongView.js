@@ -17,7 +17,7 @@ import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress
 import Toast from "react-native-tiny-toast";
 // import Toast from 'react-native-simple-toast';
 import { FontSizes, Layout } from '../constants';
-import { Palette, Skin, DefaultColors } from '../../config';
+import { Skin, DefaultColors } from '../../config';
 import i18n from '../i18n';
 
 // TODO: platform select
@@ -35,7 +35,7 @@ export default class SongView extends React.PureComponent {
     if (song.referenceLink)
       playButtonDisplay = <TouchableOpacity style={{
         top: 0, bottom: 0, paddingHorizontal: 6,
-        backgroundColor: Palette.White
+        backgroundColor: DefaultColors.Background
       }}
         onPress={() => { Linking.openURL(song.referenceLink) }}>
         <MaterialCommunityIcons
@@ -49,7 +49,7 @@ export default class SongView extends React.PureComponent {
     if (song.sheetMusicLink)
       sheetMusicDisplay = <TouchableOpacity style={{
         top: 0, bottom: 0, paddingLeft: 6, paddingTop: 6,
-        backgroundColor: Palette.White
+        backgroundColor: DefaultColors.Background
       }}
         onPress={() => { Linking.openURL(song.sheetMusicLink) }}>
         <MaterialCommunityIcons
@@ -69,7 +69,7 @@ export default class SongView extends React.PureComponent {
     return (
       <View style={styles.container}>
         <View style={{ paddingBottom: 1, flexDirection: i18n.getFlexDirection() }}>
-          <View style={{ flex: 1, backgroundColor: Palette.White }}>
+          <View style={{ flex: 1, backgroundColor: DefaultColors.Background }}>
             <BoldText style={styles.title} onLongPress={this._onLongPressTitle}>{song.title}</BoldText>
             {referenceDisplay}
           </View>
@@ -144,17 +144,17 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     color: Skin.SongView_TitleColor,
-    backgroundColor: Palette.White,
+    backgroundColor: DefaultColors.Background,
     paddingLeft: 4,
   },
   reference: {
     color: Skin.SongView_ReferenceColor,
-    backgroundColor: Palette.White,
+    backgroundColor: DefaultColors.Background,
     paddingLeft: 12,
     paddingBottom: 3
   },
   icons: {
-    backgroundColor: Palette.White
+    backgroundColor: DefaultColors.Background
   },
   container: {
     flex: 1,
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
   },
   instructions: {
     color: Skin.SongView_InstructionsColor,
-    backgroundColor: Palette.White,
+    backgroundColor: DefaultColors.Background,
     paddingLeft: 12,
     textAlign: i18n.getRTLTextAlign(),
     writingDirection: i18n.getWritingDirection()
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     flex: 1,
     color: Skin.SongView_LyricsColor,
-    backgroundColor: Palette.White,
+    backgroundColor: DefaultColors.Background,
     paddingLeft: 8,
     textAlign: i18n.getRTLTextAlign(),
     writingDirection: i18n.getWritingDirection()

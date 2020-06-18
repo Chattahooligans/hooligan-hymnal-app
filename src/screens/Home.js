@@ -349,7 +349,7 @@ const OverscrollView = () => (
       height: 400,
       left: 0,
       right: 0,
-      backgroundColor: Palette.Navy
+      backgroundColor: DefaultColors.Primary
     }}
   />
 );
@@ -361,20 +361,8 @@ const styles = StyleSheet.create({
     width: 100 + '%',
     marginTop: 5
   },
-  headerVideoLayer: {
-    ...StyleSheet.absoluteFillObject
-  },
-  headerVideoOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: Palette.Navy,
-    opacity: 0.8
-  },
-  headerText: {
-    color: DefaultColors.HeaderText,
-    fontSize: 14
-  },
   staticButtonsContainer: {
-    backgroundColor: Palette.White,
+    backgroundColor: DefaultColors.Background,
     marginBottom: Skin.Home_PostMarginVertical,
     paddingBottom: 5,
     marginHorizontal: Skin.Post_ContainerMarginHorizontal,
@@ -383,7 +371,7 @@ const styles = StyleSheet.create({
     borderColor: "#eee"
   },
   staticLinksContainer: {
-    backgroundColor: Palette.White,
+    backgroundColor: DefaultColors.Background,
     marginBottom: Skin.Home_PostMarginVertical,
     paddingVertical: 5,
     marginHorizontal: Skin.Post_ContainerMarginHorizontal,

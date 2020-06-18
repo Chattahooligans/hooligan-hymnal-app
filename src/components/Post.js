@@ -21,7 +21,7 @@ import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 // import Toast from 'react-native-simple-toast';
 import Toast from "react-native-tiny-toast";
-import { Skin, Palette, Settings, DefaultColors } from '../../config';
+import { Skin, Settings, DefaultColors } from '../../config';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import PostAttachmentGkNickname from './PostAttachmentGkNickname';
@@ -543,7 +543,7 @@ class Post extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         marginBottom: Skin.Home_PostMarginVertical,
         marginHorizontal: Skin.Post_ContainerMarginHorizontal
     },

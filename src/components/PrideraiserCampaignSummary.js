@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
         marginBottom: Skin.Home_PostMarginVertical
     },
     contentContainer: {
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         alignItems: "center",
         padding: 5
     },

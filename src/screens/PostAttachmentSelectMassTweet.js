@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 10,
         padding: 10,
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         borderBottomWidth: 1,
         borderColor: '#eee',
         flexDirection: i18n.getFlexDirection()
@@ -158,8 +158,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        color: DefaultColors.Primary,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 4,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
         flex: 1,
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        color: DefaultColors.Primary,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 12,
         paddingTop: 3,
         textAlign: i18n.getRTLTextAlign(),
