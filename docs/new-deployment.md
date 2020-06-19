@@ -148,7 +148,7 @@ The locales folder at the root of the project contains the static text in the mo
 * If your primary language is English, start out by deleting the Chattanooga translation file, `en.json`, and renaming `example-en.json` to `en.json`. This file consists of several sections, and each contains a `_comment` field describing how the text is used. As described at the top of the file, each section contains recommendations for which text is safe to leave alone and which text must be customized for your SG.
 * If your primary language is NOT English, start out by deleting the Chattanooga translation file, `en.json`, and renaming `example-en.json` to `{your language code}.json`. Translate the text in this file to your preferred language.
 * To provide alternate translations, create a copy of your main translation for each language code and translate the text in the file.
-* **IMPORTANT**: You must edit `manifest.js` to set the available translations and default locale.
+* **IMPORTANT**: You must edit `manifest.js` to set the available translations and default locale. This file contains additional instructions.
 
 Note: Do NOT trust the non-English translations included with the project. The reference text has changed since those translations were made, and they are out of date. (We'd love to have your help with re-translating the default text in `example-en.json` to include with the project.)
 
