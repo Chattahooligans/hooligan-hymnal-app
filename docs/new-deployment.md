@@ -5,6 +5,8 @@ This document describes deploying the Hooligan Hymnal server and a customized ve
 Please review the project README for a description of the platform and the philosophy behind it.
 https://github.com/Chattahooligans/hooligan-hymnal-app/blob/master/README.md
 
+Hooligan Hymnal uses the Expo SDK and services. Parts of this guide attempt to interpret the official Expo documentation, available at https://docs.expo.io/guides/
+
 # Precursor Considerations and Tasks
 
 This section focuses on the non-coding aspects of deploying the Hooligan Hymnal platform. Much of the advice is technically optional depending on your SG's resources and time investment, but beware of the future impact of cutting corners. This advice is based on the successes and failures of previous deployments and the pitfalls discovered in doing so.
