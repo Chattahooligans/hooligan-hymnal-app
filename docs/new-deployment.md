@@ -113,10 +113,10 @@ Once the repo is cloned and your `.gitignore` is modified, you can start modifyi
 
 TODO: Need better instructions
 - delete app.json
-- rename app-example.json
+- rename example-app.json
 - discuss which fields in particular to edit
 
-Make a copy of `app-example.json` and use that as a base to start configuring your application. This will replace `app.json` when you're ready to proceed. The [Heroku documentation](https://devcenter.heroku.com/articles/app-json-schema) does a great job explaining what each part of the `app.json` is used for, but there are some tricky parts. 
+Make a copy of `example-app.json` and use that as a base to start configuring your application. This will replace `app.json` when you're ready to proceed. The [Heroku documentation](https://devcenter.heroku.com/articles/app-json-schema) does a great job explaining what each part of the `app.json` is used for, but there are some tricky parts. 
 The flag `version` must be incremented for each time you build the applications, otherwise the App Store and the Play Store will reject your builds.
 
 ### /assets/
@@ -127,13 +127,13 @@ Refer to the Assets Guide for a comprehensive list of how to customize the appli
 
 TODO instructions (pretty well self-documented)
 prolly start out by deleting config.js and renaming something like config_example.js
-Yes, config-example.js exists as a base
+Yes, example-config.js exists as a base
 
 ### /locales/
 
 TODO instructions
 don't forget to edit manifest.json
-en-example.json exists as a base
+example-en.json exists as a base
 
 ## Run and Test the Mobile App
 
