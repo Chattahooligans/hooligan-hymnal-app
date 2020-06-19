@@ -121,19 +121,24 @@ The flag `version` must be incremented for each time you build the applications,
 
 ### /assets/
 
-Refer to the Assets Guide for a comprehensive list of how to customize the application for your SG. 
+The assets folder at the root of the project contains images and fonts that are used in the mobile application. `assets.md` is a comprehensive guide to the contents of the assets folder, and has been written in such a way that you should be able to share the file with someone in your SG with design chops to collect or create those assets.
 
 ### config.js
 
-TODO instructions (pretty well self-documented)
-prolly start out by deleting config.js and renaming something like config_example.js
-Yes, example-config.js exists as a base
+The config file contains the vast majority of settings that alter the appearance and behavior of the mobile application.
+
+Start out by deleting the Chattanooga config file, `config.js`, and renaming `example-config.js` to `config.js`. This file consists of several sections, and each section has relevant documentation and instructions. If you have questions, don't be too shy to ask in the Hooligan Hymnal Slack workspace. (This way, we can help you AND improve the documentation going forward.)
 
 ### /locales/
 
-TODO instructions
-don't forget to edit manifest.json
-example-en.json exists as a base
+The locales folder at the root of the project contains the static text in the mobile application. Multiple translations are supported via i18n, for SGs or users who speak languages other than English. You will NEED to change some of the text before publishing your version of the mobile app.
+
+* If your primary language is English, start out by deleting the Chattanooga translation file, `en.json`, and renaming `example-en.json` to `en.json`. This file consists of several sections, and each contains a `_comment` field describing how the text is used. As described at the top of the file, each section contains recommendations for which text is safe to leave alone and which text must be customized for your SG.
+* If your primary language is NOT English, start out by deleting the Chattanooga translation file, `en.json`, and renaming `example-en.json` to `{your language code}.json`. Translate the text in this file to your preferred language.
+* To provide alternate translations, create a copy of your main translation for each language code and translate the text in the file.
+* **IMPORTANT**: You must edit `manifest.js` to set the available translations and default locale.
+
+Note: Do NOT trust the non-English translations included with the project. The reference text has changed since those translations were made, and they are out of date. (We'd love to have your help with re-translating the default text in `example-en.json` to include with the project.)
 
 ## Run and Test the Mobile App
 
