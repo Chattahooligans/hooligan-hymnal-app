@@ -69,8 +69,6 @@ TODO: More detail here. Also, do the tasks to get more Cloudinary credits.
 
 In your SG's github account, fork the code for the [Hooligan Hymnal Server](https://github.com/Chattahooligans/hooligan-hymnal-server), and the [Hooligan Hymnal App](https://github.com/Chattahooligans/hooligan-hymnal-app). This is your starting point for building the app. 
 
-TODO: instructions
-
 ## Create a MongoDB Cluster
 
 Create an account in MongoDB and create a free M0 sandbox cluster. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username and STRONG password. Once your URI has been generated, go to the "Network Access" tab in the cluster settings. Change the allowed IP Address to 0.0.0.0/0. MongoDB will also require permission changes to allow access from everywhere. The free tier of cloudDb does not allow for specific IP whitelisting, so you will need to set a VERY strong DB password and set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
@@ -85,36 +83,34 @@ To configure environment variables, look at the [server guide](https://github.co
 
 To deploy the server, log into Heroku and create a new app. For testing purposes, a free app is sufficient. After deployment, the $7 paid tier will suffice for production. In the "Deploy" tab connect to your SG's GitHub accout and select the Hooligan Hymnal Server that you forked to your account. Make sure you do not enable automatic deploys, as breaking changes may be pushed to the master branch frequently. To deploy the server using the command line, please refer to the [Heroku documentation](https://devcenter.heroku.com/articles/heroku-cli).
 
-TODO: This can be done through the browser, maybe give those instructions instead of CLI?
-
 ### Logging In
 
 After configuring the environment variables, restart the dyno of your application in Heroku and wait for the app to reload. You will be able to navigate to the URL provided by Heroku. Generally, this is {your app name}.herokuapp.com. You'll be able to register a new user, who will be the adminstrative user for tthe app. DO THIS IMMEDIATELY, otherwise anyone that happens to find your app URL will be able to register an admin user.
 
 ### Initial Data
 
-This stuff may all be in server docs eventually. I just mainly don't want to forget that they need to create an admin account and a default Channel for the feed asap.
+Once the server's web interface is running and you've created your first account, you'll need to do some basic setup within the web interface to prepare the server to handle data requests from the app.
+First, you'll need to create a new Channel. You can name it something generic like "news" or "main", and rename it later once you're ready. Next, you'll need to create a roster and songbook.
+Eventually, the base songbooks, rosters, and channels will be initialized at server start. 
 
 ## Initialize a Local Code Repository for the Mobile App
 
-TODO instructions
-don't forget to backup google-services.json somewhere
-npm install lol
-oh and install npm and expo cli and so on
+Clone your fork of the codebase to your local disk, we'll start making changes here. The first thing you need to do is add `google-services.json` to your  `.gitignore` so you don't accidentally leak your keys to the world. 
+Once the repo is cloned and your `.gitignore` is modified, you can start modifying the app to your SG's content! To initialize the app, navigate to the local repository and install NPM and Expo CLI. Then run `npm install` to initialize the application.
+
 
 ## Configure the Mobile App
 
-TODO preamble
 (Eventually, the master branch will be generic with generic assets and Chattahooligans will be on our own branch, but not today, suckers!)
 
 ### app.json
 
-TODO instructions
-app-example.json exists as a base
+Make a copy of `app-example.json` and use that as a base to start configuring your application. This will replace `app.json` when you're ready to proceed. The [Heroku documentation](https://devcenter.heroku.com/articles/app-json-schema) does a great job explaining what each part of the `app.json` is used for, but there are some tricky parts. 
+The flag `version` must be incremented for each time you build the applications, otherwise the App Store and the Play Store will reject your builds.
 
 ### /assets/
 
-refer to assets guide again
+Refer to the Assets Guide for a comprehensive list of how to customize the application for your SG. 
 
 ### config.js
 
@@ -130,44 +126,26 @@ en-example.json exists as a base
 
 ## Run and Test the Mobile App
 
-TODO instructions
+To start testing your mobile app, navigate to your local directory in a command prompt and run the command `npm install`. This will set up the environment and enable you to use the Expo CLI to run a test version of your app. To start a test, use the command `expo start`, which will start a local server and display a QR code for you to scan. Every time you save changes to the codebase, the application will reload on your phone. This also includes detailed log information on what is causing application crashes. We've seen a number of issues while deploying the app already, so any questions you have will be easily answered in the Slack channel. 
 
 ## Build the Mobile App (for testers? for the store?)
 
-TODO instructions
+Once you are satisifed with the functionality and look of the app in the Expo test interface, you can build your apps and prepare them for publication using `expo build:ios` and `expo build:android`. This will generate an APK and IPA file to upload to the Google Play and Apple App Stores.
+
+It is reccomended to beta test your app outside of the Expo environment, and both the Google Play and Apple App Stores have provisions for beta testing. It is often easier to have your Android beta testers use the Expo app to test your app. Apple will force you to use TestFlight to beta test the application. 
 
 ## Publish the Mobile App
 
-TODO instructions
+TODO instructions (moe is not sure what to add here)
 
 ### Publish to Google Play
 
-TODO instructions
+To publish the app to the Google Play Store, complete the registration for a developer account and prepare your submission. The steps to complete your submission are relatively straightforward and well documented on the Google Play Store's website. An important thing to note is your content rating, which will be different for each app based on your chants. The Google Play review process takes about a day. 
 
 ### Publish to Apple App Store
 
-TODO instructions
-
-
-
-
-
-
-
-## Customize the application
-Fork the Hooligan Hymnal App repository to your github account and create a new branch for your SG. You can make all of your changes to the application in that branch and it will be isolated from the other branches of other SGs. It also makes it much simpler to roll application updates into your deployment. 
-A guide to replacing assets in the application can be found in the Assets.md (https://github.com/Chattahooligans/hooligan-hymnal-app/blob/master/docs/assets.md). A standardized naming convention and guide for all image assets will be created soon. Try to keep your image assets as small as possible, it will keep your download size small, and allow the application to load much faster. 
-
-## Testing the application
-Using the command line, you can navigate to your local copy of the GitHub repo, and launch a test version of the application using `expo start`. This will generate a QR code you can scan with your phone and test the application in real time. Every time you save changes to the codebase, the application will reload on your phone. This also includes detailed log information on what is causing application crashes.
-
-## Managing Data
-Once your Heroku server is up and running, you can use the web interface at {yourAppName}.heroku.com. The very first user created will be the admin user. These usernames/passwords are also the logins for the in-app Capo Dashboards. Modifying permissions of users can be done in the web interface, or in the database manually.
-
-You can add rosters, players, and songs to the application using the web interface. Some management must still be done manually in the database editor, such as organizing songs in the songbooks. 
-
-## Building the Application
-Once you are satisified with how the application looks in your test builds, you can create your first build for distribution. To do this, use the command `expo build:ios`. Once that completes with no failures, use the commmand `expo build: android` to build the Android bundles.
+Publishing your app on Apple's App Store is also pretty straghtforward. Use Transporter to upload your application to the App Store Connect portal, and build your release inside of the web interface. It is imperative that you don't mention "donate" anywhere in the app otherwise your app will be rejected. It is also important to make sure your screenshots do not include "Testflight" in them. It usually takes 1-3 days for Apple to review your app after you submit it. 
 
 ### OTA Updates
-It is possible to update the application without releasing a completely new build to the App Stores. This could be used to change images in the app, add extra drawer items, etc. To do this, complete your testing using the Expo application, and use the command `expo publish`. This will create new bundles that the user's phone will download and self-update.
+
+You can publish updates to your application without submitting an entirely new APK or IPA to the stores. You can make small changes in the application and push updates to the bundles using `expo publish`. The app will check for and download new bundles at each start and apply them at the next initialization. If you want to see them immediately, force close and restart the app. 
