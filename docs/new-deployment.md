@@ -111,13 +111,25 @@ Once the repo is cloned and your `.gitignore` is modified, you can start modifyi
 
 ### app.json
 
-TODO: Need better instructions
-- delete app.json
-- rename example-app.json
-- discuss which fields in particular to edit
+**THIS SECTION IS THE MOST IMPORTANT OF THEM ALL. IT IS VERY EASY TO MAKE A MISTAKE THAT WILL RUIN YOUR LIFE FOREVER. DON'T FUCK IT UP.**
 
-Make a copy of `example-app.json` and use that as a base to start configuring your application. This will replace `app.json` when you're ready to proceed. The [Heroku documentation](https://devcenter.heroku.com/articles/app-json-schema) does a great job explaining what each part of the `app.json` is used for, but there are some tricky parts. 
-The flag `version` must be incremented for each time you build the applications, otherwise the App Store and the Play Store will reject your builds.
+The app.json file contains information needed to help turn the code into a working application. It's critical to make sure this file is correct *before* you run `expo publish` or `expo build` for the first time. Start out by deleting the Chattanooga app manifest, `app.json`, and renaming `example-app.json` to `app.json`.
+
+Let's walk through some fields that you should pay special attention to.
+
+In the "expo" section:
+* `owner` is the Expo account name you registered earlier.
+* [once set, never change] `slug` is a unique name for your application on the Expo service. Name it after your app, with dashes instead of spaces.
+* `version` is the version of the application. We'll discuss this more later in the section about building the app.
+* `primaryColor` is an RGB color code. Change it to the main color of your SG's logo.
+* `splash.backgroundColor` is also an RGB color code. Once your application's splash screen is available, set this color to match its background.
+In the "android" section:
+* [once set, never change] `package` is a unique name for your application on Google Play. See the link at the bottom of this section for more information, or ask for guidance on Hooligan Hymnal Slack.
+* `versionCode` is a number that you should increment each time you submit a new build to Google Play. (It's easy to forget this and have to fix it and rebuild.) We'll discuss this more later in the section about building the app.
+In the "ios" section:
+* [once set, never change] `bundleIdentifier` is a unique name for your application on the Apple App Store. It probably matches the value in `android.package`
+
+Additional information can be found at https://docs.expo.io/workflow/configuration/
 
 ### /assets/
 
