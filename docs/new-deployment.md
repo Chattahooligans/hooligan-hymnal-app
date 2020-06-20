@@ -3,7 +3,7 @@
 This document describes deploying the Hooligan Hymnal server and a customized version of the mobile app for your supporters group.
 
 Please review the project README for a description of the platform and the philosophy behind it.
-https://github.com/Chattahooligans/hooligan-hymnal-app/blob/master/README.md
+https://github.com/Chattahooligans/hooligan-hymnal-app/blob/main/README.md
 
 Hooligan Hymnal uses the Expo SDK and services. Parts of this guide attempt to interpret the official Expo documentation, available at https://docs.expo.io/guides/
 
@@ -83,11 +83,11 @@ TODO: talk about server
 
 ### Environment Variables
 
-To configure environment variables, look at the [server guide](https://github.com/Chattahooligans/hooligan-hymnal-app/blob/master/docs/server.md). It is best to do this before deploying the server. 
+To configure environment variables, look at the [server guide](server.md). It is best to do this before deploying the server. 
 
 ### Deploy the Server
 
-To deploy the server, log into Heroku and create a new app. For testing purposes, a free app is sufficient. After deployment, the $7 paid tier will suffice for production. In the "Deploy" tab connect to your SG's GitHub account and select the Hooligan Hymnal Server that you forked to your account. Make sure you do not enable automatic deploys, as breaking changes may be pushed to the master branch frequently. To deploy the server using the command line, please refer to the [Heroku documentation](https://devcenter.heroku.com/articles/heroku-cli).
+To deploy the server, log into Heroku and create a new app. For testing purposes, a free app is sufficient. After deployment, the $7 paid tier will suffice for production. In the "Deploy" tab connect to your SG's GitHub account and select the Hooligan Hymnal Server that you forked to your account. Make sure you do not enable automatic deploys, as breaking changes may be pushed to the main branch frequently. To deploy the server using the command line, please refer to the [Heroku documentation](https://devcenter.heroku.com/articles/heroku-cli).
 
 ### Logging In
 
@@ -114,7 +114,7 @@ Once the repo is cloned and your `.gitignore` is modified, you can start modifyi
 
 ## Configure the Mobile App
 
-(Eventually, the master branch will be generic with generic assets and Chattahooligans will be on our own branch, but not today, suckers!)
+(Eventually, the main branch will be generic with generic assets and Chattahooligans will be on our own branch, but not today, suckers!)
 
 ### app.json
 

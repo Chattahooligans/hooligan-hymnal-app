@@ -5,7 +5,7 @@ This document describes the photos, graphics, and fonts that may be used by your
 We also recommend opening `config-example.js` as a companion to this guide. The file contains additional documentation, descriptions, and examples that aim to make life easier overall.
 
 Please review the project README for a description of the platform and the philosophy behind it.
-https://github.com/Chattahooligans/hooligan-hymnal-app/blob/master/README.md
+https://github.com/Chattahooligans/hooligan-hymnal-app/blob/main/README.md
 
 tl;dr - You need make some icons and backgrounds and stuff. This guide lists all of them.
 
