@@ -115,7 +115,7 @@ Once the repo is cloned and your `.gitignore` is modified, you can start modifyi
 
 **THIS SECTION IS THE MOST IMPORTANT OF THEM ALL. IT IS VERY EASY TO MAKE A MISTAKE THAT WILL RUIN YOUR LIFE FOREVER. DON'T FUCK IT UP.**
 
-The app.json file contains information needed to help turn the code into a working application. It's critical to make sure this file is correct *before* you run `expo publish` or `expo build` for the first time. Start out by deleting the Chattanooga app manifest, `app.json`, and renaming `example-app.json` to `app.json`.
+The app.json file contains information needed to help turn the code into a working application. It's critical to make sure this file is correct *before* you run `expo publish` or `expo build` for the first time.
 
 Let's walk through some fields that you should pay special attention to.
 
@@ -139,20 +139,19 @@ The assets folder at the root of the project contains images and fonts that are 
 
 ### config.js
 
-The config file contains the vast majority of settings that alter the appearance and behavior of the mobile application.
-
-Start out by deleting the Chattanooga config file, `config.js`, and renaming `example-config.js` to `config.js`. This file consists of several sections, and each section has relevant documentation and instructions. If you have questions, don't be too shy to ask in the Hooligan Hymnal Slack workspace. (This way, we can help you AND improve the documentation going forward.)
+The config file contains the vast majority of settings that alter the appearance and behavior of the mobile application. It consists of several sections, and each section has relevant documentation and instructions. If you have questions, don't be too shy to ask in the Hooligan Hymnal Slack workspace. (This way, we can help you AND improve the documentation going forward.)
 
 ### /locales/
 
 The locales folder at the root of the project contains the static text in the mobile application. Multiple translations are supported via i18n, for SGs or users who speak languages other than English. You will NEED to change some of the text before publishing your version of the mobile app.
 
-* If your primary language is English, start out by deleting the Chattanooga translation file, `en.json`, and renaming `example-en.json` to `en.json`. This file consists of several sections, and each contains a `_comment` field describing how the text is used. As described at the top of the file, each section contains recommendations for which text is safe to leave alone and which text must be customized for your SG.
-* If your primary language is NOT English, start out by deleting the Chattanooga translation file, `en.json`, and renaming `example-en.json` to `{your language code}.json`. Translate the text in this file to your preferred language.
-* To provide alternate translations, create a copy of your main translation for each language code and translate the text in the file.
-* **IMPORTANT**: You must edit `manifest.js` to set the available translations and default locale. This file contains additional instructions.
+The project includes `example-en.json` as an English-language starting point. Leave this file alone, as future changes to the schema will modify it, and it will be easy to run a diff and see what changed. The example consists of several sections, and each section contains a `_comment` field describing how the text is used. As noted at the top of the file, each section also contains recommendations for which text is safe to leave alone and which text must be customized for your SG.
 
-Note: Do NOT trust the non-English translations included with the project. The reference text has changed since those translations were made, and they are out of date. (We'd love to have your help with re-translating the default text in `example-en.json` to include with the project.)
+To edit the text for your app:
+* Make a copy of `example-en.json` and name it as `{your language code}.json`.
+* If English is not your primary language, translate the text into your preferred language (and please submit a PR back to the project with the example schema in another language!).
+* Edit the text inside the file, paying extra attention to the `_comment` recommendations.
+* Edit `manifest.js` to set the available translations and default locale. This file contains additional instructions.
 
 ## Run and Test the Mobile App
 
