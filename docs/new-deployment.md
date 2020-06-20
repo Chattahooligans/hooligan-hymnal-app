@@ -38,7 +38,7 @@ Apple will not recognize your LLC without one. This process takes longer than it
 
 ## Register with the Play and App stores
 
-The Play store goes by relatively quickly once you pay your $25. Apple does more verification, which again will take more time. TODO: refer to create accounts section below
+The Play store goes by relatively quickly once you pay your $25. Apple does more verification, which again will take more time. More detailed information can be found in the "Create Accounts" section below.
 
 ## Designate at least one team member as the Apple uploader
 
@@ -57,21 +57,52 @@ The Hooligan Hymnal core team (and, so far, reps for every SG who has a working 
 This section assumes that you have a working development environment and some familiarity with source control concepts, as well as a somewhat-modern smartphone to test your application. While this section won't teach you how to code, our goal is for the instructions to be as accessible as possible. If you're just getting started, we recommend installing the free code editor [Visual Studio Code](https://code.visualstudio.com/), which will direct you to install [git](https://git-scm.com/download) source control on your computer. You will also need to install the [Node.js runtime and "npm" package manager](https://nodejs.org/en/download/).
 
 ## Create Accounts
-You will need to create several accounts in your SG's name to deploy your customized version of Hooligan Hymnal. This section will go through each, and direct you to take notes for idk shit you'll need for the manifest or heroku server env TODO
-* [GitHub](https://github.com/) for cloud source control. Each developer will have their own user account, and creating an [Organization](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams) for your SG is recommended.
-* [Expo](https://expo.io/) is based on React Native, and we use Expo services in the application and server.
-* [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) is used for cloud data storage.
-* [Cloudinary](https://cloudinary.com/) is currently used to store images used in the Roster and News Feed.
-* [Heroku](https://www.heroku.com/) is currently the recommended host for the server.
-* [Firebase](https://firebase.google.com/) is the service used to manage push notifications for Android devices. Firebase uses a Google account, so use the same one you use for Google Play.
+
+You will need to create several accounts in your SG's name to deploy your customized version of Hooligan Hymnal. For each (excepting a pesonal GitHub account- more on this later), we recommend using the email you created for this project (above) or your SG email.
+
+We recommend saving all of the credentials somewhere that the officers of your SG can access them in case another developer joins and needs to reference them or you need to step back. Also
+
+### GitHub (recommended)
+
+The official code repository for Hooligan Hymnal lives on [GitHub](https://github.com/). Create a personal account if you don't already have one, and creating an [Organization](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams) for your SG is recommended.
+
+### Expo
+
+[Expo](https://expo.io/) is a technology platform based on React Native, and we use Expo services in the application and server.
+
+After you create your SG account, download the Expo client app from [Google Play](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US) and/or [Apple App Store](https://apps.apple.com/us/app/expo-client/id982107779), and log in once it's installed. You'll use this app to test Hooligan Hymnal and see your configuration changes.
+
+### MongoDB Cloud Atlas
+
+[MongoDB Cloud Atlas](https://www.mongodb.com/cloud/atlas) is used for cloud data storage. Name this account after your SG as well.
+
+### Cloudinary
+
+[Cloudinary](https://cloudinary.com/) is currently used to store images used in the Roster and News Feed. It's a paid service, but so far no SG has exceeded the free quota.
 
 Tip: You can get extra quota on your Cloudinary account (and get more usage out of the free tier) by following Cloudinary on Facebook/Twitter. Look on the right-side of the dashboard for more information.
 
+### Google Firebase
+
+[Firebase](https://firebase.google.com/) is the service used to manage push notifications for Android devices. Firebase will use the same Google Account that you use for Google Play.
+
+TODO: `google-services.json`
+
+### Heroku
+
+[Heroku](https://www.heroku.com/) is currently the recommended host for the server.
+
+### Android Developer / Google Play
+
+TODO
+
+### Apple Developer/ Apple App Store
+
+TODO
+
 ## Create a Database
 
-TODO: Make this a sub-section under Create Accounts and restructure that section
-
-Log into your MongoDB Cloud account and create a free M0 sandbox cluster. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username and STRONG password. Once your URI has been generated, go to the "Network Access" tab in the cluster settings. The free tier of does not allow for specific IP whitelisting, so set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
+Log into MongoDB Cloud Atlas and create a free M0 sandbox cluster. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username and STRONG password. Once your URI has been generated, go to the "Network Access" tab in the cluster settings. The free tier of does not allow for specific IP whitelisting, so set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
 
 ## Fork the Code
 
@@ -83,34 +114,30 @@ TODO: talk about server
 
 ### Environment Variables
 
-To configure environment variables, look at the [server guide](server.md). It is best to do this before deploying the server. 
+To configure environment variables, read the [server guide](server.md). It is best to do this before deploying the server. 
 
 ### Deploy the Server
 
 To deploy the server, log into Heroku and create a new app. For testing purposes, a free app is sufficient. After deployment, the $7 paid tier will suffice for production. In the "Deploy" tab connect to your SG's GitHub account and select the Hooligan Hymnal Server that you forked to your account. Make sure you do not enable automatic deploys, as breaking changes may be pushed to the main branch frequently. To deploy the server using the command line, please refer to the [Heroku documentation](https://devcenter.heroku.com/articles/heroku-cli).
 
-### Logging In
+### Register an account and Log In
 
-After configuring the environment variables, restart the dyno of your application in Heroku and wait for the app to reload. You will be able to navigate to the URL provided by Heroku. Generally, this is {your app name}.herokuapp.com. You'll be able to register a new user, who will be the adminstrative user for the app. DO THIS IMMEDIATELY, otherwise anyone that happens to find your app URL will be able to register an admin user.
-
-### Initial Data
-
-Once the server's web interface is running and you've created your first account, you'll need to do some basic setup within the web interface to prepare the server to handle data requests from the app.
-First, you'll need to create a new Channel. You can name it something generic like "news" or "main", and rename it later once you're ready. Next, you'll need to create a roster and songbook.
-Eventually, the base songbooks, rosters, and channels will be initialized at server start. 
+After configuring the environment variables, restart the dyno of your application in Heroku and wait for the app to reload. You will be able to navigate to the URL provided by Heroku. Generally, this is {your app name}.herokuapp.com. The first user created will automatically be an administrator, so we recommend you LOG IN IMMEDIATELY to the Hooligan Hymnal admin dashboard.
 
 ## Initialize a Local Code Repository for the Mobile App
 
-TODO: need better instructions
-- clone code
-- git remote add upstream, "while we're here"
-- `npm install -g expo-cli`
-- `npm install` (note that this will take some time)
-- hit up Firebase and download google-services.json
+You have your accounts created. You have your server set up. Now it's time for the fun part- preparing your customized version of the Hooligan Hymnal smartphone app!
 
-[Clone your fork of the codebase](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) to your local disk, we'll start making changes here. The first thing you need to do is add `google-services.json` to your  `.gitignore` so you don't accidentally leak your keys to the world. 
-Once the repo is cloned and your `.gitignore` is modified, you can start modifying the app to your SG's content! To initialize the app, navigate to the local repository and install NPM and Expo CLI. Then run `npm install` to initialize the application.
+If you didn't install VSCode, git, and Node.js/npm earlier, and log into the Expo client on your phone, do that now.
 
+To get the code on your machine and finish preparing your environment:
+* Create a new folder and name it after your GitHub organization. This is where your app and server projects will live.
+* Open VSCode and use the "Open folder..." command to open that folder.
+* Open a Terminal and [clone your fork of the codebase](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository). This may take a few minutes.
+* TODO: git remote add upstream
+* In the terminal, run the command `npm install -g expo-cli` to install the Expo command line interface. This will take a few minutes.
+* In the terminal, run the command `npm install` to download dependency packages. This will take several minutes, but you can continue with the guide while it runs.
+* TODO: Where do the Firebase/google-services.json instruction + backup live?
 
 ## Configure the Mobile App
 
@@ -140,7 +167,7 @@ Additional information can be found at https://docs.expo.io/workflow/configurati
 
 ### /assets/
 
-The assets folder at the root of the project contains images and fonts that are used in the mobile application. `assets.md` is a comprehensive guide to the contents of the assets folder, and has been written in such a way that you should be able to share the file with someone in your SG with design chops to collect or create those assets.
+The assets folder at the root of the project contains images and fonts that are used in the mobile application. Our [Assets Guide](assets.md) provides a comprehensive description of contents of the assets folder, and has been written in such a way that you should be able to share the file with someone in your SG with design chops to collect or create those assets.
 
 ### config.js
 
