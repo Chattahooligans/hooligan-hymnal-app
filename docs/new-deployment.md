@@ -46,7 +46,7 @@ This person only needs to have Transporter installed on a Mac. They do not need 
 
 ## Assets
 
-See our assets document, maintained separately, for a guide to images, photos, and fonts you can prepare for your implementation.
+Our [Assets Guide](assets.md) provides a comprehensive description of contents of the assets folder, and has been written in such a way that you should be able to share the file with someone in your SG with design chops to collect or create those assets. If you are fortunate enough have someone to lean on for this task, send them that document now, as it will take them some time.
 
 ## Slack
 
