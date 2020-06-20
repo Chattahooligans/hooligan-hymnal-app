@@ -38,7 +38,7 @@ Apple will not recognize your LLC without one. This process takes longer than it
 
 ## Register with the Play and App stores
 
-The Play store goes by relatively quickly once you pay your $25. Apple does more verification, which again will take more time.
+The Play store goes by relatively quickly once you pay your $25. Apple does more verification, which again will take more time. TODO: refer to create accounts section below
 
 ## Designate at least one team member as the Apple uploader
 
@@ -57,7 +57,7 @@ The Hooligan Hymnal core team (and, so far, reps for every SG who has a working 
 This section assumes that you have a working development environment and some familiarity with source control concepts, as well as a somewhat-modern smartphone to test your application. While this section won't teach you how to code, our goal is for the instructions to be as accessible as possible. If you're just getting started, we recommend installing the free code editor [Visual Studio Code](https://code.visualstudio.com/), which will direct you to install [git](https://git-scm.com/download) source control on your computer. You will also need to install the [Node.js runtime and "npm" package manager](https://nodejs.org/en/download/).
 
 ## Create Accounts
-You should create several accounts in your SG's name to deploy your customized version of Hooligan Hymnal.
+You will need to create several accounts in your SG's name to deploy your customized version of Hooligan Hymnal. This section will go through each, and direct you to take notes for idk shit you'll need for the manifest or heroku server env TODO
 * [GitHub](https://github.com/) for cloud source control. Each developer will have their own user account, and creating an [Organization](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams) for your SG is recommended.
 * [Expo](https://expo.io/) is based on React Native, and we use Expo services in the application and server.
 * [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) is used for cloud data storage.
@@ -67,15 +67,19 @@ You should create several accounts in your SG's name to deploy your customized v
 
 Tip: You can get extra quota on your Cloudinary account (and get more usage out of the free tier) by following Cloudinary on Facebook/Twitter. Look on the right-side of the dashboard for more information.
 
-## Fork the Code
+## Create a Database
 
-From your SG's github account, fork the code for [Hooligan Hymnal Server](https://github.com/Chattahooligans/hooligan-hymnal-server) and [Hooligan Hymnal App](https://github.com/Chattahooligans/hooligan-hymnal-app). This is your starting point for building the app. 
-
-## Create a MongoDB Cluster
+TODO: Make this a sub-section under Create Accounts and restructure that section
 
 Log into your MongoDB Cloud account and create a free M0 sandbox cluster. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username and STRONG password. Once your URI has been generated, go to the "Network Access" tab in the cluster settings. The free tier of does not allow for specific IP whitelisting, so set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
 
+## Fork the Code
+
+From your SG's github account, [fork the code](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) for [Hooligan Hymnal Server](https://github.com/Chattahooligans/hooligan-hymnal-server) and [Hooligan Hymnal App](https://github.com/Chattahooligans/hooligan-hymnal-app). This is your starting point for building the app. 
+
 ## Configure the Server
+
+TODO: talk about server
 
 ### Environment Variables
 
@@ -98,12 +102,13 @@ Eventually, the base songbooks, rosters, and channels will be initialized at ser
 ## Initialize a Local Code Repository for the Mobile App
 
 TODO: need better instructions
-- `npm install -g expo-cli`
 - clone code
-- hit up Firebase and download google-services.json
+- git remote add upstream, "while we're here"
+- `npm install -g expo-cli`
 - `npm install` (note that this will take some time)
+- hit up Firebase and download google-services.json
 
-Clone your fork of the codebase to your local disk, we'll start making changes here. The first thing you need to do is add `google-services.json` to your  `.gitignore` so you don't accidentally leak your keys to the world. 
+[Clone your fork of the codebase](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) to your local disk, we'll start making changes here. The first thing you need to do is add `google-services.json` to your  `.gitignore` so you don't accidentally leak your keys to the world. 
 Once the repo is cloned and your `.gitignore` is modified, you can start modifying the app to your SG's content! To initialize the app, navigate to the local repository and install NPM and Expo CLI. Then run `npm install` to initialize the application.
 
 
