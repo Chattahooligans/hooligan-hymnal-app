@@ -5,7 +5,7 @@ This document describes deploying the Hooligan Hymnal server and a customized ve
 Please review the project README for a description of the platform and the philosophy behind it.
 https://github.com/Chattahooligans/hooligan-hymnal-app/blob/main/README.md
 
-Hooligan Hymnal uses the Expo SDK and services. Parts of this guide attempt to interpret the official Expo documentation, available at https://docs.expo.io/guides/
+Hooligan Hymnal uses the Expo SDK and services. Parts of this guide attempt to interpret the official Expo documentation, available at https://docs.expo.io/
 
 # Precursor Considerations and Tasks
 
@@ -136,6 +136,7 @@ To get the code on your machine and finish preparing your environment:
 * Open a Terminal and [clone your fork of the codebase](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository). This may take a few minutes.
 * TODO: git remote add upstream
 * In the terminal, run the command `npm install -g expo-cli` to install the Expo command line interface. This will take a few minutes.
+* After Expo CLI is installed, run the command `expo login` and input your Expo account credentials.
 * In the terminal, run the command `npm install` to download dependency packages. This will take several minutes, but you can continue with the guide while it runs.
 * TODO: Where do the Firebase/google-services.json instruction + backup live?
 
