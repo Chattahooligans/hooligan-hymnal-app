@@ -142,7 +142,7 @@ To get the code on your machine and finish preparing your environment:
 
 ## Configure the Mobile App
 
-(Eventually, the main branch will be generic with generic assets and Chattahooligans will be on our own branch, but not today, suckers!)
+Hooligan Hymnal has been designed such that the appearance can be changed and certain features/behaviors affected by making edits to just a few files. You'll need to make edits to app.json and point the configuration file at your server immediately, but the rest of the workflow will be a cycle of making small changes, testing your app, and repeating until you're happy with it and ready to build and publish.
 
 ### app.json
 
