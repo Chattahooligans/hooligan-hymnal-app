@@ -127,15 +127,9 @@ export const Images = {
 
 
 /*
-<<<<<<< HEAD
-  Common Image Credit
-
-  It's likely that photos will come from a select few SG or club
-=======
   Common Image Credits
   
   It's likely that photos will come from a select few SG or club 
->>>>>>> origin/two-dot-oh
   photographers. We make it easy to credit those people for letting us use
   their work.
 
@@ -167,14 +161,8 @@ export const CommonImageCredits = [
   Palette
 
   This structure contains a set of key:value pairs for colors used across
-<<<<<<< HEAD
-  the app. It feeds into the DefaultColors/Skin structures below, and is
-  occasionally referenced directly.
-  (We'll eventually clean up most direct Palette references.)
-=======
   the app. It feeds into the DefaultColors/Skin structures below, and is 
   rarely referenced directly.
->>>>>>> origin/two-dot-oh
 
   Feel free to add or remove lines as necessary to suit your needs.
 */
