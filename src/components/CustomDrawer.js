@@ -86,13 +86,13 @@ const CustomDrawer = props => {
     <View style={styles.container}>
       <View style={styles.drawerHeader}>
         <Image
-          source={Skin.Drawer_HeroBackground}
+          source={Skin.NavigationDrawer_HeroBackground}
           style={styles.backgroundImage}
         />
         <View style={[StyleSheet.absoluteFill, styles.imageOverlay]} />
         <View style={[StyleSheet.absoluteFill, styles.logoContainer]}>
           <Image
-            source={Skin.Drawer_HeroOverlay}
+            source={Skin.NavigationDrawer_HeroOverlay}
             style={styles.logoImage}
           />
         </View>
@@ -126,7 +126,6 @@ const CustomDrawer = props => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            console.log(props.state.routeNames)
             if (props.globalData.state.currentUser)
               props.navigation.navigate('AdminHome');
             else
@@ -181,7 +180,8 @@ const styles = StyleSheet.create({
     backgroundColor: Skin.NavigationDrawer_BackgroundColor,
   },
   imageOverlay: {
-    backgroundColor: Skin.NavigationDrawer_HeroImageOverlayColor
+    backgroundColor: Skin.NavigationDrawer_HeroOverlayTintColor,
+    opacity: Skin.NavigationDrawer_HeroOverlayTintOpacity
   },
   logoContainer: {
     alignItems: 'center',

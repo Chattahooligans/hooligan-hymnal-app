@@ -25,17 +25,17 @@
             ],
 
             "title": "About",
-            "appTitle": "Chattahooligan Hymnal",
+            "appTitle": "SG Hooligan Hymnal App Name",
             "version": "v",
-            "description": "The Chattahooligan Hymnal is built to help you support Chattanooga FC.",
-            "feedback": "Please send feedback to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email hooliganhymnal@gmail.com",
+            "description": "Tagline describing the app",
+            "feedback": "Please send feedback to _@YOUR-SG/DEVELOPER-ACCOUNT_ or _@hooliganhymnal_ on Twitter, or email YOUR-SG/DEVELOPER-ACCOUNT and hooliganhymnal@gmail.com",
             "creditsheading": "Credits",
             "credits": [
-                "- Home screen video created by Jay Kaley",
-                "- Menu photo from Phil Thach photography",
-                "- Some player photos from Madonna Kemp and Ray Soldano, used with permission",
-                "- Player headshots provided by Chattanooga FC, used with permission",
-                "- Roboto font is used under Apache License, version 2.0"
+                "- This section is an array. Each element has a comma at the end",
+                "- It can be used to credit those who hymnalplugd photos",
+                "- Or created digital graphics, or to discuss a font license",
+                "- The last element doesn't have a comma after the closing quote",
+                "- Open Sans font is used under Apache License, version 2.0"
             ],
             "debug": "Debug",
             "hymnalplug": " is built using the open source *Hooligan Hymnal* platform.\n\nFollow  _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
@@ -226,9 +226,7 @@
             "playersongs": "Player Songs",
             "stilllooking": "We are still working on a song for this player. Want to help? Submit an idea!",
             "bio": "Bio",
-            "playerheadersong": "Player Song",
-            "readmore": "Read more",
-            "hide": "Hide"
+            "playerheadersong": "Player Song"
         },
         "rosterteam": {
             "_comment": [
@@ -309,8 +307,8 @@
             ],
 
             "title": "Twitter List",
-            "heading": "All Together, Now",
-            "instructions": "The connection between CFC fans and the team is unique, special, and tangible. Messages of encouragement, love, whatever, truly mean a lot to the players.\n\nYou can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.",
+            "heading": "Some sort of inspirational headline or call to action",
+            "instructions": "Something touchy-feely to motivate users to participate.\n\nYou can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.",
             "opentwitter": "Open Twitter App"
         }
     },
@@ -331,8 +329,7 @@
             "events": "Events",
             "standings": "Standings",
             "shop": "Merch Shop",
-            "volunteer": "Volunteer",
-            "instrumentation": "Instrumentation"
+            "other": "Another link in the drawer menu. Remove/Change the key:value items here, or add more as needed."
         }
     },
     "components": {
@@ -520,18 +517,7 @@
         "Goalkeeper": "Goalkeeper",
         "Head Coach": "Head Coach",
         "Assistant Coach": "Assistant Coach",
-        "Goalkeeper Coach": "Goalkeeper Coach",
-        "Technical Director": "Technical Director",
-        "Associate Head Coach": "Associate Head Coach",
-        "2007 Boys": "2007 Boys",
-        "2007 Girls": "2007 Girls",
-        "2006 Boys": "2006 Boys",
-        "2006 Girls": "2006 Girls",
-        "2005 Boys": "2005 Boys",
-        "2004 Boys": "2004 Boys",
-        "2003 Boys": "2003 Boys",
-        "2002 Boys": "2002 Boys",
-        "2001 Boys": "2001 Boys"
+        "Goalkeeper Coach": "Goalkeeper Coach"
     },
     "settings": {
         "_comment": [
@@ -543,6 +529,6 @@
 
         "socialEN": "Follow us",
         "socialES": "Síguenos",
-        "other": "Fan projects (unaffiliated)"
+        "other": "Some third heading for this panel. Remove/Change the key:value items here, or add more as needed."
     }
 }

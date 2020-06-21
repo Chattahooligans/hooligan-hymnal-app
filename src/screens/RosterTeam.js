@@ -26,7 +26,7 @@ import { Colors, FontSizes, Layout } from '../constants';
 import Constants from 'expo-constants';
 
 import { find, propEq } from 'ramda';
-import { Palette, Skin, Settings } from '../../config';
+import { DefaultColors, Skin, Settings } from '../../config';
 import i18n from '../i18n';
 
 
@@ -54,7 +54,7 @@ class PlayerRow extends React.Component {
           name={'twitter'}
           size={30}
           style={{
-            color: Palette.Sky,
+            color: DefaultColors.Secondary,
             marginTop: 3,
             marginBottom: 3,
             marginLeft: 10,
@@ -315,7 +315,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 10,
     padding: 10,
-    backgroundColor: Palette.White,
+    backgroundColor: DefaultColors.Background,
     borderBottomWidth: 1,
     borderColor: '#eee',
     flexDirection: i18n.getFlexDirection()

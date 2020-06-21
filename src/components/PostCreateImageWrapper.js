@@ -12,7 +12,7 @@ import {
 import { BigButton } from './BigButton';
 import { RegularText, BoldText } from './StyledText';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { DefaultColors, CommonImageCredit } from '../../config';
+import { DefaultColors, CommonImageCredits } from '../../config';
 import i18n from '../i18n';
 
 export default class PostCreateImageWrapper extends React.Component {
@@ -82,12 +82,12 @@ export default class PostCreateImageWrapper extends React.Component {
                     visible={this.state.metadataModalVisible}>
                     <View style={{ padding: 10 }}>
                         <BoldText style={styles.metadataTitle}>{i18n.t('components.postcreateimagewrapper.metadatatitle')}</BoldText>
-                        {(CommonImageCredit && CommonImageCredit.length > 0) &&
+                        {(CommonImageCredits && CommonImageCredits.length > 0) &&
                                 <View style={styles.commonCreditContainer}>
                                 <BoldText style={styles.commonCreditLabel}>{i18n.t('components.postcreateimagewrapper.common')}</BoldText>
                                     <FlatList
                                         renderScrollComponent={props => <ScrollView {...props} />}
-                                        data={CommonImageCredit}
+                                        data={CommonImageCredits}
                                         renderItem={this.renderCommonCreditItem}
                                         keyExtractor={(item, index) => index.toString()} />
                                 </View>

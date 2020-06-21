@@ -56,6 +56,7 @@ class PostPreview extends React.Component {
                 <View pointerEvents="none">
                     <Post
                         post={this.state.post}
+                        fullscreen={true}
                         navigation={this.props.navigation} />
                 </View>
                 <BigButton

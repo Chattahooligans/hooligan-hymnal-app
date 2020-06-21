@@ -4,7 +4,7 @@ import { BoldText, MediumText, RegularText, UnderlineText } from '../components/
 import { RectButton } from 'react-native-gesture-handler';
 import { HeaderBackButton } from 'react-navigation';
 import { FontSizes } from '../constants';
-import { Skin, DefaultColors, Palette, Settings } from '../../config';
+import { Skin, DefaultColors, Settings } from '../../config';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -23,18 +23,18 @@ class TwitterList extends React.Component {
         handles += '@' + player.twitter + ' ';
     });
       
-    handles += Settings.TwitterList_ExtraHandles;
+    handles += Settings.TwitterList_AppendHandles;
 
     return (
-      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
+      <View style={{flex: 1, padding: 10, backgroundColor: DefaultColors.Secondary, flexDirection: i18n.getFlexDirection() }}>
         <View style={{ flex: 1, padding: 5 }}>
-          <MediumText style={{backgroundColor: Palette.White, paddingHorizontal: 5, fontSize: 18, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>
+          <MediumText style={{backgroundColor: DefaultColors.Background, paddingHorizontal: 5, fontSize: 18, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>
             { i18n.t('screens.twitterlist.heading')}
           </MediumText>
-          <RegularText style={{backgroundColor: Palette.White, padding: 5, marginBottom: 1, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>          
+          <RegularText style={{backgroundColor: DefaultColors.Background, padding: 5, marginBottom: 1, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>          
             { i18n.t('screens.twitterlist.instructions')}
           </RegularText>
-            <ScrollView style={{flex: 1, padding: 5, backgroundColor: Palette.White}}>
+            <ScrollView style={{flex: 1, padding: 5, backgroundColor: DefaultColors.Background}}>
                 <RegularText style={{fontSize: 18, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}} selectable={true}>{handles}</RegularText>
             </ScrollView>
             <ClipBorderRadius>

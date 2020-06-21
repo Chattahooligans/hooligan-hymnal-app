@@ -14,7 +14,7 @@ export default class VideoBackground extends React.Component {
     if (!this.state.videoLoaded) {
       try {
         await Asset.fromModule(
-          Skin.Home_Video
+          Skin.Home_HeroVideo
         ).downloadAsync();
         this.setState({ videoLoaded: true });
       } catch (e) {
@@ -33,7 +33,7 @@ export default class VideoBackground extends React.Component {
           duration={5000}
         >
           <Video
-            source={Skin.Home_Video}
+            source={Skin.Home_HeroVideo}
             style={{ flex: 1 }}
             resizeMode="cover"
             shouldPlay

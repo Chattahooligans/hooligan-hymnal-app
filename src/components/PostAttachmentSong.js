@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        color: DefaultColors.Primary,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 4,
     },
     lyrics: {
@@ -85,8 +85,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
         flex: 1,
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        color: DefaultColors.Primary,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 12,
         paddingTop: 3,
         textAlign: i18n.getRTLTextAlign(),

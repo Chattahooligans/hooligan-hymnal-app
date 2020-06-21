@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 10,
         padding: 10,
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         borderBottomWidth: 1,
         borderColor: '#eee',
         flexDirection: i18n.getFlexDirection()

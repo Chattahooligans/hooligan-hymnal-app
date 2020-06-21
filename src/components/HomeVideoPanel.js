@@ -20,7 +20,7 @@ export default class HomeVideoPanel extends React.Component {
                     <View style={styles.headerVideoOverlay} />
                 </View>
                 <Image
-                    source={Skin.Home_VideoOverlay}
+                    source={Skin.Home_HeroVideoOverlay}
                     style={{ height: 100, resizeMode: 'contain', marginTop: 20 }} />
                 <View style={styles.headerContent}>
                     <RegularText style={styles.versionText}>

@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  Clipboard, 
-  Image, 
+  Clipboard,
+  Image,
   Linking,
   Platform,
-  ScrollView, 
-  StyleSheet, 
-  TouchableOpacity, 
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -17,13 +17,13 @@ import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress
 import Toast from "react-native-tiny-toast";
 // import Toast from 'react-native-simple-toast';
 import { FontSizes, Layout } from '../constants';
-import { Skin, Palette, MUSICAL_SCORE_ICON } from '../../config';
+import { Skin, DefaultColors } from '../../config';
 import i18n from '../i18n';
 
 // TODO: platform select
 // on android, longpress event with clipboard setting
 // on iOS, selectable=true and make them copy it manually
-export default class SongView extends React.Component {
+export default class SongView extends React.PureComponent {
   render() {
     let song = this.props.song;
 
@@ -35,30 +35,30 @@ export default class SongView extends React.Component {
     if (song.referenceLink)
       playButtonDisplay = <TouchableOpacity style={{
         top: 0, bottom: 0, paddingHorizontal: 6,
-        backgroundColor: Palette.White
+        backgroundColor: DefaultColors.Background
       }}
-        onPress={() => { WebBrowser.openBrowserAsync(song.referenceLink) }}>
+        onPress={() => { Linking.openURL(song.referenceLink) }}>
         <MaterialCommunityIcons
           name={'play-circle'}
           size={50}
           style={{
             color: Skin.Home_SocialButtons,
             backgroundColor: 'transparent'
-          }}
-        />
+          }} />
       </TouchableOpacity>
     if (song.sheetMusicLink)
       sheetMusicDisplay = <TouchableOpacity style={{
         top: 0, bottom: 0, paddingLeft: 6, paddingTop: 6,
-        backgroundColor: Palette.White
+        backgroundColor: DefaultColors.Background
       }}
         onPress={() => { Linking.openURL(song.sheetMusicLink) }}>
-        <Image
-          resizeMode='contain'
-          tintColor={Skin.Home_SocialButtons}
-          source={MUSICAL_SCORE_ICON}
-          style={{ height: 40, width: 40 }}
-        />
+        <MaterialCommunityIcons
+          name={'music-clef-treble'}
+          size={41}
+          style={{
+            color: Skin.Home_SocialButtons,
+            backgroundColor: 'transparent'
+          }} />
       </TouchableOpacity>
     let capoSignal;
     if (song.capoSignal)
@@ -69,7 +69,7 @@ export default class SongView extends React.Component {
     return (
       <View style={styles.container}>
         <View style={{ paddingBottom: 1, flexDirection: i18n.getFlexDirection() }}>
-          <View style={{ flex: 1, backgroundColor: Palette.White }}>
+          <View style={{ flex: 1, backgroundColor: DefaultColors.Background }}>
             <BoldText style={styles.title} onLongPress={this._onLongPressTitle}>{song.title}</BoldText>
             {referenceDisplay}
           </View>
@@ -89,8 +89,7 @@ export default class SongView extends React.Component {
                 ]
               }
               style={styles.lyrics}
-              onLongPress={this._onLongPressLyrics}
-            >
+              onLongPress={this._onLongPressLyrics}>
               {song.lyrics}
             </ParsedText>
           </View>
@@ -144,18 +143,18 @@ export default class SongView extends React.Component {
 const styles = StyleSheet.create({
   title: {
     fontSize: 24,
-    color: Palette.Black,
-    backgroundColor: Palette.White,
+    color: Skin.SongView_TitleColor,
+    backgroundColor: DefaultColors.Background,
     paddingLeft: 4,
   },
   reference: {
-    color: Palette.Navy,
-    backgroundColor: Palette.White,
+    color: Skin.SongView_ReferenceColor,
+    backgroundColor: DefaultColors.Background,
     paddingLeft: 12,
     paddingBottom: 3
   },
   icons: {
-    backgroundColor: Palette.White
+    backgroundColor: DefaultColors.Background
   },
   container: {
     flex: 1,
@@ -163,9 +162,9 @@ const styles = StyleSheet.create({
     padding: 8,
     paddingBottom: 0
   },
-  instructions: {      
-    color: '#AAAAAA',
-    backgroundColor: Palette.White,
+  instructions: {
+    color: Skin.SongView_InstructionsColor,
+    backgroundColor: DefaultColors.Background,
     paddingLeft: 12,
     textAlign: i18n.getRTLTextAlign(),
     writingDirection: i18n.getWritingDirection()
@@ -175,8 +174,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
     flex: 1,
-    color: Palette.Navy,
-    backgroundColor: Palette.White,
+    color: Skin.SongView_LyricsColor,
+    backgroundColor: DefaultColors.Background,
     paddingLeft: 8,
     textAlign: i18n.getRTLTextAlign(),
     writingDirection: i18n.getWritingDirection()
