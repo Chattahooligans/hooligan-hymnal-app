@@ -71,8 +71,8 @@ class About extends React.Component {
     });
 
     return (
-      <View style={{ flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
-        <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
+      <View style={{ flex: 1, padding: 10, backgroundColor: DefaultColors.Secondary, flexDirection: i18n.getFlexDirection() }}>
+        <ScrollView style={{ flex: 1, backgroundColor: DefaultColors.Background, padding: 5 }}>
           <View style={{ flexDirection: i18n.getFlexDirection(), marginBottom: 10 }}>
             <BoldText style={{ fontSize: FontSizes.title, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
             <LightText style={{ fontSize: FontSizes.title, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}> {i18n.t('screens.about.version')}{appParams.expo.version}</LightText>
@@ -95,7 +95,7 @@ class About extends React.Component {
           <ParsedText
             parse={parsedTextOptions}
             style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
-            {i18n.t('screens.about.appTitle') + i18n.t('screens.about.contribute')}
+            {i18n.t('screens.about.appTitle') + i18n.t('screens.about.hymnalplug')}
           </ParsedText>
           <View style={{ height: 20 }} />
           <ScrollView style={{ flex: 1 }}>

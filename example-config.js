@@ -14,15 +14,15 @@ import i18n from "./src/i18n";
 /*
   About this Configuration File
 
-  This configuration file contains several JavaScript objects that alter
-  the appearance of behavior of the Hooligan Hymnal mobile application.
+  This configuration file contains several JavaScript objects that alter 
+  the appearance of behavior of the Hooligan Hymnal mobile application. 
 
-  Preceeding each object, you'll find documentation with a description of
+  Preceeding each object, you'll find documentation with a description of 
   what the object does and guidance on how to configure it.
-
-  SGs with non- or novice developers will need patience and dedication to
-  get used to the key:value format and adjust the configuration, but we
-  believe in you! Ask for help on the Hooligan Hymnal Slack channel if
+  
+  SGs with non- or novice developers will need patience and dedication to 
+  get used to the key:value format and adjust the configuration, but we 
+  believe in you! Ask for help on the Hooligan Hymnal Slack channel if 
   you get confused or if something breaks.
 */
 
@@ -30,52 +30,46 @@ import i18n from "./src/i18n";
 
 /*
   Urls
-
+  
   This structure contains a set of key:value pairs for URLs and links used
   elsewhere in this config file and in the app.
 
-  Excepting Urls.HooliganHymnalServer, they're mostly optional, but you may
-  need to remove lines from the config that reference these links, like in
-  the SocialButtons or Banners structure. You can also add other URLs as
+  Excepting Urls.HooliganHymnalServer, they're mostly optional, but you may 
+  need to remove lines from the config that reference these links, like in 
+  the SocialButtons or Banners structure. You can also add other URLs as 
   necessary.
 */
 export const Urls = {
   // production server
   // HEY! Don't include a trailing slash / on this url.
-  // If you do, you're gonna have a bad time because your serer calls will not work
-  HooliganHymnalServer: 'https://chattahooligan-hymnal.herokuapp.com',
+  // If you do, you're gonna have a bad time because your serer calls will not work 
+  HooliganHymnalServer: 'https://EDIT-THIS-URL.herokuapp.com',
   // dev/beta server
-  //HooliganHymnalServer: 'https://chattahooligan-dev.herokuapp.com',
+  //HooliganHymnalServer: 'https://EDIT-THIS-URL.herokuapp.com',
 
   // Social media and websites
-  Twitter: 'https://twitter.com/chattahooligan',
-  Facebook: 'https://facebook.com/TheChattahooligans',
-  Instagram: 'https://instagram.com/thechattahooligans',
-  Website: 'http://comeandjoin.us',
-  YouTube: '',
-  Shop: 'https://squareup.com/store/the-chattahooligans',
-  Prideraiser: 'https://chatt.prideraiser.org/',
+  Twitter: 'https://twitter.com/hooliganhymnal',
+  Facebook: 'https://facebook.com/',
+  Instagram: 'https://instagram.com/',
+  Website: 'http://example.com',
+  YouTube: 'https://youtube.com',
+  Shop: 'http://example.com/shop',
+  Prideraiser: 'https://prideraiser.org/',
   // Look for random characters at the end of your current campaign url (must update for each campaign season)
-  PrideraiserCampaignId: 'aw43AmO',
-  GoFundMe: 'https://www.gofundme.com/chattahooligan-youth-soccer-investment',
-  EsTwitter: 'https://twitter.com/LosCFCHooligans',
-  EsFacebook: '',
-  EsInstagram: 'https://instagram.com/loschattahooligans',
-  EsWebsite: 'http://chattahooligan.com/es',
-  Events: 'https://facebook.com/TheChattahooligans/events/',
-  Standings: 'https://www.nisaofficial.com/standings',
-  Instrumentation: 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr',
-  Volunteer: 'http://chattahooligan.com/join/',
-  Postcast423: 'https://anchor.fm/423soccerpod',
-  Postcast109: 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964',
-  RedditClub: 'https://www.reddit.com/r/ChattanoogaFC'
+  PrideraiserCampaignId: 'xxxxxxx',
+  EsTwitter: 'https://twitter.com/hooliganhymmnal',
+  EsFacebook: 'https://facebook.com/',
+  EsInstagram: 'https://instagram.com/',
+  EsWebsite: 'http://example.com/es',
+  Events: 'http://example.com/shop',
+  Standings: 'https://www.nisaofficial.com/standings'
 }
 
 
 /*
   Images
-
-  This structure contains a set of key:value pairs for images used
+  
+  This structure contains a set of key:value pairs for images used 
   elsewhere in the app. Some are used in multiple places.
 
   These images are preloaded during app startup, so they don't pop in.
@@ -127,19 +121,13 @@ export const Images = {
 
 
 /*
-<<<<<<< HEAD
-  Common Image Credit
-
-  It's likely that photos will come from a select few SG or club
-=======
   Common Image Credits
   
   It's likely that photos will come from a select few SG or club 
->>>>>>> origin/two-dot-oh
   photographers. We make it easy to credit those people for letting us use
   their work.
 
-  This structure contains an array of strings used for this feature. The
+  This structure contains an array of strings used for this feature. The 
   structure is required, but does not need to be populated. Here is what
   it looks like empty.
   export const CommonImageCredits = []
@@ -147,15 +135,7 @@ export const Images = {
   Feel free to add or remove lines as necessary
 */
 export const CommonImageCredits = [
-  "Ray Soldano | https://www.facebook.com/RaySoldanoPhotography/",
-  "Galen Riley | https://twitter.com/thatgalen",
-  "Jeff Underwood | https://www.facebook.com/jeff.underwood.359",
-  "Kayja Swanson | https://www.facebook.com/kajsaphotog/",
-  "Madonna Fajardo Kemp | https://www.facebook.com/madonna.kemp",
-  "Matt Reiter | https://www.facebook.com/mreiterphoto/",
-  "Phil Thach | https://www.facebook.com/philthachphoto",
-  "Shannon Millsaps | https://www.facebook.com/smillsapsphoto/",
-  "Chattanooga Football Club"
+  "Photographer Name | http://example.com/SomebodyPhotography"
 ]
 
 
@@ -167,14 +147,8 @@ export const CommonImageCredits = [
   Palette
 
   This structure contains a set of key:value pairs for colors used across
-<<<<<<< HEAD
-  the app. It feeds into the DefaultColors/Skin structures below, and is
-  occasionally referenced directly.
-  (We'll eventually clean up most direct Palette references.)
-=======
   the app. It feeds into the DefaultColors/Skin structures below, and is 
   rarely referenced directly.
->>>>>>> origin/two-dot-oh
 
   Feel free to add or remove lines as necessary to suit your needs.
 */
@@ -195,7 +169,7 @@ export const Palette = {
   DefaultColors
 
   This structure contains a set of key:value pairs for colors used across
-  the app. It feeds into the Skin structure below, and is occasionally
+  the app. It feeds into the Skin structure below, and is occasionally 
   referenced directly.
   (We'll eventually clean up most direct DefaultColors references.)
 
@@ -209,7 +183,7 @@ export const DefaultColors = {
   ButtonText: Palette.White,
   HeaderBackground: Palette.Navy,
   HeaderText: Palette.White,
-  BlackText: "#222222",
+  BlackText: Palette.Black,
   ColorText: Palette.Navy,
   Primary: Palette.Navy,
   Secondary: Palette.Sky
@@ -220,7 +194,7 @@ export const DefaultColors = {
   Fonts
 
   This structure contains a set of key:value pairs for fonts used across
-  the app. You can use your own brand fonts in Hooligan Hymnal by
+  the app. You can use your own brand fonts in Hooligan Hymnal by 
   including the files in ./assets/ and creating the appropriate font map.
   The value here is an object with properties .family and .file
 
@@ -232,24 +206,24 @@ export const Fonts = {
   Regular: { family: 'open-sans', file: require('./assets/OpenSans-Regular.ttf') },
   Medium: { family: 'open-sans-semibold', file: require('./assets/OpenSans-SemiBold.ttf') },
   Bold: { family: 'open-sans-bold', file: require('./assets/OpenSans-Bold.ttf') },
-  Italic: { family: 'open-sans-italic', file: require('./assets/OpenSans-Italic.ttf') },
+  Italic: { family: 'open-sans-italic', file: require('./assets/OpenSans-Italic.ttf') }
 }
 
   Font_Light is currently unused in the app, but is included for coverage
 */
 export const Fonts = {
-  Light: { family: 'roboto-light', file: require('./assets/Roboto-Light.ttf') },
-  Regular: { family: 'roboto', file: require('./assets/Roboto-Regular.ttf') },
-  Medium: { family: 'roboto-medium', file: require('./assets/Roboto-Medium.ttf') },
-  Bold: { family: 'roboto-bold', file: require('./assets/Roboto-Bold.ttf') },
-  Italic: { family: 'roboto-italic', file: require('./assets/Roboto-Italic.ttf') },
+  Light: { family: 'open-sans-light', file: require('./assets/OpenSans-Light.ttf') },
+  Regular: { family: 'open-sans', file: require('./assets/OpenSans-Regular.ttf') },
+  Medium: { family: 'open-sans-semibold', file: require('./assets/OpenSans-SemiBold.ttf') },
+  Bold: { family: 'open-sans-bold', file: require('./assets/OpenSans-Bold.ttf') },
+  Italic: { family: 'open-sans-italic', file: require('./assets/OpenSans-Italic.ttf') }
 }
 
 
 /*
   Skin
 
-  This structure contains a set of key:value pairs which alter the
+  This structure contains a set of key:value pairs which alter the 
   appearance of the app. It's always in flux.
 */
 export const Skin = {
@@ -282,7 +256,7 @@ export const Skin = {
   Home_HeroVideo: Images.Home_HeroVideo,
   Home_HeroVideoOverlay: Images.Home_HeroVideoOverlay,
   HomeVideoPanel_TintColor: DefaultColors.HeaderBackground,
-  HomeVideoPanel_TintOpacity: 0.75,
+  HomeVideoPanel_TintOpacity: 0.8,
   HomeVideoPanel_VersionLabel: DefaultColors.HeaderText,
   Home_Website: DefaultColors.BlackText,
   Icon_Roster: "account-group",
@@ -291,10 +265,10 @@ export const Skin = {
   ModalLoader_Background: DefaultColors.Secondary,
   ModalLoader_Container: "#00000040",
   NavigationDrawer_BackgroundColor: "#333333",
-  NavigationDrawer_HeroBackground: Images.NavigationDrawer_HeroBackground,
-  NavigationDrawer_HeroOverlay: Images.NavigationDrawer_HeroOverlay,
+  NavigationDrawer_HeroBackground: Images.Drawer_HeroBackground,
+  NavigationDrawer_HeroOverlay: Images.Drawer_HeroOverlay,
   NavigationDrawer_HeroOverlayTintColor: DefaultColors.HeaderBackground,
-  NavigationDrawer_HeroOverlayTintOpacity: 0.5,
+  NavigationDrawer_HeroOverlayTintOpacity: 0.8,
   NavigationDrawer_LabelActiveBackgroundColor: DefaultColors.Primary,
   NavigationDrawer_LabelActiveTintColor: Palette.White,
   NavigationDrawer_LabelActiveBackgroundColor: 'transparent',
@@ -332,10 +306,10 @@ export const Skin = {
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'heart',
   Roster_FoesTabIcon: 'thumb-down',
-  SongView_TitleColor: DefaultColors.BlackText,
+  SongView_TitleColor: DefaultColors.Primary,
   SongView_ReferenceColor: DefaultColors.Primary,
   SongView_InstructionsColor: '#AAAAAA',
-  SongView_LyricsColor: DefaultColors.BlackText
+  SongView_LyricsColor: DefaultColors.Primary
 };
 
 
@@ -347,7 +321,7 @@ export const Skin = {
   .routeName or .url property.
 
   Valid routeName values are: Home, Songbook, Roster, About, Admin,
-    YellowCard, RedCard, OldSongbook
+    YellowCard, RedCard.
   These will be added as major features are added to the app.
 
   .url can be used to open external links from the drawer
@@ -358,14 +332,11 @@ export const Skin = {
   Feel free to add or remove lines as necessary.
 */
 export const NavigationDrawerItems = [
-  { drawerLabel: i18n.t('navigation.home'), drawerIcon: 'newspaper', routeName: 'Home'},
-  { drawerLabel: i18n.t('navigation.songbook'), drawerIcon: Skin.Icon_Songbook, routeName: 'Songbook'},
-  { drawerLabel: i18n.t('navigation.roster'), drawerIcon: Skin.Icon_Roster, routeName: 'Roster'},
+  { drawerLabel: i18n.t('navigation.home'), drawerIcon: 'newspaper', routeName: 'Home' },
+  { drawerLabel: i18n.t('navigation.songbook'), drawerIcon: Skin.Icon_Songbook, routeName: 'Songbook' },
+  { drawerLabel: i18n.t('navigation.roster'), drawerIcon: Skin.Icon_Roster, routeName: 'Roster' },
   { drawerLabel: i18n.t('navigation.links.events'), drawerIcon: 'calendar', url: Urls.Events },
-  { drawerLabel: i18n.t('navigation.links.standings'), drawerIcon: 'menu-swap', url: Urls.Standings },
-  { drawerLabel: i18n.t('navigation.links.shop'), drawerIcon: 'shopping', url: Urls.Shop },
-  { drawerLabel: i18n.t('navigation.links.volunteer'), drawerIcon: 'human-greeting', url: Urls.Volunteer },
-  { drawerLabel: i18n.t('navigation.links.instrumentation'), drawerIcon: 'music-clef-treble', url: Urls.Instrumentation },
+  { drawerLabel: i18n.t('navigation.links.standings'), drawerIcon: 'menu-swap', url: Urls.Standings }
 ]
 
 
@@ -375,7 +346,7 @@ export const NavigationDrawerItems = [
   This structure contains an array of objects used for "Headline"
   banners pinned to the top of the Home screen.
 
-  Banners live in the config file, not the server (yet). So, changes to
+  Banners live in the config file, not the server (yet). So, changes to 
   this structrure need to be rolled out with application updates.
 
   The structure is required, but does not need to be populated. Here is
@@ -421,15 +392,6 @@ export const SocialButtons = [
       { icon: 'instagram', url: Urls.EsInstagram },
       { icon: 'link', url: Urls.EsWebsite }
     ]
-  },
-  {
-    header: i18n.t('settings.other'),
-    headerColor: DefaultColors.ColorText,
-    items: [
-      { image: Images.Postcast423, url: Urls.Postcast423, tintToSkin: false },
-      { image: Images.Postcast109, url: Urls.Postcast109, tintToSkin: false },
-      { icon: 'reddit', url: Urls.RedditClub },
-    ]
   }
 ]
 // Other/Seasonal
@@ -451,7 +413,7 @@ export const Settings = {
 
   // Home_HeroContent: "video", "image", "prideraiser"
   //      Hero content on the home screen
-  Home_HeroContent: "video",
+  Home_HeroContent: "image",
 
   // Home_PostsPerPage: number
   //      Load this many news feed items, then load this many more if the user scrolls to the bottom
@@ -460,15 +422,15 @@ export const Settings = {
   // Player_ShowSongs: true, false
   //      Some SGs write songs for each player
   //      Toggle a related UI element in the Roster/Player screen
-  Player_ShowSongs: true,
+  Player_ShowSongs: false,
 
   // PostAttach_ShowGKNickname: true, false
   //      This is a longrunning inside joke in Chattanooga
-  PostAttach_ShowGKNickname: true,
+  PostAttach_ShowGKNickname: false,
 
   // PostAttach_ShowJuanstagram: true, false
   //      This is a longrunning inside joke in Chattanooga
-  PostAttach_ShowJuanstagram: true,
+  PostAttach_ShowJuanstagram: false,
 
   PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix: appParams.expo.slug,
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat: "YYYY-MM-DD",
@@ -492,7 +454,7 @@ export const Settings = {
   //      Check how this renders on your deployment with your Prideraiser campaign cover photo
   //      You may want to adjust the height param and/or design the cover photo with Hooligan Hymnal in mind
   //      wm=pr&wmp=br add the Prideraiser Logo watermark onto the image. We recommend leaving this alone
-  PrideraiserCampaignSummary_CampaignCoverParams: "?w=768&h=300", //432&wm=pr&wmp=bl",
+  PrideraiserCampaignSummary_CampaignCoverParams: "?w=768&h=432&wm=pr&wmp=bl",
 
   PrideraiserCampaignSummary_AnalyticsSource: appParams.expo.slug + "-home",
 
@@ -516,7 +478,7 @@ export const Settings = {
 
   // TwitterList_AppendHandles: string
   //      Extra Twitter handles concatenated after the players on the TwitterList screen
-  //      Each account should be seperated by a space
+  //      Each account should be seperated by a space 
   //      In Chattanooga, we append the club and our SG accounts. You can choose to pass.
-  TwitterList_AppendHandles: "@ChattanoogaFC @chattahooligan @LosCFCHooligans"
+  TwitterList_AppendHandles: ""
 }

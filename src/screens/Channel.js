@@ -14,7 +14,7 @@ import Post from '../components/Post';
 import { HeaderBackButton } from 'react-navigation';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { DefaultColors, Palette, Skin, Settings } from '../../config';
+import { DefaultColors, Skin, Settings } from '../../config';
 import { getFeedForChannel, getMoreFeedForChannel } from '../services/feedService';
 
 class Channel extends React.Component {

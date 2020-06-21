@@ -34,7 +34,7 @@ export default class PostAttachmentPlayer extends React.Component {
                         name={'instagram'}
                         size={30}
                         style={{
-                            color: Palette.Sky,
+                            color: DefaultColors.Secondary,
                             marginVertical: 3,
                             marginHorizontal: 5,
                             backgroundColor: 'transparent'
@@ -53,7 +53,7 @@ export default class PostAttachmentPlayer extends React.Component {
                         name={'twitter'}
                         size={30}
                         style={{
-                            color: Palette.Sky,
+                            color: DefaultColors.Secondary,
                             marginVertical: 3,
                             marginHorizontal: 5,
                             backgroundColor: 'transparent'

@@ -1,12 +1,10 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import i18n from '../i18n';
 
 import CustomDrawer from '../components/CustomDrawer';
 import HomeNavigation from './HomeNavigation';
 import SongbookNavigation from './SongbookNavigation';
+import OldSongbookNavigation from './OldSongbookNavigation';
 import RosterNavigation from './RosterNavigation';
 import AboutNavigation from './AboutNavigation';
 import AdminNavigation from './AdminNavigation';
@@ -14,8 +12,6 @@ import YellowCardNavigation from './YellowCardNavigation';
 import RedCardNavigation from './RedCardNavigation';
 
 const RootDrawer = createDrawerNavigator();
-
-const { width: deviceWidth } = Dimensions.get('window');
 
 /*
     After config.NavigationDrawerItems refactor, this file gets slimmed way down.
@@ -49,6 +45,9 @@ export default RootDrawerNavigation = () => {
             <RootDrawer.Screen
                 name="Songbook"
                 component={SongbookNavigation} />
+            <RootDrawer.Screen
+                name="OldSongbook"
+                component={OldSongbookNavigation} />
             <RootDrawer.Screen
                 name="Roster"
                 component={RosterNavigation} />

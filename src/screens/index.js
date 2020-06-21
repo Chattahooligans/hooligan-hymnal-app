@@ -21,6 +21,9 @@ import RosterTeam from './RosterTeam';
 import SinglePost from './SinglePost';
 import SingleSong from './SingleSong';
 import Songbook from './Songbook';
+import SongbookContents from './SongbookContents';
+import SongbookCover from './SongbookCover';
+import SongbookPages from './SongbookPages';
 import TableOfContentsInline from './TableOfContentsInline';
 import TwitterList from './TwitterList';
 import WebView from './WebView';
@@ -49,6 +52,9 @@ export default {
   SinglePost,
   SingleSong,
   Songbook,
+  SongbookContents,
+  SongbookCover,
+  SongbookPages,
   TableOfContentsInline,
   TwitterList,
   WebView

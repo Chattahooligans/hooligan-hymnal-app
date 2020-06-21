@@ -14,13 +14,14 @@ import {
 } from 'react-native';
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 import FadeIn from 'react-native-fade-in-image';
-import { BoldText, RegularText, MediumText } from '../components/StyledText';
+import ReadMore from 'react-native-read-more-text';
+import { BoldText, RegularText, MediumText, LightText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
 import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from './ParsedTextHelper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 // import Toast from 'react-native-simple-toast';
 import Toast from "react-native-tiny-toast";
-import { Skin, Palette, Settings } from '../../config';
+import { Skin, Settings, DefaultColors } from '../../config';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
 import PostAttachmentGkNickname from './PostAttachmentGkNickname';
@@ -151,28 +152,51 @@ class Post extends React.Component {
             if (false == this.props.navToChannel)
                 navToChannel = false;
 
-        let navToFullScreen = true;
-        if (this.props.hasOwnProperty("navToFullScreen"))
-            if (false == this.props.navToFullScreen)
-                navToFullScreen = false;
-
+        let fullscreen = false;
+        if (this.props.hasOwnProperty("fullscreen"))
+            fullscreen = this.props.fullscreen;
 
         let textDisplay;
         if (post.text) {
             textDisplay =
-                <ParsedText
-                    parse={
-                        [
-                            { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
-                            { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
-                            { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
-                            { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
-                        ]
-                    }
-                    style={styles.text}
-                    onLongPress={this._onLongPressText}>
-                    {post.text}
-                </ParsedText>
+                <View style={styles.textContainer}>
+                    <ReadMore
+                        numberOfLines={fullscreen ? Number.MAX_SAFE_INTEGER : Skin.Post_TextNumberOfLines}
+                        renderTruncatedFooter={(handlePress) =>
+                            <LightText
+                                style={{ color: DefaultColors.Primary, marginTop: 5, fontSize: Skin.Post_FontSize - 4 }}
+                                onPress={handlePress}>
+                                {i18n.t('components.post.readmore')}
+                            </LightText>}
+                        renderRevealedFooter={(handlePress) => {
+                            if (Skin.Post_TextShowHide) {
+                                return (
+                                    <LightText
+                                        style={{ color: DefaultColors.Primary, marginTop: 5, fontSize: Skin.Post_FontSize - 4 }}
+                                        onPress={handlePress}>
+                                        {i18n.t('components.post.hide')}
+                                    </LightText>
+                                )
+                            }
+                            else {
+                                return null
+                            }
+                        }}>
+                        <ParsedText
+                            parse={
+                                [
+                                    { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
+                                    { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+                                    { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                                    { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
+                                ]
+                            }
+                            style={styles.text}
+                            onLongPress={this._onLongPressText}>
+                            {post.text}
+                        </ParsedText>
+                    </ReadMore>
+                </View >
         }
 
         let containerWidth = Dimensions.get("window").width - (2 * styles.container.marginHorizontal)
@@ -438,12 +462,12 @@ class Post extends React.Component {
                         {!navToChannel &&
                             <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
                         }
-                        {navToFullScreen &&
+                        {!fullscreen &&
                             <TouchableOpacity onPress={() => { this.props.navigation.navigate("SinglePost", { post }) }}>
                                 <RegularText style={styles.timestampText}>{publishedAtDisplay}</RegularText>
                             </TouchableOpacity>
                         }
-                        {!navToFullScreen &&
+                        {fullscreen &&
                             <RegularText style={styles.timestampText}>{publishedAtDisplay}</RegularText>
                         }
                     </View>
@@ -519,13 +543,14 @@ class Post extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: Palette.White,
-        marginTop: Skin.Home_PostMarginVertical,
-        marginHorizontal: 5
+        backgroundColor: DefaultColors.Background,
+        marginBottom: Skin.Home_PostMarginVertical,
+        marginHorizontal: Skin.Post_ContainerMarginHorizontal
     },
     headerContainer: {
         flexDirection: i18n.getFlexDirection(),
-        padding: 4
+        paddingTop: Skin.Post_HeaderContainerPaddingTop,
+        paddingHorizontal: Skin.Post_HeaderContainerPaddingHorizontal
     },
     channelImage: {
         width: 50,
@@ -544,8 +569,7 @@ const styles = StyleSheet.create({
         color: Skin.Post_TimestampLabel
     },
     notificationSymbol: {
-        color: Palette.Sky,
-        marginRight: 3
+        color: DefaultColors.Secondary
     },
     menu: {
         color: Skin.Post_ChannelLabel,
@@ -554,13 +578,16 @@ const styles = StyleSheet.create({
         marginTop: -6,
         backgroundColor: 'transparent'
     },
+    textContainer: {
+        flex: 1,
+        paddingTop: Skin.Post_TextPaddingTop,
+        paddingBottom: Skin.Post_TextPaddingBottom,
+        paddingHorizontal: Skin.Post_TextPaddingHorizontal
+    },
     text: {
-        paddingVertical: 3,
-        paddingHorizontal: 8,
         fontFamily: Skin.Font_ParsedText,
         fontSize: Skin.Post_FontSize,
         lineHeight: Skin.Post_LineHeight,
-        flex: 1,
         color: Skin.Post_TextColor,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()

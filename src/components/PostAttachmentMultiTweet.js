@@ -28,7 +28,7 @@ export default class PostAttachmentMultiTweet extends React.Component {
                                     name={'twitter'}
                                     size={16}
                                     style={{
-                                        color: Palette.Navy,
+                                        color: DefaultColors.Primary,
                                         backgroundColor: 'transparent'
                                     }} />
                                 <RegularText style={styles.tweetAllText}>{i18n.t('components.postattachmentmultitweet.tweettheplayers')}</RegularText>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         color: Palette.Rouge,
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 4,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         flex: 1,
         color: Palette.Rouge,
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         marginLeft: 5,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
