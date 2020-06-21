@@ -14,7 +14,7 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors } from '../../config';
-import AuthCheck from '../server_store/AuthCheck';
+import { login, checkToken } from '../services/loginService';
 import i18n from '../i18n';
 import {AsyncStorage} from 'react-native';
 
@@ -40,26 +40,25 @@ class AdminLogin extends React.Component {
     this.setData();
   }
 
-  setData = () => {
+  setData = async () => {
     var bearerToken = this.props.globalData.getBearerToken();
-    if(bearerToken !== "") {
+    console.log(bearerToken);
+    if(bearerToken && bearerToken !== "") {
       //bearerToken is present from previous login
       //check if still valid and bypass login if so
-      let authChecker = new AuthCheck();
-      authChecker.validToken("Bearer " + bearerToken)
-      .then(responseJson => {
+      try {
+        const responseJson = await checkToken(bearerToken);
+        console.log(responseJson);
         //bearerToken is valid, skip login
         Keyboard.dismiss();
         this.props.navigation.navigate('AdminHome');
-      }).catch(reason => {
-        //we don't really care about the reason. just try to get
-        //username and password and show it
+      } catch(e) {
+        console.log("Bearer token check failed:" + e);
         this.populateUserCredentials();
-      });
-      return;
+      }
     }
     this.populateUserCredentials();
-  }  
+  }
 
   async populateUserCredentials() {
     try {
@@ -110,16 +109,14 @@ class AdminLogin extends React.Component {
   _setUsername = username => this.setState({ username });
 
   _handlePressSubmitButton = async () => {
-    let authChecker = new AuthCheck();
-    authChecker
-      .check({
+    try {
+      const responseJson = await login({
         email: this.state.username,
         password: this.state.password
-      })
-      .then(responseJson => {
-        Keyboard.dismiss();
+      });
+      Keyboard.dismiss();
         this.props.globalData.setBearerToken(responseJson.token);
-        //this.props.globalData.setCurrentUser(responseJson);
+        this.props.globalData.setCurrentUser(responseJson);
         storeData = async () => {
           try {
             await AsyncStorage.setItem('@adminusername', this.state.username);
@@ -136,11 +133,9 @@ class AdminLogin extends React.Component {
             nav.navigate('AdminHome')
         }
         this.props.globalData.setCurrentUser(responseJson, navToAdminHome);
-      })
-      .catch(
-        //if I was a good person I'd give you an error message but I'm tired
-        //it wasn't here when I started either, give me a break
-      );
+    } catch(e) {
+      console.log("Error logging in: " + e);
+    }
   };
 }
 

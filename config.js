@@ -14,15 +14,15 @@ import i18n from "./src/i18n";
 /*
   About this Configuration File
 
-  This configuration file contains several JavaScript objects that alter 
-  the appearance of behavior of the Hooligan Hymnal mobile application. 
+  This configuration file contains several JavaScript objects that alter
+  the appearance of behavior of the Hooligan Hymnal mobile application.
 
-  Preceeding each object, you'll find documentation with a description of 
+  Preceeding each object, you'll find documentation with a description of
   what the object does and guidance on how to configure it.
-  
-  SGs with non- or novice developers will need patience and dedication to 
-  get used to the key:value format and adjust the configuration, but we 
-  believe in you! Ask for help on the Hooligan Hymnal Slack channel if 
+
+  SGs with non- or novice developers will need patience and dedication to
+  get used to the key:value format and adjust the configuration, but we
+  believe in you! Ask for help on the Hooligan Hymnal Slack channel if
   you get confused or if something breaks.
 */
 
@@ -30,19 +30,19 @@ import i18n from "./src/i18n";
 
 /*
   Urls
-  
+
   This structure contains a set of key:value pairs for URLs and links used
   elsewhere in this config file and in the app.
 
-  Excepting Urls.HooliganHymnalServer, they're mostly optional, but you may 
-  need to remove lines from the config that reference these links, like in 
-  the SocialButtons or Banners structure. You can also add other URLs as 
+  Excepting Urls.HooliganHymnalServer, they're mostly optional, but you may
+  need to remove lines from the config that reference these links, like in
+  the SocialButtons or Banners structure. You can also add other URLs as
   necessary.
 */
 export const Urls = {
   // production server
   // HEY! Don't include a trailing slash / on this url.
-  // If you do, you're gonna have a bad time because your serer calls will not work 
+  // If you do, you're gonna have a bad time because your serer calls will not work
   HooliganHymnalServer: 'https://chattahooligan-hymnal.herokuapp.com',
   // dev/beta server
   //HooliganHymnalServer: 'https://chattahooligan-dev.herokuapp.com',
@@ -74,8 +74,8 @@ export const Urls = {
 
 /*
   Images
-  
-  This structure contains a set of key:value pairs for images used 
+
+  This structure contains a set of key:value pairs for images used
   elsewhere in the app. Some are used in multiple places.
 
   These images are preloaded during app startup, so they don't pop in.
@@ -133,7 +133,7 @@ export const Images = {
   photographers. We make it easy to credit those people for letting us use
   their work.
 
-  This structure contains an array of strings used for this feature. The 
+  This structure contains an array of strings used for this feature. The
   structure is required, but does not need to be populated. Here is what
   it looks like empty.
   export const CommonImageCredits = []
@@ -183,7 +183,7 @@ export const Palette = {
   DefaultColors
 
   This structure contains a set of key:value pairs for colors used across
-  the app. It feeds into the Skin structure below, and is occasionally 
+  the app. It feeds into the Skin structure below, and is occasionally
   referenced directly.
   (We'll eventually clean up most direct DefaultColors references.)
 
@@ -208,7 +208,7 @@ export const DefaultColors = {
   Fonts
 
   This structure contains a set of key:value pairs for fonts used across
-  the app. You can use your own brand fonts in Hooligan Hymnal by 
+  the app. You can use your own brand fonts in Hooligan Hymnal by
   including the files in ./assets/ and creating the appropriate font map.
   The value here is an object with properties .family and .file
 
@@ -237,7 +237,7 @@ export const Fonts = {
 /*
   Skin
 
-  This structure contains a set of key:value pairs which alter the 
+  This structure contains a set of key:value pairs which alter the
   appearance of the app. It's always in flux.
 */
 export const Skin = {
@@ -363,7 +363,7 @@ export const NavigationDrawerItems = [
   This structure contains an array of objects used for "Headline"
   banners pinned to the top of the Home screen.
 
-  Banners live in the config file, not the server (yet). So, changes to 
+  Banners live in the config file, not the server (yet). So, changes to
   this structrure need to be rolled out with application updates.
 
   The structure is required, but does not need to be populated. Here is
