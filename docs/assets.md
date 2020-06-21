@@ -5,7 +5,7 @@ This document describes the photos, graphics, and fonts that may be used by your
 We also recommend opening `config-example.js` as a companion to this guide. The file contains additional documentation, descriptions, and examples that aim to make life easier overall.
 
 Please review the project README for a description of the platform and the philosophy behind it.
-https://github.com/Chattahooligans/hooligan-hymnal-app/blob/main/README.md
+<https://github.com/Chattahooligans/hooligan-hymnal-app/blob/main/README.md>
 
 tl;dr - You need make some icons and backgrounds and stuff. This guide lists all of them.
 
@@ -41,10 +41,10 @@ Note: The Hooligan Hymnal core team welcomes contributions and feedback on impro
 ## Palette
 
 `config.js` defines a Palette that is used to color backgrounds, text, and other UI elements throughout the app. It uses color names as keys and RGB, hex codes, or names as values.
-https://www.w3schools.com/colors/default.asp
+<https://www.w3schools.com/colors/default.asp>
 
 Populate this object with colors used by your SG and club, or complementary shades. Without making modifications to the source code, the app is designed to look nice when using two colors- a Primary and a Secondary, plus or including black and white.
-(TODO: rename Secondary to Accent, tracked at https://github.com/Chattahooligans/hooligan-hymnal-app/issues/121)
+(TODO: rename Secondary to Accent, tracked at <https://github.com/Chattahooligans/hooligan-hymnal-app/issues/121>)
 
 ## DefaultColors
 
@@ -55,7 +55,7 @@ The Skin tends to refer to both Palette and DefaultColors.
 # Fonts
 
 If your SG uses a particular typeface in its branding, that can be easily dropped into Hooligan Hymnal and configured for use across the app. If not, the Open Sans typeface is provided as a default, and the internet is full of free and commercial fonts. Check out the Google Fonts library as one place to get started-
-https://fonts.google.com/
+<https://fonts.google.com/>
 
 Whatever your choice, please consider including a reference to the license in the credits section of the About screen. (Instruct your developer to do this)
 
@@ -74,7 +74,7 @@ The Android launcher supports adaptive icons, but that effort was not spent in t
 
 Note that icons are configured in the file `app.json`, NOT `config.js`
 
-Additional information can be found at https://docs.expo.io/guides/app-icons/
+Additional information can be found at <https://docs.expo.io/guides/app-icons/>
 
 ## Splash Screen
 
@@ -84,7 +84,7 @@ The splash screen is the first thing your users see when launching the app, and 
 
 Note that the splash screen is configured in the file `app.json`, NOT `config.js`
 
-Additional information can be found at https://docs.expo.io/guides/splash-screens/
+Additional information can be found at <https://docs.expo.io/guides/splash-screens/>
 
 ## Home Hero
 
@@ -104,7 +104,7 @@ The home hero component can also be a single image. No tints, no overlays, no co
 
 ### Prideraiser
 
-The third mode of the Hero component is a panel that requests from the API at https://prideraiser.org and loads the campaign cover image. It is configured with an ID in the config file and some URL parameters. You will not be creating a file to package with Hooligan Hymnal, but the third mode is discussed here for complete coverage of the Home Hero component.
+The third mode of the Hero component is a panel that requests from the API at <https://prideraiser.org> and loads the campaign cover image. It is configured with an ID in the config file and some URL parameters. You will not be creating a file to package with Hooligan Hymnal, but the third mode is discussed here for complete coverage of the Home Hero component.
 
 Fun fact: Hooligan Hymnal and Prideraiser have the same origin, and the projects now have some integration.
 
@@ -142,7 +142,7 @@ Default file name(s): `notification.png`
 
 Hooligan Hymnal supports push notifications. The icon that appears in the tray is 96x96 grayscale with transparency. (The default file doesn't meet this specification, but is used in all Hooligan Hymnal deployments as of June 2020. For shame.)
 
-Additional information can be found at https://docs.expo.io/workflow/configuration/
+Additional information can be found at <https://docs.expo.io/workflow/configuration/>
 
 ## Other Included Images
 
@@ -160,4 +160,4 @@ Note: Images uploaded to Posts in the News Feed support credits with each image,
 
 # UI Icons
 
-Hooligan Hymnal uses icons across the app from the MaterialCommunityIcons set, which is included in the expo-vector-icons package. While some of the icons in the admin-only screens are not exposed in the config file, all of the public-facing ones should be. If you want to change an icon away from the default, browse the options at https://icons.expo.fyi/
+Hooligan Hymnal uses icons across the app from the MaterialCommunityIcons set, which is included in the expo-vector-icons package. While some of the icons in the admin-only screens are not exposed in the config file, all of the public-facing ones should be. If you want to change an icon away from the default, browse the options at <https://icons.expo.fyi/>

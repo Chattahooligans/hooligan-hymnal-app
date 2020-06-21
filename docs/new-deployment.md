@@ -3,9 +3,9 @@
 This document describes deploying the Hooligan Hymnal server and a customized version of the mobile app for your supporters group.
 
 Please review the project README for a description of the platform and the philosophy behind it.
-https://github.com/Chattahooligans/hooligan-hymnal-app/blob/main/README.md
+<https://github.com/Chattahooligans/hooligan-hymnal-app/blob/main/README.md>
 
-Hooligan Hymnal uses the Expo SDK and services. Parts of this guide attempt to interpret the official Expo documentation, available at https://docs.expo.io/
+Hooligan Hymnal uses the Expo SDK and services. Parts of this guide attempt to interpret the official Expo documentation, available at <https://docs.expo.io/>
 
 # Precursor Considerations and Tasks
 
@@ -166,7 +166,7 @@ In the "android" section:
 In the "ios" section:
 * [once set, never change] `bundleIdentifier` is a unique name for your application on the Apple App Store. It probably matches the value in `android.package`
 
-Additional information can be found at https://docs.expo.io/workflow/configuration/
+Additional information can be found at <https://docs.expo.io/workflow/configuration/>
 
 ### /assets/
 

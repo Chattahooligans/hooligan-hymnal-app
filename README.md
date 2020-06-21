@@ -96,4 +96,4 @@ Expectations set? Here's what to do first:
 
 #### Acknowledgements
 
-* Originally forked from https://github.com/nodevember
+* Originally forked from <https://github.com/nodevember>

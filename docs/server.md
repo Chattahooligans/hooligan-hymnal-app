@@ -2,7 +2,7 @@
 
 The Hooligan Hymnal platform includes a single project that acts as the data server and admin dashboard. This document describes the environment variables required to configure the Hooligan Hymnal server components, and may be used as a companion document for the main [Deployment Guide](deployment.md).
 
-The official repository is https://github.com/Chattahooligans/hooligan-hymnal-server
+The official repository is <https://github.com/Chattahooligans/hooligan-hymnal-server>
 
 ## Summary
 
@@ -59,7 +59,7 @@ The `MAIL_*` environment variables are used when resetting account passwords, an
 * MAIL_USER=
 * MAIL_PASS=
 
-Our recommended solution is to use the Google Account created for the project, enabling two factor authenticaion, and following the instructions at https://support.google.com/a/answer/176600?hl=en. Look for the "Use the Gmail SMTP Server" section.
+Our recommended solution is to use the Google Account created for the project, enabling two factor authenticaion, and following the instructions at <https://support.google.com/a/answer/176600?hl=en>. Look for the "Use the Gmail SMTP Server" section.
 
 ### MONGO_URI
 
