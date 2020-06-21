@@ -116,7 +116,7 @@ class AdminLogin extends React.Component {
       });
       Keyboard.dismiss();
         this.props.globalData.setBearerToken(responseJson.token);
-        //this.props.globalData.setCurrentUser(responseJson);
+        this.props.globalData.setCurrentUser(responseJson);
         storeData = async () => {
           try {
             await AsyncStorage.setItem('@adminusername', this.state.username);
