@@ -14,7 +14,6 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
 import { Skin, DefaultColors } from '../../config';
-import AuthCheck from '../server_store/AuthCheck';
 import { login, checkToken } from '../services/loginService';
 import i18n from '../i18n';
 import {AsyncStorage} from 'react-native';
