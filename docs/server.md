@@ -39,8 +39,7 @@ This variable is a filter that protects push notifications in the mobile app. It
 
 ### ENV
 
-TODO: What exactly does this do? Why is it required for dev and not for production?
-- Is is required for development in order for the development middlewares to work correctly and show error, by default if it is not filled in it gets corrected to production.. causing the dev middleware not to be activated.. otherwise on error in admin or api.. there would be a stack trace sent to user.
+This environment variable describes the execution environment and has no spaces. We recommend something like `sg-hymnal-server-production`.
 
 ### INPUT_LANGUAGE
 
@@ -49,9 +48,6 @@ TODO: What exactly does this do? Why is it required for dev and not for producti
 For multi-language deployments, INPUT_LANGUAGE currently affects the langauges that player biographies can be composed in. It may be used in other parts of the platform in the future.
 
 The values for INPUT_LANGUAGE are exposed via the endpoint `/api/i18n-settings` and can be fetched with an HTTP GET request.
-
-TODO: Can this be set to `["en"]` by default if it's empty or not defined?
-- Working on changes now should be able to add to latest 2.0 changes
 
 ### MAIL ENV VARIABLES
 
@@ -67,32 +63,26 @@ Our recommended solution is to use the Google Account created for the project, e
 
 This is the connection string to your database. After logging into your SG's MongoDB Cloud account, select the project for your production database from the dropdown in the top left, the Clusters option in the side menu, and find the "CONNECT" button in the main view on the page. Click it, and a wizard menu will pop up. Select the 2nd option "Connect your application", and use "Node.js" and "2.2.12 or later" as Driver options. You will need to replace elements of this string with your db account password (not the same as your MongoDB Cloud service account) and database name before setting the env variable in Heroku. 
 
-TODO: Better instructions as necessary. We'll learn this from the guinea pig.
-- Sam better explination
+TODO: Better instructions as necessary. We'll learn this from the first SG to go through and improve things.
 
 ### PORT
 
-TODO: What exactly does this do? Why is it required for dev and not for production?
-- When running locally you need to supply a port that is avaliable on your computer so the server can run. On heroku they use there own PORT because of being a shared instance. If SG were to use a different server setup they would have to provide a PORT
+PORT can be blank for the production environment. For groups who want to the Hooligan Hymnal Server application on their own hardware or service, or those doing local development and modification, input the binding port here.
 
 ### REFRESH_TOKEN_EXPIRES
 
-TODO: What exactly does this do? Did we fix the issue where app logins expired in an hour (before the end of a match, if logged into at the start)
-- Last I checked it was working fine. This is used to sign the JWT.. it again is auto set to 1d if no variable is supplied. Can be changed to whatever other SG wants on setup.
+Used for web token encryption. Accepts formats "1h" to "30d", "1d" is default.
 
 ### SECRET_KEY
 
-TODO: What exactly does this do? 
-- This is used to sign tokens and sessions for users, it needs to be different for each SG due to if you have the key you would be able to decode the tokens/sessions and get users infomation.
+This environment variable is a random string of characters used to sign user tokens/sessions. It can be anything. Try something from <https://randomkeygen.com/>
 
 ### SITE_NAME
 
 The SITE_NAME environment variable sets the text displayed at the top of the Hooligan Hymnal admin dashboard. We recommend something like "[Your SG's app name] Admin".
 
-TODO: Set the default as "Hooligan Hymnal Server" instead of "Hymnal Server"
-- Working on changes now should be able to add to latest 2.0 changes
+The default is "Hooligan Hymnal Server"
 
 ### TOKEN_EXPIRES
 
-TODO: What exactly does this do? Did we fix the issue where app logins expired in an hour (before the end of a match, if logged into at the start)
-- Last I checked it was working fine. This is used to sign the JWT.. it again is auto set to 1h if no variable is supplied. Can be changed to whatever other SG wants on setup.
+Used for web token encryption. Accepts formats "1h" to "30d", "1d" is default.
