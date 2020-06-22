@@ -129,7 +129,7 @@ class PostCreate extends React.Component {
     componentDidMount() {
         this.props.navigation.setOptions({
             headerTitle: i18n.t('screens.postcreate.title'),
-            headerLeft: () => <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />,
+            headerLeft: () => <HeaderBackButton onPress={() => this.props.navigation.goBack()} tintColor="#fff" />,
             headerRight: () => (
                 <MaterialCommunityIcons
                     name="keyboard-close"
