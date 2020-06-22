@@ -10,7 +10,7 @@ import { Provider } from 'unstated';
 import { loadSavedTalksAsync } from './src/utils/storage';
 import { NavigationContainer } from '@react-navigation/native';
 import RootDrawerNavigation from './src/navigation/RootDrawerNavigation';
-import { Fonts, Images } from './config';
+import { Fonts, Images, Skin } from './config';
 
 YellowBox.ignoreWarnings(['Warning: bind()']);
 
@@ -34,7 +34,7 @@ class App extends React.Component {
       imagesArray.push(value);
     });
 
-    let fonts= {};
+    let fonts = {};
     Object.keys(Fonts).forEach((key) => {
       fonts[Fonts[key].family] = Fonts[key].file
     });
@@ -70,7 +70,10 @@ class App extends React.Component {
         <SafeAreaProvider>
           <NavigationContainer>
             <RootDrawerNavigation />
-            <StatusBar barStyle="light-content" />
+            <StatusBar
+              backgroundColor={Skin.StatusBar_BackgroundColor}
+              barStyle={Skin.StatusBar_BarStyle}
+              translucent={false} />
           </NavigationContainer>
         </SafeAreaProvider>
       </Provider>

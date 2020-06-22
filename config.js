@@ -323,7 +323,9 @@ export const Skin = {
   SongView_TitleColor: DefaultColors.BlackText,
   SongView_ReferenceColor: DefaultColors.Primary,
   SongView_InstructionsColor: '#AAAAAA',
-  SongView_LyricsColor: DefaultColors.BlackText
+  SongView_LyricsColor: DefaultColors.BlackText,
+  StatusBar_BackgroundColor: DefaultColors.Primary,
+  StatusBar_BarStyle: "default"
 };
 
 
