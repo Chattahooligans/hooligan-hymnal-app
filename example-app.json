@@ -35,6 +35,10 @@
     "platforms": [
       "android",
       "ios"
-    ]
+    ],
+    "githubUrl": "https://github.com/Chattahooligans/",
+    "extra": {
+      "hooliganHymnalVersion": "2.0.0"
+    }
   }
 }
