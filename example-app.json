@@ -38,7 +38,12 @@
     ],
     "githubUrl": "https://github.com/Chattahooligans/",
     "extra": {
-      "hooliganHymnalVersion": "2.0.0"
+      "hooliganHymnal": {
+        "version": "2.0.0",
+        "aboutPlug": {
+          "en": " is built using the open source *Hooligan Hymnal* platform, v2.0.0.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
+          }
+      }
     }
   }
 }

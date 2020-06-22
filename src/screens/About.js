@@ -95,7 +95,7 @@ class About extends React.Component {
           <ParsedText
             parse={parsedTextOptions}
             style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
-            {i18n.t('screens.about.appTitle') + i18n.t('screens.about.hymnalplug1') + appParams.expo.extra.hooliganHymnalVersion + "\n\n" + i18n.t('screens.about.hymnalplug2')}
+            {i18n.t('screens.about.appTitle') + i18n.getLocalizedText(appParams.expo.extra.hooliganHymnal.aboutPlug)}
           </ParsedText>
           <View style={{ height: 20 }} />
           <ScrollView style={{ flex: 1 }}>
