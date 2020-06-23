@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        color: DefaultColors.Primary,
+        color: DefaultColors.ColorText,
         backgroundColor: DefaultColors.Background,
         paddingLeft: 4,
     },
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
         flex: 1,
-        color: DefaultColors.Primary,
+        color: DefaultColors.ColorText,
         backgroundColor: DefaultColors.Background,
         paddingLeft: 12,
         paddingTop: 3,

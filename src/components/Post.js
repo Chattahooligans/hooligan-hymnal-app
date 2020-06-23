@@ -164,7 +164,7 @@ class Post extends React.Component {
                         numberOfLines={fullscreen ? Number.MAX_SAFE_INTEGER : Skin.Post_TextNumberOfLines}
                         renderTruncatedFooter={(handlePress) =>
                             <LightText
-                                style={{ color: DefaultColors.Primary, marginTop: 5, fontSize: Skin.Post_FontSize - 4 }}
+                                style={{ color: DefaultColors.ColorText, marginTop: 5, fontSize: Skin.Post_FontSize - 4 }}
                                 onPress={handlePress}>
                                 {i18n.t('components.post.readmore')}
                             </LightText>}
@@ -172,7 +172,7 @@ class Post extends React.Component {
                             if (Skin.Post_TextShowHide) {
                                 return (
                                     <LightText
-                                        style={{ color: DefaultColors.Primary, marginTop: 5, fontSize: Skin.Post_FontSize - 4 }}
+                                        style={{ color: DefaultColors.ColorText, marginTop: 5, fontSize: Skin.Post_FontSize - 4 }}
                                         onPress={handlePress}>
                                         {i18n.t('components.post.hide')}
                                     </LightText>

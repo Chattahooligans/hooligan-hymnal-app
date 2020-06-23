@@ -349,7 +349,7 @@ const OverscrollView = () => (
       height: 400,
       left: 0,
       right: 0,
-      backgroundColor: DefaultColors.Primary
+      backgroundColor: DefaultColors.HeaderBackground
     }}
   />
 );
