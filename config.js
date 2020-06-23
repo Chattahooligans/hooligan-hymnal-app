@@ -241,6 +241,7 @@ export const Fonts = {
   appearance of the app. It's always in flux.
 */
 export const Skin = {
+  About_BackgroundColor: DefaultColors.Secondary,
   Font_Light: Fonts.Light.family,
   Font_Regular: Fonts.Regular.family,
   Font_Medium: Fonts.Medium.family,

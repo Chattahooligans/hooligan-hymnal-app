@@ -71,7 +71,7 @@ class About extends React.Component {
     });
 
     return (
-      <View style={{ flex: 1, padding: 10, backgroundColor: DefaultColors.Secondary, flexDirection: i18n.getFlexDirection() }}>
+      <View style={{ flex: 1, padding: 10, backgroundColor: Skin.About_BackgroundColor, flexDirection: i18n.getFlexDirection() }}>
         <ScrollView style={{ flex: 1, backgroundColor: DefaultColors.Background, padding: 5 }}>
           <View style={{ flexDirection: i18n.getFlexDirection(), marginBottom: 10 }}>
             <BoldText style={{ fontSize: FontSizes.title, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
