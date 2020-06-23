@@ -304,6 +304,7 @@ export const Skin = {
   Post_HeaderContainerPaddingHorizontal: 16,
   Post_LineHeight: 22,
   Post_LinkColor: "blue",
+  Post_NotificationColor: DefaultColors.Secondary,
   Post_TextColor: DefaultColors.BlackText,
   Post_TextNumberOfLines: Number.MAX_SAFE_INTEGER,
   Post_TextPaddingTop: 6,

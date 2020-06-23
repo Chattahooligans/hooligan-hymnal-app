@@ -569,7 +569,7 @@ const styles = StyleSheet.create({
         color: Skin.Post_TimestampLabel
     },
     notificationSymbol: {
-        color: DefaultColors.Secondary
+        color: Skin.Post_NotificationColor
     },
     menu: {
         color: Skin.Post_ChannelLabel,
