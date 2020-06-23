@@ -311,6 +311,7 @@ export const Skin = {
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'heart',
   Roster_FoesTabIcon: 'thumb-down',
+  RosterTeam_TwitterColor: DefaultColors.Secondary,
   SongView_TitleColor: DefaultColors.Primary,
   SongView_ReferenceColor: DefaultColors.Primary,
   SongView_InstructionsColor: '#AAAAAA',

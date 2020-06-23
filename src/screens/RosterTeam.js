@@ -54,7 +54,7 @@ class PlayerRow extends React.Component {
           name={'twitter'}
           size={30}
           style={{
-            color: DefaultColors.Secondary,
+            color: Skin.RosterTeam_TwitterColor,
             marginTop: 3,
             marginBottom: 3,
             marginLeft: 10,
