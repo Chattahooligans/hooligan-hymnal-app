@@ -42,7 +42,7 @@ export default class PostAttachmentMassTweet extends React.Component {
                                     name={'twitter'}
                                     size={16}
                                     style={{
-                                        color: DefaultColors.Secondary,
+                                        color: Skin.PostAttachmentMassTweet_TwitterColor,
                                         backgroundColor: 'transparent'
                                     }} />
                                 <RegularText style={styles.tweetAllText}>{i18n.t('components.postattachmentmasstweet.tweettheplayers')}</RegularText>
