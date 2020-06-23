@@ -26,7 +26,7 @@ class TwitterList extends React.Component {
     handles += Settings.TwitterList_AppendHandles;
 
     return (
-      <View style={{flex: 1, padding: 10, backgroundColor: DefaultColors.Secondary, flexDirection: i18n.getFlexDirection() }}>
+      <View style={{flex: 1, padding: 10, backgroundColor: Skin.TwitterList_BackgroundColor, flexDirection: i18n.getFlexDirection() }}>
         <View style={{ flex: 1, padding: 5 }}>
           <MediumText style={{backgroundColor: DefaultColors.Background, paddingHorizontal: 5, fontSize: 18, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>
             { i18n.t('screens.twitterlist.heading')}

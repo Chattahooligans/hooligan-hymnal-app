@@ -311,7 +311,8 @@ export const Skin = {
   SongView_InstructionsColor: '#AAAAAA',
   SongView_LyricsColor: DefaultColors.Primary,
   StatusBar_BackgroundColor: DefaultColors.Primary,
-  StatusBar_BarStyle: "default"
+  StatusBar_BarStyle: "default",
+  TwitterList_BackgroundColor: DefaultColors.Secondary
 };
 
 
