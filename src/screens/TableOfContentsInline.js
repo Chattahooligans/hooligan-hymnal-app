@@ -113,7 +113,7 @@ export default class TableOfContentsInline extends React.Component {
       });
 
       if (0 < songList.length)
-        ToCData.push({ title: chapterChild.chapter_title, data: songList });
+        ToCData.push({ title: chapterChild.chapterTitle, data: songList });
     });
 
     this.setState({ ToCData });

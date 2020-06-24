@@ -69,7 +69,7 @@ let defaultChapterTitle = i18n.t('screens.songbook.defaultchaptertitle');
 // iOS uses ScrollView with pagingEnabled and horizontal properties
 class Songbook extends React.Component {
   state = {
-    chapter_title: defaultChapterTitle,
+    chapterTitle: defaultChapterTitle,
     tocButtonDisplay: true,
     songViews: [],
     songs: [],
@@ -103,13 +103,13 @@ class Songbook extends React.Component {
           let item = this.props.globalData.state.songs.filter(
             song => song._id === songChild._id
           )[0];
-          item.chapter_title = chapterChild.chapter_title;
+          item.chapterTitle = chapterChild.chapterTitle;
           pageCount++;
           songs.push({ index: pageCount, song: item });
           songViews.push(
             <View
-              key={index + "-" + item._id}
-              chapter_title={chapterChild.chapter_title}
+            key={index + "-" + item._id}
+              chapterTitle={chapterChild.chapterTitle}
               style={{ flex: 1, width: screenWidth, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
             >
               <SongView song={item} pageCount={pageCount} />
@@ -160,7 +160,7 @@ class Songbook extends React.Component {
     return (
       <LoadingPlaceholder>
         <View style={styles.sectionHeader}>
-          <RegularText style={styles.chapterText}>{this.state.chapter_title}</RegularText>
+          <RegularText style={styles.chapterText}>{this.state.chapterTitle}</RegularText>
         </View>
         <View style={styles.container}>
           <ScrollView key={'songbookScrollView'}
@@ -218,18 +218,18 @@ class Songbook extends React.Component {
     if (this.state.pageCount + 1 === pageIndex) {
       this.setState({
         tocButtonDisplay: false,
-        chapter_title: i18n.t('screens.songbook.tableofcontents')
+        chapterTitle: i18n.t('screens.songbook.tableofcontents')
       });
     } else if (firstValidPageIndex <= pageIndex) {
       this.setState({
         tocButtonDisplay: true,
-        chapter_title: this.state.songs[pageIndex - firstValidPageIndex].song
-          .chapter_title
+        chapterTitle: this.state.songs[pageIndex - firstValidPageIndex].song
+          .chapterTitle
       });
     } else {
       this.setState({
         tocButtonDisplay: true,
-        chapter_title: defaultChapterTitle
+        chapterTitle: defaultChapterTitle
       });
     }
   };
@@ -237,7 +237,7 @@ class Songbook extends React.Component {
   scrollToToC = () => {
     this.setState({
       tocButtonDisplay: false,
-      chapter_title: i18n.t('screens.songbook.tableofcontents')
+      chapterTitle: i18n.t('screens.songbook.tableofcontents')
     });
     this._scrollView.scrollTo({
       x: screenWidth * (this.state.pageCount + 1),
@@ -250,7 +250,7 @@ class Songbook extends React.Component {
     const { currentSong } = this.props.globalData.state;
     this.setState({
       tocButtonDisplay: true,
-      chapter_title: currentSong.chapter_title
+      chapterTitle: currentSong.chapterTitle
     });
     this._scrollView.scrollTo({
       x: (currentSong.page - 1 + firstValidPageIndex) * screenWidth,
