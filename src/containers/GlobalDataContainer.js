@@ -13,10 +13,6 @@ import { getFeed, getMoreFeed, hidePost } from '../services/feedService';
 import { Urls, Settings } from '../../config';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
-import { objectTypeAnnotation } from '@babel/types';
-import i18n from '../i18n';
-
-import SongView from '../components/SongView';
 
 const PUSH_ENDPOINT = Urls.HooliganHymnalServer + '/api/pushToken';
 
@@ -32,8 +28,6 @@ export default class GlobalDataContainer extends Container {
       organization: '',
       description: '',
       frontCover: '',
-      backCover: '',
-      somePublishOrExpirationDates: '',
       chapters: []
     },
     songs: null,
