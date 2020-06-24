@@ -45,7 +45,7 @@ class SongbookCover extends React.Component {
     }
 
     render() {
-        let songbookCover = Skin.Skin.Songbook_Cover;
+        let songbookCover = Skin.Songbook_DefaultCover;
         if (this.props.globalData.state.songbook.frontCover)
             songbookCover = { uri: this.props.globalData.state.songbook.frontCover };
 
