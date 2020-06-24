@@ -1,6 +1,6 @@
 # Server Environment Variables Guide
 
-The Hooligan Hymnal platform includes a single project that acts as the data server and admin dashboard. This document describes the environment variables required to configure the Hooligan Hymnal server components, and may be used as a companion document for the main [Deployment Guide](deployment.md).
+The Hooligan Hymnal platform includes a single project that acts as the data server and admin dashboard. This document describes the environment variables required to configure the Hooligan Hymnal server components, and may be used as a companion document for the main [Deployment Guide](_deployment.md).
 
 The official repository is <https://github.com/Chattahooligans/hooligan-hymnal-server>
 

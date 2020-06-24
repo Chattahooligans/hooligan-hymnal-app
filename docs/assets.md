@@ -1,6 +1,6 @@
 # Hooligan Hymnal Assets Guide
 
-This document describes the photos, graphics, and fonts that may be used by your supporter group's customized version of the open source Hooligan Hymnal mobile app. It is intended to supplement the deployment instructions found in `deployment.md`, and is spefically targeted to graphic designers or others who are tasked to create or collect these assets, in an effort to avoid overwhelming them with instructions on server setup and app publishing and so on.
+This document describes the photos, graphics, and fonts that may be used by your supporter group's customized version of the open source Hooligan Hymnal mobile app. It is intended to supplement the instructions found in our [Deployment Guide](_deployment.md), and is spefically targeted to graphic designers or others who are tasked to create or collect these assets, in an effort to avoid overwhelming them with instructions on server setup and app publishing and so on.
 
 We also recommend opening `config-example.js` as a companion to this guide. The file contains additional documentation, descriptions, and examples that aim to make life easier overall.
 
