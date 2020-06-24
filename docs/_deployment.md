@@ -192,6 +192,10 @@ To edit the text for your app:
 
 To start testing your mobile app, navigate to your local directory in a command prompt and run the command `npm install`. This will set up the environment and enable you to use the Expo CLI to run a test version of your app. To start a test, use the command `expo start`, which will start a local server and display a QR code for you to scan. Every time you save changes to the codebase, the application will reload on your phone. This also includes detailed log information on what is causing application crashes. We've seen a number of issues while deploying the app already, so any questions you have will be easily answered in the Slack channel. 
 
+## Populate the Database
+
+Your Hooligan Hymnal app is not very useful without a database containing your songbook, perhaps a roster, and having set up the news feed. Please refer to our [Data Models Guide](data-models.md) for an introduction to the concepts you will be working with in Hooligan Hymnal admin dashboard.
+
 ## Build the Mobile App for Google Play and Apple App Store
 
 TODO: Discuss app.json changes for version and android.versionCode
