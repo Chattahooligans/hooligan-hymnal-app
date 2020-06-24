@@ -35,7 +35,7 @@ The Songs collection contains records for songs and chants. The `title` and `lyr
 
 ### Songbooks
 
-Some SGs may want to break their song collection up into sections- songs for matches, songs for players, songs for special occasions. A Songbook record contains a `chapters` array to facilitate this, though many SGs that use Hooligan Hymnal will only ever have one chapter in their Songbook. Each chapter includes a `chapterTitle` and an array of `songs`. Each song is a reference to the unique `_id` of an object in the Songs database collection.
+Some SGs may want to break their song collection up into sections- songs for matches, songs for players, songs for special occasions. A Songbook record contains a `chapters` array to facilitate this, though many SGs that use Hooligan Hymnal will only ever have one chapter in their Songbook. Each chapter includes a `chapterTitle` and an array of `songs`. Each song is a reference to the unique `_id` of an object in the Songs database collection. `hint` is a copy of the song title, and makes it easier to see what's going on when looking directly at the database.
 
 NOTE: Currently, Hooligan Hymnal only supports a single Songbook record, which was created for you when the server application was initialized. Our team has ideas   to do more with Songbooks, but we haven't implemented anything else yet.
 
@@ -52,9 +52,19 @@ We recommend the *Player* database collection act as an archive of all of your c
 
 ### Players
 
+The Players collection contains records for players. Most fields are self explanatory, but note that `flag` can be populated with a flag emoji. The `bio` object can contain a short biography in multiple languages. `thumbnail` appears on the Roster list, and currently only the first item in the `images` array is displayed in the app. (Revisiting the Player profile UI and associated data models is near the top of our to do list.)
+
 ### Rosters
 
+Like Songbooks, Rosters contain an organized list of references to the Players database collection using the `_id` field, via an array of `players` in the structure. `hint` is a copy of the player number/name, and makes it easier to see what's going on when looking directly at the database. `rosterTitle` is displayed in the mobile app. To support clubs with multiple rosters (for a women's/men's squad or a different roster for Cup competition), `active` rosters are served to the app and placed in the dropdown selector on the Roster screen, and the first roster where `default` is set is autoomatically selected. Rosters for previous seasons can be kept in the database for historical purposes, but not served to the app, but setting active to false.
+
 ### Foes
+
+Foes are an optional feature that allows SGs to make available rosters for opposing teams, and are found in the mobile app by tapping on the Roster feature in the menu.
+
+Records in the Foes database collection break from the pattern used for Songs/Songbooks and Players/Rosters, and all of the player data is contained in the Foe record. The `competition` field should be used to represent the season and competition of the opposing roster- league play, cup tournaments, and friendlies, as appropriate -and should exactly match for all opponents in that competition. 
+
+Using Foes requires additional configuration in the mobile app. The Foes UI can be toggled on or off in the app by setting `config.js:Settings.Roster_FoesEnabled` to false. `config.js:Settings.RosterFoes_DefaultCompetition` is a string used to set the default competition in the Foes screen. The text much match `competition` exactly.
 
 ## Channels
 
