@@ -45,7 +45,11 @@ class SongbookCover extends React.Component {
     }
 
     render() {
-        let { width, height } = Image.resolveAssetSource(Skin.Songbook_Cover)
+        let songbookCover = Skin.Skin.Songbook_Cover;
+        if (this.props.globalData.state.songbook.frontCover)
+            songbookCover = { uri: this.props.globalData.state.songbook.frontCover };
+
+        let { width, height } = Image.resolveAssetSource(songbookCover)
         let ratio = width / height
         let scaledHeight = Dimensions.get("window").width / ratio
 
@@ -56,7 +60,7 @@ class SongbookCover extends React.Component {
             <View style={styles.container}>
                 <Image
                     style={{ width: Dimensions.get("window").width, height: scaledHeight }}
-                    source={Skin.Songbook_Cover} />
+                    source={songbookCover} />
                 <ActivityIndicator size="large" animating={true} color={DefaultColors.Primary} />
             </View>
         )

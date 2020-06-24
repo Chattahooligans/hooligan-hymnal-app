@@ -109,7 +109,7 @@ export const Images = {
   // Overlay image over the drawer hero background image
   NavigationDrawer_HeroOverlay: require('./assets/drawer-hero-logo.png'),
 
-  // Songbook cover image
+  // Songbook default cover image
   Songbook_Cover: require('./assets/songbook-cover.png'),
 
   // Used as a default thumbnail for Players and Rosters
@@ -291,7 +291,7 @@ export const Skin = {
   NavigationDrawer_FontFamily: Fonts.Bold.family,
   NotificationEngagementsModal_Container: "#00000040",
   Songbook_Background: DefaultColors.Secondary,
-  Songbook_Cover: Images.Songbook_Cover,
+  Songbook_DefaultCover: Images.Songbook_Cover,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: DefaultColors.Primary,
   Player_Background: DefaultColors.Secondary,
