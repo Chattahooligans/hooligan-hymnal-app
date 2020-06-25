@@ -112,8 +112,6 @@ export const Images = {
 
   // Add optional images
   GoFundMe: require("./assets/gofundme.png"),
-  Postcast423: require("./assets/logo-podcast-423.png"),
-  Postcast109: require("./assets/logo-podcast-109.png"),
 };
 
 /*
@@ -273,8 +271,8 @@ export const Skin = {
   ModalLoader_Background: DefaultColors.Secondary,
   ModalLoader_Container: "#00000040",
   NavigationDrawer_BackgroundColor: "#333333",
-  NavigationDrawer_HeroBackground: Images.Drawer_HeroBackground,
-  NavigationDrawer_HeroOverlay: Images.Drawer_HeroOverlay,
+  NavigationDrawer_HeroBackground: Images.NavigationDrawer_HeroBackground,
+  NavigationDrawer_HeroOverlay: Images.NavigationDrawer_HeroOverlay,
   NavigationDrawer_HeroOverlayTintColor: DefaultColors.HeaderBackground,
   NavigationDrawer_HeroOverlayTintOpacity: 0.8,
   NavigationDrawer_LabelActiveBackgroundColor: DefaultColors.Primary,
