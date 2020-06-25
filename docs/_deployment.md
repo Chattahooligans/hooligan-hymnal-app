@@ -17,10 +17,10 @@ Don't punt these tasks until after you've customized Hooligan Hymnal for your SG
 
 Before going further, make sure you're aware of the costs involved. At an absolute minimum, you will need:
 
-* $99/year for an Apple developer account to publish to iOS
-* $25 one-time fee to register for Google Play
-* $7/month for Heroku's basic tier (or equivalent hosting)
-* (Varies by state, but ~$50-$500) LLC registration fee for your SG
+- \$99/year for an Apple developer account to publish to iOS
+- \$25 one-time fee to register for Google Play
+- \$7/month for Heroku's basic tier (or equivalent hosting)
+- (Varies by state, but ~$50-$500) LLC registration fee for your SG
 
 You will also need access to a Mac to publish your iOS builds, since only their developer tools can handle the upload. Your SG may already have access to some of these things before you've started the project.
 
@@ -38,7 +38,7 @@ Apple will not recognize your LLC without one. This process takes longer than it
 
 ## Register with the Play and App stores
 
-The Play store goes by relatively quickly once you pay your $25. Apple does more verification, which again will take more time. More detailed information can be found in the "Create Accounts" section below.
+The Play store goes by relatively quickly once you pay your \$25. Apple does more verification, which again will take more time. More detailed information can be found in the "Create Accounts" section below.
 
 ## Designate at least one team member as the Apple uploader
 
@@ -102,13 +102,13 @@ TODO
 
 ## Create a Database
 
-Log into MongoDB Cloud Atlas and create a free M0 sandbox cluster. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username* for the database and STRONG password. Once your URI has been generated, go to the "Network Access" tab in the cluster settings. The free tier of does not allow for specific IP whitelisting, so set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
+Log into MongoDB Cloud Atlas and create a free M0 sandbox cluster. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username\* for the database and STRONG password. Once your URI has been generated, go to the "Network Access" tab in the cluster settings. The free tier of does not allow for specific IP whitelisting, so set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
 
 \*This is an account to access the database itself, and is different than your MongoDB Cloud service account. Don't forget to save the credentials somewhere!
 
 ## Fork the Code
 
-From your SG's github account, [fork the code](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) for [Hooligan Hymnal Server](https://github.com/Chattahooligans/hooligan-hymnal-server) and [Hooligan Hymnal App](https://github.com/Chattahooligans/hooligan-hymnal-app). This is your starting point for building the app. 
+From your SG's github account, [fork the code](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) for [Hooligan Hymnal Server](https://github.com/Chattahooligans/hooligan-hymnal-server) and [Hooligan Hymnal App](https://github.com/Chattahooligans/hooligan-hymnal-app). This is your starting point for building the app.
 
 ## Configure the Server
 
@@ -116,11 +116,11 @@ TODO: talk about server
 
 ### Environment Variables
 
-To configure environment variables, read the [server guide](server.md). It is best to do this before deploying the server. 
+To configure environment variables, read the [server guide](server.md). It is best to do this before deploying the server.
 
 ### Deploy the Server
 
-To deploy the server, log into Heroku and create a new app. For testing purposes, a free app is sufficient. After deployment, the $7 paid tier will suffice for production. In the "Deploy" tab connect to your SG's GitHub account and select the Hooligan Hymnal Server that you forked to your account. Make sure you do not enable automatic deploys, as breaking changes may be pushed to the main branch frequently. To deploy the server using the command line, please refer to the [Heroku documentation](https://devcenter.heroku.com/articles/heroku-cli).
+To deploy the server, log into Heroku and create a new app. For testing purposes, a free app is sufficient. After deployment, the \$7 paid tier will suffice for production. In the "Deploy" tab connect to your SG's GitHub account and select the Hooligan Hymnal Server that you forked to your account. Make sure you do not enable automatic deploys, as breaking changes may be pushed to the main branch frequently. To deploy the server using the command line, please refer to the [Heroku documentation](https://devcenter.heroku.com/articles/heroku-cli).
 
 ### Register an account and Log In
 
@@ -133,14 +133,15 @@ You have your accounts created. You have your server set up. Now it's time for t
 If you didn't install VSCode, git, and Node.js/npm earlier, and log into the Expo client on your phone, do that now.
 
 To get the code on your machine and finish preparing your environment:
-* Create a new folder and name it after your GitHub organization. This is where your app and server projects will live.
-* Open VSCode and use the "Open folder..." command to open that folder.
-* Open a Terminal and [clone your fork of the codebase](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository). This may take a few minutes.
-* TODO: git remote add upstream
-* In the terminal, run the command `npm install -g expo-cli` to install the Expo command line interface. This will take a few minutes.
-* After Expo CLI is installed, run the command `expo login` and input your Expo account credentials.
-* In the terminal, run the command `npm install` to download dependency packages. This will take several minutes, but you can continue with the guide while it runs.
-* TODO: Where do the Firebase/google-services.json instruction + backup live?
+
+- Create a new folder and name it after your GitHub organization. This is where your app and server projects will live.
+- Open VSCode and use the "Open folder..." command to open that folder.
+- Open a Terminal and [clone your fork of the codebase](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository). This may take a few minutes.
+- TODO: git remote add upstream
+- In the terminal, run the command `npm install -g expo-cli` to install the Expo command line interface. This will take a few minutes.
+- After Expo CLI is installed, run the command `expo login` and input your Expo account credentials.
+- In the terminal, run the command `npm install` to download dependency packages. This will take several minutes, but you can continue with the guide while it runs.
+- TODO: Where do the Firebase/google-services.json instruction + backup live?
 
 ## Configure the Mobile App
 
@@ -150,21 +151,22 @@ Hooligan Hymnal has been designed such that the appearance can be changed and ce
 
 **THIS SECTION IS THE MOST IMPORTANT OF THEM ALL. IT IS VERY EASY TO MAKE A MISTAKE THAT WILL RUIN YOUR LIFE FOREVER. DON'T FUCK IT UP.**
 
-The app.json file contains information needed to help turn the code into a working application. It's critical to make sure this file is correct *before* you run `expo publish` or `expo build` for the first time.
+The app.json file contains information needed to help turn the code into a working application. It's critical to make sure this file is correct _before_ you run `expo publish` or `expo build` for the first time.
 
 Let's walk through some fields that you should pay special attention to.
 
 In the "expo" section:
-* `owner` is the Expo account name you registered earlier.
-* [once set, never change] `slug` is a unique name for your application on the Expo service. Name it after your app, with dashes instead of spaces.
-* `version` is the version of the application. We'll discuss this more later in the section about building the app.
-* `primaryColor` is an RGB color code. Change it to the main color of your SG's logo.
-* `splash.backgroundColor` is also an RGB color code. Once your application's splash screen is available, set this color to match its background.
-In the "android" section:
-* [once set, never change] `package` is a unique name for your application on Google Play. See the link at the bottom of this section for more information, or ask for guidance on Hooligan Hymnal Slack.
-* `versionCode` is a number that you should increment each time you submit a new build to Google Play. (It's easy to forget this and have to fix it and rebuild.) We'll discuss this more later in the section about building the app.
-In the "ios" section:
-* [once set, never change] `bundleIdentifier` is a unique name for your application on the Apple App Store. It probably matches the value in `android.package`
+
+- `owner` is the Expo account name you registered earlier.
+- [once set, never change] `slug` is a unique name for your application on the Expo service. Name it after your app, with dashes instead of spaces.
+- `version` is the version of the application. We'll discuss this more later in the section about building the app.
+- `primaryColor` is an RGB color code. Change it to the main color of your SG's logo.
+- `splash.backgroundColor` is also an RGB color code. Once your application's splash screen is available, set this color to match its background.
+  In the "android" section:
+- [once set, never change] `package` is a unique name for your application on Google Play. See the link at the bottom of this section for more information, or ask for guidance on Hooligan Hymnal Slack.
+- `versionCode` is a number that you should increment each time you submit a new build to Google Play. (It's easy to forget this and have to fix it and rebuild.) We'll discuss this more later in the section about building the app.
+  In the "ios" section:
+- [once set, never change] `bundleIdentifier` is a unique name for your application on the Apple App Store. It probably matches the value in `android.package`
 
 Additional information can be found at <https://docs.expo.io/workflow/configuration/>
 
@@ -183,14 +185,15 @@ The locales folder at the root of the project contains the static text in the mo
 The project includes `example-en.json` as an English-language starting point. Leave this file alone, as future changes to the schema will modify it, and it will be easy to run a diff and see what changed. The example consists of several sections, and each section contains a `_comment` field describing how the text is used. As noted at the top of the file, each section also contains recommendations for which text is safe to leave alone and which text must be customized for your SG.
 
 To edit the text for your app:
-* Make a copy of `example-en.json` and name it as `{your language code}.json`.
-* If English is not your primary language, translate the text into your preferred language (and please submit a PR back to the project with the example schema in another language!).
-* Edit the text inside the file, paying extra attention to the `_comment` recommendations.
-* Edit `manifest.js` to set the available translations and default locale. This file contains additional instructions.
+
+- Make a copy of `example-en.json` and name it as `{your language code}.json`.
+- If English is not your primary language, translate the text into your preferred language (and please submit a PR back to the project with the example schema in another language!).
+- Edit the text inside the file, paying extra attention to the `_comment` recommendations.
+- Edit `manifest.js` to set the available translations and default locale. This file contains additional instructions.
 
 ## Run and Test the Mobile App
 
-To start testing your mobile app, navigate to your local directory in a command prompt and run the command `npm install`. This will set up the environment and enable you to use the Expo CLI to run a test version of your app. To start a test, use the command `expo start`, which will start a local server and display a QR code for you to scan. Every time you save changes to the codebase, the application will reload on your phone. This also includes detailed log information on what is causing application crashes. We've seen a number of issues while deploying the app already, so any questions you have will be easily answered in the Slack channel. 
+To start testing your mobile app, navigate to your local directory in a command prompt and run the command `npm install`. This will set up the environment and enable you to use the Expo CLI to run a test version of your app. To start a test, use the command `expo start`, which will start a local server and display a QR code for you to scan. Every time you save changes to the codebase, the application will reload on your phone. This also includes detailed log information on what is causing application crashes. We've seen a number of issues while deploying the app already, so any questions you have will be easily answered in the Slack channel.
 
 ## Populate the Database
 
@@ -202,7 +205,7 @@ TODO: Discuss app.json changes for version and android.versionCode
 
 Once you are satisifed with the functionality and look of the app in the Expo test interface, you can build your apps and prepare them for publication using `expo build:ios` and `expo build:android`. This will generate an APK and IPA file to upload to the Google Play and Apple App Stores.
 
-It is reccomended to beta test your app outside of the Expo environment, and both the Google Play and Apple App Stores have provisions for beta testing. It is often easier to have your Android beta testers use the Expo app to test your app. Apple will force you to use TestFlight to beta test the application. 
+It is reccomended to beta test your app outside of the Expo environment, and both the Google Play and Apple App Stores have provisions for beta testing. It is often easier to have your Android beta testers use the Expo app to test your app. Apple will force you to use TestFlight to beta test the application.
 
 ## Publish the Mobile App
 
@@ -212,7 +215,7 @@ TODO instructions (moe is not sure what to add here)
 
 TODO: add link to instructions or flush this out
 
-To publish the app to the Google Play Store, complete the registration for a developer account and prepare your submission. The steps to complete your submission are relatively straightforward and well documented on the Google Play Store's website. An important thing to note is your content rating, which will be different for each app based on your chants. The Google Play review process takes about a day. 
+To publish the app to the Google Play Store, complete the registration for a developer account and prepare your submission. The steps to complete your submission are relatively straightforward and well documented on the Google Play Store's website. An important thing to note is your content rating, which will be different for each app based on your chants. The Google Play review process takes about a day.
 
 ### Publish to Apple App Store
 
@@ -222,7 +225,7 @@ Publishing your app on Apple's App Store is also pretty straghtforward. Use Tran
 
 ## Updating the App
 
-### OTA  ("Over the Air") Updates
+### OTA ("Over the Air") Updates
 
 TODO: Reinforce app.json changes for version only
 

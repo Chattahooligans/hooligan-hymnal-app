@@ -18,6 +18,7 @@ Hooligan Hymnal is an open source project, and your developers may have grander 
 Most files are named for a generic purpose. `/assets/icon-ios.png` is the app icon used on iOS, `/assets/splash.png` is the splash screen displayed on the initial application load, and so on. These files are referenced in the `config.js` file. You can use these same file names without needing to change the config, or you can set your own file names, and easily edit the config file to match. There may (will) be cases where you need to add files that aren't part of the basic set.
 
 The `config.js` file declares a `Skin` that is used throughout the code, and it refers to several other structures, which are outlined in this overly-simplified illustration. (Though Skin is further customizable if our example config doesn't meet the needs of your SG. Just ask in Slack.)
+
 ```
 Skin
 ├── Images
@@ -67,7 +68,7 @@ Hooligan Hymnal uses a number of photos, logos, and custom images. This section 
 
 ## Icons
 
-Default file name(s): `icon-android.png` and  `icon-ios.png`
+Default file name(s): `icon-android.png` and `icon-ios.png`
 
 The iOS launcher icon should be a png file sized to exactly 1024x1024 and fill the entire square, with no transparent pixels.
 The Android launcher supports adaptive icons, but that effort was not spent in the initial deployment of Hooligan Hymnal. We used a 1024x1024px png, balanced to fit in a circle, with a transparent background.

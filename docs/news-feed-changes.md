@@ -1,10 +1,12 @@
 Do this stuff before you upgrade from Hooligan Hymnal 1.6.1 to 1.7
 
 # users collection
+
 add .feedAllowed to your users who will post to the feed
 This isn't checked for yet, but that code change is imminent
 
 # rosters collection
+
 Roster documents have a few new properties. They are optional now, but may be required in the future.
 
 .defaultImage and .defaultThumbnail
@@ -20,7 +22,7 @@ Channels are the "voice" used by an admin to post to the feed. It is required to
 
 {
 
-"_id": SOME_ID,
+"\_id": SOME_ID,
 
 // This appears on every post
 "name":"Northern Guard Supporters (are shit)",
@@ -29,7 +31,7 @@ Channels are the "voice" used by an admin to post to the feed. It is required to
 "defaultLocale":"en",
 
 // a Channel screen, like a Twitter profile screen, is on the way. Put something in here, probably that matches your Twitter bio to start
-"description":"", 
+"description":"",
 
 // Linking to an externally hosted image for now
 "avatarUrl":"https://pbs.twimg.com/profile_images/1145681269268910081/Fz-u2SU4_400x400.jpg",
@@ -49,4 +51,5 @@ Channels are the "voice" used by an admin to post to the feed. It is required to
 }
 
 # seed the feed
+
 Make one post from your SG channel before you advertise to your users, something like "Welcome to The Guardbook," so your home screen isn't empty to start

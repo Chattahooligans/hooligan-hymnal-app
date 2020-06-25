@@ -6,10 +6,10 @@ This guide focuses on the non-coding aspects of deploying the Hooligan Hymnal pl
 
 Before going further, make sure you're aware of the costs involved. At an absolute minimum, you will need:
 
-* $99/year for an Apple developer account to publish to iOS
-* $25 one-time fee to register for Google Play
-* $7/month for Heroku's basic tier (or equivalent hosting)
-* (Varies by state, but ~$50-$500) LLC registration fee for your SG
+- \$99/year for an Apple developer account to publish to iOS
+- \$25 one-time fee to register for Google Play
+- \$7/month for Heroku's basic tier (or equivalent hosting)
+- (Varies by state, but ~$50-$500) LLC registration fee for your SG
 
 You will also need access to a Mac to publish your iOS builds, since only their developer tools can handle the upload. Your SG may already have access to some of these things before you've started the project.
 
@@ -35,11 +35,11 @@ Apple will not recognize your LLC without one. This process takes longer than it
 
 ## Register with the Play and App stores
 
-The Play store goes by relatively quickly once you pay your $25. Apple does more verification, which again will take more time.
+The Play store goes by relatively quickly once you pay your \$25. Apple does more verification, which again will take more time.
 
 ## Designate at least one team member as the Apple uploader
 
-This person only needs to have Transporter installed on a Mac. They do not need to be a developer. They don't need to compile your code. If you have a developer with a Mac, have them do this. If not, you will need to send your Mac uploader the result of `expo build:ios` when you're publishing a new .ipa file, then have them upload it via Transporter to your project. [This guide](https://levelup.gitconnected.com/react-native-how-to-publish-an-expo-app-to-testflight-debug-common-errors-90e427b4b5ea) is very helpful when learning to upload to App Store Connect, including generation of an app-specific password. 
+This person only needs to have Transporter installed on a Mac. They do not need to be a developer. They don't need to compile your code. If you have a developer with a Mac, have them do this. If not, you will need to send your Mac uploader the result of `expo build:ios` when you're publishing a new .ipa file, then have them upload it via Transporter to your project. [This guide](https://levelup.gitconnected.com/react-native-how-to-publish-an-expo-app-to-testflight-debug-common-errors-90e427b4b5ea) is very helpful when learning to upload to App Store Connect, including generation of an app-specific password.
 
 ## Gather beta testers
 
@@ -47,7 +47,7 @@ For Android, you only need to have people download the Expo app and then point t
 
 ## Deploy servers
 
-You'll need to deploy your server and database early on in order to test. We suggest Heroku and MongoDB Atlas, respectively. As of 2019, the $7/month tier for Heroku is enough to run the hymnal-server project. Our caching layer allows MongoDB Atlas's free tier to function without issue; typical deployments will only use small amounts of data, and the server will only consult the database once every 10 minutes for each type of data even under load. (Heroku's free tier will shut down when inactive and cause dropped requests; it is appropriate for development testing, but not deployment).
+You'll need to deploy your server and database early on in order to test. We suggest Heroku and MongoDB Atlas, respectively. As of 2019, the \$7/month tier for Heroku is enough to run the hymnal-server project. Our caching layer allows MongoDB Atlas's free tier to function without issue; typical deployments will only use small amounts of data, and the server will only consult the database once every 10 minutes for each type of data even under load. (Heroku's free tier will shut down when inactive and cause dropped requests; it is appropriate for development testing, but not deployment).
 
 ## Deploy to Play and App stores
 
@@ -81,4 +81,4 @@ Apple in particular sends most emails to both the org account and any individual
 
 ### Communicate any warnings/errors you get to the Hooligan Hymnal team
 
-If you come against a deployment issue that we haven't noted here, it's very important for us to know about it. This can range from additional gotchas (having your screenshots rejected for appearance issues) to code issues (Expo regularly releases new SDK versions, and using an old SDK might prevent an update or new app from being published). 
+If you come against a deployment issue that we haven't noted here, it's very important for us to know about it. This can range from additional gotchas (having your screenshots rejected for appearance issues) to code issues (Expo regularly releases new SDK versions, and using an old SDK might prevent an update or new app from being published).
