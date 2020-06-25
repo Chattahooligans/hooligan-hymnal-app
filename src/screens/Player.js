@@ -27,22 +27,22 @@ import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
 import { FontSizes, Icons, Layout } from '../constants';
 import { RegularText, BoldText, MediumText } from '../components/StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import SongCard from '../components/SongCard';
-import { Skin, DefaultColors, Palette, Settings } from '../config/Settings';
-import i18n from "../../i18n";
+import { Skin, DefaultColors, Settings } from '../../config';
+import i18n from '../i18n';
 
 class Player extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
-
   state = {
     scrollY: new Animated.Value(0),
     playerSongs: []
   };
 
   componentDidMount() {
+    this.props.navigation.setOptions({
+      header: null
+    })
+
     this.setData();
   }
 
@@ -58,7 +58,7 @@ class Player extends React.Component {
   }
 
   setData = () => {
-    let player = this.props.navigation.state.params.player;
+    let player = this.props.route.params.player;
     let playerSongs = [];
     playerSongs = this.props.globalData.state.songs.filter(song => song.playerId === player._id)
 
@@ -66,7 +66,7 @@ class Player extends React.Component {
   }
 
   render() {
-    let player = this.props.navigation.state.params.player;
+    let player = this.props.route.params.player;
     // console.log('player details window for ', player);
 
     let playerSocialDisplay;
@@ -87,8 +87,8 @@ class Player extends React.Component {
             Linking.openURL('http://twitter.com/' + player.twitter);
           }}
         >
-          <Ionicons
-            name={'logo-twitter'}
+          <MaterialCommunityIcons
+            name={'twitter'}
             size={30}
             style={{
               color: 'white',
@@ -111,8 +111,8 @@ class Player extends React.Component {
             Linking.openURL('http://instagram.com/' + player.instagram);
           }}
         >
-          <Ionicons
-            name={'logo-instagram'}
+          <MaterialCommunityIcons
+            name={'instagram'}
             size={30}
             style={{
               color: 'white',
@@ -246,15 +246,8 @@ class Player extends React.Component {
             useNativeDriver
             delay={Platform.OS === 'ios' ? 50 : 150}
             duration={500}
-            style={styles.content}
-          >
+            style={styles.content}>
             <MediumText style={styles.sectionHeader}>{i18n.t('screens.player.bio')}</MediumText>
-            <ReadMore
-              numberOfLines={showPlayerSongs ? 3 : 9999}
-              renderTruncatedFooter={this._renderTruncatedFooter}
-              renderRevealedFooter={this._renderRevealedFooter}
-              onReady={this._handleTextReady}
-            >
               <ParsedText
                 parse={
                   [
@@ -264,13 +257,9 @@ class Player extends React.Component {
                     { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
                   ]
                 }
-                style={styles.bodyText}
-                childrenProps
-              >
+                style={styles.bodyText}>
                 {i18n.getLocalizedBio(player.bio)}
               </ParsedText>
-              <RegularText style={styles.bodyText}></RegularText>
-            </ReadMore>
             {showPlayerSongs && playerSongDisplay}
           </AnimatableView>
         </AnimatedScrollView>
@@ -305,38 +294,13 @@ class Player extends React.Component {
   _renderSongCard = ({ item }) => {
     return (
       <SongCard
+        navigation={this.props.navigation}
         headerTitle={i18n.t('screens.player.playersongheader')}
         navigationToScreen="SingleSong"
         key={item._id}
         song={item}
         style={{ borderBottomWidth: 1, borderColor: '#eee' }}
       />
-    );
-  };
-
-  _renderTruncatedFooter = handlePress => {
-    return (
-      <TouchableOpacity
-        hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
-        onPress={handlePress}
-      >
-        <MediumText style={{ color: Palette.Navy, marginTop: 5 }}>
-          {i18n.t('screens.player.readmore')}
-        </MediumText>
-      </TouchableOpacity>
-    );
-  };
-
-  _renderRevealedFooter = handlePress => {
-    return (
-      <TouchableOpacity
-        hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
-        onPress={handlePress}
-      >
-        <MediumText style={{ color: Palette.Navy, marginTop: 5 }}>
-          {i18n.t('screens.player.showless')}
-        </MediumText>
-      </TouchableOpacity>
     );
   };
 }

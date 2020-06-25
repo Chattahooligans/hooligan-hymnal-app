@@ -1,25 +1,18 @@
-import React from 'react';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import { Platform, View, StatusBar, YellowBox } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Provider } from 'unstated';
 import { loadSavedTalksAsync } from './src/utils/storage';
-import Navigation from './src/Navigation';
-import Home from './src/screens/Home';
-import imagesArray from './assets';
+import { NavigationContainer } from '@react-navigation/native';
+import RootDrawerNavigation from './src/navigation/RootDrawerNavigation';
+import { Fonts, Images, Skin } from './config';
 
 YellowBox.ignoreWarnings(['Warning: bind()']);
-
-const theme = {
-  font: {
-    primary: 'open-sans-bold'
-  },
-  colors: {
-    main: '#A3D8F7'
-  }
-};
 
 class App extends React.Component {
   state = {
@@ -35,21 +28,21 @@ class App extends React.Component {
     return loadSavedTalksAsync();
   };
 
-  /*
-  'open-sans': require('./assets/OpenSans-Regular.ttf'),
-  'open-sans-semibold': require('./assets/OpenSans-SemiBold.ttf'),
-  'open-sans-bold': require('./assets/OpenSans-Bold.ttf'),
-  'open-sans-italic': require('./assets/OpenSans-Italic.ttf'),
-  */
   _loadAssetsAsync = async () => {
+    let imagesArray = [];
+    Object.values(Images).forEach((value) => {
+      imagesArray.push(value);
+    });
+
+    let fonts = {};
+    Object.keys(Fonts).forEach((key) => {
+      fonts[Fonts[key].family] = Fonts[key].file
+    });
+
     return Promise.all([
       Font.loadAsync({
-        'roboto-light': require('./assets/Roboto-Light.ttf'),
-        'roboto': require('./assets/Roboto-Regular.ttf'),
-        'roboto-medium': require('./assets/Roboto-Medium.ttf'),
-        'roboto-bold': require('./assets/Roboto-Bold.ttf'),
-        'roboto-italic': require('./assets/Roboto-Italic.ttf'),
-        ...Ionicons.font
+        ...fonts,
+        ...MaterialCommunityIcons.font
       }),
       Asset.loadAsync(imagesArray),
       Asset.fromModule(
@@ -74,10 +67,15 @@ class App extends React.Component {
 
     return (
       <Provider>
-        <View style={{ flex: 1 }}>
-          <Navigation />
-          <StatusBar barStyle="light-content" />
-        </View>
+        <SafeAreaProvider>
+          <NavigationContainer>
+            <RootDrawerNavigation />
+            <StatusBar
+              backgroundColor={Skin.StatusBar_BackgroundColor}
+              barStyle={Skin.StatusBar_BarStyle}
+              translucent={false} />
+          </NavigationContainer>
+        </SafeAreaProvider>
       </Provider>
     );
   }

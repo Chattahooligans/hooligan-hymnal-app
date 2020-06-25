@@ -11,12 +11,12 @@ import {
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette } from '../../config';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 class SongRow extends React.Component {
     render() {
@@ -62,16 +62,13 @@ class SongRow extends React.Component {
 }
 
 class PostAttachmentSelectSong extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
-    
     state = {
         search: "",
         songs: []
     }
 
     componentDidMount() {
+        this.props.navigation.setOptions({ header: null })
         this.setData();
     }
 
@@ -102,8 +99,8 @@ class PostAttachmentSelectSong extends React.Component {
     }
 
     _handlePressSong = (song) => {
-        if (this.props.screenProps.onAttachmentComplete)
-            this.props.screenProps.onAttachmentComplete({ attachmentType: "song", relatedId: song._id });
+        if (this.props.route.params.onAttachmentComplete)
+            this.props.route.params.onAttachmentComplete({ attachmentType: "song", relatedId: song._id });
     }
 
     render() {
@@ -125,8 +122,8 @@ class PostAttachmentSelectSong extends React.Component {
                         onChangeText={this._onSearchChange} />
                     <TouchableOpacity
                         onPress={() => this.setState({ search: "" })}>
-                        <Ionicons
-                            name={"md-close"}
+                        <MaterialCommunityIcons
+                            name={"close"}
                             size={23}
                             style={{
                                 color: DefaultColors.ButtonBackground,
@@ -152,22 +149,23 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 10,
         padding: 10,
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         borderBottomWidth: 1,
         borderColor: '#eee',
         flexDirection: i18n.getFlexDirection()
     },
     title: {
         fontSize: 18,
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        color: DefaultColors.Primary,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 4,
     },
     reference: {
         fontSize: 14,
         fontStyle: 'italic',
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        fontFamily: Skin.Font_Italic,
+        color: DefaultColors.Primary,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 12
     },
     lyrics: {
@@ -175,8 +173,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
         flex: 1,
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        color: DefaultColors.Primary,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 12,
         paddingTop: 3,
         textAlign: i18n.getRTLTextAlign(),

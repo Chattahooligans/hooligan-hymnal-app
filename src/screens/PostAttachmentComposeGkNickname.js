@@ -11,10 +11,10 @@ import {
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette } from '../../config';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 class ColorRow extends React.Component {
     render() {
@@ -34,10 +34,6 @@ class ColorRow extends React.Component {
 }
 
 class PostAttachmentComposeGkNickname extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
-
     state = {
         colorData: [],
         nickname: "Nickname",
@@ -45,6 +41,10 @@ class PostAttachmentComposeGkNickname extends React.Component {
     }
 
     componentDidMount() {
+        this.props.navigation.setOptions({
+            header: null
+        })
+
         this.setData();
     }
 
@@ -94,10 +94,10 @@ class PostAttachmentComposeGkNickname extends React.Component {
                     buttonStyle={{ backgroundColor: this.state.color, marginTop: 0, paddingTop: 2 }}
                     label={this.state.nickname}
                     tintColor="white"
-                    iconName="md-hand"
+                    iconName="hand"
                     onPress={() => {
-                        if (this.props.screenProps.onAttachmentComplete)
-                            this.props.screenProps.onAttachmentComplete(
+                        if (this.props.route.params.onAttachmentComplete)
+                            this.props.route.params.onAttachmentComplete(
                                 {
                                     attachmentType: "gknickname",
                                     data: {
@@ -112,10 +112,10 @@ class PostAttachmentComposeGkNickname extends React.Component {
                     buttonStyle={{ backgroundColor: this.state.color }}
                     label={this.state.nickname}
                     tintColor="black"
-                    iconName="md-hand"
+                    iconName="hand"
                     onPress={() => {
-                        if (this.props.screenProps.onAttachmentComplete)
-                            this.props.screenProps.onAttachmentComplete(
+                        if (this.props.route.params.onAttachmentComplete)
+                            this.props.route.params.onAttachmentComplete(
                                 {
                                     attachmentType: "gknickname",
                                     data: {

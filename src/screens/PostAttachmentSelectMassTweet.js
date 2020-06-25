@@ -9,12 +9,12 @@ import {
     View
 } from 'react-native';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette } from '../../config';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 class RosterRow extends React.Component {
     render() {
@@ -54,17 +54,15 @@ class RosterRow extends React.Component {
     };
 }
 
-class PostAttachmentSelectMassTweet extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
-    
+class PostAttachmentSelectMassTweet extends React.Component {    
     state = {
         search: "",
         rosters: []
     }
 
     componentDidMount() {
+        this.props.navigation.setOptions({header: null})
+        
         this.setData();
     }
 
@@ -100,8 +98,8 @@ class PostAttachmentSelectMassTweet extends React.Component {
     }
 
     _handlePressRoster = (roster) => {
-        if (this.props.screenProps.onAttachmentComplete)
-            this.props.screenProps.onAttachmentComplete({ attachmentType: "masstweet", data: { rosterId: roster._id } });
+        if (this.props.route.params.onAttachmentComplete)
+            this.props.route.params.onAttachmentComplete({ attachmentType: "masstweet", data: { rosterId: roster._id } });
     }
 
     render() {
@@ -123,8 +121,8 @@ class PostAttachmentSelectMassTweet extends React.Component {
                         onChangeText={this._onSearchChange} />
                     <TouchableOpacity
                         onPress={() => this.setState({ search: "" })}>
-                        <Ionicons
-                            name={"md-close"}
+                        <MaterialCommunityIcons
+                            name={"close"}
                             size={23}
                             style={{
                                 color: DefaultColors.ButtonBackground,
@@ -149,7 +147,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 10,
         padding: 10,
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         borderBottomWidth: 1,
         borderColor: '#eee',
         flexDirection: i18n.getFlexDirection()
@@ -160,8 +158,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        color: DefaultColors.Primary,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 4,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
@@ -171,8 +169,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
         flex: 1,
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        color: DefaultColors.Primary,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 12,
         paddingTop: 3,
         textAlign: i18n.getRTLTextAlign(),

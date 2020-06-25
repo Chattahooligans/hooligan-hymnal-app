@@ -2,8 +2,8 @@ import React from 'react';
 import { Animated, Platform, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 import { Layout } from '../constants';
-import { Skin, DefaultColors } from '../config/Settings';
-import i18n from '../../i18n';
+import { Skin, DefaultColors } from '../../config';
+import i18n from '../i18n';
 
 export default class NavigationBar extends React.Component {
   render() {
@@ -21,7 +21,7 @@ export default class NavigationBar extends React.Component {
           style={[
             StyleSheet.absoluteFill,
             {
-              backgroundColor: DefaultColors.NavigationBarBackground,
+              backgroundColor: DefaultColors.HeaderBackground,
               opacity: this.props.animatedBackgroundOpacity,
             },
           ]}>
@@ -62,32 +62,29 @@ export default class NavigationBar extends React.Component {
 }
 
 // Didn't want to investigate why I needed to offset this a bit, surely there is a good reason
-const PADDING_TOP =
-  Platform.OS === 'ios'
-    ? Constants.statusBarHeight
-    : Constants.statusBarHeight + 10;
+const MARGIN_TOP = Platform.OS === 'ios' ? Constants.statusBarHeight : 4;
 
 const styles = StyleSheet.create({
   navigationBarContainer: {
     backgroundColor: 'transparent',
-    height: Layout.headerHeight + Constants.statusBarHeight,
+    height: Platform.OS === 'ios' ? Layout.headerHeight + Constants.statusBarHeight : Layout.headerHeight,
     position: 'absolute',
-    paddingTop: PADDING_TOP,
+    paddingTop: MARGIN_TOP,
     top: 0,
     left: 0,
     right: 0,
   },
   navigationBarTitleContainer: {
-    marginTop: Constants.statusBarHeight+4
+    marginVertical: MARGIN_TOP,
   },
   navigationBarLeftButton: {
-    marginTop: 4,
+    marginTop: Platform.OS === 'ios' ? 4 : 10,
     width: 80,
     alignItems: 'flex-start',
     justifyContent: 'center'
   },
   navigationBarRightButton: {
-    top: PADDING_TOP,
+    top: MARGIN_TOP,
     width: 80,
     right: Platform.OS === 'android' ? 8 : 0,
     bottom: 0,

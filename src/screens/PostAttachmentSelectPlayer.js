@@ -10,12 +10,12 @@ import {
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette } from '../../config';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 class PlayerRow extends React.Component {
     render() {
@@ -66,16 +66,13 @@ class PlayerRow extends React.Component {
 }
 
 class PostAttachmentSelectPlayer extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
-
     state = {
         search: "",
         players: []
     }
 
     componentDidMount() {
+        this.props.navigation.setOptions({header: null})
         this.setData();
     }
 
@@ -106,8 +103,8 @@ class PostAttachmentSelectPlayer extends React.Component {
     }
 
     _handlePressPlayer = (player) => {
-        if (this.props.screenProps.onAttachmentComplete)
-            this.props.screenProps.onAttachmentComplete({ attachmentType: "player", relatedId: player._id });
+        if (this.props.route.params.onAttachmentComplete)
+            this.props.route.params.onAttachmentComplete({ attachmentType: "player", relatedId: player._id });
     }
 
     render() {
@@ -129,8 +126,8 @@ class PostAttachmentSelectPlayer extends React.Component {
                         onChangeText={this._onSearchChange} />
                     <TouchableOpacity
                         onPress={() => this.setState({ search: "" })}>
-                        <Ionicons
-                            name={"md-close"}
+                        <MaterialCommunityIcons
+                            name={"close"}
                             size={23}
                             style={{
                                 color: DefaultColors.ButtonBackground,
@@ -156,7 +153,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 10,
         padding: 10,
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         borderBottomWidth: 1,
         borderColor: '#eee',
         flexDirection: i18n.getFlexDirection()

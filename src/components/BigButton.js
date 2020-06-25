@@ -7,10 +7,10 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MediumText } from './StyledText';
 import { FontSizes } from '../constants';
-import { DefaultColors } from '../config/Settings';
+import { DefaultColors } from '../../config';
 
 export class BigButton extends React.Component {
     render() {
@@ -32,7 +32,7 @@ export class BigButton extends React.Component {
                     onPress={this.props.onPress}>
                     <View style={[styles.container, this.props.buttonStyle]}>
                         {(this.props.iconName && iconPosition == "left") &&
-                            <Ionicons
+                            <MaterialCommunityIcons
                                 name={this.props.iconName}
                                 size={23}
                                 style={[styles.iconLeft, { color: tintColor }]} />
@@ -41,7 +41,7 @@ export class BigButton extends React.Component {
                             {this.props.label}
                         </MediumText>
                         {(this.props.iconName && iconPosition == "right") &&
-                            <Ionicons
+                            <MaterialCommunityIcons
                                 name={this.props.iconName}
                                 size={23}
                                 style={[styles.iconRight, { color: tintColor }]} />
@@ -56,7 +56,7 @@ export class BigButton extends React.Component {
                 onPress={this.props.onPress}>
                 <View style={[styles.container, this.props.buttonStyle]}>
                     {(this.props.iconName && iconPosition == "left") &&
-                        <Ionicons
+                        <MaterialCommunityIcons
                             name={this.props.iconName}
                             size={23}
                             style={[styles.iconLeft, { color: tintColor }]} />
@@ -65,7 +65,7 @@ export class BigButton extends React.Component {
                         {this.props.label}
                     </MediumText>
                     {(this.props.iconName && iconPosition == "right") &&
-                        <Ionicons
+                        <MaterialCommunityIcons
                             name={this.props.iconName}
                             size={23}
                             style={[styles.iconRight, { color: tintColor }]} />

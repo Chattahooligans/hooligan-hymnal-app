@@ -11,10 +11,10 @@ import {
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
 import { parsePatterns, parsedStyles, renderBoldItalic } from '../components/ParsedTextHelper';
-import { Ionicons } from '@expo/vector-icons';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Skin, DefaultColors, Palette } from '../../config';
 import containerStyle from './PostAttachmentContainerStyle';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class PostAttachmentSong extends React.Component {
     render() {
@@ -31,8 +31,8 @@ export default class PostAttachmentSong extends React.Component {
                     style={{ flex: 1 }}>
                     <View style={{ flexDirection: i18n.getFlexDirection() }}>
                         <View style={styles.imageContainer}>
-                            <Ionicons
-                                name={'md-musical-notes'}
+                            <MaterialCommunityIcons
+                                name={'music'}
                                 size={50}
                                 style={{
                                     color: Skin.Home_SocialButtons,
@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        color: DefaultColors.ColorText,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 4,
     },
     lyrics: {
@@ -85,8 +85,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
         flex: 1,
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        color: DefaultColors.ColorText,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 12,
         paddingTop: 3,
         textAlign: i18n.getRTLTextAlign(),

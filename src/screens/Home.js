@@ -14,10 +14,8 @@ import {
 } from 'react-native';
 import { Asset, LinearGradient, Notifications, WebBrowser, Video } from 'expo';
 import { BigButton } from '../components/BigButton';
-import { NavigationActions } from 'react-navigation';
 import { View as AnimatableView } from 'react-native-animatable';
-import { Ionicons } from '@expo/vector-icons';
-import { withNavigation } from 'react-navigation';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -26,6 +24,7 @@ import { getPost, engageNotification } from '../services/feedService';
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
 import MenuButton from '../components/MenuButton';
+import HomeHeroImage from '../components/HomeHeroImage';
 import HomeVideoPanel from '../components/HomeVideoPanel';
 import SocialButtonPanel from '../components/SocialButtonPanel';
 import HomeBannersPanel from '../components/HomeBannersPanel';
@@ -41,11 +40,11 @@ import {
   DefaultColors,
   Settings,
   Skin,
-  banners,
-  socialButtons,
-  WEBSITE_URL,
-} from '../config/Settings';
-import i18n from "../../i18n";
+  Banners,
+  SocialButtons,
+  Urls,
+} from '../../config';
+import i18n from '../i18n';
 import { watchPositionAsync } from 'expo-location';
 
 class Home extends React.Component {
@@ -55,12 +54,11 @@ class Home extends React.Component {
     loadingMore: false
   };
 
-  static navigationOptions = {
-    drawerLabel: i18n.t('navigation.home'),
-    header: null
-  };
-
   async componentDidMount() {
+    this.props.navigation.setOptions({
+      header: null
+    })
+
     if (this.props.globalData.state.pushToken == null)
       await this.props.globalData.registerForPushNotificationsAsync();
 
@@ -152,6 +150,9 @@ class Home extends React.Component {
       case "prideraiser":
         heroComponent = <PrideraiserCampaignSummary key={"prideraiserCampaignSummary"} />
         break;
+      case "image":
+        heroComponent = <HomeHeroImage />
+        break;
       default:
         heroComponent = null
     }
@@ -209,7 +210,7 @@ class Home extends React.Component {
 
           {heroComponent}
 
-          <DeferredHomeContent globalData={this.props.globalData} />
+          <DeferredHomeContent globalData={this.props.globalData} navigation={this.props.navigation} />
           <View style={{ flex: 1, flexDirection: "row", justifyContent: "center", paddingVertical: 10 }}>
             {this.state.loadingMore &&
               <ActivityIndicator
@@ -248,8 +249,8 @@ class StaticHomeContent_Buttons extends React.Component {
     let secondPart = findTheMenu.substring(findTheMenu.indexOf('%menuicon%') + '%menuicon%'.length)
     let findTheMenuText = <MediumText style={{ color: Skin.Home_FindTheMenuLabel, fontSize: FontSizes.bodyLarge, marginTop: 5 }}>
       {firstPart}
-      <Ionicons
-        name="md-menu"
+      <MaterialCommunityIcons
+        name="menu"
         size={FontSizes.bodyLarge}
         style={{ backgroundColor: 'transparent', marginRight: 5 }} />
       {secondPart}
@@ -259,11 +260,11 @@ class StaticHomeContent_Buttons extends React.Component {
       <View style={styles.staticButtonsContainer}>
         <BigButton
           buttonStyle={{ backgroundColor: Skin.Home_BigButtonsBackground }} tintColor={Skin.Home_BigButtonsLabel}
-          label={i18n.t('screens.home.songbook')} iconName="md-book"
+          label={i18n.t('screens.home.songbook')} iconName={Skin.Icon_Songbook}
           onPress={this._handlePressSongbook} />
         <BigButton
           buttonStyle={{ backgroundColor: Skin.Home_BigButtonsBackground }} tintColor={Skin.Home_BigButtonsLabel}
-          label={i18n.t('screens.home.roster')} iconName="md-people"
+          label={i18n.t('screens.home.roster')} iconName={Skin.Icon_Roster}
           onPress={this._handlePressRoster} />
         <View style={{ marginHorizontal: 15, flexDirection: i18n.getFlexDirection() }}>
           {findTheMenuText}
@@ -279,9 +280,9 @@ class StaticHomeContent_Links extends React.Component {
       <View style={styles.staticLinksContainer}>
         <TouchableOpacity style={{ flexDirection: i18n.getFlexDirection(), marginHorizontal: 15, marginBottom: 10 }} onPress={() => { Linking.openURL(WEBSITE_URL) }}>
           <MediumText style={{ color: Skin.Home_SocialButtons }}>{i18n.t('screens.home.visit')} </MediumText>
-          <UnderlineText style={{ color: Skin.Home_Website }}>{WEBSITE_URL}</UnderlineText>
+          <UnderlineText style={{ color: Skin.Home_Website }}>{Urls.Website}</UnderlineText>
         </TouchableOpacity>
-        <SocialButtonPanel style={{ paddingHorizontal: 15 }} config={socialButtons} />
+        <SocialButtonPanel style={{ paddingHorizontal: 15 }} config={SocialButtons} />
       </View>
     )
   }
@@ -298,7 +299,6 @@ class StaticHomeContent extends React.Component {
   }
 }
 
-@withNavigation
 class DeferredHomeContent extends React.Component {
   state = {
     ready: Platform.OS === 'android' ? false : true
@@ -329,21 +329,12 @@ class DeferredHomeContent extends React.Component {
     // for some reason this doesn't blow up when scrollItems.length is small or zero
     let buttonsIndex = 2
     let linksIndex = 4
-    scrollItems.splice(0, 0, <HomeBannersPanel key={"homeBanners"} config={banners} />)
+    scrollItems.splice(0, 0, <HomeBannersPanel key={"homeBanners"} config={Banners} />)
     scrollItems.splice(buttonsIndex, 0, <StaticHomeContent_Buttons key={"homeButtons"} navigation={this.props.navigation} />)
     scrollItems.splice(linksIndex, 0, <StaticHomeContent_Links key={"homeLinks"} />)
 
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
-        {/*
-        <HomeBannersPanel config={banners} />
-        <UpNext
-          songs={this.props.globalData.state.songs}
-          songbook={this.props.globalData.state.songbook}
-          style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
-        />
-        <StaticHomeContent />
-        */}
         {scrollItems}
       </AnimatableView>
     );
@@ -358,7 +349,7 @@ const OverscrollView = () => (
       height: 400,
       left: 0,
       right: 0,
-      backgroundColor: Palette.Navy
+      backgroundColor: DefaultColors.HeaderBackground
     }}
   />
 );
@@ -370,32 +361,20 @@ const styles = StyleSheet.create({
     width: 100 + '%',
     marginTop: 5
   },
-  headerVideoLayer: {
-    ...StyleSheet.absoluteFillObject
-  },
-  headerVideoOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: Palette.Navy,
-    opacity: 0.8
-  },
-  headerText: {
-    color: DefaultColors.HeaderText,
-    fontSize: 14
-  },
   staticButtonsContainer: {
-    backgroundColor: Palette.White,
-    marginTop: Skin.Home_PostMarginVertical,
+    backgroundColor: DefaultColors.Background,
+    marginBottom: Skin.Home_PostMarginVertical,
     paddingBottom: 5,
-    marginHorizontal: 5,
+    marginHorizontal: Skin.Post_ContainerMarginHorizontal,
     borderWidth: 1,
     borderBottomWidth: 3,
     borderColor: "#eee"
   },
   staticLinksContainer: {
-    backgroundColor: Palette.White,
-    marginTop: Skin.Home_PostMarginVertical,
+    backgroundColor: DefaultColors.Background,
+    marginBottom: Skin.Home_PostMarginVertical,
     paddingVertical: 5,
-    marginHorizontal: 5,
+    marginHorizontal: Skin.Post_ContainerMarginHorizontal,
     borderWidth: 1,
     borderBottomWidth: 3,
     borderColor: "#eee"

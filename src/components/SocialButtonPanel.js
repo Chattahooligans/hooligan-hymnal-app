@@ -6,10 +6,10 @@ import {
     StyleSheet,
     View
   } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MediumText } from '../components/StyledText';
-import { DefaultColors, Skin } from '../config/Settings';
-import i18n from '../../i18n';
+import { DefaultColors, Skin } from '../../config';
+import i18n from '../i18n';
 
 export default class SocialButtonPanel extends React.Component {
     render() {
@@ -21,7 +21,7 @@ export default class SocialButtonPanel extends React.Component {
                 if (item.icon && item.url) {
                     buttons.push(
                         <TouchableOpacity key={item.url} onPress={() => { Linking.openURL(item.url) }}>
-                            <Ionicons
+                            <MaterialCommunityIcons
                                 name={item.icon}
                                 size={30}
                                 style={{

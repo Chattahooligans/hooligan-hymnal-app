@@ -5,7 +5,7 @@ import {
     StyleSheet,
     View
 } from 'react-native';
-import { DefaultColors, Skin } from '../config/Settings';
+import { DefaultColors, Skin } from '../../config';
 import { BoldText } from './StyledText';
 
 export class ModalLoader extends React.Component {

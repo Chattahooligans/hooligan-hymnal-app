@@ -5,8 +5,8 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { DefaultColors } from '../config/Settings';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { DefaultColors } from '../../config';
 import { RegularText } from './StyledText';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import withUnstated from '@airship/with-unstated';
@@ -16,7 +16,7 @@ import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentPrideraiserMatch from './PostAttachmentPrideraiserMatch';
 import PostAttachmentSong from './PostAttachmentSong';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 class PostCreateAttachmentWrapper extends React.Component {
     render() {
@@ -78,8 +78,8 @@ class PostCreateAttachmentWrapper extends React.Component {
                         if (this.props.onPressDelete)
                             this.props.onPressDelete(this.props.attachment)
                     }}>
-                    <Ionicons
-                        name="md-close"
+                    <MaterialCommunityIcons
+                        name="close"
                         size={25}
                         style={{ color: DefaultColors.Primary, backgroundColor: 'transparent' }}
                     />

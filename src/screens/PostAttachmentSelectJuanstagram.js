@@ -7,16 +7,14 @@ import {
 } from 'react-native';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 import juanstagramPosts from '../data/juanstagram';
 
 export default class PostAttachmentSelectJuanstagram extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
-
     render() {
+        this.props.navigation.setOptions({header: null})
+
         let juanstagramButtons = [];
         console.log(juanstagramPosts);
         for (const key in juanstagramPosts) {
@@ -28,8 +26,8 @@ export default class PostAttachmentSelectJuanstagram extends React.Component {
                     label={key}
                     inModal={true}
                     onPress={() => {
-                        if (this.props.screenProps.onAttachmentComplete)
-                            this.props.screenProps.onAttachmentComplete(
+                        if (this.props.route.params.onAttachmentComplete)
+                            this.props.route.params.onAttachmentComplete(
                                 {
                                     attachmentType: "juanstagram",
                                     data: {

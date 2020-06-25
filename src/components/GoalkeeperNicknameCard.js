@@ -5,9 +5,9 @@ import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
 import { BoldText, RegularText, MediumText } from './StyledText';
 import { Colors, FontSizes } from '../constants';
-import { Ionicons } from '@expo/vector-icons';
-import { Skin, DefaultColors } from '../config/Settings';
-import i18n from "../../i18n"
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Skin, DefaultColors } from '../../config';
+import i18n from '../i18n'
 
 @withNavigation
 export default class GoalkeeperNicknameCard extends React.Component {
@@ -22,8 +22,8 @@ export default class GoalkeeperNicknameCard extends React.Component {
       <View style={{flexDirection: i18n.getFlexDirection(), alignItems: 'center', 
         backgroundColor: goalkeeperNickname.backgroundColor,
         paddingVertical: 5, paddingHorizontal: 10}}>
-        <Ionicons
-              name="md-hand"
+        <MaterialCommunityIcons
+              name="hand"
               size={23}
               style={{
                 color: goalkeeperNickname.textColor,

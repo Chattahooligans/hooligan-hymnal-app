@@ -3,7 +3,7 @@
         "about": {
             "title": "Sobre",
             "appTitle": "Chattahooligan Hymnal",
-            "why": "Os Hinos dos Chattahooligans foram criados para ajudar a você suportar o Chattanooga FC.",
+            "description": "Os Hinos dos Chattahooligans foram criados para ajudar a você suportar o Chattanooga FC.",
             "feedback": "Envie seus comentarios para _@chattahooligan_ ou _@hooliganhymnal_ no Twitter, ou para o email thechattahooligans@gmail.com",
             "creditsheading": "Creditos",
             "credits": [
@@ -14,17 +14,17 @@
                 "- Linguagem de computador ocasionalmente obtida do código aberto @nodevember conference aplicativo de cronogramas"
             ],
             "debug": "Debug",
-            "contribute": "Interessado em contribuir? Se você e capaz de escrever código, conteúdo, ou design, ou quer ajudar de outra maneira, nós gostaríamos de conectar com você. Por favor entre em contato com _@chattahooligan_ ou _@hooliganhymnal_ no Twitter, ou mande email para thechattahooligans@gmail.com"
+            "hymnalplug": "Interessado em contribuir? Se você e capaz de escrever código, conteúdo, ou design, ou quer ajudar de outra maneira, nós gostaríamos de conectar com você. Por favor entre em contato com _@chattahooligan_ ou _@hooliganhymnal_ no Twitter, ou mande email para thechattahooligans@gmail.com"
         },
-        "capohome": {
+        "adminhome": {
             "title": "Menu",
             "logout": "Logout"
         },
-        "capologin": {
+        "adminlogin": {
             "title": "Menu",
             "username": "Username/Email",
             "password": "Password",
-            "unlock": "Unlock"
+            "login": "Log In"
         },
         "postattach": {
             "attachmenttypes": "Attachment Types",
@@ -40,7 +40,7 @@
             "instructions2": "2. Escolha uma cor, qualquer cor",
             "instructions3": "3. Qual é mais fácil de ler?"
         },
-        "postattchmentcomposesong": {
+        "postattachmentcomposesong": {
             "composesong": "Compor Hino",
             "title": "Titulo",
             "lyrics": "Letra",
@@ -70,19 +70,11 @@
             "submit": "Submit Post",
             "schedule": "Schedule Post"
         },
-        "events": {
-            "title": "Eventos",
-            "fallback": "Pagina de eventos abre no navegador de internet"
-        },
         "home": {
             "findthemenu": "Encontre mais opcoes no menu %menuicon% na esquerda, no topo da pagina",
             "visit": "Visite:",
             "songbook": "Repertorio",
             "roster": "Elenco"
-        },
-        "instrumentation": {
-            "title": "Melodia",
-            "fallback": "Melodia abre no navegador de internet"
         },
         "player": {
             "playersongs": "Hinos dos jogadores",
@@ -90,21 +82,17 @@
             "bio": "Biografia",
             "playerheadersong": "Hino do jogador",
             "readmore": "Leia mais",
-            "showless": "Menos conteudo"
+            "hide": "Menos conteudo"
         },
-        "roster": {
+        "rosterteam": {
             "title": "Elenco",
             "nosquadsfound": "Nao encontrado",
             "twitterlist": "Lista do Twitter"
         },
-        "rosterhome": {
+        "rostertabs": {
             "title": "Elenco",
             "friends": "Amigos",
             "foes": "Inimigos"
-        },
-        "shop": {
-            "title": "Loja de mercadorias",
-            "fallback": "Loja de mercadorias abre no navegador de internet"
         },
         "singlesong": {
             "title": "A seguir"
@@ -115,41 +103,29 @@
             "tableofcontents": "Indice",
             "swipetoview": "Swipe direita/esquerda para visualizar os hinos"
         },
-        "songs": {
-            "title": "Hinos",
-            "gamesongs:": "Hinos de jogo",
-            "playersongs": "Hinos de jogadores",
-            "teamsongs": "Hinos do time"
-        },
-        "standings": {
-            "title": "Tabela de Classificação",
-            "fallback": "Tabela de classificação abre no navegador de internet"
-        },
         "tocinline": {
             "title": "Indice"
         },
         "twitterlist": {
-            "headertitle": "Lista do Twitter",
-            "calltoaction": "Agora todos juntos!",
+            "title": "Lista do Twitter",
+            "heading": "Agora todos juntos!",
             "instructions": "A conexão entre torcedores do CFC com o time e única, especial, e palpavel. Mensagens encorajadoras, de amor ao time, e quaisquer outras mensagens são realmente muito significativas para os jogadores. \n\nVocê pode copiar o Twitter dos jogadores e staff, e criar uma mensagem de suporte.",
             "opentwitter": "Abrir Twitter"
-        },
-        "volunteer": {
-            "title": "Seja um voluntário do CFC",
-            "fallback": "Formulario para se inscrever como voluntario abre no navegador de internet"
         }
     },
     "navigation": {
         "home": "HOME",
         "songbook": "REPERTORIO",
         "roster": "ELENCO",
-        "events": "EVENTOS ↗️",
-        "standings": "TABELA DE CLASSIFICACAO ↗️",
-        "shop": "LOJA DO TIME ↗️",
-        "volunteer": "SE INSCREVA COMO VOLUNTARIO ↗️",
-        "instrumentation": "MELODIAS ↗️",
-        "capo": "MENU",
-        "about": "MAIS INFORMACOES"
+        "admin": "MENU",
+        "about": "MAIS INFORMACOES",
+        "links": {
+            "events": "EVENTOS",
+            "standings": "TABELA DE CLASSIFICACAO",
+            "shop": "LOJA DO TIME",
+            "volunteer": "SE INSCREVA COMO VOLUNTARIO",
+            "instrumentation": "MELODIAS"
+        }
     },
     "components": {
         "gkNickname": {
@@ -160,7 +136,9 @@
             "hidealerttitle": "Hide Post",
             "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
             "hidealertcancel": "Cancel",
-            "hidealertconfirm": "Hide"
+            "hidealertconfirm": "Hide",
+            "readmore": "Read more",
+            "hide": "Hide"
         },
         "postattachmentgknickname": {
             "gonnascore": "We're gonna score on you, "

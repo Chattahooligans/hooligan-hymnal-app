@@ -6,11 +6,11 @@ import {
     View
 } from 'react-native';
 import { BoldText, RegularText, MediumText } from './StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette } from '../../config';
 import containerStyle from './PostAttachmentContainerStyle';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class PostAttachmentMultiTweet extends React.Component {
     render() {
@@ -24,11 +24,11 @@ export default class PostAttachmentMultiTweet extends React.Component {
                     <View style={{ flex: 1, flexDirection: i18n.getFlexDirection() }}>
                         <View style={{ flex: 1 }}>
                             <View style={styles.tweetAllContainer}>
-                                <Ionicons
-                                    name={'logo-twitter'}
+                                <MaterialCommunityIcons
+                                    name={'twitter'}
                                     size={16}
                                     style={{
-                                        color: Palette.Navy,
+                                        color: Skin.PostAttachmentMultiTweet_TwitterColor,
                                         backgroundColor: 'transparent'
                                     }} />
                                 <RegularText style={styles.tweetAllText}>{i18n.t('components.postattachmentmultitweet.tweettheplayers')}</RegularText>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         color: Palette.Rouge,
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 4,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         flex: 1,
         color: Palette.Rouge,
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         marginLeft: 5,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()

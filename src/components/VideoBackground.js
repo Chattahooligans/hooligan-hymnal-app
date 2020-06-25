@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Video } from 'expo-av';
 import { Asset } from 'expo-asset';
 import { View as AnimatableView } from 'react-native-animatable';
-import { Skin } from '../config/Settings';
+import { Skin } from '../../config';
 
 export default class VideoBackground extends React.Component {
   state = {
@@ -14,7 +14,7 @@ export default class VideoBackground extends React.Component {
     if (!this.state.videoLoaded) {
       try {
         await Asset.fromModule(
-          Skin.Home_Video
+          Skin.Home_HeroVideo
         ).downloadAsync();
         this.setState({ videoLoaded: true });
       } catch (e) {
@@ -33,7 +33,7 @@ export default class VideoBackground extends React.Component {
           duration={5000}
         >
           <Video
-            source={Skin.Home_Video}
+            source={Skin.Home_HeroVideo}
             style={{ flex: 1 }}
             resizeMode="cover"
             shouldPlay

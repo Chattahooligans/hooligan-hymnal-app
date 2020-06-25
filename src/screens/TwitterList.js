@@ -2,43 +2,39 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking } from 'react-native';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import { RectButton } from 'react-native-gesture-handler';
-import NavigationOptions from '../config/NavigationOptions';
 import { HeaderBackButton } from 'react-navigation';
 import { FontSizes } from '../constants';
-import { Skin, DefaultColors, Palette, Settings } from '../config/Settings';
-import { Ionicons } from '@expo/vector-icons';
+import { Skin, DefaultColors, Settings } from '../../config';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 class TwitterList extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-      headerTitle: i18n.t('screens.twitterlist.headertitle'),
-      ...NavigationOptions,
-      headerLeft: (
-          <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-      )
-  });
-
   render() {
+    this.props.navigation.setOptions({ 
+      headerTitle: i18n.t('screens.twitterlist.title'),
+      headerLeft: () => <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+    })
+
     let handles = '';
-    this.props.navigation.state.params.roster.players.forEach(player => {
+    this.props.route.params.roster.players.forEach(player => {
       if (player.twitter)
         handles += '@' + player.twitter + ' ';
     });
       
-    handles += Settings.TwitterList_ExtraHandles;
+    handles += Settings.TwitterList_AppendHandles;
 
     return (
-      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
+      <View style={{flex: 1, padding: 10, backgroundColor: Skin.TwitterList_BackgroundColor, flexDirection: i18n.getFlexDirection() }}>
         <View style={{ flex: 1, padding: 5 }}>
-          <MediumText style={{backgroundColor: Palette.White, paddingHorizontal: 5, fontSize: 18, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>
-            { i18n.t('screens.twitterlist.calltoaction')}
+          <MediumText style={{backgroundColor: DefaultColors.Background, paddingHorizontal: 5, fontSize: 18, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>
+            { i18n.t('screens.twitterlist.heading')}
           </MediumText>
-          <RegularText style={{backgroundColor: Palette.White, padding: 5, marginBottom: 1, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>          
+          <RegularText style={{backgroundColor: DefaultColors.Background, padding: 5, marginBottom: 1, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>          
             { i18n.t('screens.twitterlist.instructions')}
           </RegularText>
-            <ScrollView style={{flex: 1, padding: 5, backgroundColor: Palette.White}}>
+            <ScrollView style={{flex: 1, padding: 5, backgroundColor: DefaultColors.Background}}>
                 <RegularText style={{fontSize: 18, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}} selectable={true}>{handles}</RegularText>
             </ScrollView>
             <ClipBorderRadius>
@@ -47,8 +43,8 @@ class TwitterList extends React.Component {
                     onPress={() => {Linking.openURL('https://twitter.com/intent/tweet?text=');}}
                     underlayColor="#fff"
                 >
-                    <Ionicons
-                        name="logo-twitter"
+                    <MaterialCommunityIcons
+                        name="twitter"
                         size={23}
                         style={{
                             color: '#fff',

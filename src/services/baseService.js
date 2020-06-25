@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../config/Settings';
+import { Urls } from '../../config';
 
 let API = axios.create({
-  baseURL: HOOLIGAN_HYMNAL_SERVER_ADDRESS.replace(/\/$/, ""),
+  baseURL: Urls.HooliganHymnalServer.replace(/\/$/, ""),
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json'

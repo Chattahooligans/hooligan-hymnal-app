@@ -6,11 +6,11 @@ import {
     StyleSheet,
     View
   } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { RegularText } from '../components/StyledText';
 import { FontSizes } from '../constants';
-import { DefaultColors, Skin } from '../config/Settings';
-import i18n from '../../i18n';
+import { DefaultColors, Skin } from '../../config';
+import i18n from '../i18n';
 
 export default class HomeBannersPanel extends React.Component {
     render() {
@@ -20,7 +20,7 @@ export default class HomeBannersPanel extends React.Component {
                 banners.push(
                     <TouchableOpacity style={{flexDirection: i18n.getFlexDirection(), paddingHorizontal: 10, paddingVertical: 3, backgroundColor: item.backgroundColor}} 
                         key={item.url} onPress={() => { Linking.openURL(item.url) }}>
-                        <Ionicons
+                        <MaterialCommunityIcons
                             name={item.icon}
                             size={20}
                             style={{

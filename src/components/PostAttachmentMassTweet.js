@@ -6,11 +6,11 @@ import {
     View
 } from 'react-native';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import FadeIn from 'react-native-fade-in-image';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette } from '../../config';
 import containerStyle from './PostAttachmentContainerStyle';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class PostAttachmentMassTweet extends React.Component {
     render() {
@@ -38,11 +38,11 @@ export default class PostAttachmentMassTweet extends React.Component {
                         <View style={{ flex: 1 }}>
                             <BoldText style={styles.title}>{roster.rosterTitle}</BoldText>
                             <View style={styles.tweetAllContainer}>
-                                <Ionicons
-                                    name={'logo-twitter'}
+                                <MaterialCommunityIcons
+                                    name={'twitter'}
                                     size={16}
                                     style={{
-                                        color: Palette.Sky,
+                                        color: Skin.PostAttachmentMassTweet_TwitterColor,
                                         backgroundColor: 'transparent'
                                     }} />
                                 <RegularText style={styles.tweetAllText}>{i18n.t('components.postattachmentmasstweet.tweettheplayers')}</RegularText>
@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        color: DefaultColors.ColorText,
+        backgroundColor: DefaultColors.Background,
         paddingLeft: 4,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
         flex: 1,
-        color: Palette.Navy,
-        backgroundColor: Palette.White,
+        color: DefaultColors.ColorText,
+        backgroundColor: DefaultColors.Background,
         marginLeft: 5,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()

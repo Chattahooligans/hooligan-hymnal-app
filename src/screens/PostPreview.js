@@ -13,25 +13,16 @@ import { BigButton } from '../components/BigButton';
 import { ModalLoader } from '../components/ModalLoader';
 //import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Post from '../components/Post';
-import NavigationOptions from '../config/NavigationOptions';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { Skin, DefaultColors, Settings } from '../config/Settings';
+import { Skin, DefaultColors, Settings } from '../../config';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
 import * as mime from 'react-native-mime-types';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 import { createPost } from '../services/feedService';
 
 class PostPreview extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: i18n.t('screens.postpreview.title'),
-        ...NavigationOptions,
-        headerLeft: (
-            <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-        )
-    });
-
     state = {
         post: null,
         loading: false,
@@ -40,6 +31,11 @@ class PostPreview extends React.Component {
     }
 
     componentDidMount() {
+        this.props.navigation.setOptions({
+            headerTitle: i18n.t('screens.postpreview.title'),
+            headerLeft: () => <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+        })
+
         this.setData();
     }
 
@@ -60,17 +56,18 @@ class PostPreview extends React.Component {
                 <View pointerEvents="none">
                     <Post
                         post={this.state.post}
+                        fullscreen={true}
                         navigation={this.props.navigation} />
                 </View>
                 <BigButton
                     label={i18n.t('screens.postpreview.submit')}
-                    iconName="md-send" iconPosition="right"
+                    iconName="send" iconPosition="right"
                     onPress={this._handlePressSubmitButton} />
                 <BigButton
                     disabled={true}
                     buttonStyle={{ marginBottom: 10, backgroundColor: "gray" }}
                     label={i18n.t('screens.postpreview.schedule')}
-                    iconName="md-time" iconPosition="right"
+                    iconName="timer" iconPosition="right"
                     onPress={this._handlePressScheduleButton} />
 
                 {/*
@@ -258,7 +255,6 @@ class PostPreview extends React.Component {
                 loading: false
             });
             this.props.globalData.setResponse(response)
-            this.props.navigation.popToTop()
             this.props.navigation.navigate('Home')
         } catch (ex) {
             console.log(ex)

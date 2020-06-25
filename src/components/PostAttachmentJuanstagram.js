@@ -7,9 +7,9 @@ import {
 import ParsedText from 'react-native-parsed-text';
 import { parsePatterns, parsedStyles, renderBoldItalic } from './ParsedTextHelper';
 import { Ionicons } from '@expo/vector-icons';
-import { DefaultColors, Skin } from '../config/Settings';
+import { DefaultColors, Skin } from '../../config';
 import containerStyle from './PostAttachmentContainerStyle';
-import i18n from "../../i18n"
+import i18n from '../i18n'
 
 import juanstagramPosts from '../data/juanstagram';
 

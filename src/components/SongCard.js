@@ -2,15 +2,11 @@ import React from 'react';
 import { Image, Platform, StyleSheet, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
-import { withNavigation } from 'react-navigation';
-
-import SaveIconWhenSaved from './SaveIconWhenSaved';
 import { BoldText, RegularText, MediumText } from './StyledText';
 import { conferenceHasEnded, getSpeakerAvatarURL } from '../utils';
 import { Colors, FontSizes } from '../constants';
-import i18n from "../../i18n"
+import i18n from '../i18n'
 
-@withNavigation
 export default class SongCard extends React.Component {
   render() {
     const { song } = this.props;

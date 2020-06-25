@@ -6,15 +6,14 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import NavigationOptions from '../config/NavigationOptions';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette } from '../../config';
 import { FontSizes } from '../constants';
 import { BoldText, MediumText, RegularTextMonospace, RegularText, LightText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
 import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from '../components/ParsedTextHelper';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 import appParams from '../../app.json';
 
 // About info, link to website/fb/twitter
@@ -22,17 +21,16 @@ import appParams from '../../app.json';
 // Email to send feedback?
 
 class About extends React.Component {
-  static navigationOptions = {
-    title: i18n.t('screens.about.title'),
-    ...NavigationOptions
-  };
-
   state = {
     pushToken: "",
     response: null
   }
 
   componentDidMount() {
+    this.props.navigation.setOptions({
+      headerTitle: i18n.t('screens.about.title')
+    })
+
     this.setData();
   }
 
@@ -61,9 +59,10 @@ class About extends React.Component {
       { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
       { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
     ]
-    creditsItems.forEach(element => {
+    creditsItems.forEach((element, index) => {
       creditsTexts.push(
         <ParsedText
+          key={'about-credits-' + index}
           parse={parsedTextOptions}
           style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
           {element}
@@ -72,8 +71,8 @@ class About extends React.Component {
     });
 
     return (
-      <View style={{ flex: 1, padding: 10, backgroundColor: Palette.Sky, flexDirection: i18n.getFlexDirection() }}>
-        <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
+      <View style={{ flex: 1, padding: 10, backgroundColor: Skin.About_BackgroundColor, flexDirection: i18n.getFlexDirection() }}>
+        <ScrollView style={{ flex: 1, backgroundColor: DefaultColors.Background, padding: 5 }}>
           <View style={{ flexDirection: i18n.getFlexDirection(), marginBottom: 10 }}>
             <BoldText style={{ fontSize: FontSizes.title, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
             <LightText style={{ fontSize: FontSizes.title, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}> {i18n.t('screens.about.version')}{appParams.expo.version}</LightText>
@@ -81,7 +80,7 @@ class About extends React.Component {
           <ParsedText
             parse={parsedTextOptions}
             style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
-            {i18n.t('screens.about.why')}
+            {i18n.t('screens.about.description')}
           </ParsedText>
           <View style={{ height: 10 }} />
           <ParsedText
@@ -96,7 +95,7 @@ class About extends React.Component {
           <ParsedText
             parse={parsedTextOptions}
             style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
-            {i18n.t('screens.about.appTitle') + i18n.t('screens.about.contribute')}
+            {i18n.t('screens.about.appTitle') + i18n.getLocalizedText(appParams.expo.extra.hooliganHymnal.aboutPlug)}
           </ParsedText>
           <View style={{ height: 20 }} />
           <ScrollView style={{ flex: 1 }}>

@@ -7,11 +7,11 @@ import {
     View
 } from 'react-native';
 import { BoldText, RegularText, MediumText, RegularTextMonospace } from './StyledText';
-import { Ionicons } from '@expo/vector-icons';
-import { DefaultColors, Skin, Palette, Settings } from '../config/Settings';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { DefaultColors, Skin } from '../../config';
 import { getEngagementSummary } from '../services/feedService';
 import moment from 'moment';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 export default class NotificationEngagementsModal extends React.Component {
     state = {
@@ -50,10 +50,10 @@ export default class NotificationEngagementsModal extends React.Component {
                             <TouchableOpacity
                                 style={styles.close}
                                 onPress={this.props.onRequestClose}>
-                                <Ionicons
-                                    name="md-close"
+                                <MaterialCommunityIcons
+                                    name="close"
                                     size={25}
-                                    style={{ color: DefaultColors.Primary, backgroundColor: 'transparent' }}
+                                    style={{ color: DefaultColors.Secondary, backgroundColor: 'transparent' }}
                                 />
                             </TouchableOpacity>
                         </View>
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         backgroundColor: Skin.NotificationEngagementsModal_Container
     },
     container: {
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         borderRadius: 10,
         borderWidth: 1,
         borderColor: '#eee',

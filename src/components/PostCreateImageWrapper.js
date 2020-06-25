@@ -11,9 +11,9 @@ import {
 } from 'react-native';
 import { BigButton } from './BigButton';
 import { RegularText, BoldText } from './StyledText';
-import { Ionicons } from '@expo/vector-icons';
-import { DefaultColors, commonImageCredit } from '../config/Settings';
-import i18n from "../../i18n";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { DefaultColors, CommonImageCredits } from '../../config';
+import i18n from '../i18n';
 
 export default class PostCreateImageWrapper extends React.Component {
     state = {
@@ -30,7 +30,7 @@ export default class PostCreateImageWrapper extends React.Component {
 
     renderCommonCreditItem = (item) => {
         return (
-            <View style={{borderBottomColor: "#eee", borderBottomWidth: 1}}>
+            <View style={{ borderBottomColor: "#eee", borderBottomWidth: 1 }}>
                 <RegularText
                     style={{ fontSize: 16 }}
                     onPress={() => this.handlePressCommonCreditItem(item.item)} numberOfLines={1}>
@@ -61,8 +61,8 @@ export default class PostCreateImageWrapper extends React.Component {
                         if (this.props.onPressDelete)
                             this.props.onPressDelete(this.props.uri)
                     }}>
-                    <Ionicons
-                        name="md-close"
+                    <MaterialCommunityIcons
+                        name="close"
                         size={22}
                         style={{ color: DefaultColors.Primary, backgroundColor: 'transparent' }}
                     />
@@ -70,8 +70,8 @@ export default class PostCreateImageWrapper extends React.Component {
                 <TouchableOpacity
                     style={styles.metadata}
                     onPress={this.onPressMetadata}>
-                    <Ionicons
-                        name="md-code"
+                    <MaterialCommunityIcons
+                        name="code-tags"
                         size={22}
                         style={{ color: DefaultColors.Primary, backgroundColor: 'transparent' }}
                     />
@@ -82,14 +82,16 @@ export default class PostCreateImageWrapper extends React.Component {
                     visible={this.state.metadataModalVisible}>
                     <View style={{ padding: 10 }}>
                         <BoldText style={styles.metadataTitle}>{i18n.t('components.postcreateimagewrapper.metadatatitle')}</BoldText>
-                        <BoldText style={styles.commonCreditLabel}>{i18n.t('components.postcreateimagewrapper.common')}</BoldText>
-                        <View style={styles.commonCreditContainer}>
-                            <FlatList
-                                renderScrollComponent={props => <ScrollView {...props} />}
-                                data={commonImageCredit}
-                                renderItem={this.renderCommonCreditItem}
-                                keyExtractor={(item, index) => index.toString()} />
-                        </View>
+                        {(CommonImageCredits && CommonImageCredits.length > 0) &&
+                                <View style={styles.commonCreditContainer}>
+                                <BoldText style={styles.commonCreditLabel}>{i18n.t('components.postcreateimagewrapper.common')}</BoldText>
+                                    <FlatList
+                                        renderScrollComponent={props => <ScrollView {...props} />}
+                                        data={CommonImageCredits}
+                                        renderItem={this.renderCommonCreditItem}
+                                        keyExtractor={(item, index) => index.toString()} />
+                                </View>
+                        }
                         <BoldText style={styles.metadataLabel}>{i18n.t('components.postcreateimagewrapper.credit')}</BoldText>
                         <TextInput
                             style={styles.metadataTextInput}
@@ -114,7 +116,7 @@ export default class PostCreateImageWrapper extends React.Component {
                     </View>
                     <BigButton
                         label={i18n.t('components.postcreateimagewrapper.save')}
-                        iconName="md-save" iconPosition="right"
+                        iconName="content-save" iconPosition="right"
                         inModal={true}
                         onPress={() => {
                             this.setState({ metadataModalVisible: false }, () => {

@@ -1,6 +1,6 @@
 # Hooligan Hymnal
 
-From the minds that brought you supporter culture revalations like [Prideraiser.org](https://prideraiser.org) and positioning capos in the back of the section, The Chattahooligans, independent supporters of Chattanooga Football Club, have conceived the future of SG information flow- Hooligan Hymnal. After rigorous experimentation and seeing our community embrace the technology, we shared it with our Mitten-state frenemies, the Northern Guard Supporters, and are advancing the platform even further.
+From the minds that brought you supporter culture revalations like [Prideraiser.org](https://prideraiser.org) and positioning capos in the back of the section, The Chattahooligans, independent supporters of Chattanooga Football Club, have conceived the future of SG information sharing: Hooligan Hymnal. After rigorous experimentation and seeing our community embrace the technology, we shared it with our Mitten-state frenemies, the Northern Guard Supporters, and are advancing the platform even further.
 
 At long last, we're sharing this revolutionary invention with the world- to improve supporter culture for all of us and to make managing supporters groups less exhausting.
 
@@ -30,6 +30,8 @@ Send a reference to tricky song lyrics to every phone in the section, right befo
 
 Optional _Push Notifications_ deliver posts to fans as soon as they are made.
 
+_Image_ support in News Feed lets admins include photos or graphics that are remotely linked or uploaded to your own hosting service to in posts. Images can have captions and photo credits, and can be displayed in a full screen photo gallery.
+
 The flexible and powerful _Post Attachments_ framework lets you reference a song or player below your post, and it's easy to write custom types. (We will consider PRs of novel post attachment types.)
 
 _Channels_ let admins post with the voice and tone of different functions in your SG. Set up distinct channels for your merch team, your community service program, chapters in other cities, and so on.
@@ -40,9 +42,13 @@ We are committed to outreach to non-English-speaking communities to bring new fa
 
 All UI text lives in a locale file, making it easy for you to adjust the feel of your app deployment.
 
+### [New!] Prideraiser.org Integration
+
+Boost your SG's Prideraiser campaign with a hero banner at the top of the News Feed and a Post Attachment. These are customizable and use live data from the Prideraiser.org API.
+
 ### And More
 
-We include links to social media accounts, league standings, fundraising initiatives, and your SG's Prideraiser campaign (you _do_ have a Prideraiser campaign, don't you?) on the home screen and/or menu. Customize it to fit your needs.
+We include links to social media accounts, league standings, fundraising initiatives, and your SG's Prideraiser campaign on the home screen and/or menu. Customize it to fit your needs.
 
 ## Roadmap
 
@@ -70,9 +76,9 @@ All sorts of wild ideas are being considered: user chant submissions, "_Pip Boy_
 
 ## For Developers
 
-Hooligan Hymnal is a React Native project for Android and iOS devices built using [Expo](https://expo.io) with a Node.js backend and web-based administration tools built with Vue.js
+Hooligan Hymnal is a React Native project for Android and iOS devices built using [Expo](https://expo.io) with a Node.js backend.
 
-Review the `docs` directory for information on how to configure and customize the app, and to prepare to deploy to Google Play and the App Store. Visit the [hooligan-hymnal-server](https://github.com/Chattahooligans/hooligan-hymnal-server) repo for the server, which is required to serve data to the client.
+Review the `docs` directory for information on how to configure and customize the app, and to prepare to deploy to Google Play and the App Store. Visit the [hooligan-hymnal-server](https://github.com/Chattahooligans/hooligan-hymnal-server) repo for the server, which is required to serve data to the mobile app.
 
 Hooligan Hymnal maintains an active Slack channel with developers and SG leadership to guide the future of the platform. Our DMs are open [@hooliganhymnal](https://twitter.com/hooliganhymnal), if you can contribute to the project.
 
@@ -90,4 +96,4 @@ Expectations set? Here's what to do first:
 
 #### Acknowledgements
 
-* Originally forked from https://github.com/nodevember
+* Originally forked from <https://github.com/nodevember>

@@ -9,8 +9,8 @@ import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, RegularTextMonospace } from './StyledText';
 import { formatStringWithCampaignProps, PrideraiserPalette } from './PrideraiserHelper';
 import PrideraiserRainbowBar from './PrideraiserRainbowBar';
-import { PRIDERAISER_LOGO } from '../config/Settings';
-import i18n from "../../i18n";
+import { PRIDERAISER_LOGO } from '../../config';
+import i18n from '../i18n';
 
 export default class PostAttachmentPrideraiserMatch extends React.Component {
     render() {
@@ -56,7 +56,7 @@ export default class PostAttachmentPrideraiserMatch extends React.Component {
                 </View>
                 <BigButton
                     buttonStyle={{ backgroundColor: PrideraiserPalette.green, marginTop: 0, marginHorizontal: 0 }}
-                    iconName="md-heart-empty" iconPosition="right"
+                    iconName="heart-outline" iconPosition="right"
                     label={"Pledge"}
                     onPress={() => {
                         let source = ""

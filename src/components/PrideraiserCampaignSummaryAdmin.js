@@ -6,9 +6,9 @@ import {
     View
 } from 'react-native';
 import { BoldText, RegularText, MediumText } from './StyledText';
-import { Ionicons } from '@expo/vector-icons';
-import { DefaultColors, Skin } from '../config/Settings';
-import i18n from '../../i18n';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { DefaultColors, Skin } from '../../config';
+import i18n from '../i18n';
 
 // This is only used in the post creation admin, not stuff that is user-facing
 export default class PrideraiserCampaignSummaryAdmin extends React.Component {

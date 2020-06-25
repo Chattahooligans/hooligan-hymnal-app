@@ -1,5 +1,5 @@
 import { Linking, Platform, StyleSheet } from 'react-native'
-import { Skin } from '../config/Settings'
+import { Skin } from '../../config'
 
 /* sample import */
 // import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress, parsedStyles } from

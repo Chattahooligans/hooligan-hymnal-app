@@ -1,10 +1,8 @@
 import About from './About';
-import CapoHome from './CapoHome';
-import CapoLogin from './CapoLogin';
+import AdminHome from './AdminHome';
+import AdminLogin from './AdminLogin';
 import Channel from './Channel';
-import Events from './Events';
 import Home from './Home';
-import Instrumentation from './Instrumentation';
 import Player from './Player';
 import PostAttach from './PostAttach';
 import PostAttachmentComposeSong from './PostAttachmentComposeSong';
@@ -17,28 +15,25 @@ import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostCreate from './PostCreate';
 import PostPreview from  './PostPreview';
 import RefereeCard from './RefereeCard';
-import Roster from './Roster';
 import RosterFoePlayers from './RosterFoePlayers';
 import RosterFoes from './RosterFoes';
-import RosterHome from './RosterHome';
-import Shop from './Shop';
+import RosterTeam from './RosterTeam';
 import SinglePost from './SinglePost';
 import SingleSong from './SingleSong';
 import Songbook from './Songbook';
-import Songs from './Songs';
-import Standings from './Standings';
+import SongbookContents from './SongbookContents';
+import SongbookCover from './SongbookCover';
+import SongbookPages from './SongbookPages';
 import TableOfContentsInline from './TableOfContentsInline';
 import TwitterList from './TwitterList';
-import Volunteer from './Volunteer';
+import WebView from './WebView';
 
 export default {
   About,
-  CapoHome,
-  CapoLogin,
+  AdminHome,
+  AdminLogin,
   Channel,
-  Events,
   Home,
-  Instrumentation,
   Player,
   PostAttach,
   PostAttachmentComposeSong,
@@ -51,17 +46,16 @@ export default {
   PostCreate,
   PostPreview,
   RefereeCard,
-  Roster,
   RosterFoePlayers,
   RosterFoes,
-  RosterHome,
-  Shop,
+  RosterTeam,
   SinglePost,
   SingleSong,
   Songbook,
-  Songs,
-  Standings,
+  SongbookContents,
+  SongbookCover,
+  SongbookPages,
   TableOfContentsInline,
   TwitterList,
-  Volunteer
+  WebView
 };

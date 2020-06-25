@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, Platform } from 'react-native';
-import { Skin } from '../config/Settings';
+import { Skin } from '../../config';
 
 export class LightText extends React.Component {
   render() {

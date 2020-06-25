@@ -3,12 +3,11 @@ import {
     StyleSheet,
     View
 } from 'react-native';
-import { withNavigation } from 'react-navigation';
 import { BoldText, RegularText } from './StyledText';
 import { FontSizes } from '../constants';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import containerStyle from './PostAttachmentContainerStyle';
-import i18n from "../../i18n"
+import i18n from '../i18n'
 
 export default class PostAttachmentGkNickname extends React.Component {
     render() {
@@ -17,8 +16,8 @@ export default class PostAttachmentGkNickname extends React.Component {
         return (
             <View style={[styles.container, { backgroundColor: gkNickname.backgroundColor }]}>
                 <View style={styles.imageContainer}>
-                    <Ionicons
-                        name="md-hand"
+                    <MaterialCommunityIcons
+                        name="hand"
                         size={50}
                         style={{ color: gkNickname.textColor }} />
                 </View>

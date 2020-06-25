@@ -8,75 +8,70 @@ import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import NavigationOptions from '../config/NavigationOptions';
-import { Settings } from '../config/Settings';
-import i18n from "../../i18n";
+import { Settings, Skin } from '../../config';
+import i18n from '../i18n';
 
 class PostAttach extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
-
     render() {
         return (
             <ScrollView style={{ flex: 1 }}>
                 <BoldText style={{ textAlign: 'center' }}>{i18n.t('screens.postattach.attachmenttypes')}</BoldText>
 
                 <BigButton
-                    label={i18n.t('screens.postattach.selectplayer')} iconName="md-person"
+                    label={i18n.t('screens.postattach.selectplayer')} iconName="account"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectPlayer", {
-                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                            onAttachmentComplete: this.props.onAttachmentComplete
                         })
                     }} />
-                <BigButton label={i18n.t('screens.postattach.selectsong')} iconName="md-musical-notes"
+                <BigButton label={i18n.t('screens.postattach.selectsong')} iconName="music"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectSong", {
-                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                            onAttachmentComplete: this.props.onAttachmentComplete
                         })
                     }} />
-                <BigButton label={i18n.t('screens.postattach.composesong')} iconName="md-microphone"
+                <BigButton label={i18n.t('screens.postattach.composesong')} iconName="microphone"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentComposeSong", {
-                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                            onAttachmentComplete: this.props.onAttachmentComplete
                         })
                     }} />
-                <BigButton label={i18n.t('screens.postattach.masstweet')} iconName="logo-twitter"
+                <BigButton label={i18n.t('screens.postattach.masstweet')} iconName="twitter"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentSelectMassTweet", {
-                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                            onAttachmentComplete: this.props.onAttachmentComplete
                         })
                     }} />
                 {Settings.PostAttach_ShowGKNickname &&
-                    <BigButton label={i18n.t('screens.postattach.gknickname')} iconName="md-hand"
+                    <BigButton label={i18n.t('screens.postattach.gknickname')} iconName="hand"
                         onPress={() => {
                             this.props.navigation.navigate("PostAttachmentComposeGkNickname", {
-                                onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                                onAttachmentComplete: this.props.onAttachmentComplete
                             })
                         }} />
                 }
                 {Settings.PostAttach_ShowJuanstagram &&
-                    <BigButton label={"Juanstagram"} iconName="md-heart-empty" inModal={true}
+                    <BigButton label={"Juanstagram"} iconName="account-heart-outline" inModal={true}
                         onPress={() => {
                             this.props.navigation.navigate("PostAttachmentSelectJuanstagram", {
-                                onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                                onAttachmentComplete: this.props.onAttachmentComplete
                             })
                         }} />
                 }
-                <BigButton label={i18n.t('screens.postattach.prideraisermatch')} iconName="md-analytics"
+                <BigButton label={i18n.t('screens.postattach.prideraisermatch')} iconName="chart-line"
                     onPress={() => {
                         this.props.navigation.navigate("PostAttachmentComposePrideraiserMatch", {
-                            onAttachmentComplete: this.props.screenProps.onAttachmentComplete
+                            onAttachmentComplete: this.props.onAttachmentComplete
                         })
                     }} />
 
                 <BigButton
                     disabled={true}
-                    label="Link to App Songbook" iconName="md-book"
+                    label="Link to App Songbook" iconName={Skin.Icon_Songbook}
                     buttonStyle={{ backgroundColor: "gray" }} />
                 <BigButton
                     disabled={true}
-                    label="Link to App Roster" iconName="md-people"
+                    label="Link to App Roster" iconName={Skin.Icon_Roster}
                     buttonStyle={{ backgroundColor: "gray" }} />
             </ScrollView>
         )

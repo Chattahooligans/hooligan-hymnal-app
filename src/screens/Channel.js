@@ -11,22 +11,13 @@ import {
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 // TODO: import PostImageWrapper after create-post-images is merged
 import Post from '../components/Post';
-import NavigationOptions from '../config/NavigationOptions';
 import { HeaderBackButton } from 'react-navigation';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { DefaultColors, Palette, Skin, Settings } from '../config/Settings';
+import { DefaultColors, Skin, Settings } from '../../config';
 import { getFeedForChannel, getMoreFeedForChannel } from '../services/feedService';
 
 class Channel extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: "Channel: " + navigation.state.params.channelData.name,
-        ...NavigationOptions,
-        headerLeft: (
-            <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-        )
-    });
-
     state = {
         channelData: { _id: "", name: "init name", description: "", avatarUrl: "", headerUrl: "" },
         feed: [],
@@ -37,6 +28,12 @@ class Channel extends React.Component {
     }
 
     componentDidMount = async () => {
+        this.props.navigation.setOptions({
+            headerTitle: "Channel: " + route.params.channelData.name,
+            headerLeft: (
+                <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
+            )
+        })
 
         if (!this.state.loadDataComplete) {
             await this.onRefresh()
@@ -48,7 +45,7 @@ class Channel extends React.Component {
     onRefresh = async () => {
         this.setState({ refreshing: true })
 
-        let feed = await getFeedForChannel(this.props.navigation.state.params.channelData._id)
+        let feed = await getFeedForChannel(this.props.route.params.channelData._id)
         const feedAtEnd = feed.length < Settings.Home_PostsPerPage
 
         this.setState({ feed, refreshing: false, feedAtEnd })
@@ -59,7 +56,7 @@ class Channel extends React.Component {
         if (this.state.loadingMore === false && !this.state.feedAtEnd) {
             this.setState({ loadingMore: true })
 
-            let moreFeed = await getMoreFeedForChannel(this.props.navigation.state.params.channelData._id, this.state.feed[this.state.feed.length - 1].publishedAt)
+            let moreFeed = await getMoreFeedForChannel(this.props.route.params.channelData._id, this.state.feed[this.state.feed.length - 1].publishedAt)
             const feedAtEnd = moreFeed.length < Settings.Home_PostsPerPage
             const prevFeed = this.state.feed
             const feed = prevFeed.concat(moreFeed)
@@ -69,7 +66,7 @@ class Channel extends React.Component {
     }
 
     render() {
-        let channelData = this.props.navigation.state.params.channelData
+        let channelData = this.props.route.params.channelData
         let channelPostsDisplay = []
 
         this.state.feed.forEach((post) => {

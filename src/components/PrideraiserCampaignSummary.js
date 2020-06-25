@@ -12,10 +12,10 @@ import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress
 import { formatStringWithCampaignProps } from './PrideraiserHelper';
 import PrideraiserRainbowBar from './PrideraiserRainbowBar';
 import PostImageWrapper from './PostImageWrapper';
-import { PRIDERAISER_LOGO, DefaultColors, Skin, Settings, Palette } from '../config/Settings';
+import { PRIDERAISER_LOGO, DefaultColors, Skin, Settings, Palette } from '../../config';
 import { getCampaign } from '../services/prideraiserService';
 import moment from 'moment';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 
 import appParams from '../../app.json';
 
@@ -28,7 +28,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
         source: ""
     }
 
-    componentWillMount = async () => {
+    componentDidMount = async () => {
         if (!this.state.campaign) {
             try {
                 const campaign = await getCampaign(Settings.Prideraiser_CampaignId)
@@ -79,7 +79,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
 
                         Linking.openURL(campaign.public_url + source)
                     }}>
-                    <View style={styles.container}>
+                    <View>
                         <View>
                             <PostImageWrapper
                                 containerWidth={Dimensions.get("window").width}
@@ -124,10 +124,10 @@ export default class PrideraiserCampaignSummary extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-
+        marginBottom: Skin.Home_PostMarginVertical
     },
     contentContainer: {
-        backgroundColor: Palette.White,
+        backgroundColor: DefaultColors.Background,
         alignItems: "center",
         padding: 5
     },
@@ -135,21 +135,26 @@ const styles = StyleSheet.create({
         position: "absolute",
         bottom: 8,
         right: 8,
-        color: Skin.PrideraiserCampaignSummary_AnalyticsSource,
-        fontSize: 14
+        color: Skin.PrideraiserCampaignSummary_VersionColor,
+        fontSize: 14,
+        fontFamily: Skin.Font_Regular
     },
     title: {
         fontSize: 15,
-        color: DefaultColors.ColorText
+        color: DefaultColors.ColorText,
+        fontFamily: Skin.Font_ParsedText
     },
     benefitting: {
-        color: DefaultColors.ColorText
+        color: DefaultColors.ColorText,
+        fontFamily: Skin.Font_ParsedText
     },
     pledged: {
-        color: DefaultColors.ColorText
+        color: DefaultColors.ColorText,
+        fontFamily: Skin.Font_ParsedText
     },
     learnmore: {
         marginTop: 5,
-        color: DefaultColors.ColorText
+        color: DefaultColors.ColorText,
+        fontFamily: Skin.Font_ParsedText
     }
 });

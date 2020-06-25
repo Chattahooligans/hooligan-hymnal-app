@@ -7,12 +7,12 @@ import GoalkeeperNicknameCard from './GoalkeeperNicknameCard';
 import { Colors, FontSizes } from '../constants';
 import { getFeaturedSong } from '../data';
 import { RectButton } from 'react-native-gesture-handler';
-import { Ionicons } from '@expo/vector-icons';
-import { DefaultColors, HOOLIGAN_HYMNAL_SERVER_ADDRESS } from '../config/Settings';
-import i18n from '../../i18n';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { DefaultColors, Urls } from '../../config';
+import i18n from '../i18n';
 
-const CAPO_MESSAGE_ENDPOINT = HOOLIGAN_HYMNAL_SERVER_ADDRESS + '/api/notifications/last';
-const GOALKEEPER_NICKNAME_ENDPOINT = HOOLIGAN_HYMNAL_SERVER_ADDRESS + '/api/goalkeeperNicknames/last';
+const CAPO_MESSAGE_ENDPOINT = Urls.HooliganHymnalServer + '/api/notifications/last';
+const GOALKEEPER_NICKNAME_ENDPOINT = Urls.HooliganHymnalServer + '/api/goalkeeperNicknames/last';
 
 const GK_EXPIRATION_HOURS = 2;
 
@@ -51,8 +51,8 @@ class UpNext extends React.Component {
             onPress={this._handlePressRefreshButton}
             underlayColor="#fff"
           >
-            <Ionicons
-              name="md-refresh"
+            <MaterialCommunityIcons
+              name="refresh"
               size={23}
               style={{
                 color: DefaultColors.ColorText,

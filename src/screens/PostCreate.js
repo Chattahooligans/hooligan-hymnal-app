@@ -19,63 +19,21 @@ import * as Permissions from 'expo-permissions';
 import ModalSelector from 'react-native-modal-selector';
 import { BigButton } from '../components/BigButton';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
-import NavigationOptions from '../config/NavigationOptions';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { StackNavigator } from 'react-navigation';
 import { Colors, FontSizes, Layout } from '../constants';
-import { Skin, DefaultColors, Settings } from '../config/Settings';
+import { Skin, DefaultColors, Settings } from '../../config';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
-import i18n from "../../i18n";
+import i18n from '../i18n';
 import * as mime from 'react-native-mime-types';
 
-import PostAttach from './PostAttach';
-import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
-import PostAttachmentSelectSong from './PostAttachmentSelectSong';
-import PostAttachmentComposeSong from './PostAttachmentComposeSong';
-import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
-import PostAttachmentComposePrideraiserMatch from './PostAttachmentComposePrideraiserMatch';
-import PostAttachmentSelectJuanstagram from './PostAttachmentSelectJuanstagram';
-import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
+import PostAttachmentTypesNavigation from '../navigation/PostAttachmentTypesNavigation';
 import PostCreateAttachmentWrapper from '../components/PostCreateAttachmentWrapper';
 import PostCreateImageWrapper from '../components/PostCreateImageWrapper';
 
-const AttachmentTypesNavigator = StackNavigator(
-    {
-        PostAttach: { screen: PostAttach },
-        PostAttachmentSelectPlayer: { screen: PostAttachmentSelectPlayer },
-        PostAttachmentSelectSong: { screen: PostAttachmentSelectSong },
-        PostAttachmentComposeSong: { screen: PostAttachmentComposeSong },
-        PostAttachmentComposeGkNickname: { screen: PostAttachmentComposeGkNickname },
-        PostAttachmentSelectMassTweet: { screen: PostAttachmentSelectMassTweet },
-        PostAttachmentSelectJuanstagram: { screen: PostAttachmentSelectJuanstagram },
-        PostAttachmentComposePrideraiserMatch: { screen: PostAttachmentComposePrideraiserMatch }
-    }
-)
-
 class PostCreate extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: i18n.t('screens.postcreate.title'),
-        ...NavigationOptions,
-        headerLeft: (
-            <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-        ),
-        headerRight: (
-            <Ionicons
-                name="md-code-download"
-                size={23}
-                style={{
-                    color: '#fff',
-                    backgroundColor: 'transparent',
-                    marginRight: 16
-                }}
-                onPress={() => Keyboard.dismiss()}
-            />
-        )
-    });
-
     // TODO: get locales from server
     // We put some dummy data in here for the initial render
     state = {
@@ -169,6 +127,22 @@ class PostCreate extends React.Component {
     };
 
     componentDidMount() {
+        this.props.navigation.setOptions({
+            headerTitle: i18n.t('screens.postcreate.title'),
+            headerLeft: () => <HeaderBackButton onPress={() => this.props.navigation.goBack()} tintColor="#fff" />,
+            headerRight: () => (
+                <MaterialCommunityIcons
+                    name="keyboard-close"
+                    size={23}
+                    style={{
+                        color: '#fff',
+                        backgroundColor: 'transparent',
+                        marginRight: 16
+                    }}
+                    onPress={() => Keyboard.dismiss()} />
+            )
+        })
+
         this.setData();
     }
 
@@ -276,7 +250,7 @@ class PostCreate extends React.Component {
                     }}>
                     <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
                         <Text style={{ flex: 1 }}>{this.state.selectedChannel.name}</Text>
-                        <Ionicons name={'md-arrow-dropdown'} />
+                        <MaterialCommunityIcons name={'menu-down'} />
                     </View>
                 </ModalSelector>
 
@@ -293,7 +267,7 @@ class PostCreate extends React.Component {
                     }}>
                     <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
                         <Text style={{ flex: 1 }}>{this.state.post.locale}</Text>
-                        <Ionicons name={'md-arrow-dropdown'} />
+                        <MaterialCommunityIcons name={'menu-down'} />
                     </View>
                 </ModalSelector>
         }
@@ -426,7 +400,7 @@ class PostCreate extends React.Component {
 
                             <BigButton
                                 label={i18n.t('screens.postcreate.link')}
-                                iconName="md-link" iconPosition="right"
+                                iconName="link" iconPosition="right"
                                 inModal={true}
                                 onPress={() => {
                                     let post = this.state.post
@@ -456,9 +430,7 @@ class PostCreate extends React.Component {
                     transparent={false}
                     visible={this.state.attachmentModalVisible}>
                     <View style={{ flex: 1 }}>
-                        <AttachmentTypesNavigator screenProps={{
-                            onAttachmentComplete: this.onAttachmentComplete
-                        }} />
+                        <PostAttachmentTypesNavigation onAttachmentComplete={this.onAttachmentComplete} />
 
                         <Button
                             title={i18n.t('screens.postcreate.cancel')}

@@ -9,22 +9,16 @@ import {
 } from 'react-native';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import { find } from 'lodash';
-import NavigationOptions from '../config/NavigationOptions';
 import { BoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Colors, FontSizes } from '../constants';
-import { Skin, DefaultColors, MUSICAL_SCORE_ICON } from '../config/Settings';
-import { Ionicons } from '@expo/vector-icons';
-import i18n from "../../i18n";
+import { Skin, DefaultColors, MUSICAL_SCORE_ICON } from '../../config';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import i18n from '../i18n';
 
 const screenWidth = Dimensions.get('window').width;
 
 class SongRow extends React.Component {
-  static navigationOptions = {
-    title: i18n.t('screens.tocinline.title'),
-    ...NavigationOptions
-  };
-
   render() {
     const { item: song } = this.props;
 
@@ -36,8 +30,8 @@ class SongRow extends React.Component {
     let sheetMusicDisplay;
     if (song.referenceLink)
       playDisplay = <View style={{ justifyContent: 'center', alignItems: 'center', marginLeft: 3 }}>
-                      <Ionicons
-                        name={'md-play-circle'}
+                      <MaterialCommunityIcons
+                        name={'play-circle'}
                         style={{
                           color: Skin.Home_SocialButtons
                         }}
@@ -119,7 +113,7 @@ export default class TableOfContentsInline extends React.Component {
       });
 
       if (0 < songList.length)
-        ToCData.push({ title: chapterChild.chapter_title, data: songList });
+        ToCData.push({ title: chapterChild.chapterTitle, data: songList });
     });
 
     this.setState({ ToCData });

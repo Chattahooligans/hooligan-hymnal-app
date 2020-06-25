@@ -10,13 +10,11 @@ import { getRosters } from '../services/rostersService';
 import { getFoes } from '../services/foesService';
 import { getChannels } from '../services/channelsService';
 import { getFeed, getMoreFeed, hidePost } from '../services/feedService';
-import { HOOLIGAN_HYMNAL_SERVER_ADDRESS, Settings } from '../config/Settings';
+import { Urls, Settings } from '../../config';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
-import { objectTypeAnnotation } from '@babel/types';
-import i18n from "../../i18n";
 
-const PUSH_ENDPOINT = HOOLIGAN_HYMNAL_SERVER_ADDRESS + '/api/pushToken';
+const PUSH_ENDPOINT = Urls.HooliganHymnalServer + '/api/pushToken';
 
 export default class GlobalDataContainer extends Container {
   state = {
@@ -24,16 +22,17 @@ export default class GlobalDataContainer extends Container {
     location: null,
     pushToken: null,
     currentUser: null,
+    showSongbookCover: true,
     songbook: {
-      songbook_title: '',
+      songbookTitle: '',
       organization: '',
       description: '',
-      front_cover: '',
-      back_cover: '',
-      some_publish_or_expiration_dates: '',
+      frontCover: '',
       chapters: []
     },
     songs: null,
+    songbookContents: null,
+    songList: null,
     rosters: {
       rosterTitle: '',
       season: '',
@@ -242,6 +241,39 @@ export default class GlobalDataContainer extends Container {
       //
     }
   };
+
+  setShowSongbookCover = (show) => this.setState({ showSongbookCover: show });
+  computeSongbook = (callback) => {
+    let ToCData = [];
+    let songList = [];
+    let songViews = [];
+    let tocPageLabel = 1;
+    this.state.songbook.chapters.forEach(chapterChild => {
+      let chapterSongList = [];
+
+      chapterChild.songs.forEach((songChild, index) => {
+        try {
+          let songOriginal = this.state.songs.find(song => song._id === songChild._id);
+          let song = {};
+          Object.assign(song, songOriginal);
+          song.chapterTitle = chapterChild.chapter_title;
+          song.pageLabel = tocPageLabel;
+          songList.push(song);
+          chapterSongList.push(song);
+          tocPageLabel++;
+        } catch (err) {
+          console.log(songChild._id + ' not found in songs database ' + err);
+        }
+      });
+
+      if (0 < chapterSongList.length)
+        ToCData.push({ title: chapterChild.chapter_title, data: chapterSongList });
+    });
+
+    this.setState({ songbookContents: ToCData, songList }, () => {
+      if (callback) callback();
+    });
+  }
 
   setCurrentSong = (song, callback) =>
     this.setState({ currentSong: song }, () => {
