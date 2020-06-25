@@ -8,8 +8,8 @@ import Screens from "../screens";
 import i18n from "../i18n";
 
 const SongbookStackContainer = createStackNavigator();
-//const SongbookTabs = createMaterialTopTabNavigator();
-const SongbookTabs = createBottomTabNavigator();
+const SongbookTabs = createMaterialTopTabNavigator();
+//const SongbookTabs = createBottomTabNavigator();
 /*
     Notes on implementation:
     MaterialTopTabNavigator lets us swipe from the ToC to the first song (but not back)
