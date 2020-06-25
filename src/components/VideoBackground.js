@@ -1,21 +1,19 @@
-import React from 'react';
-import { View } from 'react-native';
-import { Video } from 'expo-av';
-import { Asset } from 'expo-asset';
-import { View as AnimatableView } from 'react-native-animatable';
-import { Skin } from '../../config';
+import React from "react";
+import { View } from "react-native";
+import { Video } from "expo-av";
+import { Asset } from "expo-asset";
+import { View as AnimatableView } from "react-native-animatable";
+import { Skin } from "../../config";
 
 export default class VideoBackground extends React.Component {
   state = {
-    videoLoaded: false
+    videoLoaded: false,
   };
 
   async componentDidMount() {
     if (!this.state.videoLoaded) {
       try {
-        await Asset.fromModule(
-          Skin.Home_HeroVideo
-        ).downloadAsync();
+        await Asset.fromModule(Skin.Home_HeroVideo).downloadAsync();
         this.setState({ videoLoaded: true });
       } catch (e) {
         // Not working, oh well, no video for you

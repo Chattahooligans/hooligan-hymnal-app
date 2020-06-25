@@ -1,18 +1,20 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import moment from 'moment-timezone';
-import { BoldText, MediumText } from './StyledText';
-import SongCard from './SongCard';
-import GoalkeeperNicknameCard from './GoalkeeperNicknameCard';
-import { Colors, FontSizes } from '../constants';
-import { getFeaturedSong } from '../data';
-import { RectButton } from 'react-native-gesture-handler';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { DefaultColors, Urls } from '../../config';
-import i18n from '../i18n';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import moment from "moment-timezone";
+import { BoldText, MediumText } from "./StyledText";
+import SongCard from "./SongCard";
+import GoalkeeperNicknameCard from "./GoalkeeperNicknameCard";
+import { Colors, FontSizes } from "../constants";
+import { getFeaturedSong } from "../data";
+import { RectButton } from "react-native-gesture-handler";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { DefaultColors, Urls } from "../../config";
+import i18n from "../i18n";
 
-const CAPO_MESSAGE_ENDPOINT = Urls.HooliganHymnalServer + '/api/notifications/last';
-const GOALKEEPER_NICKNAME_ENDPOINT = Urls.HooliganHymnalServer + '/api/goalkeeperNicknames/last';
+const CAPO_MESSAGE_ENDPOINT =
+  Urls.HooliganHymnalServer + "/api/notifications/last";
+const GOALKEEPER_NICKNAME_ENDPOINT =
+  Urls.HooliganHymnalServer + "/api/goalkeeperNicknames/last";
 
 const GK_EXPIRATION_HOURS = 2;
 
@@ -20,7 +22,7 @@ class UpNext extends React.Component {
   state = {
     capoMessage: null,
     song: getFeaturedSong(this.props.songbook, this.props.songs),
-    goalkeeperNickname: null
+    goalkeeperNickname: null,
   };
 
   render() {
@@ -29,23 +31,37 @@ class UpNext extends React.Component {
 
     let goalkeeperNicknameDisplay;
     if (goalkeeperNickname) {
-      let createdAt = new Date(goalkeeperNickname.createdAt)
-      createdAt.setHours(createdAt.getHours() + GK_EXPIRATION_HOURS)
+      let createdAt = new Date(goalkeeperNickname.createdAt);
+      createdAt.setHours(createdAt.getHours() + GK_EXPIRATION_HOURS);
       let now = new Date();
       if (now < createdAt)
-        goalkeeperNicknameDisplay = <GoalkeeperNicknameCard goalkeeperNickname={goalkeeperNickname}/>
+        goalkeeperNicknameDisplay = (
+          <GoalkeeperNicknameCard goalkeeperNickname={goalkeeperNickname} />
+        );
     }
 
     return (
-      <View style={[{ marginHorizontal: 10, marginBottom: 10, paddingBottom: 10 }, this.props.style]}>
+      <View
+        style={[
+          { marginHorizontal: 10, marginBottom: 10, paddingBottom: 10 },
+          this.props.style,
+        ]}
+      >
         <View
           style={{
             flex: 1,
             flexDirection: i18n.getFlexDirection(),
-            justifyContent: 'space-between'
+            justifyContent: "space-between",
           }}
         >
-          <MediumText style={{ color: DefaultColors.ColorText, fontSize: FontSizes.title }}>{this.state.label}</MediumText>
+          <MediumText
+            style={{
+              color: DefaultColors.ColorText,
+              fontSize: FontSizes.title,
+            }}
+          >
+            {this.state.label}
+          </MediumText>
           <RectButton
             style={styles.bigButton}
             onPress={this._handlePressRefreshButton}
@@ -56,23 +72,20 @@ class UpNext extends React.Component {
               size={23}
               style={{
                 color: DefaultColors.ColorText,
-                backgroundColor: 'transparent'
+                backgroundColor: "transparent",
               }}
             />
           </RectButton>
         </View>
-        <SongCard
-          key={featuredSection.song._id}
-          song={featuredSection.song}
-          />
-          {goalkeeperNicknameDisplay}
+        <SongCard key={featuredSection.song._id} song={featuredSection.song} />
+        {goalkeeperNicknameDisplay}
       </View>
     );
   }
 
   componentWillMount() {
     this.setState({
-      label: i18n.t('components.upnext.upnext'),
+      label: i18n.t("components.upnext.upnext"),
     });
     this._refreshNotification();
     this._refreshGoalkeeperNickname();
@@ -91,7 +104,7 @@ class UpNext extends React.Component {
 
   _setFeaturedSong = () => {
     this.setState({
-      song: getFeaturedSong(this.props.songbook, this.props.songs)
+      song: getFeaturedSong(this.props.songbook, this.props.songs),
     });
   };
 
@@ -100,25 +113,25 @@ class UpNext extends React.Component {
     // on a schedule or maybe not
     // and trigger it when we receive a notification to refresh this screen
     fetch(CAPO_MESSAGE_ENDPOINT)
-      .then(response => response.json())
-      .then(responseJson => {
+      .then((response) => response.json())
+      .then((responseJson) => {
         try {
           // if this is valid ??
           if (responseJson.song) {
             this.setState({
               capoMessage: {
-                song: responseJson.song
-              }
+                song: responseJson.song,
+              },
             });
           } else {
             this.setState({
-              capoMessage: null
+              capoMessage: null,
             });
           }
         } catch (err) {
           // no data returns a json parsing error
           this.setState({
-            capoMessage: null
+            capoMessage: null,
           });
         }
       });
@@ -129,23 +142,23 @@ class UpNext extends React.Component {
     // on a schedule or maybe not
     // and trigger it when we receive a notification to refresh this screen
     fetch(GOALKEEPER_NICKNAME_ENDPOINT)
-      .then(response => response.json())
-      .then(responseJson => {
+      .then((response) => response.json())
+      .then((responseJson) => {
         try {
           // if this is valid ??
           if (responseJson.nickname) {
             this.setState({
-              goalkeeperNickname: responseJson
+              goalkeeperNickname: responseJson,
             });
           } else {
             this.setState({
-              goalkeeperNickname: null
+              goalkeeperNickname: null,
             });
           }
         } catch (err) {
           // no data returns a json parsing error
           this.setState({
-            goalkeeperNickname: null
+            goalkeeperNickname: null,
           });
         }
       });
@@ -154,15 +167,15 @@ class UpNext extends React.Component {
 
 const styles = StyleSheet.create({
   bigButton: {
-    backgroundColor: 'transparent',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "transparent",
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: 3,
     paddingRight: 3,
     marginRight: 3,
-    overflow: 'hidden',
-    flexDirection: i18n.getFlexDirection()
-  }
+    overflow: "hidden",
+    flexDirection: i18n.getFlexDirection(),
+  },
 });
 
 export default UpNext;

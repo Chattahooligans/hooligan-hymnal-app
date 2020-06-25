@@ -1,9 +1,9 @@
 {
-    "sender": "",
-    "push": false,
-    "nickname": "",
-    "backgroundColor": "",
-    "textColor": "",
-    "createdAt": "",
-    "updatedAt": ""
+  "sender": "",
+  "push": false,
+  "nickname": "",
+  "backgroundColor": "",
+  "textColor": "",
+  "createdAt": "",
+  "updatedAt": ""
 }

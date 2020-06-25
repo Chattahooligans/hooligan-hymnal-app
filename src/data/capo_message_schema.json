@@ -1,39 +1,39 @@
 {
-    "sender": "",
-    "send_time": "",
-    "expire_time": "",
-    "sender_latitude": "",
-    "sender_longitude": "",
-    "message": "",
-    "push": false,
-    "announcement": {
-        "_id": -1,
-        "hero_image": "",
-        "headline": "",
-        "body": "",
-        "link": ""
-    },
-    "song": {
-        "_id": -1,
-        "category": "",
-        "delete_local": "",
-        "title": "",
-        "instructions": "",
-        "lyrics": "",
-        "referenceTitle": "",
-        "referenceLink": "",
-        "sheetMusicLink": "",
-        "playerId": -1,
-        "legend": "",
-        "capoSignal": "",
-        "create_time": "",
-        "update_time": ""
-    },
-    "goalkeeperNickname": {
-        "nickname": "",
-        "backgroundColor": "",
-        "textColor": "",
-        "createdAt": "",
-        "updatedAt": ""
-    }
+  "sender": "",
+  "send_time": "",
+  "expire_time": "",
+  "sender_latitude": "",
+  "sender_longitude": "",
+  "message": "",
+  "push": false,
+  "announcement": {
+    "_id": -1,
+    "hero_image": "",
+    "headline": "",
+    "body": "",
+    "link": ""
+  },
+  "song": {
+    "_id": -1,
+    "category": "",
+    "delete_local": "",
+    "title": "",
+    "instructions": "",
+    "lyrics": "",
+    "referenceTitle": "",
+    "referenceLink": "",
+    "sheetMusicLink": "",
+    "playerId": -1,
+    "legend": "",
+    "capoSignal": "",
+    "create_time": "",
+    "update_time": ""
+  },
+  "goalkeeperNickname": {
+    "nickname": "",
+    "backgroundColor": "",
+    "textColor": "",
+    "createdAt": "",
+    "updatedAt": ""
+  }
 }

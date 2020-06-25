@@ -1,549 +1,549 @@
 {
+  "_comment": [
+    "This is an English language locale file for Hooligan Hymnal and has been updated as of version 2.0.0.",
+    "",
+    "Each section of the file contains a _comment field which describes the section.",
+    "The _comment for most sections includes a recommendation that implementing SGs should change the text or to leave the defaults. If you're a Ctrl+F kinda person, the recommendation language is one of:",
+    "You probably don't need to change these values in your default translation.",
+    "You may want to change these values in your default translation.",
+    "You WILL need to change these values in your default translation."
+  ],
+
+  "screens": {
     "_comment": [
-        "This is an English language locale file for Hooligan Hymnal and has been updated as of version 2.0.0.",
-        "",
-        "Each section of the file contains a _comment field which describes the section.",
-        "The _comment for most sections includes a recommendation that implementing SGs should change the text or to leave the defaults. If you're a Ctrl+F kinda person, the recommendation language is one of:",
-        "You probably don't need to change these values in your default translation.",
-        "You may want to change these values in your default translation.",
-        "You WILL need to change these values in your default translation."
+      "The locale.screens section contains text for each Screen in the mobile app.",
+      "",
+      "Your fork of the app may have additional screens. We recommend continuing the same patterns outlined in this file (as well as sharing your work back to the main project)."
     ],
 
-    "screens": {
-        "_comment": [
-            "The locale.screens section contains text for each Screen in the mobile app.",
-            "",
-            "Your fork of the app may have additional screens. We recommend continuing the same patterns outlined in this file (as well as sharing your work back to the main project)."
-        ],
+    "about": {
+      "_comment": [
+        "/src/screens/About.js",
+        "The About screen contains a short description for the application and provides an place to give credit to those who provided photos or other contributors. It also contains a link at the bottom for the Hooligan Hymnal platform.",
+        "",
+        "You WILL need to change these values in your default translation."
+      ],
 
-        "about": {
-            "_comment": [
-                "/src/screens/About.js",
-                "The About screen contains a short description for the application and provides an place to give credit to those who provided photos or other contributors. It also contains a link at the bottom for the Hooligan Hymnal platform.",
-                "",
-                "You WILL need to change these values in your default translation."
-            ],
-
-            "title": "About",
-            "appTitle": "Chattahooligan Hymnal",
-            "version": "v",
-            "description": "The Chattahooligan Hymnal is built to help you support Chattanooga FC.",
-            "feedback": "Please send feedback to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email hooliganhymnal@gmail.com",
-            "creditsheading": "Credits",
-            "credits": [
-                "- Home screen video created by Jay Kaley",
-                "- Menu photo from Phil Thach photography",
-                "- Some player photos from Madonna Kemp and Ray Soldano, used with permission",
-                "- Player headshots provided by Chattanooga FC, used with permission",
-                "- Roboto font is used under Apache License, version 2.0"
-            ],
-            "debug": "Debug",
-            "hymnalplug1": " is built using the open source *Hooligan Hymnal* platform, v",
-            "hymnalplug2": "Follow  _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
-        },
-        "adminhome": {
-            "_comment": [
-                "/src/screens/AdminHome.js",
-                "The AdminHome screen contains options and features for Admin-level users.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "title": "Admin Dashboard",
-            "postcreate": "Create Post",
-            "logout": "Logout"
-        },
-        "adminlogin": {
-            "_comment": [
-                "/src/screens/AdminLogin.js",
-                "This section contains labels for the Admin Login screen.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "title": "Admin Dashboard",
-            "username": "Username/Email",
-            "password": "Password",
-            "login": "Log In"
-        },
-        "postattach": {
-            "_comment": [
-                "/src/screens/PostAttach.js",
-                "The Post Attach screen contains buttons for each custom Post Attachment.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "attachmenttypes": "Attachment Types",
-            "selectplayer": "Select Player",
-            "selectsong": "Select Song",
-            "composesong": "Compose Song",
-            "masstweet": "Tweet the Players",
-            "gknickname": "GK Nickname",
-            "prideraisermatch": "Prideraiser Match Update"
-        },
-        "postattachmentcomposegknickname": {
-            "_comment": [
-                "/src/screens/PostAttachmentComposeGkNickname.js",
-                "This screen contains prompts to compose a Post Attachment of the GK Nickname type. This attachment type is a gimmick thing we do in Chattanooga, and it can be disabled entirely by setting config.js:Settings.PostAttach_ShowGKNickname to false.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "gknickname": "GK Nickname",
-            "instructions1": "1. We're gonna score on you...",
-            "instructions2": "2. Pick a color, any color",
-            "instructions3": "3. Which is more readable?"
-        },
-        "postattachmentcomposeprideraisermatch": {
-            "_comment": [
-                "/src/screens/PostAttachmentComposePrideraiserMatch.js",
-                "This screen contains labels and prompts to compose a Post Attachment of the Prideraiser Match Update type",
-                "",
-                "Prideraiser-related text can include %macros% that use live campaign data.",
-                "See /src/components/PrideraiserHelper.js for more information.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "prideraisermatch": "Prideraiser Match Update",
-            "howmanygoals": "How many %goal_name_plural% for this match?",
-            "analytics": "Analytics (source)",
-            "source": "source",
-            "attach": "Attach"
-        },
-        "postattachmentcomposesong": {
-            "_comment": [
-                "/src/screens/PostAttachmentComposeSong.js",
-                "This screen contains labels to compose a Post Attachment of the Song type",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "composesong": "Compose Song",
-            "title": "Title",
-            "lyrics": "Lyrics",
-            "attach": "Attach"
-        },
-        "postattachmentselectmasstweet": {
-            "_comment": [
-                "/src/screens/PostAttachmentSelectMassTweet.js",
-                "This screen contains labels to select a Roster for a Post Attachment of the Mass Tweet type",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "selectroster": "Select Roster",
-            "search": "Search"
-        },
-        "postattachmentselectplayer": {
-            "_comment": [
-                "/src/screens/PostAttachmentPlayer.js",
-                "This screen contains labels to select a Player for a Post Attachment of the Player type",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "selectplayer": "Select Player",
-            "search": "Search"
-        },
-        "postattachmentselectsong": {
-            "_comment": [
-                "/src/screens/PostAttachmentSong.js",
-                "This screen contains labels to select a Song for a Post Attachment of the Song type",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "selectsong": "Select Song",
-            "search": "Search"
-        },
-        "postcreate": {
-            "_comment": [
-                "/src/screens/PostCreate.js",
-                "This screen contains labels, prompts, and instructions for Admins to create a Post for the News Feed feature.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "title": "Create Post",
-            "linkimage": "Link Remote Image",
-            "uploadimage": "Upload Image",
-            "nopermission": "Permissions failed",
-            "addattachment": "Add Attachment",
-            "push": "Bother people with a push notification? Seriously?",
-            "cancel": "Cancel",
-            "continue": "Continue",
-            "linkimageinstructions": "Paste the exact web address of an image",
-            "linkimagewarning": "WARNING:\n- Performance can slow down with large images. Consider linking to a smaller version as a thumbnail\n- Also, no validation or error checking is done on remotely linked images. Admins should proceed only with care and caution.",
-            "pasteuri": "Paste URI",
-            "pastethumbnailuri": "Paste Thumbnail URI",
-            "link": "Link Image"
-        },
-        "postpreview": {
-            "_comment": [
-                "/src/screens/PostPreview.js",
-                "This screen contains labels for Admins to preview and Submit or Schedule (coming eventually) a Post for the News Feed feature.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "title": "Preview Post",
-            "submit": "Submit Post",
-            "schedule": "Schedule Post"
-        },
-        "refereecard": {
-            "_comment": [
-                "/src/screens/RefereeCard.js",
-                "This section contains labels for the Referee Card feature. This feature is a gimmick we do in Chattanooga, though it may have some use in other deployments. It can be disabled entirely by setting config.js:Settings.RefereeCards_Show to false.",
-                "",
-                "You may want to change these values in your default translation."
-            ],
-
-            "titlered": "Flash 'Em a Card",
-            "titleyellow": "Flash 'Em a Card"
-        },
-        "home": {
-            "_comment": [
-                "/src/screens/Home.js",
-                "This section contains labels for the Home screen / News Feed feature. .songbook and .roster are used for buttons spliced into the feed, which link to the respective feature. You may want to replace the Songbook and Roster with something custom.",
-                "",
-                "You may want to change these values in your default translation."
-            ],
-
-            "findthemenu": "Find more great features in the %menuicon% menu, top left",
-            "visit": "Visit:",
-            "songbook": "Songbook",
-            "roster": "Roster"
-        },
-        "player": {
-            "_comment": [
-                "/src/screens/Player.js",
-                "This section contains labels for the Player profile screen. It includes an optional panel to display Player-related songs for SGs whose songwriting scope includes songs for/about individual players. This panel can be disabled entirely by setting config.js:Settings.Player_ShowSongs to false.",
-                "",
-                "You may want to change these values in your default translation."
-            ],
-
-            "playersongs": "Player Songs",
-            "stilllooking": "We are still working on a song for this player. Want to help? Contact us and submit an idea!",
-            "bio": "Bio",
-            "playerheadersong": "Player Song",
-            "readmore": "Read more",
-            "hide": "Hide"
-        },
-        "rosterteam": {
-            "_comment": [
-                "/src/screens/RosterTeam.js",
-                "This section contains labels for the Team Roster screen.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "title": "Roster",
-            "nosquadsfound": "No squads found",
-            "twitterlist": "Twitter List"
-        },
-        "rosterfoes": {
-            "_comment": [
-                "/src/screens/RosterFoes.js",
-                "This section contains labels for the Foes Roster screen.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "nonefound": "None found"
-        },
-        "rostertabs": {
-            "_comment": [
-                "/src/screens/RosterTabs.js",
-                "This section contains labels for the combined Team/Foes Roster tab interface.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "title": "Roster",
-            "friends": "Friends",
-            "foes": "Foes"
-        },
-        "singlesong": {
-            "_comment": [
-                "/src/screens/SingleSong.js",
-                "This section contains labels for the combined Team/Foes Roster tab interface.",
-                "",
-                "You may want to change these values in your default translation."
-            ],
-
-            "title": "Up Next"
-        },
-        "songbook": {
-            "_comment": [
-                "/src/screens/SongbookCover.js",
-                "/src/screens/SongbookContents.js",
-                "/src/screens/SongbookPages.js",
-                "This section contains labels for the Sonbgook interface. The values are used across three screens until/if the songbook is refactored. (An experimental interface was introduced with version 2.0.0.)",
-                "",
-                "You may want to change these values in your default translation."
-            ],
-
-            "defaultchaptertitle": "Cover",
-            "title": "Songbook",
-            "tableofcontents": "Table of Contents",
-            "swipetoview": "Swipe Left/Right to view more songs"
-        },
-        "tocinline": {
-            "_comment": [
-                "/src/screens/TableOfContentsInline.js",
-                "This section contains labels for the inline Table of Contents view used in Songbook. (An experimental interface was introduced with version 2.0.0, and these values are not used currently)",
-                "TODO: If 2.0.0 Songbook experiment works, remove this section.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "title": "Table of Contents"
-        },
-        "twitterlist": {
-            "_comment": [
-                "/src/screens/TwitterList.js",
-                "This section contains labels and prompts for the Twitter List feature, which presents a selectable text box containing player Twitter handles. Change the .heading and .instructions values to fit the message you want to present.",
-                "",
-                "You WILL need to change these values in your default translation."
-            ],
-
-            "title": "Twitter List",
-            "heading": "All Together, Now",
-            "instructions": "The connection between CFC fans and the team is unique, special, and tangible. Messages of encouragement, love, whatever, truly mean a lot to the players.\n\nYou can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.",
-            "opentwitter": "Open Twitter App"
-        }
+      "title": "About",
+      "appTitle": "Chattahooligan Hymnal",
+      "version": "v",
+      "description": "The Chattahooligan Hymnal is built to help you support Chattanooga FC.",
+      "feedback": "Please send feedback to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email hooliganhymnal@gmail.com",
+      "creditsheading": "Credits",
+      "credits": [
+        "- Home screen video created by Jay Kaley",
+        "- Menu photo from Phil Thach photography",
+        "- Some player photos from Madonna Kemp and Ray Soldano, used with permission",
+        "- Player headshots provided by Chattanooga FC, used with permission",
+        "- Roboto font is used under Apache License, version 2.0"
+      ],
+      "debug": "Debug",
+      "hymnalplug1": " is built using the open source *Hooligan Hymnal* platform, v",
+      "hymnalplug2": "Follow  _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
     },
-    "navigation": {
-        "_comment": [
-            "This section contains labels for the main drawer Navigation Menu. As on the Home / News Feed screen, you may want to replace Songbook and Roster with something custom. Regarding the .links section, these are only examples. Edit the object as you see fit.",
-            "Please see documentation for config.js:NavigationDrawerItems for additional information.",
-            "",
-            "You WILL need to change these values in your default translation."
-        ],
+    "adminhome": {
+      "_comment": [
+        "/src/screens/AdminHome.js",
+        "The AdminHome screen contains options and features for Admin-level users.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
 
-        "home": "Feed",
-        "songbook": "Songbook",
-        "roster": "Roster",
-        "admin": "Admin Dashboard",
-        "about": "About",
-        "links": {
-            "events": "Events",
-            "standings": "Standings",
-            "shop": "Merch Shop",
-            "volunteer": "Volunteer",
-            "instrumentation": "Instrumentation"
-        }
+      "title": "Admin Dashboard",
+      "postcreate": "Create Post",
+      "logout": "Logout"
     },
-    "components": {
-        "_comment": [
-            "The locale.components section contains text for each Component in the mobile app. Many are used on several screens.",
-            "",
-            "Your fork of the app may have additional components. We recommend continuing the same patterns outlined in this file (as well as sharing your work back to the main project)."
-        ],
+    "adminlogin": {
+      "_comment": [
+        "/src/screens/AdminLogin.js",
+        "This section contains labels for the Admin Login screen.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
 
-        "gkNickname": {
-            "_comment": [
-                "/src/components/GoalkeeperNicknameCard.js",
-                "This component is in hibernation and may be removed in the future, depending on the success of News Feed and the possible resurrection of Capo features. It used to support a gimmick thing we do in Chattanooga which was replaced by a Post Attachment.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "gonnascore": "We're gonna score on you, "
-        },
-        "imageviewer": {
-            "_comment": [
-                "/src/components/Post.js",
-                "This section contains labels for the full screen Image Viewer modal used inside Post.js",
-                "Wow! I should really refactor this, huh?",
-                "TODO: Refactor this section as tracked in https://github.com/Chattahooligans/hooligan-hymnal-app/issues/116",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "savetolocal": "Save to Device",
-            "cancel": "Cancel"
-        },
-        "imageviewerfooter": {
-            "_comment": [
-                "/src/components/ImageViewerFooter.js",
-                "This section contains labels for the full screen Image Viewer.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "captionprefix": "",
-            "creditprefix": "📷: ",
-            "copied": "Copied"
-        },
-        "post": {
-            "_comment": [
-                "/src/components/Post.js",
-                "This section contains labels for the Post component. Excepting .copied, they are used in a menu visible to admins only.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "copied": "Copied",
-            "hidealerttitle": "Hide Post",
-            "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
-            "postadminalertitleios": "Post Admin Menu",
-            "postadminalerthidemessageios": "Are you sure you want to hide this post from the Feed?\n\nWarning: There is no second confirmation step.",
-            "hidealertcancel": "Cancel",
-            "hidealertconfirm": "Hide",
-            "readmore": "Read more",
-            "hide": "Hide"
-        },
-        "postattachmentgknickname": {
-            "_comment": [
-                "/src/components/PostAttachmentGkNickname.js",
-                "This section contains labels for a Post Attachment of the GK Nickname type. This attachment type is a gimmick thing we do in Chattanooga, and it can be disabled entirely by setting config.js:Settings.PostAttach_ShowGKNickname to false.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "gonnascore": "We're gonna score on you, "
-        },
-        "postattachmentmasstweet": {
-            "_comment": [
-                "/src/components/PostAttachmentMassTweet.js",
-                "This section contains labels for a Post Attachment of the Mass Tweet type.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "tweettheplayers": "Tweet the Players"
-        },
-        "postattachmentprideraisermatch": {
-            "_comment": [
-                "/src/components/PostAttachmentMassTweet.js",
-                "This section contains labels for a Post Attachment of the Prideraiser Match Update type. .message is used if %goalCount% is greater than zero, else .messagezerogoals is used.",
-                "",
-                "Prideraiser-related text can include %macros% that use live campaign data.",
-                "See /src/components/PrideraiserHelper.js for more information.",
-                "",
-                "You WILL need to change these values in your default translation."
-            ],
-
-            "heading": "%name% Update",
-            "message": "Because of %goalCount% %goal_name_computed%, we raised $%raised% to benefit %charity_name%! Make your pledge now",
-            "messagezerogoals": "No %goal_name_computed% from this match, but we can raise %pledged_total% to benefit %charity_name% with each one. Make your pledge now",
-            "pledge": "Pledge"
-        },
-        "postattachmentmultitweet": {
-            "_comment": [
-                "/src/components/PostAttachmentMultiTweet.js",
-                "This section contains labels for a Smart Post Attachment of the MultiTweet type. It appears only if multiple Player attachments are included in the same Post.",
-                "",
-                "You may want to change these values in your default translation."
-            ],
-
-            "tweettheplayers": "Tweet them all!"
-        },
-        "postcreateimagewrapper": {
-            "_comment": [
-                "/src/components/PostCreateImageWrapper.js",
-                "This section contains prompts for the Image Metadata dialog used when including images in a Post.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "metadatatitle": "Image Metadata",
-            "credit": "Image Credit",
-            "caption": "Caption",
-            "common": "Frequently-credited Photographers",
-            "save": "Save Metadata",
-            "clear": "Clear Metadata",
-            "cancel": "Cancel"
-        },
-        "prideraisercampaignsummary": {
-            "_comment": [
-                "/src/components/PrideraiserCampaignSummary.js",
-                "This section contains labels for Prideraiser Hero component used on the Home / News Feed screen. Usage of this component is toggled by setting config.js:Settings.Home_HeroContent to 'prideraiser'.",
-                "",
-                "Prideraiser-related text can include %macros% that use live campaign data.",
-                "See /src/components/PrideraiserHelper.js for more information.",
-                "",
-                "You WILL need to change these values in your default translation."
-            ],
-
-            "title": "%supporter_group.name% present *%name%*",
-            "benefitting": "Benefitting %charity_name%",
-            "pledged": "$%pledged_total% pledged per %goal_name%",
-            "learnmore": "Tap to learn more about Prideraiser"
-        },
-        "songview": {
-            "_comment": [
-                "/src/components/SongView.js",
-                "This section contains prompts for the SongView component. Each is used to notify the user if the Clipboard has been set.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "copiedtitle": "Copied title to clipboard",
-            "copiedreference": "Copied reference to clipboard",
-            "copiedlyrics": "Copied lyrics to clipboard"
-        },
-        "upnext": {
-            "_comment": [
-                "/src/components/UpNext.js",
-                "This component is in hibernation and may be removed in the future, depending on the success of News Feed and the possible resurrection of Capo features.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "upnext": "Up Next"
-        },
-        "songcard": {
-            "_comment": [
-                "/src/components/SongCard.js",
-                "This section contains prompts for the SongCard component, which is used in the UpNext component (in hibernation) and Player screen (still in use). Both of those items are due for a revisit in the not too distant future.",
-                "",
-                "You probably don't need to change these values in your default translation."
-            ],
-
-            "seemore": "See more..."
-        }
+      "title": "Admin Dashboard",
+      "username": "Username/Email",
+      "password": "Password",
+      "login": "Log In"
     },
-    "positions": {
-        "_comment": [
-            "This section contains translations for player/staff positions used in the Player screen. This feature is due for a revisit in the not too distant future.",
-            "The keys/values should match for your default translation, and the values should be changed for alternate translations. Add/remove/edit fields in this object as you see fit.",
-            "",
-            "You WILL need to change these values in your default translation."
-        ],
+    "postattach": {
+      "_comment": [
+        "/src/screens/PostAttach.js",
+        "The Post Attach screen contains buttons for each custom Post Attachment.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
 
-        "Forward": "Forward",
-        "Defender": "Defender",
-        "Midfielder": "Midfielder",
-        "Goalkeeper": "Goalkeeper",
-        "Head Coach": "Head Coach",
-        "Assistant Coach": "Assistant Coach",
-        "Goalkeeper Coach": "Goalkeeper Coach",
-        "Technical Director": "Technical Director",
-        "Associate Head Coach": "Associate Head Coach",
-        "2007 Boys": "2007 Boys",
-        "2007 Girls": "2007 Girls",
-        "2006 Boys": "2006 Boys",
-        "2006 Girls": "2006 Girls",
-        "2005 Boys": "2005 Boys",
-        "2004 Boys": "2004 Boys",
-        "2003 Boys": "2003 Boys",
-        "2002 Boys": "2002 Boys",
-        "2001 Boys": "2001 Boys"
+      "attachmenttypes": "Attachment Types",
+      "selectplayer": "Select Player",
+      "selectsong": "Select Song",
+      "composesong": "Compose Song",
+      "masstweet": "Tweet the Players",
+      "gknickname": "GK Nickname",
+      "prideraisermatch": "Prideraiser Match Update"
     },
-    "settings": {
-        "_comment": [
-            "This section contains labels for each heading on the SocialButtons panel on the Home / News Feed screen. Please see documentation for config.js:SocialButtons for additional information. Add/remove/edit fields in this object as you see fit.",
-            "TODO: Refactor this section as tracked in https://github.com/Chattahooligans/hooligan-hymnal-app/issues/117",
-            "",
-            "You WILL need to change these values in your default translation."
-        ],
+    "postattachmentcomposegknickname": {
+      "_comment": [
+        "/src/screens/PostAttachmentComposeGkNickname.js",
+        "This screen contains prompts to compose a Post Attachment of the GK Nickname type. This attachment type is a gimmick thing we do in Chattanooga, and it can be disabled entirely by setting config.js:Settings.PostAttach_ShowGKNickname to false.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
 
-        "socialEN": "Follow us",
-        "socialES": "Síguenos",
-        "other": "Fan projects (unaffiliated)"
+      "gknickname": "GK Nickname",
+      "instructions1": "1. We're gonna score on you...",
+      "instructions2": "2. Pick a color, any color",
+      "instructions3": "3. Which is more readable?"
+    },
+    "postattachmentcomposeprideraisermatch": {
+      "_comment": [
+        "/src/screens/PostAttachmentComposePrideraiserMatch.js",
+        "This screen contains labels and prompts to compose a Post Attachment of the Prideraiser Match Update type",
+        "",
+        "Prideraiser-related text can include %macros% that use live campaign data.",
+        "See /src/components/PrideraiserHelper.js for more information.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "prideraisermatch": "Prideraiser Match Update",
+      "howmanygoals": "How many %goal_name_plural% for this match?",
+      "analytics": "Analytics (source)",
+      "source": "source",
+      "attach": "Attach"
+    },
+    "postattachmentcomposesong": {
+      "_comment": [
+        "/src/screens/PostAttachmentComposeSong.js",
+        "This screen contains labels to compose a Post Attachment of the Song type",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "composesong": "Compose Song",
+      "title": "Title",
+      "lyrics": "Lyrics",
+      "attach": "Attach"
+    },
+    "postattachmentselectmasstweet": {
+      "_comment": [
+        "/src/screens/PostAttachmentSelectMassTweet.js",
+        "This screen contains labels to select a Roster for a Post Attachment of the Mass Tweet type",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "selectroster": "Select Roster",
+      "search": "Search"
+    },
+    "postattachmentselectplayer": {
+      "_comment": [
+        "/src/screens/PostAttachmentPlayer.js",
+        "This screen contains labels to select a Player for a Post Attachment of the Player type",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "selectplayer": "Select Player",
+      "search": "Search"
+    },
+    "postattachmentselectsong": {
+      "_comment": [
+        "/src/screens/PostAttachmentSong.js",
+        "This screen contains labels to select a Song for a Post Attachment of the Song type",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "selectsong": "Select Song",
+      "search": "Search"
+    },
+    "postcreate": {
+      "_comment": [
+        "/src/screens/PostCreate.js",
+        "This screen contains labels, prompts, and instructions for Admins to create a Post for the News Feed feature.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "title": "Create Post",
+      "linkimage": "Link Remote Image",
+      "uploadimage": "Upload Image",
+      "nopermission": "Permissions failed",
+      "addattachment": "Add Attachment",
+      "push": "Bother people with a push notification? Seriously?",
+      "cancel": "Cancel",
+      "continue": "Continue",
+      "linkimageinstructions": "Paste the exact web address of an image",
+      "linkimagewarning": "WARNING:\n- Performance can slow down with large images. Consider linking to a smaller version as a thumbnail\n- Also, no validation or error checking is done on remotely linked images. Admins should proceed only with care and caution.",
+      "pasteuri": "Paste URI",
+      "pastethumbnailuri": "Paste Thumbnail URI",
+      "link": "Link Image"
+    },
+    "postpreview": {
+      "_comment": [
+        "/src/screens/PostPreview.js",
+        "This screen contains labels for Admins to preview and Submit or Schedule (coming eventually) a Post for the News Feed feature.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "title": "Preview Post",
+      "submit": "Submit Post",
+      "schedule": "Schedule Post"
+    },
+    "refereecard": {
+      "_comment": [
+        "/src/screens/RefereeCard.js",
+        "This section contains labels for the Referee Card feature. This feature is a gimmick we do in Chattanooga, though it may have some use in other deployments. It can be disabled entirely by setting config.js:Settings.RefereeCards_Show to false.",
+        "",
+        "You may want to change these values in your default translation."
+      ],
+
+      "titlered": "Flash 'Em a Card",
+      "titleyellow": "Flash 'Em a Card"
+    },
+    "home": {
+      "_comment": [
+        "/src/screens/Home.js",
+        "This section contains labels for the Home screen / News Feed feature. .songbook and .roster are used for buttons spliced into the feed, which link to the respective feature. You may want to replace the Songbook and Roster with something custom.",
+        "",
+        "You may want to change these values in your default translation."
+      ],
+
+      "findthemenu": "Find more great features in the %menuicon% menu, top left",
+      "visit": "Visit:",
+      "songbook": "Songbook",
+      "roster": "Roster"
+    },
+    "player": {
+      "_comment": [
+        "/src/screens/Player.js",
+        "This section contains labels for the Player profile screen. It includes an optional panel to display Player-related songs for SGs whose songwriting scope includes songs for/about individual players. This panel can be disabled entirely by setting config.js:Settings.Player_ShowSongs to false.",
+        "",
+        "You may want to change these values in your default translation."
+      ],
+
+      "playersongs": "Player Songs",
+      "stilllooking": "We are still working on a song for this player. Want to help? Contact us and submit an idea!",
+      "bio": "Bio",
+      "playerheadersong": "Player Song",
+      "readmore": "Read more",
+      "hide": "Hide"
+    },
+    "rosterteam": {
+      "_comment": [
+        "/src/screens/RosterTeam.js",
+        "This section contains labels for the Team Roster screen.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "title": "Roster",
+      "nosquadsfound": "No squads found",
+      "twitterlist": "Twitter List"
+    },
+    "rosterfoes": {
+      "_comment": [
+        "/src/screens/RosterFoes.js",
+        "This section contains labels for the Foes Roster screen.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "nonefound": "None found"
+    },
+    "rostertabs": {
+      "_comment": [
+        "/src/screens/RosterTabs.js",
+        "This section contains labels for the combined Team/Foes Roster tab interface.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "title": "Roster",
+      "friends": "Friends",
+      "foes": "Foes"
+    },
+    "singlesong": {
+      "_comment": [
+        "/src/screens/SingleSong.js",
+        "This section contains labels for the combined Team/Foes Roster tab interface.",
+        "",
+        "You may want to change these values in your default translation."
+      ],
+
+      "title": "Up Next"
+    },
+    "songbook": {
+      "_comment": [
+        "/src/screens/SongbookCover.js",
+        "/src/screens/SongbookContents.js",
+        "/src/screens/SongbookPages.js",
+        "This section contains labels for the Sonbgook interface. The values are used across three screens until/if the songbook is refactored. (An experimental interface was introduced with version 2.0.0.)",
+        "",
+        "You may want to change these values in your default translation."
+      ],
+
+      "defaultchaptertitle": "Cover",
+      "title": "Songbook",
+      "tableofcontents": "Table of Contents",
+      "swipetoview": "Swipe Left/Right to view more songs"
+    },
+    "tocinline": {
+      "_comment": [
+        "/src/screens/TableOfContentsInline.js",
+        "This section contains labels for the inline Table of Contents view used in Songbook. (An experimental interface was introduced with version 2.0.0, and these values are not used currently)",
+        "TODO: If 2.0.0 Songbook experiment works, remove this section.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "title": "Table of Contents"
+    },
+    "twitterlist": {
+      "_comment": [
+        "/src/screens/TwitterList.js",
+        "This section contains labels and prompts for the Twitter List feature, which presents a selectable text box containing player Twitter handles. Change the .heading and .instructions values to fit the message you want to present.",
+        "",
+        "You WILL need to change these values in your default translation."
+      ],
+
+      "title": "Twitter List",
+      "heading": "All Together, Now",
+      "instructions": "The connection between CFC fans and the team is unique, special, and tangible. Messages of encouragement, love, whatever, truly mean a lot to the players.\n\nYou can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.",
+      "opentwitter": "Open Twitter App"
     }
+  },
+  "navigation": {
+    "_comment": [
+      "This section contains labels for the main drawer Navigation Menu. As on the Home / News Feed screen, you may want to replace Songbook and Roster with something custom. Regarding the .links section, these are only examples. Edit the object as you see fit.",
+      "Please see documentation for config.js:NavigationDrawerItems for additional information.",
+      "",
+      "You WILL need to change these values in your default translation."
+    ],
+
+    "home": "Feed",
+    "songbook": "Songbook",
+    "roster": "Roster",
+    "admin": "Admin Dashboard",
+    "about": "About",
+    "links": {
+      "events": "Events",
+      "standings": "Standings",
+      "shop": "Merch Shop",
+      "volunteer": "Volunteer",
+      "instrumentation": "Instrumentation"
+    }
+  },
+  "components": {
+    "_comment": [
+      "The locale.components section contains text for each Component in the mobile app. Many are used on several screens.",
+      "",
+      "Your fork of the app may have additional components. We recommend continuing the same patterns outlined in this file (as well as sharing your work back to the main project)."
+    ],
+
+    "gkNickname": {
+      "_comment": [
+        "/src/components/GoalkeeperNicknameCard.js",
+        "This component is in hibernation and may be removed in the future, depending on the success of News Feed and the possible resurrection of Capo features. It used to support a gimmick thing we do in Chattanooga which was replaced by a Post Attachment.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "gonnascore": "We're gonna score on you, "
+    },
+    "imageviewer": {
+      "_comment": [
+        "/src/components/Post.js",
+        "This section contains labels for the full screen Image Viewer modal used inside Post.js",
+        "Wow! I should really refactor this, huh?",
+        "TODO: Refactor this section as tracked in https://github.com/Chattahooligans/hooligan-hymnal-app/issues/116",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "savetolocal": "Save to Device",
+      "cancel": "Cancel"
+    },
+    "imageviewerfooter": {
+      "_comment": [
+        "/src/components/ImageViewerFooter.js",
+        "This section contains labels for the full screen Image Viewer.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "captionprefix": "",
+      "creditprefix": "📷: ",
+      "copied": "Copied"
+    },
+    "post": {
+      "_comment": [
+        "/src/components/Post.js",
+        "This section contains labels for the Post component. Excepting .copied, they are used in a menu visible to admins only.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "copied": "Copied",
+      "hidealerttitle": "Hide Post",
+      "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
+      "postadminalertitleios": "Post Admin Menu",
+      "postadminalerthidemessageios": "Are you sure you want to hide this post from the Feed?\n\nWarning: There is no second confirmation step.",
+      "hidealertcancel": "Cancel",
+      "hidealertconfirm": "Hide",
+      "readmore": "Read more",
+      "hide": "Hide"
+    },
+    "postattachmentgknickname": {
+      "_comment": [
+        "/src/components/PostAttachmentGkNickname.js",
+        "This section contains labels for a Post Attachment of the GK Nickname type. This attachment type is a gimmick thing we do in Chattanooga, and it can be disabled entirely by setting config.js:Settings.PostAttach_ShowGKNickname to false.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "gonnascore": "We're gonna score on you, "
+    },
+    "postattachmentmasstweet": {
+      "_comment": [
+        "/src/components/PostAttachmentMassTweet.js",
+        "This section contains labels for a Post Attachment of the Mass Tweet type.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "tweettheplayers": "Tweet the Players"
+    },
+    "postattachmentprideraisermatch": {
+      "_comment": [
+        "/src/components/PostAttachmentMassTweet.js",
+        "This section contains labels for a Post Attachment of the Prideraiser Match Update type. .message is used if %goalCount% is greater than zero, else .messagezerogoals is used.",
+        "",
+        "Prideraiser-related text can include %macros% that use live campaign data.",
+        "See /src/components/PrideraiserHelper.js for more information.",
+        "",
+        "You WILL need to change these values in your default translation."
+      ],
+
+      "heading": "%name% Update",
+      "message": "Because of %goalCount% %goal_name_computed%, we raised $%raised% to benefit %charity_name%! Make your pledge now",
+      "messagezerogoals": "No %goal_name_computed% from this match, but we can raise %pledged_total% to benefit %charity_name% with each one. Make your pledge now",
+      "pledge": "Pledge"
+    },
+    "postattachmentmultitweet": {
+      "_comment": [
+        "/src/components/PostAttachmentMultiTweet.js",
+        "This section contains labels for a Smart Post Attachment of the MultiTweet type. It appears only if multiple Player attachments are included in the same Post.",
+        "",
+        "You may want to change these values in your default translation."
+      ],
+
+      "tweettheplayers": "Tweet them all!"
+    },
+    "postcreateimagewrapper": {
+      "_comment": [
+        "/src/components/PostCreateImageWrapper.js",
+        "This section contains prompts for the Image Metadata dialog used when including images in a Post.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "metadatatitle": "Image Metadata",
+      "credit": "Image Credit",
+      "caption": "Caption",
+      "common": "Frequently-credited Photographers",
+      "save": "Save Metadata",
+      "clear": "Clear Metadata",
+      "cancel": "Cancel"
+    },
+    "prideraisercampaignsummary": {
+      "_comment": [
+        "/src/components/PrideraiserCampaignSummary.js",
+        "This section contains labels for Prideraiser Hero component used on the Home / News Feed screen. Usage of this component is toggled by setting config.js:Settings.Home_HeroContent to 'prideraiser'.",
+        "",
+        "Prideraiser-related text can include %macros% that use live campaign data.",
+        "See /src/components/PrideraiserHelper.js for more information.",
+        "",
+        "You WILL need to change these values in your default translation."
+      ],
+
+      "title": "%supporter_group.name% present *%name%*",
+      "benefitting": "Benefitting %charity_name%",
+      "pledged": "$%pledged_total% pledged per %goal_name%",
+      "learnmore": "Tap to learn more about Prideraiser"
+    },
+    "songview": {
+      "_comment": [
+        "/src/components/SongView.js",
+        "This section contains prompts for the SongView component. Each is used to notify the user if the Clipboard has been set.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "copiedtitle": "Copied title to clipboard",
+      "copiedreference": "Copied reference to clipboard",
+      "copiedlyrics": "Copied lyrics to clipboard"
+    },
+    "upnext": {
+      "_comment": [
+        "/src/components/UpNext.js",
+        "This component is in hibernation and may be removed in the future, depending on the success of News Feed and the possible resurrection of Capo features.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "upnext": "Up Next"
+    },
+    "songcard": {
+      "_comment": [
+        "/src/components/SongCard.js",
+        "This section contains prompts for the SongCard component, which is used in the UpNext component (in hibernation) and Player screen (still in use). Both of those items are due for a revisit in the not too distant future.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "seemore": "See more..."
+    }
+  },
+  "positions": {
+    "_comment": [
+      "This section contains translations for player/staff positions used in the Player screen. This feature is due for a revisit in the not too distant future.",
+      "The keys/values should match for your default translation, and the values should be changed for alternate translations. Add/remove/edit fields in this object as you see fit.",
+      "",
+      "You WILL need to change these values in your default translation."
+    ],
+
+    "Forward": "Forward",
+    "Defender": "Defender",
+    "Midfielder": "Midfielder",
+    "Goalkeeper": "Goalkeeper",
+    "Head Coach": "Head Coach",
+    "Assistant Coach": "Assistant Coach",
+    "Goalkeeper Coach": "Goalkeeper Coach",
+    "Technical Director": "Technical Director",
+    "Associate Head Coach": "Associate Head Coach",
+    "2007 Boys": "2007 Boys",
+    "2007 Girls": "2007 Girls",
+    "2006 Boys": "2006 Boys",
+    "2006 Girls": "2006 Girls",
+    "2005 Boys": "2005 Boys",
+    "2004 Boys": "2004 Boys",
+    "2003 Boys": "2003 Boys",
+    "2002 Boys": "2002 Boys",
+    "2001 Boys": "2001 Boys"
+  },
+  "settings": {
+    "_comment": [
+      "This section contains labels for each heading on the SocialButtons panel on the Home / News Feed screen. Please see documentation for config.js:SocialButtons for additional information. Add/remove/edit fields in this object as you see fit.",
+      "TODO: Refactor this section as tracked in https://github.com/Chattahooligans/hooligan-hymnal-app/issues/117",
+      "",
+      "You WILL need to change these values in your default translation."
+    ],
+
+    "socialEN": "Follow us",
+    "socialES": "Síguenos",
+    "other": "Fan projects (unaffiliated)"
+  }
 }

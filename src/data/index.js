@@ -1,14 +1,14 @@
-import _ from 'lodash';
+import _ from "lodash";
 
 export const getFeaturedSong = (songbook, allSongs) => {
   if (songbook && allSongs && allSongs.length && songbook.chapters) {
     let featuredSongs = [];
-    songbook.chapters.forEach(chapter => {
-      chapter.songs.forEach(songChild => {
+    songbook.chapters.forEach((chapter) => {
+      chapter.songs.forEach((songChild) => {
         if (songChild.featured) {
           // does this song id exist in the songs list
           featuredSongs.push(
-            allSongs.filter(song => song._id === songChild._id)[0]
+            allSongs.filter((song) => song._id === songChild._id)[0]
           );
         }
       });
@@ -25,17 +25,17 @@ export const getFeaturedSong = (songbook, allSongs) => {
 
 const DEFAULT_SONG = {
   _id: 1,
-  category: 'game',
-  create_time: '',
-  update_time: '',
-  title: 'Chattanooga Choo Choo',
+  category: "game",
+  create_time: "",
+  update_time: "",
+  title: "Chattanooga Choo Choo",
   lyrics:
     "Pardon me, boy\nIs that the Chattanooga Choo Choo?\nTrack twenty-nine\nCan you give me a shine?\nI can afford to board the\nChattanooga Choo Choo?\nI've got my fare\nAnd just a trifle to spare.\n\nWhen you hear the whistle\nBlowin' eight to the bar!\nThen you know that\nTennessee is not very far!\nShovel all the coal in\nGotta keep it rollin'\nWoo, woo, Chattanooga\nThere you are! (x4)",
-  tbd_various_boolean_flags: '',
-  referenceTitle: 'by the Glenn Miller Orchestra',
-  referenceLink: '',
-  instructions: '',
+  tbd_various_boolean_flags: "",
+  referenceTitle: "by the Glenn Miller Orchestra",
+  referenceLink: "",
+  instructions: "",
   playerId: -1,
-  override_html: '',
-  delete_local: ''
+  override_html: "",
+  delete_local: "",
 };

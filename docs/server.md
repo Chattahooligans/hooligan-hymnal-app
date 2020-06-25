@@ -8,20 +8,20 @@ The official repository is <https://github.com/Chattahooligans/hooligan-hymnal-s
 
 In the heroku dashboard, find the environment variables in the Settings tab for the app, and then in the Config Vars section. The environment variables are presented in alphabetical order there, so we do the same in this document. Begin your server config by creating blank variables with the following names:
 
-* CLOUDINARY_URL
-* EXPO_EXPERIENCE
-* ENV
-* INPUT_LANGUAGE
-* MAIL_HOST
-* MAIL_PORT
-* MAIL_USER
-* MAIL_PASS
-* MONGO_URI
-* PORT
-* REFRESH_TOKEN_EXPIRES
-* SECRET_KEY
-* SITE_NAME
-* TOKEN_EXPIRES
+- CLOUDINARY_URL
+- EXPO_EXPERIENCE
+- ENV
+- INPUT_LANGUAGE
+- MAIL_HOST
+- MAIL_PORT
+- MAIL_USER
+- MAIL_PASS
+- MONGO_URI
+- PORT
+- REFRESH_TOKEN_EXPIRES
+- SECRET_KEY
+- SITE_NAME
+- TOKEN_EXPIRES
 
 ## Environment Variables Dictionary
 
@@ -52,16 +52,17 @@ The values for INPUT_LANGUAGE are exposed via the endpoint `/api/i18n-settings` 
 ### MAIL ENV VARIABLES
 
 The `MAIL_*` environment variables are used when resetting account passwords, and are:
-* MAIL_HOST=smtp.gmail.com
-* MAIL_PORT=587
-* MAIL_USER=
-* MAIL_PASS=
+
+- MAIL_HOST=smtp.gmail.com
+- MAIL_PORT=587
+- MAIL_USER=
+- MAIL_PASS=
 
 Our recommended solution is to use the Google Account created for the project, enabling two factor authenticaion, and following the instructions at <https://support.google.com/a/answer/176600?hl=en>. Look for the "Use the Gmail SMTP Server" section.
 
 ### MONGO_URI
 
-This is the connection string to your database. After logging into your SG's MongoDB Cloud account, select the project for your production database from the dropdown in the top left, the Clusters option in the side menu, and find the "CONNECT" button in the main view on the page. Click it, and a wizard menu will pop up. Select the 2nd option "Connect your application", and use "Node.js" and "2.2.12 or later" as Driver options. You will need to replace elements of this string with your db account password (not the same as your MongoDB Cloud service account) and database name before setting the env variable in Heroku. 
+This is the connection string to your database. After logging into your SG's MongoDB Cloud account, select the project for your production database from the dropdown in the top left, the Clusters option in the side menu, and find the "CONNECT" button in the main view on the page. Click it, and a wizard menu will pop up. Select the 2nd option "Connect your application", and use "Node.js" and "2.2.12 or later" as Driver options. You will need to replace elements of this string with your db account password (not the same as your MongoDB Cloud service account) and database name before setting the env variable in Heroku.
 
 TODO: Better instructions as necessary. We'll learn this from the first SG to go through and improve things.
 
