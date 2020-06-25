@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   FlatList,
   Image,
@@ -10,59 +10,60 @@ import {
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
+} from "react-native";
 
-import withUnstated from '@airship/with-unstated';
-import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import FadeIn from 'react-native-fade-in-image';
-import { ScrollView, RectButton } from 'react-native-gesture-handler';
-import ModalSelector from 'react-native-modal-selector';
+import withUnstated from "@airship/with-unstated";
+import GlobalDataContainer from "../containers/GlobalDataContainer";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import FadeIn from "react-native-fade-in-image";
+import { ScrollView, RectButton } from "react-native-gesture-handler";
+import ModalSelector from "react-native-modal-selector";
 
-import { BoldText, MediumText, RegularText } from '../components/StyledText';
-import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import { BoldText, MediumText, RegularText } from "../components/StyledText";
+import LoadingPlaceholder from "../components/LoadingPlaceholder";
 
-import { Colors, FontSizes, Layout } from '../constants';
-import Constants from 'expo-constants';
+import { Colors, FontSizes, Layout } from "../constants";
+import Constants from "expo-constants";
 
-import { find, propEq } from 'ramda';
-import { DefaultColors, Skin, Settings } from '../../config';
-import i18n from '../i18n';
-
+import { find, propEq } from "ramda";
+import { DefaultColors, Skin, Settings } from "../../config";
+import i18n from "../i18n";
 
 class PlayerRow extends React.Component {
   render() {
     const { item: player } = this.props;
 
     let thumbnail = Skin.Roster_DefaultThumbnail;
-    if (player.defaultThumbnail)
-      thumbnail = { uri: player.defaultThumbnail };
-    if (player.thumbnail)
-      thumbnail = { uri: player.thumbnail };
+    if (player.defaultThumbnail) thumbnail = { uri: player.defaultThumbnail };
+    if (player.thumbnail) thumbnail = { uri: player.thumbnail };
 
     let twitterDisplay;
     if (player.twitter) {
-      twitterDisplay = <TouchableOpacity
-        style={{ justifyContent: 'flex-start', alignContent: 'center' }}
-        key={player.twitter}
-        onPress={() => {
-          //WebBrowser.openBrowserAsync('http://twitter.com/' + player.twitter);
-          Linking.openURL('https://twitter.com/intent/tweet?text=@' + player.twitter + '+');
-        }}
-      >
-        <MaterialCommunityIcons
-          name={'twitter'}
-          size={30}
-          style={{
-            color: Skin.RosterTeam_TwitterColor,
-            marginTop: 3,
-            marginBottom: 3,
-            marginLeft: 10,
-            marginRight: 10,
-            backgroundColor: 'transparent'
+      twitterDisplay = (
+        <TouchableOpacity
+          style={{ justifyContent: "flex-start", alignContent: "center" }}
+          key={player.twitter}
+          onPress={() => {
+            //WebBrowser.openBrowserAsync('http://twitter.com/' + player.twitter);
+            Linking.openURL(
+              "https://twitter.com/intent/tweet?text=@" + player.twitter + "+"
+            );
           }}
-        />
-      </TouchableOpacity>
+        >
+          <MaterialCommunityIcons
+            name={"twitter"}
+            size={30}
+            style={{
+              color: Skin.RosterTeam_TwitterColor,
+              marginTop: 3,
+              marginBottom: 3,
+              marginLeft: 10,
+              marginRight: 10,
+              backgroundColor: "transparent",
+            }}
+          />
+        </TouchableOpacity>
+      );
     }
     return (
       <View style={styles.row}>
@@ -82,14 +83,35 @@ class PlayerRow extends React.Component {
             </View>
             <View style={styles.rowData}>
               <View
-                style={{ width: 25, alignItems: 'flex-end', paddingRight: 5 }}
+                style={{ width: 25, alignItems: "flex-end", paddingRight: 5 }}
               >
                 <BoldText>{player.squadNumber}</BoldText>
               </View>
-              <View style={{ flexDirection: 'column' }}>
-                <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{player.name}</MediumText>
-                <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('positions.' + player.position)}</RegularText>
-                <RegularText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{player.flag}</RegularText>
+              <View style={{ flexDirection: "column" }}>
+                <MediumText
+                  style={{
+                    textAlign: i18n.getRTLTextAlign(),
+                    writingDirection: i18n.getWritingDirection(),
+                  }}
+                >
+                  {player.name}
+                </MediumText>
+                <RegularText
+                  style={{
+                    textAlign: i18n.getRTLTextAlign(),
+                    writingDirection: i18n.getWritingDirection(),
+                  }}
+                >
+                  {i18n.t("positions." + player.position)}
+                </RegularText>
+                <RegularText
+                  style={{
+                    textAlign: i18n.getRTLTextAlign(),
+                    writingDirection: i18n.getWritingDirection(),
+                  }}
+                >
+                  {player.flag}
+                </RegularText>
               </View>
             </View>
           </View>
@@ -106,24 +128,24 @@ class PlayerRow extends React.Component {
 
 class RosterTeam extends React.Component {
   state = {
-    rosterTitle: i18n.t('screens.rosterteam.title'),
+    rosterTitle: i18n.t("screens.rosterteam.title"),
     rosters: [],
-    currentRosterID: null
-  }
+    currentRosterID: null,
+  };
 
   componentDidMount() {
     this.props.navigation.setOptions({
-      headerTitle: i18n.t('screens.rosterteam.title')
-    })
+      headerTitle: i18n.t("screens.rosterteam.title"),
+    });
     this.setData();
   }
 
   componentDidUpdate(prevProps) {
     if (
-      !prevProps.globalData.state.players &&
-      this.props.globalData.state.players ||
-      !prevProps.globalData.state.rosters &&
-      this.props.globalData.state.rosters
+      (!prevProps.globalData.state.players &&
+        this.props.globalData.state.players) ||
+      (!prevProps.globalData.state.rosters &&
+        this.props.globalData.state.rosters)
     ) {
       this.setData();
     }
@@ -143,21 +165,20 @@ class RosterTeam extends React.Component {
     } else {
       this.setState({ rosters, currentRosterID: null });
     }
-  }
+  };
 
   sortPlayersNumber = (a, b) => {
-    let aNum = Number(a.squadNumber)
-    let bNum = Number(b.squadNumber)
+    let aNum = Number(a.squadNumber);
+    let bNum = Number(b.squadNumber);
 
-    if (!Number.isNaN(aNum) && !Number.isNaN(bNum))
-      return (aNum > bNum)
+    if (!Number.isNaN(aNum) && !Number.isNaN(bNum)) return aNum > bNum;
 
-    return (a.squadNumber > b.squadNumber)
+    return a.squadNumber > b.squadNumber;
     // by happenstance, these conditions are all we need to sort "C"-numbered coaches to the bottom and handle 1 vs 2 digit squad numbers
-  }
+  };
   sortPlayersName = (a, b) => {
-    return (a.name > b.name)
-  }
+    return a.name > b.name;
+  };
   // TODO: sortPlayersPosition with priorities, sort by name or number if a tie? number probably
 
   render() {
@@ -173,84 +194,116 @@ class RosterTeam extends React.Component {
       let pickerItems = [];
 
       if (Platform.OS === "ios") {
-        this.state.rosters.forEach(element => {
+        this.state.rosters.forEach((element) => {
           pickerItems.push({ key: element._id, label: element.rosterTitle });
         });
-        header =
+        header = (
           <ModalSelector
             data={pickerItems}
             selectedKey={this.state.currentRosterID}
-            onChange={(item) => this.setState({ currentRosterID: item.key })}>
-            <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
-              <Text style={{ flex: 1 }}>{this.state.rosters.find(roster => roster._id == this.state.currentRosterID).rosterTitle}</Text>
-              <MaterialCommunityIcons name={'menu-down'} />
+            onChange={(item) => this.setState({ currentRosterID: item.key })}
+          >
+            <View
+              style={{
+                flexDirection: i18n.getFlexDirection(),
+                padding: 10,
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ flex: 1 }}>
+                {
+                  this.state.rosters.find(
+                    (roster) => roster._id == this.state.currentRosterID
+                  ).rosterTitle
+                }
+              </Text>
+              <MaterialCommunityIcons name={"menu-down"} />
             </View>
           </ModalSelector>
-      }
-      else {
+        );
+      } else {
         let pickerItems = [];
-        this.state.rosters.forEach(element => {
-          pickerItems.push(<Picker.Item label={element.rosterTitle} value={element._id} key={element._id} />);
+        this.state.rosters.forEach((element) => {
+          pickerItems.push(
+            <Picker.Item
+              label={element.rosterTitle}
+              value={element._id}
+              key={element._id}
+            />
+          );
         });
-        header =
+        header = (
           <Picker
-            mode='dropdown'
+            mode="dropdown"
             enabled={pickerItems.length > 1}
             selectedValue={this.state.currentRosterID}
-            onValueChange={(itemValue) => this.setState({ currentRosterID: itemValue })} >
+            onValueChange={(itemValue) =>
+              this.setState({ currentRosterID: itemValue })
+            }
+          >
             {pickerItems}
           </Picker>
+        );
       }
 
-      let currentRoster = this.state.rosters.find(element => element._id == this.state.currentRosterID);
+      let currentRoster = this.state.rosters.find(
+        (element) => element._id == this.state.currentRosterID
+      );
       let playerData = currentRoster.players;
 
       switch (sortPlayersBy) {
         case "number":
-          playerData = playerData.sort(this.sortPlayersNumber)
+          playerData = playerData.sort(this.sortPlayersNumber);
           break;
         case "name":
-          playerData = playerData.sort(this.sortPlayersName)
+          playerData = playerData.sort(this.sortPlayersName);
           break;
       }
 
       // inherit defaults from Roster document and pass to Player
-      playerData.forEach(element => {
-        if (currentRoster.hasOwnProperty('defaultThumbnail'))
+      playerData.forEach((element) => {
+        if (currentRoster.hasOwnProperty("defaultThumbnail"))
           element.defaultThumbnail = currentRoster.defaultThumbnail;
-        if (currentRoster.hasOwnProperty('defaultImage'))
+        if (currentRoster.hasOwnProperty("defaultImage"))
           element.defaultImage = currentRoster.defaultImage;
-        if (currentRoster.hasOwnProperty('showPlayerSongs'))
+        if (currentRoster.hasOwnProperty("showPlayerSongs"))
           element.showPlayerSongs = currentRoster.showPlayerSongs;
       });
 
-      listDisplay =
+      listDisplay = (
         <FlatList
-          renderScrollComponent={props => <ScrollView {...props} />}
+          renderScrollComponent={(props) => <ScrollView {...props} />}
           data={playerData}
           renderItem={this._renderItem}
           keyExtractor={(item, index) => index.toString()}
         />
-    }
-    else {
-
+      );
+    } else {
       if (Platform.OS === "ios") {
-        header =
-          <View style={{ flexDirection: i18n.getFlexDirection(), padding: 10, alignItems: "center" }}>
-            <Text style={{ flex: 1 }}>{i18n.t('screens.rosterteam.nosquadsfound')}</Text>
-            <MaterialCommunityIcons name={'menu-down'} />
+        header = (
+          <View
+            style={{
+              flexDirection: i18n.getFlexDirection(),
+              padding: 10,
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ flex: 1 }}>
+              {i18n.t("screens.rosterteam.nosquadsfound")}
+            </Text>
+            <MaterialCommunityIcons name={"menu-down"} />
           </View>
-      }
-      else {
-        header =
+        );
+      } else {
+        header = (
           <Picker>
-            <Picker.Item label={i18n.t('screens.rosterteam.nosquadsfound')} />
+            <Picker.Item label={i18n.t("screens.rosterteam.nosquadsfound")} />
           </Picker>
+        );
       }
 
-      listDisplay = <View style={{ flex: 1 }} />
+      listDisplay = <View style={{ flex: 1 }} />;
     }
-
 
     return (
       <LoadingPlaceholder>
@@ -267,16 +320,16 @@ class RosterTeam extends React.Component {
               name="playlist-edit"
               size={23}
               style={{
-                color: '#fff',
+                color: "#fff",
                 marginTop: 3,
                 marginBottom: 3,
                 marginLeft: 5,
                 marginRight: 5,
-                backgroundColor: 'transparent'
+                backgroundColor: "transparent",
               }}
             />
             <RegularText style={styles.twitterListButtonText}>
-              {i18n.t('screens.rosterteam.twitterlist')}
+              {i18n.t("screens.rosterteam.twitterlist")}
             </RegularText>
           </RectButton>
         </View>
@@ -296,20 +349,22 @@ class RosterTeam extends React.Component {
     return <PlayerRow item={item} onPress={this._handlePressRow} />;
   };
 
-  _handlePressRow = player => {
-    this.props.navigation.navigate('Player', { player });
+  _handlePressRow = (player) => {
+    this.props.navigation.navigate("Player", { player });
   };
 
   _handlePressTwitterListButton = () => {
-    let roster = this.state.rosters.find(element => element._id == this.state.currentRosterID)
-    this.props.navigation.navigate('TwitterList', { roster });
-  }
+    let roster = this.state.rosters.find(
+      (element) => element._id == this.state.currentRosterID
+    );
+    this.props.navigation.navigate("TwitterList", { roster });
+  };
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: 100 + '%'
+    width: 100 + "%",
   },
   row: {
     flex: 1,
@@ -317,41 +372,41 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: DefaultColors.Background,
     borderBottomWidth: 1,
-    borderColor: '#eee',
-    flexDirection: i18n.getFlexDirection()
+    borderColor: "#eee",
+    flexDirection: i18n.getFlexDirection(),
   },
   rowAvatarContainer: {
     paddingVertical: 5,
-    paddingHorizontal: 5
+    paddingHorizontal: 5,
   },
   rowData: {
     flex: 1,
-    flexDirection: i18n.getFlexDirection()
+    flexDirection: i18n.getFlexDirection(),
   },
   sectionHeader: {
     paddingHorizontal: 10,
     paddingTop: 7,
     paddingBottom: 5,
-    backgroundColor: '#eee',
+    backgroundColor: "#eee",
     borderWidth: 1,
-    borderColor: '#eee'
+    borderColor: "#eee",
   },
   twitterListButtonStyle: {
     backgroundColor: Skin.Songbook_ToCButtonBackground,
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginHorizontal: 0,
-    width: 100 + '%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    flexDirection: i18n.getFlexDirection()
+    width: 100 + "%",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
+    flexDirection: i18n.getFlexDirection(),
   },
   twitterListButtonText: {
     fontSize: FontSizes.normalButton,
-    color: '#fff',
-    textAlign: 'center'
-  }
+    color: "#fff",
+    textAlign: "center",
+  },
 });
 
 export default withUnstated(RosterTeam, { globalData: GlobalDataContainer });

@@ -1,4 +1,4 @@
-import API from './baseService';
+import API from "./baseService";
 
 export const getChannels = () =>
-  API.get('/api/channels').then(response => response.data);
+  API.get("/api/channels").then((response) => response.data);

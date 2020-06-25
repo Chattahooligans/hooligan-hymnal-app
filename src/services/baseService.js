@@ -1,12 +1,12 @@
-import axios from 'axios';
-import { Urls } from '../../config';
+import axios from "axios";
+import { Urls } from "../../config";
 
 let API = axios.create({
   baseURL: Urls.HooliganHymnalServer.replace(/\/$/, ""),
   headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json'
-  }
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
 });
 /*
 API.interceptors.request.use(request => {

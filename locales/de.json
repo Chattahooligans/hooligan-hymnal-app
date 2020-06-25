@@ -1,178 +1,178 @@
 {
-    "screens": {
-        "about": {
-            "title": "Über",
-            "appTitle": "Chattahooligan Hymnal",
-            "description": "Das Chattahooligan Hymnal wurde erstellt, um Dir zu helfen, den Chattanooga FC zu unterstützen..",
-            "feedback": "Bitte sende Feedback an _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email an thechattahooligans@gmail.com",
-            "creditsheading": "Danksagung",
-            "credits": [
-                "- Video auf dem Startbildschirm von Jay Kaley",
-                "- Photo im Menü von Phil Thach photography",
-                "- Einige Spielerfotos mit Genehmigung von Madonna Kemp und Ray Soldano",
-                "- Spieler Potraitfotos mit Genehmigung zur Nutzung zur Verfügung gestellt durch Chattanooga FC",
-                "- Ein Teil des Codes basiert auf der Open Source @nodevember conference schedule app"
-            ],
-            "debug": "Debug",
-            "hymnalplug": "Interesse an einer Mitarbeit? Wenn Du progammieren, gestalten, schreiben oder in anderer Weise helfen kannst, würden wir uns freuen mit Dir zu arbeiten! Bitte melde Dich bei _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email thechattahooligans@gmail.com"
-        },
-        "adminhome": {
-            "title": "Capo Dashboard",
-            "logout": "Logout"
-        },
-        "adminlogin": {
-            "title": "Capo Dashboard",
-            "username": "Benutzername/Email",
-            "password": "Passwort",
-            "login": "Einloggen"
-        },
-        "postattach": {
-            "attachmenttypes": "Attachment Types",
-            "selectplayer": "Select Player",
-            "selectsong": "Lied Auswählen",
-            "composesong": "Komponiere Lied",
-            "masstweet": "Tweet the Players",
-            "gknickname": "GK Nickname"
-        },
-        "postattachmentcomposegknickname": {
-            "gknickname": "GK Nickname",
-            "instructions1": "1. We're gonna score on you...",
-            "instructions2": "2. Wähle eine beliebige Farbe",
-            "instructions3": "3. Welches ist besser lesbar?"
-        },
-        "postattachmentcomposesong": {
-            "composesong": "Komponiere Lied",
-            "title": "Titel",
-            "lyrics": "Liedtext",
-            "attach": "Attach"
-        },
-        "postattachmentselectmasstweet": {
-            "selectroster": "Select Roster",
-            "search": "Search"
-        },
-        "postattachmentselectplayer": {
-            "selectplayer": "Select Player",
-            "search": "Search"
-        },
-        "postattachmentselectsong": {
-            "selectsong": "Lied auswählen",
-            "search": "Search"
-        },
-        "postcreate": {
-            "title": "Create Post",
-            "addattachment": "Add Attachment",
-            "push": "Bother people with a push notification? Seriously?",
-            "cancel": "Cancel",
-            "continue": "Continue"
-        },
-        "postpreview": {
-            "title": "Preview Post",
-            "submit": "Submit Post",
-            "schedule": "Schedule Post"
-        },
-        "home": {
-            "findthemenu": "Entdecke weitere großartige Funktionen %menuicon% Menü, oben links",
-            "visit": "Besuche:",
-            "songbook": "Gesangsbuch",
-            "roster": "Spielerliste"
-        },
-        "player": {
-            "playersongs": "Spieler-Lieder",
-            "stilllooking": "Wir suchen noch nach einem geeigneten Lied. Wer möchte helfen? Schlage Deine Idee vor!",
-            "bio": "Bio",
-            "playerheadersong": "Spieler-Lied",
-            "readmore": "Mehr lesen",
-            "hide": "Zeige weniger"
-        },
-        "rosterteam": {
-            "title": "Spielerliste",
-            "nosquadsfound": "keine Aufstellung gefunden",
-            "twitterlist": "Twitter Liste"
-        },
-        "rostertabs": {
-            "title": "Spielerliste",
-            "friends": "Freunde",
-            "foes": "Feinde"
-        },
-        "singlesong": {
-            "title": "Demnächst"
-        },
-        "songbook": {
-            "defaultchaptertitle": "Cover",
-            "title": "Gesangsbuch",
-            "tableofcontents": "Inhaltsverzeichnis",
-            "swipetoview": "Nach links und rechts wischen um Lieder anzuzeigen."
-        },
-        "tocinline": {
-            "title": "Inhaltsverzeichnis"
-        },
-        "twitterlist": {
-            "title": "Twitter Liste",
-            "heading": "Alle zusammen, jetzt!",
-            "instructions": "Die Verbindung zwischen den CFC-Fans und dem Team ist einzigartig, besonders und greifbar. Botschaften der Ermutigung, Liebe, was auch immer, bedeuten den Spielern wirklich viel.\n\n\nIhr könnt mehrere Twitter-Handles aus dem Feld unten kopieren und sie in einen längeren Twitter-Thread einfügen.",
-            "opentwitter": "Öffne Twitter App"
-        }
+  "screens": {
+    "about": {
+      "title": "Über",
+      "appTitle": "Chattahooligan Hymnal",
+      "description": "Das Chattahooligan Hymnal wurde erstellt, um Dir zu helfen, den Chattanooga FC zu unterstützen..",
+      "feedback": "Bitte sende Feedback an _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email an thechattahooligans@gmail.com",
+      "creditsheading": "Danksagung",
+      "credits": [
+        "- Video auf dem Startbildschirm von Jay Kaley",
+        "- Photo im Menü von Phil Thach photography",
+        "- Einige Spielerfotos mit Genehmigung von Madonna Kemp und Ray Soldano",
+        "- Spieler Potraitfotos mit Genehmigung zur Nutzung zur Verfügung gestellt durch Chattanooga FC",
+        "- Ein Teil des Codes basiert auf der Open Source @nodevember conference schedule app"
+      ],
+      "debug": "Debug",
+      "hymnalplug": "Interesse an einer Mitarbeit? Wenn Du progammieren, gestalten, schreiben oder in anderer Weise helfen kannst, würden wir uns freuen mit Dir zu arbeiten! Bitte melde Dich bei _@chattahooligan_ oder _@hooliganhymnal_ auf Twitter, oder per email thechattahooligans@gmail.com"
     },
-    "navigation": {
-        "home": "HOME",
-        "songbook": "GESANGSBUCH",
-        "roster": "SPIELERLISTE",
-        "admin": "CAPO DASHBOARD",
-        "about": "ÜBER",
-        "links": {
-            "events": "EREIGNIS",
-            "standings": "TABELLE",
-            "shop": "FANARTIKEL SHOP",
-            "volunteer": "FREIWILLIGE",
-            "instrumentation": "INTRUMENTIERUNG"
-        }
+    "adminhome": {
+      "title": "Capo Dashboard",
+      "logout": "Logout"
     },
-    "components": {
-        "gkNickname": {
-            "gonnascore": "We're gonna score on you, "
-        },
-        "post": {
-            "copied": "Copied",
-            "hidealerttitle": "Hide Post",
-            "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
-            "hidealertcancel": "Cancel",
-            "hidealertconfirm": "Hide",
-            "readmore": "Read more",
-            "hide": "Hide"
-        },
-        "postattachmentgknickname": {
-            "gonnascore": "We're gonna score on you, "
-        },
-        "postattachmentmasstweet": {
-            "tweettheplayers": "Tweet the Players"
-        },
-        "postattachmentmultitweet": {
-            "tweettheplayers": "Tweet them all!"
-        },
-        "songview": {
-            "copiedtitle": "Titel in die Zwischenablage kopiert",
-            "copiedreference": "Referenz in die Zwischenablage kopiert",
-            "copiedlyrics": "Liedtext in die Zwischenablage kopiiert"
-        },
-        "upnext": {
-            "upnext": "Demnächst"
-        },
-        "songcard": {
-            "seemore": "Mehr anzeigen..."
-        }
+    "adminlogin": {
+      "title": "Capo Dashboard",
+      "username": "Benutzername/Email",
+      "password": "Passwort",
+      "login": "Einloggen"
     },
-    "positions": {
-        "Forward": "Stürmer",
-        "Defender": "Verteidiger",
-        "Midfielder": "Mittelfeld",
-        "Goalkeeper": "Torwart",
-        "Head Coach": "Trainer",
-        "Associate Head Coach": "Assistenztrainer",
-        "Goalkeeper Coach": "Torwarttrainer"
+    "postattach": {
+      "attachmenttypes": "Attachment Types",
+      "selectplayer": "Select Player",
+      "selectsong": "Lied Auswählen",
+      "composesong": "Komponiere Lied",
+      "masstweet": "Tweet the Players",
+      "gknickname": "GK Nickname"
     },
-    "settings": {
-        "socialDE": "Folge uns",
-        "socialEN": "Follow us",
-        "socialES": "Síguenos"
+    "postattachmentcomposegknickname": {
+      "gknickname": "GK Nickname",
+      "instructions1": "1. We're gonna score on you...",
+      "instructions2": "2. Wähle eine beliebige Farbe",
+      "instructions3": "3. Welches ist besser lesbar?"
+    },
+    "postattachmentcomposesong": {
+      "composesong": "Komponiere Lied",
+      "title": "Titel",
+      "lyrics": "Liedtext",
+      "attach": "Attach"
+    },
+    "postattachmentselectmasstweet": {
+      "selectroster": "Select Roster",
+      "search": "Search"
+    },
+    "postattachmentselectplayer": {
+      "selectplayer": "Select Player",
+      "search": "Search"
+    },
+    "postattachmentselectsong": {
+      "selectsong": "Lied auswählen",
+      "search": "Search"
+    },
+    "postcreate": {
+      "title": "Create Post",
+      "addattachment": "Add Attachment",
+      "push": "Bother people with a push notification? Seriously?",
+      "cancel": "Cancel",
+      "continue": "Continue"
+    },
+    "postpreview": {
+      "title": "Preview Post",
+      "submit": "Submit Post",
+      "schedule": "Schedule Post"
+    },
+    "home": {
+      "findthemenu": "Entdecke weitere großartige Funktionen %menuicon% Menü, oben links",
+      "visit": "Besuche:",
+      "songbook": "Gesangsbuch",
+      "roster": "Spielerliste"
+    },
+    "player": {
+      "playersongs": "Spieler-Lieder",
+      "stilllooking": "Wir suchen noch nach einem geeigneten Lied. Wer möchte helfen? Schlage Deine Idee vor!",
+      "bio": "Bio",
+      "playerheadersong": "Spieler-Lied",
+      "readmore": "Mehr lesen",
+      "hide": "Zeige weniger"
+    },
+    "rosterteam": {
+      "title": "Spielerliste",
+      "nosquadsfound": "keine Aufstellung gefunden",
+      "twitterlist": "Twitter Liste"
+    },
+    "rostertabs": {
+      "title": "Spielerliste",
+      "friends": "Freunde",
+      "foes": "Feinde"
+    },
+    "singlesong": {
+      "title": "Demnächst"
+    },
+    "songbook": {
+      "defaultchaptertitle": "Cover",
+      "title": "Gesangsbuch",
+      "tableofcontents": "Inhaltsverzeichnis",
+      "swipetoview": "Nach links und rechts wischen um Lieder anzuzeigen."
+    },
+    "tocinline": {
+      "title": "Inhaltsverzeichnis"
+    },
+    "twitterlist": {
+      "title": "Twitter Liste",
+      "heading": "Alle zusammen, jetzt!",
+      "instructions": "Die Verbindung zwischen den CFC-Fans und dem Team ist einzigartig, besonders und greifbar. Botschaften der Ermutigung, Liebe, was auch immer, bedeuten den Spielern wirklich viel.\n\n\nIhr könnt mehrere Twitter-Handles aus dem Feld unten kopieren und sie in einen längeren Twitter-Thread einfügen.",
+      "opentwitter": "Öffne Twitter App"
     }
+  },
+  "navigation": {
+    "home": "HOME",
+    "songbook": "GESANGSBUCH",
+    "roster": "SPIELERLISTE",
+    "admin": "CAPO DASHBOARD",
+    "about": "ÜBER",
+    "links": {
+      "events": "EREIGNIS",
+      "standings": "TABELLE",
+      "shop": "FANARTIKEL SHOP",
+      "volunteer": "FREIWILLIGE",
+      "instrumentation": "INTRUMENTIERUNG"
+    }
+  },
+  "components": {
+    "gkNickname": {
+      "gonnascore": "We're gonna score on you, "
+    },
+    "post": {
+      "copied": "Copied",
+      "hidealerttitle": "Hide Post",
+      "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
+      "hidealertcancel": "Cancel",
+      "hidealertconfirm": "Hide",
+      "readmore": "Read more",
+      "hide": "Hide"
+    },
+    "postattachmentgknickname": {
+      "gonnascore": "We're gonna score on you, "
+    },
+    "postattachmentmasstweet": {
+      "tweettheplayers": "Tweet the Players"
+    },
+    "postattachmentmultitweet": {
+      "tweettheplayers": "Tweet them all!"
+    },
+    "songview": {
+      "copiedtitle": "Titel in die Zwischenablage kopiert",
+      "copiedreference": "Referenz in die Zwischenablage kopiert",
+      "copiedlyrics": "Liedtext in die Zwischenablage kopiiert"
+    },
+    "upnext": {
+      "upnext": "Demnächst"
+    },
+    "songcard": {
+      "seemore": "Mehr anzeigen..."
+    }
+  },
+  "positions": {
+    "Forward": "Stürmer",
+    "Defender": "Verteidiger",
+    "Midfielder": "Mittelfeld",
+    "Goalkeeper": "Torwart",
+    "Head Coach": "Trainer",
+    "Associate Head Coach": "Assistenztrainer",
+    "Goalkeeper Coach": "Torwarttrainer"
+  },
+  "settings": {
+    "socialDE": "Folge uns",
+    "socialEN": "Follow us",
+    "socialES": "Síguenos"
+  }
 }

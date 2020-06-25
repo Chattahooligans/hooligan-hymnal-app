@@ -1,12 +1,12 @@
 {
-    "_id": -1,
-    "create_time": "",
-    "update_time": "",
-    "name": "",
-    "squad_number": "",
-    "position": "",
-    "team": "",
-    "bio": "",
-    "image": "",
-    "delete_local": false
+  "_id": -1,
+  "create_time": "",
+  "update_time": "",
+  "name": "",
+  "squad_number": "",
+  "position": "",
+  "team": "",
+  "bio": "",
+  "image": "",
+  "delete_local": false
 }
