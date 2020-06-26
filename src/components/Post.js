@@ -764,8 +764,8 @@ const styles = StyleSheet.create({
   },
   menu: {
     color: Skin.Post_ChannelLabel,
-    marginLeft: 5,
-    marginRight: 3,
+    marginLeft: 0,
+    marginRight: 3 - Skin.Post_HeaderContainerPaddingHorizontal,
     marginTop: -6,
     backgroundColor: "transparent",
   },
