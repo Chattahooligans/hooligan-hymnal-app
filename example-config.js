@@ -1,6 +1,7 @@
 // Do not edit these import lines
 import appParams from "./app.json";
 import i18n from "./src/i18n";
+import { Layout } from "./src/constants";
 
 /*
   Hooligan Hymnal
