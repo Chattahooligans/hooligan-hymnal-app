@@ -155,7 +155,7 @@ The `app.json` file contains information needed to help turn the code into a wor
 
 The project includes `example-app.json` as a starting point. Leave this file alone, as future changes to the platform will modify it, and it will be easy to run a diff and see what changed.
 
-To edit the manifest for your app, make a copy of `example-app.json` and name it as `app.json`. You will be editing this new `app.json`
+To edit the manifest for your app, make a copy of `example-app.json` and name it as `app.json`. You will be editing this new `app.json`. Remove it from `.gitignore` as well so your copy of it is version controlled.
 
 Let's walk through some fields that you should pay special attention to.
 
@@ -187,6 +187,7 @@ The project includes `example-config.js` as a starting point. Leave this file al
 To edit the configuration for your app:
 
 - Make a copy of `example-config.js` and name it as `config.js`. YOu will be editing this new `config.js`.
+- Edit `.gitignore` to remove `config.js` so your fork has it in version control.
 
 ### /locales/
 
