@@ -257,7 +257,7 @@ export default class GlobalDataContainer extends Container {
           );
           let song = {};
           Object.assign(song, songOriginal);
-          song.chapterTitle = chapterChild.chapter_title;
+          song.chapterTitle = chapterChild.chapterTitle;
           song.pageLabel = tocPageLabel;
           songList.push(song);
           chapterSongList.push(song);
@@ -269,7 +269,7 @@ export default class GlobalDataContainer extends Container {
 
       if (0 < chapterSongList.length)
         ToCData.push({
-          title: chapterChild.chapter_title,
+          title: chapterChild.chapterTitle,
           data: chapterSongList,
         });
     });
