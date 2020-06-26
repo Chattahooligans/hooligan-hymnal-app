@@ -282,6 +282,7 @@ export const Skin = {
   NavigationDrawer_FontFamily: Fonts.Bold.family,
   NotificationEngagementsModal_Container: "#00000040",
   Songbook_Background: DefaultColors.Secondary,
+  Songbook_CoverActivityIndicatorColor: DefaultColors.Primary,
   Songbook_DefaultCover: Images.Songbook_Cover,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: DefaultColors.Primary,

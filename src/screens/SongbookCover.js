@@ -6,7 +6,7 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import { DefaultColors, Skin } from "../../config";
+import { Skin } from "../../config";
 import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
 import i18n from "../i18n";
@@ -73,7 +73,7 @@ class SongbookCover extends React.Component {
         <ActivityIndicator
           size="large"
           animating={true}
-          color={DefaultColors.Primary}
+          color={Skin.Songbook_CoverActivityIndicatorColor}
         />
       </View>
     );
