@@ -36,11 +36,10 @@ export default RootDrawerNavigation = () => {
   );
 
   return (
-    // drawerStyle={{ width: Dimensions.get('window').deviceWidth - 80 }}
-
     <RootDrawer.Navigator
       initialRouteName="Home"
       drawerContent={(props) => <CustomDrawer {...props} />}
+      //drawerStyle={{ width:Dimensions.get('window').deviceWidth - 80 }}
     >
       <RootDrawer.Screen name="Home" component={HomeNavigation} />
       <RootDrawer.Screen name="Songbook" component={SongbookNavigation} />
