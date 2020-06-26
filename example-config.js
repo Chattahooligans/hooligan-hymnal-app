@@ -272,6 +272,7 @@ export const Skin = {
   ModalLoader_Container: "#00000040",
   NavigationDrawer_BackgroundColor: "#333333",
   NavigationDrawer_HeroBackground: Images.NavigationDrawer_HeroBackground,
+  NavigationDrawer_HeroBackgroundHeight: 140 + Layout.notchHeight,
   NavigationDrawer_HeroOverlay: Images.NavigationDrawer_HeroOverlay,
   NavigationDrawer_HeroOverlayHeightProportion: 1,
   NavigationDrawer_HeroTintColor: DefaultColors.HeaderBackground,

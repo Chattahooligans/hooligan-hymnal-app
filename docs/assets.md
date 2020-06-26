@@ -125,7 +125,7 @@ Default file name(s): `drawer-hero-background.png` and `drawer-hero-overlay.png`
 
 The menu drawer contains an image at the top. Like the Home Hero Video, this image is displayed under semitransparent tint and an overlay logo image with transparent background. You can use a photo, digital graphic, or solid color image.
 
-\*The hero background image is displayed at a fixed height. There are two strategies for designing the overlay logo image: Leaving plenty of space around the logo and setting `config.js:Skin.NavigationDrawer_HeroOverlayHeightProportion` to a proportion of or near 1, or cropping tightly around the logo and setting that value to some value much less than 1. It may require some fiddling in the config to look nice, and I'm sorry about the current approach.
+\*The hero background image is displayed at, and contained to, a fixed height based on `config.js:Skin.NavigationDrawer_HeroBackgroundHeight`. There are two strategies for designing the overlay logo image: Leaving plenty of space around the logo and setting `config.js:Skin.NavigationDrawer_HeroOverlayHeightProportion` to a proportion of or near 1, or cropping tightly around the logo and setting that value to some value much less than 1. It may require some fiddling in the config to look nice, and I'm sorry about the current approach.
 
 (\*TODO: This is much improved, but still suboptimal as of v2.0.0. Tracked at <https://github.com/Chattahooligans/hooligan-hymnal-app/issues/134>)
 

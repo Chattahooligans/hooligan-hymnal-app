@@ -218,7 +218,7 @@ const CustomDrawer = (props) => {
 
 const styles = StyleSheet.create({
   backgroundImage: {
-    height: 140 + Layout.notchHeight,
+    height: Skin.NavigationDrawer_HeroBackgroundHeight,
     width: "100%",
     resizeMode: "cover",
   },
