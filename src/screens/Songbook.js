@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   tocButtonStyle: {
-    backgroundColor: Skin.Songbook_ToCButtonBackground,
+    backgroundColor: Skin.SongbookContents_ButtonBackground,
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginHorizontal: 0,

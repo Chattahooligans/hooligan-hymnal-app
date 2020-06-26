@@ -50,7 +50,7 @@ class SongbookCover extends React.Component {
   }
 
   render() {
-    let songbookCover = Skin.Songbook_DefaultCover;
+    let songbookCover = Skin.SongbookCover_DefaultImage;
     if (this.props.globalData.state.songbook.frontCover)
       songbookCover = { uri: this.props.globalData.state.songbook.frontCover };
 
@@ -73,7 +73,7 @@ class SongbookCover extends React.Component {
         <ActivityIndicator
           size="large"
           animating={true}
-          color={Skin.Songbook_CoverActivityIndicatorColor}
+          color={Skin.SongbookCover_ActivityIndicatorColor}
         />
       </View>
     );
@@ -85,7 +85,7 @@ export default withUnstated(SongbookCover, { globalData: GlobalDataContainer });
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Skin.Songbook_Background,
+    backgroundColor: Skin.SongbookCover_Background,
     alignItems: "center",
     justifyContent: "space-around",
   },

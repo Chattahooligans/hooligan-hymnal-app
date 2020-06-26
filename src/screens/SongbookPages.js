@@ -137,7 +137,7 @@ export default withUnstated(SongbookPages, { globalData: GlobalDataContainer });
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Skin.Songbook_Background,
+    backgroundColor: Skin.SongbookPages_Background,
   },
   sectionHeader: {
     paddingHorizontal: 10,
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   tocButtonStyle: {
-    backgroundColor: Skin.Songbook_ToCButtonBackground,
+    backgroundColor: Skin.SongbookContents_ButtonBackground,
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginHorizontal: 0,

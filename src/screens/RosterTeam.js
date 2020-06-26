@@ -392,7 +392,7 @@ const styles = StyleSheet.create({
     borderColor: "#eee",
   },
   twitterListButtonStyle: {
-    backgroundColor: Skin.Songbook_ToCButtonBackground,
+    backgroundColor: DefaultColors.ButtonBackground,
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginHorizontal: 0,
