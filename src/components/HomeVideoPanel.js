@@ -4,7 +4,7 @@ import { Layout } from "../constants";
 import VideoBackground from "../components/VideoBackground";
 import { RegularText } from "../components/StyledText";
 import { Skin } from "../../config";
-import appParams from "../../app.json";
+import appJson from "../../app.json";
 
 export default class HomeVideoPanel extends React.Component {
   render() {
@@ -20,7 +20,7 @@ export default class HomeVideoPanel extends React.Component {
         />
         <View style={styles.headerContent}>
           <RegularText style={styles.versionText}>
-            {appParams.expo.version}
+            {appJson.expo.version}
           </RegularText>
         </View>
       </View>

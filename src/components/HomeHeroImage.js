@@ -4,7 +4,7 @@ import { RegularText } from "../components/StyledText";
 import PostImageWrapper from "./PostImageWrapper";
 import { Skin } from "../../config";
 
-import appParams from "../../app.json";
+import appJson from "../../app.json";
 
 export default class HomeHeroImage extends React.Component {
   render() {
@@ -19,7 +19,7 @@ export default class HomeHeroImage extends React.Component {
           source={Skin.Home_HeroImage}
         />
         <RegularText style={styles.versionText}>
-          {appParams.expo.version}
+          {appJson.expo.version}
         </RegularText>
       </View>
     );

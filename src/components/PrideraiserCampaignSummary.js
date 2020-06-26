@@ -29,7 +29,7 @@ import { getCampaign } from "../services/prideraiserService";
 import moment from "moment";
 import i18n from "../i18n";
 
-import appParams from "../../app.json";
+import appJson from "../../app.json";
 
 export default class PrideraiserCampaignSummary extends React.Component {
   state = {
@@ -136,7 +136,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
                 }}
               />
               <RegularText style={styles.versionText}>
-                {appParams.expo.version}
+                {appJson.expo.version}
               </RegularText>
             </View>
             <View style={styles.contentContainer}>

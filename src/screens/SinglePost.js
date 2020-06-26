@@ -2,12 +2,12 @@ import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import Post from "../components/Post";
 import { HeaderBackButton } from "react-navigation";
-import appParams from "../../app.json";
+import appJson from "../../app.json";
 
 export default class SinglePost extends React.Component {
   render() {
     this.props.navigation.setOptions({
-      headerTitle: appParams.expo.name + ": View Post",
+      headerTitle: appJson.expo.name + ": View Post",
       headerLeft: () => (
         <HeaderBackButton
           onPress={() => navigation.goBack()}
