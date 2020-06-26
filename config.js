@@ -1,6 +1,7 @@
 // Do not edit these import lines
 import appParams from "./app.json";
 import i18n from "./src/i18n";
+import { Layout } from "./src/constants";
 
 /*
   Hooligan Hymnal
@@ -281,18 +282,22 @@ export const Skin = {
   ModalLoader_Container: "#00000040",
   NavigationDrawer_BackgroundColor: "#333333",
   NavigationDrawer_HeroBackground: Images.NavigationDrawer_HeroBackground,
+  NavigationDrawer_HeroBackgroundHeight: 140 + Layout.notchHeight,
   NavigationDrawer_HeroOverlay: Images.NavigationDrawer_HeroOverlay,
-  NavigationDrawer_HeroOverlayTintColor: DefaultColors.HeaderBackground,
-  NavigationDrawer_HeroOverlayTintOpacity: 0.5,
+  NavigationDrawer_HeroOverlayHeightProportion: 0.75,
+  NavigationDrawer_HeroTintColor: DefaultColors.HeaderBackground,
+  NavigationDrawer_HeroTintOpacity: 0.8,
   NavigationDrawer_LabelActiveBackgroundColor: DefaultColors.Primary,
   NavigationDrawer_LabelActiveTintColor: Palette.White,
   NavigationDrawer_LabelActiveBackgroundColor: "transparent",
   NavigationDrawer_LabelInactiveTintColor: Palette.White,
   NavigationDrawer_FontFamily: Fonts.Bold.family,
   NotificationEngagementsModal_Container: "#00000040",
-  Songbook_Background: DefaultColors.Secondary,
-  Songbook_DefaultCover: Images.Songbook_Cover,
-  Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
+  SongbookContents_ButtonBackground: DefaultColors.ButtonBackground,
+  SongbookCover_ActivityIndicatorColor: DefaultColors.Primary,
+  SongbookCover_Background: DefaultColors.Secondary,
+  SongbookCover_DefaultImage: Images.Songbook_Cover,
+  SongbookPages_Background: DefaultColors.Secondary,
   SingleSong_Background: DefaultColors.Primary,
   Player_Background: DefaultColors.Secondary,
   Player_DefaultImage: Images.ClubLogo,
