@@ -130,7 +130,13 @@ const CustomDrawer = (props) => {
         <View style={[StyleSheet.absoluteFill, styles.logoContainer]}>
           <Image
             source={Skin.NavigationDrawer_HeroOverlay}
-            style={styles.logoImage}
+            style={{
+              width: "100%",
+              height:
+                Skin.NavigationDrawer_HeroOverlayHeightProportion *
+                styles.backgroundImage.height,
+              resizeMode: "contain",
+            }}
           />
         </View>
       </View>
@@ -212,7 +218,7 @@ const CustomDrawer = (props) => {
 
 const styles = StyleSheet.create({
   backgroundImage: {
-    height: 140 + Layout.notchHeight,
+    height: Skin.NavigationDrawer_HeroBackgroundHeight,
     width: "100%",
     resizeMode: "cover",
   },
@@ -240,18 +246,12 @@ const styles = StyleSheet.create({
     backgroundColor: Skin.NavigationDrawer_BackgroundColor,
   },
   imageOverlay: {
-    backgroundColor: Skin.NavigationDrawer_HeroOverlayTintColor,
-    opacity: Skin.NavigationDrawer_HeroOverlayTintOpacity,
+    backgroundColor: Skin.NavigationDrawer_HeroTintColor,
+    opacity: Skin.NavigationDrawer_HeroTintOpacity,
   },
   logoContainer: {
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: Layout.notchHeight + 20,
-  },
-  logoImage: {
-    width: 200,
-    height: 50,
-    resizeMode: "contain",
   },
 });
 

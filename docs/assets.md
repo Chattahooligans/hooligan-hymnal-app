@@ -97,6 +97,10 @@ Default file name(s): `home-hero-video.mp4` and `home-hero-video-overlay.png`
 
 The default implementation of the hero component is an incredibly low-resolution video with no sound. Target 1-5MB. (Yes, that small and shitty, because it's going to be covered up.) The hero video is displayed under a semitransparent tint and an overlay image- we recommend your SG logo with a transparent background.
 
+The overlay image is displayed at a fixed size and may require some iteration to look adequate on a variety of screen sizes. We recommend starting out by cropping the image tightly to the logo, seeing how it looks, and adding padding as necessary. It may require some fiddling, and I'm sorry about the current approach.(\*TODO: This is much improved, but still suboptimal as of 2.0.0. Tracked at <https://github.com/Chattahooligans/hooligan-hymnal-app/issues/134>)
+
+(\*TODO: The overlay logo implementation is suboptimal as of v2.0.0. Plans for improvement are tracked at <https://github.com/Chattahooligans/hooligan-hymnal-app/issues/134>)
+
 ### Image
 
 Default file name(s): `home-hero-image.png`
@@ -120,6 +124,10 @@ The Home Hero component fades into a standard looking header/navigation bar as t
 Default file name(s): `drawer-hero-background.png` and `drawer-hero-overlay.png`
 
 The menu drawer contains an image at the top. Like the Home Hero Video, this image is displayed under semitransparent tint and an overlay logo image with transparent background. You can use a photo, digital graphic, or solid color image.
+
+\*The hero background image is displayed at, and contained to, a fixed height based on `config.js:Skin.NavigationDrawer_HeroBackgroundHeight`. There are two strategies for designing the overlay logo image: Leaving plenty of space around the logo and setting `config.js:Skin.NavigationDrawer_HeroOverlayHeightProportion` to a proportion of or near 1, or cropping tightly around the logo and setting that value to some value much less than 1. It may require some fiddling in the config to look nice, and I'm sorry about the current approach.
+
+(\*TODO: This is much improved, but still suboptimal as of v2.0.0. Tracked at <https://github.com/Chattahooligans/hooligan-hymnal-app/issues/134>)
 
 ## Songbook Cover
 

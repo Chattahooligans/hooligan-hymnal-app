@@ -11,7 +11,6 @@ export default class HomeHeroImage extends React.Component {
     let { width, height } = Image.resolveAssetSource(Skin.Home_HeroImage);
     let ratio = width / height;
     let scaledHeight = Dimensions.get("window").width / ratio;
-    console.log(width, height);
 
     return (
       <View style={styles.container}>
