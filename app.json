@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "Chattahooligan Hymnal",
+    "description": "Built to help you support Chattanooga Football Club",
+    "owner": "chattahooligan",
+    "slug": "chattahooligan-hymnal",
+    "privacy": "public",
+    "version": "1.16.1",
+    "primaryColor": "#A3D8F7",
+    "icon": "./assets/icon-ios.png",
+    "orientation": "portrait",
+    "splash": {
+      "backgroundColor": "#A3D8F7",
+      "resizeMode": "contain",
+      "image": "./assets/splash.png"
+    },
+    "android": {
+      "package": "com.chattahooligan.hymnal",
+      "icon": "./assets/icon-android.png",
+      "versionCode": 8,
+      "permissions": [],
+      "googleServicesFile": "./google-services.json"
+    },
+    "ios": {
+      "bundleIdentifier": "com.chattahooligan.app",
+      "icon": "./assets/icon-ios.png",
+      "supportsTablet": true,
+      "loadJSInBackgroundExperimental": true
+    },
+    "notification": {
+      "icon": "./assets/notification.png",
+      "iosDisplayInForeground": true,
+      "color": "#A3D8F7"
+    },
+    "platforms": ["android", "ios"],
+    "githubUrl": "https://github.com/Chattahooligans/",
+    "extra": {
+      "hooliganHymnal": {
+        "version": "2.0.0",
+        "aboutPlug": {
+          "en": " is built using the open source *Hooligan Hymnal* platform, v2.0.0.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
+        }
+      }
+    }
+  }
+}
