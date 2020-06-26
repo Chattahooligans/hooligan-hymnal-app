@@ -151,7 +151,11 @@ Hooligan Hymnal has been designed such that the appearance can be changed and ce
 
 **THIS SECTION IS THE MOST IMPORTANT OF THEM ALL. IT IS VERY EASY TO MAKE A MISTAKE THAT WILL RUIN YOUR LIFE FOREVER. DON'T FUCK IT UP.**
 
-The app.json file contains information needed to help turn the code into a working application. It's critical to make sure this file is correct _before_ you run `expo publish` or `expo build` for the first time.
+The `app.json` file contains information needed to help turn the code into a working application. It's critical to make sure this file is correct _before_ you run `expo publish` or `expo build` for the first time.
+
+The project includes `example-app.json` as a starting point. Leave this file alone, as future changes to the platform will modify it, and it will be easy to run a diff and see what changed.
+
+To edit the manifest for your app, make a copy of `example-app.json` and name it as `app.json`. You will be editing this new `app.json`
 
 Let's walk through some fields that you should pay special attention to.
 
@@ -178,6 +182,12 @@ The assets folder at the root of the project contains images and fonts that are 
 
 The config file contains the vast majority of settings that alter the appearance and behavior of the mobile application. It consists of several sections, and each section has relevant documentation and instructions. If you have questions, don't be too shy to ask in the Hooligan Hymnal Slack workspace. (This way, we can help you AND improve the documentation going forward.)
 
+The project includes `example-config.js` as a starting point. Leave this file alone, as future changes to the platform will modify it, and it will be easy to run a diff and see what changed.
+
+To edit the configuration for your app:
+
+- Make a copy of `example-config.js` and name it as `config.js`. YOu will be editing this new `config.js`.
+
 ### /locales/
 
 The locales folder at the root of the project contains the static text in the mobile application. Multiple translations are supported via i18n, for SGs or users who speak languages other than English. You will NEED to change some of the text before publishing your version of the mobile app.
@@ -186,10 +196,14 @@ The project includes `example-en.json` as an English-language starting point. Le
 
 To edit the text for your app:
 
-- Make a copy of `example-en.json` and name it as `{your language code}.json`.
+- Make a copy of `example-en.json` and name it as `{your language code}.json`. You will be editing this new `{your language code}.json`.
 - If English is not your primary language, translate the text into your preferred language (and please submit a PR back to the project with the example schema in another language!).
 - Edit the text inside the file, paying extra attention to the `_comment` recommendations.
 - Edit `manifest.js` to set the available translations and default locale. This file contains additional instructions.
+
+## .gitignore
+
+tacoman TODO: insert .gitignore instructions (I think app.json will be here in addition to the config we already talked about?)
 
 ## Run and Test the Mobile App
 
@@ -198,6 +212,10 @@ To start testing your mobile app, navigate to your local directory in a command 
 ## Populate the Database
 
 Your Hooligan Hymnal app is not very useful without a database containing your songbook, perhaps a roster, and having set up the news feed. Please refer to our [Data Models Guide](data-models.md) for an introduction to the concepts you will be working with in Hooligan Hymnal admin dashboard.
+
+## Commit your changes to GitHub
+
+TODO: write instructions for how to commit using vscode
 
 ## Build the Mobile App for Google Play and Apple App Store
 
