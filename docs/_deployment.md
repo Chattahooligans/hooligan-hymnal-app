@@ -110,6 +110,14 @@ Log into MongoDB Cloud Atlas and create a free M0 sandbox cluster. Once the clus
 
 From your SG's github account, [fork the code](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) for [Hooligan Hymnal Server](https://github.com/Chattahooligans/hooligan-hymnal-server) and [Hooligan Hymnal App](https://github.com/Chattahooligans/hooligan-hymnal-app). This is your starting point for building the app.
 
+## Copy example-app.json and example-config.js, then customize.
+
+These files represent the vanilla configuration for the Hymnal project. Copy example-app.json to app.json, and example-config.js to config.js, then alter the values to match your deployment.
+
+## Remove app.json and config.js from .gitignore
+
+You will want these to be in source control for your build. We ignore them upstream to avoid conflicts; new settings will appear in the example files, which you can track the version history of when upgrading to see newly adding options. Alternatively, the release notes for the platform will also call out any new items.
+
 ## Configure the Server
 
 TODO: talk about server
