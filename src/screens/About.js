@@ -26,7 +26,7 @@ import {
 import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
 import i18n from "../i18n";
-import appParams from "../../app.json";
+import appJson from "../../app.json";
 
 // About info, link to website/fb/twitter
 // maybe a url for the /songs page on website (where App Store/Google Play icons will be found)
@@ -134,7 +134,7 @@ class About extends React.Component {
             >
               {" "}
               {i18n.t("screens.about.version")}
-              {appParams.expo.version}
+              {appJson.expo.version}
             </LightText>
           </View>
           <ParsedText
@@ -185,7 +185,7 @@ class About extends React.Component {
           >
             {i18n.t("screens.about.appTitle") +
               i18n.getLocalizedText(
-                appParams.expo.extra.hooliganHymnal.aboutPlug
+                appJson.expo.extra.hooliganHymnal.aboutPlug
               )}
           </ParsedText>
           <View style={{ height: 20 }} />

@@ -11,7 +11,7 @@ import { getFoes } from "../services/foesService";
 import { getChannels } from "../services/channelsService";
 import { getFeed, getMoreFeed, hidePost } from "../services/feedService";
 import { Urls, Settings } from "../../config";
-import appParams from "../../app.json";
+import appJson from "../../app.json";
 import htmlColors from "../data/htmlColors.json";
 
 const PUSH_ENDPOINT = Urls.HooliganHymnalServer + "/api/pushToken";
@@ -230,9 +230,8 @@ export default class GlobalDataContainer extends Container {
         },
         body: JSON.stringify({
           pushToken: pushToken,
-          expoExperience:
-            "@" + appParams.expo.owner + "/" + appParams.expo.slug,
-          appVersion: appParams.expo.version,
+          expoExperience: "@" + appJson.expo.owner + "/" + appJson.expo.slug,
+          appVersion: appJson.expo.version,
           platform: Platform.OS,
           platformVersion: Platform.Version,
         }),

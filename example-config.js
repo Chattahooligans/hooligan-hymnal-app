@@ -1,5 +1,5 @@
 // Do not edit these import lines
-import appParams from "./app.json";
+import appJson from "./app.json";
 import i18n from "./src/i18n";
 import { Layout } from "./src/constants";
 
@@ -473,7 +473,7 @@ export const Settings = {
   PostAttach_ShowJuanstagram: false,
 
   PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix:
-    appParams.expo.slug,
+    appJson.expo.slug,
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat: "YYYY-MM-DD",
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix: "",
 
@@ -497,7 +497,7 @@ export const Settings = {
   //      wm=pr&wmp=br add the Prideraiser Logo watermark onto the image. We recommend leaving this alone
   PrideraiserCampaignSummary_CampaignCoverParams: "?w=768&h=432&wm=pr&wmp=bl",
 
-  PrideraiserCampaignSummary_AnalyticsSource: appParams.expo.slug + "-home",
+  PrideraiserCampaignSummary_AnalyticsSource: appJson.expo.slug + "-home",
 
   // RefereeCards_Show: true, false
   //      Show yellow/red card icons in the nav drawer
