@@ -24,7 +24,6 @@
     "ios": {
       "bundleIdentifier": "com.chattahooligan.app",
       "icon": "./assets/icon-ios.png",
-      "supportsTablet": true,
       "loadJSInBackgroundExperimental": true
     },
     "notification": {
