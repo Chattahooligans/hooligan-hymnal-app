@@ -24,7 +24,6 @@
     "ios": {
       "bundleIdentifier": "YOU MUST SET THIS FIRST AND CAN'T CHANGE IT",
       "icon": "./assets/icon-ios.png",
-      "supportsTablet": true,
       "loadJSInBackgroundExperimental": true
     },
     "notification": {
