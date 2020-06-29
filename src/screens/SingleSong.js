@@ -25,7 +25,7 @@ export default class SingleSong extends React.Component {
       headerTitle: i18n.t("screens.singlesong.title"),
       headerLeft: () => (
         <HeaderBackButton
-          onPress={() => navigation.goBack()}
+          onPress={() => this.props.navigation.goBack()}
           tintColor="#fff"
         />
       ),

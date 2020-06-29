@@ -46,7 +46,7 @@ class Channel extends React.Component {
       headerTitle: "Channel: " + route.params.channelData.name,
       headerLeft: (
         <HeaderBackButton
-          onPress={() => navigation.goBack()}
+          onPress={() => this.props.navigation.goBack()}
           tintColor="#fff"
         />
       ),

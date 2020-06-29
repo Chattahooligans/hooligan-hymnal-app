@@ -10,7 +10,7 @@ export default class SinglePost extends React.Component {
       headerTitle: appJson.expo.name + ": View Post",
       headerLeft: () => (
         <HeaderBackButton
-          onPress={() => navigation.goBack()}
+          onPress={() => this.props.navigation.goBack()}
           tintColor="#fff"
         />
       ),
