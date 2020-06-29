@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   ViewPagerAndroid,
   Image,
@@ -8,21 +8,26 @@ import {
   Platform,
   FlatList,
   ScrollView,
-  Dimensions
-} from 'react-native';
-import SongView from '../components/SongView';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
-import withUnstated from '@airship/with-unstated';
-import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { FontSizes, Layout } from '../constants';
-import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
-import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import TableOfContentsInline from './TableOfContentsInline';
-import { Skin, DefaultColors } from '../../config';
-import i18n from '../i18n';
+  Dimensions,
+} from "react-native";
+import SongView from "../components/SongView";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { BorderlessButton, RectButton } from "react-native-gesture-handler";
+import withUnstated from "@airship/with-unstated";
+import GlobalDataContainer from "../containers/GlobalDataContainer";
+import { FontSizes, Layout } from "../constants";
+import {
+  BoldText,
+  MediumText,
+  RegularText,
+  UnderlineText,
+} from "../components/StyledText";
+import LoadingPlaceholder from "../components/LoadingPlaceholder";
+import TableOfContentsInline from "./TableOfContentsInline";
+import { Skin, DefaultColors } from "../../config";
+import i18n from "../i18n";
 
-const screenWidth = Dimensions.get('window').width;
+const screenWidth = Dimensions.get("window").width;
 const firstValidPageIndex = 1;
 
 const styles = StyleSheet.create({
@@ -30,56 +35,56 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 7,
     paddingBottom: 5,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderWidth: 1,
-    borderColor: '#fff',
-    textAlign: i18n.getRTLTextAlign()
+    borderColor: "#fff",
+    textAlign: i18n.getRTLTextAlign(),
   },
   chapterText: {
-    textAlign: 'center',
+    textAlign: "center",
   },
   tocButtonStyle: {
-    backgroundColor: Skin.Songbook_ToCButtonBackground,
+    backgroundColor: Skin.SongbookContents_ButtonBackground,
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginHorizontal: 0,
-    width: 100 + '%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    flexDirection: i18n.getFlexDirection()
+    width: 100 + "%",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
+    flexDirection: i18n.getFlexDirection(),
   },
   tocButtonText: {
     fontSize: FontSizes.normalButton,
-    color: '#fff',
-    textAlign: 'center'
+    color: "#fff",
+    textAlign: "center",
   },
   container: {
     flex: 1,
-    width: 100 + '%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: Skin.Songbook_Background
-  }
+    width: 100 + "%",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: Skin.Songbook_Background,
+  },
 });
 
-let defaultChapterTitle = i18n.t('screens.songbook.defaultchaptertitle');
+let defaultChapterTitle = i18n.t("screens.songbook.defaultchaptertitle");
 
 // Android uses ViewPagerAndroid
 // iOS uses ScrollView with pagingEnabled and horizontal properties
 class Songbook extends React.Component {
   state = {
-    chapter_title: defaultChapterTitle,
+    chapterTitle: defaultChapterTitle,
     tocButtonDisplay: true,
     songViews: [],
     songs: [],
-    pageCount: 0
+    pageCount: 0,
   };
 
   componentDidMount() {
     this.props.navigation.setOptions({
-      headerTitle: i18n.t('screens.songbook.title')
-    })
+      headerTitle: i18n.t("screens.songbook.title"),
+    });
 
     this.setData();
   }
@@ -97,26 +102,31 @@ class Songbook extends React.Component {
     let songViews = [];
     let songs = [];
     let pageCount = 0;
-    this.props.globalData.state.songbook.chapters.forEach(chapterChild => {
+    this.props.globalData.state.songbook.chapters.forEach((chapterChild) => {
       chapterChild.songs.forEach((songChild, index) => {
         try {
           let item = this.props.globalData.state.songs.filter(
-            song => song._id === songChild._id
+            (song) => song._id === songChild._id
           )[0];
-          item.chapter_title = chapterChild.chapter_title;
+          item.chapterTitle = chapterChild.chapterTitle;
           pageCount++;
           songs.push({ index: pageCount, song: item });
           songViews.push(
             <View
               key={index + "-" + item._id}
-              chapter_title={chapterChild.chapter_title}
-              style={{ flex: 1, width: screenWidth, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
+              chapterTitle={chapterChild.chapterTitle}
+              style={{
+                flex: 1,
+                width: screenWidth,
+                textAlign: i18n.getRTLTextAlign(),
+                writingDirection: i18n.getWritingDirection(),
+              }}
             >
               <SongView song={item} pageCount={pageCount} />
             </View>
           );
         } catch (err) {
-          console.log(songChild._id + ' not found in songs database');
+          console.log(songChild._id + " not found in songs database");
         }
       });
     });
@@ -125,7 +135,7 @@ class Songbook extends React.Component {
   };
 
   update() {
-    console.log('update');
+    console.log("update");
   }
 
   render() {
@@ -142,16 +152,16 @@ class Songbook extends React.Component {
             name="table-of-contents"
             size={23}
             style={{
-              color: '#fff',
+              color: "#fff",
               marginTop: 3,
               marginBottom: 3,
               marginLeft: 5,
               marginRight: 5,
-              backgroundColor: 'transparent'
+              backgroundColor: "transparent",
             }}
           />
           <RegularText style={styles.tocButtonText}>
-            {i18n.t('screens.songbook.tableofcontents')}
+            {i18n.t("screens.songbook.tableofcontents")}
           </RegularText>
         </RectButton>
       );
@@ -160,37 +170,47 @@ class Songbook extends React.Component {
     return (
       <LoadingPlaceholder>
         <View style={styles.sectionHeader}>
-          <RegularText style={styles.chapterText}>{this.state.chapter_title}</RegularText>
+          <RegularText style={styles.chapterText}>
+            {this.state.chapterTitle}
+          </RegularText>
         </View>
         <View style={styles.container}>
-          <ScrollView key={'songbookScrollView'}
-            ref={view => (this._scrollView = view)}
+          <ScrollView
+            key={"songbookScrollView"}
+            ref={(view) => (this._scrollView = view)}
             contentContainerStyle={{
               flexGrow: 1,
-              alignItems: 'center',
-              justifyContent: 'center'
+              alignItems: "center",
+              justifyContent: "center",
             }}
             horizontal={true}
             pagingEnabled={true}
             onMomentumScrollEnd={this._onSongbookMomentumScrollEnd}
           >
-            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+            <View style={{ alignItems: "center", justifyContent: "center" }}>
               <View style={{ flex: 1 }} />
               <Image
                 style={{ width: screenWidth, height: screenWidth }}
                 source={Skin.Songbook_Cover}
               />
               <View style={{ flex: 1 }} />
-              <RegularText style={{ textAlign: 'center', writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.songbook.swipetoview')}</RegularText>
+              <RegularText
+                style={{
+                  textAlign: "center",
+                  writingDirection: i18n.getWritingDirection(),
+                }}
+              >
+                {i18n.t("screens.songbook.swipetoview")}
+              </RegularText>
               <View style={{ flex: 1 }} />
             </View>
             {this.state.songViews}
             <View
               style={{
                 flex: 1,
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: screenWidth
+                alignItems: "center",
+                justifyContent: "center",
+                width: screenWidth,
               }}
             >
               <TableOfContentsInline
@@ -218,18 +238,18 @@ class Songbook extends React.Component {
     if (this.state.pageCount + 1 === pageIndex) {
       this.setState({
         tocButtonDisplay: false,
-        chapter_title: i18n.t('screens.songbook.tableofcontents')
+        chapterTitle: i18n.t("screens.songbook.tableofcontents"),
       });
     } else if (firstValidPageIndex <= pageIndex) {
       this.setState({
         tocButtonDisplay: true,
-        chapter_title: this.state.songs[pageIndex - firstValidPageIndex].song
-          .chapter_title
+        chapterTitle: this.state.songs[pageIndex - firstValidPageIndex].song
+          .chapterTitle,
       });
     } else {
       this.setState({
         tocButtonDisplay: true,
-        chapter_title: defaultChapterTitle
+        chapterTitle: defaultChapterTitle,
       });
     }
   };
@@ -237,12 +257,12 @@ class Songbook extends React.Component {
   scrollToToC = () => {
     this.setState({
       tocButtonDisplay: false,
-      chapter_title: i18n.t('screens.songbook.tableofcontents')
+      chapterTitle: i18n.t("screens.songbook.tableofcontents"),
     });
     this._scrollView.scrollTo({
       x: screenWidth * (this.state.pageCount + 1),
       y: 0,
-      animated: false
+      animated: false,
     });
   };
 
@@ -250,12 +270,12 @@ class Songbook extends React.Component {
     const { currentSong } = this.props.globalData.state;
     this.setState({
       tocButtonDisplay: true,
-      chapter_title: currentSong.chapter_title
+      chapterTitle: currentSong.chapterTitle,
     });
     this._scrollView.scrollTo({
       x: (currentSong.page - 1 + firstValidPageIndex) * screenWidth,
       y: 0,
-      animated: false
+      animated: false,
     });
   };
 }

@@ -1,24 +1,20 @@
-import { Platform } from 'react-native';
-import { Notifications } from 'expo';
-import * as Permissions from 'expo-permissions';
-import * as Location from 'expo-location';
-import { Container } from 'unstated';
-import { getSongs } from '../services/songsService';
-import { getSongbooks } from '../services/songbooksService';
-import { getPlayers } from '../services/playersService';
-import { getRosters } from '../services/rostersService';
-import { getFoes } from '../services/foesService';
-import { getChannels } from '../services/channelsService';
-import { getFeed, getMoreFeed, hidePost } from '../services/feedService';
-import { Urls, Settings } from '../../config';
-import appParams from '../../app.json';
-import htmlColors from '../data/htmlColors.json';
-import { objectTypeAnnotation } from '@babel/types';
-import i18n from '../i18n';
+import { Platform } from "react-native";
+import { Notifications } from "expo";
+import * as Permissions from "expo-permissions";
+import * as Location from "expo-location";
+import { Container } from "unstated";
+import { getSongs } from "../services/songsService";
+import { getSongbooks } from "../services/songbooksService";
+import { getPlayers } from "../services/playersService";
+import { getRosters } from "../services/rostersService";
+import { getFoes } from "../services/foesService";
+import { getChannels } from "../services/channelsService";
+import { getFeed, getMoreFeed, hidePost } from "../services/feedService";
+import { Urls, Settings } from "../../config";
+import appJson from "../../app.json";
+import htmlColors from "../data/htmlColors.json";
 
-import SongView from '../components/SongView';
-
-const PUSH_ENDPOINT = Urls.HooliganHymnalServer + '/api/pushToken';
+const PUSH_ENDPOINT = Urls.HooliganHymnalServer + "/api/pushToken";
 
 export default class GlobalDataContainer extends Container {
   state = {
@@ -28,21 +24,19 @@ export default class GlobalDataContainer extends Container {
     currentUser: null,
     showSongbookCover: true,
     songbook: {
-      songbook_title: '',
-      organization: '',
-      description: '',
-      front_cover: '',
-      back_cover: '',
-      some_publish_or_expiration_dates: '',
-      chapters: []
+      songbookTitle: "",
+      organization: "",
+      description: "",
+      frontCover: "",
+      chapters: [],
     },
     songs: null,
     songbookContents: null,
     songList: null,
     rosters: {
-      rosterTitle: '',
-      season: '',
-      players: []
+      rosterTitle: "",
+      season: "",
+      players: [],
     },
     players: null,
     foes: null,
@@ -55,7 +49,7 @@ export default class GlobalDataContainer extends Container {
     feed: [],
     feedAtEnd: false,
     response: null,
-    loadDataComplete: false
+    loadDataComplete: false,
   };
 
   loadData = async () => {
@@ -81,7 +75,7 @@ export default class GlobalDataContainer extends Container {
         feed,
         feedAtEnd,
         htmlColors,
-        loadDataComplete: true
+        loadDataComplete: true,
       });
     } catch (e) {
       alert("loadData exception: " + e.toString());
@@ -91,17 +85,17 @@ export default class GlobalDataContainer extends Container {
   verifyRoster = (players, rosters) => {
     let rosterList = [];
 
-    rosters.forEach(roster => {
+    rosters.forEach((roster) => {
       let playerList = [];
 
-      roster.players.forEach(playerChild => {
+      roster.players.forEach((playerChild) => {
         try {
-          let player = players.find(player => player._id === playerChild._id);
+          let player = players.find((player) => player._id === playerChild._id);
 
           if (player) {
             // overrides for Academy data
             let clonePlayer = { ...player };
-            if (playerChild.hasOwnProperty('override')) {
+            if (playerChild.hasOwnProperty("override")) {
               /*
               if (playerChild.override.hasOwnProperty('position'))
                 clonePlayer.position = playerChild.override.position;
@@ -118,19 +112,18 @@ export default class GlobalDataContainer extends Container {
             }
 
             playerList.push(clonePlayer);
-          }
-          else {
+          } else {
             //alert('creating new ' + JSON.stringify(playerChild));
-            console.log(playerChild._id + ' not found in players database');
+            console.log(playerChild._id + " not found in players database");
 
-            if (playerChild.hasOwnProperty('override')) {
+            if (playerChild.hasOwnProperty("override")) {
               // make a temp player
               let player = {
-                name: '',
-                position: '',
-                squadNumber: '',
-                bio: ''
-              }
+                name: "",
+                position: "",
+                squadNumber: "",
+                bio: "",
+              };
 
               /*
               if (playerChild.override.hasOwnProperty('name'))
@@ -152,12 +145,12 @@ export default class GlobalDataContainer extends Container {
             }
           }
         } catch (err) {
-          console.log(playerChild._id + ' not found in players database');
+          console.log(playerChild._id + " not found in players database");
         }
       });
 
       if (0 < playerList.length) {
-        let thisRoster = {}
+        let thisRoster = {};
         Object.assign(thisRoster, roster);
         thisRoster.players = playerList;
         rosterList.push(thisRoster);
@@ -166,13 +159,13 @@ export default class GlobalDataContainer extends Container {
 
     //roster.squads = squads;
     return rosterList;
-  }
+  };
 
   getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status !== 'granted') {
+    if (status !== "granted") {
       this.setState({
-        errorMessage: 'Permission to access location was denied'
+        errorMessage: "Permission to access location was denied",
       });
     }
 
@@ -180,10 +173,10 @@ export default class GlobalDataContainer extends Container {
     this._setLocation(location);
   };
 
-  handleNotification = notification => {
-    if (notification.origin === 'selected') {
+  handleNotification = (notification) => {
+    if (notification.origin === "selected") {
       // notification was tapped, either from the app already open or from entering the app
-      console.log('SELECTED notification', notification.data.song.title);
+      console.log("SELECTED notification", notification.data.song.title);
 
       // TODO: open SingleSong screen and send it the Song object buried inside the notification
 
@@ -192,7 +185,7 @@ export default class GlobalDataContainer extends Container {
 
       // Maybe set app state and do something with it that way?
       // this.setState({ notification: notification });
-    } else if (notification.origin === 'received') {
+    } else if (notification.origin === "received") {
       // notification was received, either app was already open or it just opened up but not from the notification
       // no way to tell which?
       // console.log('RECEIVED notification', notification.data.song.title);
@@ -209,7 +202,7 @@ export default class GlobalDataContainer extends Container {
 
       // only ask if permissions have not already been determined, because
       // iOS won't necessarily prompt the user a second time.
-      if (existingStatus !== 'granted') {
+      if (existingStatus !== "granted") {
         // Android remote notification permissions are granted during the app
         // install, so this will only ask on iOS
         const { status } = await Permissions.askAsync(
@@ -220,7 +213,7 @@ export default class GlobalDataContainer extends Container {
       }
 
       // Stop here if the user did not grant permissions
-      if (finalStatus !== 'granted') {
+      if (finalStatus !== "granted") {
         return;
       }
 
@@ -230,18 +223,18 @@ export default class GlobalDataContainer extends Container {
 
       // POST the pushToken to your backend server from where you can retrieve it to send push notifications.
       return fetch(PUSH_ENDPOINT, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           pushToken: pushToken,
-          expoExperience: '@' + appParams.expo.owner + '/' + appParams.expo.slug,
-          appVersion: appParams.expo.version,
+          expoExperience: "@" + appJson.expo.owner + "/" + appJson.expo.slug,
+          appVersion: appJson.expo.version,
           platform: Platform.OS,
-          platformVersion: Platform.Version
-        })
+          platformVersion: Platform.Version,
+        }),
       });
     } catch (e) {
       //
@@ -254,32 +247,37 @@ export default class GlobalDataContainer extends Container {
     let songList = [];
     let songViews = [];
     let tocPageLabel = 1;
-    this.state.songbook.chapters.forEach(chapterChild => {
+    this.state.songbook.chapters.forEach((chapterChild) => {
       let chapterSongList = [];
 
       chapterChild.songs.forEach((songChild, index) => {
         try {
-          let songOriginal = this.state.songs.find(song => song._id === songChild._id);
+          let songOriginal = this.state.songs.find(
+            (song) => song._id === songChild._id
+          );
           let song = {};
           Object.assign(song, songOriginal);
-          song.chapterTitle = chapterChild.chapter_title;
+          song.chapterTitle = chapterChild.chapterTitle;
           song.pageLabel = tocPageLabel;
           songList.push(song);
           chapterSongList.push(song);
           tocPageLabel++;
         } catch (err) {
-          console.log(songChild._id + ' not found in songs database ' + err);
+          console.log(songChild._id + " not found in songs database " + err);
         }
       });
 
       if (0 < chapterSongList.length)
-        ToCData.push({ title: chapterChild.chapter_title, data: chapterSongList });
+        ToCData.push({
+          title: chapterChild.chapterTitle,
+          data: chapterSongList,
+        });
     });
 
     this.setState({ songbookContents: ToCData, songList }, () => {
       if (callback) callback();
     });
-  }
+  };
 
   setCurrentSong = (song, callback) =>
     this.setState({ currentSong: song }, () => {
@@ -296,28 +294,29 @@ export default class GlobalDataContainer extends Container {
       if (callback) callback();
     });
 
+  setLocation = (location) => this.setState({ location });
 
-  setLocation = location => this.setState({ location });
-
-  setBearerToken = bearerToken => this.setState({ bearerToken });
-  getBearerToken = () => { return this.state.bearerToken; }
+  setBearerToken = (bearerToken) => this.setState({ bearerToken });
+  getBearerToken = () => {
+    return this.state.bearerToken;
+  };
 
   // contains .user and .token (above, bearerToken until its refactored out)
   // rename bearerToken from .token to .loginToken?
   setCurrentUser = (currentUser, callback) => {
     this.setState({ currentUser }, () => {
-      if (callback)
-        callback();
+      if (callback) callback();
     });
-  }
-  getCurrentUser = () => { return this.state.currentUser }
+  };
+  getCurrentUser = () => {
+    return this.state.currentUser;
+  };
 
   logoutCurrentUser = (callback) => {
     this.setState({ currentUser: null, bearerToken: null }, () => {
-      if (callback)
-        callback()
-    })
-  }
+      if (callback) callback();
+    });
+  };
 
   // News Feed helper functions
   initNewPost = (callback) => {
@@ -325,7 +324,7 @@ export default class GlobalDataContainer extends Container {
     let newPost = {
       sender: {
         user: this.state.currentUser.user.id,
-        pushToken: this.state.pushToken
+        pushToken: this.state.pushToken,
       },
       publishedAt: new Date().toISOString(),
       push: false,
@@ -334,13 +333,15 @@ export default class GlobalDataContainer extends Container {
       locale: null,
       text: "",
       images: [],
-      attachments: []
-    }
+      attachments: [],
+    };
     this.setCurrentPostDraft(newPost, callback);
-  }
+  };
   setCurrentPostDraft = (post, callback) => {
-    this.setState({ currentPostDraft: post }, () => { if (callback) callback(); });
-  }
+    this.setState({ currentPostDraft: post }, () => {
+      if (callback) callback();
+    });
+  };
 
   getChannelBasicInfo = (channelId) => {
     let channelToReturn = {
@@ -348,9 +349,11 @@ export default class GlobalDataContainer extends Container {
       name: "No channel found",
       description: "",
       avatarUrl: "",
-      headerUrl: ""
+      headerUrl: "",
     };
-    const channel = this.state.channels.find(channel => channel._id === channelId)
+    const channel = this.state.channels.find(
+      (channel) => channel._id === channelId
+    );
 
     if (channel && channel.active) {
       channelToReturn._id = channel._id;
@@ -361,29 +364,28 @@ export default class GlobalDataContainer extends Container {
     }
 
     return channelToReturn;
-  }
+  };
   getChannelPermissions = (channelId, userId) => {
-    const channel = this.state.channels.find(channel => channel._id === channelId)
+    const channel = this.state.channels.find(
+      (channel) => channel._id === channelId
+    );
     if (channel) {
-      let user = channel.users.find(user => user._id === userId);
+      let user = channel.users.find((user) => user._id === userId);
 
-      if (user)
-        return user;
-      else
-        return {}
-    }
-    else
-      return {}
-  }
+      if (user) return user;
+      else return {};
+    } else return {};
+  };
 
   refreshFeed = async () => {
     const feed = await getFeed();
     this.setState({ feed, feedAtEnd: false });
-  }
+  };
 
   loadMoreFeed = async () => {
     if (this.state.feed.length > 0 && !this.state.feedAtEnd) {
-      const lastPublishedAt = this.state.feed[this.state.feed.length - 1].publishedAt;
+      const lastPublishedAt = this.state.feed[this.state.feed.length - 1]
+        .publishedAt;
       const moreFeed = await getMoreFeed(lastPublishedAt);
       const feedAtEnd = moreFeed.length < Settings.Home_PostsPerPage;
       const prevFeed = this.state.feed;
@@ -391,14 +393,14 @@ export default class GlobalDataContainer extends Container {
 
       this.setState({ feed, feedAtEnd });
     }
-  }
+  };
 
   hidePost = async (postId) => {
     await hidePost(postId, this.state.currentUser.token);
 
-    let feedAfterHide = this.state.feed.filter((item) => item._id !== postId)
-    this.setState({ feed: feedAfterHide })
+    let feedAfterHide = this.state.feed.filter((item) => item._id !== postId);
+    this.setState({ feed: feedAfterHide });
 
     await this.refreshFeed();
-  }
+  };
 }

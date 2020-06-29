@@ -1,23 +1,23 @@
-import 'react-native-gesture-handler';
-import * as React from 'react';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { AppLoading } from 'expo';
-import { Asset } from 'expo-asset';
-import * as Font from 'expo-font';
-import { Platform, View, StatusBar, YellowBox } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Provider } from 'unstated';
-import { loadSavedTalksAsync } from './src/utils/storage';
-import { NavigationContainer } from '@react-navigation/native';
-import RootDrawerNavigation from './src/navigation/RootDrawerNavigation';
-import { Fonts, Images } from './config';
+import "react-native-gesture-handler";
+import * as React from "react";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { AppLoading } from "expo";
+import { Asset } from "expo-asset";
+import * as Font from "expo-font";
+import { Platform, View, StatusBar, YellowBox } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Provider } from "unstated";
+import { loadSavedTalksAsync } from "./src/utils/storage";
+import { NavigationContainer } from "@react-navigation/native";
+import RootDrawerNavigation from "./src/navigation/RootDrawerNavigation";
+import { Fonts, Images, Skin } from "./config";
 
-YellowBox.ignoreWarnings(['Warning: bind()']);
+YellowBox.ignoreWarnings(["Warning: bind()"]);
 
 class App extends React.Component {
   state = {
     errorMessage: null,
-    fontLoaded: false
+    fontLoaded: false,
   };
 
   _loadResourcesAsync = () => {
@@ -34,20 +34,20 @@ class App extends React.Component {
       imagesArray.push(value);
     });
 
-    let fonts= {};
+    let fonts = {};
     Object.keys(Fonts).forEach((key) => {
-      fonts[Fonts[key].family] = Fonts[key].file
+      fonts[Fonts[key].family] = Fonts[key].file;
     });
 
     return Promise.all([
       Font.loadAsync({
         ...fonts,
-        ...MaterialCommunityIcons.font
+        ...MaterialCommunityIcons.font,
       }),
       Asset.loadAsync(imagesArray),
       Asset.fromModule(
-        require('react-navigation/src/views/assets/back-icon.png')
-      ).downloadAsync()
+        require("react-navigation/src/views/assets/back-icon.png")
+      ).downloadAsync(),
     ]);
   };
 
@@ -70,7 +70,11 @@ class App extends React.Component {
         <SafeAreaProvider>
           <NavigationContainer>
             <RootDrawerNavigation />
-            <StatusBar barStyle="light-content" />
+            <StatusBar
+              backgroundColor={Skin.StatusBar_BackgroundColor}
+              barStyle={Skin.StatusBar_BarStyle}
+              translucent={false}
+            />
           </NavigationContainer>
         </SafeAreaProvider>
       </Provider>

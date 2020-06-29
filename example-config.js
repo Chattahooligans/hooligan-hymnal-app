@@ -1,6 +1,7 @@
 // Do not edit these import lines
-import appParams from './app.json';
+import appJson from "./app.json";
 import i18n from "./src/i18n";
+import { Layout } from "./src/constants";
 
 /*
   Hooligan Hymnal
@@ -26,8 +27,6 @@ import i18n from "./src/i18n";
   you get confused or if something breaks.
 */
 
-
-
 /*
   Urls
   
@@ -42,29 +41,28 @@ import i18n from "./src/i18n";
 export const Urls = {
   // production server
   // HEY! Don't include a trailing slash / on this url.
-  // If you do, you're gonna have a bad time because your serer calls will not work 
-  HooliganHymnalServer: 'https://EDIT-THIS-URL.herokuapp.com',
+  // If you do, you're gonna have a bad time because your serer calls will not work
+  HooliganHymnalServer: "https://EDIT-THIS-URL.herokuapp.com",
   // dev/beta server
   //HooliganHymnalServer: 'https://EDIT-THIS-URL.herokuapp.com',
 
   // Social media and websites
-  Twitter: 'https://twitter.com/hooliganhymnal',
-  Facebook: 'https://facebook.com/',
-  Instagram: 'https://instagram.com/',
-  Website: 'http://example.com',
-  YouTube: 'https://youtube.com',
-  Shop: 'http://example.com/shop',
-  Prideraiser: 'https://prideraiser.org/',
+  Twitter: "https://twitter.com/hooliganhymnal",
+  Facebook: "https://facebook.com/",
+  Instagram: "https://instagram.com/",
+  Website: "http://example.com",
+  YouTube: "https://youtube.com",
+  Shop: "http://example.com/shop",
+  Prideraiser: "https://prideraiser.org/",
   // Look for random characters at the end of your current campaign url (must update for each campaign season)
-  PrideraiserCampaignId: 'xxxxxxx',
-  EsTwitter: 'https://twitter.com/hooliganhymmnal',
-  EsFacebook: 'https://facebook.com/',
-  EsInstagram: 'https://instagram.com/',
-  EsWebsite: 'http://example.com/es',
-  Events: 'http://example.com/shop',
-  Standings: 'https://www.nisaofficial.com/standings'
-}
-
+  PrideraiserCampaignId: "xxxxxxx",
+  EsTwitter: "https://twitter.com/hooliganhymmnal",
+  EsFacebook: "https://facebook.com/",
+  EsInstagram: "https://instagram.com/",
+  EsWebsite: "http://example.com/es",
+  Events: "http://example.com/shop",
+  Standings: "https://www.nisaofficial.com/standings",
+};
 
 /*
   Images
@@ -82,43 +80,40 @@ export const Urls = {
 */
 export const Images = {
   // Used as a default Channel thumbnail
-  LogoAvatar: require('./assets/icon-android.png'),
+  LogoAvatar: require("./assets/icon-android.png"),
 
   // Appears in the navigation bar when the user scrolls down the feed on Home screen
-  Home_NavbarLogo: require('./assets/home-navbar-logo.png'),
+  Home_NavbarLogo: require("./assets/home-navbar-logo.png"),
 
   // Hero video file that plays on the Home screen
-  Home_HeroVideo: require('./assets/home-hero-video.mp4'),
+  Home_HeroVideo: require("./assets/home-hero-video.mp4"),
   // Overlay image over the hero video
-  Home_HeroVideoOverlay: require('./assets/home-hero-video-overlay.png'),
+  Home_HeroVideoOverlay: require("./assets/home-hero-video-overlay.png"),
   // Home_HeroVideoOverlay: require('./assets/juanstagram-mono-logotype.png'),
 
   // Home screen hero image. Loads in directly, no fancy tinting or layers
   //    scaled to fit screen width
   // Note: Set Skin.Home_HeroImage_VersionColor to a contrasting color
-  Home_HeroImage: require('./assets/home-hero-image.png'),
+  Home_HeroImage: require("./assets/home-hero-image.png"),
 
   // Background image that appears at the top of the navigation drawer menu
-  NavigationDrawer_HeroBackground: require('./assets/drawer-hero-background.png'),
+  NavigationDrawer_HeroBackground: require("./assets/drawer-hero-background.png"),
   // Overlay image over the drawer hero background image
-  NavigationDrawer_HeroOverlay: require('./assets/drawer-hero-logo.png'),
+  NavigationDrawer_HeroOverlay: require("./assets/drawer-hero-logo.png"),
 
   // Songbook cover image
-  Songbook_Cover: require('./assets/songbook-cover.png'),
+  Songbook_Cover: require("./assets/songbook-cover.png"),
 
   // Used as a default thumbnail for Players and Rosters
-  ClubLogo: require('./assets/logo-club.png'),
+  ClubLogo: require("./assets/logo-club.png"),
 
   // Used for Prideraiser integration
-  PrideraiserLogo: require('./assets/prideraiser-logo.png'),
-  PrideraiserIcon: require('./assets/prideraiser-icon.png'),
+  PrideraiserLogo: require("./assets/prideraiser-logo.png"),
+  PrideraiserIcon: require("./assets/prideraiser-icon.png"),
 
   // Add optional images
-  GoFundMe: require('./assets/gofundme.png'),
-  Postcast423: require('./assets/logo-podcast-423.png'),
-  Postcast109: require('./assets/logo-podcast-109.png')
-}
-
+  GoFundMe: require("./assets/gofundme.png"),
+};
 
 /*
   Common Image Credits
@@ -135,9 +130,8 @@ export const Images = {
   Feel free to add or remove lines as necessary
 */
 export const CommonImageCredits = [
-  "Photographer Name | http://example.com/SomebodyPhotography"
-]
-
+  "Photographer Name | http://example.com/SomebodyPhotography",
+];
 
 /*
     App Skin
@@ -153,17 +147,16 @@ export const CommonImageCredits = [
   Feel free to add or remove lines as necessary to suit your needs.
 */
 export const Palette = {
-  Navy: '#002D56',
-  Sky: '#A3D8F7',
-  White: '#FFFFFF',
-  Black: '#000000',
+  Navy: "#002D56",
+  Sky: "#A3D8F7",
+  White: "#FFFFFF",
+  Black: "#000000",
 
   // Leave these three alone unless you know you want to change them/don't need them
-  Prideraiser: '#a55eea',
-  YellowCard: '#ffcc00',
-  RedCard: '#ff0000'
+  Prideraiser: "#a55eea",
+  YellowCard: "#ffcc00",
+  RedCard: "#ff0000",
 };
-
 
 /*
   DefaultColors
@@ -186,9 +179,8 @@ export const DefaultColors = {
   BlackText: Palette.Black,
   ColorText: Palette.Navy,
   Primary: Palette.Navy,
-  Secondary: Palette.Sky
-}
-
+  Secondary: Palette.Sky,
+};
 
 /*
   Fonts
@@ -212,13 +204,27 @@ export const Fonts = {
   Font_Light is currently unused in the app, but is included for coverage
 */
 export const Fonts = {
-  Light: { family: 'open-sans-light', file: require('./assets/OpenSans-Light.ttf') },
-  Regular: { family: 'open-sans', file: require('./assets/OpenSans-Regular.ttf') },
-  Medium: { family: 'open-sans-semibold', file: require('./assets/OpenSans-SemiBold.ttf') },
-  Bold: { family: 'open-sans-bold', file: require('./assets/OpenSans-Bold.ttf') },
-  Italic: { family: 'open-sans-italic', file: require('./assets/OpenSans-Italic.ttf') }
-}
-
+  Light: {
+    family: "open-sans-light",
+    file: require("./assets/OpenSans-Light.ttf"),
+  },
+  Regular: {
+    family: "open-sans",
+    file: require("./assets/OpenSans-Regular.ttf"),
+  },
+  Medium: {
+    family: "open-sans-semibold",
+    file: require("./assets/OpenSans-SemiBold.ttf"),
+  },
+  Bold: {
+    family: "open-sans-bold",
+    file: require("./assets/OpenSans-Bold.ttf"),
+  },
+  Italic: {
+    family: "open-sans-italic",
+    file: require("./assets/OpenSans-Italic.ttf"),
+  },
+};
 
 /*
   Skin
@@ -227,6 +233,7 @@ export const Fonts = {
   appearance of the app. It's always in flux.
 */
 export const Skin = {
+  About_BackgroundColor: DefaultColors.Secondary,
   Font_Light: Fonts.Light.family,
   Font_Regular: Fonts.Regular.family,
   Font_Medium: Fonts.Medium.family,
@@ -265,19 +272,23 @@ export const Skin = {
   ModalLoader_Background: DefaultColors.Secondary,
   ModalLoader_Container: "#00000040",
   NavigationDrawer_BackgroundColor: "#333333",
-  NavigationDrawer_HeroBackground: Images.Drawer_HeroBackground,
-  NavigationDrawer_HeroOverlay: Images.Drawer_HeroOverlay,
-  NavigationDrawer_HeroOverlayTintColor: DefaultColors.HeaderBackground,
-  NavigationDrawer_HeroOverlayTintOpacity: 0.8,
+  NavigationDrawer_HeroBackground: Images.NavigationDrawer_HeroBackground,
+  NavigationDrawer_HeroBackgroundHeight: 140 + Layout.notchHeight,
+  NavigationDrawer_HeroOverlay: Images.NavigationDrawer_HeroOverlay,
+  NavigationDrawer_HeroOverlayHeightProportion: 1,
+  NavigationDrawer_HeroTintColor: DefaultColors.HeaderBackground,
+  NavigationDrawer_HeroTintOpacity: 0.8,
   NavigationDrawer_LabelActiveBackgroundColor: DefaultColors.Primary,
   NavigationDrawer_LabelActiveTintColor: Palette.White,
-  NavigationDrawer_LabelActiveBackgroundColor: 'transparent',
+  NavigationDrawer_LabelActiveBackgroundColor: "transparent",
   NavigationDrawer_LabelInactiveTintColor: Palette.White,
   NavigationDrawer_FontFamily: Fonts.Bold.family,
   NotificationEngagementsModal_Container: "#00000040",
-  Songbook_Background: DefaultColors.Secondary,
-  Songbook_Cover: Images.Songbook_Cover,
-  Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
+  SongbookContents_ButtonBackground: DefaultColors.ButtonBackground,
+  SongbookCover_ActivityIndicatorColor: DefaultColors.Primary,
+  SongbookCover_Background: DefaultColors.Secondary,
+  SongbookCover_DefaultImage: Images.Songbook_Cover,
+  SongbookPages_Background: DefaultColors.Secondary,
   SingleSong_Background: DefaultColors.Primary,
   Player_Background: DefaultColors.Secondary,
   Player_DefaultImage: Images.ClubLogo,
@@ -290,6 +301,7 @@ export const Skin = {
   Post_HeaderContainerPaddingHorizontal: 16,
   Post_LineHeight: 22,
   Post_LinkColor: "blue",
+  Post_NotificationColor: DefaultColors.Secondary,
   Post_TextColor: DefaultColors.BlackText,
   Post_TextNumberOfLines: Number.MAX_SAFE_INTEGER,
   Post_TextPaddingTop: 6,
@@ -297,21 +309,29 @@ export const Skin = {
   Post_TextPaddingHorizontal: 16,
   Post_TextShowHide: false,
   Post_TimestampLabel: DefaultColors.ColorText,
-  PostAttachmentComposePrideraiserMatch_ActivityIndicator: DefaultColors.Primary,
+  PostAttachmentComposePrideraiserMatch_ActivityIndicator:
+    DefaultColors.Primary,
+  PostAttachmentMassTweet_TwitterColor: DefaultColors.Secondary,
+  PostAttachmentMultiTweet_TwitterColor: DefaultColors.Secondary,
+  PostAttachmentPlayer_InstagramColor: DefaultColors.Secondary,
+  PostAttachmentPlayer_TwitterColor: DefaultColors.Secondary,
   PrideraiserCampaignSummary_VersionColor: DefaultColors.HeaderText,
   Roster_DefaultThumbnail: Images.ClubLogo,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
   Roster_ActiveTabLabel: DefaultColors.ButtonText,
   Roster_InactiveTabLabel: DefaultColors.Secondary,
-  Roster_FriendsTabIcon: 'heart',
-  Roster_FoesTabIcon: 'thumb-down',
+  Roster_FriendsTabIcon: "heart",
+  Roster_FoesTabIcon: "thumb-down",
+  RosterTeam_TwitterColor: DefaultColors.Secondary,
   SongView_TitleColor: DefaultColors.Primary,
   SongView_ReferenceColor: DefaultColors.Primary,
-  SongView_InstructionsColor: '#AAAAAA',
-  SongView_LyricsColor: DefaultColors.Primary
+  SongView_InstructionsColor: "#AAAAAA",
+  SongView_LyricsColor: DefaultColors.Primary,
+  StatusBar_BackgroundColor: DefaultColors.Primary,
+  StatusBar_BarStyle: "default",
+  TwitterList_BackgroundColor: DefaultColors.Secondary,
 };
-
 
 /*
   NavigationDrawerItems
@@ -332,13 +352,32 @@ export const Skin = {
   Feel free to add or remove lines as necessary.
 */
 export const NavigationDrawerItems = [
-  { drawerLabel: i18n.t('navigation.home'), drawerIcon: 'newspaper', routeName: 'Home' },
-  { drawerLabel: i18n.t('navigation.songbook'), drawerIcon: Skin.Icon_Songbook, routeName: 'Songbook' },
-  { drawerLabel: i18n.t('navigation.roster'), drawerIcon: Skin.Icon_Roster, routeName: 'Roster' },
-  { drawerLabel: i18n.t('navigation.links.events'), drawerIcon: 'calendar', url: Urls.Events },
-  { drawerLabel: i18n.t('navigation.links.standings'), drawerIcon: 'menu-swap', url: Urls.Standings }
-]
-
+  {
+    drawerLabel: i18n.t("navigation.home"),
+    drawerIcon: "newspaper",
+    routeName: "Home",
+  },
+  {
+    drawerLabel: i18n.t("navigation.songbook"),
+    drawerIcon: Skin.Icon_Songbook,
+    routeName: "Songbook",
+  },
+  {
+    drawerLabel: i18n.t("navigation.roster"),
+    drawerIcon: Skin.Icon_Roster,
+    routeName: "Roster",
+  },
+  {
+    drawerLabel: i18n.t("navigation.links.events"),
+    drawerIcon: "calendar",
+    url: Urls.Events,
+  },
+  {
+    drawerLabel: i18n.t("navigation.links.standings"),
+    drawerIcon: "menu-swap",
+    url: Urls.Standings,
+  },
+];
 
 /*
   Banners
@@ -355,11 +394,9 @@ export const NavigationDrawerItems = [
 
   Feel free to add or remove lines as necessary.
 */
-export const Banners = [
-]
+export const Banners = [];
 // { backgroundColor: Palette.Prideraiser, image: Images.PrideraiserIcon, url: Urls.Prideraiser, text: "Pledge to Chattanooga Prideraiser", textColor: Palette.White },
 // { backgroundColor: Palette.Sky, image: Images.GoFundMe, tintColor: Skin.Home_SocialButtons, url: Urls.GoFundMe, text: "Youth Soccer Investment Crowdfunding", textColor: Palette.Black }
-
 
 /*
   SocialButtons
@@ -374,31 +411,34 @@ export const Banners = [
 // icon: Iconicons name
 export const SocialButtons = [
   {
-    header: i18n.t('settings.socialEN'),
+    header: i18n.t("settings.socialEN"),
     headerColor: DefaultColors.ColorText,
     items: [
-      { icon: 'twitter', url: Urls.Twitter },
-      { icon: 'facebook', url: Urls.Facebook },
-      { icon: 'instagram', url: Urls.Instagram },
-      { icon: 'shopping', url: Urls.Shop },
-      { image: Images.PrideraiserIcon, url: Urls.Prideraiser, tintToSkin: false },
-    ]
+      { icon: "twitter", url: Urls.Twitter },
+      { icon: "facebook", url: Urls.Facebook },
+      { icon: "instagram", url: Urls.Instagram },
+      { icon: "shopping", url: Urls.Shop },
+      {
+        image: Images.PrideraiserIcon,
+        url: Urls.Prideraiser,
+        tintToSkin: false,
+      },
+    ],
   },
   {
-    header: i18n.t('settings.socialES'),
+    header: i18n.t("settings.socialES"),
     headerColor: DefaultColors.ColorText,
     items: [
-      { icon: 'twitter', url: Urls.EsTwitter },
-      { icon: 'instagram', url: Urls.EsInstagram },
-      { icon: 'link', url: Urls.EsWebsite }
-    ]
-  }
-]
+      { icon: "twitter", url: Urls.EsTwitter },
+      { icon: "instagram", url: Urls.EsInstagram },
+      { icon: "link", url: Urls.EsWebsite },
+    ],
+  },
+];
 // Other/Seasonal
 // { icon: 'link', url: Urls.Website },
 // { image: Images.PrideraiserIcon, url: Urls.Prideraiser },
 // { image: Images.GoFundMe, url: Urls.GoFundMe, tintToSkin: true }
-
 
 /*
   App Feature Flags
@@ -407,13 +447,13 @@ export const Settings = {
   // Channels_Enabled: true, false
   //      Some SGs will only ever have one channel
   //      and tapping into a whole hunk of UI will be jarring and confusing to users
-  //      
+  //
   //      This feature isn't fully implemented yet, so leave it set to false
   ChannelUI_Enabled: false,
 
   // Home_HeroContent: "video", "image", "prideraiser"
   //      Hero content on the home screen
-  Home_HeroContent: "image",
+  Home_HeroContent: "video",
 
   // Home_PostsPerPage: number
   //      Load this many news feed items, then load this many more if the user scrolls to the bottom
@@ -432,7 +472,8 @@ export const Settings = {
   //      This is a longrunning inside joke in Chattanooga
   PostAttach_ShowJuanstagram: false,
 
-  PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix: appParams.expo.slug,
+  PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix:
+    appJson.expo.slug,
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat: "YYYY-MM-DD",
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix: "",
 
@@ -456,7 +497,7 @@ export const Settings = {
   //      wm=pr&wmp=br add the Prideraiser Logo watermark onto the image. We recommend leaving this alone
   PrideraiserCampaignSummary_CampaignCoverParams: "?w=768&h=432&wm=pr&wmp=bl",
 
-  PrideraiserCampaignSummary_AnalyticsSource: appParams.expo.slug + "-home",
+  PrideraiserCampaignSummary_AnalyticsSource: appJson.expo.slug + "-home",
 
   // RefereeCards_Show: true, false
   //      Show yellow/red card icons in the nav drawer
@@ -478,7 +519,7 @@ export const Settings = {
 
   // TwitterList_AppendHandles: string
   //      Extra Twitter handles concatenated after the players on the TwitterList screen
-  //      Each account should be seperated by a space 
+  //      Each account should be seperated by a space
   //      In Chattanooga, we append the club and our SG accounts. You can choose to pass.
-  TwitterList_AppendHandles: ""
-}
+  TwitterList_AppendHandles: "",
+};

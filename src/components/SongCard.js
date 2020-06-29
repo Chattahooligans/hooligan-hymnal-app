@@ -1,11 +1,11 @@
-import React from 'react';
-import { Image, Platform, StyleSheet, View } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
-import FadeIn from 'react-native-fade-in-image';
-import { BoldText, RegularText, MediumText } from './StyledText';
-import { conferenceHasEnded, getSpeakerAvatarURL } from '../utils';
-import { Colors, FontSizes } from '../constants';
-import i18n from '../i18n'
+import React from "react";
+import { Image, Platform, StyleSheet, View } from "react-native";
+import { RectButton } from "react-native-gesture-handler";
+import FadeIn from "react-native-fade-in-image";
+import { BoldText, RegularText, MediumText } from "./StyledText";
+import { conferenceHasEnded, getSpeakerAvatarURL } from "../utils";
+import { Colors, FontSizes } from "../constants";
+import i18n from "../i18n";
 
 export default class SongCard extends React.Component {
   render() {
@@ -28,9 +28,16 @@ export default class SongCard extends React.Component {
             ellipsizeMode="tail"
             numberOfLines={1}
           >
-            {song.lyrics.replace('\n', '/')}
+            {song.lyrics.replace("\n", "/")}
           </RegularText>
-          <MediumText style={{textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection()}}>{i18n.t('components.songcard.seemore')}</MediumText>
+          <MediumText
+            style={{
+              textAlign: i18n.getRTLTextAlign(),
+              writingDirection: i18n.getWritingDirection(),
+            }}
+          >
+            {i18n.t("components.songcard.seemore")}
+          </MediumText>
         </View>
       </RectButton>
     );
@@ -38,61 +45,61 @@ export default class SongCard extends React.Component {
 
   _handlePress = () => {
     const { navigation, navigationToScreen, song } = this.props;
-    navigation.navigate(navigationToScreen || 'SingleSong', {
-      song
+    navigation.navigate(navigationToScreen || "SingleSong", {
+      song,
     });
   };
 }
 
 const styles = StyleSheet.create({
   headerRow: {
-    flexDirection: 'row'
+    flexDirection: "row",
   },
   headerRowAvatarContainer: {
-    paddingRight: 10
+    paddingRight: 10,
   },
   headerRowInfoContainer: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    paddingBottom: 5
+    flexDirection: "column",
+    justifyContent: "center",
+    paddingBottom: 5,
   },
   speakerName: {
-    fontSize: FontSizes.bodyTitle
+    fontSize: FontSizes.bodyTitle,
   },
   songInfoRow: {
-    paddingTop: 5
+    paddingTop: 5,
   },
   songLyrics: {
     paddingTop: 10,
-    textAlign: i18n.getRTLTextAlign(), 
-    writingDirection: i18n.getWritingDirection()
+    textAlign: i18n.getRTLTextAlign(),
+    writingDirection: i18n.getWritingDirection(),
   },
   songTitle: {
     fontSize: FontSizes.subtitle,
-    textAlign: i18n.getRTLTextAlign(), 
-    writingDirection: i18n.getWritingDirection()
+    textAlign: i18n.getRTLTextAlign(),
+    writingDirection: i18n.getWritingDirection(),
   },
   nextYear: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: FontSizes.title,
-    marginVertical: 10
+    marginVertical: 10,
   },
   button: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     padding: 15,
     ...Platform.select({
       ios: {
         borderRadius: 5,
-        backgroundColor: '#fff',
-        shadowColor: '#000',
+        backgroundColor: "#fff",
+        shadowColor: "#000",
         shadowOpacity: 0.1,
         shadowRadius: 4,
-        shadowOffset: { width: 2, height: 2 }
+        shadowOffset: { width: 2, height: 2 },
       },
       android: {
-        elevation: 3
-      }
-    })
-  }
+        elevation: 3,
+      },
+    }),
+  },
 });

@@ -1,4 +1,4 @@
-import API from './baseService';
+import API from "./baseService";
 
 export const getSongs = () =>
-  API.get('/api/songs').then(response => response.data);
+  API.get("/api/songs").then((response) => response.data);

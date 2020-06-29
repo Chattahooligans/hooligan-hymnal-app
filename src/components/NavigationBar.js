@@ -1,9 +1,9 @@
-import React from 'react';
-import { Animated, Platform, View, StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
-import { Layout } from '../constants';
-import { Skin, DefaultColors } from '../../config';
-import i18n from '../i18n';
+import React from "react";
+import { Animated, Platform, View, StyleSheet } from "react-native";
+import Constants from "expo-constants";
+import { Layout } from "../constants";
+import { Skin, DefaultColors } from "../../config";
+import i18n from "../i18n";
 
 export default class NavigationBar extends React.Component {
   render() {
@@ -24,7 +24,8 @@ export default class NavigationBar extends React.Component {
               backgroundColor: DefaultColors.HeaderBackground,
               opacity: this.props.animatedBackgroundOpacity,
             },
-          ]}>
+          ]}
+        >
           <View style={[styles.navigationBarTitleContainer]}>
             {this.props.renderTitle && this.props.renderTitle()}
           </View>
@@ -33,7 +34,6 @@ export default class NavigationBar extends React.Component {
         <View style={styles.navigationBarLeftButton}>
           {this.props.renderLeftButton && this.props.renderLeftButton()}
         </View>
-
 
         <View style={styles.navigationBarRightButton}>
           {this.props.renderRightButton && this.props.renderRightButton()}
@@ -62,13 +62,16 @@ export default class NavigationBar extends React.Component {
 }
 
 // Didn't want to investigate why I needed to offset this a bit, surely there is a good reason
-const MARGIN_TOP = Platform.OS === 'ios' ? Constants.statusBarHeight : 4;
+const MARGIN_TOP = Platform.OS === "ios" ? Constants.statusBarHeight : 4;
 
 const styles = StyleSheet.create({
   navigationBarContainer: {
-    backgroundColor: 'transparent',
-    height: Platform.OS === 'ios' ? Layout.headerHeight + Constants.statusBarHeight : Layout.headerHeight,
-    position: 'absolute',
+    backgroundColor: "transparent",
+    height:
+      Platform.OS === "ios"
+        ? Layout.headerHeight + Constants.statusBarHeight
+        : Layout.headerHeight,
+    position: "absolute",
     paddingTop: MARGIN_TOP,
     top: 0,
     left: 0,
@@ -78,18 +81,18 @@ const styles = StyleSheet.create({
     marginVertical: MARGIN_TOP,
   },
   navigationBarLeftButton: {
-    marginTop: Platform.OS === 'ios' ? 4 : 10,
+    marginTop: Platform.OS === "ios" ? 4 : 10,
     width: 80,
-    alignItems: 'flex-start',
-    justifyContent: 'center'
+    alignItems: "flex-start",
+    justifyContent: "center",
   },
   navigationBarRightButton: {
     top: MARGIN_TOP,
     width: 80,
-    right: Platform.OS === 'android' ? 8 : 0,
+    right: Platform.OS === "android" ? 8 : 0,
     bottom: 0,
-    alignItems: 'flex-end',
-    justifyContent: 'center',
-    position: 'absolute',
+    alignItems: "flex-end",
+    justifyContent: "center",
+    position: "absolute",
   },
 });

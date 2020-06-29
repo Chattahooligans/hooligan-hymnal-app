@@ -1,7 +1,7 @@
-import React from 'react';
-import { Text } from 'react-native';
-import * as WebBrowser from 'expo-web-browser';
-import i18n from '../i18n';
+import React from "react";
+import { Text } from "react-native";
+import * as WebBrowser from "expo-web-browser";
+import i18n from "../i18n";
 
 export default class WebView extends React.Component {
   componentDidMount() {
@@ -14,8 +14,6 @@ export default class WebView extends React.Component {
   }
 
   render() {
-    return (
-      <Text>{i18n.t('screens.webview.fallback')}</Text>
-    );
+    return <Text>{i18n.t("screens.webview.fallback")}</Text>;
   }
 }

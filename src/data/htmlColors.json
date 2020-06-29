@@ -1,216 +1,204 @@
 {
-    "colorFamilies":
-    [
-        {
-            "familyName": "Common Colors",
-            "colors":
-            [
-                { "name": "Tomato" },
-                { "name": "Yellow" },
-                { "name": "Black" },
-                { "name": "Seagreen" }
-            ]
-        },
-        {
-            "familyName": "Reds",
-            "colors":
-            [
-                { "name": "IndianRed" },
-                { "name": "LightCoral" },
-                { "name": "Salmon" },
-                { "name": "DarkSalmon" },
-                { "name": "LightSalmon" },
-                { "name": "Crimson" },
-                { "name": "Red" },
-                { "name": "FireBrick" },
-                { "name": "DarkRed" }
-            ]
-        },
-        {
-            "familyName": "Oranges",
-            "colors":
-            [
-                { "name": "LightSalmon" },
-                { "name": "Coral" },
-                { "name": "Tomato" },
-                { "name": "OrangeRed" },
-                { "name": "DarkOrange" },
-                { "name": "Orange" }
-            ]
-        },
-        {
-            "familyName": "Pinks",
-            "colors":
-            [
-                { "name": "Pink" },
-                { "name": "LightPink" },
-                { "name": "HotPink" },
-                { "name": "DeepPink" },
-                { "name": "MediumVioletRed" },
-                { "name": "PaleVioletRed" }
-            ]
-        },
-        {
-            "familyName": "Purples",
-            "colors":
-            [
-                { "name": "Lavender" },
-                { "name": "Thistle" },
-                { "name": "Plum" },
-                { "name": "Violet" },
-                { "name": "Orchid" },
-                { "name": "Fuchsia" },
-                { "name": "Magenta" },
-                { "name": "MediumOrchid" },
-                { "name": "MediumPurple" },
-                { "name": "BlueViolet" },
-                { "name": "DarkViolet" },
-                { "name": "DarkOrchid" },
-                { "name": "DarkMagenta" },
-                { "name": "Purple" },
-                { "name": "Indigo" },
-                { "name": "SlateBlue" },
-                { "name": "DarkSlateBlue" }
-            ]
-        },
-        {
-            "familyName": "Grays",
-            "colors":
-            [
-                { "name": "Gainsboro" },
-                { "name": "LightGray" },
-                { "name": "Silver" },
-                { "name": "DarkGray" },
-                { "name": "Gray" },
-                { "name": "DimGray" },
-                { "name": "LightSlateGray" },
-                { "name": "SlateGray" },
-                { "name": "DarkSlateGray" },
-                { "name": "Black" }
-            ]
-        },
-        {
-            "familyName": "Greens",
-            "colors":
-            [
-                { "name": "GreenYellow" },
-                { "name": "Chartreuse" },
-                { "name": "LawnGreen" },
-                { "name": "Lime" },
-                { "name": "LimeGreen" },
-                { "name": "PaleGreen" },
-                { "name": "LightGreen" },
-                { "name": "MediumSpringGreen" },
-                { "name": "SpringGreen" },
-                { "name": "MediumSeaGreen" },
-                { "name": "SeaGreen" },
-                { "name": "ForestGreen" },
-                { "name": "Green" },
-                { "name": "DarkGreen" },
-                { "name": "YellowGreen" },
-                { "name": "OliveDrab" },
-                { "name": "Olive" },
-                { "name": "DarkOliveGreen" },
-                { "name": "MediumAquaMarine" },
-                { "name": "DarkSeaGreen" },
-                { "name": "LightSeaGreen" },
-                { "name": "DarkCyan" },
-                { "name": "Teal" }
-            ]
-        },
-        {
-            "familyName": "Browns",
-            "colors":
-            [
-                { "name": "Cornsilk" },
-                { "name": "BlanchedAlmond" },
-                { "name": "Bisque" },
-                { "name": "NavajoWhite" },
-                { "name": "Wheat" },
-                { "name": "BurlyWood" },
-                { "name": "Tan" },
-                { "name": "RosyBrown" },
-                { "name": "SandyBrown" },
-                { "name": "GoldenRod" },
-                { "name": "DarkGoldenRod" },
-                { "name": "Peru" },
-                { "name": "Chocolate" },
-                { "name": "SaddleBrown" },
-                { "name": "Sienna" },
-                { "name": "Brown" },
-                { "name": "Maroon" }
-            ]
-        },
-        {
-            "familyName": "Blues",
-            "colors":
-            [
-                { "name": "Aqua" },
-                { "name": "Cyan" },
-                { "name": "LightCyan" },
-                { "name": "PaleTurquoise" },
-                { "name": "AquaMarine" },
-                { "name": "Turquoise" },
-                { "name": "MediumTurquoise" },
-                { "name": "DarkTurquoise" },
-                { "name": "CadetBlue" },
-                { "name": "SteelBlue" },
-                { "name": "LightSteelBlue" },
-                { "name": "PowderBlue" },
-                { "name": "LightBlue" },
-                { "name": "SkyBlue" },
-                { "name": "LightSkyBlue" },
-                { "name": "DeepSkyBlue" },
-                { "name": "DodgerBlue" },
-                { "name": "CornFlowerBlue" },
-                { "name": "MediumSlateBlue" },
-                { "name": "RoyalBlue" },
-                { "name": "Blue" },
-                { "name": "MediumBlue" },
-                { "name": "DarkBlue" },
-                { "name": "Navy" },
-                { "name": "MidnightBlue" }
-            ]
-        },
-        {
-            "familyName": "Yellows",
-            "colors":
-            [
-                { "name": "Gold" },
-                { "name": "Yellow" },
-                { "name": "LightYellow" },
-                { "name": "LemonChiffon" },
-                { "name": "LightGoldenrodYellow" },
-                { "name": "PapayaWhip" },
-                { "name": "Moccasin" },
-                { "name": "PeachPuff" },
-                { "name": "PaleGoldenRod" },
-                { "name": "Khaki" },
-                { "name": "DarkKhaki" }
-            ]
-        },
-        {
-            "familyName": "Whites",
-            "colors":
-            [
-                { "name": "White" },
-                { "name": "Snow" },
-                { "name": "HoneyDew" },
-                { "name": "MintCream" },
-                { "name": "Azure" },
-                { "name": "AliceBlue" },
-                { "name": "GhostWhite" },
-                { "name": "WhiteSmoke" },
-                { "name": "SeaShell" },
-                { "name": "Beige" },
-                { "name": "OldLace" },
-                { "name": "FloralWhite" },
-                { "name": "Ivory" },
-                { "name": "AntiqueWhite" },
-                { "name": "Linen" },
-                { "name": "LavenderBlush" },
-                { "name": "MistyRose" }
-            ]
-        }
-    ]
+  "colorFamilies": [
+    {
+      "familyName": "Common Colors",
+      "colors": [
+        { "name": "Tomato" },
+        { "name": "Yellow" },
+        { "name": "Black" },
+        { "name": "Seagreen" }
+      ]
+    },
+    {
+      "familyName": "Reds",
+      "colors": [
+        { "name": "IndianRed" },
+        { "name": "LightCoral" },
+        { "name": "Salmon" },
+        { "name": "DarkSalmon" },
+        { "name": "LightSalmon" },
+        { "name": "Crimson" },
+        { "name": "Red" },
+        { "name": "FireBrick" },
+        { "name": "DarkRed" }
+      ]
+    },
+    {
+      "familyName": "Oranges",
+      "colors": [
+        { "name": "LightSalmon" },
+        { "name": "Coral" },
+        { "name": "Tomato" },
+        { "name": "OrangeRed" },
+        { "name": "DarkOrange" },
+        { "name": "Orange" }
+      ]
+    },
+    {
+      "familyName": "Pinks",
+      "colors": [
+        { "name": "Pink" },
+        { "name": "LightPink" },
+        { "name": "HotPink" },
+        { "name": "DeepPink" },
+        { "name": "MediumVioletRed" },
+        { "name": "PaleVioletRed" }
+      ]
+    },
+    {
+      "familyName": "Purples",
+      "colors": [
+        { "name": "Lavender" },
+        { "name": "Thistle" },
+        { "name": "Plum" },
+        { "name": "Violet" },
+        { "name": "Orchid" },
+        { "name": "Fuchsia" },
+        { "name": "Magenta" },
+        { "name": "MediumOrchid" },
+        { "name": "MediumPurple" },
+        { "name": "BlueViolet" },
+        { "name": "DarkViolet" },
+        { "name": "DarkOrchid" },
+        { "name": "DarkMagenta" },
+        { "name": "Purple" },
+        { "name": "Indigo" },
+        { "name": "SlateBlue" },
+        { "name": "DarkSlateBlue" }
+      ]
+    },
+    {
+      "familyName": "Grays",
+      "colors": [
+        { "name": "Gainsboro" },
+        { "name": "LightGray" },
+        { "name": "Silver" },
+        { "name": "DarkGray" },
+        { "name": "Gray" },
+        { "name": "DimGray" },
+        { "name": "LightSlateGray" },
+        { "name": "SlateGray" },
+        { "name": "DarkSlateGray" },
+        { "name": "Black" }
+      ]
+    },
+    {
+      "familyName": "Greens",
+      "colors": [
+        { "name": "GreenYellow" },
+        { "name": "Chartreuse" },
+        { "name": "LawnGreen" },
+        { "name": "Lime" },
+        { "name": "LimeGreen" },
+        { "name": "PaleGreen" },
+        { "name": "LightGreen" },
+        { "name": "MediumSpringGreen" },
+        { "name": "SpringGreen" },
+        { "name": "MediumSeaGreen" },
+        { "name": "SeaGreen" },
+        { "name": "ForestGreen" },
+        { "name": "Green" },
+        { "name": "DarkGreen" },
+        { "name": "YellowGreen" },
+        { "name": "OliveDrab" },
+        { "name": "Olive" },
+        { "name": "DarkOliveGreen" },
+        { "name": "MediumAquaMarine" },
+        { "name": "DarkSeaGreen" },
+        { "name": "LightSeaGreen" },
+        { "name": "DarkCyan" },
+        { "name": "Teal" }
+      ]
+    },
+    {
+      "familyName": "Browns",
+      "colors": [
+        { "name": "Cornsilk" },
+        { "name": "BlanchedAlmond" },
+        { "name": "Bisque" },
+        { "name": "NavajoWhite" },
+        { "name": "Wheat" },
+        { "name": "BurlyWood" },
+        { "name": "Tan" },
+        { "name": "RosyBrown" },
+        { "name": "SandyBrown" },
+        { "name": "GoldenRod" },
+        { "name": "DarkGoldenRod" },
+        { "name": "Peru" },
+        { "name": "Chocolate" },
+        { "name": "SaddleBrown" },
+        { "name": "Sienna" },
+        { "name": "Brown" },
+        { "name": "Maroon" }
+      ]
+    },
+    {
+      "familyName": "Blues",
+      "colors": [
+        { "name": "Aqua" },
+        { "name": "Cyan" },
+        { "name": "LightCyan" },
+        { "name": "PaleTurquoise" },
+        { "name": "AquaMarine" },
+        { "name": "Turquoise" },
+        { "name": "MediumTurquoise" },
+        { "name": "DarkTurquoise" },
+        { "name": "CadetBlue" },
+        { "name": "SteelBlue" },
+        { "name": "LightSteelBlue" },
+        { "name": "PowderBlue" },
+        { "name": "LightBlue" },
+        { "name": "SkyBlue" },
+        { "name": "LightSkyBlue" },
+        { "name": "DeepSkyBlue" },
+        { "name": "DodgerBlue" },
+        { "name": "CornFlowerBlue" },
+        { "name": "MediumSlateBlue" },
+        { "name": "RoyalBlue" },
+        { "name": "Blue" },
+        { "name": "MediumBlue" },
+        { "name": "DarkBlue" },
+        { "name": "Navy" },
+        { "name": "MidnightBlue" }
+      ]
+    },
+    {
+      "familyName": "Yellows",
+      "colors": [
+        { "name": "Gold" },
+        { "name": "Yellow" },
+        { "name": "LightYellow" },
+        { "name": "LemonChiffon" },
+        { "name": "LightGoldenrodYellow" },
+        { "name": "PapayaWhip" },
+        { "name": "Moccasin" },
+        { "name": "PeachPuff" },
+        { "name": "PaleGoldenRod" },
+        { "name": "Khaki" },
+        { "name": "DarkKhaki" }
+      ]
+    },
+    {
+      "familyName": "Whites",
+      "colors": [
+        { "name": "White" },
+        { "name": "Snow" },
+        { "name": "HoneyDew" },
+        { "name": "MintCream" },
+        { "name": "Azure" },
+        { "name": "AliceBlue" },
+        { "name": "GhostWhite" },
+        { "name": "WhiteSmoke" },
+        { "name": "SeaShell" },
+        { "name": "Beige" },
+        { "name": "OldLace" },
+        { "name": "FloralWhite" },
+        { "name": "Ivory" },
+        { "name": "AntiqueWhite" },
+        { "name": "Linen" },
+        { "name": "LavenderBlush" },
+        { "name": "MistyRose" }
+      ]
+    }
+  ]
 }

@@ -1,88 +1,89 @@
-# Server Settings
+# Server Environment Variables Guide
 
-## MongoDB Atlas settings
+The Hooligan Hymnal platform includes a single project that acts as the data server and admin dashboard. This document describes the environment variables required to configure the Hooligan Hymnal server components, and may be used as a companion document for the main [Deployment Guide](_deployment.md).
 
-You will need to configure an IP whitelist in Atlas for your cluster. If you are using Heroku private spaces or another add-on to control
-your Heroku cluster's public IP address, you may configure that IP for added security. Otherwise, you will need to choose a VERY strong
-password and whitelist 0.0.0.0/0 to allow traffic to reach MongoDB.
+The official repository is <https://github.com/Chattahooligans/hooligan-hymnal-server>
 
-The Hymnal's version of Mongoose currently requires the >=2.2.12 MongoDB connection string; 3.0 compatibility will be released at a later date.
+## Summary
 
-## Heroku: Required Env Variables
-### Development
-  ```
-  EXPO_EXPERIENCE=
-  ENV=development
-  PORT=3000
-  MONGO_URI=mongodb://localhost/<db_name_here>
-  SECRET_KEY=
-  INPUT_LANGUAGE=["en", "es", "de"]
-  CLOUDINARY_URL=<Generate following link below.>>
-  TOKEN_EXPIRES="1h"
-  REFRESH_TOKEN_EXPIRES="1d"
-  MAIL_HOST=
-  MAIL_PORT=587
-  MAIL_USER=
-  MAIL_PASS=
-  ```
+In the heroku dashboard, find the environment variables in the Settings tab for the app, and then in the Config Vars section. The environment variables are presented in alphabetical order there, so we do the same in this document. Begin your server config by creating blank variables with the following names:
 
-### Production
-  ```
-  EXPO_EXPERIENCE=
-  MONGO_URI=mongodb://localhost/<db_name_here>
-  SECRET_KEY=
-  INPUT_LANGUAGE=["en", "es", "de"]
-  CLOUDINARY_URL=<Generate following link below.>>
-  TOKEN_EXPIRES="1h"
-  REFRESH_TOKEN_EXPIRES="1d"
-  MAIL_HOST=
-  MAIL_PORT=587
-  MAIL_USER=
-  MAIL_PASS=
-  ```
+- CLOUDINARY_URL
+- EXPO_EXPERIENCE
+- ENV
+- INPUT_LANGUAGE
+- MAIL_HOST
+- MAIL_PORT
+- MAIL_USER
+- MAIL_PASS
+- MONGO_URI
+- PORT
+- REFRESH_TOKEN_EXPIRES
+- SECRET_KEY
+- SITE_NAME
+- TOKEN_EXPIRES
 
-## Settings requirements
-  ### EXPO_EXPERIENCE
-  `EXPO=EXPERIENCE=@<owner>/<slug>` should match related .expo fields in app.json
+## Environment Variables Dictionary
 
-  ### PORT (DEV)
-  `PORT=5000` uses to run both dev node server along with vue-cli
+### CLOUDINARY_URL
 
-  ### MONGO_URI (DEV)
-  `MONGO_URI=mongodb://localhost/<db_name_here>` could be url for local mongodb or mLab
+`cloudinary://[API Key]:[API Secret]@[Cloud name]`
 
-  ### MONGO_URI (PROD)
-  `MONGO_URI=<mlab_url>` - url to your mLab instance
+Log into your SG's Cloudinary account that was created while going through the steps in the Hooligan Hymnal Deployment Guide and go to the Dashboard. Find the "Account Details" panel near the top of the screen and the "API Environment Variable" section. Click "Copy to clipboard." Everything **after** the equals sign is the value for this environment variable in Heroku.
 
-  ### JWT Settings
-  #### KEYS
-  `SECRET_KEY` random string of charaters, can be anything, suggest making the secret key in prod different from dev enviorment.
+### EXPO_EXPERIENCE
 
-  Encrypts your default jwt
+`@{owner}/{slug}`
 
-  `REFRESH_SECRET_KEY` random string of charaters, can be anything, suggest making the secret key in prod different from dev enviorment.
+This variable is a filter that protects push notifications in the mobile app. It uses your Expo account and app name (with an @-sign at the start and a forward-slash as a separator), and should match the `owner` and `slug` values in the `.expo` section of `app.json` for your mobile app exactly.
 
-  Encrypts your remember_me jwt
+### ENV
 
-  #### REFRESH
-  All of the following settings are settings for passport-jwt.
+This environment variable describes the execution environment and has no spaces. We recommend something like `sg-hymnal-server-production`.
 
-  If either of these options aren't set the default server options are "1h" and "1d" respectively.
+### INPUT_LANGUAGE
 
-  `TOKEN_EXPIRES` string of how long you want your tokens will be valid for.
+`["en"]` or other language codes, each in quotes, separated by commas
 
-  - Avaliable options "1h" - "30d"
+For multi-language deployments, INPUT_LANGUAGE currently affects the langauges that player biographies can be composed in. It may be used in other parts of the platform in the future.
 
-  `REFRESH_TOKEN_EXPIRES` same as `TOKEN_EXPIRES` this will affect how long your remember_me tokens will be valid for.
+The values for INPUT_LANGUAGE are exposed via the endpoint `/api/i18n-settings` and can be fetched with an HTTP GET request.
 
-  ### Cloudinary
-  This is our chose of image service we are using, If you would like to use a different service please make the changes in the nessesary files in your own fork.
+### MAIL ENV VARIABLES
 
-  To generate you cloudinary url, go to [https://cloudinary.com/](https://cloudinary.com/) and create/login to an account. The basic free plan should be enough for most everyone. Once logged it should make an new cloud for you. Once you get to the dashboard. You should then see Account Detials, hit reveal next to API Secret then copy Enviorment variable, this is the url will be used for `CLOUDINARY_URL`, you can test it by uploading a new file from the players create form, and then check back in the cloudinary dashboard to verify it uploaded. You can then delete it and you will be able to upload images now that are served on a CDN.
+The `MAIL_*` environment variables are used when resetting account passwords, and are:
 
-  ### INPUT LANGUAGE
-  Settings for multilang bios.. This will also be used in multilang for other sections of the app.. There is also an endpoint on the server that allows the app to get language settings also at `/api/i18n-settings`
+- MAIL_HOST=smtp.gmail.com
+- MAIL_PORT=587
+- MAIL_USER=
+- MAIL_PASS=
 
-  ### EMAIL (SMTP Settings)
-  If your SG use gmail for there email we suggest using it as it is free to use, limit 500 emails per day. Hopefully 500 people don't need to reset there password on the same day. Below are the instructions from google down below. You will need to add 2 Factor Auth for the account. The instructions you are looking for is under ***Use the Gmail SMTP Server*** keep the default port number.
-  [https://support.google.com/a/answer/176600?hl=en](https://support.google.com/a/answer/176600?hl=en)
+Our recommended solution is to use the Google Account created for the project, enabling two factor authenticaion, and following the instructions at <https://support.google.com/a/answer/176600?hl=en>. Look for the "Use the Gmail SMTP Server" section.
+
+### MONGO_URI
+
+This is the connection string to your database. After logging into your SG's MongoDB Cloud account, select the project for your production database from the dropdown in the top left, the Clusters option in the side menu, and find the "CONNECT" button in the main view on the page. Click it, and a wizard menu will pop up. Select the 2nd option "Connect your application", and use "Node.js" and "2.2.12 or later" as Driver options. You will need to replace elements of this string with your db account password (not the same as your MongoDB Cloud service account) and database name before setting the env variable in Heroku.
+
+TODO: Better instructions as necessary. We'll learn this from the first SG to go through and improve things.
+
+### PORT
+
+PORT can be blank for the production environment. For groups who want to the Hooligan Hymnal Server application on their own hardware or service, or those doing local development and modification, input the binding port here.
+
+### REFRESH_TOKEN_EXPIRES
+
+Used for web token encryption. Accepts formats "1h" to "30d", "1d" is default.
+
+### SECRET_KEY
+
+This environment variable is a random string of characters used to sign user tokens/sessions. It can be anything. Try something from <https://randomkeygen.com/>
+
+### SITE_NAME
+
+The SITE_NAME environment variable sets the text displayed at the top of the Hooligan Hymnal admin dashboard. We recommend something like "[Your SG's app name] Admin".
+
+The default is "Hooligan Hymnal Server"
+
+### TOKEN_EXPIRES
+
+Used for web token encryption. Accepts formats "1h" to "30d", "1d" is default.

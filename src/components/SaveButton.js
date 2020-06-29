@@ -1,9 +1,9 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler';
-import { Ionicons } from '@expo/vector-icons';
-import { Colors, Icons } from '../constants';
-import { toggleSaved, withSaveState } from '../utils/storage';
+import React from "react";
+import { Platform } from "react-native";
+import { BorderlessButton } from "react-native-gesture-handler";
+import { Ionicons } from "@expo/vector-icons";
+import { Colors, Icons } from "../constants";
+import { toggleSaved, withSaveState } from "../utils/storage";
 
 @withSaveState
 export default class SaveButton extends React.Component {
@@ -14,8 +14,8 @@ export default class SaveButton extends React.Component {
       <BorderlessButton
         onPress={this._handlePress}
         style={{
-          alignSelf: 'flex-start',
-          backgroundColor: 'transparent',
+          alignSelf: "flex-start",
+          backgroundColor: "transparent",
           paddingLeft: 15,
           paddingRight: 15,
         }}
@@ -25,7 +25,7 @@ export default class SaveButton extends React.Component {
           name={saved ? Icons.favoriteActive : Icons.favorite}
           size={25}
           color="#fff"
-          style={{ backgroundColor: 'transparent' }}
+          style={{ backgroundColor: "transparent" }}
         />
       </BorderlessButton>
     );
@@ -33,5 +33,5 @@ export default class SaveButton extends React.Component {
 
   _handlePress = () => {
     toggleSaved(this.props.talk);
-  }
+  };
 }
