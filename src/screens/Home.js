@@ -41,7 +41,6 @@ import { FontSizes, Layout, Colors } from "../constants";
 import Constants from "expo-constants";
 
 import {
-  Palette,
   DefaultColors,
   Settings,
   Skin,
@@ -346,7 +345,7 @@ class StaticHomeContent_Links extends React.Component {
             marginBottom: 10,
           }}
           onPress={() => {
-            Linking.openURL(WEBSITE_URL);
+            Linking.openURL(Urls.Website);
           }}
         >
           <MediumText style={{ color: Skin.Home_SocialButtons }}>
