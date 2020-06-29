@@ -78,9 +78,7 @@ All sorts of wild ideas are being considered: user chant submissions, "_Pip Boy_
 
 Hooligan Hymnal is a React Native project for Android and iOS devices built using [Expo](https://expo.io) with a Node.js backend.
 
-Review the `docs` directory for information on how to configure and customize the app, and to prepare to deploy to Google Play and the App Store. Visit the [hooligan-hymnal-server](https://github.com/Chattahooligans/hooligan-hymnal-server) repo for the server, which is required to serve data to the mobile app.
-
-Hooligan Hymnal maintains an active Slack channel with developers and SG leadership to guide the future of the platform. Our DMs are open [@hooliganhymnal](https://twitter.com/hooliganhymnal), if you can contribute to the project.
+Review the [`docs`](docs) directory for information on how to configure and customize the app, and to prepare to deploy to Google Play and the App Store. Visit the [hooligan-hymnal-server](https://github.com/Chattahooligans/hooligan-hymnal-server) repo for the server, which is required to serve data to the mobile app and provides a web-based data management tool for admin users and SG leadership.
 
 ## Getting Started
 
@@ -88,8 +86,7 @@ Hooligan Hymnal is **not** a turnkey solution for supporters groups who want a m
 
 Expectations set? Here's what to do first:
 
-* Review the `docs` folder for guidance on configuration and deployment
-  * Work-in-progress
+* Review the [`docs`](docs) folder for guidance on configuration and deployment
 * Get in touch. Reach out using your SG account to [@hooliganhymnal](https://twitter.com/hooliganhymnal) or email hooliganhymnal@gmail.com to introduce yourself and request an invite to the project Slack channel.
   * The core team and various SG stakeholders are active on Slack. The conversations there will determine the future of the project and asking for help is welcome, so we encourage every SG who uses Hooligan Hymnal to engage in that community.
   
