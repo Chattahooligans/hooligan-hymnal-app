@@ -62,6 +62,16 @@ export const Urls = {
   EsWebsite: "http://example.com/es",
   Events: "http://example.com/shop",
   Standings: "https://www.nisaofficial.com/standings",
+
+  // Add additional Urls (optional)
+  /* 
+  
+    Example (Note: this Podcast example will be expanded on under 
+                    the Images and SocialButtons structures in this file)
+
+  Podcast: "https://example.com/podcast",
+
+  */
 };
 
 /*
@@ -72,8 +82,9 @@ export const Urls = {
 
   These images are preloaded during app startup, so they don't pop in.
 
-  Feel free to add Images as necessary. Just maintain the require() syntax
-  and make sure the file names here match what they're called in ./assets/
+  Feel free to add Images as necessary by adding a key:value pair to this structure. 
+  Just maintain the require() syntax and make sure the file names here match what 
+  they're called in ./assets/
 
   The good news is that the build will crash immediately if there is an
   issue with anything in this block.
@@ -111,8 +122,18 @@ export const Images = {
   PrideraiserLogo: require("./assets/prideraiser-logo.png"),
   PrideraiserIcon: require("./assets/prideraiser-icon.png"),
 
-  // Add optional images
+  // Potentially used in Banners and SocialButtons
   GoFundMe: require("./assets/gofundme.png"),
+
+  // Add additional images (optional)
+  /* 
+
+    Example (Note: this Podcast example will be expanded on under 
+                    the SocialButtons structure in this file)
+
+  Podcast: require("./assets/podcast.png"),
+
+  */
 };
 
 /*
@@ -407,6 +428,27 @@ export const Banners = [];
   The structure is required, but does not need to be populated. Here is
   what it looks like empty.
   export const SocialButtons = []
+
+  Each array element is an object with a header, headerColor, and an 
+  array of items. The elements in items have the following properties:
+  - url: a reference to the Urls structure in this file (recommended) 
+          or web address
+  AND some image or icon, defined as:
+  - icon: an icon name from the MaterialCommunityIcons* set
+
+  OR
+
+  - image: a reference to the Images structure in this file (recommended)
+           or other image
+  - tintToSkin: tint the image the same color as Skin.Home_SocialButtons
+                (optional)
+
+  Continuing the Podcast example introduced with the Urls and Images 
+  structures in this file, adding an item for a pocast would look like:
+  { url: Urls.Podcast, image: Images.Podcast }
+
+  *The MaterialCommunityIcons set is searchable at: 
+  https://icons.expo.fyi/
 */
 // icon: Iconicons name
 export const SocialButtons = [
