@@ -41,6 +41,7 @@ import { FontSizes, Layout, Colors } from "../constants";
 import Constants from "expo-constants";
 
 import {
+  Palette,
   DefaultColors,
   Settings,
   Skin,
