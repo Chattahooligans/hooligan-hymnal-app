@@ -45,9 +45,11 @@ class Player extends React.Component {
   };
 
   componentDidMount() {
+    /*
     this.props.navigation.setOptions({
       header: null,
     });
+    */
 
     this.setData();
   }
@@ -92,7 +94,7 @@ class Player extends React.Component {
     if (player.twitter) {
       playerSocialIcons.push(
         <TouchableOpacity
-          key={player.twitter}
+          key={"player-twitter-" + player.twitter}
           onPress={() => {
             //WebBrowser.openBrowserAsync('http://twitter.com/' + player.twitter);
             Linking.openURL("http://twitter.com/" + player.twitter);
@@ -116,7 +118,7 @@ class Player extends React.Component {
     if (player.instagram) {
       playerSocialIcons.push(
         <TouchableOpacity
-          key={player.instagram}
+          key={"player-instagram-" + player.instagram}
           onPress={() => {
             //WebBrowser.openBrowserAsync('http://instagram.com/' + player.instagram);
             Linking.openURL("http://instagram.com/" + player.instagram);
