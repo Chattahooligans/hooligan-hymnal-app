@@ -70,6 +70,16 @@ export const Urls = {
   Postcast109:
     "https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964",
   RedditClub: "https://www.reddit.com/r/ChattanoogaFC",
+
+  // Add additional Urls (optional)
+  /* 
+  
+    Example (Note: this Podcast example will be expanded on under 
+                    the Images and SocialButtons structures in this file)
+
+  Podcast: "https://example.com/podcast",
+
+  */
 };
 
 /*
@@ -119,8 +129,18 @@ export const Images = {
   PrideraiserLogo: require("./assets/prideraiser-logo.png"),
   PrideraiserIcon: require("./assets/prideraiser-icon.png"),
 
-  // Add optional images
+  // Potentially used in Banners and SocialButtons
   GoFundMe: require("./assets/gofundme.png"),
+
+  // Add additional images (optional)
+  /* 
+
+    Example (Note: this Podcast example will be expanded on under 
+                    the SocialButtons structure in this file)
+
+  Podcast: require("./assets/podcast.png"),
+
+  */
   Postcast423: require("./assets/logo-podcast-423.png"),
   Postcast109: require("./assets/logo-podcast-109.png"),
 };
@@ -431,8 +451,28 @@ export const Banners = [];
   The structure is required, but does not need to be populated. Here is
   what it looks like empty.
   export const SocialButtons = []
+
+  Each array element is an object with a header, headerColor, and an 
+  array of items. The elements in items have the following properties:
+  - url: a reference to the Urls structure in this file (recommended) 
+          or web address
+  AND some image or icon, defined as:
+  - icon: an icon name from the MaterialCommunityIcons* set
+
+  OR
+
+  - image: a reference to the Images structure in this file (recommended)
+           or other image
+  - tintToSkin: tint the image the same color as Skin.Home_SocialButtons
+                (optional)
+
+  Continuing the Podcast example introduced with the Urls and Images 
+  structures in this file, adding an item for a pocast would look like:
+  { url: Urls.Podcast, image: Images.Podcast }
+
+  *The MaterialCommunityIcons set is searchable at: 
+  https://icons.expo.fyi/
 */
-// icon: Iconicons name
 export const SocialButtons = [
   {
     header: i18n.t("settings.socialEN"),
