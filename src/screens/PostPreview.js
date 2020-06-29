@@ -35,7 +35,7 @@ class PostPreview extends React.Component {
       headerTitle: i18n.t("screens.postpreview.title"),
       headerLeft: () => (
         <HeaderBackButton
-          onPress={() => navigation.goBack()}
+          onPress={() => this.props.navigation.goBack()}
           tintColor="#fff"
         />
       ),
