@@ -456,13 +456,13 @@ export const SocialButtons = [
     header: i18n.t("settings.socialEN"),
     headerColor: DefaultColors.ColorText,
     items: [
-      { icon: "twitter", url: Urls.Twitter },
-      { icon: "facebook", url: Urls.Facebook },
-      { icon: "instagram", url: Urls.Instagram },
-      { icon: "shopping", url: Urls.Shop },
+      { url: Urls.Twitter, icon: "twitter" },
+      { url: Urls.Facebook, icon: "facebook" },
+      { url: Urls.Instagram, icon: "instagram" },
+      { url: Urls.Shop, icon: "shopping" },
       {
-        image: Images.PrideraiserIcon,
         url: Urls.Prideraiser,
+        image: Images.PrideraiserIcon,
         tintToSkin: false,
       },
     ],
@@ -471,16 +471,16 @@ export const SocialButtons = [
     header: i18n.t("settings.socialES"),
     headerColor: DefaultColors.ColorText,
     items: [
-      { icon: "twitter", url: Urls.EsTwitter },
-      { icon: "instagram", url: Urls.EsInstagram },
-      { icon: "link", url: Urls.EsWebsite },
+      { url: Urls.EsTwitter, icon: "twitter" },
+      { url: Urls.EsInstagram, icon: "instagram" },
+      { url: Urls.EsWebsite, icon: "link" },
     ],
   },
 ];
 // Other/Seasonal
-// { icon: 'link', url: Urls.Website },
-// { image: Images.PrideraiserIcon, url: Urls.Prideraiser },
-// { image: Images.GoFundMe, url: Urls.GoFundMe, tintToSkin: true }
+// { url: Urls.Website, icon: 'link' },
+// { url: Urls.Prideraiser, image: Images.PrideraiserIcon },
+// { url: Urls.GoFundMe, image: Images.GoFundMe, tintToSkin: true }
 
 /*
   App Feature Flags
