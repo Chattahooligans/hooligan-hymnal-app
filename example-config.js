@@ -450,7 +450,6 @@ export const Banners = [];
   *The MaterialCommunityIcons set is searchable at: 
   https://icons.expo.fyi/
 */
-// icon: Iconicons name
 export const SocialButtons = [
   {
     header: i18n.t("settings.socialEN"),
