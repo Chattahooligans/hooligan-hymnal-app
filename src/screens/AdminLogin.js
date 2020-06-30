@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: BORDER_RADIUS,
     overflow: "hidden",
-    flexDirection: "row",
+    flexDirection: i18n.getFlexDirection(),
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,

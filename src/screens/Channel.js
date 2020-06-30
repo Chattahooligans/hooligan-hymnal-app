@@ -165,7 +165,7 @@ class Channel extends React.Component {
         <View
           style={{
             flex: 1,
-            flexDirection: "row",
+            flexDirection: i18n.getFlexDirection(),
             justifyContent: "center",
             paddingVertical: 10,
           }}

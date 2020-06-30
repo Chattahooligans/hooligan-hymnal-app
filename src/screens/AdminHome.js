@@ -97,38 +97,4 @@ class AdminHome extends React.Component {
   };
 }
 
-const ClipBorderRadius = ({ children, style }) => {
-  return (
-    <View
-      style={[
-        { borderRadius: BORDER_RADIUS, overflow: "hidden", marginTop: 10 },
-        style,
-      ]}
-    >
-      {children}
-    </View>
-  );
-};
-
-const BORDER_RADIUS = 3;
-
-const styles = StyleSheet.create({
-  bigButton: {
-    backgroundColor: DefaultColors.ButtonBackground,
-    paddingHorizontal: 15,
-    height: 50,
-    marginHorizontal: 15,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: BORDER_RADIUS,
-    overflow: "hidden",
-    flexDirection: "row",
-  },
-  bigButtonText: {
-    fontSize: FontSizes.normalButton,
-    color: DefaultColors.ButtonText,
-    textAlign: "center",
-  },
-});
-
 export default withUnstated(AdminHome, { globalData: GlobalDataContainer });

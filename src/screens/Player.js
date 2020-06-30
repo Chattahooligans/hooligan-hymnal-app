@@ -141,7 +141,9 @@ class Player extends React.Component {
 
     if (playerSocialIcons.length > 0) {
       playerSocialDisplay = (
-        <View style={{ flexDirection: "row" }}>{playerSocialIcons}</View>
+        <View style={{ flexDirection: i18n.getFlexDirection() }}>
+          {playerSocialIcons}
+        </View>
       );
     }
 

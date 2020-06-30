@@ -145,7 +145,7 @@ class RosterFoePlayers extends React.Component {
               <View
                 style={{
                   flex: 1,
-                  flexDirection: "row",
+                  flexDirection: i18n.getFlexDirection(),
                   height: 3,
                   backgroundColor: foe.accentColor,
                   marginBottom: 5,
@@ -162,7 +162,7 @@ class RosterFoePlayers extends React.Component {
               <View
                 style={{
                   flex: 1,
-                  flexDirection: "row",
+                  flexDirection: i18n.getFlexDirection(),
                   height: 3,
                   backgroundColor: foe.accentColor,
                   marginTop: 5,

@@ -159,7 +159,7 @@ export default class SongView extends React.PureComponent {
           <View
             style={{
               flex: 1,
-              flexDirection: "row",
+              flexDirection: i18n.getFlexDirection(),
               justifyContent: "flex-end",
               opacity: 0.5,
             }}

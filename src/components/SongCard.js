@@ -53,7 +53,7 @@ export default class SongCard extends React.Component {
 
 const styles = StyleSheet.create({
   headerRow: {
-    flexDirection: "row",
+    flexDirection: i18n.getFlexDirection(),
   },
   headerRowAvatarContainer: {
     paddingRight: 10,

@@ -11,6 +11,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MediumText } from "./StyledText";
 import { FontSizes } from "../constants";
 import { DefaultColors } from "../../config";
+import i18n from "../i18n.js";
 
 export class BigButton extends React.Component {
   render() {
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 3,
     overflow: "hidden",
-    flexDirection: "row",
+    flexDirection: i18n.getFlexDirection(),
   },
   iconLeft: {
     backgroundColor: "transparent",
