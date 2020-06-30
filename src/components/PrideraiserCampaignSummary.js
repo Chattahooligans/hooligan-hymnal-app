@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Dimensions,
-  Linking,
-  StyleSheet,
-  TouchableHighlight,
-  View,
-} from "react-native";
+import { Dimensions, StyleSheet, TouchableHighlight, View } from "react-native";
 import ParsedText from "react-native-parsed-text";
 import { RegularText } from "../components/StyledText";
 import {
@@ -18,15 +12,9 @@ import {
 import { formatStringWithCampaignProps } from "./PrideraiserHelper";
 import PrideraiserRainbowBar from "./PrideraiserRainbowBar";
 import PostImageWrapper from "./PostImageWrapper";
-import {
-  PRIDERAISER_LOGO,
-  DefaultColors,
-  Skin,
-  Settings,
-  Palette,
-} from "../../config";
+import { DefaultColors, Skin, Settings, Palette } from "../../config";
 import { getCampaign } from "../services/prideraiserService";
-import moment from "moment";
+import { openURL } from "../utils/LinkHelper.js";
 import i18n from "../i18n";
 
 import appJson from "../../app.json";
@@ -124,7 +112,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
             let source = "";
             if (this.state.source) source = "?source=" + this.state.source;
 
-            Linking.openURL(campaign.public_url + source);
+            openURL(campaign.public_url + source);
           }}
         >
           <View>

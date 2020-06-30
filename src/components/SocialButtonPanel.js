@@ -1,13 +1,8 @@
 import React from "react";
-import {
-  Linking,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  View,
-} from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MediumText } from "../components/StyledText";
+import { openURL } from "../utils/LinkHelper.js";
 import { DefaultColors, Skin } from "../../config";
 import i18n from "../i18n";
 
@@ -23,7 +18,7 @@ export default class SocialButtonPanel extends React.Component {
             <TouchableOpacity
               key={item.url}
               onPress={() => {
-                Linking.openURL(item.url);
+                openURL(item.url);
               }}
             >
               <MaterialCommunityIcons
@@ -43,7 +38,7 @@ export default class SocialButtonPanel extends React.Component {
             <TouchableOpacity
               key={item.url}
               onPress={() => {
-                Linking.openURL(item.url);
+                openURL(item.url);
               }}
             >
               <Image

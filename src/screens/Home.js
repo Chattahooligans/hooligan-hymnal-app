@@ -39,7 +39,7 @@ import { ModalLoader } from "../components/ModalLoader";
 import Post from "../components/Post";
 import { FontSizes, Layout, Colors } from "../constants";
 import Constants from "expo-constants";
-
+import { openURL } from "../utils/LinkHelper.js";
 import {
   DefaultColors,
   Settings,
@@ -345,7 +345,7 @@ class StaticHomeContent_Links extends React.Component {
             marginBottom: 10,
           }}
           onPress={() => {
-            Linking.openURL(Urls.Website);
+            openURL(Urls.Website);
           }}
         >
           <MediumText style={{ color: Skin.Home_SocialButtons }}>

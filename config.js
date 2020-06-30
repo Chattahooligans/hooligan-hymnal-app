@@ -563,4 +563,8 @@ export const Settings = {
   //      Each account should be seperated by a space
   //      In Chattanooga, we append the club and our SG accounts. You can choose to pass.
   TwitterList_AppendHandles: "",
+
+  // WebLinks_DefaultTarget: "internal", "external"
+  //      Sets whether web links open in an in-app internal browser or external to the OS
+  WebLinks_DefaultTarget: "internal",
 };
