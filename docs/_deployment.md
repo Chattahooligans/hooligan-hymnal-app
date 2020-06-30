@@ -155,7 +155,7 @@ The `app.json` file contains information needed to help turn the code into a wor
 
 The project includes `example-app.json` as a starting point. Leave this file alone, as future changes to the platform will modify it, and it will be easy to run a diff and see what changed.
 
-To edit the manifest for your app, make a copy of `example-app.json` and name it as `app.json`. You will be editing this new `app.json`. Remove it from `.gitignore` as well so your copy of it is version controlled.
+To edit the manifest for your app, make a copy of `example-app.json` and name it as `app.json`. You will be editing this new `app.json`.
 
 Let's walk through some fields that you should pay special attention to.
 
@@ -184,10 +184,7 @@ The config file contains the vast majority of settings that alter the appearance
 
 The project includes `example-config.js` as a starting point. Leave this file alone, as future changes to the platform will modify it, and it will be easy to run a diff and see what changed.
 
-To edit the configuration for your app:
-
-- Make a copy of `example-config.js` and name it as `config.js`. YOu will be editing this new `config.js`.
-- Edit `.gitignore` to remove `config.js` so your fork has it in version control.
+To edit the configuration for your app, make a copy of `example-config.js` and name it as `config.js`. YOu will be editing this new `config.js`.
 
 ### /locales/
 
@@ -201,10 +198,6 @@ To edit the text for your app:
 - If English is not your primary language, translate the text into your preferred language (and please submit a PR back to the project with the example schema in another language!).
 - Edit the text inside the file, paying extra attention to the `_comment` recommendations.
 - Edit `manifest.js` to set the available translations and default locale. This file contains additional instructions.
-
-## .gitignore
-
-tacoman TODO: insert .gitignore instructions (I think app.json will be here in addition to the config we already talked about?)
 
 ## Run and Test the Mobile App
 
