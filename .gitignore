@@ -1,10 +1,5 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# Hooligan Hymnal 
-#   Delete this section after forking the codebase
-app.json
-config.js
-
 # expo
 .expo/
 
