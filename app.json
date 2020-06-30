@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "App Name",
+    "description": "App Description",
+    "owner": "Your Expo account name",
+    "slug": "YOU MUST SET THIS FIRST AND CAN'T CHANGE IT",
+    "privacy": "public",
+    "version": "2.0.1",
+    "primaryColor": "#A3D8F7",
+    "icon": "./assets/icon-ios.png",
+    "orientation": "portrait",
+    "splash": {
+      "backgroundColor": "#A3D8F7",
+      "resizeMode": "contain",
+      "image": "./assets/splash.png"
+    },
+    "android": {
+      "package": "YOU MUST SET THIS FIRST AND CAN'T CHANGE IT",
+      "icon": "./assets/icon-android.png",
+      "versionCode": 1,
+      "permissions": [],
+      "googleServicesFile": "./google-services.json"
+    },
+    "ios": {
+      "bundleIdentifier": "YOU MUST SET THIS FIRST AND CAN'T CHANGE IT",
+      "icon": "./assets/icon-ios.png",
+      "loadJSInBackgroundExperimental": true
+    },
+    "notification": {
+      "icon": "./assets/notification.png",
+      "iosDisplayInForeground": true,
+      "color": "#A3D8F7"
+    },
+    "platforms": ["android", "ios"],
+    "githubUrl": "https://github.com/Chattahooligans/",
+    "extra": {
+      "hooliganHymnal": {
+        "version": "2.0.1",
+        "aboutPlug": {
+          "en": " is built using the open source *Hooligan Hymnal* platform, v2.0.1.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
+        }
+      }
+    }
+  }
+}
