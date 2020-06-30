@@ -3,6 +3,7 @@ import { Linking, StyleSheet, TouchableOpacity, View } from "react-native";
 import { BoldText, RegularText, MediumText } from "./StyledText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import FadeIn from "react-native-fade-in-image";
+import { openURL } from "../utils/LinkHelper.js";
 import { Skin, DefaultColors, Palette } from "../../config";
 import containerStyle from "./PostAttachmentContainerStyle";
 import i18n from "../i18n";
@@ -46,9 +47,7 @@ export default class PostAttachmentMultiTweet extends React.Component {
     for (player of players) {
       handleList += "@" + player.twitter + "%20";
     }
-    Linking.openURL(
-      "https://twitter.com/intent/tweet?text=" + handleList + "+"
-    );
+    openURL("https://twitter.com/intent/tweet?text=" + handleList + "+");
   };
 }
 

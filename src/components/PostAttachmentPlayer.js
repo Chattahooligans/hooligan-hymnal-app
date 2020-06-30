@@ -1,16 +1,11 @@
 import React from "react";
-import {
-  Image,
-  Linking,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { BoldText, RegularText, MediumText } from "../components/StyledText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import FadeIn from "react-native-fade-in-image";
-import { Skin, DefaultColors, Palette } from "../../config";
+import { Skin } from "../../config";
 import containerStyle from "./PostAttachmentContainerStyle";
+import { openURL } from "../utils/LinkHelper.js";
 import i18n from "../i18n";
 
 export default class PostAttachmentPlayer extends React.Component {
@@ -28,7 +23,7 @@ export default class PostAttachmentPlayer extends React.Component {
           style={{ alignContent: "center" }}
           key={"IG: " + player.instagram}
           onPress={() => {
-            Linking.openURL("https://instagram.com/" + player.instagram);
+            openURL("https://instagram.com/" + player.instagram);
           }}
         >
           <MaterialCommunityIcons
@@ -52,7 +47,7 @@ export default class PostAttachmentPlayer extends React.Component {
           style={{ alignContent: "center" }}
           key={"Twitter: " + player.twitter}
           onPress={() => {
-            Linking.openURL(
+            openURL(
               "https://twitter.com/intent/tweet?text=@" + player.twitter + "+"
             );
           }}
