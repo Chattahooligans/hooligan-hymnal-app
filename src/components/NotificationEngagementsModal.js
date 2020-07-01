@@ -66,7 +66,7 @@ export default class NotificationEngagementsModal extends React.Component {
                   name="close"
                   size={25}
                   style={{
-                    color: DefaultColors.Secondary,
+                    color: DefaultColors.Primary,
                     backgroundColor: "transparent",
                   }}
                 />
