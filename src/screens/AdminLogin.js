@@ -17,6 +17,7 @@ import {
   RegularText,
   UnderlineText,
 } from "../components/StyledText";
+import { ModalLoader } from "../components/ModalLoader";
 import { Colors, FontSizes } from "../constants";
 import { Skin, DefaultColors } from "../../config";
 import { login, checkToken } from "../services/loginService";
@@ -35,6 +36,7 @@ class AdminLogin extends React.Component {
   state = {
     password: "",
     username: "",
+    loading: false,
   };
 
   componentDidMount() {
@@ -111,6 +113,11 @@ class AdminLogin extends React.Component {
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
+
+        <ModalLoader
+          loading={this.state.loading}
+          label={i18n.t("screens.adminlogin.loading")}
+        />
       </View>
     );
   }
@@ -119,6 +126,8 @@ class AdminLogin extends React.Component {
   _setUsername = (username) => this.setState({ username });
 
   _handlePressSubmitButton = async () => {
+    this.setState({ loading: true });
+
     try {
       const responseJson = await login({
         email: this.state.username,
@@ -142,11 +151,14 @@ class AdminLogin extends React.Component {
         function navToAdminHome() {
           nav.navigate("AdminHome");
         }
+        this.setState({ loading: false });
         this.props.globalData.setCurrentUser(responseJson, navToAdminHome);
       } else {
+        this.setState({ loading: false });
         alert(i18n.t("screens.adminlogin.failed"));
       }
     } catch (e) {
+      this.setState({ loading: false });
       alert("Error logging in: " + e);
     }
   };
