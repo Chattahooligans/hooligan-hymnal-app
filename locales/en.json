@@ -62,7 +62,8 @@
       "title": "Admin Dashboard",
       "username": "Username/Email",
       "password": "Password",
-      "login": "Log In"
+      "login": "Log In",
+      "failed": "Login failed: Invalid username or password."
     },
     "postattach": {
       "_comment": [

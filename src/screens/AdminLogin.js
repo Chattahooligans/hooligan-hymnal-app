@@ -67,8 +67,8 @@ class AdminLogin extends React.Component {
 
   async populateUserCredentials() {
     try {
-      const username = await AsyncStorage.getItem("@capousername");
-      const password = await AsyncStorage.getItem("@capopassword");
+      const username = await AsyncStorage.getItem("@adminusername");
+      const password = await AsyncStorage.getItem("@adminpassword");
       if (username !== null && password !== null) {
         this._setPassword(password);
         this._setUsername(username);
@@ -96,7 +96,6 @@ class AdminLogin extends React.Component {
         </RegularText>
         <TextInput
           style={styles.textInput}
-          autoFocus={true}
           onChangeText={this._setPassword}
           value={this.state.password}
           secureTextEntry={true}
@@ -126,26 +125,29 @@ class AdminLogin extends React.Component {
         password: this.state.password,
       });
       Keyboard.dismiss();
-      this.props.globalData.setBearerToken(responseJson.token);
-      this.props.globalData.setCurrentUser(responseJson);
-      storeData = async () => {
+
+      // .token field in response indicates valid login
+      if (responseJson.token) {
+        this.props.globalData.setBearerToken(responseJson.token);
+        this.props.globalData.setCurrentUser(responseJson);
+
         try {
           await AsyncStorage.setItem("@adminusername", this.state.username);
           await AsyncStorage.setItem("@adminpassword", this.state.password);
         } catch (e) {
-          console.log(e);
+          console.log("Error storing credentials: " + e);
         }
-      };
-      storeData();
-      //this.props.navigation.navigate('AdminHome');
 
-      let nav = this.props.navigation;
-      function navToAdminHome() {
-        nav.navigate("AdminHome");
+        let nav = this.props.navigation;
+        function navToAdminHome() {
+          nav.navigate("AdminHome");
+        }
+        this.props.globalData.setCurrentUser(responseJson, navToAdminHome);
+      } else {
+        alert(i18n.t("screens.adminlogin.failed"));
       }
-      this.props.globalData.setCurrentUser(responseJson, navToAdminHome);
     } catch (e) {
-      console.log("Error logging in: " + e);
+      alert("Error logging in: " + e);
     }
   };
 }
