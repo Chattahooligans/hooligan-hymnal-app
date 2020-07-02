@@ -49,7 +49,6 @@ class AdminLogin extends React.Component {
 
   setData = async () => {
     var bearerToken = this.props.globalData.getBearerToken();
-    console.log(bearerToken);
     if (bearerToken && bearerToken !== "") {
       //bearerToken is present from previous login
       //check if still valid and bypass login if so
