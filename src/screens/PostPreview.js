@@ -91,7 +91,10 @@ class PostPreview extends React.Component {
                     onConfirm={this.onScheduleConfirm} />
                 */}
 
-        <ModalLoader loading={this.state.loading} />
+        <ModalLoader
+          loading={this.state.loading}
+          label={i18n.t("screens.postpreview.loading")}
+        />
       </ScrollView>
     );
   }
