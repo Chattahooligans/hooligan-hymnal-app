@@ -325,11 +325,12 @@ export const Skin = {
   Post_LinkColor: "blue",
   Post_NotificationColor: DefaultColors.Secondary,
   Post_TextColor: DefaultColors.BlackText,
-  Post_TextNumberOfLines: Number.MAX_SAFE_INTEGER,
+  Post_TextNumberOfLines: 8,
   Post_TextPaddingTop: 6,
   Post_TextPaddingBottom: 12,
   Post_TextPaddingHorizontal: 16,
-  Post_TextShowHide: false,
+  Post_TextRatio: 0.6, // set to 0 to disable text truncation based on screen ratio
+  Post_TextShowHide: true,
   Post_TimestampLabel: DefaultColors.ColorText,
   PostAttachmentComposePrideraiserMatch_ActivityIndicator:
     DefaultColors.Primary,
