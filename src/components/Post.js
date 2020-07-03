@@ -236,26 +236,31 @@ class Post extends React.Component {
             >
               {post.text}
             </ParsedText>
-            {this.state.textGreaterThanRatio && !this.state.textExpanded && (
-              <LightText
-                style={{
-                  color: DefaultColors.ColorText,
-                  marginTop: 5,
-                  fontSize: Skin.Post_FontSize - 4,
-                }}
-                onPress={() => {
-                  this.setState({
-                    textExpanded: true,
-                    textNumberOfLines: Number.MAX_SAFE_INTEGER,
-                  });
-                }}
-              >
-                {i18n.t("components.post.readmore")}
-              </LightText>
-            )}
+            {this.state.textGreaterThanRatio &&
+              !this.state.textExpanded &&
+              !fullscreen &&
+              !this.props.expand && (
+                <LightText
+                  style={{
+                    color: DefaultColors.ColorText,
+                    marginTop: 5,
+                    fontSize: Skin.Post_FontSize - 4,
+                  }}
+                  onPress={() => {
+                    this.setState({
+                      textExpanded: true,
+                      textNumberOfLines: Number.MAX_SAFE_INTEGER,
+                    });
+                  }}
+                >
+                  {i18n.t("components.post.readmore")}
+                </LightText>
+              )}
             {Skin.Post_TextShowHide &&
               this.state.textGreaterThanRatio &&
-              this.state.textExpanded && (
+              this.state.textExpanded &&
+              !fullscreen &&
+              !this.props.expand && (
                 <LightText
                   style={{
                     color: DefaultColors.ColorText,
