@@ -22,7 +22,7 @@ export default class SinglePost extends React.Component {
           style={{ flex: 1 }}
           post={this.props.route.params.post}
           navigation={this.props.navigation}
-          fullScreen={true}
+          fullscreen={true}
         />
       </ScrollView>
     );
