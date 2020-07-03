@@ -397,11 +397,20 @@ class DeferredHomeContent extends React.Component {
 
     let scrollItems = [];
     const posts = this.props.globalData.state.feed;
-    posts.forEach((post) => {
-      let postDisplay = (
-        <Post key={post._id} post={post} navigation={this.props.navigation} />
-      );
-      scrollItems.push(postDisplay);
+    posts.forEach((post, index) => {
+      if (0 === index && Skin.Post_TextExpandFirstInFeed)
+        scrollItems.push(
+          <Post
+            key={post._id}
+            post={post}
+            navigation={this.props.navigation}
+            expand={true}
+          />
+        );
+      else
+        scrollItems.push(
+          <Post key={post._id} post={post} navigation={this.props.navigation} />
+        );
     });
 
     // for some reason this doesn't blow up when scrollItems.length is small or zero

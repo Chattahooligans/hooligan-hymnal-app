@@ -180,7 +180,11 @@ class Post extends React.Component {
         textDisplay = (
           <View style={styles.textContainer}>
             <ParsedText
-              numberOfLines={this.state.textNumberOfLines}
+              numberOfLines={
+                fullscreen || this.props.expand
+                  ? Number.MAX_SAFE_INTEGER
+                  : this.state.textNumberOfLines
+              }
               onLayout={(e) => {
                 if (!this.state.measuredText) {
                   let ratio =
@@ -275,7 +279,7 @@ class Post extends React.Component {
           <View style={styles.textContainer}>
             <ReadMore
               numberOfLines={
-                fullscreen
+                fullscreen || this.props.expand
                   ? Number.MAX_SAFE_INTEGER
                   : Skin.Post_TextNumberOfLines
               }

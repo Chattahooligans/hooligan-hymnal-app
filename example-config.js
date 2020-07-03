@@ -325,7 +325,8 @@ export const Skin = {
   Post_LinkColor: "blue",
   Post_NotificationColor: DefaultColors.Secondary,
   Post_TextColor: DefaultColors.BlackText,
-  Post_TextNumberOfLines: 8,
+  Post_TextExpandFirstInFeed: true,
+  Post_TextNumberOfLines: 8, // set to Number.MAX_SAFE_INTEGER to never collapse text
   Post_TextPaddingTop: 6,
   Post_TextPaddingBottom: 12,
   Post_TextPaddingHorizontal: 16,
