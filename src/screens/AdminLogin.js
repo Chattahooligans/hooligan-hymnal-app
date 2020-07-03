@@ -48,7 +48,9 @@ class AdminLogin extends React.Component {
   }
 
   setData = async () => {
-    var bearerToken = this.props.globalData.getBearerToken();
+    let currentUser = this.props.globalData.getCurrentUser();
+    let bearerToken = "";
+    if (currentUser) bearerToken = currentUser.token;
     if (bearerToken && bearerToken !== "") {
       //bearerToken is present from previous login
       //check if still valid and bypass login if so
@@ -59,7 +61,7 @@ class AdminLogin extends React.Component {
         Keyboard.dismiss();
         this.props.navigation.navigate("AdminHome");
       } catch (e) {
-        console.log("Bearer token check failed:" + e);
+        console.log("Bearer token check failed: " + e);
         this.populateUserCredentials();
       }
     }
@@ -136,9 +138,6 @@ class AdminLogin extends React.Component {
 
       // .token field in response indicates valid login
       if (responseJson.token) {
-        this.props.globalData.setBearerToken(responseJson.token);
-        this.props.globalData.setCurrentUser(responseJson);
-
         try {
           await AsyncStorage.setItem("@adminusername", this.state.username);
           await AsyncStorage.setItem("@adminpassword", this.state.password);
