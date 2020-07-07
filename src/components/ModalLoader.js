@@ -1,20 +1,26 @@
 import React from "react";
 import { ActivityIndicator, Modal, StyleSheet, View } from "react-native";
 import { DefaultColors, Skin } from "../../config";
-import { BoldText } from "./StyledText";
+import { RegularText } from "./StyledText";
 
 export class ModalLoader extends React.Component {
   render() {
     const loading = this.props.loading;
+    const label = this.props.label;
     return (
       <Modal transparent={true} animationType="none" visible={loading}>
         <View style={styles.modal}>
-          <View style={styles.activityIndicatorWrapper}>
-            <ActivityIndicator
-              animating={loading}
-              size="large"
-              color={Skin.ModalLoader_ActivityIndicator}
-            />
+          <View>
+            <View style={styles.activityIndicatorWrapper}>
+              <ActivityIndicator
+                animating={loading}
+                size="large"
+                color={Skin.ModalLoader_ActivityIndicator}
+              />
+            </View>
+            {label && (
+              <RegularText style={styles.labelStyle}>{label}</RegularText>
+            )}
           </View>
         </View>
       </Modal>
@@ -36,5 +42,10 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-around",
+  },
+  labelStyle: {
+    marginTop: 10,
+    color: Skin.ModalLoader_LabelColor,
+    textAlign: "center",
   },
 });

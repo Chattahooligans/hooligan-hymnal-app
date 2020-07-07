@@ -5,23 +5,21 @@ import {
   FlatList,
   Platform,
   ScrollView,
-  SectionList,
   StyleSheet,
   View,
 } from "react-native";
 import FadeIn from "react-native-fade-in-image";
 import Constants from "expo-constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { HeaderBackButton } from "react-navigation";
+import { HeaderBackButton } from "@react-navigation/stack";
 import { RectButton } from "react-native-gesture-handler";
 import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
 import NavigationBar from "../components/NavigationBar";
 import { RegularText, BoldText, MediumText } from "../components/StyledText";
 import LoadingPlaceholder from "../components/LoadingPlaceholder";
-import { FontSizes, Icons, Layout } from "../constants";
-import { Skin, DefaultColors, Palette } from "../../config";
-import { defaultFormatUtc } from "moment";
+import { FontSizes, Layout } from "../constants";
+import { Skin, DefaultColors } from "../../config";
 import i18n from "../i18n";
 
 class FoePlayerRow extends React.Component {
@@ -145,7 +143,7 @@ class RosterFoePlayers extends React.Component {
               <View
                 style={{
                   flex: 1,
-                  flexDirection: "row",
+                  flexDirection: i18n.getFlexDirection(),
                   height: 3,
                   backgroundColor: foe.accentColor,
                   marginBottom: 5,
@@ -162,7 +160,7 @@ class RosterFoePlayers extends React.Component {
               <View
                 style={{
                   flex: 1,
-                  flexDirection: "row",
+                  flexDirection: i18n.getFlexDirection(),
                   height: 3,
                   backgroundColor: foe.accentColor,
                   marginTop: 5,

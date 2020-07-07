@@ -1,8 +1,5 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { Layout } from "../constants";
-import Constants from "expo-constants";
-import { HeaderBackButton } from "react-navigation";
 
 export default class RefereeCard extends React.Component {
   render() {

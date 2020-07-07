@@ -1,15 +1,10 @@
 import React from "react";
-import { Image, Platform, StyleSheet, View } from "react-native";
-import { RectButton } from "react-native-gesture-handler";
-import FadeIn from "react-native-fade-in-image";
-import { withNavigation } from "react-navigation";
-import { BoldText, RegularText, MediumText } from "./StyledText";
-import { Colors, FontSizes } from "../constants";
+import { StyleSheet, View } from "react-native";
+import { BoldText, RegularText } from "./StyledText";
+import { FontSizes } from "../constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Skin, DefaultColors } from "../../config";
 import i18n from "../i18n";
 
-@withNavigation
 export default class GoalkeeperNicknameCard extends React.Component {
   render() {
     const { goalkeeperNickname } = this.props;

@@ -39,7 +39,7 @@ import { ModalLoader } from "../components/ModalLoader";
 import Post from "../components/Post";
 import { FontSizes, Layout, Colors } from "../constants";
 import Constants from "expo-constants";
-
+import { openURL } from "../utils/LinkHelper.js";
 import {
   DefaultColors,
   Settings,
@@ -229,7 +229,7 @@ class Home extends React.Component {
           <View
             style={{
               flex: 1,
-              flexDirection: "row",
+              flexDirection: i18n.getFlexDirection(),
               justifyContent: "center",
               paddingVertical: 10,
             }}
@@ -345,7 +345,7 @@ class StaticHomeContent_Links extends React.Component {
             marginBottom: 10,
           }}
           onPress={() => {
-            Linking.openURL(Urls.Website);
+            openURL(Urls.Website);
           }}
         >
           <MediumText style={{ color: Skin.Home_SocialButtons }}>
@@ -397,11 +397,20 @@ class DeferredHomeContent extends React.Component {
 
     let scrollItems = [];
     const posts = this.props.globalData.state.feed;
-    posts.forEach((post) => {
-      let postDisplay = (
-        <Post key={post._id} post={post} navigation={this.props.navigation} />
-      );
-      scrollItems.push(postDisplay);
+    posts.forEach((post, index) => {
+      if (0 === index && Skin.Post_CollapseTextExpandFirstInFeed)
+        scrollItems.push(
+          <Post
+            key={post._id}
+            post={post}
+            navigation={this.props.navigation}
+            expand={true}
+          />
+        );
+      else
+        scrollItems.push(
+          <Post key={post._id} post={post} navigation={this.props.navigation} />
+        );
     });
 
     // for some reason this doesn't blow up when scrollItems.length is small or zero

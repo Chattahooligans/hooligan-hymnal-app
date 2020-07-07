@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Linking, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { BigButton } from "../components/BigButton";
 import { BoldText, RegularText, RegularTextMonospace } from "./StyledText";
 import {
@@ -7,7 +7,8 @@ import {
   PrideraiserPalette,
 } from "./PrideraiserHelper";
 import PrideraiserRainbowBar from "./PrideraiserRainbowBar";
-import { PRIDERAISER_LOGO } from "../../config";
+import { openURL } from "../utils/LinkHelper.js";
+import { Images } from "../../config";
 import i18n from "../i18n";
 
 export default class PostAttachmentPrideraiserMatch extends React.Component {
@@ -59,7 +60,7 @@ export default class PostAttachmentPrideraiserMatch extends React.Component {
           <Image
             style={{ width: 100, height: 100, marginRight: 5 }}
             resizeMode="contain"
-            source={PRIDERAISER_LOGO}
+            source={Images.PrideraiserLogo}
           />
           <View style={{ flex: 1 }}>
             <BoldText>{heading}</BoldText>
@@ -79,7 +80,7 @@ export default class PostAttachmentPrideraiserMatch extends React.Component {
             let source = "";
             if (data.source) source = "?source=" + data.source;
 
-            Linking.openURL(data.campaign.public_url + source);
+            openURL(data.campaign.public_url + source);
           }}
         />
       </View>

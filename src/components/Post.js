@@ -58,6 +58,10 @@ class Post extends React.Component {
       images: [],
       attachments: [],
     },
+    measuredText: false,
+    textGreaterThanRatio: false,
+    textExpanded: false,
+    textNumberOfLines: Number.MAX_SAFE_INTEGER,
     imageViewerVisible: false,
     imageViewerIndex: 0,
     imageViewerFooterVisible: true,
@@ -172,44 +176,43 @@ class Post extends React.Component {
 
     let textDisplay;
     if (post.text) {
-      textDisplay = (
-        <View style={styles.textContainer}>
-          <ReadMore
-            numberOfLines={
-              fullscreen ? Number.MAX_SAFE_INTEGER : Skin.Post_TextNumberOfLines
-            }
-            renderTruncatedFooter={(handlePress) => (
-              <LightText
-                style={{
-                  color: DefaultColors.ColorText,
-                  marginTop: 5,
-                  fontSize: Skin.Post_FontSize - 4,
-                }}
-                onPress={handlePress}
-              >
-                {i18n.t("components.post.readmore")}
-              </LightText>
-            )}
-            renderRevealedFooter={(handlePress) => {
-              if (Skin.Post_TextShowHide) {
-                return (
-                  <LightText
-                    style={{
-                      color: DefaultColors.ColorText,
-                      marginTop: 5,
-                      fontSize: Skin.Post_FontSize - 4,
-                    }}
-                    onPress={handlePress}
-                  >
-                    {i18n.t("components.post.hide")}
-                  </LightText>
-                );
-              } else {
-                return null;
-              }
-            }}
-          >
+      if (Skin.Post_CollapseTextRatio) {
+        textDisplay = (
+          <View style={styles.textContainer}>
             <ParsedText
+              numberOfLines={
+                fullscreen || this.props.expand
+                  ? Number.MAX_SAFE_INTEGER
+                  : this.state.textNumberOfLines
+              }
+              onLayout={(e) => {
+                if (!this.state.measuredText) {
+                  let ratio =
+                    e.nativeEvent.layout.height /
+                    Dimensions.get("window").height;
+
+                  if (ratio > Skin.Post_CollapseTextRatio)
+                    this.setState({
+                      measuredText: true,
+                      textGreaterThanRatio: true,
+                      textExpanded: false,
+                      textNumberOfLines: Skin.Post_CollapseTextNumberOfLines,
+                    });
+                  else
+                    this.setState({
+                      measuredText: true,
+                      textGreaterThanRatio: false,
+                      textExpanded: true,
+                      textNumberOfLines: Number.MAX_SAFE_INTEGER,
+                    });
+                }
+              }}
+              onPress={() => {
+                this.setState({
+                  textExpanded: true,
+                  textNumberOfLines: Number.MAX_SAFE_INTEGER,
+                });
+              }}
               parse={[
                 { type: "url", style: parsedStyles.url, onPress: onUrlPress },
                 {
@@ -233,9 +236,117 @@ class Post extends React.Component {
             >
               {post.text}
             </ParsedText>
-          </ReadMore>
-        </View>
-      );
+            {this.state.textGreaterThanRatio &&
+              !this.state.textExpanded &&
+              !fullscreen &&
+              !this.props.expand && (
+                <LightText
+                  style={{
+                    color: DefaultColors.ColorText,
+                    marginTop: 5,
+                    fontSize: Skin.Post_FontSize - 4,
+                  }}
+                  onPress={() => {
+                    this.setState({
+                      textExpanded: true,
+                      textNumberOfLines: Number.MAX_SAFE_INTEGER,
+                    });
+                  }}
+                >
+                  {i18n.t("components.post.readmore")}
+                </LightText>
+              )}
+            {Skin.Post_CollapseTextShowHide &&
+              this.state.textGreaterThanRatio &&
+              this.state.textExpanded &&
+              !fullscreen &&
+              !this.props.expand && (
+                <LightText
+                  style={{
+                    color: DefaultColors.ColorText,
+                    marginTop: 5,
+                    fontSize: Skin.Post_FontSize - 4,
+                  }}
+                  onPress={() => {
+                    this.setState({
+                      textExpanded: false,
+                      textNumberOfLines: Skin.Post_CollapseTextNumberOfLines,
+                    });
+                  }}
+                >
+                  {i18n.t("components.post.hide")}
+                </LightText>
+              )}
+          </View>
+        );
+      } else {
+        textDisplay = (
+          <View style={styles.textContainer}>
+            <ReadMore
+              numberOfLines={
+                fullscreen || this.props.expand
+                  ? Number.MAX_SAFE_INTEGER
+                  : Skin.Post_CollapseTextNumberOfLines
+              }
+              renderTruncatedFooter={(handlePress) => (
+                <LightText
+                  style={{
+                    color: DefaultColors.ColorText,
+                    marginTop: 5,
+                    fontSize: Skin.Post_FontSize - 4,
+                  }}
+                  onPress={handlePress}
+                >
+                  {i18n.t("components.post.readmore")}
+                </LightText>
+              )}
+              renderRevealedFooter={(handlePress) => {
+                if (Skin.Post_CollapseTextShowHide) {
+                  return (
+                    <LightText
+                      style={{
+                        color: DefaultColors.ColorText,
+                        marginTop: 5,
+                        fontSize: Skin.Post_FontSize - 4,
+                      }}
+                      onPress={handlePress}
+                    >
+                      {i18n.t("components.post.hide")}
+                    </LightText>
+                  );
+                } else {
+                  return null;
+                }
+              }}
+            >
+              <ParsedText
+                parse={[
+                  { type: "url", style: parsedStyles.url, onPress: onUrlPress },
+                  {
+                    type: "email",
+                    style: parsedStyles.url,
+                    onPress: onEmailPress,
+                  },
+                  {
+                    pattern: parsePatterns.bold,
+                    style: parsedStyles.bold,
+                    renderText: renderBoldItalic,
+                  },
+                  {
+                    pattern: parsePatterns.italic,
+                    style: parsedStyles.italic,
+                    renderText: renderBoldItalic,
+                  },
+                ]}
+                style={styles.text}
+                onLongPress={this._onLongPressText}
+              >
+                {post.text}
+              </ParsedText>
+            </ReadMore>
+          </View>
+        );
+      }
     }
 
     let containerWidth =

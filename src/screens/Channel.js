@@ -16,7 +16,7 @@ import {
 } from "../components/StyledText";
 // TODO: import PostImageWrapper after create-post-images is merged
 import Post from "../components/Post";
-import { HeaderBackButton } from "react-navigation";
+import { HeaderBackButton } from "@react-navigation/stack";
 import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
 import { DefaultColors, Skin, Settings } from "../../config";
@@ -165,7 +165,7 @@ class Channel extends React.Component {
         <View
           style={{
             flex: 1,
-            flexDirection: "row",
+            flexDirection: i18n.getFlexDirection(),
             justifyContent: "center",
             paddingVertical: 10,
           }}
