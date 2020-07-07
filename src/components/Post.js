@@ -176,7 +176,7 @@ class Post extends React.Component {
 
     let textDisplay;
     if (post.text) {
-      if (Skin.Post_TextRatio) {
+      if (Skin.Post_CollapseTextRatio) {
         textDisplay = (
           <View style={styles.textContainer}>
             <ParsedText
@@ -191,12 +191,12 @@ class Post extends React.Component {
                     e.nativeEvent.layout.height /
                     Dimensions.get("window").height;
 
-                  if (ratio > Skin.Post_TextRatio)
+                  if (ratio > Skin.Post_CollapseTextRatio)
                     this.setState({
                       measuredText: true,
                       textGreaterThanRatio: true,
                       textExpanded: false,
-                      textNumberOfLines: Skin.Post_TextNumberOfLines,
+                      textNumberOfLines: Skin.Post_CollapseTextNumberOfLines,
                     });
                   else
                     this.setState({
@@ -256,7 +256,7 @@ class Post extends React.Component {
                   {i18n.t("components.post.readmore")}
                 </LightText>
               )}
-            {Skin.Post_TextShowHide &&
+            {Skin.Post_CollapseTextShowHide &&
               this.state.textGreaterThanRatio &&
               this.state.textExpanded &&
               !fullscreen &&
@@ -270,7 +270,7 @@ class Post extends React.Component {
                   onPress={() => {
                     this.setState({
                       textExpanded: false,
-                      textNumberOfLines: Skin.Post_TextNumberOfLines,
+                      textNumberOfLines: Skin.Post_CollapseTextNumberOfLines,
                     });
                   }}
                 >
@@ -286,7 +286,7 @@ class Post extends React.Component {
               numberOfLines={
                 fullscreen || this.props.expand
                   ? Number.MAX_SAFE_INTEGER
-                  : Skin.Post_TextNumberOfLines
+                  : Skin.Post_CollapseTextNumberOfLines
               }
               renderTruncatedFooter={(handlePress) => (
                 <LightText
@@ -301,7 +301,7 @@ class Post extends React.Component {
                 </LightText>
               )}
               renderRevealedFooter={(handlePress) => {
-                if (Skin.Post_TextShowHide) {
+                if (Skin.Post_CollapseTextShowHide) {
                   return (
                     <LightText
                       style={{

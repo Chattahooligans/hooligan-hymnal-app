@@ -398,7 +398,7 @@ class DeferredHomeContent extends React.Component {
     let scrollItems = [];
     const posts = this.props.globalData.state.feed;
     posts.forEach((post, index) => {
-      if (0 === index && Skin.Post_TextExpandFirstInFeed)
+      if (0 === index && Skin.Post_CollapseTextExpandFirstInFeed)
         scrollItems.push(
           <Post
             key={post._id}
