@@ -97,9 +97,11 @@ class PostCreateAttachmentWrapper extends React.Component {
 
     return (
       <View style={{ flexDirection: i18n.getFlexDirection() }}>
-        <View style={{ flex: 1 }} pointerEvents="none">
-          {attachmentDisplay}
-        </View>
+        <View style={{ flex: 1 }}>{attachmentDisplay}</View>
+        {/* Transparent overlay to prevent tapping the attachment content */}
+        <View
+          style={[StyleSheet.absoluteFill, { backgroundColor: "#00000000" }]}
+        />
         <TouchableOpacity
           style={styles.delete}
           onPress={() => {

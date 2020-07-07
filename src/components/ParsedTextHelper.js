@@ -1,4 +1,5 @@
-import { Linking, Platform, StyleSheet } from "react-native";
+import { Linking, StyleSheet } from "react-native";
+import { openURL } from "../utils/LinkHelper.js";
 import { Skin } from "../../config";
 
 /* sample import */
@@ -30,7 +31,7 @@ export function renderBoldItalic(match) {
   return match.slice(1, match.length - 1);
 }
 export function onUrlPress(url) {
-  Linking.openURL(url);
+  openURL(url);
 }
 export function onEmailPress(email) {
   Linking.openURL("mailto:" + email);

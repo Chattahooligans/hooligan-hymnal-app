@@ -62,7 +62,9 @@
       "title": "Admin Dashboard",
       "username": "Username/Email",
       "password": "Password",
-      "login": "Log In"
+      "login": "Log In",
+      "loading": "Logging in...",
+      "failed": "Login failed: Invalid username or password."
     },
     "postattach": {
       "_comment": [
@@ -188,7 +190,8 @@
 
       "title": "Preview Post",
       "submit": "Submit Post",
-      "schedule": "Schedule Post"
+      "schedule": "Schedule Post",
+      "loading": "Submitting Post..."
     },
     "refereecard": {
       "_comment": [

@@ -1,9 +1,6 @@
 import React from "react";
 import {
   Clipboard,
-  Image,
-  Linking,
-  Platform,
   ScrollView,
   StyleSheet,
   TouchableOpacity,
@@ -11,7 +8,6 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { BoldText, ItalicText, RegularText } from "./StyledText";
-import * as WebBrowser from "expo-web-browser";
 import ParsedText from "react-native-parsed-text";
 import {
   parsePatterns,
@@ -23,6 +19,7 @@ import {
 import Toast from "react-native-tiny-toast";
 // import Toast from 'react-native-simple-toast';
 import { FontSizes, Layout } from "../constants";
+import { openURL } from "../utils/LinkHelper.js";
 import { Skin, DefaultColors } from "../../config";
 import i18n from "../i18n";
 
@@ -55,7 +52,7 @@ export default class SongView extends React.PureComponent {
             backgroundColor: DefaultColors.Background,
           }}
           onPress={() => {
-            Linking.openURL(song.referenceLink);
+            openURL(song.referenceLink);
           }}
         >
           <MaterialCommunityIcons
@@ -79,7 +76,7 @@ export default class SongView extends React.PureComponent {
             backgroundColor: DefaultColors.Background,
           }}
           onPress={() => {
-            Linking.openURL(song.sheetMusicLink);
+            openURL(song.sheetMusicLink);
           }}
         >
           <MaterialCommunityIcons
@@ -162,7 +159,7 @@ export default class SongView extends React.PureComponent {
           <View
             style={{
               flex: 1,
-              flexDirection: "row",
+              flexDirection: i18n.getFlexDirection(),
               justifyContent: "flex-end",
               opacity: 0.5,
             }}

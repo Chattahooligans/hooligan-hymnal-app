@@ -3,29 +3,27 @@ import {
   Button,
   Modal,
   Text,
-  Image,
   Picker,
   Platform,
   ScrollView,
   StyleSheet,
   Switch,
   TextInput,
+  TouchableOpacity,
   View,
   Keyboard,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-// import ImagePicker from 'react-native-image-picker';
 import * as Permissions from "expo-permissions";
 import ModalSelector from "react-native-modal-selector";
+import DraggableFlatList from "react-native-draggable-flatlist";
 import { BigButton } from "../components/BigButton";
 import { BoldText, RegularText, MediumText } from "../components/StyledText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
-import { Colors, FontSizes, Layout } from "../constants";
-import { Skin, DefaultColors, Settings } from "../../config";
-import { Constants } from "expo";
-import { HeaderBackButton } from "react-navigation";
+import { DefaultColors, Settings } from "../../config";
+import { HeaderBackButton } from "@react-navigation/stack";
 import i18n from "../i18n";
 import * as mime from "react-native-mime-types";
 
@@ -230,6 +228,20 @@ class PostCreate extends React.Component {
       this.setState({ post });
     }
   };
+  renderImageItem({ item, index, drag, isActive }, deleteImage, saveMetadata) {
+    let image = item;
+    return (
+      <TouchableOpacity onLongPress={drag}>
+        <PostCreateImageWrapper
+          key={"image-" + index}
+          uri={image.uri}
+          metadata={image.metadata}
+          onPressDelete={deleteImage}
+          onSaveMetadata={saveMetadata}
+        />
+      </TouchableOpacity>
+    );
+  }
 
   deleteAttachment = (toDelete) => {
     let post = this.state.post;
@@ -238,6 +250,19 @@ class PostCreate extends React.Component {
 
     this.setState({ post });
   };
+
+  renderAttachmentItem({ item, index, drag, isActive }, deleteAttachment) {
+    let attachment = item;
+    return (
+      <TouchableOpacity onLongPress={drag}>
+        <PostCreateAttachmentWrapper
+          attachment={attachment}
+          key={"attachment-" + attachment.attachmentType + "-" + index}
+          onPressDelete={deleteAttachment}
+        />
+      </TouchableOpacity>
+    );
+  }
 
   render() {
     let currentUserId = this.props.globalData.state.currentUser.user.id;
@@ -372,6 +397,7 @@ class PostCreate extends React.Component {
       );
     });
 
+    /*
     let attachmentsDisplay = [];
     post.attachments.forEach((attachment, index) =>
       attachmentsDisplay.push(
@@ -382,6 +408,7 @@ class PostCreate extends React.Component {
         />
       )
     );
+    */
 
     let canPush = false;
     if (this.state.selectedChannel)
@@ -391,60 +418,105 @@ class PostCreate extends React.Component {
         ).canPush;
 
     return (
-      <ScrollView style={{ flex: 1 }}>
-        <View style={styles.postAsContainer}>
-          {channelPicker}
-          {localePicker}
-        </View>
-        <TextInput
-          style={styles.textInput}
-          multiline={true}
-          onChangeText={(text) => {
-            let post = this.state.post;
-            post.text = text;
-            this.setState({ post });
-          }}
-        >
-          {this.state.post.text}
-        </TextInput>
-        <ScrollView horizontal={true}>{imagesDisplay}</ScrollView>
-        {attachmentsDisplay}
-        <Button
-          title={i18n.t("screens.postcreate.linkimage")}
-          color={DefaultColors.ButtonBackground}
-          onPress={this._handlePressLinkImage}
-        />
-        {Settings.PostCreate_UploadImageEnabled && (
-          <Button
-            title={i18n.t("screens.postcreate.uploadimage")}
-            color={DefaultColors.ButtonBackground}
-            onPress={this._handlePressUploadImage}
-          />
-        )}
-        <Button
-          title={i18n.t("screens.postcreate.addattachment")}
-          color={DefaultColors.ButtonBackground}
-          onPress={this._handlePressAddAttachment}
-        />
-        <View style={styles.toggleContainer}>
-          <RegularText style={styles.toggleLabel}>
-            {i18n.t("screens.postcreate.push")}
-          </RegularText>
-          <Switch
-            enabled={canPush}
-            value={this.state.post.push}
-            onValueChange={(value) => {
+      <View style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }}>
+          <View style={styles.postAsContainer}>
+            {channelPicker}
+            {localePicker}
+          </View>
+          <TextInput
+            style={styles.textInput}
+            multiline={true}
+            onChangeText={(text) => {
               let post = this.state.post;
-              post.push = value;
+              post.text = text;
+              this.setState({ post });
+            }}
+          >
+            {this.state.post.text}
+          </TextInput>
+          {/*
+          <ScrollView
+            style={{ flex: 1, backgroundColor: "pink" }}
+            horizontal={true}
+          >
+            {imagesDisplay}
+          </ScrollView>
+          */}
+          {/*attachmentsDisplay*/}
+          <DraggableFlatList
+            horizontal={true}
+            style={{ flex: 1 }}
+            data={this.state.post.images}
+            renderItem={({ item, index, drag, isActive }) =>
+              // gotta pass deleteImage and saveMetadata this way for some reason, it is so janky
+              this.renderImageItem(
+                { item, index, drag, isActive },
+                this.deleteImage,
+                this.saveMetadata
+              )
+            }
+            keyExtractor={(item, index) => `draggable-image-${index}`}
+            onDragEnd={({ data }) => {
+              let post = this.state.post;
+              post.images = data;
               this.setState({ post });
             }}
           />
-        </View>
-        <BigButton
-          buttonStyle={{ marginBottom: 10 }}
-          label={i18n.t("screens.postcreate.continue")}
-          onPress={this._handlePressContinueButton}
-        />
+          <DraggableFlatList
+            style={{ flex: 1 }}
+            data={this.state.post.attachments}
+            renderItem={({ item, index, drag, isActive }) =>
+              // gotta pass deleteAttachment this way for some reason, it is so janky
+              this.renderAttachmentItem(
+                { item, index, drag, isActive },
+                this.deleteAttachment
+              )
+            }
+            keyExtractor={(item, index) => `draggable-attachment-${index}`}
+            onDragEnd={({ data }) => {
+              let post = this.state.post;
+              post.attachments = data;
+              this.setState({ post });
+            }}
+          />
+          <Button
+            title={i18n.t("screens.postcreate.linkimage")}
+            color={DefaultColors.ButtonBackground}
+            onPress={this._handlePressLinkImage}
+          />
+          {Settings.PostCreate_UploadImageEnabled && (
+            <Button
+              title={i18n.t("screens.postcreate.uploadimage")}
+              color={DefaultColors.ButtonBackground}
+              onPress={this._handlePressUploadImage}
+            />
+          )}
+          <Button
+            title={i18n.t("screens.postcreate.addattachment")}
+            color={DefaultColors.ButtonBackground}
+            onPress={this._handlePressAddAttachment}
+          />
+          <View style={styles.toggleContainer}>
+            <RegularText style={styles.toggleLabel}>
+              {i18n.t("screens.postcreate.push")}
+            </RegularText>
+            <Switch
+              enabled={canPush}
+              value={this.state.post.push}
+              onValueChange={(value) => {
+                let post = this.state.post;
+                post.push = value;
+                this.setState({ post });
+              }}
+            />
+          </View>
+          <BigButton
+            buttonStyle={{ marginBottom: 10 }}
+            label={i18n.t("screens.postcreate.continue")}
+            onPress={this._handlePressContinueButton}
+          />
+        </ScrollView>
 
         <Modal
           style={{ flex: 1 }}
@@ -535,7 +607,7 @@ class PostCreate extends React.Component {
             />
           </View>
         </Modal>
-      </ScrollView>
+      </View>
     );
   }
 }

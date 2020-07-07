@@ -1,15 +1,9 @@
 import React from "react";
-import {
-  Linking,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  View,
-} from "react-native";
+import { Image, TouchableOpacity, StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { RegularText } from "../components/StyledText";
 import { FontSizes } from "../constants";
-import { DefaultColors, Skin } from "../../config";
+import { openURL } from "../utils/LinkHelper.js";
 import i18n from "../i18n";
 
 export default class HomeBannersPanel extends React.Component {
@@ -27,7 +21,7 @@ export default class HomeBannersPanel extends React.Component {
             }}
             key={item.url}
             onPress={() => {
-              Linking.openURL(item.url);
+              openURL(item.url);
             }}
           >
             <MaterialCommunityIcons
@@ -58,7 +52,7 @@ export default class HomeBannersPanel extends React.Component {
             }}
             key={item.url}
             onPress={() => {
-              Linking.openURL(item.url);
+              openURL(item.url);
             }}
           >
             <Image

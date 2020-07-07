@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Image,
-  Linking,
   ScrollView,
   StyleSheet,
   Text,
@@ -13,6 +12,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
 import { Layout } from "../constants";
+import { openURL } from "../utils/LinkHelper.js";
 import { Palette, Settings, Skin, NavigationDrawerItems } from "../../config";
 import i18n from "../i18n";
 
@@ -80,7 +80,7 @@ function createLinkDrawerItem(item, navigation, index) {
         </View>
       )}
       onPress={() => {
-        Linking.openURL(item.url);
+        openURL(item.url);
         navigation.closeDrawer();
       }}
     />

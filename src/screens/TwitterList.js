@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView, Linking } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import {
   BoldText,
   MediumText,
@@ -7,12 +7,13 @@ import {
   UnderlineText,
 } from "../components/StyledText";
 import { RectButton } from "react-native-gesture-handler";
-import { HeaderBackButton } from "react-navigation";
+import { HeaderBackButton } from "@react-navigation/stack";
 import { FontSizes } from "../constants";
 import { Skin, DefaultColors, Settings } from "../../config";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
+import { openURL } from "../utils/LinkHelper.js";
 import i18n from "../i18n";
 
 class TwitterList extends React.Component {
@@ -88,7 +89,7 @@ class TwitterList extends React.Component {
             <RectButton
               style={styles.bigButton}
               onPress={() => {
-                Linking.openURL("https://twitter.com/intent/tweet?text=");
+                openURL("https://twitter.com/intent/tweet?text=");
               }}
               underlayColor="#fff"
             >

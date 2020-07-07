@@ -17,7 +17,7 @@ import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
 import { Skin, DefaultColors, Settings } from "../../config";
 import { Constants } from "expo";
-import { HeaderBackButton } from "react-navigation";
+import { HeaderBackButton } from "@react-navigation/stack";
 import * as mime from "react-native-mime-types";
 import i18n from "../i18n";
 import { createPost } from "../services/feedService";
@@ -91,7 +91,10 @@ class PostPreview extends React.Component {
                     onConfirm={this.onScheduleConfirm} />
                 */}
 
-        <ModalLoader loading={this.state.loading} />
+        <ModalLoader
+          loading={this.state.loading}
+          label={i18n.t("screens.postpreview.loading")}
+        />
       </ScrollView>
     );
   }
