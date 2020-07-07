@@ -16,7 +16,7 @@ import {
 } from "../components/StyledText";
 // TODO: import PostImageWrapper after create-post-images is merged
 import Post from "../components/Post";
-import { HeaderBackButton } from "react-navigation";
+import { HeaderBackButton } from "@react-navigation/stack";
 import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
 import { DefaultColors, Skin, Settings } from "../../config";

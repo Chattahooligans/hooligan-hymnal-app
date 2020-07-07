@@ -46,7 +46,7 @@ class App extends React.Component {
       }),
       Asset.loadAsync(imagesArray),
       Asset.fromModule(
-        require("react-navigation/src/views/assets/back-icon.png")
+        require("@react-navigation/stack/src/views/assets/back-icon.png")
       ).downloadAsync(),
     ]);
   };

@@ -7,7 +7,7 @@ import {
   UnderlineText,
 } from "../components/StyledText";
 import { RectButton } from "react-native-gesture-handler";
-import { HeaderBackButton } from "react-navigation";
+import { HeaderBackButton } from "@react-navigation/stack";
 import { FontSizes } from "../constants";
 import { Skin, DefaultColors, Settings } from "../../config";
 import { MaterialCommunityIcons } from "@expo/vector-icons";

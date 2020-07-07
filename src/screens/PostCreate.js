@@ -3,7 +3,6 @@ import {
   Button,
   Modal,
   Text,
-  Image,
   Picker,
   Platform,
   ScrollView,
@@ -15,7 +14,6 @@ import {
   Keyboard,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-// import ImagePicker from 'react-native-image-picker';
 import * as Permissions from "expo-permissions";
 import ModalSelector from "react-native-modal-selector";
 import DraggableFlatList from "react-native-draggable-flatlist";
@@ -24,10 +22,8 @@ import { BoldText, RegularText, MediumText } from "../components/StyledText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
-import { Colors, FontSizes, Layout } from "../constants";
-import { Skin, DefaultColors, Settings } from "../../config";
-import { Constants } from "expo";
-import { HeaderBackButton } from "react-navigation";
+import { DefaultColors, Settings } from "../../config";
+import { HeaderBackButton } from "@react-navigation/stack";
 import i18n from "../i18n";
 import * as mime from "react-native-mime-types";
 

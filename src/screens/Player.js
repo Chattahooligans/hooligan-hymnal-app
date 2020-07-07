@@ -3,7 +3,6 @@ import {
   Animated,
   FlatList,
   Image,
-  Linking,
   Platform,
   StyleSheet,
   TouchableOpacity,
@@ -14,8 +13,7 @@ import {
 
 import Constants from "expo-constants";
 import FadeIn from "react-native-fade-in-image";
-import ReadMore from "react-native-read-more-text";
-import { HeaderBackButton } from "react-navigation";
+import { HeaderBackButton } from "@react-navigation/stack";
 import { View as AnimatableView } from "react-native-animatable";
 import ParsedText from "react-native-parsed-text";
 import {
