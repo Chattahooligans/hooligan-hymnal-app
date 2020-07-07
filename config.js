@@ -324,6 +324,10 @@ export const Skin = {
   Player_TopContainerBackground: DefaultColors.HeaderBackground,
   Post_DefaultChannelThumbnail: Images.LogoAvatar,
   Post_ChannelLabel: DefaultColors.ColorText,
+  Post_CollapseTextExpandFirstInFeed: true,
+  Post_CollapseTextNumberOfLines: 8, // set to Number.MAX_SAFE_INTEGER to never collapse text
+  Post_CollapseTextRatio: 0.5, // set to 0 to disable text collapse based on screen ratio
+  Post_CollapseTextShowHide: true,
   Post_ContainerMarginHorizontal: 0,
   Post_FontSize: 17,
   Post_HeaderContainerPaddingTop: 12,
@@ -332,7 +336,6 @@ export const Skin = {
   Post_LinkColor: "blue",
   Post_NotificationColor: DefaultColors.Secondary,
   Post_TextColor: DefaultColors.BlackText,
-  Post_TextNumberOfLines: Number.MAX_SAFE_INTEGER,
   Post_TextPaddingTop: 6,
   Post_TextPaddingBottom: 12,
   Post_TextPaddingHorizontal: 16,
@@ -595,4 +598,8 @@ export const Settings = {
   //      Each account should be seperated by a space
   //      In Chattanooga, we append the club and our SG accounts. You can choose to pass.
   TwitterList_AppendHandles: "@ChattanoogaFC @chattahooligan @LosCFCHooligans",
+
+  // WebLinks_DefaultTarget: "internal", "external"
+  //      Sets whether web links open in an in-app internal browser or external to the OS
+  WebLinks_DefaultTarget: "internal",
 };
