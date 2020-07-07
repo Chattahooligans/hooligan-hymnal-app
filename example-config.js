@@ -318,8 +318,8 @@ export const Skin = {
   Post_DefaultChannelThumbnail: Images.LogoAvatar,
   Post_ChannelLabel: DefaultColors.ColorText,
   Post_CollapseTextExpandFirstInFeed: true,
-  Post_CollapseTextNumberOfLines: 8, // set to Number.MAX_SAFE_INTEGER to never collapse text
-  Post_CollapseTextRatio: 0.5, // set to 0 to disable text collapse based on screen ratio
+  Post_CollapseTextNumberOfLines: Number.MAX_SAFE_INTEGER, // set to Number.MAX_SAFE_INTEGER to never collapse text
+  Post_CollapseTextRatio: 0, // set to 0 to disable text collapse based on screen ratio
   Post_CollapseTextShowHide: true,
   Post_ContainerMarginHorizontal: 0,
   Post_FontSize: 17,
