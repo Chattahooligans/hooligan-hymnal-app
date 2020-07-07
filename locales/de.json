@@ -24,7 +24,9 @@
       "title": "Capo Dashboard",
       "username": "Benutzername/Email",
       "password": "Passwort",
-      "login": "Einloggen"
+      "login": "Einloggen",
+      "loading": "Logging in...",
+      "failed": "Login failed: Invalid username or password."
     },
     "postattach": {
       "attachmenttypes": "Attachment Types",
@@ -68,7 +70,8 @@
     "postpreview": {
       "title": "Preview Post",
       "submit": "Submit Post",
-      "schedule": "Schedule Post"
+      "schedule": "Schedule Post",
+      "loading": "Submitting Post..."
     },
     "home": {
       "findthemenu": "Entdecke weitere großartige Funktionen %menuicon% Menü, oben links",

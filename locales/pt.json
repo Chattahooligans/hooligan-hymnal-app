@@ -24,7 +24,9 @@
       "title": "Menu",
       "username": "Username/Email",
       "password": "Password",
-      "login": "Log In"
+      "login": "Log In",
+      "loading": "Logging in...",
+      "failed": "Login failed: Invalid username or password."
     },
     "postattach": {
       "attachmenttypes": "Attachment Types",
@@ -68,7 +70,8 @@
     "postpreview": {
       "title": "Preview Post",
       "submit": "Submit Post",
-      "schedule": "Schedule Post"
+      "schedule": "Schedule Post",
+      "loading": "Submitting Post..."
     },
     "home": {
       "findthemenu": "Encontre mais opcoes no menu %menuicon% na esquerda, no topo da pagina",

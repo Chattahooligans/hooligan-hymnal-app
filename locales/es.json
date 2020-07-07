@@ -24,7 +24,9 @@
       "title": "Tablero de Capo",
       "username": "Nombre de usuario/Correo Electrónico",
       "password": "Contraseña",
-      "login": "Acceder"
+      "login": "Acceder",
+      "loading": "Logging in...",
+      "failed": "Login failed: Invalid username or password."
     },
     "postattach": {
       "attachmenttypes": "Attachment Types",
@@ -68,7 +70,8 @@
     "postpreview": {
       "title": "Preview Post",
       "submit": "Submit Post",
-      "schedule": "Schedule Post"
+      "schedule": "Schedule Post",
+      "loading": "Submitting Post..."
     },
     "home": {
       "findthemenu": "Encuentre más funciones en el menú %menuicon%, arriba a la izquierda",
