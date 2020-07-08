@@ -13,7 +13,6 @@ import i18n from "../i18n";
 
 let defaultChapterTitle = i18n.t("screens.songbook.defaultchaptertitle");
 const screenWidth = Dimensions.get("window").width;
-const firstValidPageIndex = 0;
 
 class SongbookPages extends React.Component {
   state = {
@@ -43,8 +42,7 @@ class SongbookPages extends React.Component {
   _onSongbookMomentumScrollEnd = ({ nativeEvent }) => {
     const pageIndex = Math.round(nativeEvent.contentOffset.x / screenWidth);
     this.setState({
-      chapterTitle: this.state.songList[pageIndex - firstValidPageIndex]
-        .chapterTitle,
+      chapterTitle: this.state.songList[pageIndex].chapterTitle,
     });
   };
 
@@ -55,8 +53,7 @@ class SongbookPages extends React.Component {
         this.setState({ showToast: false });
       }
 
-      const offset =
-        (this.props.route.params.page - 1 + firstValidPageIndex) * screenWidth;
+      const offset = (this.props.route.params.page - 1) * screenWidth;
       this.setState({
         chapterTitle: this.state.songList[this.props.route.params.page - 1]
           .chapterTitle,
@@ -70,8 +67,8 @@ class SongbookPages extends React.Component {
       /*
       this._scrollView.scrollToIndex({
         index: this.props.route.params.page - 1,
-        animated: false
-      })
+        animated: false,
+      });
       */
     }
   };
@@ -104,6 +101,12 @@ class SongbookPages extends React.Component {
             keyExtractor={(item, index) => item._id + "-" + index}
             renderItem={this._renderItem}
             onMomentumScrollEnd={this._onSongbookMomentumScrollEnd}
+            getItemLayout={(data, index) => ({
+              length: screenWidth,
+              offset: screenWidth * index,
+              index,
+            })}
+            initialNumToRender={1}
             data={this.state.songList}
           />
         </View>
