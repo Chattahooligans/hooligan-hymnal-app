@@ -134,7 +134,10 @@ class SongbookContents extends React.Component {
   };
 
   _handlePressRow = (item) => {
-    this.props.navigation.navigate("SongbookPages", { page: item.pageLabel });
+    this.props.navigation.navigate("SongbookPages", {
+      page: item.pageLabel,
+      entryTime: Date.now(),
+    });
   };
 
   render() {
