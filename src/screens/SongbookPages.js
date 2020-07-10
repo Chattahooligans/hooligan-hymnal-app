@@ -21,6 +21,7 @@ class SongbookPages extends React.Component {
       defaultChapterTitle,
     songList: this.props.globalData.state.songList,
     showToast: true,
+    entryTime: null,
   };
 
   componentDidUpdate(prevProps) {
@@ -32,10 +33,12 @@ class SongbookPages extends React.Component {
         songList: this.props.globalData.state.songList,
       });
 
-    if (this.props.route.params) {
-      if (!prevProps.route.params) this.scrollToSong();
-      else if (prevProps.route.params.page != this.props.route.params.page)
-        this.scrollToSong();
+    if (
+      this.props.route.params &&
+      this.props.route.params.entryTime != this.state.entryTime
+    ) {
+      this.setState({ entryTime: this.props.route.params.entryTime });
+      this.scrollToSong();
     }
   }
 
