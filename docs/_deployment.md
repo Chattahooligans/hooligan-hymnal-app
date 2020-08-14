@@ -56,6 +56,15 @@ The Hooligan Hymnal core team (and, so far, reps for every SG who has a working 
 
 This section assumes that you have a working development environment and some familiarity with source control concepts, as well as a somewhat-modern smartphone to test your application. While this section won't teach you how to code, our goal is for the instructions to be as accessible as possible. If you're just getting started, we recommend installing the free code editor [Visual Studio Code](https://code.visualstudio.com/), which will direct you to install [git](https://git-scm.com/download) source control on your computer. You will also need to install the [Node.js runtime and "npm" package manager](https://nodejs.org/en/download/).
 
+## Android Package / iOS Bundle Identifier
+
+One early commitment will be deciding on the Android package name and iOS Bundle Identifier. (Generally, these should be the same.) Use the "reverse canonical" convention.
+
+Example:
+If your SG website is example.com, consider using com.example.app or com.example.hooliganhymnal
+
+(If your SG doesn't have a traditional domain-based website, ask in the Hooligan Hymnal Slack workspace for guidance.)
+
 ## Create Accounts
 
 You will need to create several accounts in your SG's name to deploy your customized version of Hooligan Hymnal. For each (excepting a pesonal GitHub account- more on this later), we recommend using the email you created for this project (above) or your SG email.
@@ -85,8 +94,6 @@ Tip: You can get extra quota on your Cloudinary account (and get more usage out 
 ### Google Firebase
 
 [Firebase](https://firebase.google.com/) is the service used to manage push notifications for Android devices. Firebase will use the same Google Account that you use for Google Play.
-
-TODO: `google-services.json`
 
 ### Heroku
 
@@ -141,7 +148,20 @@ To get the code on your machine and finish preparing your environment:
 - In the terminal, run the command `npm install -g expo-cli` to install the Expo command line interface. This will take a few minutes.
 - After Expo CLI is installed, run the command `expo login` and input your Expo account credentials.
 - In the terminal, run the command `npm install` to download dependency packages. This will take several minutes, but you can continue with the guide while it runs.
-- TODO: Where do the Firebase/google-services.json instruction + backup live?
+
+## Set up Firebase
+
+Registering your app with Google Firebase is required in order to send push notifications to Android devices. This is a one-time process, and once it is behind you, you'll never have to think about it again.
+
+- Log into firebase at: <https://console.firebase.google.com/>
+- Find the "Your Firebase projects" section at the top. Click Add project and give it the name of your app.
+- You will be taken to the Project Overview screen. From there, click "Add an app to get started" and select Android.
+- In the panel that appears, input the value you decided on in the "Android Package / iOS Bundle Identifier" section of this document.
+- Download the config file `google-services.json` and save it to the root folder of your project.
+
+Note that `google-services.json` contains security keys and is NOT synced to GitHub (where it would be available to the public) by default, according to the settings in the `.gitignore` file. While the file can be re-downloaded from Firebase, we highly recommend making a backup copy.
+
+For more information, visit: <https://docs.expo.io/push-notifications/using-fcm/>
 
 ## Configure the Mobile App
 
