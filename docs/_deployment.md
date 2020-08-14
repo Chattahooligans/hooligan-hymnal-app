@@ -187,10 +187,10 @@ In the "expo" section:
 - `primaryColor` is an RGB color code. Change it to the main color of your SG's logo.
 - `splash.backgroundColor` is also an RGB color code. Once your application's splash screen is available, set this color to match its background.
   In the "android" section:
-- [once set, never change] `package` is a unique name for your application on Google Play. See the link at the bottom of this section for more information, or ask for guidance on Hooligan Hymnal Slack.
+- [once set, never change] `package` is a unique name for your application on Google Play. input the value you decided on in the "Android Package / iOS Bundle Identifier" section of this document.
 - `versionCode` is a number that you should increment each time you submit a new build to Google Play. (It's easy to forget this and have to fix it and rebuild.) We'll discuss this more later in the section about building the app.
   In the "ios" section:
-- [once set, never change] `bundleIdentifier` is a unique name for your application on the Apple App Store. It probably matches the value in `android.package`
+- [once set, never change] `bundleIdentifier` is a unique name for your application on the Apple App Store. input the value you decided on in the "Android Package / iOS Bundle Identifier" section of this document.
 
 Additional information can be found at <https://docs.expo.io/workflow/configuration/>
 
