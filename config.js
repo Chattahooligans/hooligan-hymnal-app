@@ -581,7 +581,7 @@ export const Settings = {
 
   // Roster_FoesEnabled: true, false
   //      enables tabs in the roster screen to display opponent rosters
-  Roster_FoesEnabled: true,
+  Roster_FoesEnabled: false,
 
   // Roster_SortPlayersBy: "default", "number", "name"
   //      later- "position" with priority
