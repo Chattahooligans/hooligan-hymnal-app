@@ -1,0 +1,21 @@
+- mac security settings off
+- git "binary installer" for ios
+- install git and node
+- mac security settings on
+
+- firebase create project how?
+- do we need to tell heroku we're using node?
+
+- create database
+    - change project name
+    - naming convention guidance
+
+- pw reset "app password"
+    - custom app Book of Ralph Admin Dashboard
+
+
+firebase
+https://docs.expo.io/push-notifications/using-fcm/
+project overview
+"add an app to get started" - android
+app name com.ralphsmob.hooliganhymnal
