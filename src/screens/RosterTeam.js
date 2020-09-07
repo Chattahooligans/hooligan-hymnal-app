@@ -186,7 +186,7 @@ class RosterTeam extends React.Component {
       if (["default", "number", "name"].includes(Settings.Roster_SortPlayersBy))
         sortPlayersBy = Settings.Roster_SortPlayersBy;
 
-    if (this.state.rosters.length > 0) {
+    if (this.state.rosters && this.state.rosters.length > 0) {
       let pickerItems = [];
 
       if (Platform.OS === "ios") {
