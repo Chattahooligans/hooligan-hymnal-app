@@ -10,7 +10,7 @@
     "icon": "./assets/icon-ios.png",
     "orientation": "portrait",
     "splash": {
-      "backgroundColor": "#A3D8F7",
+      "backgroundColor": "#FFFFFF",
       "resizeMode": "contain",
       "image": "./assets/splash.png"
     },
