@@ -37,6 +37,7 @@ import GlobalDataContainer from "../containers/GlobalDataContainer";
 import withUnstated from "@airship/with-unstated";
 import PostAttachmentGkNickname from "./PostAttachmentGkNickname";
 import PostAttachmentJuanstagram from "./PostAttachmentJuanstagram";
+import PostAttachmentMassInstagram from "./PostAttachmentMassInstagram";
 import PostAttachmentMassTweet from "./PostAttachmentMassTweet";
 import PostAttachmentPlayer from "./PostAttachmentPlayer";
 import PostAttachmentPrideraiserMatch from "./PostAttachmentPrideraiserMatch";
@@ -530,16 +531,35 @@ class Post extends React.Component {
           );
           attachmentDisplay.push(gkNicknameDisplay);
           break;
+        case "massinstagram":
+          let massInstagramRoster = this.props.globalData.state.rosters.find(
+            (roster) => roster._id === attachment.data.rosterId
+          );
+          let massInstagramDisplay = (
+            <PostAttachmentMassInstagram
+              key={index}
+              roster={massInstagramRoster}
+              onPress={() => {
+                this.props.navigation.navigate("InstagramList", {
+                  roster: massInstagramRoster,
+                });
+              }}
+            />
+          );
+          attachmentDisplay.push(massInstagramDisplay);
+          break;
         case "masstweet":
-          let roster = this.props.globalData.state.rosters.find(
+          let massTweetRoster = this.props.globalData.state.rosters.find(
             (roster) => roster._id === attachment.data.rosterId
           );
           let massTweetDisplay = (
             <PostAttachmentMassTweet
               key={index}
-              roster={roster}
+              roster={massTweetRoster}
               onPress={() => {
-                this.props.navigation.navigate("TwitterList", { roster });
+                this.props.navigation.navigate("TwitterList", {
+                  massTweetRoster,
+                });
               }}
             />
           );
