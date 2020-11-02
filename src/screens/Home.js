@@ -172,9 +172,6 @@ class Home extends React.Component {
             [
               {
                 nativeEvent: {
-                  contentInset: {
-                    bottom: 1,
-                  },
                   contentOffset: {
                     y: scrollY,
                   },
