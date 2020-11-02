@@ -416,7 +416,7 @@
     },
     "postattachmentprideraisermatch": {
       "_comment": [
-        "/src/components/PostAttachmentMassTweet.js",
+        "/src/components/PostAttachmentPrideraiserMatch.js",
         "This section contains labels for a Post Attachment of the Prideraiser Match Update type. .message is used if %goalCount% is greater than zero, else .messagezerogoals is used.",
         "",
         "Prideraiser-related text can include %macros% that use live campaign data.",
