@@ -1,7 +1,6 @@
 import React from "react";
 import { Dimensions, Image, StyleSheet, View } from "react-native";
 import { RegularText } from "../components/StyledText";
-import PostImageWrapper from "./PostImageWrapper";
 import { Skin } from "../../config";
 
 import appJson from "../../app.json";
