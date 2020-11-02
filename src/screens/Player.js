@@ -103,10 +103,8 @@ class Player extends React.Component {
             size={30}
             style={{
               color: "white",
-              marginTop: 3,
-              marginBottom: 3,
-              marginLeft: 10,
-              marginRight: 10,
+              marginVertical: 3,
+              marginHorizontal: 5,
               backgroundColor: "transparent",
             }}
           />
@@ -126,10 +124,8 @@ class Player extends React.Component {
             size={30}
             style={{
               color: "white",
-              marginTop: 3,
-              marginBottom: 3,
-              marginLeft: 10,
-              marginRight: 10,
+              marginVertical: 3,
+              marginHorizontal: 5,
               backgroundColor: "transparent",
             }}
           />
