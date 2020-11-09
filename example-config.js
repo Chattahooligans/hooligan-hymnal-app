@@ -125,6 +125,11 @@ export const Images = {
   // Potentially used in Banners and SocialButtons
   GoFundMe: require("./assets/gofundme.png"),
 
+  // Hooligan Hymnal platform logo, used on About screen
+  HooliganHymnalLogoSingleColor: require("./assets/about/hooligan-hymnal-full.png"),
+  HooliganHymnalLogoLayer1: require("./assets/about/hooligan-hymnal-layer1.png"),
+  HooliganHymnalLogoLayer2: require("./assets/about/hooligan-hymnal-layer2.png"),
+
   // Add additional images (optional)
   /* 
 
@@ -255,6 +260,11 @@ export const Fonts = {
 */
 export const Skin = {
   About_BackgroundColor: DefaultColors.Secondary,
+  About_HooliganHymnalLogoSingleColor: Images.HooliganHymnalLogoSingleColor,
+  About_HooliganHymnalLogoLayer1: Images.HooliganHymnalLogoLayer1,
+  About_HooliganHymnalLogoLayer1Tint: DefaultColors.Primary,
+  About_HooliganHymnalLogoLayer2: Images.HooliganHymnalLogoLayer2,
+  About_HooliganHymnalLogoLayer2Tint: DefaultColors.Secondary,
   Font_Light: Fonts.Light.family,
   Font_Regular: Fonts.Regular.family,
   Font_Medium: Fonts.Medium.family,
