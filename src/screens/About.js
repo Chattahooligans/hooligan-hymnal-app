@@ -2,9 +2,9 @@ import React from "react";
 import {
   Dimensions,
   Image,
-  Linking,
   ScrollView,
   StyleSheet,
+  TouchableOpacity,
   View,
 } from "react-native";
 import { Skin, DefaultColors, Palette } from "../../config";
@@ -24,6 +24,7 @@ import {
   onUrlPress,
   onEmailPress,
 } from "../components/ParsedTextHelper";
+import { openURL } from "../utils/LinkHelper.js";
 import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
 import i18n from "../i18n";
@@ -190,28 +191,34 @@ class About extends React.Component {
                 appJson.expo.extra.hooliganHymnal.aboutPlug
               )}
           </ParsedText>
-          <View style={[styles.platformContainer, { height: scaledHeight }]}>
-            <Image
-              source={require("../../assets/about/hooligan-hymnal-layer1.png")}
-              style={{
-                width: availableWidth,
-                height: scaledHeight,
-                position: "absolute",
-                left: styles.platformContainer.paddingHorizontal,
-                tintColor: Skin.About_HooliganHymnalLogoLayer1Tint,
-              }}
-            />
-            <Image
-              source={require("../../assets/about/hooligan-hymnal-layer2.png")}
-              style={{
-                width: availableWidth,
-                height: scaledHeight,
-                position: "absolute",
-                left: styles.platformContainer.paddingHorizontal,
-                tintColor: Skin.About_HooliganHymnalLogoLayer2Tint,
-              }}
-            />
-          </View>
+          <TouchableOpacity
+            onPress={() => {
+              openURL("https://github.com/Chattahooligans");
+            }}
+          >
+            <View style={[styles.platformContainer, { height: scaledHeight }]}>
+              <Image
+                source={require("../../assets/about/hooligan-hymnal-layer1.png")}
+                style={{
+                  width: availableWidth,
+                  height: scaledHeight,
+                  position: "absolute",
+                  left: styles.platformContainer.paddingHorizontal,
+                  tintColor: Skin.About_HooliganHymnalLogoLayer1Tint,
+                }}
+              />
+              <Image
+                source={require("../../assets/about/hooligan-hymnal-layer2.png")}
+                style={{
+                  width: availableWidth,
+                  height: scaledHeight,
+                  position: "absolute",
+                  left: styles.platformContainer.paddingHorizontal,
+                  tintColor: Skin.About_HooliganHymnalLogoLayer2Tint,
+                }}
+              />
+            </View>
+          </TouchableOpacity>
           <View style={{ height: 20 }} />
           <ScrollView style={{ flex: 1 }}>
             <MediumText
