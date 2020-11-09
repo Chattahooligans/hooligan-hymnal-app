@@ -1,5 +1,9 @@
 # Hooligan Hymnal
 
+Hooligan Hymnal is a free, open source mobile app for soccer supporters groups. It features an auto-updating songbook, a social media-like news feed with push notifications, and more.
+
+## Introduction
+
 From the minds that brought you supporter culture revalations like [Prideraiser.org](https://prideraiser.org) and positioning capos in the back of the section, The Chattahooligans, independent supporters of Chattanooga Football Club, have conceived the future of SG information sharing: Hooligan Hymnal. After rigorous experimentation and seeing our community embrace the technology, we shared it with our Mitten-state frenemies, the Northern Guard Supporters, and are advancing the platform even further.
 
 At long last, we're sharing this revolutionary invention with the world- to improve supporter culture for all of us and to make managing supporters groups less exhausting.
@@ -38,7 +42,7 @@ _Channels_ let admins post with the voice and tone of different functions in you
 
 ### Localization
 
-We are committed to outreach to non-English-speaking communities to bring new fans to the clubs we love. Hooligan Hymnal uses _i18n_ out-of-the box, so non-native speakers can navigate the application interface, and allowing _La Barra_ supporters to publish their own apps as easily as English-speaking SGs. 
+We are committed to outreach to non-English-speaking communities to bring new fans to the clubs we love. Hooligan Hymnal uses _i18n_ out-of-the box, so non-native speakers can navigate the application interface, and allowing _La Barra_ supporters to publish their own apps as easily as English-speaking SGs.
 
 All UI text lives in a locale file, making it easy for you to adjust the feel of your app deployment.
 
@@ -82,15 +86,14 @@ Review the [`docs`](docs) directory for information on how to configure and cust
 
 ## Getting Started
 
-Hooligan Hymnal is **not** a turnkey solution for supporters groups who want a mobile app. It a software platform— one that is currently in development with a long roadmap of new features, improved patterns and best practices in the existing codebase, more thorough documentation, and polish to come. SGs should expect a substantial time investment, some monetary expense, and to have their patience tested on the way to rolling out their own version of Hooligan Hymnal. 
+Hooligan Hymnal is **not** a turnkey solution for supporters groups who want a mobile app. It a software platform— one that is currently in development with a long roadmap of new features, improved patterns and best practices in the existing codebase, more thorough documentation, and polish to come. SGs should expect a substantial time investment, some monetary expense, and to have their patience tested on the way to rolling out their own version of Hooligan Hymnal.
 
 Expectations set? Here's what to do first:
 
-* Review the [`docs`](docs) folder for guidance on configuration and deployment
-* Get in touch. Reach out using your SG account to [@hooliganhymnal](https://twitter.com/hooliganhymnal) or email hooliganhymnal@gmail.com to introduce yourself and request an invite to the project Slack channel.
-  * The core team and various SG stakeholders are active on Slack. The conversations there will determine the future of the project and asking for help is welcome, so we encourage every SG who uses Hooligan Hymnal to engage in that community.
-  
+- Review the [`docs`](docs) folder for guidance on configuration and deployment
+- Get in touch. Reach out using your SG account to [@hooliganhymnal](https://twitter.com/hooliganhymnal) or email hooliganhymnal@gmail.com to introduce yourself and request an invite to the project Slack channel.
+  - The core team and various SG stakeholders are active on Slack. The conversations there will determine the future of the project and asking for help is welcome, so we encourage every SG who uses Hooligan Hymnal to engage in that community.
 
 #### Acknowledgements
 
-* Originally forked from <https://github.com/nodevember>
+- Originally forked from <https://github.com/nodevember>
