@@ -10,6 +10,7 @@ import i18n from "../i18n";
 export default class PostAttachmentMassTweet extends React.Component {
   render() {
     const roster = this.props.roster;
+    if(roster == undefined) return null;
 
     let thumbnail = Skin.Roster_DefaultThumbnail;
     if (roster.defaultThumbnail) thumbnail = { uri: roster.defaultThumbnail };
