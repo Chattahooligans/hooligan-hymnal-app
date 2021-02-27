@@ -58,7 +58,7 @@ The `MAIL_*` environment variables are used when resetting account passwords, an
 - MAIL_USER=
 - MAIL_PASS=
 
-Our recommended solution is to use the Google Account created for the project, enabling two factor authenticaion, and following the instructions at <https://support.google.com/a/answer/176600?hl=en>. Look for the "Use the Gmail SMTP Server" section.
+Our recommended solution is to use the Google Account created for the project, enabling two factor authenticaion, and following the instructions at <https://support.google.com/a/answer/176600?hl=en>. Look for the "Use the Gmail SMTP Server" section and create an app-specific password.
 
 ### MONGO_URI
 
