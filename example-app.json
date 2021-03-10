@@ -19,7 +19,8 @@
       "icon": "./assets/icon-android.png",
       "versionCode": 1,
       "permissions": [],
-      "googleServicesFile": "./google-services.json"
+      "googleServicesFile": "./google-services.json",
+      "useNextNotificationsApi": true
     },
     "ios": {
       "bundleIdentifier": "YOU MUST SET THIS FIRST AND CAN'T CHANGE IT",
@@ -28,7 +29,6 @@
     },
     "notification": {
       "icon": "./assets/notification.png",
-      "iosDisplayInForeground": true,
       "color": "#A3D8F7"
     },
     "platforms": ["android", "ios"],
