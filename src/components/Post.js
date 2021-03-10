@@ -489,6 +489,7 @@ class Post extends React.Component {
           let player = this.props.globalData.state.players.find(
             (player) => player._id === attachment.relatedId
           );
+          if(player === undefined) break;
           let playerDisplay = (
             <PostAttachmentPlayer
               key={index}
