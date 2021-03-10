@@ -1,7 +1,7 @@
 import { Platform } from "react-native";
-import { Notifications } from "expo";
-import * as Permissions from "expo-permissions";
 import * as Location from "expo-location";
+import * as Notifications from "expo-notifications";
+import * as Permissions from "expo-permissions";
 import { Container } from "unstated";
 import { getSongs } from "../services/songsService";
 import { getSongbooks } from "../services/songbooksService";
@@ -217,7 +217,7 @@ export default class GlobalDataContainer extends Container {
       }
 
       // Get the pushToken that uniquely identifies this device
-      let pushToken = await Notifications.getExpoPushTokenAsync();
+      let pushToken = await Notifications.getExpoPushTokenAsync().data;
       this.setState({ pushToken });
 
       // POST the pushToken to your backend server from where you can retrieve it to send push notifications.
