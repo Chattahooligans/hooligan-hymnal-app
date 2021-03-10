@@ -12,7 +12,7 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import { Asset, LinearGradient, Notifications, WebBrowser, Video } from "expo";
+import * as Notifications from "expo-notifications";
 import { BigButton } from "../components/BigButton";
 import { View as AnimatableView } from "react-native-animatable";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -73,23 +73,26 @@ class Home extends React.Component {
       this.setState({ refreshing: false });
     } else this.onRefresh();
 
-    Notifications.addListener(this._handleNotification);
+    Notifications.addNotificationResponseReceivedListener(
+      this._handleNotification
+    );
   }
 
-  _handleNotification = async (notification) => {
+  _handleNotification = async (notificationResponse) => {
     //console.log("notification " + notification.origin + ", data: " + JSON.stringify(notification.data))
+    console.log(JSON.stringify(notificationResponse));
 
-    if (notification.origin === "selected") {
+    if (notificationResponse.origin === "selected") {
       // notification was tapped, either from the app already open or from entering the app
 
-      if (notification.data.postId) {
+      if (notificationResponse.data.postId) {
         engageNotification(
-          notification.data.postId,
+          notificationResponse.data.postId,
           this.props.globalData.state.pushToken
         );
 
         try {
-          let post = await getPost(notification.data.postId);
+          let post = await getPost(notificationResponse.data.postId);
           if (post)
             if (post.active)
               this.props.navigation.navigate("SinglePost", { post });
@@ -99,12 +102,12 @@ class Home extends React.Component {
       }
 
       // classic Song notifications for users without the update, deprecate this soon
-      if (notification.data.song) {
+      if (notificationResponse.data.song) {
         this.props.navigation.navigate("SingleSong", {
-          song: notification.data.song,
+          song: notificationResponse.data.song,
         });
       }
-    } else if (notification.origin === "received") {
+    } else if (notificationResponse.origin === "received") {
       // notification was received, either app was already open or it just opened up but not from the notification
       /*
       if (notification.data.postId) {
