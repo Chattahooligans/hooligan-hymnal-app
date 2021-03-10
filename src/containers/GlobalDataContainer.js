@@ -217,7 +217,8 @@ export default class GlobalDataContainer extends Container {
       }
 
       // Get the pushToken that uniquely identifies this device
-      let pushToken = await Notifications.getExpoPushTokenAsync().data;
+      let pushTokenObject = await Notifications.getExpoPushTokenAsync();
+      let pushToken = pushTokenObject.data;
       this.setState({ pushToken });
 
       // POST the pushToken to your backend server from where you can retrieve it to send push notifications.
