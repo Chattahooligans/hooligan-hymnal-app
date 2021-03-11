@@ -7,6 +7,7 @@ import {
   ScrollView,
   StyleSheet,
   View,
+  Linking
 } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import FadeIn from "react-native-fade-in-image";
@@ -58,7 +59,7 @@ class AdminHome extends React.Component {
           <View style={{ padding: 10 }}>
             <BoldText>DEBUG</BoldText>
             <MediumText>Connected to:</MediumText>
-            <RegularText>{Urls.HooliganHymnalServer}</RegularText>
+            <RegularText onPress={ ()=> Linking.openURL(Urls.HooliganHymnalServer) } >{Urls.HooliganHymnalServer}</RegularText>
             <MediumText>Logged in as:</MediumText>
             <RegularText>
               {this.props.globalData.state.currentUser.user.email}
