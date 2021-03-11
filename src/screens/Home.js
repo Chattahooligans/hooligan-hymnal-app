@@ -11,6 +11,7 @@ import {
   ScrollView,
   StyleSheet,
   View,
+  Alert,
 } from "react-native";
 import * as Notifications from "expo-notifications";
 import { BigButton } from "../components/BigButton";
@@ -73,51 +74,84 @@ class Home extends React.Component {
       this.setState({ refreshing: false });
     } else this.onRefresh();
 
+    // notification does not display if the app is already open by default
+    // this corrects the behavior
+    Notifications.setNotificationHandler(this._handleNotification);
+
+    // a notification is received while the app is foregrounded
+    Notifications.addNotificationReceivedListener(
+      this._handleNotificationReceived
+    );
+
+    // the user interacts with a notification
     Notifications.addNotificationResponseReceivedListener(
-      this._handleNotification
+      this._handleNotificationResponseReceived
     );
   }
 
-  _handleNotification = async (notificationResponse) => {
+  _handleNotification = async (notification) => {
+    let data = notification.request.content.data;
+
+    if (data.postId) {
+      // run future logic
+    }
+    // logic may be different if/when live-song marquee is implemented
+
+    return {
+      shouldShowAlert: true,
+      shouldPlaySound: false,
+      shouldSetBadge: true,
+    };
+  };
+
+  _handleNotificationReceived = async (notification) => {
+    console.log("NOTIFICATION RECEIVED (but not responded to)");
+    console.log(JSON.stringify(notification.request.content.data));
+
+    let data = notification.request.content.data;
+    /*
+    if (data.postId) {
+      engageNotification(data.postId, this.props.globalData.state.pushToken);
+
+      try {
+        let post = await getPost(data.postId);
+        if (post)
+          if (post.active)
+            this.props.navigation.navigate("SinglePost", { post });
+      } catch (e) {
+        Alert.show("notification error: " + e);
+      }
+    }
+    */
+  };
+
+  _handleNotificationResponseReceived = async (notificationResponse) => {
+    console.log("NOTIFICATION RESPONSE RECEIVED");
     //console.log("notification " + notification.origin + ", data: " + JSON.stringify(notification.data))
-    console.log(JSON.stringify(notificationResponse));
+    console.log(
+      JSON.stringify(notificationResponse.notification.request.content.data)
+    );
 
-    if (notificationResponse.origin === "selected") {
-      // notification was tapped, either from the app already open or from entering the app
+    let data = notificationResponse.notification.request.content.data;
 
-      if (notificationResponse.data.postId) {
-        engageNotification(
-          notificationResponse.data.postId,
-          this.props.globalData.state.pushToken
-        );
+    if (data.postId) {
+      engageNotification(data.postId, this.props.globalData.state.pushToken);
 
-        try {
-          let post = await getPost(notificationResponse.data.postId);
-          if (post)
-            if (post.active)
-              this.props.navigation.navigate("SinglePost", { post });
-        } catch (e) {
-          //
-        }
+      try {
+        let post = await getPost(data.postId);
+        if (post)
+          if (post.active)
+            this.props.navigation.navigate("SinglePost", { post });
+      } catch (e) {
+        Alert.show("notification error: " + e);
       }
+    }
 
-      // classic Song notifications for users without the update, deprecate this soon
-      if (notificationResponse.data.song) {
-        this.props.navigation.navigate("SingleSong", {
-          song: notificationResponse.data.song,
-        });
-      }
-    } else if (notificationResponse.origin === "received") {
-      // notification was received, either app was already open or it just opened up but not from the notification
-      /*
-      if (notification.data.postId) {
-        // refresh the feed data itself
-        this.onRefresh()
-
-        let post = await getPost(notification.data.postId)
-        this.props.navigation.navigate("SinglePost", { post });
-      }
-      */
+    // classic Song notifications for users without the update, deprecate this soon
+    if (data.song) {
+      this.props.navigation.navigate("SingleSong", {
+        song: data.song,
+      });
     }
   };
 
