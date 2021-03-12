@@ -158,6 +158,7 @@ Registering your app with Google Firebase is required in order to send push noti
 - You will be taken to the Project Overview screen. From there, click "Add an app to get started" and select Android.
 - In the panel that appears, input the value you decided on in the "Android Package / iOS Bundle Identifier" section of this document.
 - Download the config file `google-services.json` and save it to the root folder of your project.
+- Follow the instructions for "Uploading Server Credentials" to expo found in the link at the bottom of this section. You'll use the terminal to run the `expo push:android:upload --api-key <your-token-here>` command.
 
 Note that `google-services.json` contains security keys and is NOT synced to GitHub (where it would be available to the public) by default, according to the settings in the `.gitignore` file. While the file can be re-downloaded from Firebase, we highly recommend making a backup copy.
 
