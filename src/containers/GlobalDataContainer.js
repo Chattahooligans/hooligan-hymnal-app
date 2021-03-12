@@ -49,6 +49,7 @@ export default class GlobalDataContainer extends Container {
     feedAtEnd: false,
     response: null,
     loadDataComplete: false,
+    debug: "",
   };
 
   loadData = async () => {
@@ -396,5 +397,10 @@ export default class GlobalDataContainer extends Container {
     this.setState({ feed: feedAfterHide });
 
     await this.refreshFeed();
+  };
+
+  appendDebug = (text) => {
+    let debug = this.state.debug + "\n" + text;
+    this.setState({ debug });
   };
 }

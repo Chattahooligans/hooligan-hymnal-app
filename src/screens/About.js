@@ -257,6 +257,15 @@ class About extends React.Component {
             >
               {this.state.response ? JSON.stringify(this.state.response) : ""}
             </RegularTextMonospace>
+            <RegularTextMonospace
+              selectable={true}
+              style={{
+                textAlign: i18n.getRTLTextAlign(),
+                writingDirection: i18n.getWritingDirection(),
+              }}
+            >
+              {this.state.debug ? this.state.debug : ""}
+            </RegularTextMonospace>
           </ScrollView>
         </ScrollView>
       </View>
