@@ -3,6 +3,7 @@ import * as React from "react";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Asset } from "expo-asset";
 import * as Font from "expo-font";
+import * as Notifications from "expo-notifications";
 import * as SplashScreen from "expo-splash-screen";
 import { Platform, View, StatusBar, LogBox } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -13,6 +14,16 @@ import RootDrawerNavigation from "./src/navigation/RootDrawerNavigation";
 import { Fonts, Images, Skin } from "./config";
 
 LogBox.ignoreLogs(["Warning: bind()"]);
+
+// notification does not display if the app is already open by default
+// this corrects the behavior
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: true,
+  }),
+});
 
 class App extends React.Component {
   state = {
