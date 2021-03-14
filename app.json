@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "App Name",
-    "description": "App Description",
-    "owner": "Your Expo account name",
-    "slug": "YOU MUST SET THIS FIRST AND CAN'T CHANGE IT",
+    "name": "Hooligan Hymnal (Development)",
+    "description": "Development branch of Hooligan Hymnal",
+    "owner": "hooliganhymnal",
+    "slug": "hooligan-hymnal-development",
     "privacy": "public",
-    "version": "2.1.1",
+    "version": "2.1.13",
     "primaryColor": "#A3D8F7",
     "icon": "./assets/icon-ios.png",
     "orientation": "portrait",
@@ -15,7 +15,7 @@
       "image": "./assets/splash.png"
     },
     "android": {
-      "package": "YOU MUST SET THIS FIRST AND CAN'T CHANGE IT",
+      "package": "org.hooliganhymnal.development",
       "icon": "./assets/icon-android.png",
       "versionCode": 1,
       "permissions": [],
@@ -23,7 +23,7 @@
       "useNextNotificationsApi": true
     },
     "ios": {
-      "bundleIdentifier": "YOU MUST SET THIS FIRST AND CAN'T CHANGE IT",
+      "bundleIdentifier": "org.hooliganhymnal.development",
       "icon": "./assets/icon-ios.png",
       "loadJSInBackgroundExperimental": true
     },
@@ -35,7 +35,7 @@
     "githubUrl": "https://github.com/Chattahooligans/",
     "extra": {
       "hooliganHymnal": {
-        "version": "2.1.1",
+        "version": "2.1.3",
         "aboutPlug": {
           "en": " is built using the open source *Hooligan Hymnal* platform, v2.1.1.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
         }

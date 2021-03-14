@@ -1,24 +1,11 @@
 import React from "react";
-import {
-  Button,
-  Keyboard,
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  View,
-} from "react-native";
-import { RectButton } from "react-native-gesture-handler";
-import FadeIn from "react-native-fade-in-image";
+import { Button, ScrollView, View, Linking } from "react-native";
 import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-import LoadingPlaceholder from "../components/LoadingPlaceholder";
 import { BigButton } from "../components/BigButton";
 import { BoldText, RegularText, MediumText } from "../components/StyledText";
-import { Colors, FontSizes } from "../constants";
-import { Skin, DefaultColors, Settings, Urls } from "../../config";
+import { parsedStyles } from "../components/ParsedTextHelper";
+import { DefaultColors, Urls } from "../../config";
 import i18n from "../i18n";
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
@@ -58,7 +45,13 @@ class AdminHome extends React.Component {
           <View style={{ padding: 10 }}>
             <BoldText>DEBUG</BoldText>
             <MediumText>Connected to:</MediumText>
-            <RegularText>{Urls.HooliganHymnalServer}</RegularText>
+            <RegularText
+              style={parsedStyles.url}
+              selectable={true}
+              onPress={() => Linking.openURL(Urls.HooliganHymnalServer)}
+            >
+              {Urls.HooliganHymnalServer}
+            </RegularText>
             <MediumText>Logged in as:</MediumText>
             <RegularText>
               {this.props.globalData.state.currentUser.user.email}
