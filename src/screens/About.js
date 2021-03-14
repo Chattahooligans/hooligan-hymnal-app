@@ -38,6 +38,7 @@ class About extends React.Component {
   state = {
     pushToken: "",
     response: null,
+    debug: "",
   };
 
   componentDidMount() {
@@ -53,15 +54,16 @@ class About extends React.Component {
       (!prevProps.globalData.state.pushToken &&
         this.props.globalData.state.pushToken) ||
       (!prevProps.globalData.state.response &&
-        this.props.globalData.state.response)
+        this.props.globalData.state.response) ||
+      (!prevProps.globalData.state.debug && this.props.globalData.state.debug)
     ) {
       this.setData();
     }
   }
 
   setData = () => {
-    let { pushToken, response } = this.props.globalData.state;
-    this.setState({ pushToken, response });
+    let { pushToken, response, debug } = this.props.globalData.state;
+    this.setState({ pushToken, response, debug });
   };
 
   render() {
@@ -262,6 +264,7 @@ class About extends React.Component {
               style={{
                 textAlign: i18n.getRTLTextAlign(),
                 writingDirection: i18n.getWritingDirection(),
+                marginBottom: 15,
               }}
             >
               {this.state.debug ? this.state.debug : ""}
