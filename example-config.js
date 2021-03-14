@@ -345,6 +345,8 @@ export const Skin = {
   Post_TimestampLabel: DefaultColors.ColorText,
   PostAttachmentComposePrideraiserMatch_ActivityIndicator:
     DefaultColors.Primary,
+  PostAttachmentExpired_IconColor: DefaultColors.Secondary,
+  PostAttachmentExpired_TextColor: DefaultColors.Secondary,
   PostAttachmentMassTweet_TwitterColor: DefaultColors.Secondary,
   PostAttachmentMultiTweet_TwitterColor: DefaultColors.Secondary,
   PostAttachmentPlayer_InstagramColor: DefaultColors.Secondary,
