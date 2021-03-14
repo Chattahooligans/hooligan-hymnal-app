@@ -533,6 +533,11 @@ export const Settings = {
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat: "YYYY-MM-DD",
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix: "",
 
+  // PostAttachmentExpired_Show: true, false
+  //      Toggles rendering of "Attachment expired" message for expired/invalid attachments
+  //      False renders nothing
+  PostAttachmentExpired_Show: true,
+
   // PostCreate_UploadImageEnabled: true, false
   //      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
   PostCreate_UploadImageEnabled: true,
