@@ -50,7 +50,6 @@ import {
   Urls,
 } from "../../config";
 import i18n from "../i18n";
-import { watchPositionAsync } from "expo-location";
 
 class Home extends React.Component {
   state = {
@@ -74,10 +73,6 @@ class Home extends React.Component {
       this.setState({ refreshing: false });
     } else this.onRefresh();
 
-    // notification does not display if the app is already open by default
-    // this corrects the behavior
-    Notifications.setNotificationHandler(this._handleNotification);
-
     // a notification is received while the app is foregrounded
     Notifications.addNotificationReceivedListener(
       this._handleNotificationReceived
@@ -89,26 +84,14 @@ class Home extends React.Component {
     );
   }
 
-  _handleNotification = async (notification) => {
-    let data = notification.request.content.data;
-
-    if (data.postId) {
-      // run future logic
-    }
-    // logic may be different if/when live-song marquee is implemented
-
-    return {
-      shouldShowAlert: true,
-      shouldPlaySound: false,
-      shouldSetBadge: true,
-    };
-  };
-
   _handleNotificationReceived = async (notification) => {
     console.log("NOTIFICATION RECEIVED (but not responded to)");
     console.log(JSON.stringify(notification.request.content.data));
 
     let data = notification.request.content.data;
+
+    // refresh the feed
+    this.onRefresh();
     /*
     if (data.postId) {
       engageNotification(data.postId, this.props.globalData.state.pushToken);
@@ -133,6 +116,7 @@ class Home extends React.Component {
     );
 
     let data = notificationResponse.notification.request.content.data;
+    this.props.globalData.appendDebug(JSON.stringify(data));
 
     if (data.postId) {
       engageNotification(data.postId, this.props.globalData.state.pushToken);
