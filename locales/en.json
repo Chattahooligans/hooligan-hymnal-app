@@ -419,6 +419,16 @@
       "readmore": "Read more",
       "hide": "Hide"
     },
+    "postattachmentexpired": {
+      "_comment": [
+        "/src/components/PostAttachmentExpired.js",
+        "This section contains labels for a Post Attachment that displays when an attachment is expired or invalid.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "expired": "Attachment expired. Nothing to see here."
+    },
     "postattachmentgknickname": {
       "_comment": [
         "/src/components/PostAttachmentGkNickname.js",
