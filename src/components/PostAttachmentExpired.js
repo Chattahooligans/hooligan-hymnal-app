@@ -12,7 +12,7 @@ export default class PostAttachmentExpired extends React.Component {
       <View style={[styles.container]}>
         <View style={styles.imageContainer}>
           <MaterialCommunityIcons
-            name="delete-clock-outline"
+            name="widgets"
             size={14}
             style={{ color: Skin.PostAttachmentExpired_IconColor }}
           />
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     ...containerStyle,
     flex: 1,
     flexDirection: i18n.getFlexDirection(),
+    alignItems: "center",
   },
   imageContainer: {
     paddingVertical: 5,
