@@ -506,7 +506,11 @@ class Post extends React.Component {
             );
           }
           attachmentDisplay.push(playerDisplay);
-          if (player.hasOwnProperty("twitter") && player.twitter != "") {
+          if (
+            player &&
+            player.hasOwnProperty("twitter") &&
+            player.twitter != ""
+          ) {
             tweetablePlayers.push(player);
           }
           break;
@@ -549,7 +553,7 @@ class Post extends React.Component {
           let massInstagramDisplay = Settings.PostAttachmentExpired_Show ? (
             <PostAttachmentExpired />
           ) : null;
-          if (roster) {
+          if (massInstagramRoster) {
             massInstagramDisplay = (
               <PostAttachmentMassInstagram
                 key={index}
@@ -571,7 +575,7 @@ class Post extends React.Component {
           let massTweetDisplay = Settings.PostAttachmentExpired_Show ? (
             <PostAttachmentExpired />
           ) : null;
-          if (roster) {
+          if (massTweetRoster) {
             massTweetDisplay = (
               <PostAttachmentMassTweet
                 key={index}
