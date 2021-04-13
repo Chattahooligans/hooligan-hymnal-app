@@ -64,7 +64,7 @@ class AdminHome extends React.Component {
               {this.props.globalData.state.currentUser.user.email}
             </RegularText>
             <MediumText>Device ID (pushToken):</MediumText>
-            <RegularText>{this.props.globalData.state.pushToken}</RegularText>
+            <RegularText>{this.props.globalData.state.pushToken.data}</RegularText>
             <MediumText>Permissions:</MediumText>
             <RegularText>{permissions.join()}</RegularText>
           </View>
