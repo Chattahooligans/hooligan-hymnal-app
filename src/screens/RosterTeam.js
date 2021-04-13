@@ -221,7 +221,10 @@ class RosterTeam extends React.Component {
           <ModalSelector
             data={pickerItems}
             selectedKey={this.state.currentRosterID}
-            onChange={(item) => this.setState({ currentRosterID: item.key })}
+            onModalClose={(item) => {
+              if (item.key != this.state.currentRosterID)
+                this.setState({ currentRosterID: item.key });
+            }}
           >
             <View
               style={{
