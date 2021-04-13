@@ -215,7 +215,7 @@ class About extends React.Component {
                 writingDirection: i18n.getWritingDirection(),
               }}
             >
-              {this.state.pushToken}
+              {this.state.pushToken.data}
             </RegularTextMonospace>
             <RegularTextMonospace
               selectable={true}
