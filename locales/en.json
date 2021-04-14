@@ -50,7 +50,9 @@
       "title": "Gatekeeper Dashboard",
       "username": "Username/Email",
       "password": "Password",
-      "login": "Login"
+      "loading": "Logging in...",
+      "login": "Login",
+      "failed": "Login failed: Invalid username or password."
     },
     "caposelectsong": {
       "title": "Select Song"
