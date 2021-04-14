@@ -1,0 +1,199 @@
+{
+    "screens": {
+        "about": {
+           "title": "Acerca de",
+           "appTitle": "The Guardbook",
+           "description": "The Guardbook está hecho para ayudar todos ustedes para seguir y apoyar el Detroit City FC.",
+           "feedback": "Para mejorar la experiencia de usuario de esta aplicación, por favor envíenos sus reacciones a @ngsdetroit o @guardbook en Twitter, o por correo electrónico webmaster@noonelikes.us",
+           "creditsheading": "Créditos",
+           "credits": [               
+                "Todas las fotografías de jugador son cortesía de *Detroit City FC*",
+                "Video de pantalla de casa: *@mikoDCTID*",
+                "Fotografía de menu: *@TheDukeNGS*",
+                "Himnario del Infierno: *@JosephSlowvak*",
+                "Plantilla del equipo: *@NGS_Tonto*",
+                "Localizaciones: */u/nigol313*, @manuel_mg",
+                "Desarrollador administrativo: *@shortnd667*",
+                "Gerente de descarga: *@tacoman_x86*"
+            ],
+            "debug": "Debug",
+            "hymnalplug": "es desarrollado usando la plataforma de código abierto Hooligan Hymnal"
+        },
+        "capocompose": {
+            "title": "Compone Una Canción",
+            "songtitle": "Título",
+            "songlyrics": "Letra",
+            "continue": "Continuar"
+        },
+        "capoconfirmGK": {
+            "title": "¿Confirme Apodo de Portero?",
+            "sendonly": "Enviar Solo",
+            "sendnotify": "Enviar & Notificar"
+        },
+        "capoconfirmsong": {
+            "title": "¿Confirmar Canción?",
+            "sendonly": "Enviar Solo",
+            "sendnotify": "Enviar & Notificar"
+        },
+        "adminhome": {
+            "title": "Tablero de Capo",
+            "logout": "Logout"
+        },
+        "adminlogin": {
+            "title": "Tablero de Capo",
+            "username": "Nombre de usuario/Correo Electrónico",
+            "password": "Contraseña",
+            "login": "Acceder"
+        },
+        "postattach": {
+            "attachmenttypes": "Attachment Types",
+            "selectplayer": "Select Player",
+            "selectsong": "Elegir Una Canción",
+            "composesong": "Compone Una Canción",
+            "masstweet": "Tweet the Players",
+            "gknickname": "GK Nickname"
+        },
+        "postattachmentcomposegknickname": {
+            "gknickname": "GK Nickname",
+            "instructions1": "1. We're gonna score on you...",
+            "instructions2": "2. Elige un color, cualquier color",
+            "instructions3": "3. ¿Cual es más legible?"
+        },
+        "postattachmentcomposesong": {
+            "composesong": "Compone Una Canción",
+            "title": "Título",
+            "lyrics": "Letra",
+            "attach": "Attach"
+        },
+        "postattachmentselectmasstweet": {
+            "selectroster": "Select Roster",
+            "search": "Search"
+        },
+        "postattachmentselectplayer": {
+            "selectplayer": "Select Player",
+            "search": "Search"
+        },
+        "postattachmentselectsong": {
+            "selectsong": "Elegir Una Canción",
+            "search": "Search"
+        },
+        "postcreate": {
+            "title": "Create Post",
+            "addattachment": "Add Attachment",
+            "push": "Bother people with a push notification? Seriously?",
+            "cancel": "Cancel",
+            "continue": "Continue"
+        },
+        "postpreview": {
+            "title": "Preview Post",
+            "submit": "Submit Post",
+            "schedule": "Schedule Post"
+        },
+        "home": {
+            "findthemenu": "Encuentre más funciones en el menú %menuicon%, arriba a la izquierda",
+            "visit": "Visita:",
+           "songbook": "Himnario del Infierno",
+            "roster": "Lista de Equipo"
+        },
+        "player": {
+            "playersongs": "Canciones de Jugadores",
+            "stilllooking": "Todavía estamos trabajando en una canción para este reproductor. ¿Quiero ayudar? ¡Envía su idea!",
+            "bio": "Bio",
+            "playerheadersong": "Canción de Jugador",
+            "readmore": "Lee mas",
+            "hide": "muestra menos"
+        },
+        "rosterteam": {
+            "title": "Roster",
+            "nosquadsfound": "No se encontraron escuadrones",
+            "twitterlist": "Lista de cuentas de Twitter"
+        },
+        "rostertabs": {
+            "title": "Lista",
+            "friends": "Amigos",
+            "foes": "Rivales"
+        },
+        "singlesong": {
+            "title": "A Continuación"
+        },
+        "songbook": {
+            "defaultchaptertitle": "La cubierta",
+            "title": "Libro de canciones",
+            "tableofcontents": "El índice de contenidos",
+            "swipetoview": "desplácese hacia la izquierda\no hacia la derecha para ver canciones"
+        },
+        "tocinline": {
+            "title": "Tabla de Contenidos"
+        },
+        "twitterlist": {
+            "title": "Lista de redes Twitter",
+            "heading": "Todos juntos ahora",
+            "instructions": "La conexión entre los fans de cfc y el equipo es única, especial y tangible. Mensajes de estímulo, amor, lo que sea, realmente significan mucho para la players.\n\nYou puede copiar múltiples mangas de twitter desde la caja y pegarlas a un hilo de twitter más largo.",
+            "opentwitter": "Open Twitter App"
+        }
+    },
+    "navigation": {
+        "home": "Casa",
+        "songbook": "Himnario Del Infierno",
+        "roster": "Lista De Equipo",
+        "admin": "Tablero De Capo",
+        "about": "Acerca De",
+        "links": {
+            "events": "Eventos",
+            "standings": "Tabla de liga",
+            "shop": "Tienda de mercancías",
+            "volunteer": "Sè volunatrio",
+            "instrumentation": "Instrumentación",
+            "getinvolved": "Participa",
+            "quarantifo": "Cuarentifo",
+            "ngscares": "NGS Se Preocupa"
+        }
+    },
+    "components": {
+        "gkNickname": {
+            "gonnascore": "We're gonna score on you, "
+        },
+        "post": {
+            "copied": "Copied",
+            "hidealerttitle": "Hide Post",
+            "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
+            "hidealertcancel": "Cancel",
+            "hidealertconfirm": "Hide",
+            "readmore": "Read more",
+            "hide": "Hide"
+        },
+        "postattachmentgknickname": {
+            "gonnascore": "We're gonna score on you, "
+        },
+        "postattachmentmasstweet": {
+            "tweettheplayers": "Tweet the Players"
+        },
+        "postattachmentmultitweet": {
+            "tweettheplayers": "Tweet them all!"
+        },
+        "songview": {
+           "copiedtitle": "Título copiado al portapapeles",
+           "copiedreference": "Referencia copiado al portapapeles",
+           "copiedlyrics": "Letra copiado al portapapeles"
+        },
+        "upnext": {
+            "upnext": "A Continuación"
+        },
+        "songcard": {
+            "seemore": "Vea más..."
+        }
+    },
+    "positions": {
+        "Forward": "Delantero",
+        "Defender": "Defensor",
+        "Midfielder": "Mediocampista",
+        "Goalkeeper": "Portero",
+        "Head Coach": "Entrenador Titular",
+        "Associate Head Coach": "Entrenador Asociado",
+        "Goalkeeper Coach": "Entrenador de Portero"
+    },
+    "settings": {
+        "socialEN": "Follow us",
+        "socialES": "Síguenos"
+    }
+}

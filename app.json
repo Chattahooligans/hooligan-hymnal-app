@@ -1,44 +1,51 @@
 {
   "expo": {
-    "name": "Hooligan Hymnal (Development)",
-    "description": "Development branch of Hooligan Hymnal",
-    "owner": "hooliganhymnal",
-    "slug": "hooligan-hymnal-development",
+    "name": "The Guardbook",
+    "description": "",
+    "owner": "ngsdetroit",
+    "slug": "app",
     "privacy": "public",
-    "version": "2.1.13",
+    "version": "2.3.0",
     "primaryColor": "#A3D8F7",
-    "icon": "./assets/icon-ios.png",
+    "icon": "./assets/ngs4.png",
     "orientation": "portrait",
     "splash": {
-      "backgroundColor": "#FFFFFF",
+      "backgroundColor": "#000000",
       "resizeMode": "contain",
-      "image": "./assets/splash.png"
+      "image": "./assets/ngs3.png"
     },
     "android": {
-      "package": "org.hooliganhymnal.development",
-      "icon": "./assets/icon-android.png",
-      "versionCode": 1,
+      "package": "com.northernguard.app",
+      "icon": "./assets/ngs1.png",
+      "versionCode": 24,
       "permissions": [],
       "googleServicesFile": "./google-services.json",
       "useNextNotificationsApi": true
     },
     "ios": {
-      "bundleIdentifier": "org.hooliganhymnal.development",
-      "icon": "./assets/icon-ios.png",
-      "loadJSInBackgroundExperimental": true
+      "bundleIdentifier": "com.northernguard.app",
+      "supportsTablet": false,
+      "loadJSInBackgroundExperimental": true,
+      "buildNumber": "2",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "The Guardbook will use location to ignore notifications when you are not at the stadium."
+      }
     },
     "notification": {
       "icon": "./assets/notification.png",
       "color": "#A3D8F7"
     },
-    "platforms": ["android", "ios"],
+    "platforms": [
+      "android",
+      "ios"
+    ],
     "githubUrl": "https://github.com/Chattahooligans/",
     "extra": {
       "hooliganHymnal": {
-        "version": "2.1.3",
+        "version": "2.3.0",
         "aboutPlug": {
-          "en": " is built using the open source *Hooligan Hymnal* platform, v2.1.1.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
-        }
+          "en": " is built using the open source *Hooligan Hymnal* platform, v2.3.0.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
+          }
       }
     }
   }
