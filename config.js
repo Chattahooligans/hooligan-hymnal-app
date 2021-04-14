@@ -280,6 +280,7 @@ export const Skin = {
   Home_Website: DefaultColors.BlackText,
   Icon_Roster: "account-group",
   Icon_Songbook: "book-open-variant",
+  InstagramList_BackgroundColor: DefaultColors.Secondary,
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Secondary,
   ModalLoader_Container: "#00000040",
