@@ -35,7 +35,7 @@
     "githubUrl": "https://github.com/Chattahooligans/",
     "extra": {
       "hooliganHymnal": {
-        "version": "2.1.1",
+        "version": "2.3.0",
         "aboutPlug": {
           "en": " is built using the open source *Hooligan Hymnal* platform, v2.3.0.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
         }
