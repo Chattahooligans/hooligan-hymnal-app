@@ -454,9 +454,12 @@ export const Settings = {
   //      This feature isn't fully implemented yet, so leave it set to false
   ChannelUI_Enabled: false,
 
+
   // Home_HeroContent: "video", "image", "prideraiser"
   //      Hero content on the home screen
   Home_HeroContent: "video",
+  
+  InstagramList_AppendHandles: "",
 
   // Home_PostsPerPage: number
   //      Load this many news feed items, then load this many more if the user scrolls to the bottom
