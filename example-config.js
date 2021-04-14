@@ -512,6 +512,12 @@ export const Settings = {
   //      Hero content on the home screen
   Home_HeroContent: "video",
 
+  // InstagramList_AppendHandles: string
+  //      Extra Instagram handles concatenated after the players on the InstagramList screen
+  //      Each account should be seperated by a space
+  //      In Chattanooga, we append the club and our SG accounts. You can choose to pass.
+  InstagramList_AppendHandles: "",
+
   // Home_PostsPerPage: number
   //      Load this many news feed items, then load this many more if the user scrolls to the bottom
   Home_PostsPerPage: 5,
