@@ -3,12 +3,14 @@ import AdminHome from "./AdminHome";
 import AdminLogin from "./AdminLogin";
 import Channel from "./Channel";
 import Home from "./Home";
+import InstagramList from "./InstagramList";
 import Player from "./Player";
 import PostAttach from "./PostAttach";
 import PostAttachmentComposeSong from "./PostAttachmentComposeSong";
 import PostAttachmentComposeGkNickname from "./PostAttachmentComposeGkNickname";
 import PostAttachmentComposePrideraiserMatch from "./PostAttachmentComposePrideraiserMatch";
 import PostAttachmentSelectJuanstagram from "./PostAttachmentSelectJuanstagram";
+import PostAttachmentSelectMassInstagram from "./PostAttachmentSelectMassInstagram";
 import PostAttachmentSelectMassTweet from "./PostAttachmentSelectMassTweet";
 import PostAttachmentSelectPlayer from "./PostAttachmentSelectPlayer";
 import PostAttachmentSelectSong from "./PostAttachmentSelectSong";
@@ -34,12 +36,14 @@ export default {
   AdminLogin,
   Channel,
   Home,
+  InstagramList,
   Player,
   PostAttach,
   PostAttachmentComposeSong,
   PostAttachmentComposeGkNickname,
   PostAttachmentComposePrideraiserMatch,
   PostAttachmentSelectJuanstagram,
+  PostAttachmentSelectMassInstagram,
   PostAttachmentSelectMassTweet,
   PostAttachmentSelectPlayer,
   PostAttachmentSelectSong,

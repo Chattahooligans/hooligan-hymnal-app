@@ -39,7 +39,7 @@ class PlayerRow extends React.Component {
       twitterDisplay = (
         <TouchableOpacity
           style={{ justifyContent: "flex-start", alignContent: "center" }}
-          key={player.twitter}
+          key={"player-twitter-" + player.twitter}
           onPress={() => {
             openURL(
               "https://twitter.com/intent/tweet?text=@" + player.twitter + "+"
@@ -51,16 +51,39 @@ class PlayerRow extends React.Component {
             size={30}
             style={{
               color: Skin.RosterTeam_TwitterColor,
-              marginTop: 3,
-              marginBottom: 3,
-              marginLeft: 10,
-              marginRight: 10,
+              marginVertical: 3,
+              marginHorizontal: 5,
               backgroundColor: "transparent",
             }}
           />
         </TouchableOpacity>
       );
     }
+
+    let instagramDisplay;
+    if (player.instagram) {
+      instagramDisplay = (
+        <TouchableOpacity
+          style={{ alignContent: "center" }}
+          key={"player-instagram-" + player.instagram}
+          onPress={() => {
+            openURL("https://instagram.com/" + player.instagram);
+          }}
+        >
+          <MaterialCommunityIcons
+            name={"instagram"}
+            size={30}
+            style={{
+              color: Skin.PostAttachmentPlayer_InstagramColor,
+              marginVertical: 3,
+              marginHorizontal: 5,
+              backgroundColor: "transparent",
+            }}
+          />
+        </TouchableOpacity>
+      );
+    }
+
     return (
       <View style={styles.row}>
         <RectButton
@@ -113,6 +136,7 @@ class PlayerRow extends React.Component {
           </View>
         </RectButton>
         {twitterDisplay}
+        {instagramDisplay}
       </View>
     );
   }
@@ -197,7 +221,10 @@ class RosterTeam extends React.Component {
           <ModalSelector
             data={pickerItems}
             selectedKey={this.state.currentRosterID}
-            onChange={(item) => this.setState({ currentRosterID: item.key })}
+            onModalClose={(item) => {
+              if (item.key != this.state.currentRosterID)
+                this.setState({ currentRosterID: item.key });
+            }}
           >
             <View
               style={{

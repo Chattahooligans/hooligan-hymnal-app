@@ -16,36 +16,12 @@ export default class PostAttachmentPlayer extends React.Component {
     if (player.defaultThumbnail) thumbnail = { uri: player.defaultThumbnail };
     if (player.thumbnail) thumbnail = { uri: player.thumbnail };
 
-    let instagramDisplay;
-    if (player.instagram) {
-      instagramDisplay = (
-        <TouchableOpacity
-          style={{ alignContent: "center" }}
-          key={"IG: " + player.instagram}
-          onPress={() => {
-            openURL("https://instagram.com/" + player.instagram);
-          }}
-        >
-          <MaterialCommunityIcons
-            name={"instagram"}
-            size={30}
-            style={{
-              color: Skin.PostAttachmentPlayer_InstagramColor,
-              marginVertical: 3,
-              marginHorizontal: 5,
-              backgroundColor: "transparent",
-            }}
-          />
-        </TouchableOpacity>
-      );
-    }
-
     let twitterDisplay;
     if (player.twitter) {
       twitterDisplay = (
         <TouchableOpacity
           style={{ alignContent: "center" }}
-          key={"Twitter: " + player.twitter}
+          key={"player-twitter-" + player.twitter}
           onPress={() => {
             openURL(
               "https://twitter.com/intent/tweet?text=@" + player.twitter + "+"
@@ -57,6 +33,30 @@ export default class PostAttachmentPlayer extends React.Component {
             size={30}
             style={{
               color: Skin.PostAttachmentPlayer_TwitterColor,
+              marginVertical: 3,
+              marginHorizontal: 5,
+              backgroundColor: "transparent",
+            }}
+          />
+        </TouchableOpacity>
+      );
+    }
+
+    let instagramDisplay;
+    if (player.instagram) {
+      instagramDisplay = (
+        <TouchableOpacity
+          style={{ alignContent: "center" }}
+          key={"player-instagram-" + player.instagram}
+          onPress={() => {
+            openURL("https://instagram.com/" + player.instagram);
+          }}
+        >
+          <MaterialCommunityIcons
+            name={"instagram"}
+            size={30}
+            style={{
+              color: Skin.PostAttachmentPlayer_InstagramColor,
               marginVertical: 3,
               marginHorizontal: 5,
               backgroundColor: "transparent",
@@ -117,8 +117,8 @@ export default class PostAttachmentPlayer extends React.Component {
             </View>
           </View>
         </TouchableOpacity>
-        {instagramDisplay}
         {twitterDisplay}
+        {instagramDisplay}
       </View>
     );
   }

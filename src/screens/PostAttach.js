@@ -43,6 +43,18 @@ class PostAttach extends React.Component {
           }}
         />
         <BigButton
+          label={i18n.t("screens.postattach.massinstagram")}
+          iconName="instagram"
+          onPress={() => {
+            this.props.navigation.navigate(
+              "PostAttachmentSelectMassInstagram",
+              {
+                onAttachmentComplete: this.props.onAttachmentComplete,
+              }
+            );
+          }}
+        />
+        <BigButton
           label={i18n.t("screens.postattach.masstweet")}
           iconName="twitter"
           onPress={() => {

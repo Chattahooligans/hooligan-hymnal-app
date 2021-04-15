@@ -110,9 +110,10 @@ class RosterFoes extends React.Component {
           <ModalSelector
             data={pickerItems}
             selectedKey={this.state.selectedCompetition}
-            onChange={(item) =>
-              this.setState({ selectedCompetition: item.key })
-            }
+            onModalClose={(item) => {
+              if (this.state.selectedCompetition != item.key)
+                this.setState({ selectedCompetition: item.key });
+            }}
           >
             <View
               style={{

@@ -21,6 +21,10 @@ export default HomeNavigation = () => {
         component={Screens.Player}
         options={{ headerShown: false }}
       />
+      <HomeStack.Screen
+        name="InstagramList"
+        component={Screens.InstagramList}
+      />
       <HomeStack.Screen name="TwitterList" component={Screens.TwitterList} />
       <HomeStack.Screen name="Channel" component={Screens.Channel} />
     </HomeStack.Navigator>

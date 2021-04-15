@@ -289,11 +289,16 @@ class PostCreate extends React.Component {
           style={{ flex: 1 }}
           data={channelPickerItems}
           selectedKey={this.state.selectedChannel._id}
-          onChange={(selectedChannelItem) => {
-            let post = this.state.post;
-            post.channel = selectedChannelItem.value._id;
-            post.locale = selectedChannelItem.value.defaultLocale;
-            this.setState({ selectedChannel: selectedChannelItem.value, post });
+          onModalClose={(selectedChannelItem) => {
+            if (this.state.selectedChannel != selectedChannelItem.value) {
+              let post = this.state.post;
+              post.channel = selectedChannelItem.value._id;
+              post.locale = selectedChannelItem.value.defaultLocale;
+              this.setState({
+                selectedChannel: selectedChannelItem.value,
+                post,
+              });
+            }
           }}
         >
           <View
@@ -315,10 +320,12 @@ class PostCreate extends React.Component {
           data={localePickerItems}
           selectedKey={this.state.post.locale}
           disabled={localePickerItems.length < 1}
-          onChange={(localeItem) => {
-            let post = this.state.post;
-            post.locale = localeItem.key;
-            this.setState({ post });
+          onModalClose={(localeItem) => {
+            if (this.state.post.locale != localeItem.key) {
+              let post = this.state.post;
+              post.locale = localeItem.key;
+              this.setState({ post });
+            }
           }}
         >
           <View

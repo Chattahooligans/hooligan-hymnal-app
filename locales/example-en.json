@@ -78,6 +78,7 @@
       "selectplayer": "Select Player",
       "selectsong": "Select Song",
       "composesong": "Compose Song",
+      "massinstagram": "Tag the Players on Instagram",
       "masstweet": "Tweet the Players",
       "gknickname": "GK Nickname",
       "prideraisermatch": "Prideraiser Match Update"
@@ -125,6 +126,17 @@
       "lyrics": "Lyrics",
       "attach": "Attach"
     },
+    "postattachmentselectmassinstagram": {
+      "_comment": [
+        "/src/screens/PostAttachmentSelectMassInstagram.js",
+        "This screen contains labels to select a Roster for a Post Attachment of the Mass Instagram type",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "selectroster": "Tag the Players on Instagram - Select Roster",
+      "search": "Search"
+    },
     "postattachmentselectmasstweet": {
       "_comment": [
         "/src/screens/PostAttachmentSelectMassTweet.js",
@@ -133,7 +145,7 @@
         "You probably don't need to change these values in your default translation."
       ],
 
-      "selectroster": "Select Roster",
+      "selectroster": "Tweet the Players - Select Roster",
       "search": "Search"
     },
     "postattachmentselectplayer": {
@@ -216,6 +228,19 @@
       "visit": "Visit:",
       "songbook": "Songbook",
       "roster": "Roster"
+    },
+    "instagramlist": {
+      "_comment": [
+        "/src/screens/InstagramList.js",
+        "This section contains labels and prompts for the Instagram List feature, which presents a selectable text box containing player Instagram handles. Change the .heading and .instructions values to fit the message you want to present.",
+        "",
+        "You WILL need to change these values in your default translation."
+      ],
+
+      "title": "Instagram List",
+      "heading": "Some sort of inspirational headline or call to action",
+      "instructions": "Something touchy-feely to motivate users to participate.\n\nYou can copy multiple Instagram handles from the box below and paste them into the caption of an Instagram post.",
+      "openinstagram": "Open Instagram App"
     },
     "player": {
       "_comment": [
@@ -394,6 +419,16 @@
       "readmore": "Read more",
       "hide": "Hide"
     },
+    "postattachmentexpired": {
+      "_comment": [
+        "/src/components/PostAttachmentExpired.js",
+        "This section contains labels for a Post Attachment that displays when an attachment is expired or invalid.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "expired": "Attachment expired. Nothing to see here."
+    },
     "postattachmentgknickname": {
       "_comment": [
         "/src/components/PostAttachmentGkNickname.js",
@@ -403,6 +438,16 @@
       ],
 
       "gonnascore": "We're gonna score on you, "
+    },
+    "postattachmentmassinstagram": {
+      "_comment": [
+        "/src/components/PostAttachmentMassInstagram.js",
+        "This section contains labels for a Post Attachment of the Mass Instagram type.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "tagtheplayers": "Tag the Players on Instagram"
     },
     "postattachmentmasstweet": {
       "_comment": [
@@ -416,7 +461,7 @@
     },
     "postattachmentprideraisermatch": {
       "_comment": [
-        "/src/components/PostAttachmentMassTweet.js",
+        "/src/components/PostAttachmentPrideraiserMatch.js",
         "This section contains labels for a Post Attachment of the Prideraiser Match Update type. .message is used if %goalCount% is greater than zero, else .messagezerogoals is used.",
         "",
         "Prideraiser-related text can include %macros% that use live campaign data.",
