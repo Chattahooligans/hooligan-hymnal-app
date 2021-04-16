@@ -373,7 +373,6 @@ export const NavigationDrawerItems = [
   { drawerLabel: i18n.t('navigation.links.uwsstandings'), drawerIcon: 'menu-swap', url: Urls.UWSStandings },
   { drawerLabel: i18n.t('navigation.links.shop'), drawerIcon: 'shopping', url: Urls.Shop },
   { drawerLabel: i18n.t('navigation.links.getinvolved'), drawerIcon: 'gift', url: Urls.GetInvolved },
-  { drawerLabel: i18n.t('navigation.links.quarantifo'), drawerIcon: 'flag-plus', url: Urls.Quarantifo },
   { drawerLabel: i18n.t('navigation.links.ngscares'), drawerIcon: 'heart-pulse', url: Urls.NgsCares }
 ]
 
