@@ -56,6 +56,15 @@ The Hooligan Hymnal core team (and, so far, reps for every SG who has a working 
 
 This section assumes that you have a working development environment and some familiarity with source control concepts, as well as a somewhat-modern smartphone to test your application. While this section won't teach you how to code, our goal is for the instructions to be as accessible as possible. If you're just getting started, we recommend installing the free code editor [Visual Studio Code](https://code.visualstudio.com/), which will direct you to install [git](https://git-scm.com/download) source control on your computer. You will also need to install the [Node.js runtime and "npm" package manager](https://nodejs.org/en/download/).
 
+## Android Package / iOS Bundle Identifier
+
+One early commitment will be deciding on the Android package name and iOS Bundle Identifier. (Generally, these should be the same.) Use the "reverse canonical" convention.
+
+Example:
+If your SG website is example.com, consider using com.example.app or com.example.hooliganhymnal
+
+(If your SG doesn't have a traditional domain-based website, ask in the Hooligan Hymnal Slack workspace for guidance.)
+
 ## Create Accounts
 
 You will need to create several accounts in your SG's name to deploy your customized version of Hooligan Hymnal. For each (excepting a pesonal GitHub account- more on this later), we recommend using the email you created for this project (above) or your SG email.
@@ -86,8 +95,6 @@ Tip: You can get extra quota on your Cloudinary account (and get more usage out 
 
 [Firebase](https://firebase.google.com/) is the service used to manage push notifications for Android devices. Firebase will use the same Google Account that you use for Google Play.
 
-TODO: `google-services.json`
-
 ### Heroku
 
 [Heroku](https://www.heroku.com/) is currently the recommended host for the server.
@@ -102,9 +109,11 @@ TODO
 
 ## Create a Database
 
-Log into MongoDB Cloud Atlas and create a free M0 sandbox cluster. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username\* for the database and STRONG password. Once your URI has been generated, go to the "Network Access" tab in the cluster settings. The free tier of does not allow for specific IP whitelisting, so set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
+Log into MongoDB Cloud Atlas and create a free M0 cluster\*. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username\*\* for the database and STRONG password. Once your URI has been generated, go to the "Network Access" tab in the cluster settings. The free tier of does not allow for specific IP whitelisting, so set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
 
-\*This is an account to access the database itself, and is different than your MongoDB Cloud service account. Don't forget to save the credentials somewhere!
+\* Need a suggestion for a name? Consider "[mobile-app-name]-production" (and consider a "[name]-development" or "[name]-test" in the future, if you want to experiment)
+
+\*\*This is an account to access the database itself, and is different than your MongoDB Cloud service account. Don't forget to save the credentials somewhere! Need a suggestion for a name?  Consider "[sg name]DbAdmin"
 
 ## Fork the Code
 
@@ -141,7 +150,21 @@ To get the code on your machine and finish preparing your environment:
 - In the terminal, run the command `npm install -g expo-cli` to install the Expo command line interface. This will take a few minutes.
 - After Expo CLI is installed, run the command `expo login` and input your Expo account credentials.
 - In the terminal, run the command `npm install` to download dependency packages. This will take several minutes, but you can continue with the guide while it runs.
-- TODO: Where do the Firebase/google-services.json instruction + backup live?
+
+## Set up Firebase
+
+Registering your app with Google Firebase is required in order to send push notifications to Android devices. This is a one-time process, and once it is behind you, you'll never have to think about it again.
+
+- Log into firebase at: <https://console.firebase.google.com/>
+- Find the "Your Firebase projects" section at the top. Click Add project and give it the name of your app.
+- You will be taken to the Project Overview screen. From there, click "Add an app to get started" and select Android.
+- In the panel that appears, input the value you decided on in the "Android Package / iOS Bundle Identifier" section of this document.
+- Download the config file `google-services.json` and save it to the root folder of your project.
+- Follow the instructions for "Uploading Server Credentials" to expo found in the link at the bottom of this section. You'll use the terminal to run the `expo push:android:upload --api-key <your-token-here>` command.
+
+Note that `google-services.json` contains security keys and is NOT synced to GitHub (where it would be available to the public) by default, according to the settings in the `.gitignore` file. While the file can be re-downloaded from Firebase, we highly recommend making a backup copy.
+
+For more information, visit: <https://docs.expo.io/push-notifications/using-fcm/>
 
 ## Configure the Mobile App
 
@@ -167,10 +190,10 @@ In the "expo" section:
 - `primaryColor` is an RGB color code. Change it to the main color of your SG's logo.
 - `splash.backgroundColor` is also an RGB color code. Once your application's splash screen is available, set this color to match its background.
   In the "android" section:
-- [once set, never change] `package` is a unique name for your application on Google Play. See the link at the bottom of this section for more information, or ask for guidance on Hooligan Hymnal Slack.
+- [once set, never change] `package` is a unique name for your application on Google Play. input the value you decided on in the "Android Package / iOS Bundle Identifier" section of this document.
 - `versionCode` is a number that you should increment each time you submit a new build to Google Play. (It's easy to forget this and have to fix it and rebuild.) We'll discuss this more later in the section about building the app.
   In the "ios" section:
-- [once set, never change] `bundleIdentifier` is a unique name for your application on the Apple App Store. It probably matches the value in `android.package`
+- [once set, never change] `bundleIdentifier` is a unique name for your application on the Apple App Store. input the value you decided on in the "Android Package / iOS Bundle Identifier" section of this document.
 
 Additional information can be found at <https://docs.expo.io/workflow/configuration/>
 

@@ -149,7 +149,7 @@ News Feed supports a feature called Channels for different SG communication func
 
 Default file name(s): `notification.png`
 
-Hooligan Hymnal supports push notifications. The icon that appears in the tray is 96x96 grayscale with transparency. (The default file doesn't meet this specification, but is used in all Hooligan Hymnal deployments as of June 2020. For shame.)
+Hooligan Hymnal supports push notifications. The icon that appears in the tray is 96x96, and should be white with transparency. The default image is a simplified variant of the Hooligan Hymnal platform logo. `notification-alt.png `, a solid colored bullhorn, is also included, if you like the shape of our bullhorn, but not the letters.
 
 Additional information can be found at <https://docs.expo.io/workflow/configuration/>
 

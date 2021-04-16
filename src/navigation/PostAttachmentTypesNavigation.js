@@ -41,6 +41,10 @@ export default PostAttachmentTypesNavigation = (props) => {
         component={Screens.PostAttachmentComposeGkNickname}
       />
       <AttachmentTypesStack.Screen
+        name="PostAttachmentSelectMassInstagram"
+        component={Screens.PostAttachmentSelectMassInstagram}
+      />
+      <AttachmentTypesStack.Screen
         name="PostAttachmentSelectMassTweet"
         component={Screens.PostAttachmentSelectMassTweet}
       />

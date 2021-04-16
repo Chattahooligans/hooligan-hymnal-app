@@ -1,10 +1,11 @@
 import "react-native-gesture-handler";
 import * as React from "react";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { AppLoading } from "expo";
 import { Asset } from "expo-asset";
 import * as Font from "expo-font";
-import { Platform, View, StatusBar, YellowBox } from "react-native";
+import * as Notifications from "expo-notifications";
+import * as SplashScreen from "expo-splash-screen";
+import { Platform, View, StatusBar, LogBox } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Provider } from "unstated";
 import { loadSavedTalksAsync } from "./src/utils/storage";
@@ -12,7 +13,17 @@ import { NavigationContainer } from "@react-navigation/native";
 import RootDrawerNavigation from "./src/navigation/RootDrawerNavigation";
 import { Fonts, Images, Skin } from "./config";
 
-YellowBox.ignoreWarnings(["Warning: bind()"]);
+LogBox.ignoreLogs(["Warning: bind()"]);
+
+// notification does not display if the app is already open by default
+// this corrects the behavior
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: false,
+    shouldSetBadge: true,
+  }),
+});
 
 class App extends React.Component {
   state = {
@@ -20,8 +31,22 @@ class App extends React.Component {
     fontLoaded: false,
   };
 
-  _loadResourcesAsync = () => {
-    return Promise.all([this._loadAssetsAsync(), this._loadDataAsync()]);
+  _loadResourcesAsync = async () => {
+    try {
+      await this._loadAssetsAsync();
+      await this._loadDataAsync();
+    } catch (e) {
+      console.warn(e);
+    } finally {
+      this.setState(
+        {
+          fontLoaded: true,
+        },
+        async () => {
+          await SplashScreen.hideAsync();
+        }
+      );
+    }
   };
 
   _loadDataAsync = () => {
@@ -51,18 +76,19 @@ class App extends React.Component {
     ]);
   };
 
+  async componentDidMount() {
+    SplashScreen.preventAutoHideAsync().catch((err) => {});
+    try {
+      await this._loadResourcesAsync();
+    } catch (error) {
+      console.warn(error);
+    }
+  }
+
   render() {
     const { fontLoaded } = this.state;
     if (!fontLoaded) {
-      return (
-        <AppLoading
-          startAsync={this._loadResourcesAsync}
-          onError={console.error}
-          onFinish={() => {
-            this.setState({ fontLoaded: true });
-          }}
-        />
-      );
+      return null;
     }
 
     return (

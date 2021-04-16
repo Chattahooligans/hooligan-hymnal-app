@@ -35,8 +35,10 @@ import Toast from "react-native-tiny-toast";
 import { Skin, Settings, DefaultColors } from "../../config";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
 import withUnstated from "@airship/with-unstated";
+import PostAttachmentExpired from "./PostAttachmentExpired";
 import PostAttachmentGkNickname from "./PostAttachmentGkNickname";
 import PostAttachmentJuanstagram from "./PostAttachmentJuanstagram";
+import PostAttachmentMassInstagram from "./PostAttachmentMassInstagram";
 import PostAttachmentMassTweet from "./PostAttachmentMassTweet";
 import PostAttachmentPlayer from "./PostAttachmentPlayer";
 import PostAttachmentPrideraiserMatch from "./PostAttachmentPrideraiserMatch";
@@ -489,17 +491,26 @@ class Post extends React.Component {
           let player = this.props.globalData.state.players.find(
             (player) => player._id === attachment.relatedId
           );
-          let playerDisplay = (
-            <PostAttachmentPlayer
-              key={index}
-              player={player}
-              onPress={() => {
-                this.props.navigation.navigate("Player", { player });
-              }}
-            />
-          );
+          let playerDisplay = Settings.PostAttachmentExpired_Show ? (
+            <PostAttachmentExpired />
+          ) : null;
+          if (player) {
+            playerDisplay = (
+              <PostAttachmentPlayer
+                key={index}
+                player={player}
+                onPress={() => {
+                  this.props.navigation.navigate("Player", { player });
+                }}
+              />
+            );
+          }
           attachmentDisplay.push(playerDisplay);
-          if (player.hasOwnProperty("twitter") && player.twitter != "") {
+          if (
+            player &&
+            player.hasOwnProperty("twitter") &&
+            player.twitter != ""
+          ) {
             tweetablePlayers.push(player);
           }
           break;
@@ -512,15 +523,20 @@ class Post extends React.Component {
           } else if (attachment.data) {
             song = attachment.data;
           }
-          let songDisplay = (
-            <PostAttachmentSong
-              key={index}
-              song={song}
-              onPress={() => {
-                this.props.navigation.navigate("SingleSong", { song });
-              }}
-            />
-          );
+          let songDisplay = Settings.PostAttachmentExpired_Show ? (
+            <PostAttachmentExpired />
+          ) : null;
+          if (song) {
+            songDisplay = (
+              <PostAttachmentSong
+                key={index}
+                song={song}
+                onPress={() => {
+                  this.props.navigation.navigate("SingleSong", { song });
+                }}
+              />
+            );
+          }
           attachmentDisplay.push(songDisplay);
           break;
         case "gknickname":
@@ -530,19 +546,48 @@ class Post extends React.Component {
           );
           attachmentDisplay.push(gkNicknameDisplay);
           break;
-        case "masstweet":
-          let roster = this.props.globalData.state.rosters.find(
+        case "massinstagram":
+          let massInstagramRoster = this.props.globalData.state.rosters.find(
             (roster) => roster._id === attachment.data.rosterId
           );
-          let massTweetDisplay = (
-            <PostAttachmentMassTweet
-              key={index}
-              roster={roster}
-              onPress={() => {
-                this.props.navigation.navigate("TwitterList", { roster });
-              }}
-            />
+          let massInstagramDisplay = Settings.PostAttachmentExpired_Show ? (
+            <PostAttachmentExpired />
+          ) : null;
+          if (massInstagramRoster) {
+            massInstagramDisplay = (
+              <PostAttachmentMassInstagram
+                key={index}
+                roster={massInstagramRoster}
+                onPress={() => {
+                  this.props.navigation.navigate("InstagramList", {
+                    roster: massInstagramRoster,
+                  });
+                }}
+              />
+            );
+          }
+          attachmentDisplay.push(massInstagramDisplay);
+          break;
+        case "masstweet":
+          let massTweetRoster = this.props.globalData.state.rosters.find(
+            (roster) => roster._id === attachment.data.rosterId
           );
+          let massTweetDisplay = Settings.PostAttachmentExpired_Show ? (
+            <PostAttachmentExpired />
+          ) : null;
+          if (massTweetRoster) {
+            massTweetDisplay = (
+              <PostAttachmentMassTweet
+                key={index}
+                roster={massTweetRoster}
+                onPress={() => {
+                  this.props.navigation.navigate("TwitterList", {
+                    massTweetRoster,
+                  });
+                }}
+              />
+            );
+          }
           attachmentDisplay.push(massTweetDisplay);
           break;
         case "prideraisermatch":
