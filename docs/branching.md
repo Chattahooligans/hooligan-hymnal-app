@@ -20,3 +20,7 @@ Resolve any merge conflicts, then check the version history of the example confi
 When making code changes, please make sure your feature branches are created from `main` instead of from your SG's branch! Doing otherwise will result in a PR that includes your SG's configuration changes and any customizations you have made to the code, which will be rejected until it is cleaned up.
 
 If you did some development work on your SG branch and want to create a clean feature branch from it, you can use Git's [cherry-pick](https://git-scm.com/docs/git-cherry-pick) feature to apply the commits to the new branch.
+
+# Breaking Changes
+
+Breaking changes are documented in a PR for each version of the platform. The PR contains a comment documenting what needs to be changed in your downstream branch (usually adding configuration settings). The code will often still run without running these changes, but unexpected issues can occur, so be sure to check the PRs!
