@@ -61,7 +61,7 @@ export const Urls = {
   EsFacebook: "",
   EsInstagram: "https://instagram.com/loschattahooligans",
   EsWebsite: "http://chattahooligan.com/es",
-  Events: "https://facebook.com/TheChattahooligans/events/",
+  Events: "https://www.chattanoogafc.com/events/",
   Standings: "https://www.nisaofficial.com/standings",
   Instrumentation:
     "https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr",
@@ -131,6 +131,11 @@ export const Images = {
 
   // Potentially used in Banners and SocialButtons
   GoFundMe: require("./assets/gofundme.png"),
+
+  // Hooligan Hymnal platform logo, used on About screen
+  HooliganHymnalLogoSingleColor: require("./assets/about/hooligan-hymnal-full.png"),
+  HooliganHymnalLogoLayer1: require("./assets/about/hooligan-hymnal-layer1.png"),
+  HooliganHymnalLogoLayer2: require("./assets/about/hooligan-hymnal-layer2.png"),
 
   // Add additional images (optional)
   /* 
@@ -263,6 +268,11 @@ export const Fonts = {
 */
 export const Skin = {
   About_BackgroundColor: DefaultColors.Secondary,
+  About_HooliganHymnalLogoSingleColor: Images.HooliganHymnalLogoSingleColor,
+  About_HooliganHymnalLogoLayer1: Images.HooliganHymnalLogoLayer1,
+  About_HooliganHymnalLogoLayer1Tint: DefaultColors.Primary,
+  About_HooliganHymnalLogoLayer2: Images.HooliganHymnalLogoLayer2,
+  About_HooliganHymnalLogoLayer2Tint: DefaultColors.Secondary,
   Font_Light: Fonts.Light.family,
   Font_Regular: Fonts.Regular.family,
   Font_Medium: Fonts.Medium.family,
@@ -297,6 +307,7 @@ export const Skin = {
   Home_Website: DefaultColors.BlackText,
   Icon_Roster: "account-group",
   Icon_Songbook: "book-open-variant",
+  InstagramList_BackgroundColor: DefaultColors.Secondary,
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Secondary,
   ModalLoader_Container: "#00000040",
@@ -343,6 +354,8 @@ export const Skin = {
   Post_TimestampLabel: DefaultColors.ColorText,
   PostAttachmentComposePrideraiserMatch_ActivityIndicator:
     DefaultColors.Primary,
+  PostAttachmentExpired_IconColor: DefaultColors.Secondary,
+  PostAttachmentExpired_TextColor: DefaultColors.Secondary,
   PostAttachmentMassTweet_TwitterColor: DefaultColors.Secondary,
   PostAttachmentMultiTweet_TwitterColor: DefaultColors.Secondary,
   PostAttachmentPlayer_InstagramColor: DefaultColors.Secondary,
@@ -498,7 +511,6 @@ export const SocialButtons = [
     items: [
       { icon: "twitter", url: Urls.EsTwitter },
       { icon: "instagram", url: Urls.EsInstagram },
-      { icon: "link", url: Urls.EsWebsite },
     ],
   },
   {
@@ -535,6 +547,13 @@ export const Settings = {
   //      Load this many news feed items, then load this many more if the user scrolls to the bottom
   Home_PostsPerPage: 5,
 
+  // InstagramList_AppendHandles: string
+  //      Extra Instagram handles concatenated after the players on the InstagramList screen
+  //      Each account should be seperated by a space
+  //      In Chattanooga, we append the club and our SG accounts. You can choose to pass.
+  InstagramList_AppendHandles:
+    "@chattanoogafc @thechattahooligans @loschattahooligans",
+
   // Player_ShowSongs: true, false
   //      Some SGs write songs for each player
   //      Toggle a related UI element in the Roster/Player screen
@@ -552,6 +571,11 @@ export const Settings = {
     appParams.expo.slug,
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat: "YYYY-MM-DD",
   PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix: "",
+
+  // PostAttachmentExpired_Show: true, false
+  //      Toggles rendering of "Attachment expired" message for expired/invalid attachments
+  //      False renders nothing
+  PostAttachmentExpired_Show: true,
 
   // PostCreate_UploadImageEnabled: true, false
   //      Some SGs may not want to pay for image hosting, turn the feature off entirely if so

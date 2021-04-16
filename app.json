@@ -5,7 +5,7 @@
     "owner": "chattahooligan",
     "slug": "chattahooligan-hymnal",
     "privacy": "public",
-    "version": "2.1.2",
+    "version": "2.3.0",
     "primaryColor": "#A3D8F7",
     "icon": "./assets/icon-ios.png",
     "orientation": "portrait",
@@ -19,7 +19,8 @@
       "icon": "./assets/icon-android.png",
       "versionCode": 9,
       "permissions": [],
-      "googleServicesFile": "./google-services.json"
+      "googleServicesFile": "./google-services.json",
+      "useNextNotificationsApi": true
     },
     "ios": {
       "bundleIdentifier": "com.chattahooligan.app",
@@ -28,16 +29,15 @@
     },
     "notification": {
       "icon": "./assets/notification.png",
-      "iosDisplayInForeground": true,
       "color": "#A3D8F7"
     },
     "platforms": ["android", "ios"],
     "githubUrl": "https://github.com/Chattahooligans/",
     "extra": {
       "hooliganHymnal": {
-        "version": "2.1.1",
+        "version": "2.3.0",
         "aboutPlug": {
-          "en": " is built using the open source *Hooligan Hymnal* platform, v2.1.1\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
+          "en": " is built using the open source *Hooligan Hymnal* platform, v2.3.0.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
         }
       }
     }
