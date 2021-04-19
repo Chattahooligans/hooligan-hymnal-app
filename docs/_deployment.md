@@ -109,7 +109,7 @@ TODO
 
 ## Create a Database
 
-Log into MongoDB Cloud Atlas and create a free M0 cluster\*. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username\*\* for the database and STRONG password. Once your URI has been generated, go to the "Network Access" tab in the cluster settings. The free tier of does not allow for specific IP whitelisting, so set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
+Log into MongoDB Cloud Atlas and create a free M0 cluster\*. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username\*\* for the database and STRONG password (letters/numbers only, no special characters). Once your URI has been generated, go to the "Network Access" tab in the cluster settings. The free tier of does not allow for specific IP whitelisting, so set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
 
 \* Need a suggestion for a name? Consider "[mobile-app-name]-production" (and consider a "[name]-development" or "[name]-test" in the future, if you want to experiment)
 
