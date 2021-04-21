@@ -5,7 +5,7 @@
     "owner": "ngsdetroit",
     "slug": "app",
     "privacy": "public",
-    "version": "2.3.0",
+    "version": "2.3.1",
     "primaryColor": "#A3D8F7",
     "icon": "./assets/ngs4.png",
     "orientation": "portrait",
