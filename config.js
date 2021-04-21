@@ -53,6 +53,7 @@ export const Urls = {
   Facebook: 'https://facebook.com/NGSDetroit',
   Instagram: 'https://instagram.com/northernguard',
   Website: 'http://noonelikes.us',
+  Discord: "https://discord.gg/9Jv2EsC9n4",
   YouTube: '',
   Shop: 'https://noonelikes.us/shop/',
   Prideraiser: 'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-2020-LmzzAmx/',
@@ -415,6 +416,7 @@ export const SocialButtons = [
     headerColor: DefaultColors.ColorText,
     items: [
       { icon: 'twitter', url: Urls.Twitter },
+      { icon: 'discord', url: Urls.Discord },
       { icon: 'facebook', url: Urls.Facebook },
       { icon: 'instagram', url: Urls.Instagram },
       { icon: 'shopping', url: Urls.Shop },
