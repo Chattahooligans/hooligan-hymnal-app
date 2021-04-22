@@ -582,7 +582,7 @@ class Post extends React.Component {
                 roster={massTweetRoster}
                 onPress={() => {
                   this.props.navigation.navigate("TwitterList", {
-                    massTweetRoster,
+                    roster: massTweetRoster,
                   });
                 }}
               />
