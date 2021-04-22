@@ -14,7 +14,7 @@
         "Hell's Hymnal: *@JosephSlowvak*",
         "Roster: *@NGS_Tonto*",
         "Localizations: */u/nigol313*, *manuel_mg*",
-        "Blue guy: *@thatgalen*",
+        "Blue guy: *@shutupgalen*",
         "Administration Developer: *@shortnd667*",
         "Release Manager: *@taco_x86*"
       ],
@@ -157,10 +157,10 @@
     },
     "rosterteam": {
       "_comment": [
-          "/src/screens/RosterTeam.js",
-          "This section contains labels for the Team Roster screen.",
-          "",
-          "You probably don't need to change these values in your default translation."
+        "/src/screens/RosterTeam.js",
+        "This section contains labels for the Team Roster screen.",
+        "",
+        "You probably don't need to change these values in your default translation."
       ],
 
       "title": "Roster",
@@ -178,10 +178,10 @@
     },
     "rostertabs": {
       "_comment": [
-          "/src/screens/RosterTabs.js",
-          "This section contains labels for the combined Team/Foes Roster tab interface.",
-          "",
-          "You probably don't need to change these values in your default translation."
+        "/src/screens/RosterTabs.js",
+        "This section contains labels for the combined Team/Foes Roster tab interface.",
+        "",
+        "You probably don't need to change these values in your default translation."
       ],
 
       "title": "Roster",
