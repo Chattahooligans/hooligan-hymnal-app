@@ -63,6 +63,8 @@ One early commitment will be deciding on the Android package name and iOS Bundle
 Example:
 If your SG website is example.com, consider using com.example.app or com.example.hooliganhymnal
 
+Note: Expo will not allow hyphens `-` or underscores `_` in the bundle identifier.
+
 (If your SG doesn't have a traditional domain-based website, ask in the Hooligan Hymnal Slack workspace for guidance.)
 
 ## Create Accounts
@@ -107,11 +109,15 @@ TODO
 
 TODO
 
-## Create a Database
+## Create a MongoDB Cluster
 
-Log into MongoDB Cloud Atlas and create a free M0 sandbox cluster. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username\* for the database and STRONG password. Once your URI has been generated, go to the "Network Access" tab in the cluster settings. The free tier of does not allow for specific IP whitelisting, so set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
+Log into MongoDB Cloud Atlas and create a free M0 cluster\*. Once the cluster is created, press the "connect" button to begin the process of generating a URI to feed into Heroku. You will use the Node 2.2.1.2+ option to generate the URI. Create a username\*\* for the database and STRONG password (letters/numbers only, no special characters). Once your URI has been generated, go to the "Network Access" tab in the cluster settings. The free tier of does not allow for specific IP whitelisting, so set the allowed IPs to 0.0.0.0/0. This will open your DB to access from anywhere in the world, so a secure password is essential.
 
-\*This is an account to access the database itself, and is different than your MongoDB Cloud service account. Don't forget to save the credentials somewhere!
+Upon deployment of the server, a database will be created and populated with sample data.
+
+\* Need a suggestion for a name? Consider "[mobile-app-name]-production" (and consider a "[name]-development" or "[name]-test" in the future, if you want to experiment)
+
+\*\*This is an account to access the database itself, and is different than your MongoDB Cloud service account. Don't forget to save the credentials somewhere! Need a suggestion for a name?  Consider "[sg name]DbAdmin"
 
 ## Fork the Code
 
@@ -162,7 +168,7 @@ Registering your app with Google Firebase is required in order to send push noti
 
 Note that `google-services.json` contains security keys and is NOT synced to GitHub (where it would be available to the public) by default, according to the settings in the `.gitignore` file. While the file can be re-downloaded from Firebase, we highly recommend making a backup copy.
 
-For more information, visit: <https://docs.expo.io/push-notifications/using-fcm/>
+For more information, visit: <https://docs.expo.io/push-notifications/using-fcm/#uploading-server-credentials>
 
 ## Configure the Mobile App
 
