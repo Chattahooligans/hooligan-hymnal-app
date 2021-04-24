@@ -386,8 +386,10 @@
         "You probably don't need to change these values in your default translation."
       ],
 
-      "savetolocal": "Save to Device",
-      "cancel": "Cancel"
+      "share": "Share",
+      "cancel": "Cancel",
+      "sharingnotavailable": "Sharing not available on this platform",
+      "sharingerror": "Error when trying to share"
     },
     "imageviewerfooter": {
       "_comment": [
