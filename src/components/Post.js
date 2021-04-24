@@ -47,6 +47,8 @@ import PostImageWrapper from "./PostImageWrapper";
 import ImageViewer from "react-native-image-zoom-viewer";
 import ImageViewerHeader from "./ImageViewerHeader";
 import ImageViewerFooter from "./ImageViewerFooter";
+import * as FileSystem from "expo-file-system";
+import * as Sharing from "expo-sharing";
 import NotificationEngagementsModal from "./NotificationEngagementsModal";
 import moment from "moment";
 import i18n from "../i18n";
@@ -864,7 +866,7 @@ class Post extends React.Component {
                 this.setState({ imageViewerVisible: false });
               }}
               menuContext={{
-                saveToLocal: i18n.t("components.imageviewer.savetolocal"),
+                saveToLocal: i18n.t("components.imageviewer.share"),
                 cancel: i18n.t("components.imageviewer.cancel"),
               }}
               onClick={() => {
@@ -880,8 +882,9 @@ class Post extends React.Component {
                   visible={this.state.imageViewerHeaderFooterVisible}
                 />
               )}
-              onSave={() => console.log("onSave()")}
-              onSaveToCamera={() => console.log("onSaveToCamera()")}
+              onSave={(uri) => {
+                this._openShareDialogAsync(uri);
+              }}
             />
             <ImageViewerHeader
               visible={this.state.imageViewerHeaderFooterVisible}
@@ -903,6 +906,24 @@ class Post extends React.Component {
   _onLongPressText = () => {
     Toast.show(i18n.t("components.post.copied"));
     Clipboard.setString(this.props.post.text);
+  };
+
+  _openShareDialogAsync = async (uri) => {
+    if (!(await Sharing.isAvailableAsync())) {
+      alert(i18n.t("components.imageviewer.sharingnotavailable"));
+      return;
+    }
+
+    try {
+      const downloadPath = `${FileSystem.cacheDirectory}${uri.substring(
+        uri.lastIndexOf("/") + 1
+      )}`;
+      await FileSystem.downloadAsync(uri, downloadPath);
+
+      await Sharing.shareAsync(downloadPath);
+    } catch (error) {
+      alert(i18n.t("components.imageviewer.sharingerror " + error));
+    }
   };
 }
 
