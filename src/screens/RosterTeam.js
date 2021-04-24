@@ -14,7 +14,11 @@ import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import FadeIn from "react-native-fade-in-image";
-import { ScrollView, RectButton } from "react-native-gesture-handler";
+import {
+  ScrollView,
+  RectButton,
+  TouchableHighlight,
+} from "react-native-gesture-handler";
 import ModalSelector from "react-native-modal-selector";
 
 import { BoldText, MediumText, RegularText } from "../components/StyledText";
@@ -339,8 +343,11 @@ class RosterTeam extends React.Component {
             onPress={this._handlePressTwitterListButton}
             underlayColor="#fff"
           >
+            <BoldText style={styles.socialListsButtonText}>
+              {i18n.t("screens.rosterteam.sociallists")}
+            </BoldText>
             <MaterialCommunityIcons
-              name="playlist-edit"
+              name="twitter"
               size={23}
               style={{
                 color: "#fff",
@@ -351,9 +358,25 @@ class RosterTeam extends React.Component {
                 backgroundColor: "transparent",
               }}
             />
-            <RegularText style={styles.twitterListButtonText}>
-              {i18n.t("screens.rosterteam.twitterlist")}
-            </RegularText>
+            <TouchableHighlight
+              enabled={this.state.rosters.length > 0}
+              onPress={this._handlePressInstagramListButton}
+              underlayColor="#fff"
+              activeOpacity={0.05}
+            >
+              <MaterialCommunityIcons
+                name="instagram"
+                size={23}
+                style={{
+                  color: "#fff",
+                  marginTop: 3,
+                  marginBottom: 3,
+                  marginLeft: 5,
+                  marginRight: 5,
+                  backgroundColor: "transparent",
+                }}
+              />
+            </TouchableHighlight>
           </RectButton>
         </View>
       </LoadingPlaceholder>
@@ -381,6 +404,13 @@ class RosterTeam extends React.Component {
       (element) => element._id == this.state.currentRosterID
     );
     this.props.navigation.navigate("TwitterList", { roster });
+  };
+
+  _handlePressInstagramListButton = () => {
+    let roster = this.state.rosters.find(
+      (element) => element._id == this.state.currentRosterID
+    );
+    this.props.navigation.navigate("InstagramList", { roster });
   };
 }
 
@@ -425,10 +455,10 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     flexDirection: i18n.getFlexDirection(),
   },
-  twitterListButtonText: {
+  socialListsButtonText: {
+    flex: 1,
     fontSize: FontSizes.normalButton,
     color: "#fff",
-    textAlign: "center",
   },
 });
 

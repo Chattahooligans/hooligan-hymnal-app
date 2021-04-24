@@ -28,6 +28,10 @@ const TeamNavigation = (props) => {
       />
       <TeamStack.Screen name="SingleSong" component={Screens.SingleSong} />
       <TeamStack.Screen name="TwitterList" component={Screens.TwitterList} />
+      <TeamStack.Screen
+        name="InstagramList"
+        component={Screens.InstagramList}
+      />
     </TeamStack.Navigator>
   );
 };
