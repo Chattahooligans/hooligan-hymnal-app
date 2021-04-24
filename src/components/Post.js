@@ -139,7 +139,6 @@ class Post extends React.Component {
 
     // check both, in case of weirdness
     if (uri.includes(host) && uri.includes(spliceAfter)) {
-      console.l;
       let scaledUri = uri;
       let position = scaledUri.indexOf(spliceAfter) + spliceAfter.length;
 
