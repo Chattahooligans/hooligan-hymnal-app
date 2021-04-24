@@ -45,7 +45,10 @@ import PostAttachmentPrideraiserMatch from "./PostAttachmentPrideraiserMatch";
 import PostAttachmentSong from "./PostAttachmentSong";
 import PostImageWrapper from "./PostImageWrapper";
 import ImageViewer from "react-native-image-zoom-viewer";
+import ImageViewerHeader from "./ImageViewerHeader";
 import ImageViewerFooter from "./ImageViewerFooter";
+import * as FileSystem from "expo-file-system";
+import * as Sharing from "expo-sharing";
 import NotificationEngagementsModal from "./NotificationEngagementsModal";
 import moment from "moment";
 import i18n from "../i18n";
@@ -66,7 +69,7 @@ class Post extends React.Component {
     textNumberOfLines: Number.MAX_SAFE_INTEGER,
     imageViewerVisible: false,
     imageViewerIndex: 0,
-    imageViewerFooterVisible: true,
+    imageViewerHeaderFooterVisible: true,
     statsModalVisible: false,
   };
 
@@ -136,7 +139,6 @@ class Post extends React.Component {
 
     // check both, in case of weirdness
     if (uri.includes(host) && uri.includes(spliceAfter)) {
-      console.l;
       let scaledUri = uri;
       let position = scaledUri.indexOf(spliceAfter) + spliceAfter.length;
 
@@ -381,7 +383,7 @@ class Post extends React.Component {
             onPress={() => {
               this.setState({
                 imageViewerVisible: true,
-                imageViewerFooterVisible: true,
+                imageViewerHeaderFooterVisible: true,
                 imageViewerIndex: index,
               });
             }}
@@ -417,7 +419,7 @@ class Post extends React.Component {
             onPress={() => {
               this.setState({
                 imageViewerVisible: true,
-                imageViewerFooterVisible: true,
+                imageViewerHeaderFooterVisible: true,
                 imageViewerIndex: index,
               });
             }}
@@ -460,7 +462,7 @@ class Post extends React.Component {
             onPress={() => {
               this.setState({
                 imageViewerVisible: true,
-                imageViewerFooterVisible: true,
+                imageViewerHeaderFooterVisible: true,
                 imageViewerIndex: index,
               });
             }}
@@ -492,7 +494,9 @@ class Post extends React.Component {
             (player) => player._id === attachment.relatedId
           );
           let playerDisplay = Settings.PostAttachmentExpired_Show ? (
-            <PostAttachmentExpired />
+            <PostAttachmentExpired
+              key={"postattachmentexpired-player-" + index}
+            />
           ) : null;
           if (player) {
             playerDisplay = (
@@ -524,7 +528,9 @@ class Post extends React.Component {
             song = attachment.data;
           }
           let songDisplay = Settings.PostAttachmentExpired_Show ? (
-            <PostAttachmentExpired />
+            <PostAttachmentExpired
+              key={"postattachmentexpired-song-" + index}
+            />
           ) : null;
           if (song) {
             songDisplay = (
@@ -551,7 +557,9 @@ class Post extends React.Component {
             (roster) => roster._id === attachment.data.rosterId
           );
           let massInstagramDisplay = Settings.PostAttachmentExpired_Show ? (
-            <PostAttachmentExpired />
+            <PostAttachmentExpired
+              key={"postattachmentexpired-massinstagram-" + index}
+            />
           ) : null;
           if (massInstagramRoster) {
             massInstagramDisplay = (
@@ -573,7 +581,9 @@ class Post extends React.Component {
             (roster) => roster._id === attachment.data.rosterId
           );
           let massTweetDisplay = Settings.PostAttachmentExpired_Show ? (
-            <PostAttachmentExpired />
+            <PostAttachmentExpired
+              key={"postattachmentexpired-masstweet-" + index}
+            />
           ) : null;
           if (massTweetRoster) {
             massTweetDisplay = (
@@ -844,6 +854,7 @@ class Post extends React.Component {
             onRequestClose={() => this.setState({ imageViewerVisible: false })}
           >
             <ImageViewer
+              useNativeDriver={true}
               doubleClickInterval={500}
               renderIndicator={() => {}}
               enablePreload={true}
@@ -854,22 +865,31 @@ class Post extends React.Component {
                 this.setState({ imageViewerVisible: false });
               }}
               menuContext={{
-                saveToLocal: i18n.t("components.imageviewer.savetolocal"),
+                saveToLocal: i18n.t("components.imageviewer.share"),
                 cancel: i18n.t("components.imageviewer.cancel"),
               }}
               onClick={() => {
-                let imageViewerFooterVisible = this.state
-                  .imageViewerFooterVisible;
-                imageViewerFooterVisible = !imageViewerFooterVisible;
-                this.setState({ imageViewerFooterVisible });
+                this.setState({
+                  imageViewerHeaderFooterVisible: !this.state
+                    .imageViewerHeaderFooterVisible,
+                });
               }}
               renderFooter={(index) => (
                 <ImageViewerFooter
                   images={post.images}
                   index={index}
-                  visible={this.state.imageViewerFooterVisible}
+                  visible={this.state.imageViewerHeaderFooterVisible}
                 />
               )}
+              onSave={(uri) => {
+                this._openShareDialogAsync(uri);
+              }}
+            />
+            <ImageViewerHeader
+              visible={this.state.imageViewerHeaderFooterVisible}
+              onClose={() => {
+                this.setState({ imageViewerVisible: false });
+              }}
             />
           </Modal>
         )}
@@ -885,6 +905,24 @@ class Post extends React.Component {
   _onLongPressText = () => {
     Toast.show(i18n.t("components.post.copied"));
     Clipboard.setString(this.props.post.text);
+  };
+
+  _openShareDialogAsync = async (uri) => {
+    if (!(await Sharing.isAvailableAsync())) {
+      alert(i18n.t("components.imageviewer.sharingnotavailable"));
+      return;
+    }
+
+    try {
+      const downloadPath = `${FileSystem.cacheDirectory}${uri.substring(
+        uri.lastIndexOf("/") + 1
+      )}`;
+      await FileSystem.downloadAsync(uri, downloadPath);
+
+      await Sharing.shareAsync(downloadPath);
+    } catch (error) {
+      alert(i18n.t("components.imageviewer.sharingerror " + error));
+    }
   };
 }
 

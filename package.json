@@ -35,6 +35,7 @@
     "expo-location": "~10.0.0",
     "expo-notifications": "~0.8.2",
     "expo-permissions": "~10.0.0",
+    "expo-sharing": "~8.5.0",
     "expo-splash-screen": "~0.8.1",
     "expo-web-browser": "~8.6.0",
     "fbemitter": "^2.1.1",
