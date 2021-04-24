@@ -45,6 +45,7 @@ import PostAttachmentPrideraiserMatch from "./PostAttachmentPrideraiserMatch";
 import PostAttachmentSong from "./PostAttachmentSong";
 import PostImageWrapper from "./PostImageWrapper";
 import ImageViewer from "react-native-image-zoom-viewer";
+import ImageViewerHeader from "./ImageViewerHeader";
 import ImageViewerFooter from "./ImageViewerFooter";
 import NotificationEngagementsModal from "./NotificationEngagementsModal";
 import moment from "moment";
@@ -66,7 +67,7 @@ class Post extends React.Component {
     textNumberOfLines: Number.MAX_SAFE_INTEGER,
     imageViewerVisible: false,
     imageViewerIndex: 0,
-    imageViewerFooterVisible: true,
+    imageViewerHeaderFooterVisible: true,
     statsModalVisible: false,
   };
 
@@ -381,7 +382,7 @@ class Post extends React.Component {
             onPress={() => {
               this.setState({
                 imageViewerVisible: true,
-                imageViewerFooterVisible: true,
+                imageViewerHeaderFooterVisible: true,
                 imageViewerIndex: index,
               });
             }}
@@ -417,7 +418,7 @@ class Post extends React.Component {
             onPress={() => {
               this.setState({
                 imageViewerVisible: true,
-                imageViewerFooterVisible: true,
+                imageViewerHeaderFooterVisible: true,
                 imageViewerIndex: index,
               });
             }}
@@ -460,7 +461,7 @@ class Post extends React.Component {
             onPress={() => {
               this.setState({
                 imageViewerVisible: true,
-                imageViewerFooterVisible: true,
+                imageViewerHeaderFooterVisible: true,
                 imageViewerIndex: index,
               });
             }}
@@ -844,6 +845,7 @@ class Post extends React.Component {
             onRequestClose={() => this.setState({ imageViewerVisible: false })}
           >
             <ImageViewer
+              useNativeDriver={true}
               doubleClickInterval={500}
               renderIndicator={() => {}}
               enablePreload={true}
@@ -858,18 +860,26 @@ class Post extends React.Component {
                 cancel: i18n.t("components.imageviewer.cancel"),
               }}
               onClick={() => {
-                let imageViewerFooterVisible = this.state
-                  .imageViewerFooterVisible;
-                imageViewerFooterVisible = !imageViewerFooterVisible;
-                this.setState({ imageViewerFooterVisible });
+                this.setState({
+                  imageViewerHeaderFooterVisible: !this.state
+                    .imageViewerHeaderFooterVisible,
+                });
               }}
               renderFooter={(index) => (
                 <ImageViewerFooter
                   images={post.images}
                   index={index}
-                  visible={this.state.imageViewerFooterVisible}
+                  visible={this.state.imageViewerHeaderFooterVisible}
                 />
               )}
+              onSave={() => console.log("onSave()")}
+              onSaveToCamera={() => console.log("onSaveToCamera()")}
+            />
+            <ImageViewerHeader
+              visible={this.state.imageViewerHeaderFooterVisible}
+              onClose={() => {
+                this.setState({ imageViewerVisible: false });
+              }}
             />
           </Modal>
         )}
