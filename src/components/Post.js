@@ -493,7 +493,9 @@ class Post extends React.Component {
             (player) => player._id === attachment.relatedId
           );
           let playerDisplay = Settings.PostAttachmentExpired_Show ? (
-            <PostAttachmentExpired />
+            <PostAttachmentExpired
+              key={"postattachmentexpired-player-" + index}
+            />
           ) : null;
           if (player) {
             playerDisplay = (
@@ -525,7 +527,9 @@ class Post extends React.Component {
             song = attachment.data;
           }
           let songDisplay = Settings.PostAttachmentExpired_Show ? (
-            <PostAttachmentExpired />
+            <PostAttachmentExpired
+              key={"postattachmentexpired-song-" + index}
+            />
           ) : null;
           if (song) {
             songDisplay = (
@@ -552,7 +556,9 @@ class Post extends React.Component {
             (roster) => roster._id === attachment.data.rosterId
           );
           let massInstagramDisplay = Settings.PostAttachmentExpired_Show ? (
-            <PostAttachmentExpired />
+            <PostAttachmentExpired
+              key={"postattachmentexpired-massinstagram-" + index}
+            />
           ) : null;
           if (massInstagramRoster) {
             massInstagramDisplay = (
@@ -574,7 +580,9 @@ class Post extends React.Component {
             (roster) => roster._id === attachment.data.rosterId
           );
           let massTweetDisplay = Settings.PostAttachmentExpired_Show ? (
-            <PostAttachmentExpired />
+            <PostAttachmentExpired
+              key={"postattachmentexpired-masstweet-" + index}
+            />
           ) : null;
           if (massTweetRoster) {
             massTweetDisplay = (
