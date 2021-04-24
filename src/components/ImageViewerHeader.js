@@ -2,6 +2,7 @@ import React from "react";
 import {
   Clipboard,
   Dimensions,
+  Platform,
   StyleSheet,
   TouchableWithoutFeedback,
   View,
@@ -16,7 +17,10 @@ export default class ImageViewerHeader extends React.Component {
     else {
       return (
         <View style={styles.container}>
-          <TouchableWithoutFeedback onPress={this.props.onClose}>
+          <TouchableWithoutFeedback
+            onPress={this.props.onClose}
+            style={{ padding: 10 }}
+          >
             <MaterialCommunityIcons name={"close"} size={25} color={"white"} />
           </TouchableWithoutFeedback>
         </View>
@@ -30,6 +34,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "#00000040",
     padding: 10,
+    paddingTop: Platform.OS == "ios" ? 25 : 10,
     width: Dimensions.get("window").width,
     alignItems: "flex-end",
   },
