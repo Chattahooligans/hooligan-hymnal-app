@@ -68,6 +68,7 @@
       "selectplayer": "Select Player",
       "selectsong": "Select Song",
       "composesong": "Compose Song",
+      "massinstagram": "Tag the Players on Instagram",
       "masstweet": "Tweet the Players",
       "gknickname": "GK Nickname",
       "prideraisermatch": "Prideraiser Match Update"
@@ -165,6 +166,7 @@
 
       "title": "Roster",
       "nosquadsfound": "No squads found",
+      "sociallists": "Social Lists",
       "twitterlist": "Twitter List"
     },
     "rosterfoes": {
@@ -246,8 +248,10 @@
       "gonnascore": "We're gonna score on you, "
     },
     "imageviewer": {
-      "savetolocal": "Save to Device",
-      "cancel": "Cancel"
+      "share": "Share",
+      "cancel": "Cancel",
+      "sharingnotavailable": "Sharing not available on this platform",
+      "sharingerror": "Error when trying to share"
     },
     "imageviewerfooter": {
       "captionprefix": "",
