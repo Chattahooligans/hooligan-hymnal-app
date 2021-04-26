@@ -448,6 +448,7 @@ const styles = StyleSheet.create({
     backgroundColor: DefaultColors.ButtonBackground,
     paddingHorizontal: 15,
     paddingVertical: 10,
+    paddingBottom: Platform.OS == "ios" ? 15 : 10,
     marginHorizontal: 0,
     width: 100 + "%",
     alignItems: "center",
