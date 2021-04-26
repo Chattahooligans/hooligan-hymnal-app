@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "#00000040",
     padding: 10,
-    paddingTop: Platform.OS == "ios" ? 25 : 10,
+    paddingTop: Platform.OS == "ios" ? 30 : 10,
     width: Dimensions.get("window").width,
     alignItems: "flex-end",
   },
