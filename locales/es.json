@@ -37,7 +37,7 @@
         },
         "adminhome": {
             "title": "Tablero de Capo",
-            "logout": "Logout"
+            "logout": "Cerrar sesión"
         },
         "adminlogin": {
             "title": "Tablero de Capo",
@@ -47,17 +47,36 @@
         },
         "postattach": {
             "attachmenttypes": "Attachment Types",
-            "selectplayer": "Select Player",
+            "selectplayer": "Seleciona jugador",
             "selectsong": "Elegir Una Canción",
             "composesong": "Compone Una Canción",
-            "masstweet": "Tweet the Players",
-            "gknickname": "GK Nickname"
+            "massinstagram": "Tacha los jugadores en Instagram",
+            "masstweet": "Manda un tweet a los jugadores",
+            "gknickname": "Apodo del portero",
+            "prideraisermatch": "Informe de Partido Prideraiser"
         },
         "postattachmentcomposegknickname": {
-            "gknickname": "GK Nickname",
+            "gknickname": "Apodo del portero",
             "instructions1": "1. We're gonna score on you...",
             "instructions2": "2. Elige un color, cualquier color",
             "instructions3": "3. ¿Cual es más legible?"
+        },
+        "postattachmentcomposeprideraisermatch": {
+          "_comment": [
+            "/src/screens/PostAttachmentComposePrideraiserMatch.js",
+            "This screen contains labels and prompts to compose a Post Attachment of the Prideraiser Match Update type",
+            "",
+            "Prideraiser-related text can include %macros% that use live campaign data.",
+            "See /src/components/PrideraiserHelper.js for more information.",
+            "",
+            "You probably don't need to change these values in your default translation."
+          ],
+        
+          "prideraisermatch": "Informe de Partido Prideraiser",
+          "howmanygoals": "¿Cuantos %goal_name_plural% para este partido?",
+          "analytics": "Analítica (fuente)",
+          "source": "source",
+          "attach": "Ligar"
         },
         "postattachmentcomposesong": {
             "composesong": "Compone Una Canción",
@@ -65,24 +84,35 @@
             "lyrics": "Letra",
             "attach": "Attach"
         },
+        "postattachmentselectmassinstagram": {
+            "_comment": [
+              "/src/screens/PostAttachmentSelectMassInstagram.js",
+              "This screen contains labels to select a Roster for a Post Attachment of the Mass Instagram type",
+              "",
+              "You probably don't need to change these values in your default translation."
+            ],
+        
+            "selectroster": "Tacha los jugadores en Instagram - Seleciona Lista",
+            "search": "Busqueda"
+        },
         "postattachmentselectmasstweet": {
-            "selectroster": "Select Roster",
-            "search": "Search"
+            "selectroster": "Seleciona Lista",
+            "search": "Busqueda"
         },
         "postattachmentselectplayer": {
             "selectplayer": "Select Player",
-            "search": "Search"
+            "search": "Busqueda"
         },
         "postattachmentselectsong": {
             "selectsong": "Elegir Una Canción",
-            "search": "Search"
+            "search": "Busqueda"
         },
         "postcreate": {
-            "title": "Create Post",
-            "addattachment": "Add Attachment",
-            "push": "Bother people with a push notification? Seriously?",
-            "cancel": "Cancel",
-            "continue": "Continue"
+            "title": "Crear Anuncio",
+            "addattachment": "Agregar adjunto archivo",
+            "push": "Molestar a personas con una notificación automática? En serio?",
+            "cancel": "Cancelar",
+            "continue": "Continúa"
         },
         "postpreview": {
             "title": "Preview Post",
@@ -106,7 +136,8 @@
         "rosterteam": {
             "title": "Roster",
             "nosquadsfound": "No se encontraron escuadrones",
-            "twitterlist": "Lista de cuentas de Twitter"
+            "twitterlist": "Lista de cuentas de Twitter",
+            "sociallists": "Listas Sociales"
         },
         "rostertabs": {
             "title": "Lista",
@@ -140,7 +171,10 @@
         "about": "Acerca De",
         "links": {
             "events": "Eventos",
-            "standings": "Tabla de liga",
+            "uwsstandings": "Tabla de Posiciones UWS",
+            "uws2standings": "Tabla de Posiciones UWS",
+            "nisastandings": "Tabla de Posiciones NISA",
+            "mwplstandings": "Tabla de Posiciones MWPL",
             "shop": "Tienda de mercancías",
             "volunteer": "Sè volunatrio",
             "instrumentation": "Instrumentación",
@@ -167,6 +201,22 @@
         },
         "postattachmentmasstweet": {
             "tweettheplayers": "Tweet the Players"
+        },
+        "postattachmentprideraisermatch": {
+            "_comment": [
+              "/src/components/PostAttachmentPrideraiserMatch.js",
+              "This section contains labels for a Post Attachment of the Prideraiser Match Update type. .message is used if %goalCount% is greater than zero, else .messagezerogoals is used.",
+              "",
+              "Prideraiser-related text can include %macros% that use live campaign data.",
+              "See /src/components/PrideraiserHelper.js for more information.",
+              "",
+              "You WILL need to change these values in your default translation."
+            ],
+        
+            "heading": "%name%",
+            "message": "Por %goalCount% %goal_name_computed%, hemos recaudado $%raised% para beneficio de %charity_name%! Haz tu compromiso ahora.",
+            "messagezerogoals": "No hubo %goal_name_computed% en este parido, pero podemos recaudir %pledged_total% para beneficio de %charity_name% con cada uno. Haz tu compromiso ahora.",
+            "pledge": "Promesa"
         },
         "postattachmentmultitweet": {
             "tweettheplayers": "Tweet them all!"

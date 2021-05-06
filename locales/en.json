@@ -262,7 +262,7 @@
     "links": {
       "events": "Events",
       "uwsstandings": "UWS Standings",
-      "uws2standings": "UWS Standings",
+      "uws2standings": "UWS2 Standings",
       "nisastandings": "NISA Standings",
       "mwplstandings": "MWPL Standings",
       "shop": "Merch Shop",
@@ -299,6 +299,22 @@
     },
     "postattachmentmasstweet": {
       "tweettheplayers": "Tweet the Players"
+    },
+    "postattachmentprideraisermatch": {
+      "_comment": [
+        "/src/components/PostAttachmentPrideraiserMatch.js",
+        "This section contains labels for a Post Attachment of the Prideraiser Match Update type. .message is used if %goalCount% is greater than zero, else .messagezerogoals is used.",
+        "",
+        "Prideraiser-related text can include %macros% that use live campaign data.",
+        "See /src/components/PrideraiserHelper.js for more information.",
+        "",
+        "You WILL need to change these values in your default translation."
+      ],
+
+      "heading": "%name% Update",
+      "message": "Because of %goalCount% %goal_name_computed%, we raised $%raised% to benefit %charity_name%! Make your pledge now",
+      "messagezerogoals": "No %goal_name_computed% from this match, but we can raise %pledged_total% to benefit %charity_name% with each one. Make your pledge now",
+      "pledge": "Pledge"
     },
     "postattachmentselectmasstweet": {
       "_comment": [
