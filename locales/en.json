@@ -79,11 +79,39 @@
       "instructions2": "2. Pick a color, any color",
       "instructions3": "3. Which is more readable?"
     },
+    "postattachmentcomposeprideraisermatch": {
+      "_comment": [
+        "/src/screens/PostAttachmentComposePrideraiserMatch.js",
+        "This screen contains labels and prompts to compose a Post Attachment of the Prideraiser Match Update type",
+        "",
+        "Prideraiser-related text can include %macros% that use live campaign data.",
+        "See /src/components/PrideraiserHelper.js for more information.",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "prideraisermatch": "Prideraiser Match Update",
+      "howmanygoals": "How many %goal_name_plural% for this match?",
+      "analytics": "Analytics (source)",
+      "source": "source",
+      "attach": "Attach"
+    },
     "postattchmentcomposesong": {
       "composesong": "Compose Song",
       "title": "Title",
       "lyrics": "Lyrics",
       "attach": "Attach"
+    },
+    "postattachmentselectmassinstagram": {
+      "_comment": [
+        "/src/screens/PostAttachmentSelectMassInstagram.js",
+        "This screen contains labels to select a Roster for a Post Attachment of the Mass Instagram type",
+        "",
+        "You probably don't need to change these values in your default translation."
+      ],
+
+      "selectroster": "Tag the Players on Instagram - Select Roster",
+      "search": "Search"
     },
     "postattachmentselectmasstweet": {
       "selectroster": "Select Roster",
@@ -234,7 +262,9 @@
     "links": {
       "events": "Events",
       "uwsstandings": "UWS Standings",
+      "uws2standings": "UWS Standings",
       "nisastandings": "NISA Standings",
+      "mwplstandings": "MWPL Standings",
       "shop": "Merch Shop",
       "volunteer": "Volunteer",
       "instrumentation": "Instrumentation",
@@ -269,17 +299,6 @@
     },
     "postattachmentmasstweet": {
       "tweettheplayers": "Tweet the Players"
-    },
-    "postattachmentselectmassinstagram": {
-      "_comment": [
-        "/src/screens/PostAttachmentSelectMassInstagram.js",
-        "This screen contains labels to select a Roster for a Post Attachment of the Mass Instagram type",
-        "",
-        "You probably don't need to change these values in your default translation."
-      ],
-
-      "selectroster": "Tag the Players on Instagram - Select Roster",
-      "search": "Search"
     },
     "postattachmentselectmasstweet": {
       "_comment": [
