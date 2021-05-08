@@ -109,10 +109,18 @@
         },
         "postcreate": {
             "title": "Crear Anuncio",
+            "linkimage": "Ligar imagen remoto",
             "addattachment": "Agregar adjunto archivo",
             "push": "Molestar a personas con una notificación automática? En serio?",
             "cancel": "Cancelar",
-            "continue": "Continúa"
+            "continue": "Continúa",
+            "uploadimage": "Subir imagen",
+            "nopermission": "Permisos han fallado",
+            "linkimageinstructions": "Pegar la dirección de web exacta de una imagen",
+            "linkwarning": "ADVERTENCIA:\n- Rendimiento puede desacelerar con imagenes grandes. Considera ligar a una versión más pequeña como miniatura\n- Además, no se revisan errors ni se hace validación con imagenes ligadas remotamente. Administradores deberán seguir solo con cuidado y con precauciónes.",
+            "pasteuri": "Pegar URI",
+            "pastethumbnailuri": "Pegar URI de la miniatura",
+            "link": "Ligar imagen"
         },
         "postpreview": {
             "title": "Preview Post",
@@ -220,6 +228,12 @@
         },
         "postattachmentmultitweet": {
             "tweettheplayers": "Tweet them all!"
+        },
+        "prideraisercampaignsummary": {
+            "title": "%supporter_group.name% presenta *%name%*",
+            "benefitting": "Por el beneficio de %charity_name%",
+            "pledged": "$%pledged_total% comprometido por %goal_name%",
+            "learnmore": "Haz clic para aprender mas sobre Prideraiser"
         },
         "songview": {
            "copiedtitle": "Título copiado al portapapeles",
