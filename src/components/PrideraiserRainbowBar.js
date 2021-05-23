@@ -13,6 +13,20 @@ export default class PrideraiserRainbowBar extends React.Component {
       <View style={{ flexDirection: "row" }}>
         <View
           style={{
+            backgroundColor: PrideraiserPalette.black,
+            flex: 1,
+            height: barHeight,
+          }}
+        />
+        <View
+          style={{
+            backgroundColor: PrideraiserPalette.brown,
+            flex: 1,
+            height: barHeight,
+          }}
+        />
+        <View
+          style={{
             backgroundColor: PrideraiserPalette.red,
             flex: 1,
             height: barHeight,
@@ -49,20 +63,6 @@ export default class PrideraiserRainbowBar extends React.Component {
         <View
           style={{
             backgroundColor: PrideraiserPalette.violet,
-            flex: 1,
-            height: barHeight,
-          }}
-        />
-        <View
-          style={{
-            backgroundColor: PrideraiserPalette.brown,
-            flex: 1,
-            height: barHeight,
-          }}
-        />
-        <View
-          style={{
-            backgroundColor: PrideraiserPalette.black,
             flex: 1,
             height: barHeight,
           }}
