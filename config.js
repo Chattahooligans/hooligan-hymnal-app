@@ -55,7 +55,7 @@ export const Urls = {
   Shop: "https://squareup.com/store/the-chattahooligans",
   Prideraiser: "https://chatt.prideraiser.org/",
   // Look for random characters at the end of your current campaign url (must update for each campaign season)
-  PrideraiserCampaignId: "aw43AmO",
+  PrideraiserCampaignId: "vRxpw2boNla7y",
   GoFundMe: "https://www.gofundme.com/chattahooligan-youth-soccer-investment",
   EsTwitter: "https://twitter.com/LosCFCHooligans",
   EsFacebook: "",
@@ -541,7 +541,7 @@ export const Settings = {
 
   // Home_HeroContent: "video", "image", "prideraiser"
   //      Hero content on the home screen
-  Home_HeroContent: "video",
+  Home_HeroContent: "prideraiser",
 
   // Home_PostsPerPage: number
   //      Load this many news feed items, then load this many more if the user scrolls to the bottom
