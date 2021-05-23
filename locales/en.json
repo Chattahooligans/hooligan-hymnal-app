@@ -519,7 +519,7 @@
         "You WILL need to change these values in your default translation."
       ],
 
-      "title": "%supporter_group.name% present *%name%*",
+      "title": "*%name%*",
       "benefitting": "Benefitting %charity_name%",
       "pledged": "$%pledged_total% pledged per %goal_name%",
       "learnmore": "Tap to learn more about Prideraiser"
