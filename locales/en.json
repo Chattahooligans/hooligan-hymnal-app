@@ -288,6 +288,7 @@
       "creditprefix": "📷: "
     },
     "post": {
+      "readmore": "Read more",
       "copied": "Copied",
       "hidealerttitle": "Hide Post",
       "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
