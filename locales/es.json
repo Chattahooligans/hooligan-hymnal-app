@@ -248,6 +248,7 @@
         }
     },
     "positions": {
+        "N/A": "N/A",
         "Forward": "Delantero",
         "Defender": "Defensor",
         "Midfielder": "Mediocampista",

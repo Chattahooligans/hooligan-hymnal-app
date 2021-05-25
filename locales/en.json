@@ -357,6 +357,7 @@
     }
   },
   "positions": {
+    "N/A": "N/A",
     "Forward": "Forward",
     "Defender": "Defender",
     "Midfielder": "Midfielder",
