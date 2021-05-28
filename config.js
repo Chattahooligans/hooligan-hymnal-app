@@ -56,9 +56,9 @@ export const Urls = {
   Discord: "https://discord.gg/9Jv2EsC9n4",
   YouTube: '',
   Shop: 'https://noonelikes.us/shop/',
-  Prideraiser: 'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-2020-LmzzAmx/',
+  Prideraiser: 'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-2021-J7MMygnZJNrm3/',
   // Look for random characters at the end of your current campaign url (must update for each campaign season)
-  PrideraiserCampaignId: 'LmzzAmx',
+  PrideraiserCampaignId: 'J7MMygnZJNrm3',
   GoFundMe: 'https://twitter.com/LetsMakeRoots',
   EsTwitter: 'https://twitter.com/Rouge_y_Oro',
   EsFacebook: '',
@@ -458,7 +458,7 @@ export const Settings = {
 
   // Home_HeroContent: "video", "image", "prideraiser"
   //      Hero content on the home screen
-  Home_HeroContent: "video",
+  Home_HeroContent: "prideraiser",
   
   InstagramList_AppendHandles: "",
 

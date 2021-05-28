@@ -153,9 +153,7 @@ export default class PrideraiserCampaignSummary extends React.Component {
                 {benefitting}
               </ParsedText>
               {
-                // disabled for pandemic
-                false && (
-                  <ParsedText
+                <ParsedText
                     parse={parsedTextOptions}
                     style={[
                       styles.pledged,
@@ -167,7 +165,6 @@ export default class PrideraiserCampaignSummary extends React.Component {
                   >
                     {pledged}
                   </ParsedText>
-                )
               }
               <ParsedText
                 parse={parsedTextOptions}
