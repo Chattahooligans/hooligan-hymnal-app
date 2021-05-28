@@ -288,6 +288,7 @@
       "creditprefix": "📷: "
     },
     "post": {
+      "readmore": "Read more",
       "copied": "Copied",
       "hidealerttitle": "Hide Post",
       "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
@@ -357,6 +358,7 @@
     }
   },
   "positions": {
+    "N/A": "N/A",
     "Forward": "Forward",
     "Defender": "Defender",
     "Midfielder": "Midfielder",
