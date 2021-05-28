@@ -1,0 +1,385 @@
+{
+  "screens": {
+    "about": {
+      "title": "Over Ons",
+      "appTitle": "De Guardbook",
+      "version": "v",
+      "description": "De Guardbook maakt het makkelijk voor iedereen om Detroit City FC te supporten.",
+      "feedback": "Stuur feedback naar *@NGSDetroit* of *@Guardbook* op Twitter, of e-mail webmaster@noonelikes.us",
+      "creditsheading": "Colofon",
+      "credits": [
+        "Alle headshots van spelers met dank aan * Detroit City FC *",
+        "Thuis scherm video: *@mikoDCTID*",
+        "Menu foto: *@TheDukeNGS*",
+        "Hell's Hymnal: *@JosephSlowvak*",
+        "Selectie: *@NGS_Tonto*",
+        "Vertaaling: *@clint5047*",
+        "Blue guy: *@shutupgalen*",
+        "Administratie Developer: *@shortnd667*",
+        "Release Manager: *@taco_x86*"
+      ],
+      "debug": "Debug",
+      "hymnalplug": " is gemaakt met het open source *Hooligan Hymnal* platform.\n\nVolg _@hooliganhymnal_ op Twitter en bezoek het project op: https://github.com/Chattahooligans"
+    },
+    "capocompose": {
+      "title": "Componeer song",
+      "songtitle": "Titel",
+      "songlyrics": "Songtekst",
+      "continue": "Volgende"
+    },
+    "capoconfirmGK": {
+      "title": "Bevestig GK bijnaam?",
+      "sendonly": "Alleen verzenden",
+      "sendnotify": "Verzend & meld"
+    },
+    "capoconfirmsong": {
+      "title": "Bevestig song?",
+      "sendonly": "Alleen verzenden",
+      "sendnotify": "Verzend & meld"
+    },
+    "adminhome": {
+      "title": "Gatekeeper Dashboard",
+      "selectsong": "Selecteer song",
+      "composesong": "Componeer song",
+      "massinstagram": "Tag de spelers op Instagram",
+      "gknickname": "GK bijnaam",
+      "postcreate": "Maak bericht",
+      "logout": "Uitloggen"
+    },
+    "adminlogin": {
+      "title": "Gatekeeper Dashboard",
+      "username": "Gebruikersnaam/E-mail",
+      "password": "Wachtwoord",
+      "loading": "Inloggen..",
+      "login": "Inloggen",
+      "failed": "Inloggen mislukt: ongeldige gebruikersnaam of wachtwoord."
+    },
+    "caposelectsong": {
+      "title": "Selecteer song"
+    },
+    "caposetGKnickname": {
+      "title": "GK bijnaam",
+      "instructions1": "1. We gaan scoren...",
+      "instructions2": "2. Kies een kleur..",
+      "instructions3": "3. Welke is beter leesbaar?"
+    },
+    "postattach": {
+      "attachmenttypes": "Bijlage type",
+      "selectplayer": "Selecteer Speler",
+      "selectsong": "Selecteer song",
+      "composesong": "Componeer song",
+      "massinstagram": "Tag de spelers op Instagram",
+      "masstweet": "Tweet de spelers",
+      "gknickname": "GK bijnaam",
+      "prideraisermatch": "Prideraiser wedstrijd update"
+    },
+    "postattachmentcomposegknickname": {
+      "gknickname": "GK bijnaam",
+      "instructions1": "1. We gaan scoren...",
+      "instructions2": "2. Kies een kleur..",
+      "instructions3": "3. Welke is beter leesbaar?"
+    },
+    "postattachmentcomposeprideraisermatch": {
+      "_comment": [
+        "/src/screens/PostAttachmentComposePrideraiserMatch.js",
+        "Dit scherm bevat labels en prompts om een ​​bijlage samen te stellen voor de Prideraiser Wedstrijd Update type",
+        "",
+        "Prideraiser-gerelateerde tekst kan %macros% bevatten die live campagnegegevens gebruiken.",
+        "Zie /src/components/PrideraiserHelper.js voor meer informatie.",
+        "",
+        "Je hoeft deze waarden waarschijnlijk niet te wijzigen in je standaardvertaling."
+      ],
+
+      "prideraisermatch": "Prideraiser Wedstrijd Update",
+      "howmanygoals": "Hoe veel %goal_name_plural% voor deze wedstrijd?",
+      "analytics": "Statistieken (bron)",
+      "source": "bron",
+      "attach": "Voeg toe"
+    },
+    "postattchmentcomposesong": {
+      "composesong": "Componeer song",
+      "title": "Titel",
+      "lyrics": "Songteks",
+      "attach": "Voeg toe"
+    },
+    "postattachmentselectmassinstagram": {
+      "_comment": [
+        "/src/screens/PostAttachmentSelectMassInstagram.js",
+        "Dit scherm bevat labels om een bijlage voor de Selectie te selecteren voor het massa Instagram type",
+        "",
+        "Je hoeft deze waarden waarschijnlijk niet te wijzigen in je standaardvertaling."
+      ],
+
+      "selectroster": "Tag de spelers op Instagram - selecteer selectie",
+      "search": "Zoek"
+    },
+    "postattachmentselectmasstweet": {
+      "selectroster": "Selecteer selectie",
+      "search": "Zoek"
+    },
+    "postattachmentselectplayer": {
+      "selectplayer": "Selecteer speler",
+      "search": "Zoek"
+    },
+    "postattachmentselectsong": {
+      "selectsong": "Selecteer song",
+      "search": "Zoek"
+    },
+    "postcreate": {
+      "title": "Maak bericht",
+      "linkimage": "Link externe afbeelding",
+      "uploadimage": "Upload afbeelding",
+      "nopermission": "Geen toegang",
+      "addattachment": "Voeg bijlage toe",
+      "push": "Val mensen lastig met een pushmelding? Echt?",
+      "cancel": "Sluiten",
+      "continue": "Volgende",
+      "linkimageinstructions": "Plak het exacte webadres van een afbeelding",
+      "linkimagewarning": "WAARSCHUWING:\n- Dit kan lang duren met grote afbeeldingen. Overweeg om naar een kleinere versie te linken voor de thumbnail\n- Externe afbeeldingen worden niet gevalideerd. Admins moeten voorzichting verder gaan.",
+      "pasteuri": "Plak URI",
+      "pastethumbnailuri": "Plak Thumbnail URI",
+      "link": "Link afbeelding"
+    },
+    "postpreview": {
+      "title": "Voorbeeld van bericht",
+      "submit": "bericht verzenden",
+      "schedule": "bericht plannen"
+    },
+    "refereecard": {
+      "titlered": "Laat ze een kaart zien",
+      "titleyellow": "Laat ze een kaart zien"
+    },
+    "events": {
+      "title": "Evenementen",
+      "fallback": "Evenementen openen in een webbrowser"
+    },
+    "home": {
+      "findthemenu": "Vind meer functies in het %menuicon% menu, linksboven",
+      "visit": "Bezoek:",
+      "songbook": "Hell's Hymnal",
+      "roster": "Selectie"
+    },
+    "instrumentation": {
+      "title": "Statistieken",
+      "fallback": "Statistieken opent in een webbrowser"
+    },
+    "instagramlist": {
+      "_comment": [
+        "/src/screens/InstagramList.js",
+        "Deze sectie bevat labels en prompts voor de Instagram List functie, die een selecteerbaar tekstvak presenteert met Instagram namen van de spelers. Wijzig de .heading- en .instructions-waarden zodat ze passen bij het bericht.",
+        "",
+        "Je MOET deze waarden veranderen in je standaard vertaaling."
+      ],
+
+      "title": "Instagram lijst",
+      "heading": "Wees de twaalfde persoon",
+      "instructions": "Support voor de spelers van DCFC is er in vele vormen, zowel binnen als buiten het stadion. Berichten van supporters voor en na wedstrijden betekenen veel en worden gewaardeerd door spelers.\n\nJe kunt meerdere Instagram namen uit het onderstaande vak kopiëren en ze in het bijschrift van een Instagram-bericht plakken.",
+      "openinstagram": "Open Instagram App"
+    },
+    "player": {
+      "playersongs": "Speler songs",
+      "stilllooking": "We werken nog aan een nummer voor deze speler. Wil je helpen? Stuur een idee in!",
+      "bio": "Biografie",
+      "playerheadersong": "Speler song",
+      "readmore": "Lees meer",
+      "showless": "Minder"
+    },
+    "rosterteam": {
+      "_comment": [
+        "/src/screens/RosterTeam.js",
+        "Deze sectie bevat labels voor het Team Selectie scherm.",
+        "",
+        "Je hoeft deze waarden niet te veranderen in je standaard vertaaling."
+      ],
+
+      "title": "Selectie",
+      "nosquadsfound": "Geen teams gevonden",
+      "sociallists": "Social media lijsten",
+      "twitterlist": "Twitter lijsten"
+    },
+    "rosterfoes": {
+      "title": "Selectie",
+      "nonefound": "Niet gevonden"
+    },
+    "rosterhome": {
+      "title": "Selectie",
+      "friends": "Vrienden",
+      "foes": "Vijanden"
+    },
+    "rostertabs": {
+      "_comment": [
+        "/src/screens/RosterTabs.js",
+        "Deze sectie bevat labels voor het gecombineerde Team/Vijanden Selectie tab-interface.",
+        "",
+        "Je hoeft deze waarden waarschijnlijk niet te veranderen in je standaard vertaaling."
+      ],
+
+      "title": "Selectie",
+      "friends": "Vrienden",
+      "foes": "Vijanden"
+    },
+    "shop": {
+      "title": "Fanshop",
+      "fallback": "Fanshop opent een in webbrowser"
+    },
+    "singlesong": {
+      "title": "Volgende"
+    },
+    "songbook": {
+      "defaultchaptertitle": "Cover",
+      "title": "Songboek",
+      "tableofcontents": "Inhoudsopgave",
+      "swipetoview": "Swipe naar links / rechts om nummers te bekijken"
+    },
+    "songs": {
+      "title": "Songs",
+      "gamesongs:": "Wedstrijd Songs",
+      "playersongs": "Speler Songs",
+      "teamsongs": "Team Songs"
+    },
+    "standings": {
+      "title": "Standen",
+      "fallback": "Standen openen in een webbrowser"
+    },
+    "tocinline": {
+      "title": "Inhoudsopgave"
+    },
+    "twitterlist": {
+      "title": "Selectie",
+      "heading": "Wees de twaalfde man/vrouw",
+      "instructions": "Support voor de spelers van DCFC is er in vele vormen, zowel binnen als buiten het stadion. Berichten van supporters voor en na wedstrijden betekenen veel en worden gewaardeerd door spelers.\n\nJe kunt meerdere Twitter namen uit het onderstaande vak kopiëren en ze in het bijschrift van een Twitter-bericht plakken.",
+      "opentwitter": "Open Twitter App"
+    },
+    "volunteer": {
+      "title": "Let's Make Roots",
+      "fallback": "Let's Make Roots opent in een webbrowser"
+    }
+  },
+  "navigation": {
+    "home": "Thuis",
+    "songbook": "Hell's Hymnal",
+    "roster": "Selectie",
+    "links": {
+      "events": "Evenementen",
+      "uwsstandings": "UWS Standen",
+      "uws2standings": "UWS2 Standen",
+      "nisastandings": "NISA Standen",
+      "mwplstandings": "MWPL Standen",
+      "shop": "Fanshop",
+      "volunteer": "Vrijwilligerswerk",
+      "instrumentation": "Statistieken",
+      "getinvolved": "Help mee",
+      "quarantifo": "Quarantifo",
+      "ngscares": "NGS Cares"
+    }
+  },
+  "components": {
+    "gkNickname": {
+      "gonnascore": "We gaan scoren, "
+    },
+    "imageviewer": {
+      "share": "Deel",
+      "cancel": "Annuleren",
+      "sharingnotavailable": "Delen is niet mogelijk op dit platform",
+      "sharingerror": "Fout met het delen"
+    },
+    "imageviewerfooter": {
+      "captionprefix": "",
+      "creditprefix": "📷: "
+    },
+    "post": {
+      "copied": "Gekopieerd",
+      "hidealerttitle": "Verberg bericht",
+      "hidealertmessage": "Weet je zeker dat je dit bericht wil verbergen van de feed?",
+      "hidealertcancel": "Annuleer",
+      "hidealertconfirm": "Verberg"
+    },
+    "postattachmentgknickname": {
+      "gonnascore": "We gaan scoren, "
+    },
+    "postattachmentmasstweet": {
+      "tweettheplayers": "Tweet de spelers"
+    },
+    "postattachmentprideraisermatch": {
+      "_comment": [
+        "/src/components/PostAttachmentPrideraiserMatch.js",
+        "Deze sectie bevat labels voor een berichtbijlage van het type Prideraiser Match Update. .message wordt gebruikt als %goalCount% groter is dan nul, anders wordt .messagezerogoals gebruikt.",
+        "",
+        "Prideraiser-gerelateerde tekst kan %macros% bevatten die live campagnegegevens gebruiken.",
+        "Zie /src/components/PrideraiserHelper.js voor meer informatie",
+        "",
+        "Je MOET deze waarden veranderen in je standaard vertaaling."
+      ],
+
+      "heading": "%name% Update",
+      "message": "Vanwege %goalCount% %goal_name_computed%, hebben we $%raised% ingezameld voor %charity_name%! Vul je belofte in.",
+      "messagezerogoals": "Geen %goal_name_computed% voor deze wedstrijd, maar met elk goal zamelen we %pledged_total% in voor %charity_name%. Vul je belofte in.",
+      "pledge": "Beloof"
+    },
+    "postattachmentselectmasstweet": {
+      "_comment": [
+        "/src/screens/PostAttachmentSelectMassTweet.js",
+        "Dit scherm bevat labels om een Selectie te selecteren voor een berichtbijlage van het type Massa-tweet",
+        "",
+        "Je hoeft deze waarden waarschijnlijk niet te wijzigen in uw standaardvertaling."
+      ],
+
+      "selectroster": "Tweet de spelers - Selecteer Selectie",
+      "search": "Zoek"
+    },
+    "postcreateimagewrapper": {
+      "metadatatitle": "Afbeelding metadata",
+      "credit": "Afbeelding credit",
+      "caption": "Onderschrift",
+      "save": "Bewaar metadata",
+      "clear": "Metadata wissen",
+      "cancel": "Annuleer"
+    },
+    "postattachmentmultitweet": {
+      "tweettheplayers": "Tweet ze allemaal!"
+    },
+    "prideraisercampaignsummary": {
+      "title": "%supporter_group.name% presenteerd *%name%*",
+      "benefitting": "Ten voordele van %charity_name%",
+      "pledged": "$%pledged_total% beloofd per %goal_name%",
+      "learnmore": "Tap om meer over Prideraiser te leren"
+    },
+    "songview": {
+      "copiedtitle": "Titel gekopieerd naar klembord",
+      "copiedreference": "Verwijzing gekopieerd naar klembord",
+      "copiedlyrics": "Songtekst gekopieerd naar klembord"
+    },
+    "upnext": {
+      "upnext": "Volgende"
+    },
+    "songcard": {
+      "seemore": "Zie meer..."
+    }
+  },
+  "positions": {
+    "Forward": "Aanvaller",
+    "Defender": "Verdediger",
+    "Midfielder": "Middenvelder",
+    "Goalkeeper": "Keeper",
+    "Head Coach": "Hoofdtrainer",
+    "Assistant Coach": "Assistent-trainer",
+    "Goalkeeper Coach": "Keeperstrainer",
+    "Technical Director": "Technical Director",
+    "Associate Head Coach": "Assistent Hoofdtrainer",
+    "2007 Boys": "2007 Jongens",
+    "2007 Girls": "2007 Meisjes",
+    "2006 Boys": "2006 Jongens",
+    "2006 Girls": "2006 Meisjes",
+    "2005 Boys": "2005 Jongens",
+    "2004 Boys": "2004 Jongens",
+    "2003 Boys": "2003 Jongens",
+    "2002 Boys": "2002 Jongens",
+    "2001 Boys": "2001 Jongens"
+  },
+  "settings": {
+    "socialEN": "Follow us",
+    "socialES": "Síguenos",
+    "socialNL": "Volg ons",
+    "other": "Fanprojecten (niet aangesloten)"
+  }
+}
