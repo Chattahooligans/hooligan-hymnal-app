@@ -16,6 +16,7 @@ export const DefaultLocale = 'en';
 import en from "./en.json";
 import de from "./de.json";
 import es from "./es.json";
+import nl from "./nl.json";
 
-export const Translations = { de, en, es };
+export const Translations = { de, en, es, nl };
 export const DefaultLocale = "en";
