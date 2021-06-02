@@ -44,7 +44,9 @@
       "hooliganHymnal": {
         "version": "2.3.0",
         "aboutPlug": {
-          "en": " is built using the open source *Hooligan Hymnal* platform, v2.3.0.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
+          "en": " is built using the open source *Hooligan Hymnal* platform, v2.3.0.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans",
+          "nl": " is gemaakt met het open source *Hooligan Hymnal* platform.\n\nVolg _@hooliganhymnal_ op Twitter en bezoek het project op: https://github.com/Chattahooligans",
+          "es": " es desarrollado usando la plataforma de código abierto Hooligan Hymnal"
         }
       }
     }
