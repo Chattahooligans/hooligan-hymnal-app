@@ -172,7 +172,7 @@ export default class PostAttachmentComposePrideraiserMatch extends React.Compone
                     pledge_count: this.state.campaign.pledge_count,
                     pledged_total: this.state.campaign.pledged_total,
                     supporter_group: {
-                      name: this.state.campaign.supporter_group.name,
+                      name: this.state.campaign.supporters_group.name,
                     },
                   },
                 },
