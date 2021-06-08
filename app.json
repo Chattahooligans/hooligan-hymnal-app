@@ -32,7 +32,10 @@
       "icon": "./assets/notification.png",
       "color": "#A3D8F7"
     },
-    "platforms": ["android", "ios"],
+    "platforms": [
+      "android",
+      "ios"
+    ],
     "githubUrl": "https://github.com/Chattahooligans/",
     "extra": {
       "hooliganHymnal": {
