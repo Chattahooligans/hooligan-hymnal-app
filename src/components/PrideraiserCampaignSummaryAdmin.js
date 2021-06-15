@@ -43,7 +43,7 @@ export default class PrideraiserCampaignSummaryAdmin extends React.Component {
         </View>
         <View style={{ flexDirection: i18n.getFlexDirection() }}>
           <MediumText>Pledge per Goal: </MediumText>
-          <RegularText>{campaign.pledged_total}</RegularText>
+          <RegularText>{campaign.pledged_total.toFixed(2)}</RegularText>
         </View>
       </View>
     );
