@@ -585,6 +585,10 @@ export const Settings = {
   //      This field is case sensitive and must match exactly
   RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase",
 
+  // Songbook_IndexNumbers: bool
+  //      If this is set to true, the rows in the songbook are numbered.
+  Songbook_IndexNumbers: true,
+
   // TwitterList_AppendHandles: string
   //      Extra Twitter handles concatenated after the players on the TwitterList screen
   //      Each account should be seperated by a space
