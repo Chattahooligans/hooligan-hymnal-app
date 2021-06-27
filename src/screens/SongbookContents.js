@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, SectionList, StyleSheet, View } from "react-native";
+import { Image, SectionList, Settings, StyleSheet, View } from "react-native";
 import { ScrollView, RectButton } from "react-native-gesture-handler";
 import { DefaultColors, Skin } from "../../config";
 import withUnstated from "@airship/with-unstated";
@@ -48,6 +48,15 @@ class SongRow extends React.Component {
         </View>
       );
 
+    let tocIndex;
+    if(Settings.Songbook_IndexNumbers) {
+      tocIndex = (
+        <RegularText style={styles.pageLabel}>
+          {song.pageLabel}
+        </RegularText>
+      )
+    }
+
     return (
       <RectButton
         onPress={this._handlePress}
@@ -72,9 +81,7 @@ class SongRow extends React.Component {
               <RegularText style={{ marginRight: 10 }}>
                 {capoSignal}
               </RegularText>
-              <RegularText style={styles.pageLabel}>
-                {song.pageLabel}
-              </RegularText>
+              {tocIndex}
             </View>
           </View>
         </View>

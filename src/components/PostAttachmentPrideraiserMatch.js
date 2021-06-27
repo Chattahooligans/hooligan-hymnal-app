@@ -18,8 +18,6 @@ export default class PostAttachmentPrideraiserMatch extends React.Component {
     let message = "";
 
     if (data) {
-      console.log(data);
-
       // data.campaign contains a subset of campaign data baked in
       heading = formatStringWithCampaignProps(
         i18n.t("components.postattachmentprideraisermatch.heading"),
