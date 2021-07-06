@@ -5,7 +5,7 @@
     "owner": "ngsdetroit",
     "slug": "app",
     "privacy": "public",
-    "version": "2.4.4",
+    "version": "2.4.5",
     "primaryColor": "#A3D8F7",
     "icon": "./assets/ngs4.png",
     "orientation": "portrait",
@@ -17,7 +17,7 @@
     "android": {
       "package": "com.northernguard.app",
       "icon": "./assets/ngs1.png",
-      "versionCode": 50,
+      "versionCode": 51,
       "permissions": [],
       "googleServicesFile": "./google-services.json",
       "useNextNotificationsApi": true
@@ -26,7 +26,7 @@
       "bundleIdentifier": "com.northernguard.app",
       "supportsTablet": false,
       "loadJSInBackgroundExperimental": true,
-      "buildNumber": "41",
+      "buildNumber": "42",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "The Guardbook will use location to ignore notifications when you are not at the stadium."
       }
