@@ -78,6 +78,11 @@ class Player extends React.Component {
     let player = this.props.route.params.player;
     // console.log('player details window for ', player);
 
+    if (!player.bio) {
+      // if player.bio undefined or null, set to empty string to prevent potential crashing when localizing
+      player.bio = "";
+    }
+    
     let playerSocialDisplay;
     let playerSocialIcons = [];
 
