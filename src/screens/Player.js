@@ -80,7 +80,7 @@ class Player extends React.Component {
 
     if (!player.bio) {
       // if player.bio undefined or null, set to empty string to prevent potential crashing when localizing
-      player.bio = "";
+      player.bio = "Coming Soon!";
     }
     
     let playerSocialDisplay;
