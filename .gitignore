@@ -27,12 +27,3 @@ google-services.json
 
 # Git orig files
 *.orig
-
-# Config.js
-config.js
-
-# App.json
-app.json
-
-# EN locale
-/locales/en.json
