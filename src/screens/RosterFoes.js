@@ -1,4 +1,3 @@
-import React from "react";
 import {
   FlatList,
   Picker,
@@ -8,14 +7,16 @@ import {
   Text,
   View,
 } from "react-native";
+
 import { BigButton } from "../components/BigButton";
-import ModalSelector from "react-native-modal-selector";
-import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
 import LoadingPlaceholder from "../components/LoadingPlaceholder";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import ModalSelector from "react-native-modal-selector";
+import React from "react";
 import { Settings } from "../../config";
 import i18n from "../i18n";
+import withUnstated from "@airship/with-unstated";
 
 class FoeRow extends React.Component {
   render() {
@@ -111,8 +112,9 @@ class RosterFoes extends React.Component {
             data={pickerItems}
             selectedKey={this.state.selectedCompetition}
             onModalClose={(item) => {
-              if (this.state.selectedCompetition != item.key)
+              if (item.key && this.state.selectedCompetition != item.key) {
                 this.setState({ selectedCompetition: item.key });
+              }
             }}
           >
             <View
@@ -143,9 +145,11 @@ class RosterFoes extends React.Component {
             mode="dropdown"
             enabled={pickerItems.length > 1}
             selectedValue={this.state.selectedCompetition}
-            onValueChange={(itemValue) =>
-              this.setState({ selectedCompetition: itemValue })
-            }
+            onValueChange={(itemValue) => {
+              if (itemValue && itemValue != this.state.selectedCompetition) {
+                this.setState({ selectedCompetition: itemValue });
+              }
+            }}
           >
             {pickerItems}
           </Picker>
