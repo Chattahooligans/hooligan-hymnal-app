@@ -233,16 +233,18 @@ class RosterTeam extends React.Component {
                 flexDirection: i18n.getFlexDirection(),
                 padding: 10,
                 alignItems: "center",
+                backgroundColor: Skin.Roster_PickerBackground,
+                color: Skin.Roster_PickerText
               }}
             >
-              <Text style={{ flex: 1 }}>
+              <Text style={{ flex: 1, color: Skin.Roster_PickerText }}>
                 {
                   this.state.rosters.find(
                     (roster) => roster._id == this.state.currentRosterID
                   ).rosterTitle
                 }
               </Text>
-              <MaterialCommunityIcons name={"menu-down"} />
+              <MaterialCommunityIcons name={"menu-down"} style={{color: Skin.Roster_PickerText}} />
             </View>
           </ModalSelector>
         );
