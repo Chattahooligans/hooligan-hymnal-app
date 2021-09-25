@@ -1,4 +1,6 @@
-import React from "react";
+import { BoldText, MediumText, RegularText } from "../components/StyledText";
+import { Colors, FontSizes, Layout } from "../constants";
+import { DefaultColors, Settings, Skin } from "../../config";
 import {
   FlatList,
   Image,
@@ -9,26 +11,21 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
-import withUnstated from "@airship/with-unstated";
-import GlobalDataContainer from "../containers/GlobalDataContainer";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import FadeIn from "react-native-fade-in-image";
 import {
-  ScrollView,
   RectButton,
+  ScrollView,
   TouchableHighlight,
 } from "react-native-gesture-handler";
-import ModalSelector from "react-native-modal-selector";
 
-import { BoldText, MediumText, RegularText } from "../components/StyledText";
+import FadeIn from "react-native-fade-in-image";
+import GlobalDataContainer from "../containers/GlobalDataContainer";
 import LoadingPlaceholder from "../components/LoadingPlaceholder";
-
-import { Colors, FontSizes, Layout } from "../constants";
-import { openURL } from "../utils/LinkHelper.js";
-
-import { DefaultColors, Skin, Settings } from "../../config";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import ModalSelector from "react-native-modal-selector";
+import React from "react";
 import i18n from "../i18n";
+import { openURL } from "../utils/LinkHelper.js";
+import withUnstated from "@airship/with-unstated";
 
 class PlayerRow extends React.Component {
   render() {
@@ -226,8 +223,9 @@ class RosterTeam extends React.Component {
             data={pickerItems}
             selectedKey={this.state.currentRosterID}
             onModalClose={(item) => {
-              if (item.key != this.state.currentRosterID)
+              if (item.key &&item.key != this.state.currentRosterID) { 
                 this.setState({ currentRosterID: item.key });
+              }
             }}
           >
             <View
@@ -264,9 +262,11 @@ class RosterTeam extends React.Component {
             mode="dropdown"
             enabled={pickerItems.length > 1}
             selectedValue={this.state.currentRosterID}
-            onValueChange={(itemValue) =>
-              this.setState({ currentRosterID: itemValue })
-            }
+            onValueChange={(itemValue) => {
+              if (itemValue && itemValue != this.state.currentRosterID) {
+                this.setState({ currentRosterID: itemValue });
+              }
+            }}
           >
             {pickerItems}
           </Picker>
