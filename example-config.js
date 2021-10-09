@@ -360,6 +360,10 @@ export const Skin = {
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: "heart",
   Roster_FoesTabIcon: "thumb-down",
+  //roster picker styling only functions on iOS, whose control more easily
+  //blends into the background otherwise.
+  Roster_PickerBackground: Palette.Black,
+  Roster_PickerText: Palette.White,
   RosterTeam_TwitterColor: DefaultColors.Secondary,
   SongView_TitleColor: DefaultColors.Primary,
   SongView_ReferenceColor: DefaultColors.Primary,

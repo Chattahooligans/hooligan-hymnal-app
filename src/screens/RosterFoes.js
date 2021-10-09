@@ -14,7 +14,7 @@ import LoadingPlaceholder from "../components/LoadingPlaceholder";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import ModalSelector from "react-native-modal-selector";
 import React from "react";
-import { Settings } from "../../config";
+import { Settings, Skin } from "../../config";
 import i18n from "../i18n";
 import withUnstated from "@airship/with-unstated";
 
@@ -122,10 +122,12 @@ class RosterFoes extends React.Component {
                 flexDirection: i18n.getFlexDirection(),
                 padding: 10,
                 alignItems: "center",
+                backgroundColor: Skin.Roster_PickerBackground,
+                color: Skin.Roster_PickerText
               }}
             >
-              <Text style={{ flex: 1 }}>{this.state.selectedCompetition}</Text>
-              <MaterialCommunityIcons name={"menu-down"} />
+              <Text style={{ flex: 1, color: Skin.Roster_PickerText }}>{this.state.selectedCompetition}</Text>
+              <MaterialCommunityIcons name={"menu-down"} style={{color: Skin.Roster_PickerText}} />
             </View>
           </ModalSelector>
         );
