@@ -65,8 +65,7 @@ export const Urls = {
   EsInstagram: '',
   EsWebsite: '',
   Events: 'https://noonelikes.us/events/',
-  UWSStandings: 'https://uwssoccer.com/standings/',
-  NISAStandings: 'https://www.nisaofficial.com/standings',
+  USLCStandings: 'https://www.uslchampionship.com/league-standings',
   GetInvolved: 'https://noonelikes.us/get-involved/',
   Quarantifo: 'https://noonelikes.us/tifo/',
   RedditClub: 'https://www.reddit.com/r/DetroitCityFC',
@@ -372,8 +371,7 @@ export const NavigationDrawerItems = [
   { drawerLabel: i18n.t('navigation.songbook'), drawerIcon: Skin.Icon_Songbook, routeName: 'Songbook'},
   { drawerLabel: i18n.t('navigation.roster'), drawerIcon: Skin.Icon_Roster, routeName: 'Roster'},
   { drawerLabel: i18n.t('navigation.links.events'), drawerIcon: 'calendar', url: Urls.Events },
-  { drawerLabel: i18n.t('navigation.links.nisastandings'), drawerIcon: 'menu-swap', url: Urls.NISAStandings },
-  { drawerLabel: i18n.t('navigation.links.uwsstandings'), drawerIcon: 'menu-swap', url: Urls.UWSStandings },
+  { drawerLabel: i18n.t('navigation.links.uslcstandings'), drawerIcon: 'menu-swap', url: Urls.USLCStandings },
   { drawerLabel: i18n.t('navigation.links.shop'), drawerIcon: 'shopping', url: Urls.Shop },
   { drawerLabel: i18n.t('navigation.links.getinvolved'), drawerIcon: 'gift', url: Urls.GetInvolved },
   { drawerLabel: i18n.t('navigation.links.ngscares'), drawerIcon: 'heart-pulse', url: Urls.NgsCares }
@@ -460,7 +458,7 @@ export const Settings = {
 
   // Home_HeroContent: "video", "image", "prideraiser"
   //      Hero content on the home screen
-  Home_HeroContent: "prideraiser",
+  Home_HeroContent: "video",
   
   InstagramList_AppendHandles: "",
 

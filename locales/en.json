@@ -261,10 +261,7 @@
     "roster": "Roster",
     "links": {
       "events": "Events",
-      "uwsstandings": "UWS Standings",
-      "uws2standings": "UWS2 Standings",
-      "nisastandings": "NISA Standings",
-      "mwplstandings": "MWPL Standings",
+      "uslcstandings": "Men's Standings",
       "shop": "Merch Shop",
       "volunteer": "Volunteer",
       "instrumentation": "Instrumentation",

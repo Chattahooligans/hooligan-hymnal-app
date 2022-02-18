@@ -261,10 +261,7 @@
     "roster": "Selectie",
     "links": {
       "events": "Evenementen",
-      "uwsstandings": "UWS Standen",
-      "uws2standings": "UWS2 Standen",
-      "nisastandings": "NISA Standen",
-      "mwplstandings": "MWPL Standen",
+      "uslcstandings": "USLC Standen",
       "shop": "Fanshop",
       "volunteer": "Vrijwilligerswerk",
       "instrumentation": "Statistieken",
