@@ -58,7 +58,7 @@
     "react-native-parsed-text": "0.0.21",
     "react-native-popup-menu": "^0.15.6",
     "react-native-read-more-text": "^1.0.0",
-    "react-native-reanimated": "~1.13.0",
+    "react-native-reanimated": "~2.10.0",
     "react-native-resource-saving-container": "^1.0.2",
     "react-native-safe-area-context": "3.1.9",
     "react-native-screens": "~2.15.2",
